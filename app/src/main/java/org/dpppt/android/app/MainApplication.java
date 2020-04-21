@@ -19,6 +19,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
+import org.dpppt.android.app.util.DebugUtils;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
@@ -33,7 +34,7 @@ public class MainApplication extends Application {
 		super.onCreate();
 		if (ProcessUtil.isMainProcess(this)) {
 			registerReceiver(broadcastReceiver, DP3T.getUpdateIntentFilter());
-			DP3T.init(this, "org.dpppt.demo", BuildConfig.FLAVOR.equals("dev"));
+			DP3T.init(this, "org.dpppt.demo", DebugUtils.isDev());
 		}
 	}
 
