@@ -14,7 +14,6 @@
 
 	<androidx.appcompat.widget.Toolbar
 		android:id="@+id/contacts_toolbar"
-		style="@style/NextStep.Toolbar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		app:navigationIcon="@drawable/ic_arrow_back"
@@ -78,7 +77,7 @@
 							android:layout_alignParentStart="true"
 							android:layout_alignParentTop="true"
 							android:layout_toStartOf="@id/contacts_tracking_switch"
-							android:text="@string/bluetooth_setting_title" />
+							android:text="@string/tracing_setting_title" />
 
 						<TextView
 							style="@style/NextStep.Text"
@@ -86,7 +85,7 @@
 							android:layout_height="wrap_content"
 							android:layout_below="@id/contacts_tracking_title"
 							android:layout_alignParentStart="true"
-							android:text="@string/bluetooth_setting_text" />
+							android:text="@string/tracing_setting_text" />
 
 					</RelativeLayout>
 

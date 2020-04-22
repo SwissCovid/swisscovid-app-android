@@ -5,6 +5,11 @@
  */
 package org.dpppt.android.app.whattodo;
 
+import android.os.Bundle;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import org.dpppt.android.app.R;
@@ -17,6 +22,12 @@ public class WtdSymptomsFragment extends Fragment {
 
 	public WtdSymptomsFragment() {
 		super(R.layout.fragment_what_to_do_symptoms);
+	}
+
+	@Override
+	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+		Toolbar toolbar = view.findViewById(R.id.wtd_symptoms_toolbar);
+		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 	}
 
 }

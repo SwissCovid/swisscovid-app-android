@@ -13,6 +13,7 @@
 		<item name="fontFamily">@font/inter</item>
 		<item name="android:windowLightStatusBar">true</item>
 		<item name="android:statusBarColor">@color/white</item>
+		<item name="toolbarStyle">@style/NextStep.Toolbar</item>
 		<item name="toolbarNavigationButtonStyle">@style/NextStep.Toolbar.Button.Navigation</item>
 	</style>
 
@@ -140,14 +141,15 @@
 	</style>
 
 	<style name="NextStep.Toolbar" parent="Widget.AppCompat.Toolbar">
-		<item name="android:background">@color/white</item>
+		<item name="android:background">@drawable/bg_toolbar</item>
 		<item name="android:elevation">@dimen/toolbar_elevation</item>
-		<item name="titleTextColor">@color/purple_main</item>
+		<item name="titleTextColor">@color/dark_main</item>
 		<item name="titleTextAppearance">@style/NextStep.Text.Bold</item>
+		<item name="android:gravity">center_horizontal</item>
 	</style>
 
 	<style name="NextStep.Toolbar.Button.Navigation" parent="Widget.AppCompat.Toolbar.Button.Navigation">
-		<item name="android:tint">@color/blue_main</item>
+		<item name="android:tint">@color/navigation_icon_toolbar</item>
 	</style>
 
 	<style name="NextStep.Switch" parent="Widget.AppCompat.CompoundButton.Switch">

@@ -181,16 +181,12 @@ anonymous"</string>
     <string name="logs_filter_tags">"tag filter (comma separated)"</string>
 
     <!-- Titel des Bluetooth Control -->
-    <string name="bluetooth_setting_title">"Tracing"</string>
+    <!-- Fuzzy -->
+    <string name="tracing_setting_title">"Tracing"</string>
 
     <!-- Text beim Bluetooth Control -->
-    <string name="bluetooth_setting_text">"Enable Bluetooth"</string>
-
-    <!-- Bluetooth Control: Tracking aktiv -->
-    <string name="bluetooth_setting_tracking_active">"Tracing enabled"</string>
-
-    <!-- Bluetooth Control: Tracking Aktiv Subtext -->
-    <string name="bluetooth_setting_tracking_active_subtext">"Encounters are saved anonymously on your device."</string>
+    <!-- Fuzzy -->
+    <string name="tracing_setting_text">"Enable Bluetooth"</string>
 
     <!-- Bluetooth Control: Tracking deaktiviert -->
     <string name="bluetooth_setting_tracking_inactive">"Tracing disabled"</string>
@@ -394,4 +390,39 @@ Coronavirus Infoline
 
     <!-- Informieren Detail Weisse Box Text -->
     <string name="inform_detail_box_text">"Informieren sie Personen mit denen Sie Kontakt hatten anonym über die App."</string>
+
+    <!-- Symptome Detail Subtitel -->
+    <string name="symptom_detail_subtitle">"Was tun wenn ich..."</string>
+
+    <!-- Symptom Detail Titel -->
+    <string name="symptom_detail_title">"mich krank fühle?"</string>
+
+    <!-- Symptom Detail Weisse Box Subtitel -->
+    <string name="symptom_detail_box_subtitle">"Machen Sie den..."</string>
+
+    <!-- Symptom Detail Weisse Box Titel -->
+    <string name="symptom_detail_box_title">"Coronavirus-Check"</string>
+
+    <!-- Symptom Detail Weisse Box Button -->
+    <string name="symptom_detail_box_button">"Zum Check"</string>
+
+    <!-- Symptom Detail Weisse Box Text -->
+    <string name="symptom_detail_box_text">"Mit dem Evaluations-Tool des BAG erfahren Sie, wie Sie sich verhalten sollen."</string>
+
+    <!-- Informieren Titel in NavigationBar/Toolbar -->
+    <string name="inform_detail_navigation_title">"Informieren"</string>
+
+    <!-- Symptome Detail: NavigationBar/Toolbar Titel -->
+    <string name="symptom_detail_navigation_title">"Symptome"</string>
+    <string name="tracing_turned_off_title">"Tracing deaktiviert"</string>
+    <string name="tracing_turned_off_text">"Tracing erlauben, um Begegnungen anonym zu speichern."</string>
+    <string name="bluetooth_turned_off_title">"Bluetooth ausgeschaltet"</string>
+    <string name="bluetooth_turned_off_text">"Schalten Sie Bluetooth ein, damit das anonyme Tracing funktioniert."</string>
+    <string name="bluetooth_turn_on_button_title">"Bluetooth einschalten"</string>
+    <string name="bluetooth_permission_error_title">"Bluetooth deaktiviert"</string>
+    <string name="bluetooth_permission_error_text">"Damit anonymes Tracing funktioniert, müssen Sie der App Zugriff auf Bluetooth erlauben."</string>
+
+    <!-- URL zum Corona Check -->
+    <string name="symptom_detail_corona_check_url">"https://check.bag-coronavirus.ch/screening"</string>
+    <string name="push_open_settings_button">"Einstellungen ändern"</string>
 </resources>

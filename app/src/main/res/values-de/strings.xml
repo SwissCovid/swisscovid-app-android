@@ -128,9 +128,9 @@ Die App greift aber nie auf deinen Standort zu!"</string>
     <string name="button_permission_location_granted_android">"Ortung erlaubt"</string>
     <string name="button_ok">"ok"</string>
     <string name="activate_bluetooth_button">"Bluetooth aktivieren"</string>
-    <string name="activate_push_button">"Push aktivieren"</string>
+    <string name="activate_push_button">"Mitteilungen aktivieren"</string>
     <string name="bluetooth_activated_label">"Bluetooth aktiviert"</string>
-    <string name="push_activated_label">"Push aktiviert"</string>
+    <string name="push_activated_label">"Mitteilungen aktiviert"</string>
     <string name="onboarding_continue_button">"Weiter"</string>
     <string name="onboarding_continue_without_button">"Weiter ohne Berechtigungen"</string>
     <string name="onboarding_continue_without_popup_text">"Willst du wirklich fortfahren? Die App funktioniert nicht komplett, wenn sie die nötigen Berechtigungen nicht hat."</string>
@@ -183,16 +183,12 @@ Die App greift aber nie auf deinen Standort zu!"</string>
     <string name="logs_filter_tags">"Tag-Filter (kommagetrennt)"</string>
 
     <!-- Titel des Bluetooth Control -->
-    <string name="bluetooth_setting_title">"Tracing"</string>
+    <!-- Fuzzy -->
+    <string name="tracing_setting_title">"Tracing"</string>
 
     <!-- Text beim Bluetooth Control -->
-    <string name="bluetooth_setting_text">"Begegnungen erkennen"</string>
-
-    <!-- Bluetooth Control: Tracking aktiv -->
-    <string name="bluetooth_setting_tracking_active">"Tracing aktiv"</string>
-
-    <!-- Bluetooth Control: Tracking Aktiv Subtext -->
-    <string name="bluetooth_setting_tracking_active_subtext">"Begegnungen werden anonym auf deinem Gerät gespeichert."</string>
+    <!-- Fuzzy -->
+    <string name="tracing_setting_text">"Anonymes Tracing erlauben"</string>
 
     <!-- Bluetooth Control: Tracking deaktiviert -->
     <string name="bluetooth_setting_tracking_inactive">"Tracing deaktiviert"</string>
@@ -235,10 +231,10 @@ Die App greift aber nie auf deinen Standort zu!"</string>
     <string name="meldungen_no_meldungen_text">"Du wirst beim Verdacht auf eine mögliche Ansteckung informiert."</string>
 
     <!-- Push deaktiviert Titel -->
-    <string name="push_deactivated_title">"Push deaktiviert"</string>
+    <string name="push_deactivated_title">"Mitteilungen deaktiviert"</string>
 
     <!-- Push deaktiviert Text -->
-    <string name="push_deactivated_text">"Erlaube Push Nachrichten, um bei einer Meldung direkt informiert zu werden."</string>
+    <string name="push_deactivated_text">"Ändern Sie die Einstellungen, um bei einer Meldung direkt informiert zu werden."</string>
 
     <!-- Hinweis Titel -->
     <string name="hinweis_title">"Wichtiger Hinweis"</string>
@@ -253,9 +249,9 @@ Die App greift aber nie auf deinen Standort zu!"</string>
     <string name="meldungen_meldung_text">"Eine Person, der du begegnet bist, wurde positiv auf COVID-19 getestet. Bitte informiere dich hier über die Verhaltensempfehlungen."</string>
     <string name="meldungen_meldung_more_button">"Mehr erfahren"</string>
     <string name="tracing_active_title">"Tracing aktiv"</string>
-    <string name="tracing_active_text">"Begegnungen werden anonym auf deinem Gerät gespeichert."</string>
+    <string name="tracing_active_text">"Begegnungen werden anonym gespeichert"</string>
     <string name="tracing_error_title">"Tracing nicht aktiv"</string>
-    <string name="tracing_error_text">"Aktiviere Tracing und Bluetooth, damit Begegnungen anonym aufgezeichnet werden können."</string>
+    <string name="tracing_error_text">"Tracing erlauben, um Begegnungen anonym zu speichern."</string>
 
     <!-- Meldungen: zusätzliche Info Titel -->
     <string name="meldungen_additional_info_title">"Was bedeutet das?"</string>
@@ -412,4 +408,41 @@ Corona-Infoline
 
     <!-- Informieren Detail Weisse Box Text -->
     <string name="inform_detail_box_text">"Informieren sie Personen mit denen Sie Kontakt hatten anonym über die App."</string>
+
+    <!-- Symptome Detail Subtitel -->
+    <string name="symptom_detail_subtitle">"Was tun wenn ich..."</string>
+
+    <!-- Symptom Detail Titel -->
+    <string name="symptom_detail_title">"mich krank fühle?"</string>
+
+    <!-- Symptom Detail Weisse Box Subtitel -->
+    <string name="symptom_detail_box_subtitle">"Machen Sie den..."</string>
+
+    <!-- Symptom Detail Weisse Box Titel -->
+    <string name="symptom_detail_box_title">"Coronavirus-Check"</string>
+
+    <!-- Symptom Detail Weisse Box Button -->
+    <string name="symptom_detail_box_button">"Zum Check"</string>
+
+    <!-- Symptom Detail Weisse Box Text -->
+    <string name="symptom_detail_box_text">"Mit dem Evaluations-Tool des BAG erfahren Sie, wie Sie sich verhalten sollen."</string>
+
+    <!-- Informieren Titel in NavigationBar/Toolbar -->
+    <string name="inform_detail_navigation_title">"Informieren"</string>
+
+    <!-- Symptome Detail: NavigationBar/Toolbar Titel -->
+    <string name="symptom_detail_navigation_title">"Symptome"</string>
+    <string name="tracing_turned_off_title">"Tracing deaktiviert"</string>
+    <string name="tracing_turned_off_text">"Tracing erlauben, um Begegnungen anonym zu speichern."</string>
+    <string name="bluetooth_turned_off_title">"Bluetooth ausgeschaltet"</string>
+    <string name="bluetooth_turned_off_text">"Schalten Sie Bluetooth ein, damit das anonyme Tracing funktioniert."</string>
+
+    <!-- Fuzzy -->
+    <string name="bluetooth_turn_on_button_title">"Bluetooth einschalten"</string>
+    <string name="bluetooth_permission_error_title">"Bluetooth deaktiviert"</string>
+    <string name="bluetooth_permission_error_text">"Damit anonymes Tracing funktioniert, müssen Sie der App Zugriff auf Bluetooth erlauben."</string>
+
+    <!-- URL zum Corona Check -->
+    <string name="symptom_detail_corona_check_url">"https://check.bag-coronavirus.ch/screening"</string>
+    <string name="push_open_settings_button">"Einstellungen ändern"</string>
 </resources>
