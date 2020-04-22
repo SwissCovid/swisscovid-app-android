@@ -5,7 +5,6 @@
     <string name="app_name">"Next Step"</string>
 
     <!-- App Name unter Icon (iOS) -->
-    <!-- Fuzzy -->
     <string name="CFBundleDisplayName">"Next Step"</string>
 
     <!-- Title of the menu item home -->
@@ -44,12 +43,6 @@
     <!-- Inform Subtext -->
     <string name="inform_subtext">"Ich möchte helfen, die Infektionskette von COVID-19 zu unterbrechen."</string>
 
-    <!-- Inform: Symptome Button -->
-    <string name="inform_button_symptom_title">"Symptome"</string>
-
-    <!-- Inform: Symptome Button -->
-    <string name="inform_button_symptom_text">"Ich leide aktuell an Symptomen."</string>
-
     <!-- Inform: Button Titel -->
     <string name="inform_button_positive_title">"Positives Testergebnis"</string>
 
@@ -66,39 +59,13 @@
 
 Ich möchte daher eine mögliche Infektionskette verhindern, indem die App Personen, denen ich begegnet bin, anonym benachrichtigt."</string>
 
-    <!-- Ich leide an einem oder mehreren der folgenden Symptome: -->
-    <string name="inform_symptom_starttext">"Ich leide an einem oder mehreren der folgenden Symptome:"</string>
-
     <!-- Informieren: Senden Button -->
     <string name="inform_send_button_title">"Senden"</string>
-
-    <!-- Informieren: Senden Text Symptome -->
-    <string name="inform_symptoms_send_text">"Ich leide an den zuvor erwähnten Symptomen, welche auf COVID-19 hindeuten können.
-
-Ich möchte daher eine mögliche Infektionskette verhindern, indem die App Personen, denen ich begegnet bin, anonym benachrichtigt."</string>
 
     <!-- Informieren: Danke -->
     <string name="inform_send_thankyou">"DANKE!"</string>
     <string name="inform_send_thankyou_text">"Deine Infos wurden übermittelt.
 Damit leistest du einen wichtigen Beitrag, die Verbreitung des Corona-Virus zu stoppen."</string>
-
-    <!-- Symptome -->
-    <string name="inform_symptom_coughdry">"Husten (meist trocken)"</string>
-
-    <!-- Symptom -->
-    <string name="inform_symptom_hals">"Halsschmerzen"</string>
-
-    <!-- Symptom -->
-    <string name="inform_symptom_kurzatmigkeit">"Kurzatmigkeit"</string>
-
-    <!-- Symptom -->
-    <string name="inform_symptom_fieber">"Fieber, Fiebergefühl"</string>
-
-    <!-- Symptom -->
-    <string name="inform_symptom_muskel">"Muskelschmerzen"</string>
-
-    <!-- Symptome -->
-    <string name="inform_no_symptom">"Keine der aufgeführten Symptome"</string>
 
     <!-- Text in toast when downloading pdf -->
     <string name="downloading_pdf">"PDF wird heruntergeladen"</string>
@@ -116,11 +83,8 @@ Halten Sie sich an die Hygiene- und Verhaltensregeln."</string>
 
     <!-- CSV wird heruntergeladen -->
     <string name="downloading_csv">"CSV wird heruntergeladen"</string>
-    <string name="handshakes_heading_homescreen">" "</string>
     <string name="handshakes_title_homescreen">"Begegnungen"</string>
-    <string name="inform_heading_homescreen">" "</string>
     <string name="inform_title_homescreen">"Verdacht auf eine Corona Erkrankung"</string>
-    <string name="inform_text_homescreen">"Informiere Personen, denen du begegnet bist, wenn du Symptome verspürst oder positiv getestet wurdest."</string>
     <string name="inform_button_title">"Erkrankung melden"</string>
     <string name="inform_button_title_again">"Erneut informieren"</string>
     <string name="inform_last_meldung_text">"Letzte erfolgreiche Meldung am {date}"</string>
@@ -128,52 +92,15 @@ Halten Sie sich an die Hygiene- und Verhaltensregeln."</string>
     <!-- Erstes Tab -->
     <string name="tab_theapp_title">"Die App"</string>
 
-    <!-- Tab Titel -->
-    <string name="tab_aktuell_title">"Aktuell"</string>
-
-    <!-- Tab Titel -->
-    <string name="tab_verhalten_title">"Verhalten"</string>
-
-    <!-- Tab Titel -->
-    <string name="tab_prinzip_title">"Prinzip"</string>
-
     <!-- Abbrechen -->
     <string name="cancel">"Abbrechen"</string>
 
     <!-- Schliessen -->
     <string name="close">"Schliessen"</string>
 
-    <!-- App Name ohne COVID-19 -->
-    <string name="app_name_star">"Next Step"</string>
-
-    <!-- Info Text ohne COVID-19 -->
-    <string name="homescreen_handshakes_module_info_label_star">"Zur Zeit hat kein Nutzer, der kürzlich in deiner Nähe war, ein Signal aktiviert."</string>
-
-    <!-- Text bei aktivierung ohne COVID-19 -->
-    <string name="homescreen_handshakes_module_gemeldet_label_star">"Ein Nutzer, der kürzlich in deiner Nähe war, hat ein Signal aktiviert."</string>
-
-    <!-- Informieren Titel ohne COVID-19 -->
-    <string name="inform_title_homescreen_star">"Broadcast"</string>
-
-    <!-- Informieren Info Text ohne COVID-19 -->
-    <string name="inform_text_homescreen_star">"Sende ein Signal an Nutzer, denen du kürzlich begegnet bist."</string>
-
-    <!-- Übertitel für Broadcast ohne COVID-19 -->
-    <string name="inform_heading_homescreen_star">" "</string>
-
-    <!-- Titel für Broadcast Screen ohne COVID-19 -->
-    <string name="inform_broadcast_title_star">"Broadcast"</string>
-
-    <!-- Text für Broadcast ohne COVID-19 -->
-    <string name="inform_broadcast_long_text_star">"Sende ein Signal an alle Nutzer, die kürzlich in deiner Nähe waren. Dadurch werden weder deine Position noch private Daten veröffentlicht."</string>
-
-    <!-- Danke Text ohne COVID-19 -->
-    <string name="inform_send_thankyou_text_star">"Dein Signal wurde übermittelt und ist für andere Nutzer nun sichtbar, falls sie kürzlich in deiner Nähe waren. Deine Position oder private Daten hast du dadurch nicht geteilt."</string>
-
     <!-- Begegnungen -->
     <string name="begegnungen_counter_title">"Synchronisationen"</string>
     <string name="inform_meldung_time">"Meldung vom {date}"</string>
-    <string name="homescreen_inform_module_gemeldet_label_star">"Du hast ein Signal an alle Nutzer gesendet, denen du in letzter Zeit begegnet bist."</string>
     <string name="homescreen_inform_module_gemeldet_label">"Du hast alle Nutzer informiert, denen du in letzter Zeit begegnet bist."</string>
 
     <!-- Titel für Push-Nachrichten, wenn erkannt wird, dass ein Nutzer exposed war -->
@@ -434,4 +361,37 @@ Corona-Infoline
 
     <!-- Infotext, wenn lokal das SDK zurückgesetzt wurde -->
     <string name="debug_sdk_reset_text">"Der lokale Stand des DP-3T SDK wurde zurückgesetzt."</string>
+
+    <!-- Tab-Titel -->
+    <string name="tab_tracing_title">"Tracing"</string>
+
+    <!-- Titel auf Homescreen für Was tun Section -->
+    <string name="whattodo_title_symptoms">"Krankheitssymptomen"</string>
+
+    <!-- Subtitel auf Homescreen für Was Tun Section -->
+    <string name="whattodo_subtitle_symptoms">"Was tun bei..."</string>
+
+    <!-- Titel auf Homescreen bei Was tun Section -->
+    <string name="whattodo_title_positivetest">"positiven Testresultat"</string>
+
+    <!-- Subtitel auf Homescreen bei Was tun Section -->
+    <string name="whattodo_subtitle_positivetest">"Was tun bei einem…"</string>
+
+    <!-- Informieren Detail: Subtitel -->
+    <string name="inform_detail_subtitle">"Was tun bei einem..."</string>
+
+    <!-- Informieren Detail: Titel -->
+    <string name="inform_detail_title">"positiven Test?"</string>
+
+    <!-- Inform Detail: Weisse Box Subtitel -->
+    <string name="inform_detail_box_subtitle">"Was muss ich tun?"</string>
+
+    <!-- Inform Detai Weisse Box Titel -->
+    <string name="inform_detail_box_title">"Begegnungen informieren"</string>
+
+    <!-- Inform Detail Weisse Box Button -->
+    <string name="inform_detail_box_button">"Jetzt informieren"</string>
+
+    <!-- Informieren Detail Weisse Box Text -->
+    <string name="inform_detail_box_text">"Informieren sie Personen mit denen Sie Kontakt hatten anonym über die App."</string>
 </resources>

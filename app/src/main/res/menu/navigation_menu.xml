@@ -6,6 +6,6 @@
   -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:id="@+id/action_home" android:enabled="true" android:icon="@drawable/ic_home" android:title="@string/tab_aktuell_title"/>
+	<item android:id="@+id/action_home" android:enabled="true" android:icon="@drawable/ic_home" android:title="@string/tab_tracing_title"/>
 	<item android:id="@+id/action_theapp" android:enabled="true" android:icon="@drawable/ic_app" android:title="@string/tab_theapp_title"/>
 </menu>
