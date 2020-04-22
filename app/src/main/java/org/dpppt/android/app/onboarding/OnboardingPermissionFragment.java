@@ -3,15 +3,16 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.onboarding;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -149,6 +151,27 @@ public class OnboardingPermissionFragment extends Fragment {
 	public void onDestroy() {
 		super.onDestroy();
 		requireActivity().unregisterReceiver(bluetoothStateReceiver);
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		if (requestCode == REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION) {
+			if (grantResults.length <= 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+				if (!ActivityCompat
+						.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
+					new AlertDialog.Builder(requireActivity())
+							.setTitle(R.string.button_permission_location_android)
+							.setMessage(R.string.foreground_service_notification_error_location_permission)
+							.setPositiveButton(getString(R.string.button_ok),
+									(dialogInterface, i) -> {
+										DeviceFeatureHelper.openApplicationSettings(requireActivity());
+										dialogInterface.dismiss();
+									})
+							.create()
+							.show();
+				}
+			}
+		}
 	}
 
 }
