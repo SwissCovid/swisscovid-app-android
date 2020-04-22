@@ -24,7 +24,7 @@
 		android:theme="@style/NextStepTheme">
 
 		<activity
-			android:name="org.dpppt.android.app.main.MainActivity"
+			android:name="org.dpppt.android.app.MainActivity"
 			android:launchMode="singleTop">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />

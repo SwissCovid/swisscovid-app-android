@@ -23,7 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.main.TracingViewModel;
+import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.app.util.DeviceFeatureHelper;
 import org.dpppt.android.app.util.TracingStatusHelper;
 

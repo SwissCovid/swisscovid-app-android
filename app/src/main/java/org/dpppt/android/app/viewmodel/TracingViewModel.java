@@ -3,7 +3,7 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-package org.dpppt.android.app.main;
+package org.dpppt.android.app.viewmodel;
 
 import android.app.Application;
 import android.bluetooth.BluetoothAdapter;
@@ -84,12 +84,12 @@ public class TracingViewModel extends AndroidViewModel {
 		DP3T.clearData(getApplication(), onDeleteListener);
 	}
 
-	void invalidateTracingStatus() {
+	public void invalidateTracingStatus() {
 		TracingStatus status = DP3T.getStatus(getApplication());
 		tracingStatusLiveData.setValue(status);
 	}
 
-	LiveData<Boolean> getTracingEnabledLiveData() {
+	public LiveData<Boolean> getTracingEnabledLiveData() {
 		return tracingEnabledLiveData;
 	}
 
@@ -101,7 +101,7 @@ public class TracingViewModel extends AndroidViewModel {
 		return errorsLiveData;
 	}
 
-	LiveData<AppState> getAppStateLiveData() {
+	public LiveData<AppState> getAppStateLiveData() {
 		return appStateLiveData;
 	}
 

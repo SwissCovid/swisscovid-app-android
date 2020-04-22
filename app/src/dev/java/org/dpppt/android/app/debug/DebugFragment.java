@@ -26,7 +26,7 @@ import java.util.Date;
 
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.debug.model.DebugAppState;
-import org.dpppt.android.app.main.TracingViewModel;
+import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.app.util.InfoDialog;
 import org.dpppt.android.sdk.TracingStatus;
 
