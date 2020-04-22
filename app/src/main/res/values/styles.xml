@@ -115,6 +115,10 @@
 		<item name="android:drawablePadding">@dimen/spacing_small</item>
 	</style>
 
+	<style name="NextStep.Button.Purple">
+		<item name="android:background">@drawable/bg_button_purple</item>
+	</style>
+
 	<style name="NextStep.Button.Outlined">
 		<item name="android:textColor">@color/blue_main</item>
 		<item name="android:background">@drawable/bg_button_outlined</item>

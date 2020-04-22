@@ -26,15 +26,15 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 	public Fragment createFragment(int position) {
 		switch (position) {
 			case 0:
-				return OnboardingContentFragment.newInstance(R.string.onboarding_title_1, R.string.onboarding_desc_1, R.drawable.ill_isolation);
+				return OnboardingContentFragment.newInstance(R.string.onboarding_title_1, R.string.onboarding_desc_1, R.drawable.legacy_ill_isolation);
 			case 1:
-				return OnboardingContentFragment.newInstance(R.string.onboarding_title_2, R.string.onboarding_desc_2, R.drawable.ill_privacy);
+				return OnboardingContentFragment.newInstance(R.string.onboarding_title_2, R.string.onboarding_desc_2, R.drawable.legacy_ill_privacy);
 			case 2:
-				return OnboardingContentFragment.newInstance(R.string.onboarding_title_3, R.string.onboarding_desc_3, R.drawable.ill_distancing);
+				return OnboardingContentFragment.newInstance(R.string.onboarding_title_3, R.string.onboarding_desc_3, R.drawable.legacy_ill_distancing);
 			case SCREEN_INDEX_PERMISSIONS:
 				return OnboardingPermissionFragment.newInstance();
 			case 4:
-				return OnboardingContentFragment.newInstance(R.string.onboarding_title_5, R.string.onboarding_desc_5, R.drawable.ill_distancing);
+				return OnboardingContentFragment.newInstance(R.string.onboarding_title_5, R.string.onboarding_desc_5, R.drawable.legacy_ill_distancing);
 		}
 		throw new IllegalArgumentException("There is no fragment for view pager position " + position);
 	}

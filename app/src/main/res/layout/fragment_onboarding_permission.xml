@@ -35,7 +35,7 @@
 		android:paddingStart="@dimen/spacing_huge"
 		android:paddingEnd="@dimen/spacing_huge"
 		android:scaleType="fitCenter"
-		android:src="@drawable/ill_bluetooth" />
+		android:src="@drawable/legacy_ill_bluetooth" />
 
 	<TextView
 		android:id="@+id/onboarding_title"

@@ -40,7 +40,7 @@
 				android:maxHeight="@dimen/illustration_height"
 				android:paddingStart="@dimen/spacing_huge"
 				android:paddingEnd="@dimen/spacing_huge"
-				android:src="@drawable/ill_bluetooth" />
+				android:src="@drawable/legacy_ill_bluetooth" />
 
 			<androidx.cardview.widget.CardView
 				style="@style/NextStep.Card"

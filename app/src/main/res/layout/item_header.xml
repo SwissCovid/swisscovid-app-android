@@ -16,7 +16,7 @@
 	<ImageView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:src="@drawable/ill_begegnungen"
+		android:src="@drawable/legacy_ill_begegnungen"
 		android:layout_gravity="center_horizontal"
 		android:layout_marginBottom="@dimen/spacing_medium"/>
 
