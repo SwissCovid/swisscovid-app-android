@@ -12,16 +12,17 @@
 	android:orientation="vertical">
 
 	<org.dpppt.android.app.main.views.HeaderView
-		android:id="@+id/main_header_container"
+		android:id="@+id/home_header_container"
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/header_height" />
 
 	<ScrollView
+		android:id="@+id/home_scroll_view"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
 		<LinearLayout
-			android:id="@+id/mainLayout"
+			android:id="@+id/home_main_layout"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:clipChildren="false"
@@ -40,6 +41,18 @@
 
 			<include
 				layout="@layout/card_notifications"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/spacing_very_large" />
+
+			<include
+				layout="@layout/card_what_to_do_symptoms"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/spacing_very_small" />
+
+			<include
+				layout="@layout/card_what_to_do_test"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_very_large" />

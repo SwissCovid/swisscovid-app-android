@@ -8,6 +8,7 @@ package org.dpppt.android.app.main;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -24,12 +25,17 @@ import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.notifications.NotificationsFragment;
 import org.dpppt.android.app.trigger.TriggerFragment;
 import org.dpppt.android.app.util.TracingStatusHelper;
+import org.dpppt.android.app.whattodo.WtdPositiveTestFragment;
+import org.dpppt.android.app.whattodo.WtdSymptomsFragment;
 import org.dpppt.android.sdk.TracingStatus;
 
 public class HomeFragment extends Fragment {
 
+	private static final String STATE_SCROLL_VIEW = "STATE_SCROLL_VIEW";
+
 	private TracingViewModel tracingViewModel;
 	private HeaderView headerView;
+	private ScrollView scrollView;
 
 	public HomeFragment() {
 		super(R.layout.fragment_home);
@@ -48,8 +54,14 @@ public class HomeFragment extends Fragment {
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		setupHeader(view);
-		setupCards(view);
+		setupStatusElements(view);
+		setupWhatToDo(view);
 		setupDebugButton(view);
+
+		scrollView = view.findViewById(R.id.home_scroll_view);
+		if (savedInstanceState != null) {
+			scrollView.setScrollY(savedInstanceState.getInt(STATE_SCROLL_VIEW));
+		}
 	}
 
 	@Override
@@ -59,18 +71,24 @@ public class HomeFragment extends Fragment {
 	}
 
 	@Override
+	public void onSaveInstanceState(@NonNull Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putInt(STATE_SCROLL_VIEW, scrollView.getScrollY());
+	}
+
+	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
 		headerView.stopArcAnimation();
 	}
 
 	private void setupHeader(View view) {
-		headerView = view.findViewById(R.id.main_header_container);
+		headerView = view.findViewById(R.id.home_header_container);
 		tracingViewModel.getAppStateLiveData()
 				.observe(getViewLifecycleOwner(), appState -> headerView.setState(appState));
 	}
 
-	private void setupCards(View view) {
+	private void setupStatusElements(View view) {
 		view.findViewById(R.id.card_contacts).setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.replace(R.id.main_fragment_container, ContactsFragment.newInstance())
@@ -122,6 +140,19 @@ public class HomeFragment extends Fragment {
 							.valueOf(getContext().getColor(isExposed ? R.color.status_blue : R.color.status_green_bg)));
 					TracingStatusHelper.updateStatusView(notificationStatusView, state, title, text);
 				});
+	}
+
+	private void setupWhatToDo(View view) {
+		view.findViewById(R.id.card_what_to_do_symptoms).setOnClickListener(
+				v -> getParentFragmentManager().beginTransaction()
+						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
+						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
+						.commit());
+		view.findViewById(R.id.card_what_to_do_test).setOnClickListener(
+				v -> getParentFragmentManager().beginTransaction()
+						.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
+						.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
+						.commit());
 	}
 
 	private void setupDebugButton(View view) {
