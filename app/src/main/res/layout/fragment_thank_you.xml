@@ -58,7 +58,7 @@
 
 	<Button
 		android:id="@+id/thank_you_fragment_button_done"
-		style="@style/NextStep.Button.Green"
+		style="@style/NextStep.Button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal"

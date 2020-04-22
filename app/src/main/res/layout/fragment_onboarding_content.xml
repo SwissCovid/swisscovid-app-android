@@ -17,7 +17,7 @@
 	android:paddingBottom="@dimen/spacing_large">
 
 	<TextView
-		style="@style/NextStep.Text.Small"
+		style="@style/NextStep.Text.Bold.Blue"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="@dimen/spacing_very_large"

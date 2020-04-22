@@ -81,7 +81,7 @@
 					android:orientation="vertical">
 
 					<TextView
-						style="@style/NextStep.Text.Bold.Blue"
+						style="@style/NextStep.Text.Bold"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:layout_marginBottom="@dimen/spacing_medium"
@@ -105,7 +105,7 @@
 					</LinearLayout>
 
 					<TextView
-						style="@style/NextStep.Text.Bold.Blue"
+						style="@style/NextStep.Text.Bold"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:layout_marginBottom="@dimen/spacing_medium"

@@ -31,7 +31,7 @@
 				android:layout_height="@dimen/icon_size_title"
 				android:layout_marginStart="@dimen/spacing_large"
 				android:src="@drawable/ic_begegnungen"
-				android:tint="@color/blue_main" />
+				android:tint="@color/purple_main" />
 
 			<TextView
 				style="@style/NextStep.Text.Title"
@@ -45,7 +45,7 @@
 				android:layout_width="@dimen/chevron_size_title"
 				android:layout_height="@dimen/chevron_size_title"
 				android:src="@drawable/ic_chevron_right"
-				android:tint="@color/blue_main" />
+				android:tint="@color/purple_main" />
 
 		</LinearLayout>
 

@@ -23,7 +23,7 @@
 
 	<Button
 		android:id="@+id/dialog_info_button"
-		style="@style/NextStep.Button.Green"
+		style="@style/NextStep.Button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/button_ok" />

@@ -14,7 +14,7 @@
 
 	<TextView
 		android:id="@+id/no_code_fragment_cancel"
-		style="@style/NextStep.Button.Transparent"
+		style="@style/NextStep.Button.Transparent.Blue"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="end"

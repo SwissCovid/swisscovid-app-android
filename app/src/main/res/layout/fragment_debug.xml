@@ -87,7 +87,7 @@
 						android:id="@+id/debug_button_reset"
 						android:layout_width="match_parent"
 						style="@style/NextStep.Button"
-						android:backgroundTint="@color/blue_main"
+						android:backgroundTint="@color/purple_main"
 						android:layout_marginTop="@dimen/spacing_large"
 						android:layout_height="wrap_content"
 						android:text="@string/debug_sdk_button_reset"/>

@@ -15,7 +15,7 @@
 
 	<TextView
 		android:id="@+id/cancel_button"
-		style="@style/NextStep.Button.Transparent"
+		style="@style/NextStep.Button.Transparent.Blue"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="end"
@@ -68,7 +68,7 @@
 
 			<TextView
 				android:id="@+id/trigger_fragment_no_code_button"
-				style="@style/NextStep.Button.Transparent.Light"
+				style="@style/NextStep.Button.Transparent.Blue"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal"

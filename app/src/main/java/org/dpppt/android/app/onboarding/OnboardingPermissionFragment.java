@@ -133,7 +133,7 @@ public class OnboardingPermissionFragment extends Fragment {
 		button.setText(buttonLabel);
 		button.setClickable(true);
 		button.setElevation(getResources().getDimensionPixelSize(R.dimen.button_elevation));
-		button.setBackgroundTintList(ContextCompat.getColorStateList(requireContext(), R.color.blue_main));
+		button.setBackgroundTintList(ContextCompat.getColorStateList(requireContext(), R.color.purple_main));
 	}
 
 	private void setButtonOk(Button button, @StringRes int grantedLabel) {

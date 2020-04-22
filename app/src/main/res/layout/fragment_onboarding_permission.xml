@@ -18,7 +18,7 @@
 	android:paddingBottom="@dimen/spacing_large">
 
 	<TextView
-		style="@style/NextStep.Text.Small"
+		style="@style/NextStep.Text.Bold.Blue"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="@dimen/spacing_very_large"
@@ -86,7 +86,7 @@
 			android:foreground="@drawable/ripple_circular"
 			android:padding="@dimen/spacing_small"
 			android:src="@drawable/ic_info"
-			android:tint="@color/blue_main"
+			android:tint="@color/purple_main"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintStart_toEndOf="@id/onboarding_location_permission_button"
 			app:layout_constraintTop_toTopOf="parent" />
@@ -119,7 +119,7 @@
 			android:foreground="@drawable/ripple_circular"
 			android:padding="@dimen/spacing_small"
 			android:src="@drawable/ic_info"
-			android:tint="@color/blue_main"
+			android:tint="@color/purple_main"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintStart_toEndOf="@id/onboarding_battery_button"
 			app:layout_constraintTop_toTopOf="parent" />
