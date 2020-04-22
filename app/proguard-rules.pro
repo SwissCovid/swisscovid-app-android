@@ -21,7 +21,3 @@
 #-renamesourcefileattribute SourceFile
 
 -dontobfuscate
-
--keep class org.dpppt.android.sdk.internal.backend.models.** { *; }
--keep class org.dpppt.android.sdk.internal.database.models.** { *; }
--keep class org.dpppt.android.sdk.internal.**{ *; }
