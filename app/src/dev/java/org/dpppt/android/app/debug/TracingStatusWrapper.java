@@ -40,23 +40,46 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public AppState getAppState() {
-		boolean hasError = status.getErrors().size() > 0 || !(status.isAdvertising() || status.isReceiving());
+		boolean hasError = status.getErrors().size() > 0;
+		boolean tracingOff = !(status.isAdvertising() || status.isReceiving());
 		switch (debugAppState) {
 			case NONE:
 				if (status.isReportedAsExposed() || status.wasContactExposed()) {
-					return hasError ? AppState.EXPOSED_ERROR : AppState.EXPOSED;
+					return AppState.EXPOSED;
+				} else if (tracingOff) {
+					return AppState.TRACING_OFF;
 				} else if (hasError) {
-					return AppState.ERROR;
+					return getAppStateForError(status.getErrors().get(0));
 				} else {
-					return AppState.TRACING;
+					return AppState.TRACING_ON;
 				}
 			case HEALTHY:
-				return hasError ? AppState.ERROR : AppState.TRACING;
+				if (tracingOff) {
+					return AppState.TRACING_OFF;
+				} else if (hasError) {
+					return getAppStateForError(status.getErrors().get(0));
+				} else {
+					return AppState.TRACING_ON;
+				}
 			case REPORTED_EXPOSED:
 			case CONTACT_EXPOSED:
-				return hasError ? AppState.EXPOSED_ERROR : AppState.EXPOSED;
+				return AppState.EXPOSED;
 		}
 		throw new IllegalStateException("Unkown debug AppState: " + debugAppState.toString());
+	}
+
+	private AppState getAppStateForError(TracingStatus.ErrorState error) {
+		switch (error) {
+			case BLE_DISABLED:
+				return AppState.ERROR_BLUETOOTH_OFF;
+			case MISSING_LOCATION_PERMISSION:
+				return AppState.ERROR_LOCATION_PERMISSION;
+			case BATTERY_OPTIMIZER_ENABLED:
+				return AppState.ERROR_BATTERY_OPTIMIZATION;
+			case NETWORK_ERROR_WHILE_SYNCING:
+				return AppState.ERROR_SYNC_FAILED;
+		}
+		throw new IllegalStateException("Unkown ErrorState: " + error.toString());
 	}
 
 }

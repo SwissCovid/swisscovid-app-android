@@ -35,12 +35,11 @@
 	<dimen name="icon_size_title">24dp</dimen>
 	<dimen name="stroke_width_default">2dp</dimen>
 	<dimen name="button_corner_radius">4dp</dimen>
-	<dimen name="top_item_padding">180dp</dimen>
-	<dimen name="header_height">220dp</dimen>
-	<dimen name="header_size_bg">75dp</dimen>
+	<dimen name="top_item_padding">125dp</dimen>
+	<dimen name="header_height">150dp</dimen>
 	<dimen name="header_size_arc">65dp</dimen>
 	<dimen name="header_stroke_width_arc">6dp</dimen>
-	<dimen name="header_size_icon">24dp</dimen>
+	<dimen name="header_size_icon">36dp</dimen>
 	<dimen name="message_bubble_corner_radius">5dp</dimen>
 	<dimen name="message_triangle_size">12dp</dimen>
 	<dimen name="chained_edit_text_height">44sp</dimen>

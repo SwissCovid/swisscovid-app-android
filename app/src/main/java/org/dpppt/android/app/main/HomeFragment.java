@@ -76,12 +76,6 @@ public class HomeFragment extends Fragment {
 		outState.putInt(STATE_SCROLL_VIEW, scrollView.getScrollY());
 	}
 
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-		headerView.stopArcAnimation();
-	}
-
 	private void setupHeader(View view) {
 		headerView = view.findViewById(R.id.home_header_container);
 		tracingViewModel.getAppStateLiveData()

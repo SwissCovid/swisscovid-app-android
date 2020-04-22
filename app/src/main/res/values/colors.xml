@@ -30,6 +30,8 @@
 	<color name="grey_light_darker">#E9E9E9</color>
 	<color name="grey_light">#F7F7F7</color>
 	<color name="white">#FFFFFF</color>
+	<color name="white_10">#19FFFFFF</color>
+	<color name="white_20">#33FFFFFF</color>
 
 	<color name="status_blue">@color/blue_main</color>
 	<color name="status_blue_bg">#EFF5F9</color>
@@ -39,4 +41,9 @@
 	<color name="status_purple_bg">#F3F0F5</color>
 	<color name="status_red">@color/red_main</color>
 	<color name="status_arc">#1F000000</color>
+	
+	<color name="header_bg_error">#B2E20008</color>
+	<color name="header_bg_off">#B24A4969</color>
+	<color name="header_bg_on">#B263A0C7</color>
+	<color name="header_bg_exposed">#B28D6A9F</color>
 </resources>
