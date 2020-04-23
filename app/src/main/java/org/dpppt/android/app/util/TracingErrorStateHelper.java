@@ -16,6 +16,18 @@ import org.dpppt.android.sdk.TracingStatus;
 
 public class TracingErrorStateHelper {
 
+	private static final List<TracingStatus.ErrorState> possibleErrorStatesOrderedByPriority = Arrays.asList(
+			TracingStatus.ErrorState.BLE_NOT_SUPPORTED,
+			TracingStatus.ErrorState.MISSING_LOCATION_PERMISSION,
+			TracingStatus.ErrorState.BLE_DISABLED,
+			TracingStatus.ErrorState.BATTERY_OPTIMIZER_ENABLED,
+			TracingStatus.ErrorState.BLE_INTERNAL_ERROR,
+			TracingStatus.ErrorState.BLE_ADVERTISING_ERROR,
+			TracingStatus.ErrorState.BLE_SCANNER_ERROR,
+			TracingStatus.ErrorState.NETWORK_ERROR_WHILE_SYNCING);
+
+	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList();
+
 	public static @StringRes
 	int getTitle(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
@@ -95,17 +107,6 @@ public class TracingErrorStateHelper {
 	}
 
 	public static TracingStatus.ErrorState getErrorState(Collection<TracingStatus.ErrorState> errors) {
-
-		List<TracingStatus.ErrorState> possibleErrorStatesOrderedByPriority = Arrays.asList(
-				TracingStatus.ErrorState.BLE_NOT_SUPPORTED,
-				TracingStatus.ErrorState.MISSING_LOCATION_PERMISSION,
-				TracingStatus.ErrorState.BLE_DISABLED,
-				TracingStatus.ErrorState.BATTERY_OPTIMIZER_ENABLED,
-				TracingStatus.ErrorState.BLE_INTERNAL_ERROR,
-				TracingStatus.ErrorState.BLE_ADVERTISING_ERROR,
-				TracingStatus.ErrorState.BLE_SCANNER_ERROR,
-				TracingStatus.ErrorState.NETWORK_ERROR_WHILE_SYNCING);
-
 		for (TracingStatus.ErrorState errorState : possibleErrorStatesOrderedByPriority) {
 			if (errors.contains(errorState)) {
 				return errorState;
@@ -114,7 +115,21 @@ public class TracingErrorStateHelper {
 		return null;
 	}
 
+	public static TracingStatus.ErrorState getErrorStateForReports(Collection<TracingStatus.ErrorState> errors) {
+		for (TracingStatus.ErrorState errorState : possibleNotificationErrorStatesOrderedByPriority) {
+			if (errors.contains(errorState)) {
+				return errorState;
+			}
+		}
+		return null;
+	}
+
 	public static void updateErrorView(View tracingErrorView, TracingStatus.ErrorState errorState) {
+		if (errorState == null) {
+			tracingErrorView.setVisibility(View.GONE);
+			return;
+		}
+		tracingErrorView.setVisibility(View.VISIBLE);
 		ImageView iconView = tracingErrorView.findViewById(R.id.error_status_image);
 		TextView titleView = tracingErrorView.findViewById(R.id.error_status_title);
 		TextView textView = tracingErrorView.findViewById(R.id.error_status_text);

@@ -55,6 +55,7 @@ public class HomeFragment extends Fragment {
 	private View cardNotifications;
 	private View reportStatusBubble;
 	private View reportStatusView;
+	private View reportErrorView;
 	private View cardSymptoms;
 	private View cardTest;
 	private View tracingErrorView;
@@ -81,6 +82,7 @@ public class HomeFragment extends Fragment {
 		cardNotifications = view.findViewById(R.id.card_notifications);
 		reportStatusBubble = view.findViewById(R.id.report_status_bubble);
 		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
+		reportErrorView = reportStatusBubble.findViewById(R.id.report_errors);
 		headerView = view.findViewById(R.id.home_header_container);
 
 		cardSymptoms = view.findViewById(R.id.card_what_to_do_symptoms);
@@ -186,7 +188,15 @@ public class HomeFragment extends Fragment {
 					} else if (selfOrContactExposed.second) {
 						NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.EXPOSED);
 					} else {
-						NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_NOTIFICATION);
+						NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_REPORTS);
+					}
+					if (tracingViewModel.getTracingStatusLiveData().getValue() != null) {
+						Collection<TracingStatus.ErrorState> errorStates =
+								tracingViewModel.getTracingStatusLiveData().getValue().getErrors();
+						if (errorStates != null && errorStates.size() > 0) {
+							TracingStatus.ErrorState errorState = TracingErrorStateHelper.getErrorStateForReports(errorStates);
+							TracingErrorStateHelper.updateErrorView(reportErrorView, errorState);
+						}
 					}
 				});
 	}

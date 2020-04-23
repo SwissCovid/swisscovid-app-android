@@ -7,14 +7,14 @@ import androidx.annotation.StringRes;
 import org.dpppt.android.app.R;
 
 public enum NotificationState {
-	NO_NOTIFICATION,
+	NO_REPORTS,
 	EXPOSED,
 	POSITIVE_TESTED;
 
 	public static @StringRes
 	int getTitle(NotificationState notificationState) {
 		switch (notificationState) {
-			case NO_NOTIFICATION:
+			case NO_REPORTS:
 				return R.string.meldungen_no_meldungen_title;
 			case EXPOSED:
 				return R.string.meldungen_meldung_title;
@@ -27,7 +27,7 @@ public enum NotificationState {
 	public static @StringRes
 	int getText(NotificationState NotificationState) {
 		switch (NotificationState) {
-			case NO_NOTIFICATION:
+			case NO_REPORTS:
 				return R.string.meldungen_no_meldungen_text;
 			case EXPOSED:
 				return R.string.meldungen_meldung_text;
@@ -40,7 +40,7 @@ public enum NotificationState {
 	public static @DrawableRes
 	int getIcon(NotificationState notificationState) {
 		switch (notificationState) {
-			case NO_NOTIFICATION:
+			case NO_REPORTS:
 				return R.drawable.ic_check;
 			case EXPOSED:
 				return R.drawable.ic_check;
@@ -53,7 +53,7 @@ public enum NotificationState {
 	public static @ColorRes
 	int getTextColor(NotificationState notificationState) {
 		switch (notificationState) {
-			case NO_NOTIFICATION:
+			case NO_REPORTS:
 				return R.color.green_main;
 			case EXPOSED:
 				return R.color.white;
@@ -66,7 +66,7 @@ public enum NotificationState {
 	public static @ColorRes
 	int getBackgroundColor(NotificationState notificationState) {
 		switch (notificationState) {
-			case NO_NOTIFICATION:
+			case NO_REPORTS:
 				return R.color.status_green_bg;
 			case EXPOSED:
 				return R.color.blue_main;
