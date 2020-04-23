@@ -243,10 +243,10 @@ Die App greift aber nie auf deinen Standort zu!"</string>
     <!-- Fuzzy -->
     <string name="hinweis_text">"Eine Person, der du begegnet bist, wurde positiv auf COVID-19 getestet."</string>
     <string name="button_report_illness">"Erkrankung melden"</string>
-    <string name="meldungen_meldung_title">"Wichtiger Hinweis"</string>
+    <string name="meldungen_meldung_title">"Mögliche Ansteckung"</string>
 
     <!-- Fuzzy -->
-    <string name="meldungen_meldung_text">"Eine Person, der du begegnet bist, wurde positiv auf COVID-19 getestet. Bitte informiere dich hier über die Verhaltensempfehlungen."</string>
+    <string name="meldungen_meldung_text">"Eine Ihrer Begegnungen wurde positiv auf COVID-19 getestet"</string>
     <string name="meldungen_meldung_more_button">"Mehr erfahren"</string>
     <string name="tracing_active_title">"Tracing aktiv"</string>
     <string name="tracing_active_text">"Begegnungen werden anonym gespeichert"</string>
@@ -389,7 +389,7 @@ Corona-Infoline
     <string name="whattodo_title_positivetest">"positiven Testresultat"</string>
 
     <!-- Subtitel auf Homescreen bei Was tun Section -->
-    <string name="whattodo_subtitle_positivetest">"Was tun bei einem…"</string>
+    <string name="whattodo_subtitle_positivetest">"Infektionskette unterbrechen"</string>
 
     <!-- Informieren Detail: Subtitel -->
     <string name="inform_detail_subtitle">"Was tun bei einem..."</string>
@@ -404,10 +404,11 @@ Corona-Infoline
     <string name="inform_detail_box_title">"Begegnungen informieren"</string>
 
     <!-- Inform Detail Weisse Box Button -->
-    <string name="inform_detail_box_button">"Jetzt informieren"</string>
+    <string name="inform_detail_box_button">"Covid-Code eingeben"</string>
 
     <!-- Informieren Detail Weisse Box Text -->
-    <string name="inform_detail_box_text">"Informieren sie Personen mit denen Sie Kontakt hatten anonym über die App."</string>
+    <string name="inform_detail_box_text">"Informieren Sie Begegnungen über eine mögliche Ansteckung. 
+Dazu benötigen Sie den Covid-Code aus dem Testergebnis."</string>
 
     <!-- Symptome Detail Subtitel -->
     <string name="symptom_detail_subtitle">"Was tun wenn ich..."</string>
@@ -445,4 +446,137 @@ Corona-Infoline
     <!-- URL zum Corona Check -->
     <string name="symptom_detail_corona_check_url">"https://check.bag-coronavirus.ch/screening"</string>
     <string name="push_open_settings_button">"Einstellungen ändern"</string>
+
+    <!-- Meldungen Detail: Subtitel wenn keine Meldungen -->
+    <string name="meldungen_no_meldungen_subtitle">"Es wurde keine mögliche Ansteckung gemeldet"</string>
+
+    <!-- Keine Meldungen Weisse Box Titel -->
+    <string name="no_meldungen_box_title">"Schützen Sie sich"</string>
+
+    <!-- Keine Meldungen Weisse Box Subtitel -->
+    <string name="no_meldungen_box_subtitle">"Was soll ich tun?"</string>
+
+    <!-- Keine Meldungen Weisse Box Text -->
+    <string name="no_meldungen_box_text">"Halten Sie sich an die geltenden Verhaltens- und Hygieneempfehlungen."</string>
+
+    <!-- Meldung Detail: Positiv Getestet Titel -->
+    <string name="meldung_detail_positive_tested_title">"Positiv getestet"</string>
+
+    <!-- Meldung Detail: Positiv Getestet Subtitel -->
+    <!-- Fuzzy -->
+    <string name="meldung_detail_positive_tested_subtitle">"Sie wurden positiv auf das neue Coronavirus getestet."</string>
+
+    <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
+    <string name="meldung_detail_positive_test_box_subtitle">"Was muss ich tun?"</string>
+
+    <!-- Meldung Detail Positiv Getestet Weisse Box Titel -->
+    <string name="meldung_detail_positive_test_box_title">"Selbst-Isolation"</string>
+
+    <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
+    <!-- Fuzzy -->
+    <string name="meldung_detail_positive_test_box_text">"Befolgen Sie die Anweisungen des Testcenters zur Selbst-Isolation"</string>
+    <string name="tracing_ended_title">"Tracing beendet"</string>
+    <string name="tracing_ended_text">"Es werden keine Begegnungen mehr gespeichert"</string>
+    <string name="exposed_info_contact_hotline">"Kontaktieren Sie die Infohotline"</string>
+    <string name="meldung_homescreen_positive_info_line1">"Befolgen Sie die Anweisungen"</string>
+    <string name="meldung_homescreen_positive_info_line2">"zur Selbstisolation"</string>
+
+    <!-- Meldung Detail Exposed Neue Meldung -->
+    <string name="meldung_detail_exposed_new_meldung">"Neue Meldung"</string>
+
+    <!-- Meldung Detail Exposed Titel -->
+    <string name="meldung_detail_exposed_title">"Mögliche Ansteckung"</string>
+    <string name="meldung_homescreen_positiv_title">"Positiv getestet"</string>
+
+    <!-- Meldung Detail Exposed Subtitel -->
+    <string name="meldung_detail_exposed_subtitle">"Eine Ihrer Begegnungen wurde positiv auf COVID-19 getestet"</string>
+    <string name="meldung_homescreen_positiv_text">"Sie wurden positiv auf das neue Coronavirus getestet."</string>
+
+    <!-- Debug Screen: Onboarding Reset Button -->
+    <string name="reset_onboarding">"Onboarding zurücksetzen"</string>
+
+    <!-- Heute -->
+    <string name="date_today">"Heute"</string>
+
+    <!-- Meldung Detail: Vor wievielen Tagen {COUNT} wird durch Zahl ersetzt -->
+    <string name="date_days_ago">"vor {COUNT} Tagen"</string>
+
+    <!-- Meldungen Detail: Subtitel Weisse Box -->
+    <string name="meldungen_detail_whattodo">"Was soll ich tun?"</string>
+
+    <!-- Meldungen Detail: Weisse Box Titel -->
+    <string name="meldungen_detail_call">"Rufen Sie uns an"</string>
+
+    <!-- Meldungen Detail Text Weisse Box -->
+    <string name="meldungen_detail_call_text">"Expert*innen der Infoline  beraten Sie telefonisch:  +41 98 765 43 21"</string>
+
+    <!-- Meldungen Detail Weisse Box Button -->
+    <string name="meldungen_detail_call_button">"Jetzt anrufen"</string>
+
+    <!-- Meldungen Detail Weisse Box Titel der Erklärungen -->
+    <string name="meldungen_detail_explanation_title">"Grundsätzlich gilt:"</string>
+
+    <!-- Meldungen Detail Weisse Box Erklärungstext 1 -->
+    <string name="meldungen_detail_explanation_text1">"Sie könnten ansteckend sein, ohne es zu merken."</string>
+
+    <!-- Meldungen Detail: Weisse Box Erklärtext 2 -->
+    <string name="meldungen_detail_explanation_text2">"Schützen Sie andere, in dem Sie Kontakte für 10 Tage meiden. (Selbst-Quarantäne)"</string>
+
+    <!-- Meldungen Detail Weisse Box Titel -->
+    <string name="meldungen_detail_guard_others">"Schützen Sie andere"</string>
+
+    <!-- Meldungen Detail: Weisse Box Text -->
+    <string name="meldungen_detail_guard_text">"Verhalten Sie sich gemäss den Anweisungen der Infoline. +41 98 765 43 21"</string>
+
+    <!-- Meldungen Detail Button Weisse Box -->
+    <string name="meldungen_detail_call_again_button">"Erneut anrufen"</string>
+
+    <!-- Meldungen Detail: Weisse Box Anruf Zeitpunkt -->
+    <string name="meldungen_detail_call_last_call">"Letzter Anruf: {DATE}"</string>
+
+    <!-- Subtitel im Onboarding erste Seite -->
+    <string name="app_subtitle">"Gemeinsam gegen das Virus"</string>
+
+    <!-- Telefon-Nummer für Infos wenn Exposed -->
+    <string name="exposed_info_line_tel">"+41 98 765 43 21"</string>
+    <string name="onboarding_prinzip_heading">"Das Prinzip"</string>
+    <string name="onboarding_prinzip_title">"Dem Virus einen Schritt voraus"</string>
+    <string name="onboarding_prinzip_text1">"Mit der Swiss Trace App können alle dazu beitragen, die Verbreitung von COVID-19 einzudämmen."</string>
+    <string name="onboarding_prinzip_text2">"Die App informiert im Verdachtsfall. So können Ansteckungsketten unterbrochen werden."</string>
+    <string name="onboarding_privacy_heading">"Privacy by Design"</string>
+    <string name="onboarding_privacy_title">"Schutz der Privatsphäre garantiert"</string>
+    <string name="onboarding_privacy_text1">"Sämtliche Daten werden verschlüsselt und nur lokal auf dem Smartphone gespeichert."</string>
+    <string name="onboarding_privacy_text2">"Die Kommunikation zwischen den Geräten findet anonym statt. Es werden keine personenbezogene Daten geteilt."</string>
+    <string name="onboarding_begegnungen_heading">"Was macht die App?"</string>
+    <string name="onboarding_begegnungen_title">"Begegnungen erkennen dank Bluetooth"</string>
+    <string name="onboarding_begegnungen_text1">"Die App erkennt automatisch, wenn zwei Nutzer für eine gewisse Zeit nahe beieinander stehen. "</string>
+    <string name="onboarding_begegnungen_text2">"Dafür wird Bluetooth Low Energy (BLE) verwendet."</string>
+    <string name="onboarding_meldung_heading">"Was macht die App?"</string>
+    <string name="onboarding_meldung_title">"Meldung bei einer möglichen Ansteckung"</string>
+    <string name="onboarding_meldung_text1">"Die App informiert Sie, falls eine Person der Sie in den letzten Tagen begegnet sind positiv auf COVID-19 getestet wird."</string>
+    <string name="onboarding_meldung_text2">"So können Sie mithelfen, die Verbreitung von COVID-19 einzudämmen."</string>
+    <string name="onboarding_bluetooth_title">"Bluetooth erlauben"</string>
+    <string name="onboarding_bluetooth_text">" Um die App nutzen zu können, müssen Sie Bluetooth erlauben."</string>
+    <string name="onboarding_bluetooth_button">"Bluetooth erlauben"</string>
+    <string name="onboarding_good_to_know">"Gut zu wissen"</string>
+    <string name="onboarding_bluetooth_gtk_title1">"Sie bleiben anonym"</string>
+    <string name="onboarding_bluetooth_gtk_text1">"Über Bluetooth werden keine persönlichen Daten sichtbar."</string>
+    <string name="onboarding_bluetooth_gtk_title2">"Leicht erhöhte Batterienutzung"</string>
+    <string name="onboarding_bluetooth_gtk_text2">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterienutzung erhöht sich leicht (ca. 6-8%)."</string>
+    <string name="onboarding_push_title">"Mitteilungen erlauben"</string>
+    <string name="onboarding_push_text">"Damit Sie von der App informiert werden, müssen Sie Mitteilungen erlauben."</string>
+    <string name="onboarding_push_button">"Mitteilungen erlauben"</string>
+    <string name="onboarding_push_gtk_title1">"Was könnte hier stehen"</string>
+    <string name="onboarding_push_gtk_text1">"Hier könnte etwas stehen, dass die Mitteilungen so sind, dass niemand mitlesen kann"</string>
+
+    <!-- Informieren Flow: Titel erste Seite -->
+    <string name="inform_positive_title">"Begegnungen anonym informieren"</string>
+
+    <!-- Informieren Flow Subtitel erste Seite -->
+    <string name="inform_positive_subtitle">"Positiv getestet"</string>
+
+    <!-- Informieren Flow Text erste Seite -->
+    <string name="inform_positive_text">"Informieren Sie die von Ihrer App registrierten Personen über eine mögliche Ansteckung. 
+
+Sie bleiben dabei anonym."</string>
 </resources>
