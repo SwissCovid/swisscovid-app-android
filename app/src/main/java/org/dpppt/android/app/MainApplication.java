@@ -111,7 +111,7 @@ public class MainApplication extends Application {
 		SharedPreferences prefs = context.getSharedPreferences(PREFS_NOTIFICATION, Context.MODE_PRIVATE);
 		if (prefs.contains(PREF_ID_TO_SHOW)) {
 			int id = prefs.getInt(PREF_ID_TO_SHOW, 0);
-			prefs.edit().remove(PREF_ID_TO_SHOW);
+			prefs.edit().remove(PREF_ID_TO_SHOW).commit();
 			return id;
 		}
 		return null;

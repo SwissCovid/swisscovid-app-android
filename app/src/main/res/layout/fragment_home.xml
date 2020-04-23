@@ -94,8 +94,7 @@
 						android:id="@+id/status_icon"
 						android:layout_width="@dimen/icon_size"
 						android:layout_height="@dimen/icon_size"
-						android:src="@drawable/ic_warning"
-						android:tint="@color/status_red" />
+						android:src="@drawable/ic_warning"/>
 
 					<LinearLayout
 						android:layout_width="0dp"

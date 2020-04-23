@@ -23,6 +23,7 @@ public class MainFragment extends Fragment {
 
 		boolean launchReportsDirectly = false;
 		Integer contactToShow = MainApplication.getAndClearContactToShowId(getContext());
+		// TODO: clear only when really called because of this contact in reports-fragment! Otherwise keep this Id in preferences.
 		if (contactToShow != null) {
 			MainApplication.saveLaunchByContactId(getContext(), contactToShow);
 			launchReportsDirectly = true;
