@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Ubique Innovation AG
+  ~ https://www.ubique.ch
+  ~ Copyright (c) 2020. All rights reserved.
+  -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:background="@color/blue_main">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginTop="-25dp"
+		android:orientation="vertical"
+		android:padding="@dimen/spacing_medium">
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:src="@drawable/ic_info_border" />
+
+		<TextView
+			style="@style/NextStep.Text.Title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="@dimen/spacing_small"
+			android:text="@string/meldung_detail_exposed_title"
+			android:textColor="@color/white" />
+
+		<TextView
+			style="@style/NextStep.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="@dimen/spacing_tiny_small"
+			android:gravity="center"
+			android:text="@string/meldung_detail_exposed_subtitle"
+			android:textColor="@color/white" />
+
+		<TextView
+			style="@style/NextStep.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="@dimen/spacing_small"
+			android:gravity="center"
+			android:textSize="@dimen/text_size_small"
+			android:text="@string/meldung_detail_exposed_subtitle"
+			tools:text="Heute" />
+
+	</LinearLayout>
+
+</FrameLayout>

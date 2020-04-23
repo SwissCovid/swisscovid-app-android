@@ -3,16 +3,12 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.reports;
 
-import android.content.res.ColorStateList;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -22,10 +18,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.onboarding.OnboardingSlidePageAdapter;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
-import org.dpppt.android.app.util.PhoneUtil;
-import org.dpppt.android.app.util.TracingStatusHelper;
 
 public class ReportsFragment extends Fragment {
 
@@ -35,15 +28,22 @@ public class ReportsFragment extends Fragment {
 
 	private TracingViewModel tracingViewModel;
 
+	private FragmentStateAdapter pagerAdapter;
+
+	private NestedScrollableHost header;
 	private ViewPager2 viewPager;
 	private LockableScrollView scrollView;
-	private FragmentStateAdapter pagerAdapter;
+	private View scrollViewFirstchild;
+	private CirclePageIndicator circlePageIndicator;
 
 	public ReportsFragment() { super(R.layout.fragment_reports); }
 
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		pagerAdapter = new ReportsSlidePageAdapter();
+
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
 	}
 
@@ -52,10 +52,24 @@ public class ReportsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.reports_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
+		header = view.findViewById(R.id.reports_header);
 		viewPager = view.findViewById(R.id.reports_viewpager);
 		scrollView = view.findViewById(R.id.reports_scrollview);
-		pagerAdapter = new ReportsSlidePageAdapter(this);
+		scrollViewFirstchild = view.findViewById(R.id.reports_scrollview_firstChild);
+		circlePageIndicator = view.findViewById(R.id.reports_pageindicator);
+
+		if (pagerAdapter.getItemCount() > 1) {
+			circlePageIndicator.setVisibility(View.VISIBLE);
+			ViewGroup.LayoutParams lp = header.getLayoutParams();
+			lp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports_with_indicator);
+			header.setLayoutParams(lp);
+			scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
+					getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_width_indicator),
+					scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+		}
+
 		viewPager.setAdapter(pagerAdapter);
+		circlePageIndicator.setViewPager(viewPager);
 
 		viewPager.post(() -> {
 			Rect rect = new Rect();
@@ -96,8 +110,8 @@ public class ReportsFragment extends Fragment {
 
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {
 
-		public ReportsSlidePageAdapter(Fragment fragment) {
-			super(fragment);
+		public ReportsSlidePageAdapter() {
+			super(ReportsFragment.this);
 		}
 
 		@NonNull
@@ -105,16 +119,18 @@ public class ReportsFragment extends Fragment {
 		public Fragment createFragment(int position) {
 			switch (position) {
 				case 0:
-					return ReportsPagerFragment.newInstance();
+					return ReportsPagerFragment.newNoReportsInstance(ReportsPagerFragment.Type.NO_REPORTS);
 				case 1:
-					return ReportsPagerFragment.newInstance();
+					return ReportsPagerFragment.newNoReportsInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION);
+				case 2:
+					return ReportsPagerFragment.newNoReportsInstance(ReportsPagerFragment.Type.NEW_CONTACT);
 			}
 			throw new IllegalArgumentException("There is no fragment for view pager position " + position);
 		}
 
 		@Override
 		public int getItemCount() {
-			return 2;
+			return 3;
 		}
 
 	}
