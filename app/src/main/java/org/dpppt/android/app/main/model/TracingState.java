@@ -26,7 +26,7 @@ public enum TracingState {
 			case ENDED:
 				return R.string.tracing_ended_title;
 		}
-		throw new IllegalStateException("Unknown State");
+		return -1;
 	}
 
 	public static @StringRes
@@ -39,7 +39,7 @@ public enum TracingState {
 			case ENDED:
 				return R.string.tracing_ended_text;
 		}
-		throw new IllegalStateException("Unknown State");
+		return -1;
 	}
 
 	public static @DrawableRes
@@ -52,7 +52,7 @@ public enum TracingState {
 			case ENDED:
 				return R.drawable.ic_info;
 		}
-		throw new IllegalStateException("Unknown State");
+		return -1;
 	}
 
 	public static @ColorRes
@@ -65,7 +65,7 @@ public enum TracingState {
 			case ENDED:
 				return R.color.purple_main;
 		}
-		return -1;
+		return R.color.blue_main;
 	}
 
 	public static @ColorRes
@@ -78,7 +78,7 @@ public enum TracingState {
 			case ENDED:
 				return R.color.status_purple_bg;
 		}
-		return -1;
+		return R.color.grey_dark_lighter;
 	}
 }
 

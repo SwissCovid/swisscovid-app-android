@@ -14,17 +14,36 @@ public class NotificationStateHelper {
 
 	public static void updateStatusView(View statusView, NotificationState state) {
 		Context context = statusView.getContext();
-		statusView.setBackgroundColor(ContextCompat.getColor(context, NotificationState.getBackgroundColor(state)));
+		if (NotificationState.getBackgroundColor(state) != -1) {
+			statusView.setBackgroundColor(ContextCompat.getColor(context, NotificationState.getBackgroundColor(state)));
+		}
 		ImageView iconView = statusView.findViewById(R.id.status_icon);
 		TextView titleView = statusView.findViewById(R.id.status_title);
 		TextView textView = statusView.findViewById(R.id.status_text);
 		int color = ContextCompat.getColor(context, NotificationState.getTextColor(state));
-		titleView.setText(NotificationState.getTitle(state));
-		titleView.setTextColor(color);
-		textView.setText(NotificationState.getText(state));
-		textView.setTextColor(color);
-		iconView.setImageResource(NotificationState.getIcon(state));
-		iconView.setImageTintList(ColorStateList.valueOf(color));
+		if (color != -1) {
+			titleView.setTextColor(color);
+			textView.setTextColor(color);
+			iconView.setImageTintList(ColorStateList.valueOf(color));
+		}
+		if (NotificationState.getTitle(state) != -1) {
+			titleView.setText(NotificationState.getTitle(state));
+			titleView.setVisibility(View.VISIBLE);
+		} else {
+			titleView.setVisibility(View.GONE);
+		}
+		if (NotificationState.getText(state) != -1) {
+			textView.setText(NotificationState.getText(state));
+			textView.setVisibility(View.VISIBLE);
+		} else {
+			textView.setVisibility(View.GONE);
+		}
+		if (NotificationState.getIcon(state) != -1) {
+			iconView.setImageResource(NotificationState.getIcon(state));
+			iconView.setVisibility(View.VISIBLE);
+		} else {
+			iconView.setVisibility(View.GONE);
+		}
 	}
 
 }

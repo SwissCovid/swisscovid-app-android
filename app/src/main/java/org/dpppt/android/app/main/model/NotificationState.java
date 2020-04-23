@@ -21,7 +21,7 @@ public enum NotificationState {
 			case POSITIVE_TESTED:
 				return R.string.meldungen_infected_title;
 		}
-		throw new IllegalStateException("Unknown State");
+		return -1;
 	}
 
 	public static @StringRes
@@ -34,7 +34,7 @@ public enum NotificationState {
 			case POSITIVE_TESTED:
 				return R.string.meldungen_infected_text;
 		}
-		throw new IllegalStateException("Unknown State");
+		return -1;
 	}
 
 	public static @DrawableRes
@@ -47,7 +47,7 @@ public enum NotificationState {
 			case POSITIVE_TESTED:
 				return R.drawable.ic_info;
 		}
-		throw new IllegalStateException("Unknown State");
+		return -1;
 	}
 
 	public static @ColorRes

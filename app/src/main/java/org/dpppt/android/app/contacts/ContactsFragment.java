@@ -29,7 +29,6 @@ import org.dpppt.android.app.util.DeviceFeatureHelper;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.app.util.TracingStatusHelper;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
-import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 
 import static org.dpppt.android.app.onboarding.OnboardingLocationPermissionFragment.REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION;
@@ -109,11 +108,12 @@ public class ContactsFragment extends Fragment {
 					}
 				});
 			} else if (!isTracing) {
+				tracingStatusView.setVisibility(View.GONE);
+				tracingErrorView.setVisibility(View.VISIBLE);
 				TracingStatusHelper.showTracingDeactivated(tracingErrorView);
-			} else if (tracingViewModel.getTracingStatusLiveData().getValue().getInfectionStatus() ==
-					InfectionStatus.INFECTED) {
-				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.NOT_ACTIVE);
 			} else {
+				tracingStatusView.setVisibility(View.VISIBLE);
+				tracingErrorView.setVisibility(View.GONE);
 				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE);
 			}
 		});

@@ -72,12 +72,14 @@
 					android:layout_marginBottom="@dimen/spacing_very_large" />
 
 				<include
+					android:id="@+id/frame_card_symptoms"
 					layout="@layout/card_what_to_do_symptoms"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginBottom="@dimen/spacing_very_small" />
 
 				<include
+					android:id="@+id/frame_card_test"
 					layout="@layout/card_what_to_do_test"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"

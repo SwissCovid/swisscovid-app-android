@@ -20,26 +20,61 @@ public class TracingStatusHelper {
 
 	public static void updateStatusView(View statusView, TracingState state) {
 		Context context = statusView.getContext();
-		statusView.setBackgroundColor(ContextCompat.getColor(context, TracingState.getBackgroundColor(state)));
+		if (TracingState.getBackgroundColor(state) != -1) {
+			statusView.setBackgroundColor(ContextCompat.getColor(context, TracingState.getBackgroundColor(state)));
+		}
 		ImageView iconView = statusView.findViewById(R.id.status_icon);
 		TextView titleView = statusView.findViewById(R.id.status_title);
 		TextView textView = statusView.findViewById(R.id.status_text);
 		int color = ContextCompat.getColor(context, TracingState.getTextColor(state));
-		titleView.setText(TracingState.getTitle(state));
-		titleView.setTextColor(color);
-		textView.setText(TracingState.getText(state));
+		if (color != -1) {
+			titleView.setTextColor(color);
+		}
+		if (TracingState.getTitle(state) != -1) {
+			titleView.setText(TracingState.getTitle(state));
+			titleView.setVisibility(View.VISIBLE);
+		} else {
+			titleView.setVisibility(View.GONE);
+		}
+		if (TracingState.getText(state) != -1) {
+			textView.setText(TracingState.getText(state));
+			textView.setVisibility(View.VISIBLE);
+		} else {
+			textView.setVisibility(View.GONE);
+		}
 		textView.setTextColor(color);
-		iconView.setImageResource(TracingState.getIcon(state));
+		if (TracingState.getIcon(state) != -1) {
+			iconView.setImageResource(TracingState.getIcon(state));
+			iconView.setVisibility(View.VISIBLE);
+		} else {
+			iconView.setVisibility(View.GONE);
+		}
 		iconView.setImageTintList(ColorStateList.valueOf(color));
 	}
 
 	public static void showTracingDeactivated(View tracingErrorView) {
 		ImageView iconView = tracingErrorView.findViewById(R.id.error_status_image);
-		iconView.setImageResource(TracingState.getIcon(TracingState.NOT_ACTIVE));
+		if (TracingState.getIcon(TracingState.NOT_ACTIVE) != -1) {
+			iconView.setImageResource(TracingState.getIcon(TracingState.NOT_ACTIVE));
+			iconView.setVisibility(View.VISIBLE);
+		} else {
+			iconView.setVisibility(View.GONE);
+		}
 		TextView titleView = tracingErrorView.findViewById(R.id.error_status_title);
-		titleView.setText(TracingState.getTitle(TracingState.NOT_ACTIVE));
+		if (TracingState.getTitle(TracingState.NOT_ACTIVE) != -1) {
+			titleView.setText(TracingState.getTitle(TracingState.NOT_ACTIVE));
+			titleView.setVisibility(View.VISIBLE);
+		} else {
+			titleView.setVisibility(View.GONE);
+		}
+
 		TextView textView = tracingErrorView.findViewById(R.id.error_status_text);
-		textView.setText(TracingState.getText(TracingState.NOT_ACTIVE));
+		if (TracingState.getText(TracingState.NOT_ACTIVE) != -1) {
+			textView.setText(TracingState.getText(TracingState.NOT_ACTIVE));
+			textView.setVisibility(View.VISIBLE);
+		} else {
+			textView.setVisibility(View.GONE);
+		}
 		TextView buttonView = tracingErrorView.findViewById(R.id.error_status_button);
 		buttonView.setVisibility(View.GONE);
 	}

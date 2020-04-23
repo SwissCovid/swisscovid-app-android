@@ -59,7 +59,9 @@ public class HomeFragment extends Fragment {
 	private View reportStatusView;
 	private View reportErrorView;
 	private View cardSymptoms;
+	private View cardSymptomsFrame;
 	private View cardTest;
+	private View cardTestFrame;
 	private View tracingErrorView;
 
 	public HomeFragment() {
@@ -99,7 +101,9 @@ public class HomeFragment extends Fragment {
 		headerView = view.findViewById(R.id.home_header_container);
 
 		cardSymptoms = view.findViewById(R.id.card_what_to_do_symptoms);
+		cardSymptomsFrame = view.findViewById(R.id.frame_card_symptoms);
 		cardTest = view.findViewById(R.id.card_what_to_do_test);
+		cardTestFrame = view.findViewById(R.id.frame_card_test);
 
 		setupHeader();
 		setupTracingView();
@@ -143,6 +147,9 @@ public class HomeFragment extends Fragment {
 		tracingViewModel.getTracingEnabledLiveData().observe(getViewLifecycleOwner(),
 				isTracing -> {
 					Collection<TracingStatus.ErrorState> errors = tracingViewModel.getErrorsLiveData().getValue();
+					tracingCard.findViewById(R.id.contacs_chevron).setVisibility(View.GONE);
+					cardSymptomsFrame.setVisibility(View.VISIBLE);
+					cardTestFrame.setVisibility(View.VISIBLE);
 					if (errors != null && errors.size() > 0) {
 						tracingStatusView.setVisibility(View.GONE);
 						tracingErrorView.setVisibility(View.VISIBLE);
@@ -177,11 +184,22 @@ public class HomeFragment extends Fragment {
 							}
 						});
 					} else if (!isTracing) {
+						tracingStatusView.setVisibility(View.GONE);
+						tracingErrorView.setVisibility(View.VISIBLE);
 						TracingStatusHelper.showTracingDeactivated(tracingErrorView);
 					} else if (tracingViewModel.getTracingStatusLiveData().getValue().getInfectionStatus() ==
 							InfectionStatus.INFECTED) {
-						TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.NOT_ACTIVE);
+						tracingStatusView.setVisibility(View.VISIBLE);
+						tracingErrorView.setVisibility(View.GONE);
+						TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ENDED);
+						cardSymptomsFrame.setVisibility(View.GONE);
+						cardTestFrame.setVisibility(View.GONE);
+
+						tracingCard.setOnClickListener(null);
+						tracingCard.findViewById(R.id.contacs_chevron).setVisibility(View.GONE);
 					} else {
+						tracingStatusView.setVisibility(View.VISIBLE);
+						tracingErrorView.setVisibility(View.GONE);
 						TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE);
 					}
 				});
