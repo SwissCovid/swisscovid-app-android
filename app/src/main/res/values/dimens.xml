@@ -17,11 +17,13 @@
 	<dimen name="spacing_larger">25dp</dimen>
 	<dimen name="spacing_very_large">30dp</dimen>
 	<dimen name="spacing_huge">40dp</dimen>
+	<dimen name="spacing_huger">50dp</dimen>
 	<dimen name="spacing_enormous">100dp</dimen>
 	<dimen name="text_size_title">22sp</dimen>
 	<dimen name="text_size_normal">16sp</dimen>
 	<dimen name="text_size_small">14sp</dimen>
 	<dimen name="text_size_button">16sp</dimen>
+	<dimen name="text_size_input">24sp</dimen>
 	<dimen name="chevron_size_title">48dp</dimen>
 	<dimen name="illustration_height">180dp</dimen>
 	<dimen name="info_button_size">48dp</dimen>
@@ -42,8 +44,8 @@
 	<dimen name="header_size_icon">36dp</dimen>
 	<dimen name="message_bubble_corner_radius">5dp</dimen>
 	<dimen name="message_triangle_size">12dp</dimen>
-	<dimen name="chained_edit_text_height">44sp</dimen>
-	<dimen name="chained_edit_text_width">40sp</dimen>
+	<dimen name="chained_edit_text_height">36sp</dimen>
+	<dimen name="chained_edit_text_width">25sp</dimen>
 	<dimen name="size_progress_bar">48dp</dimen>
 	<dimen name="padding_status_error">20dp</dimen>
 	<dimen name="padding_bottom_status_error">30dp</dimen>

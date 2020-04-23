@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Created by Ubique Innovation AG
   ~ https://www.ubique.ch
   ~ Copyright (c) 2020. All rights reserved.
@@ -34,6 +33,9 @@
 
 		<activity
 			android:name="org.dpppt.android.app.onboarding.OnboardingActivity"
+			android:launchMode="singleTop" />
+		<activity
+			android:name="org.dpppt.android.app.inform.InformActivity"
 			android:launchMode="singleTop" />
 
 	</application>

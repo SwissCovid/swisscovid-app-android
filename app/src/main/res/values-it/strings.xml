@@ -60,7 +60,7 @@
 Sie bleiben dabei anonym."</string>
 
     <!-- Informieren: Senden Button -->
-    <string name="inform_send_button_title">"Senden"</string>
+    <string name="inform_send_button_title">"Jetzt senden"</string>
 
     <!-- Informieren: Danke -->
     <string name="inform_send_thankyou">"Vielen Dank!"</string>
@@ -623,4 +623,13 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
 
     <!-- Button-Text auf Battery-Permission Screen - Deaktiviert -->
     <string name="onboarding_android_battery_permission_button_deactivated">"Deaktiviert"</string>
+    <string name="homescreen_meldung_data_outdated_title">"Keine aktuellen Daten"</string>
+    <string name="homescreen_meldung_data_outdated_text">"Seit einiger Zeit konnten die Meldungen nicht synchronisiert werden. Stellen Sie sicher, dass Ihr Gerät mit dem Internet verbunden ist."</string>
+    <string name="homescreen_meldung_data_outdated_retry_button">"Erneut versuchen"</string>
+
+    <!-- Titel Fehlermeldung für ungültigen Code -->
+    <string name="inform_code_invalid_title">"Code ungültig"</string>
+
+    <!-- Fehlermeldung Subtitle ungültiger Code -->
+    <string name="inform_code_invalid_subtitle">"Versuchen Sie es erneut"</string>
 </resources>

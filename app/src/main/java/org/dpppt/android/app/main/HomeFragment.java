@@ -5,6 +5,7 @@
  */
 package org.dpppt.android.app.main;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
@@ -17,11 +18,11 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.List;
 
 import org.dpppt.android.app.R;
+import org.dpppt.android.app.inform.InformActivity;
 import org.dpppt.android.app.contacts.ContactsFragment;
 import org.dpppt.android.app.debug.DebugFragment;
 import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.notifications.NotificationsFragment;
-import org.dpppt.android.app.trigger.TriggerFragment;
 import org.dpppt.android.app.util.DebugUtils;
 import org.dpppt.android.app.util.TracingStatusHelper;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
@@ -112,11 +113,10 @@ public class HomeFragment extends Fragment {
 		View notificationStatusView = notificationStatusBubble.findViewById(R.id.notification_status);
 
 		View buttonInform = view.findViewById(R.id.main_button_inform);
-		buttonInform.setOnClickListener(
-				v -> getParentFragmentManager().beginTransaction()
-						.replace(R.id.main_fragment_container, TriggerFragment.newInstance())
-						.addToBackStack(TriggerFragment.class.getCanonicalName())
-						.commit());
+		buttonInform.setOnClickListener(v -> {
+					Intent intent = new Intent(getActivity(), InformActivity.class);
+					startActivity(intent);
+				});
 
 		tracingViewModel.getSelfOrContactExposedLiveData().observe(getViewLifecycleOwner(),
 				selfOrContactExposed -> {

@@ -82,22 +82,18 @@
 	</style>
 
 	<style name="NextStep.Text.Input">
-		<item name="android:textSize">@dimen/text_size_title</item>
+		<item name="android:textSize">@dimen/text_size_input</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:textAllCaps">true</item>
-		<item name="android:gravity">center_horizontal</item>
+		<item name="android:gravity">center</item>
 		<item name="android:focusable">false</item>
 		<item name="android:background">@drawable/bg_chained_edit_text</item>
-		<item name="android:paddingStart">@dimen/spacing_medium</item>
-		<item name="android:paddingEnd">@dimen/spacing_medium</item>
-		<item name="android:paddingTop">@dimen/spacing_very_small</item>
-		<item name="android:paddingBottom">@dimen/spacing_very_small</item>
 	</style>
 
 	<style name="NextStep.Button.Transparent" parent="TextAppearance.AppCompat">
 		<item name="android:padding">@dimen/spacing_medium</item>
 		<item name="android:textSize">@dimen/text_size_button</item>
-		<item name="android:textColor">@color/dark_main</item>
+		<item name="android:textColor">@color/purple_main</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:background">?selectableItemBackground</item>
 	</style>

@@ -4,7 +4,7 @@
  * Copyright (c) 2020. All rights reserved.
  */
 
-package org.dpppt.android.app.trigger.views;
+package org.dpppt.android.app.inform.views;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -28,12 +28,12 @@ import org.dpppt.android.app.R;
 
 public class ChainedEditText extends ConstraintLayout {
 
-	private static final int NUM_CHARACTERS = 6;
+	private static final int NUM_CHARACTERS = 12;
 	private static final String ID_TEXT_FIELD = "chained_edit_text_view_";
 
 	private EditText shadowEditText;
 	private View textViewGroup;
-	private TextView[] textViews = new TextView[6];
+	private TextView[] textViews = new TextView[NUM_CHARACTERS];
 
 	private Set<ChainedEditTextListener> chainedEditTextListeners = new HashSet<>();
 
@@ -63,6 +63,7 @@ public class ChainedEditText extends ConstraintLayout {
 		shadowEditText.setHeight(1);
 		shadowEditText.setWidth(1);
 		shadowEditText.setBackgroundColor(Color.TRANSPARENT);
+		shadowEditText.setCursorVisible(false);
 		shadowEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
 		shadowEditText.setImeOptions(EditorInfo.IME_ACTION_SEND);
 		shadowEditText.addTextChangedListener(new TextWatcher() {
@@ -140,6 +141,10 @@ public class ChainedEditText extends ConstraintLayout {
 
 	public String getText() {
 		return shadowEditText.getText().toString();
+	}
+
+	public void setText(String text) {
+		shadowEditText.setText(text);
 	}
 
 	public void addTextChangedListener(ChainedEditTextListener chainedEditTextListener) {

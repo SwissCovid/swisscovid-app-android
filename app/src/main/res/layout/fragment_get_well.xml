@@ -18,7 +18,7 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
 			android:layout_marginTop="@dimen/spacing_enormous"
-			android:src="@drawable/ill_danke" />
+			android:src="@drawable/ill_gute_besserung" />
 
 		<TextView
 			style="@style/NextStep.Text.Title"
@@ -26,7 +26,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/spacing_huge"
 			android:gravity="bottom|center_horizontal"
-			android:text="@string/inform_send_thankyou" />
+			android:text="@string/inform_send_getwell_title" />
 
 		<TextView
 			style="@style/NextStep.Text"
@@ -36,17 +36,17 @@
 			android:gravity="center_horizontal"
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
-			android:text="@string/inform_send_thankyou_text" />
+			android:text="@string/inform_send_getwell_text" />
 
 		<Button
-			android:id="@+id/inform_thank_you_button_continue"
+			android:id="@+id/inform_get_well_button_continue"
 			style="@style/NextStep.Button.Purple"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
 			android:layout_marginTop="@dimen/spacing_enormous"
 			android:layout_marginBottom="@dimen/spacing_huger"
-			android:text="@string/inform_continue_button" />
+			android:text="@string/inform_fertig_button_title" />
 
 	</LinearLayout>
 </ScrollView>

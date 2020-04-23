@@ -4,7 +4,7 @@
  * Copyright (c) 2020. All rights reserved.
  */
 
-package org.dpppt.android.app.trigger;
+package org.dpppt.android.app.inform;
 
 import android.os.Bundle;
 import android.view.View;

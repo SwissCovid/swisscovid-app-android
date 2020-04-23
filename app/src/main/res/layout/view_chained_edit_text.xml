@@ -33,7 +33,7 @@
 		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_3"
 		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_1"
 		app:layout_constraintTop_toTopOf="parent"
-		tools:text="2" />
+		tools:text="1" />
 
 	<TextView
 		android:id="@+id/chained_edit_text_view_3"
@@ -41,10 +41,11 @@
 		android:layout_width="@dimen/chained_edit_text_width"
 		android:layout_height="@dimen/chained_edit_text_height"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toStartOf="@+id/textView"
+		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_4"
 		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_2"
 		app:layout_constraintTop_toTopOf="parent"
-		tools:text="3" />
+		android:layout_marginEnd="@dimen/spacing_medium"
+		tools:text="1" />
 
 	<TextView
 		android:id="@+id/chained_edit_text_view_4"
@@ -53,9 +54,9 @@
 		android:layout_height="@dimen/chained_edit_text_height"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_5"
-		app:layout_constraintStart_toEndOf="@+id/textView"
+		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_3"
 		app:layout_constraintTop_toTopOf="parent"
-		tools:text="4" />
+		tools:text="2" />
 
 	<TextView
 		android:id="@+id/chained_edit_text_view_5"
@@ -66,7 +67,7 @@
 		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_6"
 		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_4"
 		app:layout_constraintTop_toTopOf="parent"
-		tools:text="5" />
+		tools:text="2" />
 
 	<TextView
 		android:id="@+id/chained_edit_text_view_6"
@@ -74,20 +75,78 @@
 		android:layout_width="@dimen/chained_edit_text_width"
 		android:layout_height="@dimen/chained_edit_text_height"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_7"
 		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_5"
 		app:layout_constraintTop_toTopOf="parent"
+		android:layout_marginEnd="@dimen/spacing_medium"
 		tools:selected="true"
-		tools:text="6" />
+		tools:text="2" />
 
-	<View
-		android:id="@+id/textView"
-		android:layout_width="@dimen/spacing_medium"
-		android:layout_height="@dimen/stroke_width_default"
-		android:background="@color/dark_main"
+	<TextView
+		android:id="@+id/chained_edit_text_view_7"
+		style="@style/NextStep.Text.Input"
+		android:layout_width="@dimen/chained_edit_text_width"
+		android:layout_height="@dimen/chained_edit_text_height"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_4"
-		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_3"
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_8"
+		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_6"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="3" />
+
+	<TextView
+		android:id="@+id/chained_edit_text_view_8"
+		style="@style/NextStep.Text.Input"
+		android:layout_width="@dimen/chained_edit_text_width"
+		android:layout_height="@dimen/chained_edit_text_height"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_9"
+		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_7"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="3" />
+
+	<TextView
+		android:id="@+id/chained_edit_text_view_9"
+		style="@style/NextStep.Text.Input"
+		android:layout_width="@dimen/chained_edit_text_width"
+		android:layout_height="@dimen/chained_edit_text_height"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_10"
+		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_8"
+		app:layout_constraintTop_toTopOf="parent"
+		android:layout_marginEnd="@dimen/spacing_medium"
+		tools:text="3" />
+
+	<TextView
+		android:id="@+id/chained_edit_text_view_10"
+		style="@style/NextStep.Text.Input"
+		android:layout_width="@dimen/chained_edit_text_width"
+		android:layout_height="@dimen/chained_edit_text_height"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_11"
+		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_9"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="4" />
+
+	<TextView
+		android:id="@+id/chained_edit_text_view_11"
+		style="@style/NextStep.Text.Input"
+		android:layout_width="@dimen/chained_edit_text_width"
+		android:layout_height="@dimen/chained_edit_text_height"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/chained_edit_text_view_12"
+		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_10"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="4" />
+
+	<TextView
+		android:id="@+id/chained_edit_text_view_12"
+		style="@style/NextStep.Text.Input"
+		android:layout_width="@dimen/chained_edit_text_width"
+		android:layout_height="@dimen/chained_edit_text_height"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_11"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="4" />
 
 </merge>
