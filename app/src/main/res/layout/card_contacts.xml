@@ -25,13 +25,6 @@
 			android:gravity="center_vertical"
 			android:orientation="horizontal">
 
-			<ImageView
-				android:layout_width="@dimen/icon_size"
-				android:layout_height="@dimen/icon_size"
-				android:layout_marginStart="@dimen/spacing_large"
-				android:src="@drawable/ic_begegnungen"
-				android:tint="@color/purple_main" />
-
 			<TextView
 				style="@style/NextStep.Text.Title"
 				android:layout_width="0dp"
@@ -43,8 +36,7 @@
 			<ImageView
 				android:layout_width="@dimen/chevron_size_title"
 				android:layout_height="@dimen/chevron_size_title"
-				android:src="@drawable/ic_chevron_right"
-				android:tint="@color/purple_main" />
+				android:src="@drawable/ic_ic_arrow_forward_homescreen" />
 
 		</LinearLayout>
 
@@ -63,7 +55,7 @@
 				android:layout_marginBottom="@dimen/spacing_medium" />
 
 			<include
-				android:id="@+id/contacts_error"
+				android:id="@+id/tracing_error"
 				layout="@layout/item_error_status"
 				android:visibility="gone" />
 

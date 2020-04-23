@@ -24,7 +24,7 @@ import static org.dpppt.android.app.onboarding.util.PermissionButtonUtil.setButt
 
 public class OnboardingLocationPermissionFragment extends Fragment {
 
-	private static final int REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION = 123;
+	public static final int REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION = 123;
 
 	private Button locationButton;
 	private Button continueButton;

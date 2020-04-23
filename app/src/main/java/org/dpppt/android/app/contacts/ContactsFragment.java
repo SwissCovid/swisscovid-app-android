@@ -3,39 +3,41 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.contacts;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
-import android.net.Uri;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Switch;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.Collection;
+
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.viewmodel.TracingViewModel;
+import org.dpppt.android.app.main.model.TracingState;
 import org.dpppt.android.app.util.DeviceFeatureHelper;
+import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.app.util.TracingStatusHelper;
+import org.dpppt.android.app.viewmodel.TracingViewModel;
+import org.dpppt.android.sdk.InfectionStatus;
+import org.dpppt.android.sdk.TracingStatus;
+
+import static org.dpppt.android.app.onboarding.OnboardingLocationPermissionFragment.REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION;
 
 public class ContactsFragment extends Fragment {
 
+	private static final int REQUEST_CODE_BLE_INTENT = 330;
+
 	private TracingViewModel tracingViewModel;
-
-	private Button locationPermissionButton;
-	private Button bluetoothButton;
-	private Button batteryOptimizationButton;
-
-	private boolean requestedSomething = false;
 
 	public static ContactsFragment newInstance() {
 		return new ContactsFragment();
@@ -55,7 +57,8 @@ public class ContactsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.contacts_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-		View contactStatusView = view.findViewById(R.id.tracing_status);
+		View tracingStatusView = view.findViewById(R.id.tracing_status);
+		View tracingErrorView = view.findViewById(R.id.tracing_error);
 
 		Switch tracingSwitch = view.findViewById(R.id.contacts_tracking_switch);
 		tracingSwitch.setOnClickListener(v -> tracingViewModel.setTracingEnabled(tracingSwitch.isChecked()));
@@ -65,64 +68,74 @@ public class ContactsFragment extends Fragment {
 		});
 
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
-			boolean running = status.isAdvertising() && status.isReceiving();
-			tracingSwitch.setChecked(running);
+			boolean isTracing = status.isAdvertising() && status.isReceiving();
+			tracingSwitch.setChecked(isTracing);
 
-			TracingStatusHelper.State state = (status.getErrors().size() > 0 || !running)
-											  ? TracingStatusHelper.State.WARNING
-											  : TracingStatusHelper.State.OK;
-			int titleRes = state == TracingStatusHelper.State.OK ? R.string.tracing_active_title
-																 : R.string.tracing_error_title;
-			int textRes = state == TracingStatusHelper.State.OK ? R.string.tracing_active_text
-																: R.string.tracing_error_text;
-			TracingStatusHelper.updateStatusView(contactStatusView, state, titleRes, textRes);
-
-			invalidateErrorResolverButtons();
+			Collection<TracingStatus.ErrorState> errors = tracingViewModel.getErrorsLiveData().getValue();
+			if (errors != null && errors.size() > 0) {
+				tracingStatusView.setVisibility(View.GONE);
+				tracingErrorView.setVisibility(View.VISIBLE);
+				TracingStatus.ErrorState errorState = TracingErrorStateHelper.getErrorState(errors);
+				TracingErrorStateHelper.updateErrorView(tracingErrorView, errorState);
+				tracingErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+					switch (errorState) {
+						case MISSING_LOCATION_PERMISSION:
+							if (ActivityCompat
+									.shouldShowRequestPermissionRationale(requireActivity(),
+											Manifest.permission.ACCESS_FINE_LOCATION)) {
+								String[] permissions = new String[] { Manifest.permission.ACCESS_FINE_LOCATION };
+								requestPermissions(permissions, REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION);
+							} else {
+								new AlertDialog.Builder(requireActivity())
+										.setTitle(R.string.button_permission_location_android)
+										.setMessage(R.string.foreground_service_notification_error_location_permission)
+										.setPositiveButton(getString(R.string.button_ok),
+												(dialogInterface, i) -> {
+													DeviceFeatureHelper.openApplicationSettings(requireActivity());
+													dialogInterface.dismiss();
+												})
+										.create()
+										.show();
+							}
+						case BLE_DISABLED:
+							BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+							if (!mBluetoothAdapter.isEnabled()) {
+								Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+								startActivityForResult(enableBtIntent, REQUEST_CODE_BLE_INTENT);
+							}
+					}
+				});
+			} else if (!isTracing) {
+				TracingStatusHelper.showTracingDeactivated(tracingErrorView);
+			} else if (tracingViewModel.getTracingStatusLiveData().getValue().getInfectionStatus() ==
+					InfectionStatus.INFECTED) {
+				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.NOT_ACTIVE);
+			} else {
+				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE);
+			}
 		});
-
-		locationPermissionButton = view.findViewById(R.id.contact_location_permission_button);
-		locationPermissionButton.setOnClickListener(v -> {
-			requestedSomething = true;
-			String[] permissions = new String[] { Manifest.permission.ACCESS_FINE_LOCATION };
-			requestPermissions(permissions, 1);
-		});
-
-		batteryOptimizationButton = view.findViewById(R.id.contact_battery_button);
-		batteryOptimizationButton.setOnClickListener(v -> {
-			requestedSomething = true;
-			startActivity(new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
-					Uri.parse("package:" + requireContext().getPackageName())));
-		});
-
-		bluetoothButton = view.findViewById(R.id.contact_bluetooth_button);
-		bluetoothButton.setOnClickListener(v -> {
-			Toast.makeText(v.getContext(), getString(R.string.activate_bluetooth_button) + " ...", Toast.LENGTH_SHORT).show();
-			BluetoothAdapter.getDefaultAdapter().enable();
-		});
-		tracingViewModel.getBluetoothEnabledLiveData().observe(getViewLifecycleOwner(), bluetoothEnabled -> {
-			bluetoothButton.setVisibility(bluetoothEnabled ? View.GONE : View.VISIBLE);
-		});
-
-		invalidateErrorResolverButtons();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
+		tracingViewModel.invalidateService();
+	}
 
-		if (requestedSomething) {
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		if (requestCode == REQUEST_CODE_BLE_INTENT) {
 			tracingViewModel.invalidateService();
-			invalidateErrorResolverButtons();
-			requestedSomething = false;
 		}
 	}
 
-	private void invalidateErrorResolverButtons() {
-		boolean locationPermissionGranted = DeviceFeatureHelper.isLocationPermissionGranted(requireContext());
-		locationPermissionButton.setVisibility(locationPermissionGranted ? View.GONE : View.VISIBLE);
-
-		boolean batteryOptDeactivated = DeviceFeatureHelper.isBatteryOptimizationDeactivated(requireContext());
-		batteryOptimizationButton.setVisibility(batteryOptDeactivated ? View.GONE : View.VISIBLE);
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		if (requestCode == REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION) {
+			if (grantResults.length <= 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+				tracingViewModel.invalidateService();
+			}
+		}
 	}
 
 }

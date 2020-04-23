@@ -5,12 +5,17 @@
  */
 package org.dpppt.android.app.main;
 
-import android.content.res.ColorStateList;
+import android.Manifest;
+import android.app.AlertDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -19,18 +24,27 @@ import java.util.Collection;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.contacts.ContactsFragment;
 import org.dpppt.android.app.debug.DebugFragment;
+import org.dpppt.android.app.main.model.NotificationState;
+import org.dpppt.android.app.main.model.TracingState;
 import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.util.DebugUtils;
+import org.dpppt.android.app.util.DeviceFeatureHelper;
+import org.dpppt.android.app.util.NotificationStateHelper;
+import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.app.util.TracingStatusHelper;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.app.whattodo.WtdPositiveTestFragment;
 import org.dpppt.android.app.whattodo.WtdSymptomsFragment;
+import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
+
+import static org.dpppt.android.app.onboarding.OnboardingLocationPermissionFragment.REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION;
 
 public class HomeFragment extends Fragment {
 
 	private static final String STATE_SCROLL_VIEW = "STATE_SCROLL_VIEW";
+	private static final int REQUEST_CODE_BLE_INTENT = 330;
 
 	private TracingViewModel tracingViewModel;
 	private HeaderView headerView;
@@ -43,6 +57,7 @@ public class HomeFragment extends Fragment {
 	private View reportStatusView;
 	private View cardSymptoms;
 	private View cardTest;
+	private View tracingErrorView;
 
 	public HomeFragment() {
 		super(R.layout.fragment_home);
@@ -62,6 +77,7 @@ public class HomeFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		tracingCard = view.findViewById(R.id.card_tracing);
 		tracingStatusView = view.findViewById(R.id.tracing_status);
+		tracingErrorView = view.findViewById(R.id.tracing_error);
 		cardNotifications = view.findViewById(R.id.card_notifications);
 		reportStatusBubble = view.findViewById(R.id.report_status_bubble);
 		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
@@ -71,7 +87,8 @@ public class HomeFragment extends Fragment {
 		cardTest = view.findViewById(R.id.card_what_to_do_test);
 
 		setupHeader();
-		setupTracingError();
+		setupTracingView();
+		setupNotification();
 		setupWhatToDo();
 		setupDebugButton();
 
@@ -100,24 +117,62 @@ public class HomeFragment extends Fragment {
 				});
 	}
 
-	private void setupTracingError() {
+	private void setupTracingView() {
+
 		tracingCard.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.replace(R.id.main_fragment_container, ContactsFragment.newInstance())
 						.addToBackStack(ContactsFragment.class.getCanonicalName())
 						.commit());
+
 		tracingViewModel.getTracingEnabledLiveData().observe(getViewLifecycleOwner(),
 				isTracing -> {
 					Collection<TracingStatus.ErrorState> errors = tracingViewModel.getErrorsLiveData().getValue();
-					TracingStatusHelper.State state = errors.size() > 0 || !isTracing ? TracingStatusHelper.State.WARNING :
-													  TracingStatusHelper.State.OK;
-					int titleRes = state == TracingStatusHelper.State.OK ? R.string.tracing_active_title
-																		 : R.string.tracing_error_title;
-					int textRes = state == TracingStatusHelper.State.OK ? R.string.tracing_active_text
-																		: R.string.tracing_error_text;
-					TracingStatusHelper.updateStatusView(tracingStatusView, state, titleRes, textRes);
+					if (errors != null && errors.size() > 0) {
+						tracingStatusView.setVisibility(View.GONE);
+						tracingErrorView.setVisibility(View.VISIBLE);
+						TracingStatus.ErrorState errorState = TracingErrorStateHelper.getErrorState(errors);
+						TracingErrorStateHelper.updateErrorView(tracingErrorView, errorState);
+						tracingErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+							switch (errorState) {
+								case MISSING_LOCATION_PERMISSION:
+									if (ActivityCompat
+											.shouldShowRequestPermissionRationale(requireActivity(),
+													Manifest.permission.ACCESS_FINE_LOCATION)) {
+										String[] permissions = new String[] { Manifest.permission.ACCESS_FINE_LOCATION };
+										requestPermissions(permissions, REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION);
+									} else {
+										new AlertDialog.Builder(requireActivity())
+												.setTitle(R.string.button_permission_location_android)
+												.setMessage(R.string.foreground_service_notification_error_location_permission)
+												.setPositiveButton(getString(R.string.button_ok),
+														(dialogInterface, i) -> {
+															DeviceFeatureHelper.openApplicationSettings(requireActivity());
+															dialogInterface.dismiss();
+														})
+												.create()
+												.show();
+									}
+								case BLE_DISABLED:
+									BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+									if (!mBluetoothAdapter.isEnabled()) {
+										Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+										startActivityForResult(enableBtIntent, REQUEST_CODE_BLE_INTENT);
+									}
+							}
+						});
+					} else if (!isTracing) {
+						TracingStatusHelper.showTracingDeactivated(tracingErrorView);
+					} else if (tracingViewModel.getTracingStatusLiveData().getValue().getInfectionStatus() ==
+							InfectionStatus.INFECTED) {
+						TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.NOT_ACTIVE);
+					} else {
+						TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE);
+					}
 				});
+	}
 
+	private void setupNotification() {
 		cardNotifications.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
@@ -126,25 +181,14 @@ public class HomeFragment extends Fragment {
 
 		tracingViewModel.getSelfOrContactExposedLiveData().observe(getViewLifecycleOwner(),
 				selfOrContactExposed -> {
-					boolean isExposed = selfOrContactExposed.first || selfOrContactExposed.second;
-					TracingStatusHelper.State state =
-							!(isExposed) ? TracingStatusHelper.State.OK
-										 : TracingStatusHelper.State.INFO;
-					int title = isExposed ? (selfOrContactExposed.first ? R.string.meldungen_infected_title
-																		: R.string.meldungen_meldung_title)
-										  : R.string.meldungen_no_meldungen_title;
-					int text = isExposed ? (selfOrContactExposed.first ? R.string.meldungen_infected_text :
-											R.string.meldungen_meldung_text)
-										 : R.string.meldungen_no_meldungen_text;
-
-					reportStatusBubble.setBackgroundTintList(ColorStateList
-							.valueOf(getContext().getColor(isExposed ? R.color.status_blue : R.color.status_green_bg)));
-					TracingStatusHelper.updateStatusView(reportStatusView, state, title, text);
+					if (selfOrContactExposed.first) {
+						NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.POSITIVE_TESTED);
+					} else if (selfOrContactExposed.second) {
+						NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.EXPOSED);
+					} else {
+						NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_NOTIFICATION);
+					}
 				});
-	}
-
-	private void setupNotification() {
-
 	}
 
 	private void setupWhatToDo() {
@@ -169,6 +213,22 @@ public class HomeFragment extends Fragment {
 					v -> DebugFragment.startDebugFragment(getParentFragmentManager()));
 		} else {
 			debugButton.setVisibility(View.GONE);
+		}
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		if (requestCode == REQUEST_CODE_BLE_INTENT) {
+			tracingViewModel.invalidateService();
+		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		if (requestCode == REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION) {
+			if (grantResults.length <= 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+				tracingViewModel.invalidateService();
+			}
 		}
 	}
 

@@ -26,13 +26,6 @@
 			android:gravity="center_vertical"
 			android:orientation="horizontal">
 
-			<ImageView
-				android:layout_width="@dimen/icon_size"
-				android:layout_height="@dimen/icon_size"
-				android:layout_marginStart="@dimen/spacing_large"
-				android:src="@drawable/ic_message"
-				android:tint="@color/purple_main" />
-
 			<TextView
 				style="@style/NextStep.Text.Title"
 				android:layout_width="0dp"
@@ -44,8 +37,7 @@
 			<ImageView
 				android:layout_width="@dimen/chevron_size_title"
 				android:layout_height="@dimen/chevron_size_title"
-				android:src="@drawable/ic_chevron_right"
-				android:tint="@color/purple_main" />
+				android:src="@drawable/ic_ic_arrow_forward_homescreen" />
 
 		</LinearLayout>
 
@@ -54,11 +46,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_margin="@dimen/spacing_medium"
-			android:background="@drawable/bg_status_bubble"
-			android:paddingStart="@dimen/spacing_medium"
-			android:paddingTop="@dimen/spacing_medium_large"
-			android:paddingEnd="@dimen/spacing_medium"
-			android:paddingBottom="@dimen/spacing_medium_large">
+			>
 
 			<include
 				android:id="@+id/report_status"

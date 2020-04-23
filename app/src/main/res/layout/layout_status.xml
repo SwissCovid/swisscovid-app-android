@@ -9,6 +9,10 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	android:paddingStart="@dimen/spacing_medium"
+	android:paddingTop="@dimen/spacing_medium_large"
+	android:paddingEnd="@dimen/spacing_medium"
+	android:paddingBottom="@dimen/spacing_medium_large"
 	android:orientation="horizontal">
 
 	<ImageView
