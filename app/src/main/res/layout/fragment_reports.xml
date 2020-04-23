@@ -57,10 +57,28 @@
 			android:paddingLeft="@dimen/spacing_medium_large"
 			android:paddingTop="@dimen/top_item_padding_reports"
 			android:paddingRight="@dimen/spacing_medium_large"
-			android:paddingBottom="@dimen/spacing_very_large">
+			android:paddingBottom="@dimen/spacing_medium_large">
 
 			<include
 				layout="@layout/card_what_to_do_save_yourself"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/spacing_medium_large" />
+
+			<include
+				layout="@layout/card_what_to_do_call_us"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/spacing_medium_large" />
+
+			<include
+				layout="@layout/card_what_to_do_save_others"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/spacing_medium_large" />
+
+			<include
+				layout="@layout/card_what_to_do_self_isolation"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_medium_large" />

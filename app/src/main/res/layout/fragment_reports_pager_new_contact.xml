@@ -30,7 +30,7 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
 			android:layout_marginTop="@dimen/spacing_small"
-			android:text="meldung_detail_new_contact_title "
+			android:text="@string/meldung_detail_new_contact_title"
 			android:textColor="@color/white" />
 
 		<TextView
@@ -40,7 +40,7 @@
 			android:layout_gravity="center_horizontal"
 			android:layout_marginTop="@dimen/spacing_tiny_small"
 			android:gravity="center"
-			android:text="meldung_detail_new_contact_subtitle"
+			android:text="@string/meldung_detail_new_contact_subtitle"
 			android:textColor="@color/white" />
 
 		<TextView
@@ -51,7 +51,6 @@
 			android:layout_marginTop="@dimen/spacing_small"
 			android:gravity="center"
 			android:textSize="@dimen/text_size_small"
-			android:text="@string/meldung_detail_exposed_subtitle"
 			tools:text="Heute" />
 
 	</LinearLayout>

@@ -51,7 +51,6 @@
 			android:layout_marginTop="@dimen/spacing_small"
 			android:gravity="center"
 			android:textSize="@dimen/text_size_small"
-			android:text="@string/meldung_detail_exposed_subtitle"
 			tools:text="Heute" />
 
 	</LinearLayout>

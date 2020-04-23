@@ -119,18 +119,20 @@ public class ReportsFragment extends Fragment {
 		public Fragment createFragment(int position) {
 			switch (position) {
 				case 0:
-					return ReportsPagerFragment.newNoReportsInstance(ReportsPagerFragment.Type.NO_REPORTS);
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS);
 				case 1:
-					return ReportsPagerFragment.newNoReportsInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION);
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION);
 				case 2:
-					return ReportsPagerFragment.newNoReportsInstance(ReportsPagerFragment.Type.NEW_CONTACT);
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT);
+				case 3:
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED);
 			}
 			throw new IllegalArgumentException("There is no fragment for view pager position " + position);
 		}
 
 		@Override
 		public int getItemCount() {
-			return 3;
+			return 4;
 		}
 
 	}

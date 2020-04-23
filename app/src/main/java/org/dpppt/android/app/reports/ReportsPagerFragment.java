@@ -12,7 +12,7 @@ import org.dpppt.android.app.R;
 
 public class ReportsPagerFragment extends Fragment {
 
-	public static final String ARG_TYPE = "ARG_TYPE";
+	private static final String ARG_TYPE = "ARG_TYPE";
 
 	public enum Type {
 		NO_REPORTS,
@@ -23,7 +23,7 @@ public class ReportsPagerFragment extends Fragment {
 
 	private Type type;
 
-	public static ReportsPagerFragment newNoReportsInstance(@NonNull Type type) {
+	public static ReportsPagerFragment newInstance(@NonNull Type type) {
 		ReportsPagerFragment reportsPagerFragment = new ReportsPagerFragment();
 		Bundle args = new Bundle();
 		args.putInt(ARG_TYPE, type.ordinal());
@@ -56,7 +56,7 @@ public class ReportsPagerFragment extends Fragment {
 				view = inflater.inflate(R.layout.fragment_reports_pager_new_contact, container, false);
 				break;
 			case POSITIVE_TESTED:
-				view = inflater.inflate(R.layout.fragment_reports_pager_new_contact, container, false);
+				view = inflater.inflate(R.layout.fragment_reports_pager_positive_tested, container, false);
 				break;
 		}
 

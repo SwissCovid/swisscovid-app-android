@@ -528,7 +528,7 @@ Dazu benötigen Sie den Covid-Code aus dem Testergebnis."</string>
     <string name="meldungen_detail_call">"Rufen Sie uns an"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Expert*innen der Infoline  beraten Sie telefonisch:  +41 98 765 43 21"</string>
+    <string name="meldungen_detail_call_text">"Expert*innen der Infoline beraten Sie telefonisch: +41 98 765 43 21"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Jetzt anrufen"</string>
