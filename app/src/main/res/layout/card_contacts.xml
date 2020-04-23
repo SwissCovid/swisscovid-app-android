@@ -36,7 +36,8 @@
 			<ImageView
 				android:layout_width="@dimen/chevron_size_title"
 				android:layout_height="@dimen/chevron_size_title"
-				android:src="@drawable/ic_ic_arrow_forward_homescreen" />
+				android:src="@drawable/ic_chevron_right"
+				android:tint="@color/dark_main"/>
 
 		</LinearLayout>
 
