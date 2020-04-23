@@ -2,7 +2,6 @@ package org.dpppt.android.app.reports;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
@@ -38,7 +37,7 @@ public class LockableScrollView extends ScrollView {
 		if (scrollPreventRect == null) return true;
 
 		int x = (int) e.getX();
-		int y = (int) e.getY();
+		int y = (int) e.getY() + getScrollY();
 
 		return !scrollPreventRect.contains(x, y);
 	}
