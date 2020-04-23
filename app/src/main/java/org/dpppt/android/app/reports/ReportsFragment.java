@@ -17,8 +17,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
+import org.dpppt.android.sdk.internal.database.models.MatchedContact;
 
 public class ReportsFragment extends Fragment {
 
@@ -28,7 +33,7 @@ public class ReportsFragment extends Fragment {
 
 	private TracingViewModel tracingViewModel;
 
-	private FragmentStateAdapter pagerAdapter;
+	private ReportsSlidePageAdapter pagerAdapter;
 
 	private NestedScrollableHost header;
 	private ViewPager2 viewPager;
@@ -77,62 +82,58 @@ public class ReportsFragment extends Fragment {
 			scrollView.setScrollPreventRect(rect);
 		});
 
-		/*
-		tracingViewModel.getSelfOrContactExposedLiveData().observe(getViewLifecycleOwner(), selfOrContactExposed -> {
-			boolean isExposed = selfOrContactExposed.first || selfOrContactExposed.second;
-			TracingStatusHelper.State state =
-					!(isExposed) ? TracingStatusHelper.State.OK
-								 : TracingStatusHelper.State.INFO;
-			int title =
-					isExposed ? (selfOrContactExposed.first ? R.string.meldungen_infected_title : R.string.meldungen_meldung_title)
-							  : R.string.meldungen_no_meldungen_title;
-			int text = isExposed ? (selfOrContactExposed.first ? R.string.meldungen_infected_text :
-									R.string.meldungen_meldung_text)
-								 : R.string.meldungen_no_meldungen_text;
-			ColorStateList bubbleColor =
-					ColorStateList.valueOf(getContext().getColor(isExposed ? R.color.status_blue : R.color.status_green_bg));
+		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
+			switch (status.getInfectionStatus()) {
+				case HEALTHY:
+					pagerAdapter.setFragments(
+							Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS)));
+					break;
+				case EXPOSED:
+					if (status.getMatchedContacts().size() == 1) {
+						pagerAdapter.setFragments(
+								Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION)));
+						break;
+					}
+					List<Fragment> fragments = new ArrayList<>();
+					for (int i = 0; i < status.getMatchedContacts().size(); i++) {
+						MatchedContact matchedContact = status.getMatchedContacts().get(i);
+						if (i == 0) {
+							fragments.add(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION));
+						} else {
+							fragments.add(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT));
+						}
+					}
 
-			TracingStatusHelper.updateStatusView(statusView, state, title, text);
-			statusBubble.setBackgroundTintList(bubbleColor);
-			statusBubbleTriangle.setImageTintList(bubbleColor);
-			infoBubbleExposed
-					.setBackground(isExposed ? getResources().getDrawable(R.drawable.bg_status_bubble_stroke_grey, null)
-											 : null);
-			exposedInfoGroup.setVisibility(isExposed ? View.VISIBLE : View.GONE);
-			if (isExposed) {
-				((TextView) exposedInfoGroup.findViewById(R.id.notifications_info_text_specific)).setText(
-						selfOrContactExposed.first ? R.string.meldungen_hinweis_info_text1_infected
-												   : R.string.meldungen_hinweis_info_text1);
+					break;
+				case INFECTED:
+					pagerAdapter.setFragments(
+							Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED))
+					);
+					break;
 			}
 		});
-		 */
 	}
 
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {
+		private List<Fragment> fragments = new ArrayList<>();
 
-		public ReportsSlidePageAdapter() {
+		ReportsSlidePageAdapter() {
 			super(ReportsFragment.this);
+		}
+
+		void setFragments(List<Fragment> fragments) {
+			this.fragments = fragments;
 		}
 
 		@NonNull
 		@Override
 		public Fragment createFragment(int position) {
-			switch (position) {
-				case 0:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS);
-				case 1:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION);
-				case 2:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT);
-				case 3:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED);
-			}
-			throw new IllegalArgumentException("There is no fragment for view pager position " + position);
+			return fragments.get(position);
 		}
 
 		@Override
 		public int getItemCount() {
-			return 4;
+			return fragments.size();
 		}
 
 	}
