@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="center_horizontal"
+	android:orientation="vertical"
+	android:padding="@dimen/padding_status_error"
+	android:paddingBottom="@dimen/padding_bottom_status_error">
+
+	<ImageView
+		android:id="@+id/error_status_image"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/ic_ic_bluetooth_disabled" />
+
+	<TextView
+		android:id="@+id/error_status_title"
+		style="@style/NextStep.Text.Bold.Red.CAPS"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingTop="@dimen/spacing_small"
+		android:text="@string/bluetooth_permission_error_title" />
+
+	<TextView
+		android:id="@+id/error_status_text"
+		style="@style/NextStep.Text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:text="@string/bluetooth_permission_error_text" />
+
+	<TextView
+		android:id="@+id/error_status_button"
+		style="@style/NextStep.Text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:paddingTop="@dimen/padding_status_error"
+		android:text="@string/activate_bluetooth_button" />
+
+</LinearLayout>

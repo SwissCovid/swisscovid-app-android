@@ -3,9 +3,9 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.main.model;
 
+@Deprecated
 public enum AppState {
 	TRACING_ON,
 	TRACING_OFF,

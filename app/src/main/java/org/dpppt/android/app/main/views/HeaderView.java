@@ -3,7 +3,6 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.main.views;
 
 import android.animation.Animator;
@@ -17,7 +16,9 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.*;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.DrawableRes;
@@ -181,7 +182,8 @@ public class HeaderView extends FrameLayout {
 		return animatorSet;
 	}
 
-	private AnimatorSet createIconSwitchAnimation(ImageView iconView, ImageView iconBg, @DrawableRes int iconRes, @DrawableRes int iconBgRes, long duration) {
+	private AnimatorSet createIconSwitchAnimation(ImageView iconView, ImageView iconBg, @DrawableRes int iconRes,
+			@DrawableRes int iconBgRes, long duration) {
 		long halfDur = duration / 2;
 		AnimatorSet animatorSet = new AnimatorSet();
 

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Created by Ubique Innovation AG
   ~ https://www.ubique.ch
   ~ Copyright (c) 2020. All rights reserved.
@@ -49,16 +48,26 @@
 
 		</LinearLayout>
 
-		<include
-			android:id="@+id/contacts_status"
-			layout="@layout/layout_status"
+		<FrameLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="@dimen/spacing_large"
-			android:layout_marginTop="@dimen/spacing_medium"
-			android:layout_marginEnd="@dimen/spacing_large"
-			android:layout_marginBottom="@dimen/spacing_medium" />
+			android:layout_height="wrap_content">
 
+			<include
+				android:id="@+id/contacts_status"
+				layout="@layout/layout_status"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/spacing_large"
+				android:layout_marginTop="@dimen/spacing_medium"
+				android:layout_marginEnd="@dimen/spacing_large"
+				android:layout_marginBottom="@dimen/spacing_medium" />
+
+			<include
+				android:id="@+id/contacts_error"
+				layout="@layout/item_error_status"
+				android:visibility="gone" />
+
+		</FrameLayout>
 	</LinearLayout>
 
 </androidx.cardview.widget.CardView>

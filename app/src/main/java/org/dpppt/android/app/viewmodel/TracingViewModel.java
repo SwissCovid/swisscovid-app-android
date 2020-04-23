@@ -20,12 +20,12 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.Collections;
 import java.util.List;
 
+import org.dpppt.android.app.debug.TracingStatusWrapper;
 import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.AppState;
 import org.dpppt.android.app.util.DeviceFeatureHelper;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.app.debug.TracingStatusWrapper;
 
 public class TracingViewModel extends AndroidViewModel {
 
@@ -64,7 +64,8 @@ public class TracingViewModel extends AndroidViewModel {
 			numberOfHandshakesLiveData.setValue(status.getNumberOfHandshakes());
 			tracingStatusWrapper.setStatus(status);
 
-			exposedLiveData.setValue(new Pair<>(tracingStatusWrapper.isReportedAsExposed(), tracingStatusWrapper.wasContactExposed()));
+			exposedLiveData
+					.setValue(new Pair<>(tracingStatusWrapper.isReportedAsExposed(), tracingStatusWrapper.wasContactExposed()));
 
 			errorsLiveData.setValue(status.getErrors());
 

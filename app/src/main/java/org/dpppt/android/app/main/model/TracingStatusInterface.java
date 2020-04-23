@@ -1,6 +1,7 @@
 package org.dpppt.android.app.main.model;
 
 import org.dpppt.android.app.debug.model.DebugAppState;
+import org.dpppt.android.sdk.TracingStatus;
 
 public interface TracingStatusInterface {
 
@@ -12,6 +13,13 @@ public interface TracingStatusInterface {
 
 	DebugAppState getDebugAppState();
 
+	@Deprecated
 	AppState getAppState();
+
+	TracingState getTracingState();
+
+	NotificationState getNotificationState();
+
+	TracingStatus.ErrorState getTracingErrorState();
 
 }

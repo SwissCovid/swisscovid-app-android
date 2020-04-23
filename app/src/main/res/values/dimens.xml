@@ -45,5 +45,7 @@
 	<dimen name="chained_edit_text_height">44sp</dimen>
 	<dimen name="chained_edit_text_width">40sp</dimen>
 	<dimen name="size_progress_bar">48dp</dimen>
+	<dimen name="padding_status_error">20dp</dimen>
+	<dimen name="padding_bottom_status_error">30dp</dimen>
 	<dimen name="onboarding_continue_button_height">72dp</dimen>
 </resources>

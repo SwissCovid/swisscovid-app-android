@@ -2,6 +2,8 @@ package org.dpppt.android.app.debug;
 
 import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.AppState;
+import org.dpppt.android.app.main.model.NotificationState;
+import org.dpppt.android.app.main.model.TracingState;
 import org.dpppt.android.app.main.model.TracingStatusInterface;
 import org.dpppt.android.sdk.TracingStatus;
 
@@ -80,6 +82,43 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 				return AppState.ERROR_SYNC_FAILED;
 		}
 		throw new IllegalStateException("Unkown ErrorState: " + error.toString());
+	}
+
+	@Override
+	public TracingState getTracingState() {
+		boolean tracingOff = !(status.isAdvertising() || status.isReceiving());
+		return tracingOff ? TracingState.NOT_ACTIVE : TracingState.ACTIVE;
+	}
+
+	@Override
+	public TracingStatus.ErrorState getTracingErrorState() {
+		boolean hasError = status.getErrors().size() > 0;
+		if (hasError) {
+			//TODO discuss this
+			return status.getErrors().get(0);
+		}
+		throw new IllegalStateException("Should not call function if there is no error: ");
+	}
+
+	@Override
+	public NotificationState getNotificationState() {
+		switch (debugAppState) {
+			case NONE:
+				if (status.isReportedAsExposed()) {
+					return NotificationState.POSITIVE_TESTED;
+				} else if (status.wasContactExposed()) {
+					return NotificationState.EXPOSED;
+				} else {
+					return NotificationState.NO_NOTIFICATION;
+				}
+			case HEALTHY:
+				return NotificationState.NO_NOTIFICATION;
+			case REPORTED_EXPOSED:
+				return NotificationState.POSITIVE_TESTED;
+			case CONTACT_EXPOSED:
+				return NotificationState.EXPOSED;
+		}
+		throw new IllegalStateException("Unkown debug AppState: " + debugAppState.toString());
 	}
 
 }

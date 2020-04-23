@@ -17,14 +17,14 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.List;
 
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.app.contacts.ContactsFragment;
 import org.dpppt.android.app.debug.DebugFragment;
-import org.dpppt.android.app.util.DebugUtils;
 import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.notifications.NotificationsFragment;
 import org.dpppt.android.app.trigger.TriggerFragment;
+import org.dpppt.android.app.util.DebugUtils;
 import org.dpppt.android.app.util.TracingStatusHelper;
+import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.app.whattodo.WtdPositiveTestFragment;
 import org.dpppt.android.app.whattodo.WtdSymptomsFragment;
 import org.dpppt.android.sdk.TracingStatus;
@@ -79,7 +79,9 @@ public class HomeFragment extends Fragment {
 	private void setupHeader(View view) {
 		headerView = view.findViewById(R.id.home_header_container);
 		tracingViewModel.getAppStateLiveData()
-				.observe(getViewLifecycleOwner(), appState -> headerView.setState(appState));
+				.observe(getViewLifecycleOwner(), appState -> {
+					headerView.setState(appState);
+				});
 	}
 
 	private void setupStatusElements(View view) {

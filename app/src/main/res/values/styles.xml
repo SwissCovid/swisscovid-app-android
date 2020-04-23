@@ -46,6 +46,11 @@
 		<item name="android:textColor">@color/red_main</item>
 	</style>
 
+	<style name="NextStep.Text.Bold.Red.CAPS">
+		<item name="android:textAllCaps">true</item>
+		<item name="android:letterSpacing">0.1</item>
+	</style>
+
 	<style name="NextStep.Text.Bold.Purple">
 		<item name="android:textColor">@color/purple_main</item>
 	</style>
