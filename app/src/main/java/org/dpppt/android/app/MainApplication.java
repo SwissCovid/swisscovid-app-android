@@ -3,7 +3,6 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app;
 
 import android.app.Application;
@@ -21,6 +20,7 @@ import androidx.core.app.NotificationCompat;
 
 import org.dpppt.android.app.util.DebugUtils;
 import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
 
@@ -53,7 +53,7 @@ public class MainApplication extends Application {
 			SharedPreferences prefs = context.getSharedPreferences("notification_prefs", Context.MODE_PRIVATE);
 			if (!prefs.getBoolean("notification_shown", false)) {
 				TracingStatus status = DP3T.getStatus(context);
-				if (status.wasContactExposed()) {
+				if (status.getInfectionStatus() == InfectionStatus.EXPOSED) {
 
 					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 						createNotificationChannel();

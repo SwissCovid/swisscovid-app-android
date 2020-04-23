@@ -17,8 +17,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 import org.dpppt.android.app.debug.TracingStatusWrapper;
 import org.dpppt.android.app.debug.model.DebugAppState;
@@ -40,7 +40,7 @@ public class TracingViewModel extends AndroidViewModel {
 	private final MutableLiveData<Boolean> tracingEnabledLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Pair<Boolean, Boolean>> exposedLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Integer> numberOfHandshakesLiveData = new MutableLiveData<>(0);
-	private final MutableLiveData<List<TracingStatus.ErrorState>> errorsLiveData = new MutableLiveData<>(Collections.emptyList());
+	private final MutableLiveData<Collection<TracingStatus.ErrorState>> errorsLiveData = new MutableLiveData<>(Collections.emptyList());
 	private final MutableLiveData<AppState> appStateLiveData = new MutableLiveData<>();
 
 	private final MutableLiveData<Boolean> bluetoothEnabledLiveData = new MutableLiveData<>();
@@ -61,11 +61,11 @@ public class TracingViewModel extends AndroidViewModel {
 
 		tracingStatusLiveData.observeForever(status -> {
 			tracingEnabledLiveData.setValue(status.isAdvertising() && status.isReceiving());
-			numberOfHandshakesLiveData.setValue(status.getNumberOfHandshakes());
+			numberOfHandshakesLiveData.setValue(status.getNumberOfContacts());
 			tracingStatusWrapper.setStatus(status);
 
 			exposedLiveData
-					.setValue(new Pair<>(tracingStatusWrapper.isReportedAsExposed(), tracingStatusWrapper.wasContactExposed()));
+					.setValue(new Pair<>(tracingStatusWrapper.isReportedAsInfected(), tracingStatusWrapper.wasContactReportedAsExposed()));
 
 			errorsLiveData.setValue(status.getErrors());
 
@@ -98,7 +98,7 @@ public class TracingViewModel extends AndroidViewModel {
 		return exposedLiveData;
 	}
 
-	public LiveData<List<TracingStatus.ErrorState>> getErrorsLiveData() {
+	public LiveData<Collection<TracingStatus.ErrorState>> getErrorsLiveData() {
 		return errorsLiveData;
 	}
 

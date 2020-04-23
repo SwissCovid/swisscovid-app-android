@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.contacts.ContactsFragment;
@@ -108,7 +108,7 @@ public class HomeFragment extends Fragment {
 						.commit());
 		tracingViewModel.getTracingEnabledLiveData().observe(getViewLifecycleOwner(),
 				isTracing -> {
-					List<TracingStatus.ErrorState> errors = tracingViewModel.getErrorsLiveData().getValue();
+					Collection<TracingStatus.ErrorState> errors = tracingViewModel.getErrorsLiveData().getValue();
 					TracingStatusHelper.State state = errors.size() > 0 || !isTracing ? TracingStatusHelper.State.WARNING :
 													  TracingStatusHelper.State.OK;
 					int titleRes = state == TracingStatusHelper.State.OK ? R.string.tracing_active_title

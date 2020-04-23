@@ -22,15 +22,14 @@ import java.util.Date;
 
 import com.google.gson.Gson;
 
+import org.dpppt.android.app.R;
 import org.dpppt.android.app.inform.model.AccessTokenModel;
 import org.dpppt.android.app.inform.views.ChainedEditText;
+import org.dpppt.android.app.util.InfoDialog;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.internal.backend.CallbackListener;
 import org.dpppt.android.sdk.internal.backend.ResponseException;
 import org.dpppt.android.sdk.internal.backend.models.ExposeeAuthData;
-
-import org.dpppt.android.app.R;
-import org.dpppt.android.app.util.InfoDialog;
 
 public class InformFragment extends Fragment {
 
@@ -123,13 +122,14 @@ public class InformFragment extends Fragment {
 
 		String onsetDate = getOnsetDate(accessToken);
 		if (onsetDate == null)
-			showErrorDialog(getString(R.string.unexpected_error_title).replace("{ERROR}", "Received unreadable jwt access-token."));
+			showErrorDialog(getString(R.string.unexpected_error_title).replace("{ERROR}", "Received unreadable jwt access-token" +
+					"."));
 		informExposed(onsetDate, accessToken);
 	}
 
 	private void informExposed(String onsetDate, String accessToken) {
-		DP3T.sendIWasExposed(getContext(), new Date()/*onsetDate*/,
-				new ExposeeAuthData(accessToken), new CallbackListener<Void>() {
+		DP3T.sendIAmInfected(getContext(), new Date()/*onsetDate*/,
+				new ExposeeAuthData(accessToken), null, new CallbackListener<Void>() {
 					@Override
 					public void onSuccess(Void response) {
 						if (progressDialog != null && progressDialog.isShowing()) {

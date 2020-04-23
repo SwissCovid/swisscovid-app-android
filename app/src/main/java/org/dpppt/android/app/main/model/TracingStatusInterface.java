@@ -5,9 +5,9 @@ import org.dpppt.android.sdk.TracingStatus;
 
 public interface TracingStatusInterface {
 
-	boolean isReportedAsExposed();
+	boolean isReportedAsInfected();
 
-	boolean wasContactExposed();
+	boolean wasContactReportedAsExposed();
 
 	void setDebugAppState(DebugAppState debugAppState);
 

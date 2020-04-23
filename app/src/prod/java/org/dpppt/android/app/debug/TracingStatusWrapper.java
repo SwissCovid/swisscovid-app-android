@@ -22,12 +22,12 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public boolean isReportedAsExposed() {
-		return status.isReportedAsExposed();
+		return status.getInfectionStatus() == InfectionStatus.INFECTED;
 	}
 
 	@Override
 	public boolean wasContactExposed() {
-		return status.wasContactExposed();
+		return status.getInfectionStatus() == InfectionStatus.EXPOSED;
 	}
 
 	@Override
