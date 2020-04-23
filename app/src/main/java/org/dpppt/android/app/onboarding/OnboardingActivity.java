@@ -31,54 +31,26 @@ public class OnboardingActivity extends FragmentActivity {
 
 	private ViewPager2 viewPager;
 	private FragmentStateAdapter pagerAdapter;
-	private FloatingActionButton floatingActionButton;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_onboarding);
 
-		ScrollView scrollView = findViewById(R.id.onboarding_scroll_view);
 		viewPager = findViewById(R.id.pager);
 		pagerAdapter = new OnboardingSlidePageAdapter(this);
 		viewPager.setAdapter(pagerAdapter);
-		viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-			@Override
-			public void onPageSelected(int position) {
-				updateStepButton();
-				scrollView.smoothScrollTo(0, 0);
-			}
-		});
-
-		TabLayout tabLayout = findViewById(R.id.onboarding_tab_dots);
-		new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.select()).attach();
-
-		floatingActionButton = findViewById(R.id.onboarding_fab);
-		floatingActionButton.setOnClickListener(v -> {
-			int currentItem = viewPager.getCurrentItem();
-			if (currentItem < pagerAdapter.getItemCount() - 1) {
-				viewPager.setCurrentItem(currentItem + 1, true);
-			} else {
-				DP3T.start(this);
-				setResult(RESULT_OK);
-				finish();
-			}
-		});
 	}
 
-	public void updateStepButton() {
-		floatingActionButton.setEnabled(checkPermissionsReady()
-				|| viewPager.getCurrentItem() < OnboardingSlidePageAdapter.SCREEN_INDEX_PERMISSIONS);
-	}
-
-	public boolean checkPermissionsReady() {
-		BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-		boolean bluetoothEnabled = bluetoothAdapter != null && bluetoothAdapter.isEnabled();
-		PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
-		boolean batteryOptDeact = powerManager.isIgnoringBatteryOptimizations(this.getPackageName());
-		boolean locationGranted = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
-				PackageManager.PERMISSION_GRANTED;
-		return bluetoothEnabled && batteryOptDeact && locationGranted;
+	public void continueToNextPage() {
+		int currentItem = viewPager.getCurrentItem();
+		if (currentItem < pagerAdapter.getItemCount() - 1) {
+			viewPager.setCurrentItem(currentItem + 1, true);
+		} else {
+			DP3T.start(this);
+			setResult(RESULT_OK);
+			finish();
+		}
 	}
 
 	@Override

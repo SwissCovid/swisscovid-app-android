@@ -13,8 +13,8 @@
 
 	<ImageView
 		android:id="@+id/status_icon"
-		android:layout_width="@dimen/icon_size_title"
-		android:layout_height="@dimen/icon_size_title"
+		android:layout_width="@dimen/icon_size"
+		android:layout_height="@dimen/icon_size"
 		tools:src="@drawable/ic_check" />
 
 	<LinearLayout
@@ -31,14 +31,14 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="1dp"
 			android:layout_marginBottom="2dp"
-			tools:text="@string/bluetooth_setting_tracking_active" />
+			tools:text="Status" />
 
 		<TextView
 			android:id="@+id/status_text"
 			style="@style/NextStep.Text"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			tools:text="@string/bluetooth_setting_tracking_active_subtext" />
+			tools:text="Subtext" />
 
 	</LinearLayout>
 

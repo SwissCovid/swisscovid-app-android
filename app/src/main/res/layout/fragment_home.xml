@@ -100,8 +100,8 @@
 
 					<ImageView
 						android:id="@+id/status_icon"
-						android:layout_width="@dimen/icon_size_title"
-						android:layout_height="@dimen/icon_size_title"
+						android:layout_width="@dimen/icon_size"
+						android:layout_height="@dimen/icon_size"
 						android:src="@drawable/ic_warning"
 						android:tint="@color/status_red" />
 

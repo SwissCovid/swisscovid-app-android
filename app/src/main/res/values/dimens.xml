@@ -23,7 +23,7 @@
 	<dimen name="text_size_small">14sp</dimen>
 	<dimen name="text_size_button">16sp</dimen>
 	<dimen name="chevron_size_title">48dp</dimen>
-	<dimen name="illustration_height">220dp</dimen>
+	<dimen name="illustration_height">180dp</dimen>
 	<dimen name="info_button_size">48dp</dimen>
 	<dimen name="home_appbar_height">240dp</dimen>
 	<dimen name="button_elevation">4dp</dimen>
@@ -32,7 +32,7 @@
 	<dimen name="card_what_to_do_ill_margin">32dp</dimen>
 	<dimen name="card_ill_width">80dp</dimen>
 	<dimen name="toolbar_elevation">3dp</dimen>
-	<dimen name="icon_size_title">24dp</dimen>
+	<dimen name="icon_size">24dp</dimen>
 	<dimen name="stroke_width_default">2dp</dimen>
 	<dimen name="button_corner_radius">4dp</dimen>
 	<dimen name="top_item_padding">125dp</dimen>
@@ -45,4 +45,5 @@
 	<dimen name="chained_edit_text_height">44sp</dimen>
 	<dimen name="chained_edit_text_width">40sp</dimen>
 	<dimen name="size_progress_bar">48dp</dimen>
+	<dimen name="onboarding_continue_button_height">72dp</dimen>
 </resources>
