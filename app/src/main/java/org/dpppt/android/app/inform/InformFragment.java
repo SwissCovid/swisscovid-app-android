@@ -86,6 +86,8 @@ public class InformFragment extends Fragment {
 
 		if (System.currentTimeMillis() - lastRequest < TIMEOUT_VALID_CODE) {
 			authCodeInput.setText(lastCode);
+		} else if (lastCode != null || lastToken != null) {
+			preferences.edit().clear().commit();
 		}
 
 		buttonSend.setOnClickListener(v -> {

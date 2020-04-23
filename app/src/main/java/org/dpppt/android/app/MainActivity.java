@@ -24,6 +24,8 @@ import org.dpppt.android.app.onboarding.OnboardingActivity;
 
 public class MainActivity extends FragmentActivity {
 
+	public static final String EXTRA_NOTIFICATION_CONTACT_ID = "EXTRA_NOTIFICATION_CONTACT_ID";
+
 	private static final String PREFS_COVID = "PREFS_COVID";
 	private static final String PREF_KEY_ONBOARDING_COMPLETED = "PREF_KEY_ONBOARDING_COMPLETED";
 
@@ -46,6 +48,7 @@ public class MainActivity extends FragmentActivity {
 			boolean onboardingCompleted = preferences.getBoolean(PREF_KEY_ONBOARDING_COMPLETED, false);
 
 			if (onboardingCompleted) {
+
 				bottomNavigationView.setSelectedItemId(R.id.action_home);
 			} else {
 				startActivityForResult(new Intent(this, OnboardingActivity.class), REQ_ONBOARDING);
