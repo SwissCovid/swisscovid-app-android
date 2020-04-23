@@ -16,7 +16,9 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnticipateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.FrameLayout;
@@ -143,8 +145,8 @@ public class HeaderView extends FrameLayout {
 			iconAnimatorSet.playTogether(iconAnimator, iconBgAnimator);
 			iconAnimatorSet.start();
 		} else {
-			iconAnimatorSet = createIconSwitchAnimation(icon, iconBackground, iconRes, iconBgRes, ICON_ANIM_DURATION);
-			iconAnimatorSet.start();
+			icon.setImageResource(iconRes);
+			iconBackground.setImageResource(iconBgRes);
 		}
 
 		currentState = state;
@@ -163,23 +165,17 @@ public class HeaderView extends FrameLayout {
 		return animator;
 	}
 
-	private AnimatorSet createSizeBumpAnimation(View view, float to, long duration, Runnable onBumpPeak) {
-		long halfDur = duration / 2;
-		AnimatorSet animatorSet = new AnimatorSet();
-
-		ValueAnimator bumpStart = createSizeAnimation(view, 1f, to, halfDur, 0);
-		bumpStart.setInterpolator(new LinearInterpolator());
-		bumpStart.addListener(new AnimatorListenerAdapter() {
-			@Override
-			public void onAnimationEnd(Animator animation) {
-				super.onAnimationEnd(animation);
-				if (onBumpPeak != null) onBumpPeak.run();
-			}
+	private ValueAnimator createAlphaAnimation(View view, float from, float to, long duration, long delay) {
+		ValueAnimator animator = ValueAnimator.ofFloat(from, to);
+		animator.setInterpolator(new DecelerateInterpolator());
+		animator.setDuration(duration);
+		animator.setStartDelay(delay);
+		animator.addUpdateListener(animation -> {
+			float alpha = (float) animation.getAnimatedValue();
+			view.setAlpha(alpha);
+			view.setAlpha(alpha);
 		});
-		ValueAnimator bumpEnd = createSizeAnimation(view, to, 1f, halfDur, 0);
-
-		animatorSet.playSequentially(bumpStart, bumpEnd);
-		return animatorSet;
+		return animator;
 	}
 
 	private AnimatorSet createIconSwitchAnimation(ImageView iconView, ImageView iconBg, @DrawableRes int iconRes,
@@ -188,28 +184,28 @@ public class HeaderView extends FrameLayout {
 		AnimatorSet animatorSet = new AnimatorSet();
 
 		ValueAnimator disappearIcon = createSizeAnimation(iconView, 1f, 0f, halfDur, ICON_ANIM_DELAY);
-		disappearIcon.setInterpolator(new AnticipateInterpolator(ANIM_OVERSHOOT_TENSION));
+		disappearIcon.setInterpolator(new AccelerateInterpolator());
+		ValueAnimator appearIcon = createAlphaAnimation(iconView, 0f, 1f, halfDur, 0);
 		disappearIcon.addListener(new AnimatorListenerAdapter() {
 			@Override
 			public void onAnimationEnd(Animator animation) {
 				icon.setImageResource(iconRes);
 			}
 		});
-		ValueAnimator appearIcon = createSizeAnimation(iconView, 0f, 1f, halfDur, 0);
 
 		ValueAnimator disappearBg = createSizeAnimation(iconView, 1f, 0f, halfDur, 0);
-		disappearBg.setInterpolator(new AnticipateInterpolator(ANIM_OVERSHOOT_TENSION));
+		disappearBg.setInterpolator(new AccelerateInterpolator());
+		ValueAnimator appearBg = createSizeAnimation(iconView, 0f, 1f, halfDur, 0);
 		disappearBg.addListener(new AnimatorListenerAdapter() {
 			@Override
 			public void onAnimationEnd(Animator animation) {
 				iconBg.setImageResource(iconBgRes);
 			}
 		});
-		ValueAnimator appearBg = createSizeAnimation(iconView, 0f, 1f, halfDur, 0);
 
-		animatorSet.playTogether(disappearIcon, disappearBg);
-		animatorSet.play(appearIcon).after(disappearIcon);
+		animatorSet.playTogether(disappearBg, disappearIcon);
 		animatorSet.play(appearBg).after(disappearBg);
+		animatorSet.play(appearIcon).after(disappearIcon);
 		return animatorSet;
 	}
 

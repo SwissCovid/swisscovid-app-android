@@ -24,6 +24,7 @@ import java.util.Collection;
 
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.main.model.TracingState;
+import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.util.DeviceFeatureHelper;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.app.util.TracingStatusHelper;
@@ -57,15 +58,17 @@ public class ContactsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.contacts_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
+		HeaderView headerView = view.findViewById(R.id.contacts_header_view);
+		tracingViewModel.getAppStateLiveData()
+				.observe(getViewLifecycleOwner(), appState -> {
+					headerView.setState(appState);
+				});
+
 		View tracingStatusView = view.findViewById(R.id.tracing_status);
 		View tracingErrorView = view.findViewById(R.id.tracing_error);
 
-		Switch tracingSwitch = view.findViewById(R.id.contacts_tracking_switch);
+		Switch tracingSwitch = view.findViewById(R.id.contacts_tracing_switch);
 		tracingSwitch.setOnClickListener(v -> tracingViewModel.setTracingEnabled(tracingSwitch.isChecked()));
-
-		tracingViewModel.getErrorsLiveData().observe(getViewLifecycleOwner(), errorStates -> {
-			tracingSwitch.setEnabled(errorStates.isEmpty());
-		});
 
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
 			boolean isTracing = status.isAdvertising() && status.isReceiving();
