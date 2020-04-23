@@ -18,12 +18,18 @@ import androidx.fragment.app.Fragment;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.google.gson.Gson;
 
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.inform.model.AccessTokenModel;
+import org.dpppt.android.app.inform.model.AuthenticationCodeRequestModel;
+import org.dpppt.android.app.inform.model.AuthenticationCodeResponseModel;
+import org.dpppt.android.app.inform.networking.AuthCodeRepository;
+import org.dpppt.android.app.inform.networking.InvalidCodeError;
 import org.dpppt.android.app.inform.views.ChainedEditText;
 import org.dpppt.android.app.util.InfoDialog;
 import org.dpppt.android.sdk.DP3T;
@@ -40,7 +46,9 @@ public class InformFragment extends Fragment {
 
 	private static final long TIMEOUT_VALID_CODE = 1000 * 60 * 5;
 
-	private static final String REGEX_CODE_PATTERN = "\\d{12}";
+	private static final String REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}";
+
+	private static final SimpleDateFormat ONSET_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
 	private ChainedEditText authCodeInput;
 	private AlertDialog progressDialog;
@@ -77,21 +85,19 @@ public class InformFragment extends Fragment {
 		String lastToken = preferences.getString(PREFS_INFORM_TOKEN_REQ, null);
 
 		if (System.currentTimeMillis() - lastRequest < TIMEOUT_VALID_CODE) {
-			authCodeInput.setText(new String(Base64.decode(lastCode, Base64.NO_WRAP), StandardCharsets.UTF_8));
+			authCodeInput.setText(lastCode);
 		}
 
 		buttonSend.setOnClickListener(v -> {
 			setInvalidCodeErrorVisible(false);
-			String authCodeBase64 =
-					new String(Base64.encode(authCodeInput.getText().getBytes(StandardCharsets.UTF_8), Base64.NO_WRAP),
-							StandardCharsets.UTF_8);
+			String authCode = authCodeInput.getText();
 
 			progressDialog = createProgressDialog();
 			if (System.currentTimeMillis() - lastRequest < TIMEOUT_VALID_CODE && lastToken != null) {
-				String onsetDate = getOnsetDate(lastToken);
-				informExposed(onsetDate, lastToken);
+				Date onsetDate = getOnsetDate(lastToken);
+				informExposed(onsetDate, lastToken, getAuthorizationHeader(lastToken));
 			} else {
-				authenticateInput(authCodeBase64);
+				authenticateInput(authCode);
 			}
 		});
 
@@ -108,28 +114,42 @@ public class InformFragment extends Fragment {
 	}
 
 	private void authenticateInput(String authCodeBase64) {
-		// TODO: Request
-		String accessToken =
-				"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI1LVJxcVRUWW9tZnBWejA2VlJFT2ZyYmNxYTVXdTJkX1g4MnZfWlRNLVZVIn0" +
-						".eyJqdGkiOiJkODA1ZDFiNi1jZDU3LTQ0YzUtYjA3ZS0zZDFkMjgxOGNhZWQiLCJleHAiOjE1ODc2NDI3MzUsIm5iZiI6MCwiaWF0IjoxNTg3NjQyNDM1LCJpc3MiOiJodHRwczovL2lkZW50aXR5LXIuYml0LmFkbWluLmNoL3JlYWxtcy9iYWctcHRzIiwic3ViIjoiNWE1NDAwNDItZWI4ZS00ZWZiLWIyYmItZTc0ZjMxNjFkNjRiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicHRhLWFwcC1iYWNrZW5kIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiMmVkMDQ5OTktMzMzMi00Y2MyLWI2NDUtNzEzZjk3YzIwZjVlIiwiYWNyIjoiMSIsInNjb3BlIjoiZXhwb3NlZCIsIm9uc2V0IjoiMjAyMC0wNC0yMiIsInV1aWQiOiIrIDJmZTYzYjMyLTNjNzktNGY4Zi1iZGUyLWI1NDFlMDM3MjU5NSArICJ9.Qdo06_lZhtKVBdlfSOb7FhkpuQE4eC7ob9Nsj8B-GjXo_TgG6W7Rbq89xkTUZpsqnB56q4IK13Y5SE5TyDVoTctNmxO3QlL2MWMM7Uwge2U9MbPoS8hJf71RjEadWpvL2AvXEruwv7R3PzQ8hHObYFsSkWP4JZKBkp7vNnUjE1IpcyURNwgHObaonUbMog9F4QwPE0uVng8XwamNNCwL8n9ctoDGrXQESepeqf-Qg-6IbZ6LMF47dh2DOcDpUY0SRlv6nntphidoo0rDxRxUdCNYLORG9xpaRy5Oiqg_fLG32UzcgMK_YSfNWSo-UDq4uYC1prdb3DamKhTkvjkIAQ";
+		AuthCodeRepository authCodeRepository = new AuthCodeRepository(getContext());
+		authCodeRepository.getAccessToken(new AuthenticationCodeRequestModel(authCodeBase64),
+				new CallbackListener<AuthenticationCodeResponseModel>() {
+					@Override
+					public void onSuccess(AuthenticationCodeResponseModel response) {
+						String accessToken = response.getAccessToken();
 
-		SharedPreferences prefs = getContext().getSharedPreferences(PREFS_INFORM, Context.MODE_PRIVATE);
-		prefs.edit()
-				.putLong(PREFS_INFORM_TIME_REQ, System.currentTimeMillis())
-				.putString(PREFS_INFORM_CODE_REQ, authCodeBase64)
-				.putString(PREFS_INFORM_TOKEN_REQ, accessToken)
-				.commit();
+						SharedPreferences prefs = getContext().getSharedPreferences(PREFS_INFORM, Context.MODE_PRIVATE);
+						prefs.edit()
+								.putLong(PREFS_INFORM_TIME_REQ, System.currentTimeMillis())
+								.putString(PREFS_INFORM_CODE_REQ, authCodeBase64)
+								.putString(PREFS_INFORM_TOKEN_REQ, accessToken)
+								.commit();
 
-		String onsetDate = getOnsetDate(accessToken);
-		if (onsetDate == null)
-			showErrorDialog(getString(R.string.unexpected_error_title).replace("{ERROR}", "Received unreadable jwt access-token" +
-					"."));
-		informExposed(onsetDate, accessToken);
+						Date onsetDate = getOnsetDate(accessToken);
+						if (onsetDate == null) showErrorDialog("Received unreadable jwt access-token.");
+						informExposed(onsetDate, accessToken, "bearer " + accessToken);
+					}
+
+					@Override
+					public void onError(Throwable throwable) {
+						if (progressDialog != null && progressDialog.isShowing()) {
+							progressDialog.dismiss();
+						}
+						if (throwable instanceof InvalidCodeError) {
+							setInvalidCodeErrorVisible(true);
+							return;
+						}
+						showErrorDialog(throwable.getLocalizedMessage());
+					}
+				});
 	}
 
-	private void informExposed(String onsetDate, String accessToken) {
-		DP3T.sendIAmInfected(getContext(), new Date()/*onsetDate*/,
-				new ExposeeAuthData(accessToken), null, new CallbackListener<Void>() {
+	private void informExposed(Date onsetDate, String accessToken, String authorizationHeader) {
+		DP3T.sendIAmInfected(getContext(), onsetDate,
+				new ExposeeAuthData(accessToken), authorizationHeader, new CallbackListener<Void>() {
 					@Override
 					public void onSuccess(Void response) {
 						if (progressDialog != null && progressDialog.isShowing()) {
@@ -156,7 +176,7 @@ public class InformFragment extends Fragment {
 				});
 	}
 
-	private String getOnsetDate(String accessToken) {
+	private Date getOnsetDate(String accessToken) {
 		String[] tokenParts = accessToken.split("\\.");
 		if (tokenParts.length < 3) {
 			return null;
@@ -164,7 +184,12 @@ public class InformFragment extends Fragment {
 		String payloadString = new String(Base64.decode(tokenParts[1], Base64.NO_WRAP), StandardCharsets.UTF_8);
 		AccessTokenModel tokenModel = new Gson().fromJson(payloadString, AccessTokenModel.class);
 		if (tokenModel != null && tokenModel.getOnset() != null) {
-			return tokenModel.getOnset();
+			try {
+				return ONSET_DATE_FORMAT.parse(tokenModel.getOnset());
+			} catch (ParseException e) {
+				e.printStackTrace();
+				return null;
+			}
 		}
 		return null;
 	}
@@ -187,8 +212,12 @@ public class InformFragment extends Fragment {
 	}
 
 	private void showErrorDialog(String error) {
-		InfoDialog.newInstance(error)
+		InfoDialog.newInstance(getString(R.string.unexpected_error_title).replace("{ERROR}", error))
 				.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+	}
+
+	private String getAuthorizationHeader(String accessToken) {
+		return "bearer " + accessToken;
 	}
 
 }

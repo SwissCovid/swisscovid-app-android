@@ -2,46 +2,56 @@
 <resources>
 
     <!-- Name der App -->
-    <string name="app_name">"Next Step"</string>
+    <!-- App Name -->
+    <string name="app_name">"dp3t-app"</string>
 
     <!-- App Name unter Icon (iOS) -->
+    <!-- App Name (unter Icon auf iOS) -->
     <!-- Fuzzy -->
-    <string name="CFBundleDisplayName">"Next Step"</string>
+    <string name="CFBundleDisplayName">"dp3t-app"</string>
 
     <!-- Title of the menu item home -->
+    <!-- Name in Tab Bar unten -->
     <string name="menu_item_home">"Home"</string>
 
     <!-- Title of the menu item info -->
+    <!-- Name in Tab Bar unten -->
     <string name="menu_item_info">"Info"</string>
 
     <!-- Title of the menu item tracking -->
+    <!-- Name in Tab Bar unten -->
     <string name="menu_item_tracking">"Tracing"</string>
 
+    <!-- Loading View: Erneut laden -->
     <!-- Loading View: Erneut laden -->
     <string name="loading_view_reload">"Reload"</string>
 
     <!-- Loading View: Titel -->
+    <!-- Fehler in Loading View -->
     <string name="loading_view_error_title">"Error"</string>
 
     <!-- Text on grant permission button -->
+    <!-- Button Erlaubnis -->
     <string name="grant_permission_button">"Grant permission"</string>
 
     <!-- Text on grant permission button if permission is granted -->
+    <!-- Text, wenn Erlaubnis erteilt -->
     <string name="granted_permission_button">"Permission granted"</string>
 
     <!-- Sprachen-Key -->
+    <!-- Offizieller Sprach Schlüssel (BITTE NICHT ÄNDERN) -->
     <string name="language_key">"en"</string>
 
     <!-- Force Update Alert Titel -->
+    <!-- Titel wenn die App muss geupdatet werden -->
     <string name="force_update_title">"Update"</string>
-    <string name="homescreen_handshakes_module_count_info_label">"Encounters are anonymously stored on your device"</string>
-    <string name="homescreen_handshakes_module_count_label_format">"{count} last 48 hours"</string>
-    <string name="homescreen_handshakes_module_info_label">"Here you'll see when users you've encountered inform about COVID-19."</string>
 
     <!-- Informieren Titel -->
+    <!-- Titel beim Informieren -->
     <string name="inform_title">"Stop the chain of infection"</string>
 
     <!-- Inform Subtext -->
+    <!-- Subtex beim Informieren -->
     <string name="inform_subtext">"I want to help break the COVID-19 chain of infection"</string>
 
     <!-- Inform: Button Titel -->
@@ -110,7 +120,7 @@ Please continue to practice protective hygiene measures and follow the advised b
     <string name="push_exposed_text">"Please open the app for more information."</string>
     <string name="onboarding_top_label_how">"How does it work:"</string>
     <string name="onboarding_title_1">"One step ahead"</string>
-    <string name="onboarding_desc_1">"With the Next Step application we can all cooperate to keep the spread of COVID-19 at bay. The Next Step application allows people who have become infected to start isolating before they experience first symptoms."</string>
+    <string name="onboarding_desc_1">"With the dp3t application we can all cooperate to keep the spread of COVID-19 at bay. The Next Step application allows people who have become infected to start isolating before they experience first symptoms."</string>
     <string name="onboarding_title_2">"Automatic and
 anonymous"</string>
     <string name="onboarding_desc_2">"This app recognizes encounters with other users and saves these encounters anonymously on your device using encryption."</string>
@@ -118,7 +128,7 @@ anonymous"</string>
     <string name="onboarding_desc_3">"If you test positive you can anonymously inform everyone you've encountered so that they can make the necessary precautionary measures."</string>
     <string name="onboarding_title_4">"Authorization"</string>
     <string name="onboarding_desc_4">"This app needs the following permissions in order to work properly."</string>
-    <string name="onboarding_title_5">"Next Step"</string>
+    <string name="onboarding_title_5">"dp3t-app"</string>
     <string name="onboarding_desc_5">"Together we can move towards lifting isolation."</string>
     <string name="onboarding_android_location_permission_info">"User tracing is performed using Bluetooth Low Energy technology. The app requires you to keep Bluetooth enabled in order to perform the tracing. On Android, applications need to additionally have Location Services enabled by design in order to access Bluetooth. But we will not at any point access your location."</string>
     <string name="onboarding_android_battery_saving_info">"Turn off battery optimization for our app so that we can perform continuous tracing in the background."</string>
@@ -159,6 +169,7 @@ anonymous"</string>
     <!-- Bluetooth Permission Text für iOS -->
     <string name="NSBluetoothAlwaysUsageDescription">"Encounters are recognized via Bluetooth, in the Background and energy-saving"</string>
 
+    <!-- Text der bei Android in der permanenten Notification immer angezeigt wird -->
     <!-- Text der bei Android in der permanenten Notification immer angezeigt wird -->
     <string name="foreground_service_notification_text">"App is scanning in the Background"</string>
 
@@ -281,10 +292,20 @@ Coronavirus Infoline
     <string name="meldungen_additional_info_text3_reduced">"Experts from the FOPH give you advice by phone."</string>
     <string name="meldungen_infected_title">"Infection reported"</string>
     <string name="meldungen_infected_text">"Thank you so much! People you met are informed anonymously and can isolate themselves."</string>
+
+    <!-- Fehlertitel mit Foreground Service Notification -->
     <string name="foreground_service_notification_errors">"App cannot work properly at the moment:"</string>
+
+    <!-- Fehler Beschreibung -->
     <string name="foreground_service_notification_error_network_sync">"Error occurred while loading data"</string>
+
+    <!-- Fehler Beschreibung -->
     <string name="foreground_service_notification_error_location_permission">"Location permission is missing (needed for accessing bluetooth)"</string>
+
+    <!-- Fehler Beschreibung Bluetooth -->
     <string name="foreground_service_notification_error_bluetooth_disabled">"Bluetooth is deactivated"</string>
+
+    <!-- Fehler Beschreibung Akku -->
     <string name="foreground_service_notification_error_battery_optimization">"Battery optimization is activated (prevents reliable background scanning)"</string>
 
     <!-- Beruhigender Text für Detail-Seite, falls Meldung eingegangen ist -->
@@ -418,9 +439,9 @@ Dazu benötigen Sie den Covid-Code aus dem Testergebnis."</string>
     <string name="tracing_turned_off_title">"Tracing deaktiviert"</string>
     <string name="tracing_turned_off_text">"Tracing erlauben, um Begegnungen anonym zu speichern."</string>
     <string name="bluetooth_turned_off_title">"Bluetooth ausgeschaltet"</string>
-    <string name="bluetooth_turned_off_text">"Schalten Sie Bluetooth ein, damit das anonyme Tracing funktioniert."</string>
+    <string name="bluetooth_turned_off_text">"Schalten Sie Bluetooth auf Ihrem Gerät ein, damit das anonyme Tracing funktioniert."</string>
     <string name="bluetooth_turn_on_button_title">"Bluetooth einschalten"</string>
-    <string name="bluetooth_permission_error_title">"Bluetooth deaktiviert"</string>
+    <string name="bluetooth_permission_error_title">"Bluetooth Verwendung abgelehnt"</string>
     <string name="bluetooth_permission_error_text">"Damit anonymes Tracing funktioniert, müssen Sie der App Zugriff auf Bluetooth erlauben."</string>
 
     <!-- URL zum Corona Check -->
@@ -653,4 +674,11 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
 
     <!-- 2. Info-Text unter Box -->
     <string name="symptom_detail_info_text_2">"Wird noch erarbeitet"</string>
+
+    <!-- Datum: Vor 1 Tag -->
+    <string name="date_one_day_ago">"1 day ago"</string>
+    <string name="meldung_detail_new_contact_title">"Erneuter Kontakt"</string>
+    <string name="meldung_detail_new_contact_subtitle">"Eine weitere Begegnung hat einen positiven Test auf COVID-19 gemeldet"</string>
+    <string name="time_inconsistency_title">"Uhrzeit Fehler"</string>
+    <string name="time_inconsistency_text">"Die Uhrzeit muss richtig eingestellt sein, damit Tracing funktioniert."</string>
 </resources>

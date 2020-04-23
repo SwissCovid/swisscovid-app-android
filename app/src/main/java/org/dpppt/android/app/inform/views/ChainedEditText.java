@@ -28,7 +28,7 @@ import org.dpppt.android.app.R;
 
 public class ChainedEditText extends ConstraintLayout {
 
-	private static final int NUM_CHARACTERS = 12;
+	public static final int NUM_CHARACTERS = 9;
 	private static final String ID_TEXT_FIELD = "chained_edit_text_view_";
 
 	private EditText shadowEditText;
