@@ -12,10 +12,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -255,6 +257,19 @@ public class HomeFragment extends Fragment {
 		} else {
 			debugButton.setVisibility(View.GONE);
 		}
+
+		View debugUploadButton = getView().findViewById(R.id.main_button_upload_debug_data);
+		debugUploadButton.setOnClickListener(view -> {
+			AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+			builder.setTitle("Identifier");
+			final EditText input = new EditText(getContext());
+			builder.setView(input);
+			builder.setPositiveButton("OK", (dialog, which) -> {
+				String name = input.getText().toString();
+			});
+			builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+			builder.show();
+		});
 	}
 
 	@Override
