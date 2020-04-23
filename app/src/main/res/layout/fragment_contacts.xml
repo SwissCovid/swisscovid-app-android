@@ -90,7 +90,7 @@
 					</RelativeLayout>
 
 					<include
-						android:id="@+id/contacts_status"
+						android:id="@+id/tracing_status"
 						layout="@layout/layout_status"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"

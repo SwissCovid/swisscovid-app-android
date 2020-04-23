@@ -5,7 +5,6 @@
  */
 package org.dpppt.android.app.main;
 
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +17,6 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.List;
 
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.inform.InformActivity;
 import org.dpppt.android.app.contacts.ContactsFragment;
 import org.dpppt.android.app.debug.DebugFragment;
 import org.dpppt.android.app.main.views.HeaderView;
@@ -38,6 +36,14 @@ public class HomeFragment extends Fragment {
 	private HeaderView headerView;
 	private ScrollView scrollView;
 
+	private View tracingCard;
+	private View tracingStatusView;
+	private View cardNotifications;
+	private View reportStatusBubble;
+	private View reportStatusView;
+	private View cardSymptoms;
+	private View cardTest;
+
 	public HomeFragment() {
 		super(R.layout.fragment_home);
 	}
@@ -54,10 +60,20 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-		setupHeader(view);
-		setupStatusElements(view);
-		setupWhatToDo(view);
-		setupDebugButton(view);
+		tracingCard = view.findViewById(R.id.card_tracing);
+		tracingStatusView = view.findViewById(R.id.tracing_status);
+		cardNotifications = view.findViewById(R.id.card_notifications);
+		reportStatusBubble = view.findViewById(R.id.report_status_bubble);
+		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
+		headerView = view.findViewById(R.id.home_header_container);
+
+		cardSymptoms = view.findViewById(R.id.card_what_to_do_symptoms);
+		cardTest = view.findViewById(R.id.card_what_to_do_test);
+
+		setupHeader();
+		setupTracingError();
+		setupWhatToDo();
+		setupDebugButton();
 
 		scrollView = view.findViewById(R.id.home_scroll_view);
 		if (savedInstanceState != null) {
@@ -77,21 +93,19 @@ public class HomeFragment extends Fragment {
 		outState.putInt(STATE_SCROLL_VIEW, scrollView.getScrollY());
 	}
 
-	private void setupHeader(View view) {
-		headerView = view.findViewById(R.id.home_header_container);
+	private void setupHeader() {
 		tracingViewModel.getAppStateLiveData()
 				.observe(getViewLifecycleOwner(), appState -> {
 					headerView.setState(appState);
 				});
 	}
 
-	private void setupStatusElements(View view) {
-		view.findViewById(R.id.card_contacts).setOnClickListener(
+	private void setupTracingError() {
+		tracingCard.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.replace(R.id.main_fragment_container, ContactsFragment.newInstance())
 						.addToBackStack(ContactsFragment.class.getCanonicalName())
 						.commit());
-		View contactStatusView = view.findViewById(R.id.contacts_status);
 		tracingViewModel.getTracingEnabledLiveData().observe(getViewLifecycleOwner(),
 				isTracing -> {
 					List<TracingStatus.ErrorState> errors = tracingViewModel.getErrorsLiveData().getValue();
@@ -101,27 +115,18 @@ public class HomeFragment extends Fragment {
 																		 : R.string.tracing_error_title;
 					int textRes = state == TracingStatusHelper.State.OK ? R.string.tracing_active_text
 																		: R.string.tracing_error_text;
-					TracingStatusHelper.updateStatusView(contactStatusView, state, titleRes, textRes);
+					TracingStatusHelper.updateStatusView(tracingStatusView, state, titleRes, textRes);
 				});
 
-		view.findViewById(R.id.card_notifications).setOnClickListener(
+		cardNotifications.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
 						.addToBackStack(ReportsFragment.class.getCanonicalName())
 						.commit());
-		View notificationStatusBubble = view.findViewById(R.id.notifications_status_bubble);
-		View notificationStatusView = notificationStatusBubble.findViewById(R.id.notification_status);
-
-		View buttonInform = view.findViewById(R.id.main_button_inform);
-		buttonInform.setOnClickListener(v -> {
-					Intent intent = new Intent(getActivity(), InformActivity.class);
-					startActivity(intent);
-				});
 
 		tracingViewModel.getSelfOrContactExposedLiveData().observe(getViewLifecycleOwner(),
 				selfOrContactExposed -> {
 					boolean isExposed = selfOrContactExposed.first || selfOrContactExposed.second;
-					buttonInform.setVisibility(!selfOrContactExposed.first ? View.VISIBLE : View.GONE);
 					TracingStatusHelper.State state =
 							!(isExposed) ? TracingStatusHelper.State.OK
 										 : TracingStatusHelper.State.INFO;
@@ -132,27 +137,32 @@ public class HomeFragment extends Fragment {
 											R.string.meldungen_meldung_text)
 										 : R.string.meldungen_no_meldungen_text;
 
-					notificationStatusBubble.setBackgroundTintList(ColorStateList
+					reportStatusBubble.setBackgroundTintList(ColorStateList
 							.valueOf(getContext().getColor(isExposed ? R.color.status_blue : R.color.status_green_bg)));
-					TracingStatusHelper.updateStatusView(notificationStatusView, state, title, text);
+					TracingStatusHelper.updateStatusView(reportStatusView, state, title, text);
 				});
 	}
 
-	private void setupWhatToDo(View view) {
-		view.findViewById(R.id.card_what_to_do_symptoms).setOnClickListener(
+	private void setupNotification() {
+
+	}
+
+	private void setupWhatToDo() {
+
+		cardSymptoms.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
 						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
 						.commit());
-		view.findViewById(R.id.card_what_to_do_test).setOnClickListener(
+		cardTest.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
 						.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
 						.commit());
 	}
 
-	private void setupDebugButton(View view) {
-		View debugButton = view.findViewById(R.id.main_button_debug);
+	private void setupDebugButton() {
+		View debugButton = getView().findViewById(R.id.main_button_debug);
 		if (DebugUtils.isDev()) {
 			debugButton.setVisibility(View.VISIBLE);
 			debugButton.setOnClickListener(

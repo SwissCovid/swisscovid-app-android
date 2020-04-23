@@ -50,7 +50,7 @@
 		</LinearLayout>
 
 		<FrameLayout
-			android:id="@+id/notifications_status_bubble"
+			android:id="@+id/report_status_bubble"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_margin="@dimen/spacing_medium"
@@ -61,7 +61,7 @@
 			android:paddingBottom="@dimen/spacing_medium_large">
 
 			<include
-				android:id="@+id/notification_status"
+				android:id="@+id/report_status"
 				layout="@layout/layout_status" />
 
 		</FrameLayout>

@@ -55,7 +55,7 @@ public class ContactsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.contacts_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-		View contactStatusView = view.findViewById(R.id.contacts_status);
+		View contactStatusView = view.findViewById(R.id.tracing_status);
 
 		Switch tracingSwitch = view.findViewById(R.id.contacts_tracking_switch);
 		tracingSwitch.setOnClickListener(v -> tracingViewModel.setTracingEnabled(tracingSwitch.isChecked()));

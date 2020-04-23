@@ -10,7 +10,7 @@
 	android:layout_height="wrap_content">
 
 	<LinearLayout
-		android:id="@+id/card_contacts"
+		android:id="@+id/card_tracing"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:foreground="?selectableItemBackground"
@@ -53,7 +53,7 @@
 			android:layout_height="wrap_content">
 
 			<include
-				android:id="@+id/contacts_status"
+				android:id="@+id/tracing_status"
 				layout="@layout/layout_status"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
