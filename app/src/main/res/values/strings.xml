@@ -371,7 +371,7 @@ Coronavirus Infoline
     <string name="whattodo_title_positivetest">"positiven Testresultat"</string>
 
     <!-- Subtitel auf Homescreen bei Was tun Section -->
-    <string name="whattodo_subtitle_positivetest">"Infektionskette unterbrechen"</string>
+    <string name="whattodo_subtitle_positivetest">"Was tun bei einem..."</string>
 
     <!-- Informieren Detail: Subtitel -->
     <string name="inform_detail_subtitle">"Was tun bei einem..."</string>
@@ -380,7 +380,7 @@ Coronavirus Infoline
     <string name="inform_detail_title">"positiven Test?"</string>
 
     <!-- Inform Detail: Weisse Box Subtitel -->
-    <string name="inform_detail_box_subtitle">"Was muss ich tun?"</string>
+    <string name="inform_detail_box_subtitle">"Infektionskette unterbrechen"</string>
 
     <!-- Inform Detai Weisse Box Titel -->
     <string name="inform_detail_box_title">"Begegnungen informieren"</string>
@@ -635,4 +635,22 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
 
     <!-- Fehlermeldung Subtitle ungültiger Code -->
     <string name="inform_code_invalid_subtitle">"Versuchen Sie es erneut"</string>
+
+    <!-- Titel für Info-Teil unter Box -->
+    <string name="inform_detail_info_title">"Hier kommt noch mehr (tbd)"</string>
+
+    <!-- 1. Info-Text unter Box -->
+    <string name="inform_detail_info_text_1">"Wird noch erarbeitet"</string>
+
+    <!-- 2. Info-Text unter Box -->
+    <string name="inform_detail_info_text_2">"Wird noch erarbeitet"</string>
+
+    <!-- Titel für Info-Teil unter Box -->
+    <string name="symptom_detail_info_title">"Hier kommt noch mehr (tbd)"</string>
+
+    <!-- 1. Info-Text unter Box -->
+    <string name="symptom_detail_info_text_1">"Wird noch erarbeitet"</string>
+
+    <!-- 2. Info-Text unter Box -->
+    <string name="symptom_detail_info_text_2">"Wird noch erarbeitet"</string>
 </resources>
