@@ -9,6 +9,7 @@
 	<dimen name="icon_size_toolbar">24dp</dimen>
 	<dimen name="view_pager_page_indicator_margin">20dp</dimen>
 	<dimen name="floating_action_button_margin">16dp</dimen>
+	<dimen name="spacing_tiny_small">2dp</dimen>
 	<dimen name="spacing_very_small">4dp</dimen>
 	<dimen name="spacing_small">9dp</dimen>
 	<dimen name="spacing_medium">12dp</dimen>

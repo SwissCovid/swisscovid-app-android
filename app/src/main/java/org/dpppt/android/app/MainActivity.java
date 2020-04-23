@@ -32,6 +32,7 @@ public class MainActivity extends FragmentActivity {
 	private static final int[] MENU_ACTION_IDS = new int[]{R.id.action_home, R.id.action_theapp};
 
 	private BottomNavigationView bottomNavigationView;
+	private ViewPager2 viewPager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	private void setupNavigationViews() {
-		ViewPager2 viewPager = findViewById(R.id.main_fragment_view_pager);
+		viewPager = findViewById(R.id.main_fragment_view_pager);
 		bottomNavigationView = findViewById(R.id.main_bottom_navigation_view);
 
 		FragmentStateAdapter fragmentStateAdapter = new MainNavigationStateAdapter(this);
@@ -77,6 +78,10 @@ public class MainActivity extends FragmentActivity {
 			if (index >= 0) viewPager.setCurrentItem(index);
 			return true;
 		});
+	}
+
+	public ViewPager2 getMainViewPager() {
+		return viewPager;
 	}
 
 	@Override

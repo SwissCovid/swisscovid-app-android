@@ -4,9 +4,10 @@
  * Copyright (c) 2020. All rights reserved.
  */
 
-package org.dpppt.android.app.notifications;
+package org.dpppt.android.app.reports;
 
 import android.content.res.ColorStateList;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,21 +18,28 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import org.dpppt.android.app.R;
+import org.dpppt.android.app.onboarding.OnboardingSlidePageAdapter;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.app.util.PhoneUtil;
 import org.dpppt.android.app.util.TracingStatusHelper;
 
-public class NotificationsFragment extends Fragment {
+public class ReportsFragment extends Fragment {
+
+	public static ReportsFragment newInstance() {
+		return new ReportsFragment();
+	}
 
 	private TracingViewModel tracingViewModel;
 
-	public static NotificationsFragment newInstance() {
-		return new NotificationsFragment();
-	}
+	private ViewPager2 viewPager;
+	private LockableScrollView scrollView;
+	private FragmentStateAdapter pagerAdapter;
 
-	public NotificationsFragment() { super(R.layout.fragment_notifications); }
+	public ReportsFragment() { super(R.layout.fragment_reports); }
 
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,18 +49,21 @@ public class NotificationsFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-		Toolbar toolbar = view.findViewById(R.id.notifications_toolbar);
+		Toolbar toolbar = view.findViewById(R.id.reports_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-		View infoBubbleExposed = view.findViewById(R.id.notifications_status_exposed_layout);
-		View exposedInfoGroup = infoBubbleExposed.findViewById(R.id.notifications_exposed_information_group);
-		Button hotlineButton = infoBubbleExposed.findViewById(R.id.notifications_call_hotline_button);
-		View statusBubble = view.findViewById(R.id.notifications_bubble);
-		ImageView statusBubbleTriangle = view.findViewById(R.id.notifications_bubble_triangle);
-		View statusView = view.findViewById(R.id.notifications_status_view);
+		viewPager = view.findViewById(R.id.reports_viewpager);
+		scrollView = view.findViewById(R.id.reports_scrollview);
+		pagerAdapter = new ReportsSlidePageAdapter(this);
+		viewPager.setAdapter(pagerAdapter);
 
-		hotlineButton.setOnClickListener(v -> PhoneUtil.callHelpline(getContext()));
+		viewPager.post(() -> {
+			Rect rect = new Rect();
+			viewPager.getDrawingRect(rect);
+			scrollView.setScrollPreventRect(rect);
+		});
 
+		/*
 		tracingViewModel.getSelfOrContactExposedLiveData().observe(getViewLifecycleOwner(), selfOrContactExposed -> {
 			boolean isExposed = selfOrContactExposed.first || selfOrContactExposed.second;
 			TracingStatusHelper.State state =
@@ -80,6 +91,32 @@ public class NotificationsFragment extends Fragment {
 												   : R.string.meldungen_hinweis_info_text1);
 			}
 		});
+		 */
+	}
+
+	private class ReportsSlidePageAdapter extends FragmentStateAdapter {
+
+		public ReportsSlidePageAdapter(Fragment fragment) {
+			super(fragment);
+		}
+
+		@NonNull
+		@Override
+		public Fragment createFragment(int position) {
+			switch (position) {
+				case 0:
+					return ReportsPagerFragment.newInstance();
+				case 1:
+					return ReportsPagerFragment.newInstance();
+			}
+			throw new IllegalArgumentException("There is no fragment for view pager position " + position);
+		}
+
+		@Override
+		public int getItemCount() {
+			return 2;
+		}
+
 	}
 
 }

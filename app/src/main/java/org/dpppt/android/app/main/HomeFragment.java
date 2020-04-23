@@ -22,7 +22,7 @@ import org.dpppt.android.app.inform.InformActivity;
 import org.dpppt.android.app.contacts.ContactsFragment;
 import org.dpppt.android.app.debug.DebugFragment;
 import org.dpppt.android.app.main.views.HeaderView;
-import org.dpppt.android.app.notifications.NotificationsFragment;
+import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.util.DebugUtils;
 import org.dpppt.android.app.util.TracingStatusHelper;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
@@ -106,8 +106,8 @@ public class HomeFragment extends Fragment {
 
 		view.findViewById(R.id.card_notifications).setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
-						.replace(R.id.main_fragment_container, NotificationsFragment.newInstance())
-						.addToBackStack(NotificationsFragment.class.getCanonicalName())
+						.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
+						.addToBackStack(ReportsFragment.class.getCanonicalName())
 						.commit());
 		View notificationStatusBubble = view.findViewById(R.id.notifications_status_bubble);
 		View notificationStatusView = notificationStatusBubble.findViewById(R.id.notification_status);
