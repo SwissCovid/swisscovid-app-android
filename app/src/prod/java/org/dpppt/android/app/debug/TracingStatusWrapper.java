@@ -5,6 +5,7 @@ import org.dpppt.android.app.main.model.AppState;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
 import org.dpppt.android.app.main.model.TracingStatusInterface;
+import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
@@ -13,6 +14,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	private TracingStatus status;
 
 	public TracingStatusWrapper(DebugAppState debugAppState) {
+		//Always none on PROD
 		this.debugAppState = DebugAppState.NONE; ;
 	}
 
@@ -21,12 +23,12 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	}
 
 	@Override
-	public boolean isReportedAsExposed() {
+	public boolean isReportedAsInfected() {
 		return status.getInfectionStatus() == InfectionStatus.INFECTED;
 	}
 
 	@Override
-	public boolean wasContactExposed() {
+	public boolean wasContactReportedAsExposed() {
 		return status.getInfectionStatus() == InfectionStatus.EXPOSED;
 	}
 
@@ -44,12 +46,12 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	public AppState getAppState() {
 		boolean hasError = status.getErrors().size() > 0;
 		boolean tracingOff = !(status.isAdvertising() || status.isReceiving());
-		if (status.isReportedAsExposed() || status.wasContactExposed()) {
+		if (isReportedAsInfected() || wasContactReportedAsExposed()) {
 			return AppState.EXPOSED;
 		} else if (tracingOff) {
 			return AppState.TRACING_OFF;
 		} else if (hasError) {
-			return getAppStateForError(status.getErrors().get(0));
+			return getAppStateForError(status.getErrors().iterator().next());
 		} else {
 			return AppState.TRACING_ON;
 		}
@@ -78,9 +80,9 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public NotificationState getNotificationState() {
-		if (status.isReportedAsExposed()) {
+		if (isReportedAsInfected()) {
 			return NotificationState.POSITIVE_TESTED;
-		} else if (status.wasContactExposed()) {
+		} else if (wasContactReportedAsExposed()) {
 			return NotificationState.EXPOSED;
 		} else {
 			return NotificationState.NO_NOTIFICATION;
@@ -91,8 +93,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	public TracingStatus.ErrorState getTracingErrorState() {
 		boolean hasError = status.getErrors().size() > 0;
 		if (hasError) {
-			//TODO discuss this
-			return status.getErrors().get(0);
+			return status.getErrors().iterator().next();
 		}
 		throw new IllegalStateException("Should not call function if there is no error: ");
 	}
