@@ -58,6 +58,7 @@ public class MainActivity extends FragmentActivity {
 
 	private void setupNavigationViews() {
 		viewPager = findViewById(R.id.main_fragment_view_pager);
+		viewPager.setUserInputEnabled(false);
 		bottomNavigationView = findViewById(R.id.main_bottom_navigation_view);
 
 		FragmentStateAdapter fragmentStateAdapter = new MainNavigationStateAdapter(this);
@@ -115,6 +116,8 @@ public class MainActivity extends FragmentActivity {
 		}
 		super.onBackPressed();
 	}
+
+
 
 	private class MainNavigationStateAdapter extends FragmentStateAdapter {
 

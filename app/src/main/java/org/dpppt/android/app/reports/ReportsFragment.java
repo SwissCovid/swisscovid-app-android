@@ -41,6 +41,12 @@ public class ReportsFragment extends Fragment {
 	private View scrollViewFirstchild;
 	private CirclePageIndicator circlePageIndicator;
 
+	private View healthyView;
+	private View exposedFirstView;
+	private View exposed2ndView;
+	private View infectedView;
+
+
 	public ReportsFragment() { super(R.layout.fragment_reports); }
 
 	@Override
@@ -62,6 +68,13 @@ public class ReportsFragment extends Fragment {
 		scrollView = view.findViewById(R.id.reports_scrollview);
 		scrollViewFirstchild = view.findViewById(R.id.reports_scrollview_firstChild);
 		circlePageIndicator = view.findViewById(R.id.reports_pageindicator);
+
+		healthyView = view.findViewById(R.id.reports_healthy);
+		exposedFirstView = view.findViewById(R.id.reports_exponsed_first);
+		exposed2ndView = view.findViewById(R.id.reports_exponsed_second);
+		infectedView = view.findViewById(R.id.reports_infected);
+
+
 
 		if (pagerAdapter.getItemCount() > 1) {
 			circlePageIndicator.setVisibility(View.VISIBLE);
@@ -85,27 +98,31 @@ public class ReportsFragment extends Fragment {
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
 			switch (status.getInfectionStatus()) {
 				case HEALTHY:
+					healthyView.setVisibility(View.VISIBLE);
 					pagerAdapter.setFragments(
 							Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS)));
 					break;
 				case EXPOSED:
 					if (status.getMatchedContacts().size() == 1) {
+						exposedFirstView.setVisibility(View.VISIBLE);
 						pagerAdapter.setFragments(
 								Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION)));
-						break;
-					}
-					List<Fragment> fragments = new ArrayList<>();
-					for (int i = 0; i < status.getMatchedContacts().size(); i++) {
-						MatchedContact matchedContact = status.getMatchedContacts().get(i);
-						if (i == 0) {
-							fragments.add(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION));
-						} else {
-							fragments.add(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT));
+					} else {
+						exposed2ndView.setVisibility(View.VISIBLE);
+						List<Fragment> fragments = new ArrayList<>();
+						for (int i = 0; i < status.getMatchedContacts().size(); i++) {
+							MatchedContact matchedContact = status.getMatchedContacts().get(i);
+							if (i == 0) {
+								fragments.add(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION));
+							} else {
+								fragments.add(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT));
+							}
 						}
 					}
 
 					break;
 				case INFECTED:
+					infectedView.setVisibility(View.VISIBLE);
 					pagerAdapter.setFragments(
 							Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED))
 					);
