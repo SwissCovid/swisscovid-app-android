@@ -13,11 +13,11 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
+import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
@@ -29,9 +29,6 @@ import org.dpppt.android.sdk.internal.util.ProcessUtil;
 public class MainApplication extends Application {
 
 	private static final String NOTIFICATION_CHANNEL_ID = "contact-channel";
-	private static final String PREFS_NOTIFICATION = "PREFS_NOTIFICATION";
-	private static final String PREF_LAST_ID_SHOWN = "PREF_LAST_CONTACT_SHOWN";
-	private static final String PREF_ID_TO_SHOW = "PREF_ID_TO_SHOW";
 	private static final int NOTIFICATION_ID = 42;
 
 	@Override
@@ -55,9 +52,9 @@ public class MainApplication extends Application {
 
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			SharedPreferences prefs = context.getSharedPreferences(PREFS_NOTIFICATION, Context.MODE_PRIVATE);
 			TracingStatus status = DP3T.getStatus(context);
 			if (status.getInfectionStatus() == InfectionStatus.EXPOSED) {
+				SecureStorage secureStorage = SecureStorage.getInstance(context);
 				MatchedContact newestContact = null;
 				long dateNewest = 0;
 				for (MatchedContact contact : status.getMatchedContacts()) {
@@ -66,7 +63,7 @@ public class MainApplication extends Application {
 						dateNewest = contact.getReportDate();
 					}
 				}
-				if (newestContact != null && prefs.getInt(PREF_LAST_ID_SHOWN, -1) != newestContact.getId()) {
+				if (newestContact != null && secureStorage.getNotificationLastIdShown() != newestContact.getId()) {
 					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 						createNotificationChannel();
 					}
@@ -91,7 +88,8 @@ public class MainApplication extends Application {
 					NotificationManager notificationManager =
 							(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 					notificationManager.notify(NOTIFICATION_ID, notification);
-					prefs.edit().putInt(PREF_ID_TO_SHOW, newestContact.getId()).commit();
+
+					secureStorage.setNotificationIdToShow(newestContact.getId());
 				}
 			}
 		}
@@ -105,21 +103,6 @@ public class MainApplication extends Application {
 				new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_HIGH);
 		channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
 		notificationManager.createNotificationChannel(channel);
-	}
-
-	public static Integer getAndClearContactToShowId(Context context) {
-		SharedPreferences prefs = context.getSharedPreferences(PREFS_NOTIFICATION, Context.MODE_PRIVATE);
-		if (prefs.contains(PREF_ID_TO_SHOW)) {
-			int id = prefs.getInt(PREF_ID_TO_SHOW, 0);
-			prefs.edit().remove(PREF_ID_TO_SHOW).commit();
-			return id;
-		}
-		return null;
-	}
-
-	public static void saveLaunchByContactId(Context context, int matchedContactId) {
-		SharedPreferences prefs = context.getSharedPreferences(PREFS_NOTIFICATION, Context.MODE_PRIVATE);
-		prefs.edit().putInt(PREF_LAST_ID_SHOWN, matchedContactId).commit();
 	}
 
 }

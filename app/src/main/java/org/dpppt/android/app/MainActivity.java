@@ -6,7 +6,6 @@
 package org.dpppt.android.app;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,13 +20,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.dpppt.android.app.info.TheAppFragment;
 import org.dpppt.android.app.main.MainFragment;
 import org.dpppt.android.app.onboarding.OnboardingActivity;
+import org.dpppt.android.app.storage.SecureStorage;
 
 public class MainActivity extends FragmentActivity {
-
-	public static final String EXTRA_NOTIFICATION_CONTACT_ID = "EXTRA_NOTIFICATION_CONTACT_ID";
-
-	private static final String PREFS_COVID = "PREFS_COVID";
-	private static final String PREF_KEY_ONBOARDING_COMPLETED = "PREF_KEY_ONBOARDING_COMPLETED";
 
 	private static final int REQ_ONBOARDING = 123;
 
@@ -35,20 +30,20 @@ public class MainActivity extends FragmentActivity {
 
 	private BottomNavigationView bottomNavigationView;
 	private ViewPager2 viewPager;
+	private SecureStorage secureStorage;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		secureStorage = SecureStorage.getInstance(this);
+
 		setupNavigationViews();
 
 		if (savedInstanceState == null) {
-			SharedPreferences preferences = getSharedPreferences(PREFS_COVID, MODE_PRIVATE);
-			boolean onboardingCompleted = preferences.getBoolean(PREF_KEY_ONBOARDING_COMPLETED, false);
-
+			boolean onboardingCompleted = secureStorage.getOnboardingCompleted();
 			if (onboardingCompleted) {
-
 				bottomNavigationView.setSelectedItemId(R.id.action_home);
 			} else {
 				startActivityForResult(new Intent(this, OnboardingActivity.class), REQ_ONBOARDING);
@@ -93,8 +88,7 @@ public class MainActivity extends FragmentActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == REQ_ONBOARDING) {
 			if (resultCode == RESULT_OK) {
-				SharedPreferences preferences = getSharedPreferences(PREFS_COVID, MODE_PRIVATE);
-				preferences.edit().putBoolean(PREF_KEY_ONBOARDING_COMPLETED, true).apply();
+				secureStorage.setOnboardingCompleted(true);
 				bottomNavigationView.setSelectedItemId(R.id.action_home);
 			} else {
 				finish();

@@ -17,26 +17,30 @@ public class SecureStorage {
 	private static final String KEY_INFORM_TIME_REQ = "inform_time_req";
 	private static final String KEY_INFORM_CODE_REQ = "inform_code_req";
 	private static final String KEY_INFORM_TOKEN_REQ = "inform_token_req";
+	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
+	private static final String KEY_NOTIFICATION_LAST_ID_SHOWN = "notification_last_id_shown";
+	private static final String KEY_NOTIFICATION_ID_TO_SHOW = "notification_id_to_show";
 
 	private static SecureStorage instance;
 
-	private final SharedPreferences prefs;
+	private SharedPreferences prefs;
 
-	private SecureStorage(@NonNull SharedPreferences prefs) {
-		this.prefs = prefs;
+	private SecureStorage(@NonNull Context context) {
+
+		try {
+			String masterKeys = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
+			this.prefs = EncryptedSharedPreferences
+					.create(PREFERENCES, masterKeys, context, EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+							EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
+		} catch (GeneralSecurityException | IOException e) {
+			this.prefs = null;
+			e.printStackTrace();
+		}
 	}
 
-	public static SecureStorage getInstance(@NonNull Context context) {
+	public static SecureStorage getInstance(Context context) {
 		if (instance == null) {
-			try {
-				String masterKeys = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
-				SharedPreferences prefs = EncryptedSharedPreferences
-						.create(PREFERENCES, masterKeys, context, EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-								EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
-				instance = new SecureStorage(prefs);
-			} catch (GeneralSecurityException | IOException e) {
-				e.printStackTrace();
-			}
+			instance = new SecureStorage(context);
 		}
 		return instance;
 	}
@@ -50,8 +54,7 @@ public class SecureStorage {
 	}
 
 	public void saveInformTimeAndCodeAndToken(String informCode, String informToken) {
-		prefs.edit()
-				.putLong(KEY_INFORM_TIME_REQ, System.currentTimeMillis())
+		prefs.edit().putLong(KEY_INFORM_TIME_REQ, System.currentTimeMillis())
 				.putString(KEY_INFORM_CODE_REQ, informCode)
 				.putString(KEY_INFORM_TOKEN_REQ, informToken)
 				.apply();
@@ -75,4 +78,27 @@ public class SecureStorage {
 	public String getLastInformToken() {
 		return prefs.getString(KEY_INFORM_TOKEN_REQ, null);
 	}
+
+	public boolean getOnboardingCompleted() {
+		return prefs.getBoolean(KEY_ONBOARDING_COMPLETED, false);
+	}
+
+	public void setOnboardingCompleted(boolean completed) {
+		prefs.edit().putBoolean(KEY_ONBOARDING_COMPLETED, completed).apply();
+	}
+
+	public int getNotificationLastIdShown() {
+		return prefs.getInt(KEY_NOTIFICATION_LAST_ID_SHOWN, -1);
+	}
+
+	public int getNotificationIdToShowAndClear() {
+		int id = prefs.getInt(KEY_NOTIFICATION_ID_TO_SHOW, -1);
+		prefs.edit().remove(KEY_NOTIFICATION_ID_TO_SHOW).apply();
+		return id;
+	}
+
+	public void setNotificationIdToShow(int id) {
+		prefs.edit().putInt(KEY_NOTIFICATION_ID_TO_SHOW, id).apply();
+	}
+
 }
