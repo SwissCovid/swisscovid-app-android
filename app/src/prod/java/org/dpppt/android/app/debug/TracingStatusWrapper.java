@@ -85,7 +85,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 		} else if (wasContactReportedAsExposed()) {
 			return NotificationState.EXPOSED;
 		} else {
-			return NotificationState.NO_NOTIFICATION;
+			return NotificationState.NO_REPORTS;
 		}
 	}
 
