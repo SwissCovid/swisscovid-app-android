@@ -74,8 +74,6 @@ public class ReportsFragment extends Fragment {
 		exposed2ndView = view.findViewById(R.id.reports_exponsed_second);
 		infectedView = view.findViewById(R.id.reports_infected);
 
-
-
 		if (pagerAdapter.getItemCount() > 1) {
 			circlePageIndicator.setVisibility(View.VISIBLE);
 			ViewGroup.LayoutParams lp = header.getLayoutParams();
@@ -96,6 +94,10 @@ public class ReportsFragment extends Fragment {
 		});
 
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
+			healthyView.setVisibility(View.GONE);
+			exposedFirstView.setVisibility(View.GONE);
+			exposed2ndView.setVisibility(View.GONE);
+			infectedView.setVisibility(View.GONE);
 			switch (status.getInfectionStatus()) {
 				case HEALTHY:
 					healthyView.setVisibility(View.VISIBLE);
@@ -103,12 +105,17 @@ public class ReportsFragment extends Fragment {
 							Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS)));
 					break;
 				case EXPOSED:
-					if (status.getMatchedContacts().size() == 1) {
+					//TODO für KONsti
+					boolean hasCalled = false;
+					if (hasCalled) {
+						exposed2ndView.setVisibility(View.VISIBLE);
+					} else {
 						exposedFirstView.setVisibility(View.VISIBLE);
+					}
+					if (status.getMatchedContacts().size() == 1) {
 						pagerAdapter.setFragments(
 								Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION)));
 					} else {
-						exposed2ndView.setVisibility(View.VISIBLE);
 						List<Fragment> fragments = new ArrayList<>();
 						for (int i = 0; i < status.getMatchedContacts().size(); i++) {
 							MatchedContact matchedContact = status.getMatchedContacts().get(i);
@@ -118,6 +125,7 @@ public class ReportsFragment extends Fragment {
 								fragments.add(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT));
 							}
 						}
+						pagerAdapter.setFragments(fragments);
 					}
 
 					break;
