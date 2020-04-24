@@ -40,7 +40,8 @@ public class TracingViewModel extends AndroidViewModel {
 	private final MutableLiveData<Boolean> tracingEnabledLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Pair<Boolean, Boolean>> exposedLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Integer> numberOfHandshakesLiveData = new MutableLiveData<>(0);
-	private final MutableLiveData<Collection<TracingStatus.ErrorState>> errorsLiveData = new MutableLiveData<>(Collections.emptyList());
+	private final MutableLiveData<Collection<TracingStatus.ErrorState>> errorsLiveData =
+			new MutableLiveData<>(Collections.emptyList());
 	private final MutableLiveData<AppState> appStateLiveData = new MutableLiveData<>();
 
 	private final MutableLiveData<Boolean> bluetoothEnabledLiveData = new MutableLiveData<>();
@@ -65,7 +66,8 @@ public class TracingViewModel extends AndroidViewModel {
 			tracingStatusWrapper.setStatus(status);
 
 			exposedLiveData
-					.setValue(new Pair<>(tracingStatusWrapper.isReportedAsInfected(), tracingStatusWrapper.wasContactReportedAsExposed()));
+					.setValue(new Pair<>(tracingStatusWrapper.isReportedAsInfected(),
+							tracingStatusWrapper.wasContactReportedAsExposed()));
 
 			errorsLiveData.setValue(status.getErrors());
 
@@ -124,7 +126,6 @@ public class TracingViewModel extends AndroidViewModel {
 
 	public void invalidateService() {
 		if (tracingEnabledLiveData.getValue()) {
-			DP3T.stop(getApplication());
 			DP3T.start(getApplication());
 		}
 	}
