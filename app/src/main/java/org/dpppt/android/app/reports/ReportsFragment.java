@@ -74,24 +74,8 @@ public class ReportsFragment extends Fragment {
 		exposed2ndView = view.findViewById(R.id.reports_exponsed_second);
 		infectedView = view.findViewById(R.id.reports_infected);
 
-		if (pagerAdapter.getItemCount() > 1) {
-			circlePageIndicator.setVisibility(View.VISIBLE);
-			ViewGroup.LayoutParams lp = header.getLayoutParams();
-			lp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports_with_indicator);
-			header.setLayoutParams(lp);
-			scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
-					getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_width_indicator),
-					scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
-		}
-
 		viewPager.setAdapter(pagerAdapter);
 		circlePageIndicator.setViewPager(viewPager);
-
-		viewPager.post(() -> {
-			Rect rect = new Rect();
-			viewPager.getDrawingRect(rect);
-			scrollView.setScrollPreventRect(rect);
-		});
 
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
 			healthyView.setVisibility(View.GONE);
@@ -101,8 +85,7 @@ public class ReportsFragment extends Fragment {
 			switch (status.getInfectionStatus()) {
 				case HEALTHY:
 					healthyView.setVisibility(View.VISIBLE);
-					pagerAdapter.setFragments(
-							Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS)));
+					pagerAdapter.updateItems(Arrays.asList(ReportsPagerFragment.Type.NO_REPORTS));
 					break;
 				case EXPOSED:
 					//TODO für KONsti
@@ -113,52 +96,90 @@ public class ReportsFragment extends Fragment {
 						exposedFirstView.setVisibility(View.VISIBLE);
 					}
 					if (status.getMatchedContacts().size() == 1) {
-						pagerAdapter.setFragments(
-								Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION)));
+						pagerAdapter.updateItems(Arrays.asList(ReportsPagerFragment.Type.POSSIBLE_INFECTION));
 					} else {
-						List<Fragment> fragments = new ArrayList<>();
+						List<ReportsPagerFragment.Type> items = new ArrayList<>();
 						for (int i = 0; i < status.getMatchedContacts().size(); i++) {
 							MatchedContact matchedContact = status.getMatchedContacts().get(i);
 							if (i == 0) {
-								fragments.add(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION));
+								items.add(ReportsPagerFragment.Type.POSSIBLE_INFECTION);
 							} else {
-								fragments.add(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT));
+								items.add(ReportsPagerFragment.Type.NEW_CONTACT);
 							}
 						}
-						pagerAdapter.setFragments(fragments);
+						pagerAdapter.updateItems(items);
 					}
 
 					break;
 				case INFECTED:
 					infectedView.setVisibility(View.VISIBLE);
-					pagerAdapter.setFragments(
-							Arrays.asList(ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED))
-					);
+					pagerAdapter.updateItems(Arrays.asList(ReportsPagerFragment.Type.POSITIVE_TESTED));
 					break;
 			}
 		});
 	}
 
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {
-		private List<Fragment> fragments = new ArrayList<>();
+
+		private List<ReportsPagerFragment.Type> items = new ArrayList<>();
 
 		ReportsSlidePageAdapter() {
 			super(ReportsFragment.this);
 		}
 
-		void setFragments(List<Fragment> fragments) {
-			this.fragments = fragments;
+		void updateItems(List<ReportsPagerFragment.Type> items) {
+			this.items.clear();
+			this.items.addAll(items);
+			notifyDataSetChanged();
+
+			if (getItemCount() > 1) {
+				circlePageIndicator.setVisibility(View.VISIBLE);
+				ViewGroup.LayoutParams lp = header.getLayoutParams();
+				lp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports_with_indicator);
+				header.setLayoutParams(lp);
+				scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
+						getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_width_indicator),
+						scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+			} else {
+				circlePageIndicator.setVisibility(View.GONE);
+				ViewGroup.LayoutParams lp = header.getLayoutParams();
+				lp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports);
+				header.setLayoutParams(lp);
+				scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
+						getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports),
+						scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+			}
+
+			viewPager.post(() -> {
+				Rect rect = new Rect();
+				viewPager.getDrawingRect(rect);
+				scrollView.setScrollPreventRect(rect);
+			});
 		}
 
 		@NonNull
 		@Override
 		public Fragment createFragment(int position) {
-			return fragments.get(position);
+
+			ReportsPagerFragment.Type type = items.get(position);
+
+			switch (type) {
+				case NO_REPORTS:
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS);
+				case POSSIBLE_INFECTION:
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION);
+				case NEW_CONTACT:
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT);
+				case POSITIVE_TESTED:
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED);
+			}
+
+			throw new IllegalArgumentException();
 		}
 
 		@Override
 		public int getItemCount() {
-			return fragments.size();
+			return items.size();
 		}
 
 	}
