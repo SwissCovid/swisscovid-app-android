@@ -19,7 +19,8 @@ public class SecureStorage {
 	private static final String KEY_INFORM_TOKEN_REQ = "inform_token_req";
 	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
-	private static final String KEY_HOTLINE_CALLED = "hotline_called";
+	private static final String KEY_HOTLINE_CALL_PENDING = "hotline_call_pending";
+	private static final String KEY_HOTLINE_EVER_CALLED = "hotline_ever_called";
 
 	private static SecureStorage instance;
 
@@ -95,12 +96,22 @@ public class SecureStorage {
 		prefs.edit().putInt(KEY_LAST_SHOWN_CONTACT_ID, contactId).apply();
 	}
 
-	public boolean getHotlineCalled() {
-		return prefs.getBoolean(KEY_HOTLINE_CALLED, false);
+	public boolean isHotlineCallPending() {
+		return prefs.getBoolean(KEY_HOTLINE_CALL_PENDING, false);
 	}
 
-	public void setHotlineCalled(boolean called) {
-		prefs.edit().putBoolean(KEY_HOTLINE_CALLED, called).apply();
+	public void setHotlineCallPending() {
+		prefs.edit().putBoolean(KEY_HOTLINE_CALL_PENDING, true).apply();
+	}
+
+	public boolean wasHotlineEverCalled() {
+		return prefs.getBoolean(KEY_HOTLINE_EVER_CALLED, false);
+	}
+
+	public void justCalledHotline() {
+		prefs.edit().putBoolean(KEY_HOTLINE_CALL_PENDING, false)
+				.putBoolean(KEY_HOTLINE_EVER_CALLED, true)
+				.apply();
 	}
 
 }

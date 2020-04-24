@@ -49,8 +49,8 @@ public class MainFragment extends Fragment {
 		checkIntentForActions();
 
 		if (!consumedIntent) {
-			boolean hotlineCalled = secureStorage.getHotlineCalled();
-			if (!hotlineCalled) {
+			boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
+			if (isHotlineCallPending) {
 				gotoReportsFragment();
 			}
 		}

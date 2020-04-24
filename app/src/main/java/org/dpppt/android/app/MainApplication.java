@@ -100,7 +100,7 @@ public class MainApplication extends Application {
 				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.notify(NOTIFICATION_ID, notification);
 
-		secureStorage.setHotlineCalled(false);
+		secureStorage.setHotlineCallPending();
 		secureStorage.setLastShownContactId(contactId);
 	}
 

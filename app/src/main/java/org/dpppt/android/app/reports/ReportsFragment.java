@@ -13,6 +13,7 @@ import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -88,15 +89,19 @@ public class ReportsFragment extends Fragment {
 		callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
 		callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
 
+		if(secureStorage.wasHotlineEverCalled()){
+			((TextView)hotlineView.findViewById(R.id.card_encounters_title)).setText(R.string.meldungen_detail_call_again);
+		}
+
 		callHotlineButton1.setOnClickListener(view1 -> {
 			hotlineJustCalled = true;
-			secureStorage.setHotlineCalled(true);
+			secureStorage.justCalledHotline();
 			PhoneUtil.callHelpline(getContext());
 		});
 
 		callHotlineButton2.setOnClickListener(view1 -> {
 			hotlineJustCalled = true;
-			secureStorage.setHotlineCalled(true);
+			secureStorage.justCalledHotline();
 			PhoneUtil.callHelpline(getContext());
 		});
 
@@ -116,8 +121,8 @@ public class ReportsFragment extends Fragment {
 					break;
 				case EXPOSED:
 					List<MatchedContact> matchedContacts = status.getMatchedContacts();
-					boolean hotlineCalled = secureStorage.getHotlineCalled();
-					if (!hotlineCalled) {
+					boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
+					if (isHotlineCallPending) {
 						hotlineView.setVisibility(View.VISIBLE);
 					} else {
 						saveOthersView.setVisibility(View.VISIBLE);

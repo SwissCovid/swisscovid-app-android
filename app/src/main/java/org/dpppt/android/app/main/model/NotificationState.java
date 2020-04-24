@@ -28,7 +28,7 @@ public enum NotificationState {
 	int getText(NotificationState NotificationState) {
 		switch (NotificationState) {
 			case NO_REPORTS:
-				return R.string.meldungen_no_meldungen_text;
+				return R.string.meldungen_no_meldungen_subtitle;
 			case EXPOSED:
 				return R.string.meldungen_meldung_text;
 			case POSITIVE_TESTED:
