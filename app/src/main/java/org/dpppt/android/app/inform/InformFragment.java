@@ -5,8 +5,6 @@
  */
 package org.dpppt.android.app.inform;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -31,6 +29,7 @@ import org.dpppt.android.app.inform.model.AuthenticationCodeResponseModel;
 import org.dpppt.android.app.inform.networking.AuthCodeRepository;
 import org.dpppt.android.app.inform.networking.InvalidCodeError;
 import org.dpppt.android.app.inform.views.ChainedEditText;
+import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.InfoDialog;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
@@ -38,11 +37,6 @@ import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
 import org.dpppt.android.sdk.internal.backend.ResponseException;
 
 public class InformFragment extends Fragment {
-
-	private static final String PREFS_INFORM = "PREFERENCES_INFORM";
-	private static final String PREFS_INFORM_TIME_REQ = "PREFS_INFORM_TIME_REQ";
-	private static final String PREFS_INFORM_CODE_REQ = "PREFS_INFORM_CODE_REQ";
-	private static final String PREFS_INFORM_TOKEN_REQ = "PREFS_INFORM_TOKEN_REQ";
 
 	private static final long TIMEOUT_VALID_CODE = 1000 * 60 * 5;
 
@@ -53,12 +47,21 @@ public class InformFragment extends Fragment {
 	private ChainedEditText authCodeInput;
 	private AlertDialog progressDialog;
 
+	private SecureStorage secureStorage;
+
 	public static InformFragment newInstance() {
 		return new InformFragment();
 	}
 
 	public InformFragment() {
 		super(R.layout.fragment_inform);
+	}
+
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		secureStorage = SecureStorage.getInstance(getContext());
 	}
 
 	@Override
@@ -79,15 +82,14 @@ public class InformFragment extends Fragment {
 			}
 		});
 
-		SharedPreferences preferences = getContext().getSharedPreferences(PREFS_INFORM, Context.MODE_PRIVATE);
-		long lastRequest = preferences.getLong(PREFS_INFORM_TIME_REQ, 0);
-		String lastCode = preferences.getString(PREFS_INFORM_CODE_REQ, null);
-		String lastToken = preferences.getString(PREFS_INFORM_TOKEN_REQ, null);
+		long lastRequestTime = secureStorage.getLastInformRequestTime();
+		String lastCode = secureStorage.getLastInformCode();
+		String lastToken = secureStorage.getLastInformToken();
 
-		if (System.currentTimeMillis() - lastRequest < TIMEOUT_VALID_CODE) {
+		if (System.currentTimeMillis() - lastRequestTime < TIMEOUT_VALID_CODE) {
 			authCodeInput.setText(lastCode);
 		} else if (lastCode != null || lastToken != null) {
-			preferences.edit().clear().commit();
+			secureStorage.clearInformTimeAndCodeAndToken();
 		}
 
 		buttonSend.setOnClickListener(v -> {
@@ -95,7 +97,7 @@ public class InformFragment extends Fragment {
 			String authCode = authCodeInput.getText();
 
 			progressDialog = createProgressDialog();
-			if (System.currentTimeMillis() - lastRequest < TIMEOUT_VALID_CODE && lastToken != null) {
+			if (System.currentTimeMillis() - lastRequestTime < TIMEOUT_VALID_CODE && lastToken != null) {
 				Date onsetDate = getOnsetDate(lastToken);
 				informExposed(onsetDate, getAuthorizationHeader(lastToken));
 			} else {
@@ -123,12 +125,7 @@ public class InformFragment extends Fragment {
 					public void onSuccess(AuthenticationCodeResponseModel response) {
 						String accessToken = response.getAccessToken();
 
-						SharedPreferences prefs = getContext().getSharedPreferences(PREFS_INFORM, Context.MODE_PRIVATE);
-						prefs.edit()
-								.putLong(PREFS_INFORM_TIME_REQ, System.currentTimeMillis())
-								.putString(PREFS_INFORM_CODE_REQ, authCodeBase64)
-								.putString(PREFS_INFORM_TOKEN_REQ, accessToken)
-								.commit();
+						secureStorage.saveInformTimeAndCodeAndToken(authCodeBase64, accessToken);
 
 						Date onsetDate = getOnsetDate(accessToken);
 						if (onsetDate == null) showErrorDialog("Received unreadable jwt access-token.");
@@ -157,7 +154,7 @@ public class InformFragment extends Fragment {
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
-						getContext().getSharedPreferences(PREFS_INFORM, Context.MODE_PRIVATE).edit().clear().commit();
+						secureStorage.clearInformTimeAndCodeAndToken();
 						getParentFragmentManager().beginTransaction()
 								.replace(R.id.inform_fragment_container, ThankYouFragment.newInstance())
 								.commit();
