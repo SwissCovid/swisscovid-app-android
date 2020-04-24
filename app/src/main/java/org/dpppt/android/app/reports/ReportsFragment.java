@@ -7,6 +7,7 @@ package org.dpppt.android.app.reports;
 
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
@@ -18,10 +19,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.dpppt.android.app.R;
+import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.sdk.internal.database.models.MatchedContact;
 
@@ -32,6 +33,7 @@ public class ReportsFragment extends Fragment {
 	}
 
 	private TracingViewModel tracingViewModel;
+	private SecureStorage secureStorage;
 
 	private ReportsSlidePageAdapter pagerAdapter;
 
@@ -54,8 +56,8 @@ public class ReportsFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 
 		pagerAdapter = new ReportsSlidePageAdapter();
-
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
+		secureStorage = SecureStorage.getInstance(getContext());
 	}
 
 	@Override
@@ -82,12 +84,14 @@ public class ReportsFragment extends Fragment {
 			exposedFirstView.setVisibility(View.GONE);
 			exposed2ndView.setVisibility(View.GONE);
 			infectedView.setVisibility(View.GONE);
+			List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
 			switch (status.getInfectionStatus()) {
 				case HEALTHY:
 					healthyView.setVisibility(View.VISIBLE);
-					pagerAdapter.updateItems(Arrays.asList(ReportsPagerFragment.Type.NO_REPORTS));
+					items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
 					break;
 				case EXPOSED:
+					List<MatchedContact> matchedContacts = status.getMatchedContacts();
 					//TODO für KONsti
 					boolean hasCalled = false;
 					if (hasCalled) {
@@ -95,39 +99,33 @@ public class ReportsFragment extends Fragment {
 					} else {
 						exposedFirstView.setVisibility(View.VISIBLE);
 					}
-					if (status.getMatchedContacts().size() == 1) {
-						pagerAdapter.updateItems(Arrays.asList(ReportsPagerFragment.Type.POSSIBLE_INFECTION));
-					} else {
-						List<ReportsPagerFragment.Type> items = new ArrayList<>();
-						for (int i = 0; i < status.getMatchedContacts().size(); i++) {
-							MatchedContact matchedContact = status.getMatchedContacts().get(i);
-							if (i == 0) {
-								items.add(ReportsPagerFragment.Type.POSSIBLE_INFECTION);
-							} else {
-								items.add(ReportsPagerFragment.Type.NEW_CONTACT);
-							}
+					for (int i = 0; i < matchedContacts.size(); i++) {
+						MatchedContact matchedContact = matchedContacts.get(i);
+						if (i == 0) {
+							items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, matchedContact.getReportDate()));
+						} else {
+							items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, matchedContact.getReportDate()));
 						}
-						pagerAdapter.updateItems(items);
 					}
-
 					break;
 				case INFECTED:
 					infectedView.setVisibility(View.VISIBLE);
-					pagerAdapter.updateItems(Arrays.asList(ReportsPagerFragment.Type.POSITIVE_TESTED));
+					items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, secureStorage.getInfectedDate()));
 					break;
 			}
+			pagerAdapter.updateItems(items);
 		});
 	}
 
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {
 
-		private List<ReportsPagerFragment.Type> items = new ArrayList<>();
+		private List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
 
 		ReportsSlidePageAdapter() {
 			super(ReportsFragment.this);
 		}
 
-		void updateItems(List<ReportsPagerFragment.Type> items) {
+		void updateItems(List<Pair<ReportsPagerFragment.Type, Long>> items) {
 			this.items.clear();
 			this.items.addAll(items);
 			notifyDataSetChanged();
@@ -161,17 +159,19 @@ public class ReportsFragment extends Fragment {
 		@Override
 		public Fragment createFragment(int position) {
 
-			ReportsPagerFragment.Type type = items.get(position);
+			Pair<ReportsPagerFragment.Type, Long> item = items.get(position);
+			ReportsPagerFragment.Type type = item.first;
+			long timestamp = item.second == null ? 0 : item.second;
 
 			switch (type) {
 				case NO_REPORTS:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS);
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS, 0);
 				case POSSIBLE_INFECTION:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION);
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION, timestamp);
 				case NEW_CONTACT:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT);
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT, timestamp);
 				case POSITIVE_TESTED:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED);
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED, timestamp);
 			}
 
 			throw new IllegalArgumentException();
