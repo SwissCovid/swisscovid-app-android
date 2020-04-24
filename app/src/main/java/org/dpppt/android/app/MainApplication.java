@@ -39,7 +39,7 @@ public class MainApplication extends Application {
 		super.onCreate();
 		if (ProcessUtil.isMainProcess(this)) {
 			registerReceiver(broadcastReceiver, DP3T.getUpdateIntentFilter());
-			DP3T.init(this, new ApplicationInfo("dp3t-app", "https://www.pt1-d.bfs.admin.ch/", "https://www.pt-d.bfs.admin.ch/"));
+			DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL));
 		}
 	}
 
