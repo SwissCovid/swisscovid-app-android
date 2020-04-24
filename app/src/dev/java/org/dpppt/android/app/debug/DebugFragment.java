@@ -142,9 +142,9 @@ public class DebugFragment extends Fragment {
 		builder.append(getString(R.string.debug_sdk_state_last_synced))
 				.append(lastSyncDateString).append("\n")
 				.append(getString(R.string.debug_sdk_state_self_exposed))
-				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.EXPOSED)).append("\n")
-				.append(getString(R.string.debug_sdk_state_contact_exposed))
 				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.INFECTED)).append("\n")
+				.append(getString(R.string.debug_sdk_state_contact_exposed))
+				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.EXPOSED)).append("\n")
 				.append(getString(R.string.debug_sdk_state_number_handshakes))
 				.append(String.valueOf(status.getNumberOfContacts()));
 
