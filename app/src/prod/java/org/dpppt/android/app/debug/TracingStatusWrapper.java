@@ -96,7 +96,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 		if (hasError) {
 			return TracingErrorStateHelper.getErrorState(status.getErrors());
 		}
-		throw new IllegalStateException("Should not call function if there is no error: ");
+		return null;
 	}
 
 }

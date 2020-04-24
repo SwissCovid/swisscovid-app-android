@@ -1,12 +1,9 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-	android:width="100dp"
-	android:height="100dp"
-	android:viewportWidth="35.27795"
-	android:viewportHeight="35.27795">
-	<path
-		android:fillColor="@color/white_10"
-		android:pathData="M17.6392,0A17.6389,17.6389 0,0 0,0 17.6392,17.6389 17.6389,0 0,0 17.6392,35.278 17.6389,17.6389 0,0 0,35.278 17.6392,17.6389 17.6389,0 0,0 17.6392,0ZM17.6392,6.703a10.9361,10.9361 0,0 1,10.9358 10.9363,10.9361 10.9361,0 0,1 -10.9358,10.9358 10.9361,10.9361 0,0 1,-10.9363 -10.9358,10.9361 10.9361,0 0,1 10.9363,-10.9363z" />
-	<path
-		android:fillColor="@color/white_20"
-		android:pathData="M17.6392,6.7027A10.9361,10.9361 0,0 0,6.7029 17.639,10.9361 10.9361,0 0,0 17.6392,28.5753 10.9361,10.9361 0,0 0,28.575 17.639,10.9361 10.9361,0 0,0 17.6392,6.7027ZM17.6392,7.761a9.8778,9.8778 0,0 1,9.8774 9.8779,9.8778 9.8778,0 0,1 -9.8774,9.8779 9.8778,9.8778 0,0 1,-9.8779 -9.8779,9.8778 9.8778,0 0,1 9.8779,-9.8779z" />
-</vector>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:width="65dp" android:height="65dp">
+		<shape  android:shape="oval">
+			<stroke android:color="@color/white_20" android:width="@dimen/header_stroke_width_circle"/>
+		</shape>
+	</item>
+</layer-list>
+
+

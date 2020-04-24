@@ -22,7 +22,7 @@ import java.util.Collections;
 
 import org.dpppt.android.app.debug.TracingStatusWrapper;
 import org.dpppt.android.app.debug.model.DebugAppState;
-import org.dpppt.android.app.main.model.AppState;
+import org.dpppt.android.app.main.model.TracingStatusInterface;
 import org.dpppt.android.app.util.DeviceFeatureHelper;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
@@ -42,7 +42,7 @@ public class TracingViewModel extends AndroidViewModel {
 	private final MutableLiveData<Integer> numberOfHandshakesLiveData = new MutableLiveData<>(0);
 	private final MutableLiveData<Collection<TracingStatus.ErrorState>> errorsLiveData =
 			new MutableLiveData<>(Collections.emptyList());
-	private final MutableLiveData<AppState> appStateLiveData = new MutableLiveData<>();
+	private final MutableLiveData<TracingStatusInterface> appStatusLiveData = new MutableLiveData<>();
 
 	private final MutableLiveData<Boolean> bluetoothEnabledLiveData = new MutableLiveData<>();
 	private BroadcastReceiver bluetoothReceiver = new BroadcastReceiver() {
@@ -71,7 +71,7 @@ public class TracingViewModel extends AndroidViewModel {
 
 			errorsLiveData.setValue(status.getErrors());
 
-			appStateLiveData.setValue(tracingStatusWrapper.getAppState());
+			appStatusLiveData.setValue(tracingStatusWrapper);
 		});
 
 		invalidateBluetoothState();
@@ -104,8 +104,8 @@ public class TracingViewModel extends AndroidViewModel {
 		return errorsLiveData;
 	}
 
-	public LiveData<AppState> getAppStateLiveData() {
-		return appStateLiveData;
+	public LiveData<TracingStatusInterface> getAppStatusLiveData() {
+		return appStatusLiveData;
 	}
 
 	public LiveData<TracingStatus> getTracingStatusLiveData() {

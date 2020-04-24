@@ -10,117 +10,159 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AnticipateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import java.util.Random;
 
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.main.model.AppState;
+import org.dpppt.android.app.main.model.NotificationState;
+import org.dpppt.android.app.main.model.TracingState;
+import org.dpppt.android.app.main.model.TracingStatusInterface;
+import org.dpppt.android.sdk.TracingStatus;
 
-public class HeaderView extends FrameLayout {
+public class HeaderView extends ConstraintLayout {
 
-	private static final long COLOR_ANIM_DURATION = 500;
-	private static final long ICON_ANIM_DURATION = 500;
-	private static final long ICON_ANIM_DELAY = 200;
 	private static final float ANIM_OVERSHOOT_TENSION = 2;
-	private static final long INITIAL_DELAY = 500;
+	private static final long COLOR_ANIM_DURATION = 500;
+	static final long ICON_ANIM_DURATION = 500;
+	static final long ICON_ANIM_DELAY = 200;
+	static final long INITIAL_DELAY = 500;
+
+	private static final int[] BACKGROUND_IMAGES =
+			new int[] { R.drawable.header_image_basel,
+					R.drawable.header_image_bern_1,
+					R.drawable.header_image_bern_2,
+					R.drawable.header_image_geneva };
+	private static Integer backgroundImageIndex = null;
 
 	private ImageView backgroundImage;
 	private ImageView icon;
 	private ImageView iconBackground;
+	private CircleAnimationView circleView;
 
-	private AppState currentState;
+	private TracingState currentTracingState;
+	private NotificationState currentNotificationState;
+	private TracingStatus.ErrorState currentErrorState;
 	private AnimatorSet iconAnimatorSet;
 	private ValueAnimator colorAnimator;
 
 	public HeaderView(Context context) {
 		super(context);
-		init(context, null, 0, 0);
+		init(context, null, 0);
 	}
 
 	public HeaderView(Context context, @Nullable AttributeSet attrs) {
 		super(context, attrs);
-		init(context, attrs, 0, 0);
+		init(context, attrs, 0);
 	}
 
 	public HeaderView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		init(context, attrs, defStyleAttr, 0);
+		init(context, attrs, defStyleAttr);
 	}
 
-	public HeaderView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-		super(context, attrs, defStyleAttr, defStyleRes);
-		init(context, attrs, defStyleAttr, defStyleRes);
-	}
-
-	private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+	private void init(Context context, AttributeSet attrs, int defStyleAttr) {
 		setForegroundGravity(Gravity.CENTER);
 		View headerContent = LayoutInflater.from(context).inflate(R.layout.view_header, this, true);
-		backgroundImage = headerContent.findViewById(R.id.main_header_bg_image);
-		backgroundImage.setForeground(new ColorDrawable(Color.TRANSPARENT));
 		icon = headerContent.findViewById(R.id.main_header_icon);
 		icon.setScaleX(0);
 		icon.setScaleY(0);
 		iconBackground = headerContent.findViewById(R.id.main_header_icon_bg);
 		iconBackground.setScaleX(0);
 		iconBackground.setScaleY(0);
+
+		if (backgroundImageIndex == null) {
+			backgroundImageIndex = new Random(System.currentTimeMillis()).nextInt(BACKGROUND_IMAGES.length);
+		}
+		backgroundImage = headerContent.findViewById(R.id.main_header_bg_image);
+		backgroundImage.setForeground(new ColorDrawable(getResources().getColor(R.color.header_bg_off, null)));
+		backgroundImage.setImageResource(BACKGROUND_IMAGES[backgroundImageIndex]);
+
+		circleView = headerContent.findViewById(R.id.main_header_anim_view);
 	}
 
-	public void setState(AppState state) {
-		if (currentState == state) return;
-		boolean initialUpdate = currentState == null;
+	public void stopAnimation() {
+		circleView.stopAnimation();
+	}
 
-		int backgroundColor = Color.TRANSPARENT;
+	public void setState(TracingStatusInterface state) {
+		boolean initialUpdate = currentTracingState == null;
+
+		if (state.getTracingState() == currentTracingState && state.getNotificationState() == currentNotificationState &&
+				state.getTracingErrorState() == currentErrorState) {
+			return;
+		}
+
+		currentErrorState = state.getTracingErrorState();
+		currentTracingState = state.getTracingState();
+		currentNotificationState = state.getNotificationState();
+
+		int backgroundColor;
 		int iconRes = 0;
 		int iconBgRes = 0;
-		switch (state) {
-			case TRACING_ON:
-				iconRes = R.drawable.ic_begegnungen;
-				iconBgRes = R.drawable.bg_header_icon_on;
-				backgroundColor = getResources().getColor(R.color.header_bg_on, null);
-				break;
-			case TRACING_OFF:
-				iconRes = R.drawable.ic_warning;
-				iconBgRes = R.drawable.bg_header_icon_off;
-				backgroundColor = getResources().getColor(R.color.header_bg_off, null);
-				break;
-			case ERROR_BLUETOOTH_OFF:
-				iconRes = R.drawable.ic_bluetooth_off;
+		boolean hasErrors = state.getTracingErrorState() != null;
+		if (state.getNotificationState() == NotificationState.NO_REPORTS ||
+				state.getNotificationState() == NotificationState.EXPOSED) {
+			if (hasErrors) {
+				TracingStatus.ErrorState error = state.getTracingErrorState();
 				iconBgRes = R.drawable.bg_header_icon_off;
 				backgroundColor = getResources().getColor(R.color.header_bg_error, null);
-				break;
-			case ERROR_LOCATION_PERMISSION:
-				iconRes = R.drawable.ic_location_off;
-				iconBgRes = R.drawable.bg_header_icon_off;
-				backgroundColor = getResources().getColor(R.color.header_bg_error, null);
-				break;
-			case ERROR_BATTERY_OPTIMIZATION:
-				iconRes = R.drawable.ic_battery_alert;
-				iconBgRes = R.drawable.bg_header_icon_off;
-				backgroundColor = getResources().getColor(R.color.header_bg_error, null);
-				break;
-			case ERROR_SYNC_FAILED:
-				iconRes = R.drawable.ic_sync_failed;
-				iconBgRes = R.drawable.bg_header_icon_off;
-				backgroundColor = getResources().getColor(R.color.header_bg_error, null);
-				break;
-			case EXPOSED:
-				iconRes = R.drawable.ic_info;
-				iconBgRes = R.drawable.bg_header_icon_off;
-				backgroundColor = getResources().getColor(R.color.header_bg_exposed, null);
-				break;
+				switch (error) {
+					case NETWORK_ERROR_WHILE_SYNCING:
+						iconRes = R.drawable.ic_sync_failed;
+						break;
+					case MISSING_LOCATION_PERMISSION:
+						iconRes = R.drawable.ic_warning;
+						break;
+					case BATTERY_OPTIMIZER_ENABLED:
+						iconRes = R.drawable.ic_warning;
+						break;
+					case BLE_DISABLED:
+						iconRes = R.drawable.ic_bluetooth_off;
+						break;
+					case BLE_NOT_SUPPORTED:
+						iconRes = R.drawable.ic_warning;
+						break;
+					case BLE_INTERNAL_ERROR:
+						iconRes = R.drawable.ic_warning;
+						break;
+					case BLE_ADVERTISING_ERROR:
+						iconRes = R.drawable.ic_warning;
+						break;
+					case BLE_SCANNER_ERROR:
+						iconRes = R.drawable.ic_warning;
+						break;
+				}
+			} else {
+				if (state.getTracingState() == TracingState.ACTIVE) {
+					iconRes = R.drawable.ic_begegnungen;
+					iconBgRes = R.drawable.bg_header_icon_on;
+					backgroundColor = getResources().getColor(R.color.header_bg_on, null);
+				} else {
+					iconRes = R.drawable.ic_warning_red;
+					iconBgRes = R.drawable.bg_header_icon_off;
+					backgroundColor = getResources().getColor(R.color.header_bg_off, null);
+				}
+			}
+		} else if (state.getNotificationState() == NotificationState.POSITIVE_TESTED) {
+			iconRes = R.drawable.ic_info;
+			iconBgRes = R.drawable.bg_header_icon_off;
+			backgroundColor = getResources().getColor(R.color.header_bg_exposed, null);
+		} else {
+			throw new IllegalStateException(
+					"Unhandled tracing status in header: \n" + state.getNotificationState() + "\n" + state.getTracingState() +
+							"\n" + state.getTracingErrorState());
 		}
 		iconBackground.setImageResource(R.drawable.ic_header_background);
 
@@ -133,8 +175,8 @@ public class HeaderView extends FrameLayout {
 		colorAnimator.addUpdateListener(animation -> colorDrawable.setColor((int) animation.getAnimatedValue()));
 		colorAnimator.start();
 
-		if (iconAnimatorSet != null && iconAnimatorSet.isRunning()) iconAnimatorSet.cancel();
 		if (initialUpdate) {
+			if (iconAnimatorSet != null && iconAnimatorSet.isRunning()) iconAnimatorSet.cancel();
 			Animator iconAnimator =
 					createSizeAnimation(icon, icon.getScaleX(), 1, ICON_ANIM_DURATION, ICON_ANIM_DELAY + INITIAL_DELAY);
 			Animator iconBgAnimator =
@@ -149,7 +191,10 @@ public class HeaderView extends FrameLayout {
 			iconBackground.setImageResource(iconBgRes);
 		}
 
-		currentState = state;
+		circleView.setState(state, initialUpdate);
+		icon.post(() -> {
+			circleView.setCenter(Math.round(icon.getX() + icon.getWidth() / 2), Math.round(icon.getY() + icon.getHeight() / 2));
+		});
 	}
 
 	private ValueAnimator createSizeAnimation(View view, float from, float to, long duration, long delay) {

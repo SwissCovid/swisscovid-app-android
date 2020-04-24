@@ -96,7 +96,8 @@ public class HomeFragment extends Fragment {
 		reportStatusBubble = view.findViewById(R.id.report_status_bubble);
 		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
 		reportErrorView = reportStatusBubble.findViewById(R.id.report_errors);
-		headerView = view.findViewById(R.id.home_header_container);
+		headerView = view.findViewById(R.id.home_header_view);
+		scrollView = view.findViewById(R.id.home_scroll_view);
 
 		cardSymptoms = view.findViewById(R.id.card_what_to_do_symptoms);
 		cardSymptomsFrame = view.findViewById(R.id.frame_card_symptoms);
@@ -108,11 +109,7 @@ public class HomeFragment extends Fragment {
 		setupNotification();
 		setupWhatToDo();
 		setupDebugButton();
-
-		scrollView = view.findViewById(R.id.home_scroll_view);
-		if (savedInstanceState != null) {
-			scrollView.setScrollY(savedInstanceState.getInt(STATE_SCROLL_VIEW));
-		}
+		setupScrollBehavior(savedInstanceState);
 	}
 
 	@Override
@@ -122,16 +119,20 @@ public class HomeFragment extends Fragment {
 	}
 
 	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		headerView.stopAnimation();
+	}
+
+	@Override
 	public void onSaveInstanceState(@NonNull Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putInt(STATE_SCROLL_VIEW, scrollView.getScrollY());
 	}
 
 	private void setupHeader() {
-		tracingViewModel.getAppStateLiveData()
-				.observe(getViewLifecycleOwner(), appState -> {
-					headerView.setState(appState);
-				});
+		tracingViewModel.getAppStatusLiveData()
+				.observe(getViewLifecycleOwner(), headerView::setState);
 	}
 
 	private void setupTracingView() {
@@ -287,6 +288,31 @@ public class HomeFragment extends Fragment {
 			builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
 			builder.show();
 		});
+	}
+
+	private void setupScrollBehavior(Bundle savedInstanceState) {
+
+		int scrollRangePx = getResources().getDimensionPixelSize(R.dimen.top_item_padding);
+		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
+		scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+			float progress = computeScrollAnimProgress(scrollY, scrollRangePx);
+			headerView.setAlpha(1 - progress);
+			headerView.setTranslationY(progress * translationRangePx);
+		});
+		scrollView.post(() -> {
+			float progress = computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
+			headerView.setAlpha(1 - progress);
+			headerView.setTranslationY(progress * translationRangePx);
+		});
+		headerView.setAlpha(0);
+
+		if (savedInstanceState != null) {
+			scrollView.setScrollY(savedInstanceState.getInt(STATE_SCROLL_VIEW));
+		}
+	}
+
+	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
+		return Math.min(scrollY, scrollRange) / (float) scrollRange;
 	}
 
 	@Override

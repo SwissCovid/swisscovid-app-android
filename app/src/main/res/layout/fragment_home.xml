@@ -33,12 +33,10 @@
 	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:background="@color/grey_light"
-		android:fitsSystemWindows="true"
-		android:orientation="vertical">
+		android:background="@color/grey_light">
 
 		<org.dpppt.android.app.main.views.HeaderView
-			android:id="@+id/home_header_container"
+			android:id="@+id/home_header_view"
 			android:layout_width="match_parent"
 			android:layout_height="@dimen/header_height" />
 
@@ -96,7 +94,7 @@
 						android:id="@+id/status_icon"
 						android:layout_width="@dimen/icon_size"
 						android:layout_height="@dimen/icon_size"
-						android:src="@drawable/ic_warning"/>
+						android:src="@drawable/ic_warning_red"/>
 
 					<LinearLayout
 						android:layout_width="0dp"

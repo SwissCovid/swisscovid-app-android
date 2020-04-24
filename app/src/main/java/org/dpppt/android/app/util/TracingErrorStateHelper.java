@@ -68,12 +68,12 @@ public class TracingErrorStateHelper {
 			case ERROR_LOCATION_OFF:
 				return -1;*/
 			case BATTERY_OPTIMIZER_ENABLED:
-				return R.drawable.ic_warning;
+				return R.drawable.ic_warning_red;
 			/*missing
 			case ERROR_TIMING_INCONSISTENCY:
 				return -1;*/
 			case NETWORK_ERROR_WHILE_SYNCING:
-				return R.drawable.ic_warning;
+				return R.drawable.ic_warning_red;
 			/*
 				SDK error missing
 				* */

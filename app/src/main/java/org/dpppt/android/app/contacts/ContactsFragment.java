@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ScrollView;
 import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,6 +39,8 @@ public class ContactsFragment extends Fragment {
 	private static final int REQUEST_CODE_BLE_INTENT = 330;
 
 	private TracingViewModel tracingViewModel;
+	private HeaderView headerView;
+	private ScrollView scrollView;
 
 	public static ContactsFragment newInstance() {
 		return new ContactsFragment();
@@ -56,12 +59,6 @@ public class ContactsFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		Toolbar toolbar = view.findViewById(R.id.contacts_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
-
-		HeaderView headerView = view.findViewById(R.id.contacts_header_view);
-		tracingViewModel.getAppStateLiveData()
-				.observe(getViewLifecycleOwner(), appState -> {
-					headerView.setState(appState);
-				});
 
 		View tracingStatusView = view.findViewById(R.id.tracing_status);
 		View tracingErrorView = view.findViewById(R.id.tracing_error);
@@ -117,12 +114,26 @@ public class ContactsFragment extends Fragment {
 				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE);
 			}
 		});
+
+		headerView = view.findViewById(R.id.contacts_header_view);
+		scrollView = view.findViewById(R.id.contacts_scroll_view);
+		tracingViewModel.getAppStatusLiveData()
+				.observe(getViewLifecycleOwner(), tracingStatus -> {
+					headerView.setState(tracingStatus);
+				});
+		setupScrollBehavior();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
 		tracingViewModel.invalidateService();
+	}
+
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		headerView.stopAnimation();
 	}
 
 	@Override
@@ -139,6 +150,27 @@ public class ContactsFragment extends Fragment {
 				tracingViewModel.invalidateService();
 			}
 		}
+	}
+
+	private void setupScrollBehavior() {
+
+		int scrollRangePx = getResources().getDimensionPixelSize(R.dimen.top_item_padding);
+		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
+		scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+			float progress = computeScrollAnimProgress(scrollY, scrollRangePx);
+			headerView.setAlpha(1 - progress);
+			headerView.setTranslationY(progress * translationRangePx);
+		});
+		scrollView.post(() -> {
+			float progress = computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
+			headerView.setAlpha(1 - progress);
+			headerView.setTranslationY(progress * translationRangePx);
+		});
+		headerView.setAlpha(0);
+	}
+
+	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
+		return Math.min(scrollY, scrollRange) / (float) scrollRange;
 	}
 
 }

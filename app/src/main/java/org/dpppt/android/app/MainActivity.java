@@ -42,7 +42,6 @@ public class MainActivity extends FragmentActivity {
 		secureStorage = SecureStorage.getInstance(this);
 
 		setupNavigationViews();
-
 		if (savedInstanceState == null) {
 			boolean onboardingCompleted = secureStorage.getOnboardingCompleted();
 			if (onboardingCompleted) {
