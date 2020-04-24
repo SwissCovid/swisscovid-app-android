@@ -5,6 +5,7 @@ import org.dpppt.android.app.main.model.AppState;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
 import org.dpppt.android.app.main.model.TracingStatusInterface;
+import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 
@@ -52,7 +53,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 				} else if (tracingOff) {
 					return AppState.TRACING_OFF;
 				} else if (hasError) {
-					return getAppStateForError(status.getErrors().iterator().next());
+					return getAppStateForError(TracingErrorStateHelper.getErrorState(status.getErrors()));
 				} else {
 					return AppState.TRACING_ON;
 				}
@@ -60,7 +61,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 				if (tracingOff) {
 					return AppState.TRACING_OFF;
 				} else if (hasError) {
-					return getAppStateForError(status.getErrors().iterator().next());
+					return getAppStateForError(TracingErrorStateHelper.getErrorState(status.getErrors()));
 				} else {
 					return AppState.TRACING_ON;
 				}
@@ -95,7 +96,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	public TracingStatus.ErrorState getTracingErrorState() {
 		boolean hasError = status.getErrors().size() > 0;
 		if (hasError) {
-			return status.getErrors().iterator().next();
+			return TracingErrorStateHelper.getErrorState(status.getErrors());
 		}
 		throw new IllegalStateException("Should not call function if there is no error: ");
 	}
