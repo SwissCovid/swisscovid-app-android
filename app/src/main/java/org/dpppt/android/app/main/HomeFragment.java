@@ -235,7 +235,11 @@ public class HomeFragment extends Fragment {
 						if (errorStates != null && errorStates.size() > 0) {
 							TracingStatus.ErrorState errorState = TracingErrorStateHelper.getErrorStateForReports(errorStates);
 							TracingErrorStateHelper.updateErrorView(reportErrorView, errorState);
+						} else {
+							TracingErrorStateHelper.updateErrorView(reportErrorView, null);
 						}
+					} else {
+						TracingErrorStateHelper.updateErrorView(reportErrorView, null);
 					}
 				});
 	}

@@ -5,6 +5,7 @@
   -->
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	style="@style/NextStep.Card"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content">
@@ -54,7 +55,9 @@
 
 			<include
 				android:id="@+id/report_errors"
-				layout="@layout/item_error_status" />
+				layout="@layout/item_error_status"
+				android:visibility="gone"
+				tools:visibility="visible"/>
 
 		</LinearLayout>
 
