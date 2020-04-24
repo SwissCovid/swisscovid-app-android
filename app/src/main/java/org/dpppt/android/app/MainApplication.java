@@ -18,10 +18,10 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
-import org.dpppt.android.app.util.DebugUtils;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.internal.backend.models.ApplicationInfo;
 import org.dpppt.android.sdk.internal.database.models.MatchedContact;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
 
@@ -39,7 +39,7 @@ public class MainApplication extends Application {
 		super.onCreate();
 		if (ProcessUtil.isMainProcess(this)) {
 			registerReceiver(broadcastReceiver, DP3T.getUpdateIntentFilter());
-			DP3T.init(this, "org.dpppt.demo", DebugUtils.isDev());
+			DP3T.init(this, new ApplicationInfo("dp3t-app", "https://www.pt1-d.bfs.admin.ch/", "https://www.pt-d.bfs.admin.ch/"));
 		}
 	}
 

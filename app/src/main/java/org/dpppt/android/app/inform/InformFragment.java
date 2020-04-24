@@ -35,7 +35,7 @@ import org.dpppt.android.app.util.InfoDialog;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.internal.backend.CallbackListener;
 import org.dpppt.android.sdk.internal.backend.ResponseException;
-import org.dpppt.android.sdk.internal.backend.models.ExposeeAuthData;
+import org.dpppt.android.sdk.internal.backend.models.ExposeeAuthMethodAuthorization;
 
 public class InformFragment extends Fragment {
 
@@ -97,7 +97,7 @@ public class InformFragment extends Fragment {
 			progressDialog = createProgressDialog();
 			if (System.currentTimeMillis() - lastRequest < TIMEOUT_VALID_CODE && lastToken != null) {
 				Date onsetDate = getOnsetDate(lastToken);
-				informExposed(onsetDate, lastToken, getAuthorizationHeader(lastToken));
+				informExposed(onsetDate, getAuthorizationHeader(lastToken));
 			} else {
 				authenticateInput(authCode);
 			}
@@ -132,7 +132,7 @@ public class InformFragment extends Fragment {
 
 						Date onsetDate = getOnsetDate(accessToken);
 						if (onsetDate == null) showErrorDialog("Received unreadable jwt access-token.");
-						informExposed(onsetDate, accessToken, "bearer " + accessToken);
+						informExposed(onsetDate, getAuthorizationHeader(accessToken));
 					}
 
 					@Override
@@ -149,9 +149,9 @@ public class InformFragment extends Fragment {
 				});
 	}
 
-	private void informExposed(Date onsetDate, String accessToken, String authorizationHeader) {
+	private void informExposed(Date onsetDate, String authorizationHeader) {
 		DP3T.sendIAmInfected(getContext(), onsetDate,
-				new ExposeeAuthData(accessToken), authorizationHeader, new CallbackListener<Void>() {
+				new ExposeeAuthMethodAuthorization(authorizationHeader), new CallbackListener<Void>() {
 					@Override
 					public void onSuccess(Void response) {
 						if (progressDialog != null && progressDialog.isShowing()) {
@@ -219,7 +219,7 @@ public class InformFragment extends Fragment {
 	}
 
 	private String getAuthorizationHeader(String accessToken) {
-		return "bearer " + accessToken;
+		return "Bearer " + accessToken;
 	}
 
 }
