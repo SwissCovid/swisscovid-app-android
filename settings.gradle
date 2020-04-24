@@ -5,4 +5,4 @@
  */
 
 rootProject.name='NextStep'
-include ':app'
+include ':app', ':dp3t-sdk-calibration-release'
