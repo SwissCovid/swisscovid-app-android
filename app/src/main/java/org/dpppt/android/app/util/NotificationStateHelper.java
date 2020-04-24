@@ -21,11 +21,10 @@ public class NotificationStateHelper {
 		TextView titleView = statusView.findViewById(R.id.status_title);
 		TextView textView = statusView.findViewById(R.id.status_text);
 		int color = ContextCompat.getColor(context, NotificationState.getTextColor(state));
-		if (color != -1) {
-			titleView.setTextColor(color);
-			textView.setTextColor(color);
-			iconView.setImageTintList(ColorStateList.valueOf(color));
-		}
+		titleView.setTextColor(color);
+		textView.setTextColor(color);
+		iconView.setImageTintList(ColorStateList.valueOf(color));
+
 		if (NotificationState.getTitle(state) != -1) {
 			titleView.setText(NotificationState.getTitle(state));
 			titleView.setVisibility(View.VISIBLE);
