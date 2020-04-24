@@ -18,8 +18,8 @@ public class SecureStorage {
 	private static final String KEY_INFORM_CODE_REQ = "inform_code_req";
 	private static final String KEY_INFORM_TOKEN_REQ = "inform_token_req";
 	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
-	private static final String KEY_NOTIFICATION_LAST_ID_SHOWN = "notification_last_id_shown";
-	private static final String KEY_NOTIFICATION_ID_TO_SHOW = "notification_id_to_show";
+	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
+	private static final String KEY_HOTLINE_CALLED = "hotline_called";
 
 	private static SecureStorage instance;
 
@@ -87,18 +87,20 @@ public class SecureStorage {
 		prefs.edit().putBoolean(KEY_ONBOARDING_COMPLETED, completed).apply();
 	}
 
-	public int getNotificationLastIdShown() {
-		return prefs.getInt(KEY_NOTIFICATION_LAST_ID_SHOWN, -1);
+	public int getLastShownContactId() {
+		return prefs.getInt(KEY_LAST_SHOWN_CONTACT_ID, -1);
 	}
 
-	public int getNotificationIdToShowAndClear() {
-		int id = prefs.getInt(KEY_NOTIFICATION_ID_TO_SHOW, -1);
-		prefs.edit().remove(KEY_NOTIFICATION_ID_TO_SHOW).apply();
-		return id;
+	public void setLastShownContactId(int contactId) {
+		prefs.edit().putInt(KEY_LAST_SHOWN_CONTACT_ID, contactId).apply();
 	}
 
-	public void setNotificationIdToShow(int id) {
-		prefs.edit().putInt(KEY_NOTIFICATION_ID_TO_SHOW, id).apply();
+	public boolean getHotlineCalled() {
+		return prefs.getBoolean(KEY_HOTLINE_CALLED, false);
+	}
+
+	public void setHotlineCalled(boolean called) {
+		prefs.edit().putBoolean(KEY_HOTLINE_CALLED, called).apply();
 	}
 
 }

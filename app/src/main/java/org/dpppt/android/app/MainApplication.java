@@ -29,12 +29,15 @@ import org.dpppt.android.sdk.internal.util.ProcessUtil;
 public class MainApplication extends Application {
 
 	private static final String NOTIFICATION_CHANNEL_ID = "contact-channel";
-	private static final int NOTIFICATION_ID = 42;
+	public static final int NOTIFICATION_ID = 42;
+
+	private SecureStorage secureStorage;
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
 		if (ProcessUtil.isMainProcess(this)) {
+			secureStorage = SecureStorage.getInstance(getApplicationContext());
 			registerReceiver(broadcastReceiver, DP3T.getUpdateIntentFilter());
 			DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL));
 		}
@@ -54,7 +57,6 @@ public class MainApplication extends Application {
 		public void onReceive(Context context, Intent intent) {
 			TracingStatus status = DP3T.getStatus(context);
 			if (status.getInfectionStatus() == InfectionStatus.EXPOSED) {
-				SecureStorage secureStorage = SecureStorage.getInstance(context);
 				MatchedContact newestContact = null;
 				long dateNewest = 0;
 				for (MatchedContact contact : status.getMatchedContacts()) {
@@ -63,37 +65,44 @@ public class MainApplication extends Application {
 						dateNewest = contact.getReportDate();
 					}
 				}
-				if (newestContact != null && secureStorage.getNotificationLastIdShown() != newestContact.getId()) {
-					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-						createNotificationChannel();
-					}
-
-					Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
-
-					PendingIntent contentIntent = null;
-					if (launchIntent != null) {
-						contentIntent =
-								PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-					}
-					Notification notification =
-							new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
-									.setContentTitle(context.getString(R.string.push_exposed_title))
-									.setContentText(context.getString(R.string.push_exposed_text))
-									.setPriority(NotificationCompat.PRIORITY_MAX)
-									.setSmallIcon(R.drawable.ic_begegnungen)
-									.setContentIntent(contentIntent)
-									.setAutoCancel(true)
-									.build();
-
-					NotificationManager notificationManager =
-							(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-					notificationManager.notify(NOTIFICATION_ID, notification);
-
-					secureStorage.setNotificationIdToShow(newestContact.getId());
+				if (newestContact != null && secureStorage.getLastShownContactId() != newestContact.getId()) {
+					createNewContactNotifaction(newestContact.getId());
 				}
 			}
 		}
 	};
+
+	private void createNewContactNotifaction(int contactId) {
+		Context context = getApplicationContext();
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			createNotificationChannel();
+		}
+
+		Intent resultIntent = new Intent(context, MainActivity.class);
+		resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+		resultIntent.setAction(MainActivity.ACTION_GOTO_REPORTS);
+
+		PendingIntent pendingIntent =
+				PendingIntent.getActivity(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+		Notification notification =
+				new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+						.setContentTitle(context.getString(R.string.push_exposed_title))
+						.setContentText(context.getString(R.string.push_exposed_text))
+						.setPriority(NotificationCompat.PRIORITY_MAX)
+						.setSmallIcon(R.drawable.ic_begegnungen)
+						.setContentIntent(pendingIntent)
+						.setAutoCancel(true)
+						.build();
+
+		NotificationManager notificationManager =
+				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		notificationManager.notify(NOTIFICATION_ID, notification);
+
+		secureStorage.setHotlineCalled(false);
+		secureStorage.setLastShownContactId(contactId);
+	}
 
 	@RequiresApi(api = Build.VERSION_CODES.O)
 	private void createNotificationChannel() {

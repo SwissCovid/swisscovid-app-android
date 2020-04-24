@@ -51,8 +51,6 @@ import static org.dpppt.android.app.onboarding.OnboardingLocationPermissionFragm
 
 public class HomeFragment extends Fragment {
 
-	private static final String ARG_KEY_LAUNCH_REPORTS_DIRECTLY = "ARG_KEY_LAUNCH_REPORTS_DIRECTLY";
-
 	private static final String STATE_SCROLL_VIEW = "STATE_SCROLL_VIEW";
 	private static final int REQUEST_CODE_BLE_INTENT = 330;
 
@@ -76,9 +74,8 @@ public class HomeFragment extends Fragment {
 		super(R.layout.fragment_home);
 	}
 
-	public static HomeFragment newInstance(boolean launchReportsFragment) {
+	public static HomeFragment newInstance() {
 		Bundle args = new Bundle();
-		args.putBoolean(ARG_KEY_LAUNCH_REPORTS_DIRECTLY, launchReportsFragment);
 		HomeFragment fragment = new HomeFragment();
 		fragment.setArguments(args);
 		return fragment;
@@ -88,13 +85,6 @@ public class HomeFragment extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
-
-		if (savedInstanceState == null && getArguments().getBoolean(ARG_KEY_LAUNCH_REPORTS_DIRECTLY, false)) {
-			getParentFragmentManager().beginTransaction()
-					.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
-					.addToBackStack(ReportsFragment.class.getCanonicalName())
-					.commit();
-		}
 	}
 
 	@Override

@@ -5,6 +5,8 @@
  */
 package org.dpppt.android.app.reports;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Pair;
@@ -21,6 +23,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dpppt.android.app.MainApplication;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
@@ -115,6 +118,10 @@ public class ReportsFragment extends Fragment {
 			}
 			pagerAdapter.updateItems(items);
 		});
+
+		NotificationManager notificationManager =
+				(NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+		notificationManager.cancel(MainApplication.NOTIFICATION_ID);
 	}
 
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {

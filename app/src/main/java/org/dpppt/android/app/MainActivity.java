@@ -24,6 +24,8 @@ import org.dpppt.android.app.storage.SecureStorage;
 
 public class MainActivity extends FragmentActivity {
 
+	public static final String ACTION_GOTO_REPORTS = "ACTION_GOTO_REPORTS";
+
 	private static final int REQ_ONBOARDING = 123;
 
 	private static final int[] MENU_ACTION_IDS = new int[]{R.id.action_home, R.id.action_theapp};
