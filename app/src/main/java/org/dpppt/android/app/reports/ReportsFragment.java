@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -26,6 +27,7 @@ import java.util.List;
 import org.dpppt.android.app.MainApplication;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.storage.SecureStorage;
+import org.dpppt.android.app.util.PhoneUtil;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.sdk.internal.database.models.MatchedContact;
 
@@ -47,10 +49,14 @@ public class ReportsFragment extends Fragment {
 	private CirclePageIndicator circlePageIndicator;
 
 	private View healthyView;
-	private View exposedFirstView;
-	private View exposed2ndView;
+	private View saveOthersView;
+	private View hotlineView;
 	private View infectedView;
 
+	private Button callHotlineButton1;
+	private Button callHotlineButton2;
+
+	private boolean hotlineJustCalled = false;
 
 	public ReportsFragment() { super(R.layout.fragment_reports); }
 
@@ -75,17 +81,32 @@ public class ReportsFragment extends Fragment {
 		circlePageIndicator = view.findViewById(R.id.reports_pageindicator);
 
 		healthyView = view.findViewById(R.id.reports_healthy);
-		exposedFirstView = view.findViewById(R.id.reports_exponsed_first);
-		exposed2ndView = view.findViewById(R.id.reports_exponsed_second);
+		saveOthersView = view.findViewById(R.id.reports_save_others);
+		hotlineView = view.findViewById(R.id.reports_hotline);
 		infectedView = view.findViewById(R.id.reports_infected);
+
+		callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
+		callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
+
+		callHotlineButton1.setOnClickListener(view1 -> {
+			hotlineJustCalled = true;
+			secureStorage.setHotlineCalled(true);
+			PhoneUtil.callHelpline(getContext());
+		});
+
+		callHotlineButton2.setOnClickListener(view1 -> {
+			hotlineJustCalled = true;
+			secureStorage.setHotlineCalled(true);
+			PhoneUtil.callHelpline(getContext());
+		});
 
 		viewPager.setAdapter(pagerAdapter);
 		circlePageIndicator.setViewPager(viewPager);
 
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
 			healthyView.setVisibility(View.GONE);
-			exposedFirstView.setVisibility(View.GONE);
-			exposed2ndView.setVisibility(View.GONE);
+			saveOthersView.setVisibility(View.GONE);
+			hotlineView.setVisibility(View.GONE);
 			infectedView.setVisibility(View.GONE);
 			List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
 			switch (status.getInfectionStatus()) {
@@ -95,12 +116,11 @@ public class ReportsFragment extends Fragment {
 					break;
 				case EXPOSED:
 					List<MatchedContact> matchedContacts = status.getMatchedContacts();
-					//TODO für KONsti
-					boolean hasCalled = false;
-					if (hasCalled) {
-						exposed2ndView.setVisibility(View.VISIBLE);
+					boolean hotlineCalled = secureStorage.getHotlineCalled();
+					if (!hotlineCalled) {
+						hotlineView.setVisibility(View.VISIBLE);
 					} else {
-						exposedFirstView.setVisibility(View.VISIBLE);
+						saveOthersView.setVisibility(View.VISIBLE);
 					}
 					for (int i = 0; i < matchedContacts.size(); i++) {
 						MatchedContact matchedContact = matchedContacts.get(i);
@@ -122,6 +142,17 @@ public class ReportsFragment extends Fragment {
 		NotificationManager notificationManager =
 				(NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.cancel(MainApplication.NOTIFICATION_ID);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+
+		if (hotlineJustCalled) {
+			hotlineJustCalled = false;
+			hotlineView.setVisibility(View.GONE);
+			saveOthersView.setVisibility(View.VISIBLE);
+		}
 	}
 
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {
