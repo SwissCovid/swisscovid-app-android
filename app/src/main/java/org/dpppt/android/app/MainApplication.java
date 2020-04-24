@@ -21,7 +21,7 @@ import androidx.core.app.NotificationCompat;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.backend.models.ApplicationInfo;
+import org.dpppt.android.sdk.backend.models.ApplicationInfo;
 import org.dpppt.android.sdk.internal.database.models.MatchedContact;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
 

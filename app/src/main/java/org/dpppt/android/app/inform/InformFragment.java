@@ -33,9 +33,9 @@ import org.dpppt.android.app.inform.networking.InvalidCodeError;
 import org.dpppt.android.app.inform.views.ChainedEditText;
 import org.dpppt.android.app.util.InfoDialog;
 import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.internal.backend.CallbackListener;
+import org.dpppt.android.sdk.backend.ResponseCallback;
+import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
 import org.dpppt.android.sdk.internal.backend.ResponseException;
-import org.dpppt.android.sdk.internal.backend.models.ExposeeAuthMethodAuthorization;
 
 public class InformFragment extends Fragment {
 
@@ -118,7 +118,7 @@ public class InformFragment extends Fragment {
 	private void authenticateInput(String authCodeBase64) {
 		AuthCodeRepository authCodeRepository = new AuthCodeRepository(getContext());
 		authCodeRepository.getAccessToken(new AuthenticationCodeRequestModel(authCodeBase64),
-				new CallbackListener<AuthenticationCodeResponseModel>() {
+				new ResponseCallback<AuthenticationCodeResponseModel>() {
 					@Override
 					public void onSuccess(AuthenticationCodeResponseModel response) {
 						String accessToken = response.getAccessToken();
@@ -151,7 +151,7 @@ public class InformFragment extends Fragment {
 
 	private void informExposed(Date onsetDate, String authorizationHeader) {
 		DP3T.sendIAmInfected(getContext(), onsetDate,
-				new ExposeeAuthMethodAuthorization(authorizationHeader), new CallbackListener<Void>() {
+				new ExposeeAuthMethodAuthorization(authorizationHeader), new ResponseCallback<Void>() {
 					@Override
 					public void onSuccess(Void response) {
 						if (progressDialog != null && progressDialog.isShowing()) {

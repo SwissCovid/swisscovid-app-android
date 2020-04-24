@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import org.dpppt.android.app.BuildConfig;
 import org.dpppt.android.app.inform.model.AuthenticationCodeRequestModel;
 import org.dpppt.android.app.inform.model.AuthenticationCodeResponseModel;
-import org.dpppt.android.sdk.internal.backend.CallbackListener;
+import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.internal.backend.ResponseException;
 
 import okhttp3.Cache;
@@ -46,7 +46,7 @@ public class AuthCodeRepository {
 	}
 
 	public void getAccessToken(@NonNull AuthenticationCodeRequestModel authenticationCode,
-			@NonNull CallbackListener<AuthenticationCodeResponseModel> callbackListener) {
+			@NonNull ResponseCallback<AuthenticationCodeResponseModel> callbackListener) {
 
 		authCodeService.getAccessToken(authenticationCode).enqueue(new Callback<AuthenticationCodeResponseModel>() {
 			@Override

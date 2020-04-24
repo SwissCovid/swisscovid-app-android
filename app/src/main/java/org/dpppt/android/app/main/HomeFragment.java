@@ -7,6 +7,7 @@ package org.dpppt.android.app.main;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -14,10 +15,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -40,6 +41,11 @@ import org.dpppt.android.app.whattodo.WtdPositiveTestFragment;
 import org.dpppt.android.app.whattodo.WtdSymptomsFragment;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.util.FileUploadRepository;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static org.dpppt.android.app.onboarding.OnboardingLocationPermissionFragment.REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION;
 
@@ -266,6 +272,23 @@ public class HomeFragment extends Fragment {
 			builder.setView(input);
 			builder.setPositiveButton("OK", (dialog, which) -> {
 				String name = input.getText().toString();
+				ProgressDialog progressDialog = ProgressDialog.show(getContext(), "Upload", "");
+				new FileUploadRepository()
+						.uploadDatabase(getContext(), name,
+								new Callback<Void>() {
+									@Override
+									public void onResponse(Call<Void> call, Response<Void> response) {
+										progressDialog.hide();
+										Toast.makeText(getContext(), "Upload success!", Toast.LENGTH_LONG).show();
+									}
+
+									@Override
+									public void onFailure(Call<Void> call, Throwable t) {
+										t.printStackTrace();
+										progressDialog.hide();
+										Toast.makeText(getContext(), "Upload failed!", Toast.LENGTH_LONG).show();
+									}
+								});
 			});
 			builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
 			builder.show();
