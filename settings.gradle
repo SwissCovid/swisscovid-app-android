@@ -4,5 +4,5 @@
  * Copyright (c) 2020. All rights reserved.
  */
 
-rootProject.name='NextStep'
-include ':app', ':dp3t-sdk-calibration-release'
+rootProject.name='dp3t-android-app'
+include ':app'
