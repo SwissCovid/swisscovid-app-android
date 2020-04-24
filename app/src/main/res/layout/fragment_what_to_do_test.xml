@@ -34,14 +34,14 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:gravity="center_horizontal"
-				android:text="@string/whattodo_subtitle_positivetest" />
+				android:text="@string/inform_detail_subtitle" />
 
 			<TextView
 				style="@style/NextStep.Text.Title"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:gravity="center"
-				android:text="@string/whattodo_title_positivetest" />
+				android:text="@string/inform_detail_title" />
 
 			<ImageView
 				android:layout_width="wrap_content"
