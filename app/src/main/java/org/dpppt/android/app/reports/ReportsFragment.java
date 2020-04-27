@@ -19,6 +19,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.transition.AutoTransition;
+import androidx.transition.Transition;
+import androidx.transition.TransitionManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -59,6 +62,9 @@ public class ReportsFragment extends Fragment {
 
 	private boolean hotlineJustCalled = false;
 
+	private int originalHeaderHeight = 0;
+	private int originalFirstChildPadding = 0;
+
 	public ReportsFragment() { super(R.layout.fragment_reports); }
 
 	@Override
@@ -89,8 +95,8 @@ public class ReportsFragment extends Fragment {
 		callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
 		callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
 
-		if(secureStorage.wasHotlineEverCalled()){
-			((TextView)hotlineView.findViewById(R.id.card_encounters_title)).setText(R.string.meldungen_detail_call_again);
+		if (secureStorage.wasHotlineEverCalled()) {
+			((TextView) hotlineView.findViewById(R.id.card_encounters_title)).setText(R.string.meldungen_detail_call_again);
 		}
 
 		callHotlineButton1.setOnClickListener(view1 -> {
@@ -141,6 +147,13 @@ public class ReportsFragment extends Fragment {
 					items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, secureStorage.getInfectedDate()));
 					break;
 			}
+
+			/* Debug items
+			items.clear();
+			items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, System.currentTimeMillis()));
+			items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, System.currentTimeMillis()));
+			 */
+
 			pagerAdapter.updateItems(items);
 		});
 
@@ -160,21 +173,90 @@ public class ReportsFragment extends Fragment {
 		}
 	}
 
+	public void doHeaderAnimation(View info, View image, Button button) {
+		secureStorage.setReportsHeaderAnimationPending(false);
+
+		ViewGroup rootView = (ViewGroup) getView();
+
+		scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
+				rootView.getHeight(),
+				scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+		scrollViewFirstchild.setVisibility(View.VISIBLE);
+
+		rootView.post(() -> {
+
+			AutoTransition autoTransition = new AutoTransition();
+			autoTransition.setDuration(500);
+			TransitionManager.beginDelayedTransition(rootView, autoTransition);
+
+			ViewGroup.LayoutParams headerLp = header.getLayoutParams();
+			headerLp.height = originalHeaderHeight;
+			header.setLayoutParams(headerLp);
+
+			scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
+					originalFirstChildPadding,
+					scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+
+			info.setVisibility(View.VISIBLE);
+			image.setVisibility(View.GONE);
+			button.setVisibility(View.GONE);
+
+			circlePageIndicator.setVisibility(View.VISIBLE);
+			viewPager.setUserInputEnabled(true);
+
+			autoTransition.addListener(new Transition.TransitionListener() {
+				@Override
+				public void onTransitionStart(@NonNull Transition transition) {
+
+				}
+
+				@Override
+				public void onTransitionEnd(@NonNull Transition transition) {
+					viewPager.post(() -> {
+						Rect rect = new Rect();
+						viewPager.getDrawingRect(rect);
+						scrollView.setScrollPreventRect(rect);
+					});
+				}
+
+				@Override
+				public void onTransitionCancel(@NonNull Transition transition) {
+
+				}
+
+				@Override
+				public void onTransitionPause(@NonNull Transition transition) {
+
+				}
+
+				@Override
+				public void onTransitionResume(@NonNull Transition transition) {
+
+				}
+			});
+		});
+	}
+
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {
 
-		private List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
+		List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
+
+		boolean isReportsHeaderAnimationPending = false;
 
 		ReportsSlidePageAdapter() {
 			super(ReportsFragment.this);
 		}
 
 		void updateItems(List<Pair<ReportsPagerFragment.Type, Long>> items) {
+
+			isReportsHeaderAnimationPending = secureStorage.isReportsHeaderAnimationPending();
+
 			this.items.clear();
 			this.items.addAll(items);
 			notifyDataSetChanged();
 
-			if (getItemCount() > 1) {
-				circlePageIndicator.setVisibility(View.VISIBLE);
+			if (items.size() > 1) {
+				if (!isReportsHeaderAnimationPending) circlePageIndicator.setVisibility(View.VISIBLE);
 				ViewGroup.LayoutParams lp = header.getLayoutParams();
 				lp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports_with_indicator);
 				header.setLayoutParams(lp);
@@ -191,7 +273,22 @@ public class ReportsFragment extends Fragment {
 						scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
 			}
 
+			if (isReportsHeaderAnimationPending) {
+				viewPager.setUserInputEnabled(false);
+
+				ViewGroup.LayoutParams headerLp = header.getLayoutParams();
+				originalHeaderHeight = headerLp.height;
+				headerLp.height = ViewGroup.LayoutParams.MATCH_PARENT;
+				header.setLayoutParams(headerLp);
+
+				originalFirstChildPadding = scrollViewFirstchild.getPaddingTop();
+
+				scrollViewFirstchild.setVisibility(View.GONE);
+			}
+
 			viewPager.post(() -> {
+				viewPager.setCurrentItem(items.size() - 1, false);
+
 				Rect rect = new Rect();
 				viewPager.getDrawingRect(rect);
 				scrollView.setScrollPreventRect(rect);
@@ -206,15 +303,19 @@ public class ReportsFragment extends Fragment {
 			ReportsPagerFragment.Type type = item.first;
 			long timestamp = item.second == null ? 0 : item.second;
 
+			boolean showAnimationControls = isReportsHeaderAnimationPending && position == items.size() - 1;
+
 			switch (type) {
 				case NO_REPORTS:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS, 0);
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS, 0, false);
 				case POSSIBLE_INFECTION:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION, timestamp);
+					return ReportsPagerFragment
+							.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION, timestamp, showAnimationControls);
 				case NEW_CONTACT:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NEW_CONTACT, timestamp);
+					return ReportsPagerFragment
+							.newInstance(ReportsPagerFragment.Type.NEW_CONTACT, timestamp, showAnimationControls);
 				case POSITIVE_TESTED:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED, timestamp);
+					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED, timestamp, false);
 			}
 
 			throw new IllegalArgumentException();

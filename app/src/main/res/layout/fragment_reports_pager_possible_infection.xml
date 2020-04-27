@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Created by Ubique Innovation AG
   ~ https://www.ubique.ch
   ~ Copyright (c) 2020. All rights reserved.
   -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:background="@color/blue_main">
 
 	<LinearLayout
@@ -19,12 +18,44 @@
 		android:padding="@dimen/spacing_medium">
 
 		<ImageView
+			android:id="@+id/fragment_reports_pager_info"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
 			android:src="@drawable/ic_info_border" />
 
+		<LinearLayout
+			android:id="@+id/fragment_reports_pager_image"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="@dimen/spacing_large"
+			android:layout_marginBottom="@dimen/spacing_medium"
+			android:gravity="center_horizontal"
+			android:orientation="vertical"
+			android:visibility="gone"
+			tools:visibility="visible">
+
+			<TextView
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="@dimen/spacing_tiny_small"
+				android:gravity="center"
+				android:text="@string/meldung_detail_exposed_new_meldung" />
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+
+				android:layout_marginTop="@dimen/spacing_huger"
+				android:src="@drawable/ill_exposed_banner" />
+
+		</LinearLayout>
+
 		<TextView
+			android:id="@+id/fragment_reports_pager_title"
 			style="@style/NextStep.Text.Title"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -34,6 +65,7 @@
 			android:textColor="@color/white" />
 
 		<TextView
+			android:id="@+id/fragment_reports_pager_subtitle"
 			style="@style/NextStep.Text"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -55,5 +87,16 @@
 			tools:text="Heute" />
 
 	</LinearLayout>
+
+	<Button
+		android:id="@+id/fragment_reports_pager_button"
+		style="@style/NextStep.Button.Outlined.Red"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal|bottom"
+		android:layout_marginBottom="@dimen/spacing_larger"
+		android:text="Bliblablub"
+		android:visibility="gone"
+		tools:visibility="visible" />
 
 </FrameLayout>

@@ -104,7 +104,8 @@ public class MainApplication extends Application {
 				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.notify(NOTIFICATION_ID, notification);
 
-		secureStorage.setHotlineCallPending();
+		secureStorage.setHotlineCallPending(true);
+		secureStorage.setReportsHeaderAnimationPending(true);
 		secureStorage.setLastShownContactId(contactId);
 	}
 

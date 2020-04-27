@@ -21,6 +21,7 @@ public class SecureStorage {
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
 	private static final String KEY_HOTLINE_CALL_PENDING = "hotline_call_pending";
 	private static final String KEY_HOTLINE_EVER_CALLED = "hotline_ever_called";
+	private static final String KEY_PENDING_REPORTS_HEADER_ANIMATION = "pending_reports_header_animation";
 
 	private static SecureStorage instance;
 
@@ -100,8 +101,8 @@ public class SecureStorage {
 		return prefs.getBoolean(KEY_HOTLINE_CALL_PENDING, false);
 	}
 
-	public void setHotlineCallPending() {
-		prefs.edit().putBoolean(KEY_HOTLINE_CALL_PENDING, true).apply();
+	public void setHotlineCallPending(boolean pending) {
+		prefs.edit().putBoolean(KEY_HOTLINE_CALL_PENDING, pending).apply();
 	}
 
 	public boolean wasHotlineEverCalled() {
@@ -112,6 +113,14 @@ public class SecureStorage {
 		prefs.edit().putBoolean(KEY_HOTLINE_CALL_PENDING, false)
 				.putBoolean(KEY_HOTLINE_EVER_CALLED, true)
 				.apply();
+	}
+
+	public boolean isReportsHeaderAnimationPending() {
+		return prefs.getBoolean(KEY_PENDING_REPORTS_HEADER_ANIMATION, false);
+	}
+
+	public void setReportsHeaderAnimationPending(boolean pending) {
+		prefs.edit().putBoolean(KEY_PENDING_REPORTS_HEADER_ANIMATION, pending).apply();
 	}
 
 }
