@@ -117,15 +117,15 @@ public class InformFragment extends Fragment {
 		});
 	}
 
-	private void authenticateInput(String authCodeBase64) {
+	private void authenticateInput(String authCode) {
 		AuthCodeRepository authCodeRepository = new AuthCodeRepository(getContext());
-		authCodeRepository.getAccessToken(new AuthenticationCodeRequestModel(authCodeBase64),
+		authCodeRepository.getAccessToken(new AuthenticationCodeRequestModel(authCode),
 				new ResponseCallback<AuthenticationCodeResponseModel>() {
 					@Override
 					public void onSuccess(AuthenticationCodeResponseModel response) {
 						String accessToken = response.getAccessToken();
 
-						secureStorage.saveInformTimeAndCodeAndToken(authCodeBase64, accessToken);
+						secureStorage.saveInformTimeAndCodeAndToken(authCode, accessToken);
 
 						Date onsetDate = getOnsetDate(accessToken);
 						if (onsetDate == null) showErrorDialog("Received unreadable jwt access-token.");
