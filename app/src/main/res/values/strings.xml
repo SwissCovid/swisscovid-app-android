@@ -244,7 +244,7 @@ Coronavirus Infoline
     <string name="foreground_service_notification_error_bluetooth_disabled">"Bluetooth is deactivated"</string>
 
     <!-- Fehler Beschreibung Akku -->
-    <string name="foreground_service_notification_error_battery_optimization">"Battery optimization is activated (prevents reliable background scanning)"</string>
+    <string name="foreground_service_notification_error_battery_optimization">"Damit Tracing präzise funktioniert, muss die App auch im Hintergrund ausgeführt werden."</string>
 
     <!-- Titel der Nachricht, die auf Beta-Status Hinweist -->
     <string name="preview_warning_title">"Preview version"</string>
@@ -633,10 +633,48 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
 
     <!-- Fehlermeldung, wenn die Antwort des Authentifizierungs-Services nicht verwertbar ist -->
     <string name="invalid_response_auth_code">"Aufgrund eines System-Fehlers konnte Ihr Authentifizierungs-Code nicht korrekt verwendet werden. Bitte rufen Sie die Hotline an."</string>
-    <string name="accessibility_tracing_active">"aktiviert"</string>
-    <string name="accessibility_tracing_inactive">"deaktiviert"</string>
-    <string name="accessibility_tracing_activate">"Tracing aktivieren"</string>
-    <string name="accessibility_tracing_deactivate">"Tracing deaktivieren"</string>
     <string name="error_location_permission_title">"Standort Verwendung abgelehnt"</string>
     <string name="error_location_permission_button">"Zulassen"</string>
+
+    <!-- Fuzzy -->
+    <string name="accessibility_date">"Date"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_1nd">"Erstes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_2nd">"Zweites"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_3nd">"Drittes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_4nd">"Viertes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_5nd">"Fünftes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_6nd">"Sechstes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_7nd">"Siebtes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_8nd">"Achtes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_9nd">"Neuntes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_10nd">"Zehntes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_11nd">"Elftes"</string>
+
+    <!-- E.g. {accessibility_1nd} -> "Erstes" Textfeld -->
+    <string name="accessibility_12nd">"Zwölftes"</string>
+    <string name="accessibility_code_button_disabled_hint">"Drücken nicht möglich, da der Code nicht vollständig eingegeben wurde"</string>
+    <string name="error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>
+    <string name="error_battery_optimization_button"></string>
 </resources>
