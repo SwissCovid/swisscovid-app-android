@@ -235,7 +235,7 @@ Corona-Infoline
     <string name="foreground_service_notification_error_network_sync">"beim Laden der Daten ist ein Fehler aufgetreten"</string>
 
     <!-- Fehler Beschreibung -->
-    <string name="foreground_service_notification_error_location_permission">"Standort Berechtigung fehlt (benötigt um auf Bluetooth zuzugreifen)"</string>
+    <string name="foreground_service_notification_error_location_permission">"Damit die App Bluetooth nützen kann, müssen Sie die Verwendung des Standorts zulassen."</string>
 
     <!-- Fehler Beschreibung Bluetooth -->
     <string name="foreground_service_notification_error_bluetooth_disabled">"Bluetooth ist deaktiviert"</string>
@@ -628,4 +628,10 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
 
     <!-- Fehlermeldung, wenn die Antwort des Authentifizierungs-Services nicht verwertbar ist -->
     <string name="invalid_response_auth_code">"Aufgrund eines System-Fehlers konnte Ihr Authentifizierungs-Code nicht korrekt verwendet werden. Bitte rufen Sie die Hotline an."</string>
+    <string name="accessibility_tracing_active">"aktiviert"</string>
+    <string name="accessibility_tracing_inactive">"deaktiviert"</string>
+    <string name="accessibility_tracing_activate">"Tracing aktivieren"</string>
+    <string name="accessibility_tracing_deactivate">"Tracing deaktivieren"</string>
+    <string name="error_location_permission_title">"Standort Verwendung abgelehnt"</string>
+    <string name="error_location_permission_button">"Zulassen"</string>
 </resources>
