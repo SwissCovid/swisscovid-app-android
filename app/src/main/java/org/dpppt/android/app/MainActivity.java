@@ -5,6 +5,7 @@
  */
 package org.dpppt.android.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -17,10 +18,12 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.dpppt.android.app.html.HtmlFragment;
 import org.dpppt.android.app.info.TheAppFragment;
 import org.dpppt.android.app.main.MainFragment;
 import org.dpppt.android.app.onboarding.OnboardingActivity;
 import org.dpppt.android.app.storage.SecureStorage;
+import org.dpppt.android.app.util.AssetUtil;
 
 public class MainActivity extends FragmentActivity {
 
@@ -127,7 +130,7 @@ public class MainActivity extends FragmentActivity {
 				case 0:
 					return MainFragment.newInstance();
 				case 1:
-					return TheAppFragment.newInstance();
+					return HtmlFragment.newInstance(AssetUtil.getImpressumBaseUrl(), AssetUtil.getImpressumHtml(MainActivity.this));
 				default:
 					throw new IllegalArgumentException("No fragment associated with given position: " + position);
 			}
