@@ -5,9 +5,6 @@
  */
 package org.dpppt.android.app.contacts;
 
-import android.Manifest;
-import android.app.AlertDialog;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -17,20 +14,13 @@ import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.util.Collection;
-
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.main.model.TracingState;
+import org.dpppt.android.app.main.TracingBoxFragment;
 import org.dpppt.android.app.main.views.HeaderView;
-import org.dpppt.android.app.util.DeviceFeatureHelper;
-import org.dpppt.android.app.util.TracingErrorStateHelper;
-import org.dpppt.android.app.util.TracingStatusHelper;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
-import org.dpppt.android.sdk.TracingStatus;
 
 import static org.dpppt.android.app.onboarding.OnboardingLocationPermissionFragment.REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION;
 
@@ -41,6 +31,10 @@ public class ContactsFragment extends Fragment {
 	private TracingViewModel tracingViewModel;
 	private HeaderView headerView;
 	private ScrollView scrollView;
+
+	private View tracingStatusView;
+	private View tracingErrorView;
+	private Switch tracingSwitch;
 
 	public static ContactsFragment newInstance() {
 		return new ContactsFragment();
@@ -53,6 +47,10 @@ public class ContactsFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
+		getChildFragmentManager()
+				.beginTransaction()
+				.add(R.id.status_container, TracingBoxFragment.newInstance())
+				.commit();
 	}
 
 	@Override
@@ -60,60 +58,9 @@ public class ContactsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.contacts_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-		View tracingStatusView = view.findViewById(R.id.tracing_status);
-		View tracingErrorView = view.findViewById(R.id.tracing_error);
-
-		Switch tracingSwitch = view.findViewById(R.id.contacts_tracing_switch);
-		tracingSwitch.setOnClickListener(v -> tracingViewModel.setTracingEnabled(tracingSwitch.isChecked()));
-
-		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
-			boolean isTracing = status.isAdvertising() && status.isReceiving();
-			tracingSwitch.setChecked(isTracing);
-
-			Collection<TracingStatus.ErrorState> errors = tracingViewModel.getErrorsLiveData().getValue();
-			if (errors != null && errors.size() > 0) {
-				tracingStatusView.setVisibility(View.GONE);
-				tracingErrorView.setVisibility(View.VISIBLE);
-				TracingStatus.ErrorState errorState = TracingErrorStateHelper.getErrorState(errors);
-				TracingErrorStateHelper.updateErrorView(tracingErrorView, errorState);
-				tracingErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
-					switch (errorState) {
-						case MISSING_LOCATION_PERMISSION:
-							if (ActivityCompat
-									.shouldShowRequestPermissionRationale(requireActivity(),
-											Manifest.permission.ACCESS_FINE_LOCATION)) {
-								String[] permissions = new String[] { Manifest.permission.ACCESS_FINE_LOCATION };
-								requestPermissions(permissions, REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION);
-							} else {
-								new AlertDialog.Builder(requireActivity())
-										.setTitle(R.string.button_permission_location_android)
-										.setMessage(R.string.foreground_service_notification_error_location_permission)
-										.setPositiveButton(getString(R.string.button_ok),
-												(dialogInterface, i) -> {
-													DeviceFeatureHelper.openApplicationSettings(requireActivity());
-													dialogInterface.dismiss();
-												})
-										.create()
-										.show();
-							}
-						case BLE_DISABLED:
-							BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-							if (!mBluetoothAdapter.isEnabled()) {
-								Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-								startActivityForResult(enableBtIntent, REQUEST_CODE_BLE_INTENT);
-							}
-					}
-				});
-			} else if (!isTracing) {
-				tracingStatusView.setVisibility(View.GONE);
-				tracingErrorView.setVisibility(View.VISIBLE);
-				TracingStatusHelper.showTracingDeactivated(tracingErrorView);
-			} else {
-				tracingStatusView.setVisibility(View.VISIBLE);
-				tracingErrorView.setVisibility(View.GONE);
-				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE);
-			}
-		});
+		tracingStatusView = view.findViewById(R.id.tracing_status);
+		tracingErrorView = view.findViewById(R.id.tracing_error);
+		tracingSwitch = view.findViewById(R.id.contacts_tracing_switch);
 
 		headerView = view.findViewById(R.id.contacts_header_view);
 		scrollView = view.findViewById(R.id.contacts_scroll_view);
@@ -122,6 +69,17 @@ public class ContactsFragment extends Fragment {
 					headerView.setState(tracingStatus);
 				});
 		setupScrollBehavior();
+		setupTracingView();
+	}
+
+	private void setupTracingView() {
+
+		tracingSwitch.setOnClickListener(v -> tracingViewModel.setTracingEnabled(tracingSwitch.isChecked()));
+
+		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
+			boolean isTracing = status.isAdvertising() && status.isReceiving();
+			tracingSwitch.setChecked(isTracing);
+		});
 	}
 
 	@Override

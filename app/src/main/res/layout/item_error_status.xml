@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:layout_margin="@dimen/padding_status_error"
+	android:layout_margin="@dimen/marging_status_error"
 	android:background="@color/grey_light"
 	android:gravity="center_horizontal"
 	android:orientation="vertical"
@@ -18,6 +18,7 @@
 		android:id="@+id/error_status_title"
 		style="@style/NextStep.Text.Bold.Red.CAPS"
 		android:layout_width="wrap_content"
+		android:gravity="center"
 		android:layout_height="wrap_content"
 		android:paddingTop="@dimen/spacing_small"
 		android:paddingBottom="@dimen/spacing_small"
@@ -33,11 +34,11 @@
 
 	<TextView
 		android:id="@+id/error_status_button"
-		style="@style/NextStep.Text"
+		style="@style/NextStep.Text.Bold"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:gravity="center"
-		android:paddingTop="@dimen/padding_status_error"
+		android:paddingTop="20dp"
 		android:text="@string/activate_bluetooth_button" />
 
 </LinearLayout>

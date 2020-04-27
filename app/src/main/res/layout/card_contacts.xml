@@ -15,8 +15,7 @@
 		android:layout_height="wrap_content"
 		android:foreground="?selectableItemBackground"
 		android:orientation="vertical"
-		android:paddingTop="@dimen/spacing_medium"
-		android:paddingBottom="@dimen/spacing_medium">
+		android:paddingTop="@dimen/spacing_medium">
 
 		<LinearLayout
 			android:id="@+id/contacts_header"
@@ -38,30 +37,15 @@
 				android:layout_width="@dimen/chevron_size_title"
 				android:layout_height="@dimen/chevron_size_title"
 				android:src="@drawable/ic_chevron_right"
-				android:tint="@color/dark_main"/>
+				android:tint="@color/dark_main" />
 
 		</LinearLayout>
 
 		<FrameLayout
+			android:id="@+id/status_container"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"/>
 
-			<include
-				android:id="@+id/tracing_status"
-				layout="@layout/layout_status"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="@dimen/spacing_large"
-				android:layout_marginTop="@dimen/spacing_medium"
-				android:layout_marginEnd="@dimen/spacing_large"
-				android:layout_marginBottom="@dimen/spacing_medium" />
-
-			<include
-				android:id="@+id/tracing_error"
-				layout="@layout/item_error_status"
-				android:visibility="gone" />
-
-		</FrameLayout>
 	</LinearLayout>
 
 </androidx.cardview.widget.CardView>

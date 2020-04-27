@@ -16,8 +16,7 @@
 		android:layout_height="wrap_content"
 		android:foreground="?selectableItemBackground"
 		android:orientation="vertical"
-		android:paddingTop="@dimen/spacing_medium"
-		android:paddingBottom="@dimen/spacing_medium">
+		android:paddingTop="@dimen/spacing_medium">
 
 		<LinearLayout
 			android:id="@+id/notifications_header"
@@ -46,7 +45,6 @@
 			android:id="@+id/report_status_bubble"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_margin="@dimen/spacing_medium"
 			android:orientation="vertical">
 
 			<include

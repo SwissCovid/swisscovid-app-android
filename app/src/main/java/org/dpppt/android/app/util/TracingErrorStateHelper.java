@@ -34,17 +34,27 @@ public class TracingErrorStateHelper {
 			case BLE_DISABLED:
 				return R.string.bluetooth_turned_off_title;
 			case MISSING_LOCATION_PERMISSION:
-				return R.string.grant_permission_button;
-			/*missing
+				return R.string.error_location_permission_title;
+			case BLE_NOT_SUPPORTED:
+				break;
+			case BLE_INTERNAL_ERROR:
+				break;
+			case BLE_ADVERTISING_ERROR:
+				break;
+			case BLE_SCANNER_ERROR:
+				break;
+			case BATTERY_OPTIMIZER_ENABLED:
+				return R.string.error_battery_optimization_title;
+
+			case NETWORK_ERROR_WHILE_SYNCING:
+				return R.string.loading_view_error_title;
+
+				/*missing
 			case ERROR_LOCATION_OFF:
 				return -1;*/
-			case BATTERY_OPTIMIZER_ENABLED:
-				return R.string.loading_view_error_title;
 				/*missing
 			case ERROR_TIMING_INCONSISTENCY:
 				return -1;*/
-			case NETWORK_ERROR_WHILE_SYNCING:
-				return R.string.loading_view_error_title;
 				/*
 				SDK error missing
 				* */
@@ -64,19 +74,29 @@ public class TracingErrorStateHelper {
 				return R.drawable.ic_bluetooth_off;
 			case MISSING_LOCATION_PERMISSION:
 				return R.drawable.ic_location_off_red;
-			/*missing
-			case ERROR_LOCATION_OFF:
-				return -1;*/
+			case BLE_NOT_SUPPORTED:
+				break;
+			case BLE_INTERNAL_ERROR:
+				break;
+			case BLE_ADVERTISING_ERROR:
+				break;
+			case BLE_SCANNER_ERROR:
+				break;
 			case BATTERY_OPTIMIZER_ENABLED:
-				return R.drawable.ic_warning_red;
-			/*missing
-			case ERROR_TIMING_INCONSISTENCY:
-				return -1;*/
+				return R.drawable.ic_battery;
 			case NETWORK_ERROR_WHILE_SYNCING:
 				return R.drawable.ic_warning_red;
+			default:
+				//restart
 			/*
 				SDK error missing
 				* */
+			/*missing
+			case ERROR_LOCATION_OFF:
+				return -1;*/
+				/*missing
+			case ERROR_TIMING_INCONSISTENCY:
+				return -1;*/
 		}
 		return -1;
 	}
@@ -87,12 +107,12 @@ public class TracingErrorStateHelper {
 			case BLE_DISABLED:
 				return R.string.bluetooth_turn_on_button_title;
 			case MISSING_LOCATION_PERMISSION:
-				return R.string.grant_permission_button;
+				return R.string.error_location_permission_button;
 			/*missing
 			case ERROR_LOCATION_OFF:
 				return -1;*/
 			case BATTERY_OPTIMIZER_ENABLED:
-				return R.string.button_battery_optimization_deactivated;
+				return R.string.error_location_permission_button;
 			/*missing
 			case ERROR_TIMING_INCONSISTENCY:
 				return -1;*/

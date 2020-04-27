@@ -61,6 +61,7 @@ public class TracingViewModel extends AndroidViewModel {
 		super(application);
 
 		tracingStatusLiveData.observeForever(status -> {
+			errorsLiveData.setValue(status.getErrors());
 			tracingEnabledLiveData.setValue(status.isAdvertising() && status.isReceiving());
 			numberOfHandshakesLiveData.setValue(status.getNumberOfContacts());
 			tracingStatusWrapper.setStatus(status);
@@ -69,7 +70,6 @@ public class TracingViewModel extends AndroidViewModel {
 					.setValue(new Pair<>(tracingStatusWrapper.isReportedAsInfected(),
 							tracingStatusWrapper.wasContactReportedAsExposed()));
 
-			errorsLiveData.setValue(status.getErrors());
 
 			appStatusLiveData.setValue(tracingStatusWrapper);
 		});

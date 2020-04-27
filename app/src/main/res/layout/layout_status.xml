@@ -8,6 +8,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	android:padding="@dimen/padding_status_error"
+	android:layout_margin="@dimen/marging_status_error"
 	android:orientation="horizontal">
 
 	<LinearLayout
