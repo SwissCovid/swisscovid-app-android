@@ -21,11 +21,13 @@ public class TracingStatusHelper {
 	public static void updateStatusView(View statusView, TracingState state) {
 		Context context = statusView.getContext();
 		if (TracingState.getBackgroundColor(state) != -1) {
-			statusView.setBackgroundColor(ContextCompat.getColor(context, TracingState.getBackgroundColor(state)));
+			statusView.findViewById(R.id.status_background)
+					.setBackgroundColor(ContextCompat.getColor(context, TracingState.getBackgroundColor(state)));
 		}
 		ImageView iconView = statusView.findViewById(R.id.status_icon);
 		TextView titleView = statusView.findViewById(R.id.status_title);
 		TextView textView = statusView.findViewById(R.id.status_text);
+		ImageView illustrationView = statusView.findViewById(R.id.status_illustration);
 		int color = ContextCompat.getColor(context, TracingState.getTextColor(state));
 		if (color != -1) {
 			titleView.setTextColor(color);
@@ -50,6 +52,12 @@ public class TracingStatusHelper {
 			iconView.setVisibility(View.GONE);
 		}
 		iconView.setImageTintList(ColorStateList.valueOf(color));
+		if (TracingState.getIllu(state) != -1) {
+			illustrationView.setImageResource(TracingState.getIllu(state));
+			illustrationView.setVisibility(View.VISIBLE);
+		} else {
+			illustrationView.setVisibility(View.GONE);
+		}
 	}
 
 	public static void showTracingDeactivated(View tracingErrorView) {

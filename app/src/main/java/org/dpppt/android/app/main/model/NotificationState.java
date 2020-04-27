@@ -75,4 +75,15 @@ public enum NotificationState {
 		}
 		return -1;
 	}
+
+	public static int getIllu(NotificationState state) {
+		switch (state) {
+			case NO_REPORTS:
+				return R.drawable.ill_no_message;
+			case EXPOSED:
+			case POSITIVE_TESTED:
+			default:
+				return -1;
+		}
+	}
 }

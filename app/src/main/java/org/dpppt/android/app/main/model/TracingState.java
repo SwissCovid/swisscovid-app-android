@@ -80,5 +80,17 @@ public enum TracingState {
 		}
 		return R.color.grey_dark_lighter;
 	}
+
+	public static int getIllu(TracingState state) {
+		switch (state) {
+			case ACTIVE:
+				return R.drawable.ill_tracking_active;
+			case ENDED:
+				return R.drawable.ill_positiv_getestet;
+			case NOT_ACTIVE:
+			default:
+				return -1;
+		}
+	}
 }
 

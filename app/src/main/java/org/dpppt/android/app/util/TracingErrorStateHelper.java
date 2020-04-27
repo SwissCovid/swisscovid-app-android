@@ -140,18 +140,12 @@ public class TracingErrorStateHelper {
 		TextView textView = tracingErrorView.findViewById(R.id.error_status_text);
 		TextView buttonView = tracingErrorView.findViewById(R.id.error_status_button);
 
-		if (TracingErrorStateHelper.getIcon(errorState) != -1) {
-			iconView.setImageResource(TracingErrorStateHelper.getIcon(errorState));
-			iconView.setVisibility(View.VISIBLE);
-		} else {
-			iconView.setVisibility(View.GONE);
-		}
-		if (TracingErrorStateHelper.getTitle(errorState) != -1) {
-			titleView.setText(TracingErrorStateHelper.getTitle(errorState));
-			titleView.setVisibility(View.VISIBLE);
-		} else {
-			titleView.setVisibility(View.GONE);
-		}
+		iconView.setImageResource(TracingErrorStateHelper.getIcon(errorState));
+		iconView.setVisibility(View.VISIBLE);
+
+		titleView.setText(TracingErrorStateHelper.getTitle(errorState));
+		titleView.setVisibility(View.VISIBLE);
+
 		if (TracingErrorStateHelper.getText(errorState) != -1) {
 			textView.setText(TracingErrorStateHelper.getText(errorState));
 			textView.setVisibility(View.VISIBLE);

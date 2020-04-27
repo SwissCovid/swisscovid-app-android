@@ -4,52 +4,64 @@
   ~ Copyright (c) 2020. All rights reserved.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:padding="@dimen/padding_status_error"
-	android:layout_margin="@dimen/marging_status_error"
-	android:orientation="horizontal">
+	android:layout_margin="@dimen/marging_status_error">
 
 	<LinearLayout
+		android:id="@+id/status_background"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center"
+		android:layout_height="0dp"
+		android:background="@color/blue_main_light"
 		android:orientation="horizontal"
-		android:paddingStart="@dimen/spacing_medium"
-		android:paddingTop="@dimen/spacing_medium_large"
-		android:paddingEnd="@dimen/spacing_medium"
-		android:paddingBottom="@dimen/spacing_medium_large">
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@id/status_title" />
 
-		<ImageView
-			android:id="@+id/status_icon"
-			android:layout_width="@dimen/icon_size"
-			android:layout_height="@dimen/icon_size"
-			tools:src="@drawable/ic_check" />
+	<ImageView
+		android:id="@+id/status_icon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/padding_status_error"
+		android:padding="10dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:src="@drawable/ic_check" />
 
-		<LinearLayout
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="@dimen/spacing_medium"
-			android:layout_weight="1"
-			android:orientation="vertical">
+	<TextView
+		android:id="@+id/status_title"
+		style="@style/NextStep.Text.Status"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/padding_status_error"
+		android:layout_marginBottom="2dp"
+		android:paddingTop="10dp"
+		app:layout_constraintStart_toEndOf="@+id/status_icon"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="Status" />
 
-			<TextView
-				android:id="@+id/status_title"
-				style="@style/NextStep.Text.Status"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="1dp"
-				android:layout_marginBottom="2dp"
-				tools:text="Status" />
+	<TextView
+		android:id="@+id/status_text"
+		style="@style/NextStep.Text"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:gravity="start"
+		app:layout_constraintEnd_toStartOf="@id/status_illustration"
+		app:layout_constraintStart_toEndOf="@+id/status_icon"
+		app:layout_constraintTop_toBottomOf="@id/status_title"
+		tools:text="Subtext" />
 
-			<TextView
-				android:id="@+id/status_text"
-				style="@style/NextStep.Text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				tools:text="Subtext" />
-		</LinearLayout>
-	</LinearLayout>
-</FrameLayout>
+	<ImageView
+		android:id="@+id/status_illustration"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_gravity="end"
+		android:src="@drawable/ill_tracking_active"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

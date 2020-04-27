@@ -15,11 +15,12 @@ public class NotificationStateHelper {
 	public static void updateStatusView(View statusView, NotificationState state) {
 		Context context = statusView.getContext();
 		if (NotificationState.getBackgroundColor(state) != -1) {
-			statusView.setBackgroundColor(ContextCompat.getColor(context, NotificationState.getBackgroundColor(state)));
+			statusView.findViewById(R.id.status_background).setBackgroundColor(ContextCompat.getColor(context, NotificationState.getBackgroundColor(state)));
 		}
 		ImageView iconView = statusView.findViewById(R.id.status_icon);
 		TextView titleView = statusView.findViewById(R.id.status_title);
 		TextView textView = statusView.findViewById(R.id.status_text);
+		ImageView illustrationView = statusView.findViewById(R.id.status_illustration);
 		int color = ContextCompat.getColor(context, NotificationState.getTextColor(state));
 		titleView.setTextColor(color);
 		textView.setTextColor(color);
@@ -42,6 +43,12 @@ public class NotificationStateHelper {
 			iconView.setVisibility(View.VISIBLE);
 		} else {
 			iconView.setVisibility(View.GONE);
+		}
+		if (NotificationState.getIllu(state) != -1) {
+			illustrationView.setImageResource(NotificationState.getIllu(state));
+			illustrationView.setVisibility(View.VISIBLE);
+		} else {
+			illustrationView.setVisibility(View.GONE);
 		}
 	}
 
