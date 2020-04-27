@@ -640,4 +640,13 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="meldung_in_app_alert_ignore_button">"Ignorieren"</string>
     <string name="meldung_in_app_alert_accept_button">"Zu den Informationen"</string>
     <string name="meldungen_detail_call_again">"Rufen Sie erneut an"</string>
+
+    <!-- Fehlernachricht für Netzwerkfehler -->
+    <string name="network_error">"Es ist ein Netzwerkfehler aufgetreten. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut."</string>
+
+    <!-- Unerwarteter Fehler, mit Aufforderung Aktion erneut zu versuchen -->
+    <string name="unexpected_error_with_retry">"Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut."</string>
+
+    <!-- Fehlermeldung, wenn die Antwort des Authentifizierungs-Services nicht verwertbar ist -->
+    <string name="invalid_response_auth_code">"Aufgrund eines System-Fehlers konnte Ihr Authentifizierungs-Code nicht korrekt verwendet werden. Bitte rufen Sie die Hotline an."</string>
 </resources>

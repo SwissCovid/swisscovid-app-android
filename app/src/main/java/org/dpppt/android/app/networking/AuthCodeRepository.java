@@ -1,13 +1,19 @@
-package org.dpppt.android.app.inform.networking;
+/*
+ * Created by Ubique Innovation AG
+ * https://www.ubique.ch
+ * Copyright (c) 2020. All rights reserved.
+ */
+package org.dpppt.android.app.networking;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
 
 import org.dpppt.android.app.BuildConfig;
-import org.dpppt.android.app.inform.model.AuthenticationCodeRequestModel;
-import org.dpppt.android.app.inform.model.AuthenticationCodeResponseModel;
+import org.dpppt.android.app.networking.errors.InvalidCodeError;
+import org.dpppt.android.app.networking.errors.ResponseError;
+import org.dpppt.android.app.networking.models.AuthenticationCodeRequestModel;
+import org.dpppt.android.app.networking.models.AuthenticationCodeResponseModel;
 import org.dpppt.android.sdk.backend.ResponseCallback;
-import org.dpppt.android.sdk.internal.backend.ResponseException;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
@@ -58,7 +64,7 @@ public class AuthCodeRepository {
 					if (response.code() == 404) {
 						onFailure(call, new InvalidCodeError());
 					} else {
-						onFailure(call, new ResponseException(response.raw()));
+						onFailure(call, new ResponseError(response.raw()));
 					}
 				}
 			}

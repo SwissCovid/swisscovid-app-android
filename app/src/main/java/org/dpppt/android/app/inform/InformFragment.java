@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,11 +22,12 @@ import java.util.Date;
 import com.google.gson.Gson;
 
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.inform.model.AccessTokenModel;
-import org.dpppt.android.app.inform.model.AuthenticationCodeRequestModel;
-import org.dpppt.android.app.inform.model.AuthenticationCodeResponseModel;
-import org.dpppt.android.app.inform.networking.AuthCodeRepository;
-import org.dpppt.android.app.inform.networking.InvalidCodeError;
+import org.dpppt.android.app.inform.models.AccessTokenModel;
+import org.dpppt.android.app.networking.errors.ResponseError;
+import org.dpppt.android.app.networking.models.AuthenticationCodeRequestModel;
+import org.dpppt.android.app.networking.models.AuthenticationCodeResponseModel;
+import org.dpppt.android.app.networking.AuthCodeRepository;
+import org.dpppt.android.app.networking.errors.InvalidCodeError;
 import org.dpppt.android.app.inform.views.ChainedEditText;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.InfoDialog;
@@ -46,6 +46,7 @@ public class InformFragment extends Fragment {
 
 	private ChainedEditText authCodeInput;
 	private AlertDialog progressDialog;
+	private Button buttonSend;
 
 	private SecureStorage secureStorage;
 
@@ -68,7 +69,7 @@ public class InformFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		Button buttonSend = view.findViewById(R.id.trigger_fragment_button_trigger);
+		buttonSend = view.findViewById(R.id.trigger_fragment_button_trigger);
 		authCodeInput = view.findViewById(R.id.trigger_fragment_input);
 		authCodeInput.addTextChangedListener(new ChainedEditText.ChainedEditTextListener() {
 			@Override
@@ -93,6 +94,7 @@ public class InformFragment extends Fragment {
 		}
 
 		buttonSend.setOnClickListener(v -> {
+			buttonSend.setEnabled(false);
 			setInvalidCodeErrorVisible(false);
 			String authCode = authCodeInput.getText();
 
@@ -128,7 +130,14 @@ public class InformFragment extends Fragment {
 						secureStorage.saveInformTimeAndCodeAndToken(authCode, accessToken);
 
 						Date onsetDate = getOnsetDate(accessToken);
-						if (onsetDate == null) showErrorDialog("Received unreadable jwt access-token.");
+						if (onsetDate == null) {
+							showErrorDialog(getString(R.string.invalid_response_auth_code));
+							if (progressDialog != null && progressDialog.isShowing()) {
+								progressDialog.dismiss();
+							}
+							buttonSend.setEnabled(true);
+							return;
+						}
 						informExposed(onsetDate, getAuthorizationHeader(accessToken));
 					}
 
@@ -140,8 +149,13 @@ public class InformFragment extends Fragment {
 						if (throwable instanceof InvalidCodeError) {
 							setInvalidCodeErrorVisible(true);
 							return;
+						} else if (throwable instanceof ResponseError) {
+							showErrorDialog(getString(R.string.unexpected_error_title)
+									.replace("{ERROR}", String.valueOf(((ResponseError) throwable).getStatusCode())));
+						} else {
+							showErrorDialog(getString(R.string.network_error));
 						}
-						showErrorDialog(throwable.getLocalizedMessage());
+						buttonSend.setEnabled(true);
 					}
 				});
 	}
@@ -165,12 +179,13 @@ public class InformFragment extends Fragment {
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
-						String error;
-						error = getString(R.string.unexpected_error_title).replace("{ERROR}",
-								throwable instanceof ResponseException ? throwable.getMessage() :
-								throwable instanceof IOException ? throwable.getLocalizedMessage() : "");
-						showErrorDialog(error);
-						throwable.printStackTrace();
+						if (throwable instanceof ResponseException) {
+							showErrorDialog(getString(R.string.unexpected_error_with_retry));
+						} else {
+							showErrorDialog(getString(R.string.network_error));
+							throwable.printStackTrace();
+						}
+						buttonSend.setEnabled(true);
 					}
 				});
 	}
@@ -211,8 +226,7 @@ public class InformFragment extends Fragment {
 	}
 
 	private void showErrorDialog(String error) {
-		InfoDialog.newInstance(getString(R.string.unexpected_error_title).replace("{ERROR}", error))
-				.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+		InfoDialog.newInstance(error).show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
 	}
 
 	private String getAuthorizationHeader(String accessToken) {
