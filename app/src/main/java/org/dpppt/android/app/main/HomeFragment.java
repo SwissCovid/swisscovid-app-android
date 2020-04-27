@@ -268,22 +268,5 @@ public class HomeFragment extends Fragment {
 		return Math.min(scrollY, scrollRange) / (float) scrollRange;
 	}
 
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-		if (requestCode == REQUEST_CODE_BLE_INTENT && resultCode == Activity.RESULT_OK) {
-			tracingViewModel.invalidateService();
-		} else if (requestCode == REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT && resultCode == Activity.RESULT_OK) {
-			tracingViewModel.invalidateService();
-		}
-	}
-
-	@Override
-	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-		if (requestCode == REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION) {
-			if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-				tracingViewModel.invalidateService();
-			}
-		}
-	}
 
 }

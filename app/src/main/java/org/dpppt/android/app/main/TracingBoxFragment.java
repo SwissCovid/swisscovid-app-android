@@ -1,9 +1,11 @@
 package org.dpppt.android.app.main;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -29,6 +31,7 @@ public class TracingBoxFragment extends Fragment {
 
 	private static final int REQUEST_CODE_BLE_INTENT = 330;
 	private static final int REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT = 420;
+	private static final int REQUEST_CODE_LOCATION_INTENT = 510;
 	private TracingViewModel tracingViewModel;
 
 
@@ -116,18 +119,43 @@ public class TracingBoxFragment extends Fragment {
 				case BLE_DISABLED:
 					BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 					if (!mBluetoothAdapter.isEnabled()) {
-						Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-						startActivityForResult(enableBtIntent, REQUEST_CODE_BLE_INTENT);
+						Intent bleIntent = new Intent( BluetoothAdapter.ACTION_REQUEST_ENABLE);
+						startActivityForResult(bleIntent, REQUEST_CODE_BLE_INTENT);
 					}
+					break;
+				case LOCATION_SERVICE_DISABLED:
+					Intent locationInent = new Intent(
+							Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+					startActivityForResult(locationInent, REQUEST_CODE_LOCATION_INTENT);
 					break;
 				case BATTERY_OPTIMIZER_ENABLED:
 					String packageName = requireActivity().getPackageName();
-					Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
-					intent.setData(Uri.parse("package:" + packageName));
-					startActivityForResult(intent, REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT);
+					Intent batteryIntent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+					batteryIntent.setData(Uri.parse("package:" + packageName));
+					startActivityForResult(batteryIntent, REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT);
 					break;
 			}
 		});
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		if (requestCode == REQUEST_CODE_BLE_INTENT && resultCode == Activity.RESULT_OK) {
+			tracingViewModel.invalidateService();
+		} else if (requestCode == REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT && resultCode == Activity.RESULT_OK) {
+			tracingViewModel.invalidateService();
+		} else if (requestCode == REQUEST_CODE_LOCATION_INTENT && resultCode == Activity.RESULT_OK) {
+			tracingViewModel.invalidateService();
+		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		if (requestCode == REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION) {
+			if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+				tracingViewModel.invalidateService();
+			}
+		}
 	}
 
 }

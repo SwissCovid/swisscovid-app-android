@@ -20,46 +20,42 @@ public class TracingErrorStateHelper {
 			TracingStatus.ErrorState.BLE_NOT_SUPPORTED,
 			TracingStatus.ErrorState.MISSING_LOCATION_PERMISSION,
 			TracingStatus.ErrorState.BLE_DISABLED,
+			TracingStatus.ErrorState.LOCATION_SERVICE_DISABLED,
 			TracingStatus.ErrorState.BATTERY_OPTIMIZER_ENABLED,
 			TracingStatus.ErrorState.BLE_INTERNAL_ERROR,
 			TracingStatus.ErrorState.BLE_ADVERTISING_ERROR,
 			TracingStatus.ErrorState.BLE_SCANNER_ERROR,
 			TracingStatus.ErrorState.NETWORK_ERROR_WHILE_SYNCING);
 
-	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList();
+	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
+			//notifcation error
+			//snyc error?
+
+	);
 
 	public static @StringRes
 	int getTitle(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
+			case LOCATION_SERVICE_DISABLED:
+				return R.string.error_location_services_title;
 			case BLE_DISABLED:
 				return R.string.bluetooth_turned_off_title;
 			case MISSING_LOCATION_PERMISSION:
 				return R.string.error_location_permission_title;
-			case BLE_NOT_SUPPORTED:
-				break;
-			case BLE_INTERNAL_ERROR:
-				break;
-			case BLE_ADVERTISING_ERROR:
-				break;
-			case BLE_SCANNER_ERROR:
-				break;
 			case BATTERY_OPTIMIZER_ENABLED:
 				return R.string.error_battery_optimization_title;
-
+			case BLE_NOT_SUPPORTED:
+			case BLE_INTERNAL_ERROR:
+			case BLE_ADVERTISING_ERROR:
+			case BLE_SCANNER_ERROR:
 			case NETWORK_ERROR_WHILE_SYNCING:
-				return R.string.loading_view_error_title;
-
-				/*missing
-			case ERROR_LOCATION_OFF:
-				return -1;*/
+			default:
+				return R.string.begegnungen_restart_error_title;
 				/*missing
 			case ERROR_TIMING_INCONSISTENCY:
 				return -1;*/
-				/*
-				SDK error missing
-				* */
+
 		}
-		return -1;
 	}
 
 	public static @StringRes
@@ -70,60 +66,49 @@ public class TracingErrorStateHelper {
 	public static @DrawableRes
 	int getIcon(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
+			case LOCATION_SERVICE_DISABLED:
+				return R.drawable.ic_gps_off;
 			case BLE_DISABLED:
 				return R.drawable.ic_bluetooth_off;
 			case MISSING_LOCATION_PERMISSION:
 				return R.drawable.ic_location_off_red;
-			case BLE_NOT_SUPPORTED:
-				break;
-			case BLE_INTERNAL_ERROR:
-				break;
-			case BLE_ADVERTISING_ERROR:
-				break;
-			case BLE_SCANNER_ERROR:
-				break;
 			case BATTERY_OPTIMIZER_ENABLED:
 				return R.drawable.ic_battery;
+			case BLE_NOT_SUPPORTED:
+			case BLE_INTERNAL_ERROR:
+			case BLE_ADVERTISING_ERROR:
+			case BLE_SCANNER_ERROR:
 			case NETWORK_ERROR_WHILE_SYNCING:
-				return R.drawable.ic_warning_red;
 			default:
-				//restart
+				return R.drawable.ic_warning_red;
 			/*
 				SDK error missing
 				* */
-			/*missing
-			case ERROR_LOCATION_OFF:
-				return -1;*/
-				/*missing
-			case ERROR_TIMING_INCONSISTENCY:
-				return -1;*/
 		}
-		return -1;
 	}
 
 	public static @StringRes
 	int getButtonText(TracingStatus.ErrorState errorState) {
 		switch (errorState) {
+			case LOCATION_SERVICE_DISABLED:
+				return R.string.error_location_services_button;
 			case BLE_DISABLED:
 				return R.string.bluetooth_turn_on_button_title;
 			case MISSING_LOCATION_PERMISSION:
-				return R.string.error_location_permission_button;
-			/*missing
-			case ERROR_LOCATION_OFF:
-				return -1;*/
 			case BATTERY_OPTIMIZER_ENABLED:
 				return R.string.error_location_permission_button;
+			case BLE_NOT_SUPPORTED:
+			case BLE_INTERNAL_ERROR:
+			case BLE_ADVERTISING_ERROR:
+			case BLE_SCANNER_ERROR:
+			case NETWORK_ERROR_WHILE_SYNCING:
+			default:
+				return -1;
+
 			/*missing
 			case ERROR_TIMING_INCONSISTENCY:
 				return -1;*/
-			case NETWORK_ERROR_WHILE_SYNCING:
-				//no action
-				return -1;
-			/*
-				SDK error missing
-				* */
 		}
-		return -1;
 	}
 
 	public static TracingStatus.ErrorState getErrorState(Collection<TracingStatus.ErrorState> errors) {

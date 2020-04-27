@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Created by Ubique Innovation AG
   ~ https://www.ubique.ch
   ~ Copyright (c) 2020. All rights reserved.
@@ -12,13 +11,14 @@
 	<string name="dp3t_sdk_service_notification_errors">@string/foreground_service_notification_errors</string>
 	<string name="dp3t_sdk_service_notification_error_network_sync">@string/foreground_service_notification_error_network_sync</string>
 	<string name="dp3t_sdk_service_notification_error_location_permission">@string/foreground_service_notification_error_location_permission</string>
+	<string name="dp3t_sdk_service_notification_error_location_service">@string/foreground_service_notification_error_location_service</string>
 	<string name="dp3t_sdk_service_notification_error_battery_optimization">@string/foreground_service_notification_error_battery_optimization</string>
 
-	<string name="dp3t_sdk_service_notification_error_bluetooth_advertising_error">failing to broadcast with bluetooth</string>
+	<string name="dp3t_sdk_service_notification_error_bluetooth_advertising_error">@string/begegnungen_restart_error_text</string>
 	<string name="dp3t_sdk_service_notification_error_bluetooth_disabled">@string/bluetooth_turned_off_text</string>
-	<string name="dp3t_sdk_service_notification_error_bluetooth_internal_error">bluetooth system error, please restart device</string>
-	<string name="dp3t_sdk_service_notification_error_bluetooth_not_supported">bluetooth low-energy is not supported on this device</string>
-	<string name="dp3t_sdk_service_notification_error_bluetooth_scanner_error">failing to search for nearby bluetooth devices</string>
+	<string name="dp3t_sdk_service_notification_error_bluetooth_internal_error">@string/begegnungen_restart_error_text</string>
+	<string name="dp3t_sdk_service_notification_error_bluetooth_not_supported">@string/begegnungen_restart_error_text</string>
+	<string name="dp3t_sdk_service_notification_error_bluetooth_scanner_error">@string/begegnungen_restart_error_text</string>
 </resources>
 
 

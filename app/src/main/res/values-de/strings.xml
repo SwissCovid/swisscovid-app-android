@@ -694,4 +694,11 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="accessibility_code_button_disabled_hint">"Drücken nicht möglich, da der Code nicht vollständig eingegeben wurde"</string>
     <string name="error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>
     <string name="error_battery_optimization_button"></string>
+    <string name="foreground_service_notification_error_location_service">"Schalten Sie die Standortinformation ein, damit die App Bluetooth nützen kann."</string>
+
+    <!-- Location Services ausgeschaltet Titel -->
+    <string name="error_location_services_title">"Standort ausgeschaltet"</string>
+
+    <!-- Location Services ausgeschaltet Button -->
+    <string name="error_location_services_button">"Standort einschalten"</string>
 </resources>
