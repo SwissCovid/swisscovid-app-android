@@ -22,6 +22,7 @@ import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.backend.models.ApplicationInfo;
+import org.dpppt.android.sdk.internal.backend.BackendBucketRepository;
 import org.dpppt.android.sdk.internal.database.models.MatchedContact;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
 
@@ -36,6 +37,9 @@ public class MainApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		if (BuildConfig.IS_DEV) {
+			BackendBucketRepository.BATCH_LENGTH = 5 * 60 * 1000l;
+		}
 		if (ProcessUtil.isMainProcess(this)) {
 			secureStorage = SecureStorage.getInstance(getApplicationContext());
 			registerReceiver(broadcastReceiver, DP3T.getUpdateIntentFilter());
