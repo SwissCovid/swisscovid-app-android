@@ -13,9 +13,6 @@ public interface TracingStatusInterface {
 
 	DebugAppState getDebugAppState();
 
-	@Deprecated
-	AppState getAppState();
-
 	TracingState getTracingState();
 
 	NotificationState getNotificationState();
