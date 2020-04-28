@@ -32,6 +32,7 @@ import org.dpppt.android.app.MainApplication;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.DateUtils;
+import org.dpppt.android.app.util.NotificationUtil;
 import org.dpppt.android.app.util.PhoneUtil;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.sdk.internal.database.models.MatchedContact;
@@ -146,7 +147,7 @@ public class ReportsFragment extends Fragment {
 
 		NotificationManager notificationManager =
 				(NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
-		notificationManager.cancel(MainApplication.NOTIFICATION_ID);
+		notificationManager.cancel(NotificationUtil.NOTIFICATION_ID_CONTACT);
 	}
 
 	@Override

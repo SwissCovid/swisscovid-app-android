@@ -40,6 +40,7 @@ import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.AssetUtil;
 import org.dpppt.android.app.util.NotificationStateHelper;
+import org.dpppt.android.app.util.NotificationUtil;
 import org.dpppt.android.app.util.NotificatonErrorStateHelper;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
@@ -53,7 +54,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.view.View.VISIBLE;
-import static org.dpppt.android.app.MainApplication.NOTIFICATION_CHANNEL_ID;
 
 public class HomeFragment extends Fragment {
 
@@ -250,11 +250,11 @@ public class HomeFragment extends Fragment {
 				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
 					tracingViewModel.sync();
 				});
-			} else if (!isNotificationChannelEnabled(getContext(), NOTIFICATION_CHANNEL_ID)) {
+			} else if (!isNotificationChannelEnabled(getContext(), NotificationUtil.NOTIFICATION_CHANNEL_ID)) {
 				NotificatonErrorStateHelper
 						.updateNotificationErrorView(reportErrorView, NotificationStateError.NOTIFICATION_STATE_ERROR);
 				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
-					openChannelSettings(NOTIFICATION_CHANNEL_ID);
+					openChannelSettings(NotificationUtil.NOTIFICATION_CHANNEL_ID);
 				});
 			} else {
 				//hide errorview

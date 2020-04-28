@@ -9,7 +9,9 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:layout_margin="@dimen/marging_status_error">
+	android:padding="@dimen/marging_status_error"
+	android:clipToPadding="false"
+	android:clipChildren="false">
 
 	<LinearLayout
 		android:id="@+id/status_background"

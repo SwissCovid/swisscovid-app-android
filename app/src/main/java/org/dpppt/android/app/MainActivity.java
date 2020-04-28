@@ -6,15 +6,20 @@
 package org.dpppt.android.app;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.app.main.HomeFragment;
 import org.dpppt.android.app.onboarding.OnboardingActivity;
 import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.storage.SecureStorage;
+import org.dpppt.android.app.util.InfoDialog;
+import org.dpppt.android.app.viewmodel.TracingViewModel;
+import org.dpppt.android.sdk.DP3T;
 
 public class MainActivity extends FragmentActivity {
 
@@ -26,6 +31,8 @@ public class MainActivity extends FragmentActivity {
 	private boolean consumedIntent;
 
 	private SecureStorage secureStorage;
+	private TracingViewModel tracingViewModel;
+	InfoDialog forceUpdateDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,23 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 
 		secureStorage = SecureStorage.getInstance(this);
+		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
+		tracingViewModel.getForceUpdateLiveData().observe(this, forceUpdate -> {
+			if (forceUpdate && forceUpdateDialog == null) {
+				forceUpdateDialog = InfoDialog.newInstance(R.string.force_update_text, R.string.force_update_title);
+				forceUpdateDialog.setCancelable(false);
+				forceUpdateDialog.setButtonOnClickListener(v -> {
+					String packageName = getPackageName();
+					Intent intent = new Intent(Intent.ACTION_VIEW);
+					intent.setData(Uri.parse("market://details?id=" + packageName));
+					if (intent.resolveActivity(getPackageManager()) != null) {
+						startActivity(intent);
+					}
+				});
+				forceUpdateDialog.show(getSupportFragmentManager(), InfoDialog.class.getCanonicalName());
+
+			}
+		});
 
 		if (savedInstanceState == null) {
 			boolean onboardingCompleted = secureStorage.getOnboardingCompleted();
@@ -64,6 +88,14 @@ public class MainActivity extends FragmentActivity {
 	public void onSaveInstanceState(@NonNull Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putBoolean(STATE_CONSUMED_INTENT, consumedIntent);
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if (forceUpdateDialog != null && forceUpdateDialog.isAdded()) {
+			forceUpdateDialog.dismiss();
+		}
 	}
 
 	private void checkIntentForActions() {
