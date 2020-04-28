@@ -16,6 +16,8 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
@@ -33,15 +35,20 @@ public class HtmlFragment extends Fragment {
 
 	private static final String ARG_BASE_URL = "ARG_BASE_URL";
 	private static final String ARG_DATA = "ARG_DATA";
+	private static final String ARG_TITLE = "ARG_TITLE";
+
 	private String baseUrl;
 	private String data;
+	@StringRes
+	private int titleRes;
 	private View loadingSpinner;
 	private Toast downloadingFileToast;
 
-	public static HtmlFragment newInstance(String baseUrl, @Nullable String data) {
+	public static HtmlFragment newInstance(int titleRes, String baseUrl, @Nullable String data) {
 		Bundle args = new Bundle();
 		args.putString(ARG_BASE_URL, baseUrl);
 		args.putString(ARG_DATA, data);
+		args.putInt(ARG_TITLE, titleRes);
 		HtmlFragment fragment = new HtmlFragment();
 		fragment.setArguments(args);
 		return fragment;
@@ -56,11 +63,17 @@ public class HtmlFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		baseUrl = getArguments().getString(ARG_BASE_URL);
 		data = getArguments().getString(ARG_DATA);
+		titleRes = getArguments().getInt(ARG_TITLE);
 	}
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
+
+		Toolbar toolbar = view.findViewById(R.id.html_toolbar);
+		toolbar.setTitle(titleRes);
+		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
+
 		WebView web = view.findViewById(R.id.html_webview);
 		loadingSpinner = getView().findViewById(R.id.loading_spinner);
 

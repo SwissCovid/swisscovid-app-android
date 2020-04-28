@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -31,11 +32,13 @@ import org.dpppt.android.app.BuildConfig;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.contacts.ContactsFragment;
 import org.dpppt.android.app.debug.DebugFragment;
+import org.dpppt.android.app.html.HtmlFragment;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.NotificationStateError;
 import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.storage.SecureStorage;
+import org.dpppt.android.app.util.AssetUtil;
 import org.dpppt.android.app.util.NotificationStateHelper;
 import org.dpppt.android.app.util.NotificatonErrorStateHelper;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
@@ -92,6 +95,23 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+		Toolbar toolbar = view.findViewById(R.id.home_toolbar);
+		toolbar.inflateMenu(R.menu.homescreen_menu);
+		toolbar.setOnMenuItemClickListener(item -> {
+			if (item.getItemId() == R.id.homescreen_menu_impressum) {
+				HtmlFragment htmlFragment =
+						HtmlFragment.newInstance(R.string.menu_impressum, AssetUtil.getImpressumBaseUrl(),
+								AssetUtil.getImpressumHtml(getContext()));
+				getParentFragmentManager().beginTransaction()
+						.replace(R.id.main_fragment_container, htmlFragment)
+						.addToBackStack(HtmlFragment.class.getCanonicalName())
+						.commit();
+				return true;
+			}
+			return false;
+		});
+
 		infobox = view.findViewById(R.id.card_infobox);
 		tracingCard = view.findViewById(R.id.card_tracing);
 		cardNotifications = view.findViewById(R.id.card_notifications);
