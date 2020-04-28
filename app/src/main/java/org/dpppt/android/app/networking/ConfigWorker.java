@@ -10,6 +10,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -123,10 +124,12 @@ public class ConfigWorker extends Worker {
 			NotificationUtil.createNotificationChannel(context);
 		}
 
-		Intent resultIntent = new Intent(context, MainActivity.class);
-		resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+		String packageName = context.getPackageName();
+		Intent intent = new Intent(Intent.ACTION_VIEW);
+		intent.setData(Uri.parse("market://details?id=" + packageName));
 		PendingIntent pendingIntent =
-				PendingIntent.getActivity(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+				PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
 		Notification notification =
 				new NotificationCompat.Builder(context, NotificationUtil.NOTIFICATION_CHANNEL_ID)
 						.setContentTitle(context.getString(R.string.force_update_title))

@@ -52,25 +52,12 @@ public class ConfigRepository {
 	}
 
 	public ConfigResponseModel getConfig(@NonNull String appVersion, @NonNull String osVersion) throws IOException, ResponseError {
-		// TODO PP-227: Re-enable real Config request, when implemented by backend
-		int rand = new Random(System.currentTimeMillis()).nextInt(1);
-		switch (rand) {
-			case 0:
-				return new ConfigResponseModel(true, null);
-			case 1:
-				return new ConfigResponseModel(false, new InfoBoxModel("Lorem Ipsum",
-						"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam "
-								+ " nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-						"https://github.com/DP-3T", "Link zum DP-3T Repository"));
-			default:
-				return new ConfigResponseModel(false, null);
-		}
-		/*Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion).execute();
+		Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion).execute();
 		if (configResponse.isSuccessful()) {
 			return configResponse.body();
 		} else {
 			throw new ResponseError(configResponse.raw());
-		}*/
+		}
 	}
 
 }
