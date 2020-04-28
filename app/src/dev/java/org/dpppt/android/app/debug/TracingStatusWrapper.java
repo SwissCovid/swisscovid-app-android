@@ -1,11 +1,10 @@
 package org.dpppt.android.app.debug;
 
-import java.util.Calendar;
-
 import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
 import org.dpppt.android.app.main.model.TracingStatusInterface;
+import org.dpppt.android.app.util.DateUtils;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
@@ -32,12 +31,13 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	@Override
 	public long getDaySinceExposed() {
 		long time = 0;
+
 		for (MatchedContact matchedContact : status.getMatchedContacts()) {
 			if (time < matchedContact.getReportDate()) {
 				time = matchedContact.getReportDate();
 			}
 		}
-		return (Calendar.getInstance().getTimeInMillis() - time) / (1000l * 60 * 60 * 24);
+		return DateUtils.getDaysDiff(time);
 	}
 
 	@Override

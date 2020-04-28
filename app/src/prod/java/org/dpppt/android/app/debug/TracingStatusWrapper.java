@@ -1,7 +1,5 @@
 package org.dpppt.android.app.debug;
 
-import java.util.Calendar;
-
 import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
@@ -38,7 +36,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 				time = matchedContact.getReportDate();
 			}
 		}
-		return (Calendar.getInstance().getTimeInMillis() - time) / (1000l * 60 * 60 * 24);
+		return DateUtils.getDaysDiff(time);
 	}
 
 	@Override
