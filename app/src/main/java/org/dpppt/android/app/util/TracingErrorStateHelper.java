@@ -1,6 +1,7 @@
 package org.dpppt.android.app.util;
 
 import android.graphics.Paint;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,7 +49,6 @@ public class TracingErrorStateHelper {
 			case NETWORK_ERROR_WHILE_SYNCING:
 			default:
 				return R.string.begegnungen_restart_error_title;
-
 		}
 	}
 
@@ -126,6 +126,7 @@ public class TracingErrorStateHelper {
 		ImageView iconView = tracingErrorView.findViewById(R.id.error_status_image);
 		TextView titleView = tracingErrorView.findViewById(R.id.error_status_title);
 		TextView textView = tracingErrorView.findViewById(R.id.error_status_text);
+		TextView errorCode = tracingErrorView.findViewById(R.id.error_status_code);
 		TextView buttonView = tracingErrorView.findViewById(R.id.error_status_button);
 
 		iconView.setImageResource(TracingErrorStateHelper.getIcon(errorState));
@@ -140,6 +141,12 @@ public class TracingErrorStateHelper {
 		} else {
 			textView.setVisibility(View.GONE);
 		}
+		if (!TextUtils.isEmpty(TracingErrorStateHelper.getErrorCode(errorState))) {
+			errorCode.setText(TracingErrorStateHelper.getErrorCode(errorState));
+			errorCode.setVisibility(View.VISIBLE);
+		} else {
+			errorCode.setVisibility(View.GONE);
+		}
 
 		if (TracingErrorStateHelper.getButtonText(errorState) != -1) {
 			buttonView.setText(TracingErrorStateHelper.getButtonText(errorState));
@@ -150,6 +157,24 @@ public class TracingErrorStateHelper {
 		}
 	}
 
-
+	private static String getErrorCode(TracingStatus.ErrorState errorState) {
+		switch (errorState) {
+			case BLE_NOT_SUPPORTED:
+				return "NSBNS";
+			case BLE_INTERNAL_ERROR:
+				return "NSBIR";
+			case BLE_ADVERTISING_ERROR:
+				return "NSBAE";
+			case BLE_SCANNER_ERROR:
+				return "NSBSE";
+			case NETWORK_ERROR_WHILE_SYNCING:
+			case MISSING_LOCATION_PERMISSION:
+			case LOCATION_SERVICE_DISABLED:
+			case BLE_DISABLED:
+			case BATTERY_OPTIMIZER_ENABLED:
+			default:
+				return "";
+		}
+	}
 
 }

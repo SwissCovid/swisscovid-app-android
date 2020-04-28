@@ -19,6 +19,8 @@ public class NotificatonErrorStateHelper {
 		ImageView iconView = reportErrorView.findViewById(R.id.error_status_image);
 		TextView titleView = reportErrorView.findViewById(R.id.error_status_title);
 		TextView textView = reportErrorView.findViewById(R.id.error_status_text);
+		TextView errorCode = reportErrorView.findViewById(R.id.error_status_code);
+		errorCode.setVisibility(View.GONE);
 		TextView buttonView = reportErrorView.findViewById(R.id.error_status_button);
 
 		iconView.setImageResource(NotificationStateError.getIcon(notificationStateError));
@@ -42,6 +44,5 @@ public class NotificatonErrorStateHelper {
 			buttonView.setVisibility(View.GONE);
 		}
 	}
-
 
 }

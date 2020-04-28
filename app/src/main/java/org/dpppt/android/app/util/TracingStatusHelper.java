@@ -86,6 +86,7 @@ public class TracingStatusHelper {
 		} else {
 			textView.setVisibility(View.GONE);
 		}
+		tracingErrorView.findViewById(R.id.error_status_code).setVisibility(View.GONE);
 		TextView buttonView = tracingErrorView.findViewById(R.id.error_status_button);
 		buttonView.setVisibility(View.GONE);
 	}
