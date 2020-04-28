@@ -31,6 +31,7 @@ import java.util.List;
 import org.dpppt.android.app.MainApplication;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.storage.SecureStorage;
+import org.dpppt.android.app.util.DateUtils;
 import org.dpppt.android.app.util.PhoneUtil;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.sdk.internal.database.models.MatchedContact;
@@ -46,8 +47,7 @@ public class ReportsFragment extends Fragment {
 
 	private ReportsSlidePageAdapter pagerAdapter;
 
-	private NestedScrollableHost header;
-	private ViewPager2 viewPager;
+	private ViewPager2 headerViewPager;
 	private LockableScrollView scrollView;
 	private View scrollViewFirstchild;
 	private CirclePageIndicator circlePageIndicator;
@@ -59,6 +59,8 @@ public class ReportsFragment extends Fragment {
 
 	private Button callHotlineButton1;
 	private Button callHotlineButton2;
+	private TextView callHotlineLastText1;
+	private TextView callHotlineLastText2;
 
 	private boolean hotlineJustCalled = false;
 
@@ -81,8 +83,7 @@ public class ReportsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.reports_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-		header = view.findViewById(R.id.reports_header);
-		viewPager = view.findViewById(R.id.reports_viewpager);
+		headerViewPager = view.findViewById(R.id.reports_header_viewpager);
 		scrollView = view.findViewById(R.id.reports_scrollview);
 		scrollViewFirstchild = view.findViewById(R.id.reports_scrollview_firstChild);
 		circlePageIndicator = view.findViewById(R.id.reports_pageindicator);
@@ -94,10 +95,8 @@ public class ReportsFragment extends Fragment {
 
 		callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
 		callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
-
-		if (secureStorage.wasHotlineEverCalled()) {
-			((TextView) hotlineView.findViewById(R.id.card_encounters_title)).setText(R.string.meldungen_detail_call_again);
-		}
+		callHotlineLastText1 = hotlineView.findViewById(R.id.card_encounters_last_call);
+		callHotlineLastText2 = saveOthersView.findViewById(R.id.card_encounters_last_call);
 
 		callHotlineButton1.setOnClickListener(view1 -> {
 			hotlineJustCalled = true;
@@ -111,14 +110,23 @@ public class ReportsFragment extends Fragment {
 			PhoneUtil.callHelpline(getContext());
 		});
 
-		viewPager.setAdapter(pagerAdapter);
-		circlePageIndicator.setViewPager(viewPager);
+		headerViewPager.setAdapter(pagerAdapter);
+		circlePageIndicator.setViewPager(headerViewPager);
 
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
+
 			healthyView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.GONE);
 			hotlineView.setVisibility(View.GONE);
 			infectedView.setVisibility(View.GONE);
+
+			/* debug
+			healthyView.setVisibility(View.VISIBLE);
+			saveOthersView.setVisibility(View.VISIBLE);
+			hotlineView.setVisibility(View.VISIBLE);
+			infectedView.setVisibility(View.VISIBLE);
+			 */
+
 			List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
 			switch (status.getInfectionStatus()) {
 				case HEALTHY:
@@ -152,7 +160,7 @@ public class ReportsFragment extends Fragment {
 			items.clear();
 			items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, System.currentTimeMillis()));
 			items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, System.currentTimeMillis()));
-			 */
+			*/
 
 			pagerAdapter.updateItems(items);
 		});
@@ -171,6 +179,19 @@ public class ReportsFragment extends Fragment {
 			hotlineView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.VISIBLE);
 		}
+
+		long lastHotlineCallTimestamp = secureStorage.lastHotlineCallTimestamp();
+		if (lastHotlineCallTimestamp != 0) {
+			((TextView) hotlineView.findViewById(R.id.card_encounters_title)).setText(R.string.meldungen_detail_call_again);
+
+			String date = DateUtils.getFormattedTimestamp(lastHotlineCallTimestamp);
+			date = getString(R.string.meldungen_detail_call_last_call).replace("{DATE}", date);
+			callHotlineLastText1.setText(date);
+			callHotlineLastText2.setText(date);
+		} else {
+			callHotlineLastText1.setText("");
+			callHotlineLastText2.setText("");
+		}
 	}
 
 	public void doHeaderAnimation(View info, View image, Button button) {
@@ -186,24 +207,7 @@ public class ReportsFragment extends Fragment {
 		rootView.post(() -> {
 
 			AutoTransition autoTransition = new AutoTransition();
-			autoTransition.setDuration(500);
-			TransitionManager.beginDelayedTransition(rootView, autoTransition);
-
-			ViewGroup.LayoutParams headerLp = header.getLayoutParams();
-			headerLp.height = originalHeaderHeight;
-			header.setLayoutParams(headerLp);
-
-			scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
-					originalFirstChildPadding,
-					scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
-
-			info.setVisibility(View.VISIBLE);
-			image.setVisibility(View.GONE);
-			button.setVisibility(View.GONE);
-
-			circlePageIndicator.setVisibility(View.VISIBLE);
-			viewPager.setUserInputEnabled(true);
-
+			autoTransition.setDuration(300);
 			autoTransition.addListener(new Transition.TransitionListener() {
 				@Override
 				public void onTransitionStart(@NonNull Transition transition) {
@@ -212,10 +216,8 @@ public class ReportsFragment extends Fragment {
 
 				@Override
 				public void onTransitionEnd(@NonNull Transition transition) {
-					viewPager.post(() -> {
-						Rect rect = new Rect();
-						viewPager.getDrawingRect(rect);
-						scrollView.setScrollPreventRect(rect);
+					headerViewPager.post(() -> {
+						setupScrollBehavior();
 					});
 				}
 
@@ -234,7 +236,53 @@ public class ReportsFragment extends Fragment {
 
 				}
 			});
+
+			TransitionManager.beginDelayedTransition(rootView, autoTransition);
+
+			ViewGroup.LayoutParams headerLp = headerViewPager.getLayoutParams();
+			headerLp.height = originalHeaderHeight;
+			headerViewPager.setLayoutParams(headerLp);
+
+			scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
+					originalFirstChildPadding,
+					scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+
+			info.setVisibility(View.VISIBLE);
+			image.setVisibility(View.GONE);
+			button.setVisibility(View.GONE);
+
+			circlePageIndicator.setVisibility(View.VISIBLE);
+			headerViewPager.setUserInputEnabled(true);
+
 		});
+	}
+
+	private void setupScrollBehavior() {
+
+		if(pagerAdapter.getItemCount() > 1){
+			Rect rect = new Rect();
+			headerViewPager.getDrawingRect(rect);
+			scrollView.setScrollPreventRect(rect);
+		} else {
+			scrollView.setScrollPreventRect(null);
+		}
+
+		int scrollRangePx = scrollViewFirstchild.getPaddingTop();
+		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
+		scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+			float progress = computeScrollAnimProgress(scrollY, scrollRangePx);
+			headerViewPager.setAlpha(1 - progress);
+			headerViewPager.setTranslationY(progress * translationRangePx);
+		});
+		scrollView.post(() -> {
+			float progress = computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
+			headerViewPager.setAlpha(1 - progress);
+			headerViewPager.setTranslationY(progress * translationRangePx);
+		});
+	}
+
+	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
+		return Math.min(scrollY, scrollRange) / (float) scrollRange;
 	}
 
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {
@@ -257,41 +305,39 @@ public class ReportsFragment extends Fragment {
 
 			if (items.size() > 1) {
 				if (!isReportsHeaderAnimationPending) circlePageIndicator.setVisibility(View.VISIBLE);
-				ViewGroup.LayoutParams lp = header.getLayoutParams();
+				ViewGroup.LayoutParams lp = headerViewPager.getLayoutParams();
 				lp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports_with_indicator);
-				header.setLayoutParams(lp);
+				headerViewPager.setLayoutParams(lp);
 				scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
 						getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_width_indicator),
 						scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
 			} else {
 				circlePageIndicator.setVisibility(View.GONE);
-				ViewGroup.LayoutParams lp = header.getLayoutParams();
+				ViewGroup.LayoutParams lp = headerViewPager.getLayoutParams();
 				lp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports);
-				header.setLayoutParams(lp);
+				headerViewPager.setLayoutParams(lp);
 				scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
 						getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports),
 						scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
 			}
 
 			if (isReportsHeaderAnimationPending) {
-				viewPager.setUserInputEnabled(false);
+				headerViewPager.setUserInputEnabled(false);
 
-				ViewGroup.LayoutParams headerLp = header.getLayoutParams();
+				ViewGroup.LayoutParams headerLp = headerViewPager.getLayoutParams();
 				originalHeaderHeight = headerLp.height;
 				headerLp.height = ViewGroup.LayoutParams.MATCH_PARENT;
-				header.setLayoutParams(headerLp);
+				headerViewPager.setLayoutParams(headerLp);
 
 				originalFirstChildPadding = scrollViewFirstchild.getPaddingTop();
 
 				scrollViewFirstchild.setVisibility(View.GONE);
 			}
 
-			viewPager.post(() -> {
-				viewPager.setCurrentItem(items.size() - 1, false);
+			headerViewPager.post(() -> {
+				headerViewPager.setCurrentItem(items.size() - 1, false);
 
-				Rect rect = new Rect();
-				viewPager.getDrawingRect(rect);
-				scrollView.setScrollPreventRect(rect);
+				setupScrollBehavior();
 			});
 		}
 

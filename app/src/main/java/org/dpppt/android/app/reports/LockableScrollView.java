@@ -8,6 +8,8 @@ import android.widget.ScrollView;
 
 public class LockableScrollView extends ScrollView {
 
+	private Rect scrollPreventRect = null;
+
 	public LockableScrollView(Context context) {
 		super(context);
 	}
@@ -15,8 +17,6 @@ public class LockableScrollView extends ScrollView {
 	public LockableScrollView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
-
-	private Rect scrollPreventRect = null;
 
 	public void setScrollPreventRect(Rect scrollPreventRect) {
 		this.scrollPreventRect = scrollPreventRect;

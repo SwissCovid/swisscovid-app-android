@@ -5,11 +5,8 @@
  */
 package org.dpppt.android.app.main;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -42,11 +39,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.view.View.VISIBLE;
-import static org.dpppt.android.app.onboarding.OnboardingLocationPermissionFragment.REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION;
 
 public class HomeFragment extends Fragment {
 
-	private static final String STATE_SCROLL_VIEW = "STATE_SCROLL_VIEW";
 	private static final int REQUEST_CODE_BLE_INTENT = 330;
 	private static final int REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT = 420;
 
@@ -104,7 +99,7 @@ public class HomeFragment extends Fragment {
 		setupNotification();
 		setupWhatToDo();
 		setupDebugButton();
-		setupScrollBehavior(savedInstanceState);
+		setupScrollBehavior();
 	}
 
 	@Override
@@ -117,12 +112,6 @@ public class HomeFragment extends Fragment {
 	public void onDestroyView() {
 		super.onDestroyView();
 		headerView.stopAnimation();
-	}
-
-	@Override
-	public void onSaveInstanceState(@NonNull Bundle outState) {
-		super.onSaveInstanceState(outState);
-		outState.putInt(STATE_SCROLL_VIEW, scrollView.getScrollY());
 	}
 
 	private void setupHeader() {
@@ -243,7 +232,7 @@ public class HomeFragment extends Fragment {
 		});
 	}
 
-	private void setupScrollBehavior(Bundle savedInstanceState) {
+	private void setupScrollBehavior() {
 
 		int scrollRangePx = getResources().getDimensionPixelSize(R.dimen.top_item_padding);
 		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
@@ -257,11 +246,6 @@ public class HomeFragment extends Fragment {
 			headerView.setAlpha(1 - progress);
 			headerView.setTranslationY(progress * translationRangePx);
 		});
-		headerView.setAlpha(0);
-
-		if (savedInstanceState != null) {
-			scrollView.setScrollY(savedInstanceState.getInt(STATE_SCROLL_VIEW));
-		}
 	}
 
 	private float computeScrollAnimProgress(int scrollY, int scrollRange) {

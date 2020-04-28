@@ -104,7 +104,6 @@ public class ContactsFragment extends Fragment {
 			headerView.setAlpha(1 - progress);
 			headerView.setTranslationY(progress * translationRangePx);
 		});
-		headerView.setAlpha(0);
 	}
 
 	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
