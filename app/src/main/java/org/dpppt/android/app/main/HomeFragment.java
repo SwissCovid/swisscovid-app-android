@@ -5,11 +5,14 @@
  */
 package org.dpppt.android.app.main;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -22,8 +25,6 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
-import java.util.Collection;
 
 import org.dpppt.android.app.BuildConfig;
 import org.dpppt.android.app.R;
@@ -211,7 +212,9 @@ public class HomeFragment extends Fragment {
 					return true;
 				}
 				return channel.getImportance() != NotificationManager.IMPORTANCE_NONE &&
-						!(!manager.areNotificationsEnabled() && channel.getImportance() == NotificationManager.IMPORTANCE_DEFAULT)&&manager.areNotificationsEnabled();
+						!(!manager.areNotificationsEnabled() &&
+								channel.getImportance() == NotificationManager.IMPORTANCE_DEFAULT) &&
+						manager.areNotificationsEnabled();
 			}
 			return true;
 		} else {
