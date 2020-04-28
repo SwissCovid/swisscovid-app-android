@@ -4,11 +4,11 @@ public class ConfigResponseModel {
 
 	private boolean forceUpdate;
 
-	private InfoBoxModel infobox = null;
+	private InfoBoxModel infoBox = null;
 
 	public ConfigResponseModel(boolean forceUpdate, InfoBoxModel infobox) {
 		this.forceUpdate = forceUpdate;
-		this.infobox = infobox;
+		this.infoBox = infobox;
 	}
 
 	public boolean getDoForceUpdate() {
@@ -16,7 +16,7 @@ public class ConfigResponseModel {
 	}
 
 	public InfoBoxModel getInfoBox() {
-		return infobox;
+		return infoBox;
 	}
 
 }
