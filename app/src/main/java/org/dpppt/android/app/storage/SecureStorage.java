@@ -20,8 +20,14 @@ public class SecureStorage {
 	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
 	private static final String KEY_HOTLINE_CALL_PENDING = "hotline_call_pending";
-	private static final String KEY_HOTLINE_LAST_CALL_TIMESTAMP = "hotline_ever_called_TIMESTAMP";
+	private static final String KEY_HOTLINE_LAST_CALL_TIMESTAMP = "hotline_ever_called_timestamp";
 	private static final String KEY_PENDING_REPORTS_HEADER_ANIMATION = "pending_reports_header_animation";
+	private static final String KEY_CONFIG_FORCE_UPDATE = "config_do_force_update";
+	private static final String KEY_CONFIG_HAS_INFOBOX = "has_ghettobox";
+	private static final String KEY_CONFIG_INFOBOX_TITLE = "ghettobox_title";
+	private static final String KEY_CONFIG_INFOBOX_TEXT = "ghettobox_text";
+	private static final String KEY_CONFIG_INFOBOX_LINK_TITLE = "ghettobox_link_title";
+	private static final String KEY_CONFIG_INFOBOX_LINK_URL = "ghettobox_link_url";
 
 	private static SecureStorage instance;
 
@@ -121,6 +127,54 @@ public class SecureStorage {
 
 	public void setReportsHeaderAnimationPending(boolean pending) {
 		prefs.edit().putBoolean(KEY_PENDING_REPORTS_HEADER_ANIMATION, pending).apply();
+	}
+
+	public void setDoForceUpdate(boolean doForceUpdate) {
+		prefs.edit().putBoolean(KEY_CONFIG_FORCE_UPDATE, doForceUpdate).apply();
+	}
+
+	public boolean getDoForceUpdate() {
+		return prefs.getBoolean(KEY_CONFIG_FORCE_UPDATE, false);
+	}
+
+	public void setHasInfobox(boolean hasInfobox) {
+		prefs.edit().putBoolean(KEY_CONFIG_HAS_INFOBOX, hasInfobox).apply();
+	}
+
+	public boolean getHasInfobox() {
+		return prefs.getBoolean(KEY_CONFIG_HAS_INFOBOX, false);
+	}
+
+	public void setInfoboxTitle(String title) {
+		prefs.edit().putString(KEY_CONFIG_INFOBOX_TITLE, title).apply();
+	}
+
+	public String getInfoboxTitle() {
+		return prefs.getString(KEY_CONFIG_INFOBOX_TITLE, null);
+	}
+
+	public void setInfoboxText(String text) {
+		prefs.edit().putString(KEY_CONFIG_INFOBOX_TEXT, text).apply();
+	}
+
+	public String getInfoboxText() {
+		return prefs.getString(KEY_CONFIG_INFOBOX_TEXT, null);
+	}
+
+	public void setInfoboxLinkTitle(String title) {
+		prefs.edit().putString(KEY_CONFIG_INFOBOX_LINK_TITLE, title).apply();
+	}
+
+	public String getInfoboxLinkTitle() {
+		return prefs.getString(KEY_CONFIG_INFOBOX_LINK_TITLE, null);
+	}
+
+	public void setInfoboxLinkUrl(String url) {
+		prefs.edit().putString(KEY_CONFIG_INFOBOX_LINK_URL, url).apply();
+	}
+
+	public String getInfoboxLinkUrl() {
+		return prefs.getString(KEY_CONFIG_INFOBOX_LINK_URL, null);
 	}
 
 }

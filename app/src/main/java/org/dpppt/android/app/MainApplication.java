@@ -19,6 +19,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.crashlytics.android.Crashlytics;
 
+import org.dpppt.android.app.networking.ConfigWorker;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
@@ -48,6 +49,7 @@ public class MainApplication extends Application {
 			secureStorage = SecureStorage.getInstance(getApplicationContext());
 			registerReceiver(broadcastReceiver, DP3T.getUpdateIntentFilter());
 			DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL));
+			ConfigWorker.startConfigWorker(this);
 		}
 		if (!BuildConfig.DEBUG) {
 			Fabric.with(this, new Crashlytics());

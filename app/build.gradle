@@ -28,12 +28,14 @@ android {
 		dev {
 			buildConfigField 'boolean', 'IS_DEV', 'true'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-d.bag.admin.ch/"'
+			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-d.bfs.admin.ch/"'
 		}
 		prod {
 			buildConfigField 'boolean', 'IS_DEV', 'false'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service.bag.admin.ch/"'
+			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
 		}
@@ -74,6 +76,7 @@ dependencies {
 	implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
 	implementation 'androidx.viewpager2:viewpager2:1.0.0'
 	implementation 'androidx.security:security-crypto:1.0.0-beta01'
+	implementation 'androidx.work:work-runtime:2.3.4'
 
 	implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 	implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
