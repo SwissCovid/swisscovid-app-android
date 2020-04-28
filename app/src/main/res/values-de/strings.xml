@@ -693,7 +693,6 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="accessibility_12nd">"Zwölftes"</string>
     <string name="accessibility_code_button_disabled_hint">"Drücken nicht möglich, da der Code nicht vollständig eingegeben wurde"</string>
     <string name="error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>
-    <string name="error_battery_optimization_button"></string>
     <string name="foreground_service_notification_error_location_service">"Schalten Sie die Standortinformation ein, damit die App Bluetooth nützen kann."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
@@ -701,4 +700,17 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
 
     <!-- Location Services ausgeschaltet Button -->
     <string name="error_location_services_button">"Standort einschalten"</string>
+
+    <!-- Information Button in the navigation bar -->
+    <string name="accessibility_info_button">"Information"</string>
+    <string name="debug_sdk_state_number_contacts">"Anzahl kontakte: "</string>
+    <string name="sync_warning_notification_title">"Es ist ein Fehler aufgetreten"</string>
+    <string name="sync_warning_notification_text">"Öffnen Sie die App, um den Fehler zu beheben."</string>
+
+    <!-- Meldungen Detail: Button bei Vollansicht -->
+    <!-- Fuzzy -->
+    <string name="meldung_animation_continue_button">"Weiter"</string>
+
+    <!-- Titel Impressum Menu -->
+    <string name="menu_impressum">"Impressum"</string>
 </resources>
