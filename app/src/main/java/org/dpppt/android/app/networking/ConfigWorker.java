@@ -105,7 +105,7 @@ public class ConfigWorker extends Worker {
 		boolean hasInfobox = secureStorage.getHasInfobox();
 		hasInfoboxLiveData.postValue(hasInfobox);
 
-		if (!forceUpdateLiveData.hasObservers()) {
+		if (!forceUpdateLiveData.hasObservers() && forceUpdate) {
 			showNotification(context);
 		}
 	}
