@@ -5,25 +5,16 @@
  */
 package org.dpppt.android.app;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.dpppt.android.app.html.HtmlFragment;
-import org.dpppt.android.app.info.TheAppFragment;
-import org.dpppt.android.app.main.MainFragment;
+import org.dpppt.android.app.main.HomeFragment;
 import org.dpppt.android.app.onboarding.OnboardingActivity;
+import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.storage.SecureStorage;
-import org.dpppt.android.app.util.AssetUtil;
 
 public class MainActivity extends FragmentActivity {
 
@@ -31,10 +22,9 @@ public class MainActivity extends FragmentActivity {
 
 	private static final int REQ_ONBOARDING = 123;
 
-	private static final int[] MENU_ACTION_IDS = new int[]{R.id.action_home, R.id.action_theapp};
+	private static final String STATE_CONSUMED_INTENT = "STATE_CONSUMED_INTENT";
+	private boolean consumedIntent;
 
-	private BottomNavigationView bottomNavigationView;
-	private ViewPager2 viewPager;
 	private SecureStorage secureStorage;
 
 	@Override
@@ -44,47 +34,65 @@ public class MainActivity extends FragmentActivity {
 
 		secureStorage = SecureStorage.getInstance(this);
 
-		setupNavigationViews();
 		if (savedInstanceState == null) {
 			boolean onboardingCompleted = secureStorage.getOnboardingCompleted();
 			if (onboardingCompleted) {
-				bottomNavigationView.setSelectedItemId(R.id.action_home);
+				showHomeFragment();
 			} else {
 				startActivityForResult(new Intent(this, OnboardingActivity.class), REQ_ONBOARDING);
+			}
+		} else {
+			consumedIntent = savedInstanceState.getBoolean(STATE_CONSUMED_INTENT);
+		}
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+
+		checkIntentForActions();
+
+		if (!consumedIntent) {
+			boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
+			if (isHotlineCallPending) {
+				gotoReportsFragment();
 			}
 		}
 	}
 
-	private void setupNavigationViews() {
-		viewPager = findViewById(R.id.main_fragment_view_pager);
-		viewPager.setUserInputEnabled(false);
-		bottomNavigationView = findViewById(R.id.main_bottom_navigation_view);
-
-		FragmentStateAdapter fragmentStateAdapter = new MainNavigationStateAdapter(this);
-		viewPager.setAdapter(fragmentStateAdapter);
-		viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-			@Override
-			public void onPageSelected(int position) {
-				bottomNavigationView.getMenu().findItem(MENU_ACTION_IDS[position]).setChecked(true);
-			}
-		});
-
-		bottomNavigationView.inflateMenu(R.menu.navigation_menu);
-		bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-			int index = -1;
-			for (int i = 0; i < MENU_ACTION_IDS.length; i++) {
-				if (MENU_ACTION_IDS[i] == item.getItemId()) {
-					index = i;
-					break;
-				}
-			}
-			if (index >= 0) viewPager.setCurrentItem(index);
-			return true;
-		});
+	@Override
+	public void onSaveInstanceState(@NonNull Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putBoolean(STATE_CONSUMED_INTENT, consumedIntent);
 	}
 
-	public ViewPager2 getMainViewPager() {
-		return viewPager;
+	private void checkIntentForActions() {
+		Intent intent = getIntent();
+		String intentAction = intent.getAction();
+		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
+		if (intentAction != null && !launchedFromHistory && !consumedIntent) {
+			consumedIntent = true;
+			if (intentAction.equals(MainActivity.ACTION_GOTO_REPORTS)) {
+				gotoReportsFragment();
+			}
+			intent.setAction(null);
+			setIntent(intent);
+		}
+	}
+
+	private void showHomeFragment(){
+		getSupportFragmentManager()
+				.beginTransaction()
+				.add(R.id.main_fragment_container, HomeFragment.newInstance())
+				.commit();
+	}
+
+	private void gotoReportsFragment() {
+		getSupportFragmentManager()
+				.beginTransaction()
+				.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
+				.addToBackStack(ReportsFragment.class.getCanonicalName())
+				.commit();
 	}
 
 	@Override
@@ -93,54 +101,11 @@ public class MainActivity extends FragmentActivity {
 		if (requestCode == REQ_ONBOARDING) {
 			if (resultCode == RESULT_OK) {
 				secureStorage.setOnboardingCompleted(true);
-				bottomNavigationView.setSelectedItemId(R.id.action_home);
+				showHomeFragment();
 			} else {
 				finish();
 			}
 		}
-	}
-
-	@Override
-	public void onBackPressed() {
-		FragmentManager fm = getSupportFragmentManager();
-		for (Fragment frag : fm.getFragments()) {
-			if (frag.isVisible()) {
-				FragmentManager childFm = frag.getChildFragmentManager();
-				if (childFm.getBackStackEntryCount() > 0) {
-					childFm.popBackStack();
-					return;
-				}
-			}
-		}
-		super.onBackPressed();
-	}
-
-
-
-	private class MainNavigationStateAdapter extends FragmentStateAdapter {
-
-		public MainNavigationStateAdapter(@NonNull FragmentActivity fragmentActivity) {
-			super(fragmentActivity);
-		}
-
-		@NonNull
-		@Override
-		public Fragment createFragment(int position) {
-			switch (position) {
-				case 0:
-					return MainFragment.newInstance();
-				case 1:
-					return HtmlFragment.newInstance(AssetUtil.getImpressumBaseUrl(), AssetUtil.getImpressumHtml(MainActivity.this));
-				default:
-					throw new IllegalArgumentException("No fragment associated with given position: " + position);
-			}
-		}
-
-		@Override
-		public int getItemCount() {
-			return 2;
-		}
-
 	}
 
 }

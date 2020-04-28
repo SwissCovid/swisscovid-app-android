@@ -19,13 +19,13 @@ import androidx.lifecycle.ViewModelProvider;
 
 import java.util.Collection;
 
+import org.dpppt.android.app.BuildConfig;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.contacts.ContactsFragment;
 import org.dpppt.android.app.debug.DebugFragment;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.reports.ReportsFragment;
-import org.dpppt.android.app.util.DebugUtils;
 import org.dpppt.android.app.util.NotificationStateHelper;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
@@ -41,9 +41,6 @@ import retrofit2.Response;
 import static android.view.View.VISIBLE;
 
 public class HomeFragment extends Fragment {
-
-	private static final int REQUEST_CODE_BLE_INTENT = 330;
-	private static final int REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT = 420;
 
 	private TracingViewModel tracingViewModel;
 	private HeaderView headerView;
@@ -193,10 +190,9 @@ public class HomeFragment extends Fragment {
 
 	private void setupDebugButton() {
 		View debugButton = getView().findViewById(R.id.main_button_debug);
-		if (DebugUtils.isDev()) {
+		if (BuildConfig.IS_DEV) {
 			debugButton.setVisibility(VISIBLE);
-			debugButton.setOnClickListener(
-					v -> DebugFragment.startDebugFragment(getParentFragmentManager()));
+			debugButton.setOnClickListener(v -> DebugFragment.startDebugFragment(getParentFragmentManager()));
 		} else {
 			debugButton.setVisibility(View.GONE);
 		}
@@ -251,6 +247,5 @@ public class HomeFragment extends Fragment {
 	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
 		return Math.min(scrollY, scrollRange) / (float) scrollRange;
 	}
-
 
 }
