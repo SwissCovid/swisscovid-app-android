@@ -156,6 +156,7 @@ public class TracingViewModel extends AndroidViewModel {
 	protected void onCleared() {
 		getApplication().unregisterReceiver(tracingStatusBroadcastReceiver);
 		getApplication().unregisterReceiver(bluetoothReceiver);
+		getApplication().unregisterReceiver(configUpdateBroadcastReceiver);
 	}
 
 	public DebugAppState getDebugAppState() {
