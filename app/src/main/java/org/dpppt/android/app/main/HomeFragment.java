@@ -36,6 +36,7 @@ import org.dpppt.android.app.html.HtmlFragment;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.NotificationStateError;
 import org.dpppt.android.app.main.views.HeaderView;
+import org.dpppt.android.app.networking.ConfigWorker;
 import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.AssetUtil;
@@ -152,7 +153,8 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupInfobox() {
-		tracingViewModel.getHasInfoboxLiveData().observe(getViewLifecycleOwner(), hasInfobox -> {
+
+		ConfigWorker.hasInfoBox().observe(getViewLifecycleOwner(), hasInfobox -> {
 			if (!hasInfobox) {
 				infobox.setVisibility(View.GONE);
 				return;

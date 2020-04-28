@@ -26,7 +26,6 @@ import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.TracingStatusInterface;
 import org.dpppt.android.app.networking.ConfigWorker;
 import org.dpppt.android.app.networking.errors.ResponseError;
-import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.DeviceFeatureHelper;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
@@ -61,15 +60,6 @@ public class TracingViewModel extends AndroidViewModel {
 		}
 	};
 
-	private final MutableLiveData<Boolean> forceUpdateLiveData = new MutableLiveData<>(false);
-	private final MutableLiveData<Boolean> hasInfoboxLiveData = new MutableLiveData<>(false);
-	private BroadcastReceiver configUpdateBroadcastReceiver = new BroadcastReceiver() {
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			updateConfigStatus();
-		}
-	};
-
 	public TracingViewModel(@NonNull Application application) {
 		super(application);
 
@@ -92,7 +82,6 @@ public class TracingViewModel extends AndroidViewModel {
 
 		application.registerReceiver(tracingStatusBroadcastReceiver, DP3T.getUpdateIntentFilter());
 		application.registerReceiver(bluetoothReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
-		application.registerReceiver(configUpdateBroadcastReceiver, new IntentFilter(ConfigWorker.ACTION_CONFIG_UPDATE));
 	}
 
 	public void resetSdk(Runnable onDeleteListener) {
@@ -156,7 +145,6 @@ public class TracingViewModel extends AndroidViewModel {
 	protected void onCleared() {
 		getApplication().unregisterReceiver(tracingStatusBroadcastReceiver);
 		getApplication().unregisterReceiver(bluetoothReceiver);
-		getApplication().unregisterReceiver(configUpdateBroadcastReceiver);
 	}
 
 	public DebugAppState getDebugAppState() {
@@ -175,23 +163,6 @@ public class TracingViewModel extends AndroidViewModel {
 				e.printStackTrace();
 			}
 		}).start();
-	}
-
-	private void updateConfigStatus() {
-		SecureStorage secureStorage = SecureStorage.getInstance(getApplication());
-		boolean forceUpdate = secureStorage.getDoForceUpdate();
-		forceUpdateLiveData.postValue(forceUpdate);
-
-		boolean hasInfobox = secureStorage.getHasInfobox();
-		hasInfoboxLiveData.postValue(hasInfobox);
-	}
-
-	public LiveData<Boolean> getForceUpdateLiveData() {
-		return forceUpdateLiveData;
-	}
-
-	public LiveData<Boolean> getHasInfoboxLiveData() {
-		return hasInfoboxLiveData;
 	}
 
 }

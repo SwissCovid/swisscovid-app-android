@@ -11,15 +11,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.app.main.HomeFragment;
+import org.dpppt.android.app.networking.ConfigWorker;
 import org.dpppt.android.app.onboarding.OnboardingActivity;
 import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.InfoDialog;
-import org.dpppt.android.app.viewmodel.TracingViewModel;
-import org.dpppt.android.sdk.DP3T;
 
 public class MainActivity extends FragmentActivity {
 
@@ -31,8 +29,6 @@ public class MainActivity extends FragmentActivity {
 	private boolean consumedIntent;
 
 	private SecureStorage secureStorage;
-	private TracingViewModel tracingViewModel;
-	InfoDialog forceUpdateDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +36,9 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 
 		secureStorage = SecureStorage.getInstance(this);
-		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
-		tracingViewModel.getForceUpdateLiveData().observe(this, forceUpdate -> {
+		ConfigWorker.getForceUpdate().observe(this, forceUpdate -> {
+			InfoDialog forceUpdateDialog =
+					(InfoDialog) getSupportFragmentManager().findFragmentByTag(InfoDialog.class.getCanonicalName());
 			if (forceUpdate && forceUpdateDialog == null) {
 				forceUpdateDialog = InfoDialog.newInstance(R.string.force_update_text, R.string.force_update_title);
 				forceUpdateDialog.setCancelable(false);
@@ -54,7 +51,8 @@ public class MainActivity extends FragmentActivity {
 					}
 				});
 				forceUpdateDialog.show(getSupportFragmentManager(), InfoDialog.class.getCanonicalName());
-
+			} else if (!forceUpdate && forceUpdateDialog != null) {
+				forceUpdateDialog.dismiss();
 			}
 		});
 
@@ -68,6 +66,8 @@ public class MainActivity extends FragmentActivity {
 		} else {
 			consumedIntent = savedInstanceState.getBoolean(STATE_CONSUMED_INTENT);
 		}
+
+		ConfigWorker.startConfigWorker(this);
 	}
 
 	@Override
@@ -90,14 +90,6 @@ public class MainActivity extends FragmentActivity {
 		outState.putBoolean(STATE_CONSUMED_INTENT, consumedIntent);
 	}
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		if (forceUpdateDialog != null && forceUpdateDialog.isAdded()) {
-			forceUpdateDialog.dismiss();
-		}
-	}
-
 	private void checkIntentForActions() {
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
@@ -112,7 +104,7 @@ public class MainActivity extends FragmentActivity {
 		}
 	}
 
-	private void showHomeFragment(){
+	private void showHomeFragment() {
 		getSupportFragmentManager()
 				.beginTransaction()
 				.add(R.id.main_fragment_container, HomeFragment.newInstance())

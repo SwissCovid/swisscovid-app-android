@@ -41,7 +41,7 @@
 			android:launchMode="singleTop"
 			android:screenOrientation="portrait" />
 
-		<receiver android:name=".broadcastreceivers.ContactUpdateReceiver" >
+		<receiver android:name=".broadcastreceivers.ContactUpdateReceiver">
 			<intent-filter>
 				<action android:name="org.dpppt.android.sdk.UPDATE_ACTION" />
 			</intent-filter>
