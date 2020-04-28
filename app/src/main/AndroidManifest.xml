@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ Created by Ubique Innovation AG
   ~ https://www.ubique.ch
   ~ Copyright (c) 2020. All rights reserved.
   -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="org.dpppt.android.app">
 
@@ -24,7 +24,8 @@
 
 		<activity
 			android:name="org.dpppt.android.app.MainActivity"
-			android:launchMode="singleTop">
+			android:launchMode="singleTop"
+			android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -33,10 +34,12 @@
 
 		<activity
 			android:name="org.dpppt.android.app.onboarding.OnboardingActivity"
-			android:launchMode="singleTop" />
+			android:launchMode="singleTop"
+			android:screenOrientation="portrait" />
 		<activity
 			android:name="org.dpppt.android.app.inform.InformActivity"
-			android:launchMode="singleTop" />
+			android:launchMode="singleTop"
+			android:screenOrientation="portrait" />
 
 	</application>
 

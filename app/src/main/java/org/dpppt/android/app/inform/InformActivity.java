@@ -5,12 +5,10 @@
  */
 package org.dpppt.android.app.inform;
 
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
-import org.dpppt.android.app.MainActivity;
 import org.dpppt.android.app.R;
 
 public class InformActivity extends FragmentActivity {
@@ -25,17 +23,6 @@ public class InformActivity extends FragmentActivity {
 					.beginTransaction()
 					.add(R.id.inform_fragment_container, InformIntroFragment.newInstance())
 					.commit();
-		}
-	}
-
-	@Override
-	public void onBackPressed() {
-		if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-			super.onBackPressed();
-		} else {
-			Intent intent = new Intent(this, MainActivity.class);
-			startActivity(intent);
-			finish();
 		}
 	}
 

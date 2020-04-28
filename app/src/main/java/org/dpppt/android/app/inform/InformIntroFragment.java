@@ -5,7 +5,6 @@
  */
 package org.dpppt.android.app.inform;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import org.dpppt.android.app.MainActivity;
 import org.dpppt.android.app.R;
 
 public class InformIntroFragment extends Fragment {
@@ -30,8 +28,6 @@ public class InformIntroFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		Button cancelButton = view.findViewById(R.id.inform_intro_cancel_button);
 		cancelButton.setOnClickListener(v -> {
-			Intent intent = new Intent(getActivity(), MainActivity.class);
-			startActivity(intent);
 			getActivity().finish();
 		});
 
