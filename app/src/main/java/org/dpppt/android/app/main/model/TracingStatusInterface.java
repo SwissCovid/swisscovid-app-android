@@ -19,4 +19,7 @@ public interface TracingStatusInterface {
 
 	TracingStatus.ErrorState getTracingErrorState();
 
+	TracingStatus.ErrorState getReportErrorState();
+
+
 }

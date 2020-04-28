@@ -70,7 +70,6 @@ public class TracingViewModel extends AndroidViewModel {
 					.setValue(new Pair<>(tracingStatusWrapper.isReportedAsInfected(),
 							tracingStatusWrapper.wasContactReportedAsExposed()));
 
-
 			appStatusLiveData.setValue(tracingStatusWrapper);
 		});
 
@@ -122,6 +121,10 @@ public class TracingViewModel extends AndroidViewModel {
 		} else {
 			DP3T.stop(getApplication());
 		}
+	}
+
+	public void sync() {
+		DP3T.sync(getApplication());
 	}
 
 	public void invalidateService() {

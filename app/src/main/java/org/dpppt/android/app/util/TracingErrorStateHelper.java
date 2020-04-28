@@ -24,16 +24,13 @@ public class TracingErrorStateHelper {
 			TracingStatus.ErrorState.BATTERY_OPTIMIZER_ENABLED,
 			TracingStatus.ErrorState.BLE_INTERNAL_ERROR,
 			TracingStatus.ErrorState.BLE_ADVERTISING_ERROR,
-			TracingStatus.ErrorState.BLE_SCANNER_ERROR,
-			TracingStatus.ErrorState.NETWORK_ERROR_WHILE_SYNCING);
+			TracingStatus.ErrorState.BLE_SCANNER_ERROR);
 
 	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
-			//notifcation error
-			//snyc error?
-
+			TracingStatus.ErrorState.NETWORK_ERROR_WHILE_SYNCING
 	);
 
-	public static @StringRes
+	private static @StringRes
 	int getTitle(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
 			case LOCATION_SERVICE_DISABLED:
@@ -51,19 +48,16 @@ public class TracingErrorStateHelper {
 			case NETWORK_ERROR_WHILE_SYNCING:
 			default:
 				return R.string.begegnungen_restart_error_title;
-				/*missing
-			case ERROR_TIMING_INCONSISTENCY:
-				return -1;*/
 
 		}
 	}
 
-	public static @StringRes
+	private static @StringRes
 	int getText(TracingStatus.ErrorState tracingErrorState) {
 		return tracingErrorState.getErrorString();
 	}
 
-	public static @DrawableRes
+	private static @DrawableRes
 	int getIcon(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
 			case LOCATION_SERVICE_DISABLED:
@@ -81,13 +75,10 @@ public class TracingErrorStateHelper {
 			case NETWORK_ERROR_WHILE_SYNCING:
 			default:
 				return R.drawable.ic_warning_red;
-			/*
-				SDK error missing
-				* */
 		}
 	}
 
-	public static @StringRes
+	private static @StringRes
 	int getButtonText(TracingStatus.ErrorState errorState) {
 		switch (errorState) {
 			case LOCATION_SERVICE_DISABLED:
@@ -97,17 +88,14 @@ public class TracingErrorStateHelper {
 			case MISSING_LOCATION_PERMISSION:
 			case BATTERY_OPTIMIZER_ENABLED:
 				return R.string.error_location_permission_button;
+			case NETWORK_ERROR_WHILE_SYNCING:
+				return R.string.homescreen_meldung_data_outdated_retry_button;
 			case BLE_NOT_SUPPORTED:
 			case BLE_INTERNAL_ERROR:
 			case BLE_ADVERTISING_ERROR:
 			case BLE_SCANNER_ERROR:
-			case NETWORK_ERROR_WHILE_SYNCING:
 			default:
 				return -1;
-
-			/*missing
-			case ERROR_TIMING_INCONSISTENCY:
-				return -1;*/
 		}
 	}
 
@@ -161,5 +149,7 @@ public class TracingErrorStateHelper {
 			buttonView.setVisibility(View.GONE);
 		}
 	}
+
+
 
 }

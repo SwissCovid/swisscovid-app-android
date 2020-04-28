@@ -5,15 +5,21 @@
  */
 package org.dpppt.android.app.main;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -24,9 +30,11 @@ import org.dpppt.android.app.R;
 import org.dpppt.android.app.contacts.ContactsFragment;
 import org.dpppt.android.app.debug.DebugFragment;
 import org.dpppt.android.app.main.model.NotificationState;
+import org.dpppt.android.app.main.model.NotificationStateError;
 import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.util.NotificationStateHelper;
+import org.dpppt.android.app.util.NotificatonErrorStateHelper;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.app.whattodo.WtdPositiveTestFragment;
@@ -39,6 +47,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.view.View.VISIBLE;
+import static org.dpppt.android.app.MainApplication.NOTIFICATION_CHANNEL_ID;
 
 public class HomeFragment extends Fragment {
 
@@ -150,28 +159,64 @@ public class HomeFragment extends Fragment {
 						.addToBackStack(ReportsFragment.class.getCanonicalName())
 						.commit());
 
-		tracingViewModel.getSelfOrContactExposedLiveData().observe(getViewLifecycleOwner(),
-				selfOrContactExposed -> {
-					if (selfOrContactExposed.first) {
-						NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.POSITIVE_TESTED);
-					} else if (selfOrContactExposed.second) {
-						NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.EXPOSED);
-					} else {
-						NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_REPORTS);
-					}
-					if (tracingViewModel.getTracingStatusLiveData().getValue() != null) {
-						Collection<TracingStatus.ErrorState> errorStates =
-								tracingViewModel.getTracingStatusLiveData().getValue().getErrors();
-						if (errorStates != null && errorStates.size() > 0) {
-							TracingStatus.ErrorState errorState = TracingErrorStateHelper.getErrorStateForReports(errorStates);
-							TracingErrorStateHelper.updateErrorView(reportErrorView, errorState);
-						} else {
-							TracingErrorStateHelper.updateErrorView(reportErrorView, null);
-						}
-					} else {
-						TracingErrorStateHelper.updateErrorView(reportErrorView, null);
-					}
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
+			//update status view
+			if (tracingStatusInterface.isReportedAsInfected()) {
+				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.POSITIVE_TESTED);
+			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
+				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.EXPOSED);
+			} else {
+				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_REPORTS);
+			}
+
+			TracingStatus.ErrorState errorState = tracingStatusInterface.getReportErrorState();
+			if (errorState != null) {
+				TracingErrorStateHelper
+						.updateErrorView(reportErrorView, errorState);
+				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+					tracingViewModel.sync();
 				});
+			} else if (!isNotificationChannelEnabled(getContext(), NOTIFICATION_CHANNEL_ID)) {
+				NotificatonErrorStateHelper
+						.updateNotificationErrorView(reportErrorView, NotificationStateError.NOTIFICATION_STATE_ERROR);
+				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+					openChannelSettings(NOTIFICATION_CHANNEL_ID);
+				});
+			} else {
+				//hide errorview
+				TracingErrorStateHelper.updateErrorView(reportErrorView, null);
+			}
+		});
+	}
+
+	private void openChannelSettings(String channelId) {
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			Intent intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+			intent.putExtra(Settings.EXTRA_APP_PACKAGE, requireActivity().getPackageName());
+			startActivity(intent);
+		} else {
+			Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+			intent.setData(Uri.parse("package:" + requireActivity().getPackageName()));
+			startActivity(intent);
+		}
+	}
+
+	private boolean isNotificationChannelEnabled(Context context, @Nullable String channelId) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			if (!TextUtils.isEmpty(channelId)) {
+				NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+				NotificationChannel channel = manager.getNotificationChannel(channelId);
+				if (channel == null) {
+					return true;
+				}
+				return channel.getImportance() != NotificationManager.IMPORTANCE_NONE &&
+						!(!manager.areNotificationsEnabled() && channel.getImportance() == NotificationManager.IMPORTANCE_DEFAULT)&&manager.areNotificationsEnabled();
+			}
+			return true;
+		} else {
+			return NotificationManagerCompat.from(context).areNotificationsEnabled();
+		}
 	}
 
 	private void setupWhatToDo() {

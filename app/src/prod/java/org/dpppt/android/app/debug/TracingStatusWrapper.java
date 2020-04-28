@@ -69,4 +69,13 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 		return null;
 	}
 
+	@Override
+	public TracingStatus.ErrorState getReportErrorState() {
+		boolean hasError = status.getErrors().size() > 0;
+		if (hasError) {
+			return TracingErrorStateHelper.getErrorStateForReports(status.getErrors());
+		}
+		return null;
+	}
+
 }
