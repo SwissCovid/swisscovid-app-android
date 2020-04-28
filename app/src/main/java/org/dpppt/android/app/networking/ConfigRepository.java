@@ -52,6 +52,7 @@ public class ConfigRepository {
 	}
 
 	public ConfigResponseModel getConfig(@NonNull String appVersion, @NonNull String osVersion) throws IOException, ResponseError {
+		// TODO PP-227: Re-enable real Config request, when implemented by backend
 		int rand = new Random(System.currentTimeMillis()).nextInt(4);
 		switch (rand) {
 			case 0:

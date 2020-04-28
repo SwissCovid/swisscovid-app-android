@@ -179,14 +179,10 @@ public class TracingViewModel extends AndroidViewModel {
 	private void updateConfigStatus() {
 		SecureStorage secureStorage = SecureStorage.getInstance(getApplication());
 		boolean forceUpdate = secureStorage.getDoForceUpdate();
-		if (forceUpdateLiveData.getValue() != forceUpdate) {
-			forceUpdateLiveData.postValue(forceUpdate);
-		}
+		forceUpdateLiveData.postValue(forceUpdate);
 
 		boolean hasInfobox = secureStorage.getHasInfobox();
-		if (hasInfoboxLiveData.getValue() != hasInfobox) {
-			hasInfoboxLiveData.postValue(hasInfobox);
-		}
+		hasInfoboxLiveData.postValue(hasInfobox);
 	}
 
 	public LiveData<Boolean> getForceUpdateLiveData() {

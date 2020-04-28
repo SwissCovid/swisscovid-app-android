@@ -6,7 +6,7 @@ public class ConfigResponseModel {
 
 	private InfoBoxModel infobox = null;
 
-	public ConfigResponseModel(boolean forceUpdate, InfoBoxModel infoBox) {
+	public ConfigResponseModel(boolean forceUpdate, InfoBoxModel infobox) {
 		this.forceUpdate = forceUpdate;
 		this.infobox = infobox;
 	}

@@ -19,6 +19,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +35,7 @@ import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.NotificationStateError;
 import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.reports.ReportsFragment;
+import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.NotificationStateHelper;
 import org.dpppt.android.app.util.NotificatonErrorStateHelper;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
@@ -56,6 +58,7 @@ public class HomeFragment extends Fragment {
 	private HeaderView headerView;
 	private ScrollView scrollView;
 
+	private View infobox;
 	private View tracingCard;
 	private View cardNotifications;
 	private View reportStatusBubble;
@@ -89,6 +92,7 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+		infobox = view.findViewById(R.id.card_infobox);
 		tracingCard = view.findViewById(R.id.card_tracing);
 		cardNotifications = view.findViewById(R.id.card_notifications);
 		reportStatusBubble = view.findViewById(R.id.report_status_bubble);
@@ -102,6 +106,7 @@ public class HomeFragment extends Fragment {
 		cardTestFrame = view.findViewById(R.id.frame_card_test);
 
 		setupHeader();
+		setupInfobox();
 		setupTracingView();
 		setupNotification();
 		setupWhatToDo();
@@ -124,6 +129,51 @@ public class HomeFragment extends Fragment {
 	private void setupHeader() {
 		tracingViewModel.getAppStatusLiveData()
 				.observe(getViewLifecycleOwner(), headerView::setState);
+	}
+
+	private void setupInfobox() {
+		tracingViewModel.getHasInfoboxLiveData().observe(getViewLifecycleOwner(), hasInfobox -> {
+			if (!hasInfobox) {
+				infobox.setVisibility(View.GONE);
+				return;
+			}
+			infobox.setVisibility(VISIBLE);
+
+			SecureStorage secureStorage = SecureStorage.getInstance(getContext());
+
+			String title = secureStorage.getInfoboxTitle();
+			TextView titleView = infobox.findViewById(R.id.infobox_title);
+			if (title != null) {
+				titleView.setText(title);
+				titleView.setVisibility(VISIBLE);
+			} else {
+				titleView.setVisibility(View.GONE);
+			}
+
+			String text = secureStorage.getInfoboxText();
+			TextView textView = infobox.findViewById(R.id.infobox_text);
+			if (text != null) {
+				textView.setText(text);
+				textView.setVisibility(VISIBLE);
+			} else {
+				textView.setVisibility(View.GONE);
+			}
+
+			String url = secureStorage.getInfoboxLinkUrl();
+			String urlTitle = secureStorage.getInfoboxLinkTitle();
+			View linkGroup = infobox.findViewById(R.id.infobox_link_group);
+			TextView linkView = infobox.findViewById(R.id.infobox_link_text);
+			if (url != null) {
+				linkView.setText(urlTitle != null ? urlTitle : url);
+				linkGroup.setOnClickListener(v -> {
+					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+					startActivity(browserIntent);
+				});
+				linkGroup.setVisibility(VISIBLE);
+			} else {
+				linkGroup.setVisibility(View.GONE);
+			}
+		});
 	}
 
 	private void setupTracingView() {
