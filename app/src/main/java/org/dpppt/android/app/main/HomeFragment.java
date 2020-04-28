@@ -212,10 +212,13 @@ public class HomeFragment extends Fragment {
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			//update status view
+
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.POSITIVE_TESTED);
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
-				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.EXPOSED);
+				NotificationStateHelper
+						.updateStatusView(reportStatusView, NotificationState.EXPOSED,
+								tracingStatusInterface.getDaySinceExposed());
 			} else {
 				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_REPORTS);
 			}

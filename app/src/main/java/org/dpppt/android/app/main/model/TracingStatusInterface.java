@@ -7,6 +7,8 @@ public interface TracingStatusInterface {
 
 	boolean isReportedAsInfected();
 
+	long getDaySinceExposed();
+
 	boolean wasContactReportedAsExposed();
 
 	void setDebugAppState(DebugAppState debugAppState);
@@ -20,6 +22,5 @@ public interface TracingStatusInterface {
 	TracingStatus.ErrorState getTracingErrorState();
 
 	TracingStatus.ErrorState getReportErrorState();
-
 
 }

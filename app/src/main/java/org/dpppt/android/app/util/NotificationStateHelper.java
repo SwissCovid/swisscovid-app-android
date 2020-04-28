@@ -12,10 +12,11 @@ import org.dpppt.android.app.main.model.NotificationState;
 
 public class NotificationStateHelper {
 
-	public static void updateStatusView(View statusView, NotificationState state) {
+	public static void updateStatusView(View statusView, NotificationState state, long daySinceExposed) {
 		Context context = statusView.getContext();
 		if (NotificationState.getBackgroundColor(state) != -1) {
-			statusView.findViewById(R.id.status_background).setBackgroundColor(ContextCompat.getColor(context, NotificationState.getBackgroundColor(state)));
+			statusView.findViewById(R.id.status_background)
+					.setBackgroundColor(ContextCompat.getColor(context, NotificationState.getBackgroundColor(state)));
 		}
 		ImageView iconView = statusView.findViewById(R.id.status_icon);
 		TextView titleView = statusView.findViewById(R.id.status_title);
@@ -50,6 +51,39 @@ public class NotificationStateHelper {
 		} else {
 			illustrationView.setVisibility(View.GONE);
 		}
+		ImageView triangle = statusView.findViewById(R.id.status_triangle);
+		triangle.setVisibility(View.GONE);
+		View infoContainer = statusView.findViewById(R.id.status_additional_info);
+		infoContainer.setVisibility(View.GONE);
+		TextView infoText = statusView.findViewById(R.id.status_additional_info_text);
+		TextView infoTel = statusView.findViewById(R.id.status_additional_info_tel);
+		TextView infoSince = statusView.findViewById(R.id.status_additional_info_since);
+
+		if (state.equals(NotificationState.EXPOSED)) {
+			triangle.setVisibility(View.VISIBLE);
+			triangle.setImageResource(R.drawable.triangle_status_exposed);
+			infoContainer.setVisibility(View.VISIBLE);
+			infoText.setText(R.string.exposed_info_contact_hotline);
+			infoTel.setText(R.string.tel_hotline);
+			infoSince.setVisibility(View.VISIBLE);
+			if (daySinceExposed == 1) {
+				infoSince.setText(R.string.date_one_day_ago);
+			} else {
+				String text = context.getString(R.string.date_days_ago).replace("{COUNT}", String.valueOf(daySinceExposed));
+				infoSince.setText(text);
+			}
+		} else if (state.equals(NotificationState.POSITIVE_TESTED)) {
+			triangle.setVisibility(View.VISIBLE);
+			triangle.setImageResource(R.drawable.triangle_status_infected);
+			infoContainer.setVisibility(View.VISIBLE);
+			infoText.setText(R.string.meldung_homescreen_positive_info_line1);
+			infoTel.setText(R.string.meldung_homescreen_positive_info_line2);
+			infoSince.setVisibility(View.GONE);
+		}
+	}
+
+	public static void updateStatusView(View reportStatusView, NotificationState exposed) {
+		updateStatusView(reportStatusView, exposed, -1);
 	}
 
 }

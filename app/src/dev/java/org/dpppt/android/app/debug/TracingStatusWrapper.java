@@ -1,5 +1,7 @@
 package org.dpppt.android.app.debug;
 
+import java.util.Calendar;
+
 import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
@@ -7,6 +9,7 @@ import org.dpppt.android.app.main.model.TracingStatusInterface;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.internal.database.models.MatchedContact;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
 
@@ -24,6 +27,17 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	@Override
 	public boolean isReportedAsInfected() {
 		return status.getInfectionStatus() == InfectionStatus.INFECTED || debugAppState == DebugAppState.REPORTED_EXPOSED;
+	}
+
+	@Override
+	public long getDaySinceExposed() {
+		long time = 0;
+		for (MatchedContact matchedContact : status.getMatchedContacts()) {
+			if (time < matchedContact.getReportDate()) {
+				time = matchedContact.getReportDate();
+			}
+		}
+		return (Calendar.getInstance().getTimeInMillis() - time) / (1000l * 60 * 60 * 24);
 	}
 
 	@Override

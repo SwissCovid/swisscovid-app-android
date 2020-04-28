@@ -17,7 +17,7 @@
 		android:layout_height="0dp"
 		android:background="@color/blue_main_light"
 		android:orientation="horizontal"
-		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintBottom_toBottomOf="@id/status_text"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="@id/status_title" />
@@ -51,8 +51,8 @@
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:gravity="start"
-		android:paddingBottom="15dp"
 		android:paddingEnd="15dp"
+		android:paddingBottom="15dp"
 		app:layout_constraintEnd_toStartOf="@id/status_illustration"
 		app:layout_constraintStart_toEndOf="@+id/status_icon"
 		app:layout_constraintTop_toBottomOf="@id/status_title"
@@ -61,11 +61,60 @@
 	<ImageView
 		android:id="@+id/status_illustration"
 		android:layout_width="wrap_content"
-		android:layout_height="match_parent"
+		android:layout_height="wrap_content"
 		android:layout_gravity="end"
 		android:src="@drawable/ill_tracking_active"
+		android:visibility="visible"
+		app:layout_constraintBottom_toBottomOf="@+id/status_background"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<ImageView
+		android:id="@+id/status_triangle"
+		android:layout_width="11dp"
+		android:layout_height="13dp"
+		android:src="@drawable/triangle_status_exposed"
+		android:translationY="-2dp"
+		android:visibility="gone"
+		app:layout_constraintBottom_toTopOf="@id/status_additional_info"
+		app:layout_constraintEnd_toEndOf="@id/status_icon"
+		app:layout_constraintTop_toBottomOf="@id/status_background" />
+
+	<LinearLayout
+		android:id="@+id/status_additional_info"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:gravity="start"
+		android:orientation="vertical"
 		android:visibility="gone"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintStart_toEndOf="@id/status_triangle"
+		app:layout_constraintTop_toBottomOf="@id/status_triangle">
+
+		<TextView
+			android:id="@+id/status_additional_info_text"
+			style="@style/NextStep.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="start"
+			android:text="@string/exposed_info_contact_hotline" />
+
+		<TextView
+			android:id="@+id/status_additional_info_tel"
+			style="@style/NextStep.Text.Bold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="start"
+			android:text="@string/tel_hotline" />
+
+		<TextView
+			android:id="@+id/status_additional_info_since"
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="end"
+			android:text="Vor 2 Tagen" />
+
+	</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

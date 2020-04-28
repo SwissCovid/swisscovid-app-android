@@ -120,13 +120,6 @@ public class ReportsFragment extends Fragment {
 			hotlineView.setVisibility(View.GONE);
 			infectedView.setVisibility(View.GONE);
 
-			/* debug
-			healthyView.setVisibility(View.VISIBLE);
-			saveOthersView.setVisibility(View.VISIBLE);
-			hotlineView.setVisibility(View.VISIBLE);
-			infectedView.setVisibility(View.VISIBLE);
-			 */
-
 			List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
 			switch (status.getInfectionStatus()) {
 				case HEALTHY:
@@ -155,12 +148,6 @@ public class ReportsFragment extends Fragment {
 					items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, secureStorage.getInfectedDate()));
 					break;
 			}
-
-			/* Debug items
-			items.clear();
-			items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, System.currentTimeMillis()));
-			items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, System.currentTimeMillis()));
-			*/
 
 			pagerAdapter.updateItems(items);
 		});
