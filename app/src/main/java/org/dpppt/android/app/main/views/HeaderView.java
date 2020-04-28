@@ -119,30 +119,26 @@ public class HeaderView extends ConstraintLayout {
 				iconBgRes = R.drawable.bg_header_icon_off;
 				backgroundColor = getResources().getColor(R.color.header_bg_error, null);
 				switch (error) {
-					case NETWORK_ERROR_WHILE_SYNCING:
+					case SYNC_ERROR_DATABASE:
+					case SYNC_ERROR_TIMING:
+					case SYNC_ERROR_SERVER:
+					case SYNC_ERROR_NETWORK:
+					case SYNC_ERROR_SIGNATURE:
 						iconRes = R.drawable.ic_sync_failed;
 						break;
 					case MISSING_LOCATION_PERMISSION:
-						iconRes = R.drawable.ic_warning;
-						break;
+					case BLE_NOT_SUPPORTED:
+					case BLE_INTERNAL_ERROR:
 					case BATTERY_OPTIMIZER_ENABLED:
+					case BLE_ADVERTISING_ERROR:
+					case BLE_SCANNER_ERROR:
 						iconRes = R.drawable.ic_warning;
 						break;
 					case BLE_DISABLED:
 						iconRes = R.drawable.ic_bluetooth_off;
 						break;
-					case BLE_NOT_SUPPORTED:
-						iconRes = R.drawable.ic_warning;
-						break;
-					case BLE_INTERNAL_ERROR:
-						iconRes = R.drawable.ic_warning;
-						break;
-					case BLE_ADVERTISING_ERROR:
-						iconRes = R.drawable.ic_warning;
-						break;
-					case BLE_SCANNER_ERROR:
-						iconRes = R.drawable.ic_warning;
-						break;
+					case LOCATION_SERVICE_DISABLED:
+						iconRes =R.drawable.ic_header_gps_off;
 				}
 			} else {
 				if (state.getTracingState() == TracingState.ACTIVE) {

@@ -23,12 +23,16 @@ public class TracingErrorStateHelper {
 			TracingStatus.ErrorState.BLE_DISABLED,
 			TracingStatus.ErrorState.LOCATION_SERVICE_DISABLED,
 			TracingStatus.ErrorState.BATTERY_OPTIMIZER_ENABLED,
+			TracingStatus.ErrorState.SYNC_ERROR_TIMING,
 			TracingStatus.ErrorState.BLE_INTERNAL_ERROR,
 			TracingStatus.ErrorState.BLE_ADVERTISING_ERROR,
 			TracingStatus.ErrorState.BLE_SCANNER_ERROR);
 
 	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
-			TracingStatus.ErrorState.NETWORK_ERROR_WHILE_SYNCING
+			TracingStatus.ErrorState.SYNC_ERROR_DATABASE,
+			TracingStatus.ErrorState.SYNC_ERROR_SERVER,
+			TracingStatus.ErrorState.SYNC_ERROR_NETWORK,
+			TracingStatus.ErrorState.SYNC_ERROR_SIGNATURE
 	);
 
 	private static @StringRes
@@ -42,11 +46,17 @@ public class TracingErrorStateHelper {
 				return R.string.error_location_permission_title;
 			case BATTERY_OPTIMIZER_ENABLED:
 				return R.string.error_battery_optimization_title;
+			case SYNC_ERROR_TIMING:
+				return R.string.time_inconsistency_title;
+			case SYNC_ERROR_SERVER:
+			case SYNC_ERROR_NETWORK:
+			case SYNC_ERROR_SIGNATURE:
+			case SYNC_ERROR_DATABASE:
+				return R.string.unexpected_error_title;
 			case BLE_NOT_SUPPORTED:
 			case BLE_INTERNAL_ERROR:
 			case BLE_ADVERTISING_ERROR:
 			case BLE_SCANNER_ERROR:
-			case NETWORK_ERROR_WHILE_SYNCING:
 			default:
 				return R.string.begegnungen_restart_error_title;
 		}
@@ -68,11 +78,16 @@ public class TracingErrorStateHelper {
 				return R.drawable.ic_location_off_red;
 			case BATTERY_OPTIMIZER_ENABLED:
 				return R.drawable.ic_battery;
+			case SYNC_ERROR_TIMING:
+				return R.drawable.ic_time;
+			case SYNC_ERROR_SERVER:
+			case SYNC_ERROR_NETWORK:
+			case SYNC_ERROR_DATABASE:
+			case SYNC_ERROR_SIGNATURE:
 			case BLE_NOT_SUPPORTED:
 			case BLE_INTERNAL_ERROR:
 			case BLE_ADVERTISING_ERROR:
 			case BLE_SCANNER_ERROR:
-			case NETWORK_ERROR_WHILE_SYNCING:
 			default:
 				return R.drawable.ic_warning_red;
 		}
@@ -88,8 +103,12 @@ public class TracingErrorStateHelper {
 			case MISSING_LOCATION_PERMISSION:
 			case BATTERY_OPTIMIZER_ENABLED:
 				return R.string.error_location_permission_button;
-			case NETWORK_ERROR_WHILE_SYNCING:
+			case SYNC_ERROR_SERVER:
+			case SYNC_ERROR_NETWORK:
+			case SYNC_ERROR_DATABASE:
+			case SYNC_ERROR_SIGNATURE:
 				return R.string.homescreen_meldung_data_outdated_retry_button;
+			case SYNC_ERROR_TIMING:
 			case BLE_NOT_SUPPORTED:
 			case BLE_INTERNAL_ERROR:
 			case BLE_ADVERTISING_ERROR:
@@ -167,7 +186,14 @@ public class TracingErrorStateHelper {
 				return "NSBAE";
 			case BLE_SCANNER_ERROR:
 				return "NSBSE";
-			case NETWORK_ERROR_WHILE_SYNCING:
+			case SYNC_ERROR_SERVER:
+				return "RTSES";
+			case SYNC_ERROR_NETWORK:
+				return "RTSEN";
+			case SYNC_ERROR_SIGNATURE:
+				return "RTSESI";
+			case SYNC_ERROR_DATABASE:
+			case SYNC_ERROR_TIMING:
 			case MISSING_LOCATION_PERMISSION:
 			case LOCATION_SERVICE_DISABLED:
 			case BLE_DISABLED:

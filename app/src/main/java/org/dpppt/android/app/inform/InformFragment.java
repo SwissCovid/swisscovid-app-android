@@ -23,18 +23,17 @@ import com.google.gson.Gson;
 
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.inform.models.AccessTokenModel;
+import org.dpppt.android.app.inform.views.ChainedEditText;
+import org.dpppt.android.app.networking.AuthCodeRepository;
+import org.dpppt.android.app.networking.errors.InvalidCodeError;
 import org.dpppt.android.app.networking.errors.ResponseError;
 import org.dpppt.android.app.networking.models.AuthenticationCodeRequestModel;
 import org.dpppt.android.app.networking.models.AuthenticationCodeResponseModel;
-import org.dpppt.android.app.networking.AuthCodeRepository;
-import org.dpppt.android.app.networking.errors.InvalidCodeError;
-import org.dpppt.android.app.inform.views.ChainedEditText;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.InfoDialog;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
-import org.dpppt.android.sdk.internal.backend.ResponseException;
 
 public class InformFragment extends Fragment {
 
@@ -179,12 +178,8 @@ public class InformFragment extends Fragment {
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
-						if (throwable instanceof ResponseException) {
-							showErrorDialog(getString(R.string.unexpected_error_with_retry));
-						} else {
-							showErrorDialog(getString(R.string.network_error));
-							throwable.printStackTrace();
-						}
+						showErrorDialog(getString(R.string.network_error));
+						throwable.printStackTrace();
 						buttonSend.setEnabled(true);
 					}
 				});

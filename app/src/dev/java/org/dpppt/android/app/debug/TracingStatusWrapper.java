@@ -91,7 +91,14 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	public TracingStatus.ErrorState getReportErrorState() {
 		boolean hasError = status.getErrors().size() > 0;
 		if (hasError) {
-			return TracingErrorStateHelper.getErrorStateForReports(status.getErrors());
+			TracingStatus.ErrorState errorState = TracingErrorStateHelper.getErrorStateForReports(status.getErrors());
+			if (errorState.equals(TracingStatus.ErrorState.SYNC_ERROR_DATABASE)) {
+				return errorState;
+			} else {
+				if (DateUtils.getDaysDiff(status.getLastSyncDate()) > 1) {
+					return errorState;
+				}
+			}
 		}
 		return null;
 	}

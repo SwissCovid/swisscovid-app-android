@@ -19,6 +19,12 @@
 	<string name="dp3t_sdk_service_notification_error_bluetooth_internal_error">@string/begegnungen_restart_error_text</string>
 	<string name="dp3t_sdk_service_notification_error_bluetooth_not_supported">@string/begegnungen_restart_error_text</string>
 	<string name="dp3t_sdk_service_notification_error_bluetooth_scanner_error">@string/begegnungen_restart_error_text</string>
+
+	<string name="dp3t_sdk_service_notification_error_sync_database">@string/sync_error_text</string>
+	<string name="dp3t_sdk_service_notification_error_sync_network">@string/sync_error_text</string>
+	<string name="dp3t_sdk_service_notification_error_sync_server">@string/sync_error_text</string>
+	<string name="dp3t_sdk_service_notification_error_sync_signature">@string/sync_error_text</string>
+	<string name="dp3t_sdk_service_notification_error_sync_timing">@string/time_inconsistency_text</string>
 </resources>
 
 
