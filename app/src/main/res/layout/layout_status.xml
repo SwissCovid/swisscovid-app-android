@@ -9,7 +9,9 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:padding="@dimen/marging_status_error"
+	android:layout_marginStart="@dimen/marging_status_error"
+	android:layout_marginEnd="@dimen/marging_status_error"
+	android:layout_marginBottom="@dimen/marging_status_error"
 	android:clipToPadding="false"
 	android:clipChildren="false">
 
@@ -28,10 +30,9 @@
 		android:id="@+id/status_icon"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="@dimen/padding_status_error"
 		android:padding="10dp"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintTop_toTopOf="@id/status_title"
 		tools:src="@drawable/ic_check" />
 
 	<TextView
@@ -39,12 +40,11 @@
 		style="@style/NextStep.Text.Status"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="@dimen/padding_status_error"
 		android:layout_marginBottom="2dp"
 		android:paddingTop="10dp"
 		android:paddingEnd="15dp"
 		app:layout_constraintStart_toEndOf="@+id/status_icon"
-		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintBottom_toTopOf="@id/status_text"
 		tools:text="Status" />
 
 	<TextView
@@ -53,11 +53,10 @@
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:gravity="start"
-		android:paddingEnd="15dp"
 		android:paddingBottom="15dp"
 		app:layout_constraintEnd_toStartOf="@id/status_illustration"
 		app:layout_constraintStart_toEndOf="@+id/status_icon"
-		app:layout_constraintTop_toBottomOf="@id/status_title"
+		app:layout_constraintBottom_toTopOf="@id/status_triangle"
 		tools:text="Subtext" />
 
 	<ImageView
@@ -76,11 +75,10 @@
 		android:layout_width="11dp"
 		android:layout_height="13dp"
 		android:src="@drawable/triangle_status_exposed"
-		android:translationY="-2dp"
 		android:visibility="gone"
+		android:translationY="-2dp"
 		app:layout_constraintBottom_toTopOf="@id/status_additional_info"
-		app:layout_constraintEnd_toEndOf="@id/status_icon"
-		app:layout_constraintTop_toBottomOf="@id/status_background" />
+		app:layout_constraintEnd_toEndOf="@id/status_icon" />
 
 	<LinearLayout
 		android:id="@+id/status_additional_info"
@@ -91,8 +89,7 @@
 		android:visibility="gone"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toEndOf="@id/status_triangle"
-		app:layout_constraintTop_toBottomOf="@id/status_triangle">
+		app:layout_constraintStart_toEndOf="@id/status_triangle">
 
 		<TextView
 			android:id="@+id/status_additional_info_text"

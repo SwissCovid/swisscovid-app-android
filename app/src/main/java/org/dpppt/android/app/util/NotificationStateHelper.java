@@ -66,7 +66,7 @@ public class NotificationStateHelper {
 			infoText.setText(R.string.exposed_info_contact_hotline);
 			infoTel.setText(R.string.tel_hotline);
 			infoSince.setVisibility(View.VISIBLE);
-			if (daySinceExposed == 1) {
+			if (daySinceExposed <= 1 && daySinceExposed >= 0) {
 				infoSince.setText(R.string.date_one_day_ago);
 			} else {
 				String text = context.getString(R.string.date_days_ago).replace("{COUNT}", String.valueOf(daySinceExposed));

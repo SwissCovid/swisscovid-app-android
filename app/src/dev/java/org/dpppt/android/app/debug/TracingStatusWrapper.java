@@ -36,10 +36,13 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	public long getDaySinceExposed() {
 		long time = 0;
 
-		for (MatchedContact matchedContact : status.getMatchedContacts()) {
+		for (MatchedContact matchedContact : getMatches()) {
 			if (time < matchedContact.getReportDate()) {
 				time = matchedContact.getReportDate();
 			}
+		}
+		if (time == 0) {
+			return 0;
 		}
 		return DateUtils.getDaysDiff(time);
 	}
@@ -49,6 +52,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 		if (debugAppState == DebugAppState.CONTACT_EXPOSED) {
 			List<MatchedContact> matches = new ArrayList<>();
 			Calendar calendar = Calendar.getInstance();
+			calendar.add(Calendar.DAY_OF_YEAR, -2);
 			matches.add(new MatchedContact(0, calendar.getTimeInMillis()));
 			calendar.add(Calendar.DAY_OF_YEAR, -1);
 			matches.add(new MatchedContact(1, calendar.getTimeInMillis()));

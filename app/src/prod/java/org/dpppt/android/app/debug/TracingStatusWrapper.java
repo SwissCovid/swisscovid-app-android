@@ -34,7 +34,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	@Override
 	public long getDaySinceExposed() {
 		long time = 0;
-		for (MatchedContact matchedContact : status.getMatchedContacts()) {
+		for (MatchedContact matchedContact : getMatches()) {
 			if (time < matchedContact.getReportDate()) {
 				time = matchedContact.getReportDate();
 			}
