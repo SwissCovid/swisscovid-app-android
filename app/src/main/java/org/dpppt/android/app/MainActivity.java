@@ -11,6 +11,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.app.main.HomeFragment;
 import org.dpppt.android.app.networking.ConfigWorker;
@@ -18,6 +19,7 @@ import org.dpppt.android.app.onboarding.OnboardingActivity;
 import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.InfoDialog;
+import org.dpppt.android.app.viewmodel.TracingViewModel;
 
 public class MainActivity extends FragmentActivity {
 
@@ -29,6 +31,8 @@ public class MainActivity extends FragmentActivity {
 	private boolean consumedIntent;
 
 	private SecureStorage secureStorage;
+
+	private TracingViewModel tracingViewModel;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,10 @@ public class MainActivity extends FragmentActivity {
 		}
 
 		ConfigWorker.startConfigWorker(this);
+
+		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
+
+		tracingViewModel.sync();
 	}
 
 	@Override

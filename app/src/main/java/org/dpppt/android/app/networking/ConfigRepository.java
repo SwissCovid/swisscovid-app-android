@@ -15,12 +15,10 @@ import org.dpppt.android.app.BuildConfig;
 import org.dpppt.android.app.networking.errors.ResponseError;
 import org.dpppt.android.app.networking.models.ConfigResponseModel;
 import org.dpppt.android.app.networking.models.InfoBoxModel;
-import org.dpppt.android.sdk.backend.ResponseCallback;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -52,12 +50,26 @@ public class ConfigRepository {
 	}
 
 	public ConfigResponseModel getConfig(@NonNull String appVersion, @NonNull String osVersion) throws IOException, ResponseError {
-		Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion).execute();
+		// TODO PP-227: Re-enable real Config request, when implemented by backend
+		int rand = new Random(System.currentTimeMillis()).nextInt(1);
+		rand =3;
+		switch (rand) {
+			case 0:
+				return new ConfigResponseModel(true, null);
+			case 1:
+				return new ConfigResponseModel(false, new InfoBoxModel("Lorem Ipsum",
+						"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam "
+								+ " nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+						"https://github.com/DP-3T", "Link zum DP-3T Repository"));
+			default:
+				return new ConfigResponseModel(false, null);
+		}
+		/*Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion).execute();
 		if (configResponse.isSuccessful()) {
 			return configResponse.body();
 		} else {
 			throw new ResponseError(configResponse.raw());
-		}
+		}*/
 	}
 
 }

@@ -52,7 +52,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_SIGNATURE:
 			case SYNC_ERROR_DATABASE:
-				return R.string.unexpected_error_title;
+				return R.string.sync_error_title;
 			case BLE_NOT_SUPPORTED:
 			case BLE_INTERNAL_ERROR:
 			case BLE_ADVERTISING_ERROR:

@@ -5,6 +5,8 @@
  */
 package org.dpppt.android.app.main;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -72,6 +74,7 @@ public class HomeFragment extends Fragment {
 	private View cardTestFrame;
 	private View cardSymptoms;
 	private View cardTest;
+	private View loadingView;
 
 	public HomeFragment() {
 		super(R.layout.fragment_home);
@@ -125,6 +128,7 @@ public class HomeFragment extends Fragment {
 		cardSymptomsFrame = view.findViewById(R.id.frame_card_symptoms);
 		cardTest = view.findViewById(R.id.card_what_to_do_test);
 		cardTestFrame = view.findViewById(R.id.frame_card_test);
+		loadingView = view.findViewById(R.id.loading_view);
 
 		setupHeader();
 		setupInfobox();
@@ -234,7 +238,18 @@ public class HomeFragment extends Fragment {
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			//update status view
-
+			if (loadingView.getVisibility() == VISIBLE) {
+				loadingView.animate()
+						.setDuration(2000)
+						.setListener(new AnimatorListenerAdapter() {
+							@Override
+							public void onAnimationEnd(Animator animation) {
+								loadingView.setVisibility(View.GONE);
+							}
+						});
+			} else {
+				loadingView.setVisibility(View.GONE);
+			}
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.POSITIVE_TESTED);
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
@@ -246,10 +261,21 @@ public class HomeFragment extends Fragment {
 			}
 
 			TracingStatus.ErrorState errorState = tracingStatusInterface.getReportErrorState();
+
 			if (errorState != null) {
 				TracingErrorStateHelper
 						.updateErrorView(reportErrorView, errorState);
 				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+					loadingView.animate()
+							.alpha(1f)
+							.setDuration(2000)
+							.setListener(new AnimatorListenerAdapter() {
+								@Override
+								public void onAnimationEnd(Animator animation) {
+									loadingView.setVisibility(VISIBLE);
+								}
+							});
+
 					tracingViewModel.sync();
 				});
 			} else if (!isNotificationChannelEnabled(getContext(), NotificationUtil.NOTIFICATION_CHANNEL_ID)) {
