@@ -17,6 +17,8 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
@@ -25,6 +27,8 @@ import org.dpppt.android.sdk.backend.models.ApplicationInfo;
 import org.dpppt.android.sdk.internal.backend.BackendBucketRepository;
 import org.dpppt.android.sdk.internal.database.models.MatchedContact;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
+
+import io.fabric.sdk.android.Fabric;
 
 
 public class MainApplication extends Application {
@@ -44,6 +48,9 @@ public class MainApplication extends Application {
 			secureStorage = SecureStorage.getInstance(getApplicationContext());
 			registerReceiver(broadcastReceiver, DP3T.getUpdateIntentFilter());
 			DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL));
+		}
+		if (!BuildConfig.DEBUG) {
+			Fabric.with(this, new Crashlytics());
 		}
 	}
 
