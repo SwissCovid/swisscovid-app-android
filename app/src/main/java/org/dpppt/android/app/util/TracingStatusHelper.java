@@ -17,8 +17,11 @@ import org.dpppt.android.app.main.model.TracingState;
 
 public class TracingStatusHelper {
 
-
 	public static void updateStatusView(View statusView, TracingState state) {
+		updateStatusView(statusView, state, true);
+	}
+
+	public static void updateStatusView(View statusView, TracingState state, boolean displayIllu) {
 		Context context = statusView.getContext();
 		if (TracingState.getBackgroundColor(state) != -1) {
 			statusView.findViewById(R.id.status_background)
@@ -52,7 +55,7 @@ public class TracingStatusHelper {
 			iconView.setVisibility(View.GONE);
 		}
 		iconView.setImageTintList(ColorStateList.valueOf(color));
-		if (TracingState.getIllu(state) != -1) {
+		if (displayIllu && TracingState.getIllu(state) != -1) {
 			illustrationView.setImageResource(TracingState.getIllu(state));
 			illustrationView.setVisibility(View.VISIBLE);
 		} else {

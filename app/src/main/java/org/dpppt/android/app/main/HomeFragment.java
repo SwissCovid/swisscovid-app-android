@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
 		getChildFragmentManager()
 				.beginTransaction()
-				.add(R.id.status_container, TracingBoxFragment.newInstance())
+				.add(R.id.status_container, TracingBoxFragment.newInstance(true))
 				.commit();
 	}
 

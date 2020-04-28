@@ -32,19 +32,22 @@ public class TracingBoxFragment extends Fragment {
 	private static final int REQUEST_CODE_BLE_INTENT = 330;
 	private static final int REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT = 420;
 	private static final int REQUEST_CODE_LOCATION_INTENT = 510;
+	private static String ARG_TRACING = "isHomeFragment";
 	private TracingViewModel tracingViewModel;
 
 
 	private View tracingStatusView;
 
 	private View tracingErrorView;
+	private boolean isHomeFragment;
 
 	public TracingBoxFragment() {
 		super(R.layout.fragment_tracing_box);
 	}
 
-	public static TracingBoxFragment newInstance() {
+	public static TracingBoxFragment newInstance(boolean isTracingFragment) {
 		Bundle args = new Bundle();
+		args.putBoolean(ARG_TRACING, isTracingFragment);
 		TracingBoxFragment fragment = new TracingBoxFragment();
 		fragment.setArguments(args);
 		return fragment;
@@ -55,8 +58,8 @@ public class TracingBoxFragment extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
+		isHomeFragment = getArguments().getBoolean(ARG_TRACING);
 	}
-
 
 
 	@Override
@@ -85,7 +88,7 @@ public class TracingBoxFragment extends Fragment {
 			} else {
 				tracingStatusView.setVisibility(View.VISIBLE);
 				tracingErrorView.setVisibility(View.GONE);
-				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE);
+				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE, isHomeFragment);
 			}
 		});
 	}
