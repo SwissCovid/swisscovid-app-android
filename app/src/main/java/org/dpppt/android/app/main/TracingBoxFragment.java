@@ -35,7 +35,6 @@ public class TracingBoxFragment extends Fragment {
 	private TracingViewModel tracingViewModel;
 
 
-	private View tracingCard;
 	private View tracingStatusView;
 
 	private View tracingErrorView;
@@ -58,9 +57,10 @@ public class TracingBoxFragment extends Fragment {
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
 	}
 
+
+
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-		tracingCard = view.findViewById(R.id.card_tracing);
 		tracingStatusView = view.findViewById(R.id.tracing_status);
 		tracingErrorView = view.findViewById(R.id.tracing_error);
 
@@ -82,7 +82,6 @@ public class TracingBoxFragment extends Fragment {
 				tracingStatusView.setVisibility(View.VISIBLE);
 				tracingErrorView.setVisibility(View.GONE);
 				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ENDED);
-				tracingCard.setOnClickListener(null);
 			} else {
 				tracingStatusView.setVisibility(View.VISIBLE);
 				tracingErrorView.setVisibility(View.GONE);
@@ -119,7 +118,7 @@ public class TracingBoxFragment extends Fragment {
 				case BLE_DISABLED:
 					BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 					if (!mBluetoothAdapter.isEnabled()) {
-						Intent bleIntent = new Intent( BluetoothAdapter.ACTION_REQUEST_ENABLE);
+						Intent bleIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 						startActivityForResult(bleIntent, REQUEST_CODE_BLE_INTENT);
 					}
 					break;

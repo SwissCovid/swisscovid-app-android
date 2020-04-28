@@ -43,7 +43,7 @@ public enum NotificationState {
 			case NO_REPORTS:
 				return R.drawable.ic_check;
 			case EXPOSED:
-				return R.drawable.ic_check;
+				return R.drawable.ic_info;
 			case POSITIVE_TESTED:
 				return R.drawable.ic_info;
 		}
