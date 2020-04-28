@@ -40,7 +40,9 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 
 		secureStorage = SecureStorage.getInstance(this);
-		ConfigWorker.getForceUpdate().observe(this, forceUpdate -> {
+
+		secureStorage.getForceUpdateLiveData().observe(this, forceUpdate -> {
+			forceUpdate = forceUpdate && secureStorage.getDoForceUpdate();
 			InfoDialog forceUpdateDialog =
 					(InfoDialog) getSupportFragmentManager().findFragmentByTag(InfoDialog.class.getCanonicalName());
 			if (forceUpdate && forceUpdateDialog == null) {
@@ -59,6 +61,7 @@ public class MainActivity extends FragmentActivity {
 				forceUpdateDialog.dismiss();
 			}
 		});
+		ConfigWorker.startConfigWorker(this);
 
 		if (savedInstanceState == null) {
 			boolean onboardingCompleted = secureStorage.getOnboardingCompleted();
@@ -71,10 +74,7 @@ public class MainActivity extends FragmentActivity {
 			consumedIntent = savedInstanceState.getBoolean(STATE_CONSUMED_INTENT);
 		}
 
-		ConfigWorker.startConfigWorker(this);
-
 		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
-
 		tracingViewModel.sync();
 	}
 

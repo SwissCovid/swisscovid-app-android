@@ -3,6 +3,8 @@ package org.dpppt.android.app.storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
@@ -33,6 +35,9 @@ public class SecureStorage {
 
 	private SharedPreferences prefs;
 
+	private final MutableLiveData<Boolean> forceUpdateLiveData;
+	private final MutableLiveData<Boolean> hasInfoboxLiveData;
+
 	private SecureStorage(@NonNull Context context) {
 
 		try {
@@ -40,10 +45,14 @@ public class SecureStorage {
 			this.prefs = EncryptedSharedPreferences
 					.create(PREFERENCES, masterKeys, context, EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
 							EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
+
 		} catch (GeneralSecurityException | IOException e) {
 			this.prefs = null;
 			e.printStackTrace();
 		}
+
+		forceUpdateLiveData = new MutableLiveData<>(getDoForceUpdate());
+		hasInfoboxLiveData = new MutableLiveData<>(getHasInfobox());
 	}
 
 	public static SecureStorage getInstance(Context context) {
@@ -51,6 +60,14 @@ public class SecureStorage {
 			instance = new SecureStorage(context);
 		}
 		return instance;
+	}
+
+	public LiveData<Boolean> getForceUpdateLiveData() {
+		return forceUpdateLiveData;
+	}
+
+	public LiveData<Boolean> getInfoBoxLiveData() {
+		return hasInfoboxLiveData;
 	}
 
 	public long getInfectedDate() {
@@ -131,6 +148,7 @@ public class SecureStorage {
 
 	public void setDoForceUpdate(boolean doForceUpdate) {
 		prefs.edit().putBoolean(KEY_CONFIG_FORCE_UPDATE, doForceUpdate).apply();
+		forceUpdateLiveData.postValue(doForceUpdate);
 	}
 
 	public boolean getDoForceUpdate() {
@@ -139,6 +157,7 @@ public class SecureStorage {
 
 	public void setHasInfobox(boolean hasInfobox) {
 		prefs.edit().putBoolean(KEY_CONFIG_HAS_INFOBOX, hasInfobox).apply();
+		hasInfoboxLiveData.postValue(hasInfobox);
 	}
 
 	public boolean getHasInfobox() {

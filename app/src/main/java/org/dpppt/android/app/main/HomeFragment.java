@@ -38,7 +38,6 @@ import org.dpppt.android.app.html.HtmlFragment;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.NotificationStateError;
 import org.dpppt.android.app.main.views.HeaderView;
-import org.dpppt.android.app.networking.ConfigWorker;
 import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.AssetUtil;
@@ -76,6 +75,8 @@ public class HomeFragment extends Fragment {
 	private View cardTest;
 	private View loadingView;
 
+	private SecureStorage secureStorage;
+
 	public HomeFragment() {
 		super(R.layout.fragment_home);
 	}
@@ -90,7 +91,11 @@ public class HomeFragment extends Fragment {
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		secureStorage = SecureStorage.getInstance(getContext());
+
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
+
 		getChildFragmentManager()
 				.beginTransaction()
 				.add(R.id.status_container, TracingBoxFragment.newInstance(true))
@@ -158,14 +163,14 @@ public class HomeFragment extends Fragment {
 
 	private void setupInfobox() {
 
-		ConfigWorker.hasInfoBox().observe(getViewLifecycleOwner(), hasInfobox -> {
+		secureStorage.getInfoBoxLiveData().observe(getViewLifecycleOwner(), hasInfobox -> {
+			hasInfobox = hasInfobox && secureStorage.getHasInfobox();
+
 			if (!hasInfobox) {
 				infobox.setVisibility(View.GONE);
 				return;
 			}
 			infobox.setVisibility(VISIBLE);
-
-			SecureStorage secureStorage = SecureStorage.getInstance(getContext());
 
 			String title = secureStorage.getInfoboxTitle();
 			TextView titleView = infobox.findViewById(R.id.infobox_title);

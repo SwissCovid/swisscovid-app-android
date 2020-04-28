@@ -14,8 +14,6 @@ import android.net.Uri;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.work.*;
 
 import java.io.IOException;
@@ -38,9 +36,6 @@ public class ConfigWorker extends Worker {
 
 	private static final String WORK_TAG = "org.dpppt.android.app.ConfigWorker";
 
-	private static final MutableLiveData<Boolean> forceUpdateLiveData = new MutableLiveData<>(false);
-	private static final MutableLiveData<Boolean> hasInfoboxLiveData = new MutableLiveData<>(false);
-
 	public static void startConfigWorker(Context context) {
 		Constraints constraints = new Constraints.Builder()
 				.setRequiredNetworkType(NetworkType.CONNECTED)
@@ -60,7 +55,6 @@ public class ConfigWorker extends Worker {
 		workManager.cancelAllWorkByTag(WORK_TAG);
 	}
 
-
 	public ConfigWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
 		super(context, workerParams);
 	}
@@ -68,9 +62,8 @@ public class ConfigWorker extends Worker {
 	@NonNull
 	@Override
 	public Result doWork() {
-		Context context = getApplicationContext();
 		try {
-			loadConfig(context);
+			loadConfig();
 		} catch (IOException | ResponseError e) {
 			return Result.retry();
 		}
@@ -78,7 +71,8 @@ public class ConfigWorker extends Worker {
 		return Result.success();
 	}
 
-	public static void loadConfig(Context context) throws IOException, ResponseError {
+	public void loadConfig() throws IOException, ResponseError {
+		Context context = getApplicationContext();
 
 		ConfigRepository configRepository = new ConfigRepository(context);
 
@@ -89,37 +83,29 @@ public class ConfigWorker extends Worker {
 
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		secureStorage.setDoForceUpdate(config.getDoForceUpdate());
+
 		if (config.getInfoBox() != null) {
-			secureStorage.setHasInfobox(true);
 			InfoBoxModel info = config.getInfoBox();
 			secureStorage.setInfoboxTitle(info.getTitle());
 			secureStorage.setInfoboxText(info.getMsg());
 			secureStorage.setInfoboxLinkTitle(info.getUrlTitle());
 			secureStorage.setInfoboxLinkUrl(info.getUrl());
+			secureStorage.setHasInfobox(true);
 		} else {
 			secureStorage.setHasInfobox(false);
 		}
 
 		boolean forceUpdate = secureStorage.getDoForceUpdate();
-		forceUpdateLiveData.postValue(forceUpdate);
-
-		boolean hasInfobox = secureStorage.getHasInfobox();
-		hasInfoboxLiveData.postValue(hasInfobox);
-
-		if (!forceUpdateLiveData.hasObservers() && forceUpdate) {
-			showNotification(context);
+		if (forceUpdate) {
+			if (!secureStorage.getForceUpdateLiveData().hasObservers()) {
+				showNotification(context);
+			}
+		} else {
+			cancelNotification(context);
 		}
 	}
 
-	public static LiveData<Boolean> getForceUpdate() {
-		return forceUpdateLiveData;
-	}
-
-	public static LiveData<Boolean> hasInfoBox() {
-		return forceUpdateLiveData;
-	}
-
-	private static void showNotification(Context context) {
+	private void showNotification(Context context) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			NotificationUtil.createNotificationChannel(context);
 		}
@@ -143,6 +129,12 @@ public class ConfigWorker extends Worker {
 		NotificationManager notificationManager =
 				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.notify(NotificationUtil.NOTIFICATION_ID_UPDATE, notification);
+	}
+
+	private void cancelNotification(Context context) {
+		NotificationManager notificationManager =
+				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		notificationManager.cancel(NotificationUtil.NOTIFICATION_ID_UPDATE);
 	}
 
 }
