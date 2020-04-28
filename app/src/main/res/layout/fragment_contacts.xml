@@ -37,6 +37,9 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:paddingTop="@dimen/top_item_padding"
+				android:paddingLeft="@dimen/spacing_medium_large"
+				android:paddingRight="@dimen/spacing_medium_large"
+				android:paddingBottom="@dimen/spacing_medium_large"
 				android:orientation="vertical">
 
 				<androidx.cardview.widget.CardView
