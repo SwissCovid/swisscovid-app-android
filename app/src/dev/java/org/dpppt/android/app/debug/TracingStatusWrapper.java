@@ -1,5 +1,9 @@
 package org.dpppt.android.app.debug;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
 import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
@@ -38,6 +42,19 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			}
 		}
 		return DateUtils.getDaysDiff(time);
+	}
+
+	@Override
+	public List<MatchedContact> getMatches() {
+		if (debugAppState == DebugAppState.CONTACT_EXPOSED) {
+			List<MatchedContact> matches = new ArrayList<>();
+			Calendar calendar = Calendar.getInstance();
+			matches.add(new MatchedContact(0, calendar.getTimeInMillis()));
+			calendar.add(Calendar.DAY_OF_YEAR, -1);
+			matches.add(new MatchedContact(1, calendar.getTimeInMillis()));
+			return matches;
+		}
+		return status.getMatchedContacts();
 	}
 
 	@Override

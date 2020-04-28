@@ -112,43 +112,35 @@ public class ReportsFragment extends Fragment {
 
 		headerViewPager.setAdapter(pagerAdapter);
 		circlePageIndicator.setViewPager(headerViewPager);
-
-		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
-
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			healthyView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.GONE);
 			hotlineView.setVisibility(View.GONE);
 			infectedView.setVisibility(View.GONE);
-
 			List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
-			switch (status.getInfectionStatus()) {
-				case HEALTHY:
-					healthyView.setVisibility(View.VISIBLE);
-					items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
-					break;
-				case EXPOSED:
-					List<MatchedContact> matchedContacts = status.getMatchedContacts();
-					boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
-					if (isHotlineCallPending) {
-						hotlineView.setVisibility(View.VISIBLE);
+			if (tracingStatusInterface.isReportedAsInfected()) {
+				infectedView.setVisibility(View.VISIBLE);
+				items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, secureStorage.getInfectedDate()));
+			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
+				List<MatchedContact> matchedContacts = tracingStatusInterface.getMatches();
+				boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
+				if (isHotlineCallPending) {
+					hotlineView.setVisibility(View.VISIBLE);
+				} else {
+					saveOthersView.setVisibility(View.VISIBLE);
+				}
+				for (int i = 0; i < matchedContacts.size(); i++) {
+					MatchedContact matchedContact = matchedContacts.get(i);
+					if (i == 0) {
+						items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, matchedContact.getReportDate()));
 					} else {
-						saveOthersView.setVisibility(View.VISIBLE);
+						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, matchedContact.getReportDate()));
 					}
-					for (int i = 0; i < matchedContacts.size(); i++) {
-						MatchedContact matchedContact = matchedContacts.get(i);
-						if (i == 0) {
-							items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, matchedContact.getReportDate()));
-						} else {
-							items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, matchedContact.getReportDate()));
-						}
-					}
-					break;
-				case INFECTED:
-					infectedView.setVisibility(View.VISIBLE);
-					items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, secureStorage.getInfectedDate()));
-					break;
+				}
+			} else {
+				healthyView.setVisibility(View.VISIBLE);
+				items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
 			}
-
 			pagerAdapter.updateItems(items);
 		});
 
@@ -240,13 +232,12 @@ public class ReportsFragment extends Fragment {
 
 			circlePageIndicator.setVisibility(View.VISIBLE);
 			headerViewPager.setUserInputEnabled(true);
-
 		});
 	}
 
 	private void setupScrollBehavior() {
 
-		if(pagerAdapter.getItemCount() > 1){
+		if (pagerAdapter.getItemCount() > 1) {
 			Rect rect = new Rect();
 			headerViewPager.getDrawingRect(rect);
 			scrollView.setScrollPreventRect(rect);

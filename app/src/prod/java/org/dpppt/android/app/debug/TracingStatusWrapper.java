@@ -1,5 +1,7 @@
 package org.dpppt.android.app.debug;
 
+import java.util.List;
+
 import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
@@ -38,6 +40,11 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			}
 		}
 		return DateUtils.getDaysDiff(time);
+	}
+
+	@Override
+	public List<MatchedContact> getMatches() {
+			return status.getMatchedContacts();
 	}
 
 	@Override
