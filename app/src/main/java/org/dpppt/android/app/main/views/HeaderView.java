@@ -42,8 +42,7 @@ public class HeaderView extends ConstraintLayout {
 
 	private static final int[] BACKGROUND_IMAGES =
 			new int[] { R.drawable.header_image_basel,
-					R.drawable.header_image_bern_1,
-					R.drawable.header_image_bern_2,
+					R.drawable.header_image_bern,
 					R.drawable.header_image_geneva };
 	private static Integer backgroundImageIndex = null;
 
