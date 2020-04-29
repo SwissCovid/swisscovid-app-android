@@ -3,6 +3,7 @@ package org.dpppt.android.app.debug;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.NotificationState;
@@ -91,6 +92,15 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public long getDaysSinceExposure() {
+		if (getExposureDays().size() > 0) {
+			long time = getExposureDays().get(0).getExposedDate().getStartOfDay(TimeZone.getDefault());
+			return DateUtils.getDaysDiff(time);
+		}
+		return -1;
 	}
 
 	@Override

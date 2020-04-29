@@ -35,8 +35,8 @@ public class TracingErrorStateHelper {
 			TracingStatus.ErrorState.SYNC_ERROR_SIGNATURE
 	);
 
-	private static @StringRes
-	int getTitle(TracingStatus.ErrorState tracingErrorState) {
+	@StringRes
+	private static int getTitle(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
 			case LOCATION_SERVICE_DISABLED:
 				return R.string.error_location_services_title;

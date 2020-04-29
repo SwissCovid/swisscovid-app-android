@@ -26,4 +26,6 @@ public interface TracingStatusInterface {
 
 	TracingStatus.ErrorState getReportErrorState();
 
+	long getDaysSinceExposure();
+
 }

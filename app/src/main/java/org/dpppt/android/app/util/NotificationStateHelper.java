@@ -66,11 +66,15 @@ public class NotificationStateHelper {
 			infoText.setText(R.string.exposed_info_contact_hotline);
 			infoTel.setText(R.string.tel_hotline);
 			infoSince.setVisibility(View.VISIBLE);
-			if (daySinceExposed <= 1 && daySinceExposed >= 0) {
+			if (daySinceExposed == 0) {
+				infoSince.setText(R.string.date_today);
+			} else if (daySinceExposed == 1) {
 				infoSince.setText(R.string.date_one_day_ago);
-			} else {
+			} else if (daySinceExposed > 1) {
 				String text = context.getString(R.string.date_days_ago).replace("{COUNT}", String.valueOf(daySinceExposed));
 				infoSince.setText(text);
+			} else {
+				infoSince.setVisibility(View.GONE);
 			}
 		} else if (state.equals(NotificationState.POSITIVE_TESTED)) {
 			triangle.setVisibility(View.VISIBLE);

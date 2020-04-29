@@ -86,9 +86,9 @@ public class ReportsPagerFragment extends Fragment {
 
 			TextView date = view.findViewById(R.id.fragment_reports_pager_date);
 			if (daysDiff == 0) {
-				date.setText(getResources().getString(R.string.date_today));
+				date.setText(R.string.date_today);
 			} else if (daysDiff == 1) {
-				date.setText(getResources().getString(R.string.date_one_day_ago));
+				date.setText(R.string.date_one_day_ago);
 			} else {
 				String dateStr = getResources().getString(R.string.date_days_ago);
 				dateStr = dateStr.replace("{COUNT}", String.valueOf(daysDiff));
