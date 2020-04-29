@@ -11,8 +11,7 @@ public enum NotificationState {
 	EXPOSED,
 	POSITIVE_TESTED;
 
-	public static @StringRes
-	int getTitle(NotificationState notificationState) {
+	@StringRes public static int getTitle(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
 				return R.string.meldungen_no_meldungen_title;
@@ -24,8 +23,7 @@ public enum NotificationState {
 		return -1;
 	}
 
-	public static @StringRes
-	int getText(NotificationState NotificationState) {
+	@StringRes public static int getText(NotificationState NotificationState) {
 		switch (NotificationState) {
 			case NO_REPORTS:
 				return R.string.meldungen_no_meldungen_subtitle;
@@ -37,8 +35,7 @@ public enum NotificationState {
 		return -1;
 	}
 
-	public static @DrawableRes
-	int getIcon(NotificationState notificationState) {
+	@DrawableRes public static int getIcon(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
 				return R.drawable.ic_check;
@@ -50,8 +47,7 @@ public enum NotificationState {
 		return -1;
 	}
 
-	public static @ColorRes
-	int getTextColor(NotificationState notificationState) {
+	@ColorRes public static int getTextColor(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
 				return R.color.green_main;
@@ -63,8 +59,7 @@ public enum NotificationState {
 		return -1;
 	}
 
-	public static @ColorRes
-	int getBackgroundColor(NotificationState notificationState) {
+	@ColorRes public static int getBackgroundColor(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
 				return R.color.status_green_bg;

@@ -29,6 +29,7 @@ import org.dpppt.android.app.R;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
 import org.dpppt.android.app.main.model.TracingStatusInterface;
+import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.sdk.TracingStatus;
 
 public class HeaderView extends ConstraintLayout {
@@ -111,21 +112,15 @@ public class HeaderView extends ConstraintLayout {
 		int backgroundColor;
 		int iconRes = 0;
 		int iconBgRes = 0;
-		boolean hasErrors = state.getTracingErrorState() != null;
+		TracingStatus.ErrorState error = state.getTracingErrorState();
+		boolean hasTracingError = error != null ? TracingErrorStateHelper.isTracingErrorState(error) : false;
 		if (state.getNotificationState() == NotificationState.NO_REPORTS ||
 				state.getNotificationState() == NotificationState.EXPOSED) {
-			if (hasErrors) {
-				TracingStatus.ErrorState error = state.getTracingErrorState();
+			if (hasTracingError) {
 				iconBgRes = R.drawable.bg_header_icon_off;
 				backgroundColor = getResources().getColor(R.color.header_bg_error, null);
 				switch (error) {
-					case SYNC_ERROR_DATABASE:
 					case SYNC_ERROR_TIMING:
-					case SYNC_ERROR_SERVER:
-					case SYNC_ERROR_NETWORK:
-					case SYNC_ERROR_SIGNATURE:
-						iconRes = R.drawable.ic_sync_failed;
-						break;
 					case MISSING_LOCATION_PERMISSION:
 					case BLE_NOT_SUPPORTED:
 					case BLE_INTERNAL_ERROR:
@@ -138,7 +133,7 @@ public class HeaderView extends ConstraintLayout {
 						iconRes = R.drawable.ic_bluetooth_off;
 						break;
 					case LOCATION_SERVICE_DISABLED:
-						iconRes =R.drawable.ic_header_gps_off;
+						iconRes = R.drawable.ic_header_gps_off;
 				}
 			} else {
 				if (state.getTracingState() == TracingState.ACTIVE) {
@@ -187,7 +182,7 @@ public class HeaderView extends ConstraintLayout {
 			iconBackground.setImageResource(iconBgRes);
 		}
 
-		circleView.setState(state, initialUpdate);
+		circleView.setState(state.getTracingState() == TracingState.ACTIVE && !hasTracingError, initialUpdate);
 		icon.post(() -> {
 			circleView.setCenter(Math.round(icon.getX() + icon.getWidth() / 2), Math.round(icon.getY() + icon.getHeight() / 2));
 		});

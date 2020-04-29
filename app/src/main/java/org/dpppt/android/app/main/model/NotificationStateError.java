@@ -9,8 +9,7 @@ public enum NotificationStateError {
 	NOTIFICATION_STATE_ERROR;
 
 
-	public static @StringRes
-	int getTitle(NotificationStateError notificationStateError) {
+	@StringRes public static int getTitle(NotificationStateError notificationStateError) {
 		switch (notificationStateError) {
 			case NOTIFICATION_STATE_ERROR:
 				return R.string.meldungen_background_error_title;
@@ -19,8 +18,7 @@ public enum NotificationStateError {
 		}
 	}
 
-	public static @StringRes
-	int getText(NotificationStateError notificationStateError) {
+	@StringRes public static int getText(NotificationStateError notificationStateError) {
 		switch (notificationStateError) {
 			case NOTIFICATION_STATE_ERROR:
 				return R.string.meldungen_background_error_text;
@@ -29,8 +27,7 @@ public enum NotificationStateError {
 		}
 	}
 
-	public static @DrawableRes
-	int getIcon(NotificationStateError notificationStateError) {
+	@DrawableRes public static int getIcon(NotificationStateError notificationStateError) {
 		switch (notificationStateError) {
 			case NOTIFICATION_STATE_ERROR:
 				return R.drawable.ic_refresh;
@@ -39,8 +36,7 @@ public enum NotificationStateError {
 		}
 	}
 
-	public static @StringRes
-	int getButtonText(NotificationStateError notificationStateError) {
+	@StringRes public static int getButtonText(NotificationStateError notificationStateError) {
 		switch (notificationStateError) {
 			case NOTIFICATION_STATE_ERROR:
 				return R.string.meldungen_background_error_button;

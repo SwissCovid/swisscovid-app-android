@@ -62,13 +62,13 @@ public class TracingErrorStateHelper {
 		}
 	}
 
-	private static @StringRes
-	int getText(TracingStatus.ErrorState tracingErrorState) {
+	@StringRes
+	private static int getText(TracingStatus.ErrorState tracingErrorState) {
 		return tracingErrorState.getErrorString();
 	}
 
-	private static @DrawableRes
-	int getIcon(TracingStatus.ErrorState tracingErrorState) {
+	@DrawableRes
+	private static int getIcon(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
 			case LOCATION_SERVICE_DISABLED:
 				return R.drawable.ic_gps_off;
@@ -93,8 +93,8 @@ public class TracingErrorStateHelper {
 		}
 	}
 
-	private static @StringRes
-	int getButtonText(TracingStatus.ErrorState errorState) {
+	@StringRes
+	private static int getButtonText(TracingStatus.ErrorState errorState) {
 		switch (errorState) {
 			case LOCATION_SERVICE_DISABLED:
 				return R.string.error_location_services_button;
@@ -134,6 +134,14 @@ public class TracingErrorStateHelper {
 			}
 		}
 		return null;
+	}
+
+	public static boolean isTracingErrorState(TracingStatus.ErrorState error) {
+		return possibleErrorStatesOrderedByPriority.contains(error);
+	}
+
+	public static boolean isReportsErrorState(TracingStatus.ErrorState error) {
+		return possibleNotificationErrorStatesOrderedByPriority.contains(error);
 	}
 
 	public static void updateErrorView(View tracingErrorView, TracingStatus.ErrorState errorState) {

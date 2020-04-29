@@ -145,7 +145,7 @@ public class DebugFragment extends Fragment {
 				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.INFECTED)).append("\n")
 				.append(getString(R.string.debug_sdk_state_contact_exposed))
 				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.EXPOSED)).append("\n")
-				.append(getString(R.string.debug_sdk_state_number_handshakes))
+				.append(getString(R.string.debug_sdk_state_number_contacts))
 				.append(String.valueOf(status.getNumberOfContacts()));
 
 		Collection<TracingStatus.ErrorState> errors = status.getErrors();

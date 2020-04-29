@@ -101,7 +101,7 @@ Halten Sie sich an die Hygiene- und Verhaltensregeln."</string>
     <string name="inform_text_homescreen_nosymptoms">"Informiere Personen, denen du begegnet bist anonym, wenn du positiv auf COVID-19 getestet wurdest."</string>
 
     <!-- Unerwarteter Fehler -->
-    <string name="unexpected_error_title">"Ein unerwarteter Fehler ist aufgetreten ({ERROR})."</string>
+    <string name="unexpected_error_title">"Ein unerwarteter Fehler ist aufgetreten."</string>
 
     <!-- Bluetooth Fehlermeldung -->
     <string name="bluetooth_turned_off">"Die App funktioniert nicht, weil Bluetooth ausgeschaltet ist."</string>
@@ -688,7 +688,6 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
 
     <!-- Titel Impressum Menu -->
     <string name="menu_impressum">"Impressum"</string>
-
     <string name="sync_error_title">"Unerwarteter Fehler"</string>
     <string name="sync_error_text">"Es ist ein Fehler bei der Synchronisierung aufgetreten."</string>
     <string name="sync_error_button">"Erneut versuchen"</string>

@@ -84,9 +84,9 @@ public class CircleAnimationView extends View {
 		}
 	}
 
-	public void setState(TracingStatusInterface state, boolean initialUpdate) {
+	public void setState(boolean isActive, boolean initialUpdate) {
 		stopAnimation();
-		if (state.getTracingState() == TracingState.ACTIVE) {
+		if (isActive) {
 			circleRunnable = new CircleRunnable(3);
 			circleHandler.postDelayed(circleRunnable, initialUpdate ? INITIAL_DELAY_CIRCLE : 0);
 		}
