@@ -30,6 +30,11 @@
 		<item name="fontFamily">@font/inter</item>
 	</style>
 
+	<style name="NextStep.Text.Small">
+		<item name="android:textSize">@dimen/text_size_small</item>
+		<item name="android:textColor">@color/grey_medium</item>
+	</style>
+
 	<style name="NextStep.Text.Red">
 		<item name="android:textColor">@color/red_main</item>
 	</style>

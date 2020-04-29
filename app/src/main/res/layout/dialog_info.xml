@@ -18,6 +18,14 @@
 		style="@style/NextStep.Text"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		tools:text="This is an example text for information purposes on at least two lines" />
+
+	<TextView
+		android:id="@+id/dialog_info_subtext"
+		style="@style/NextStep.Text.Small"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
 		android:layout_marginBottom="@dimen/spacing_large"
 		tools:text="This is an example text for information purposes on at least two lines" />
 

@@ -11,9 +11,12 @@ public class AuthenticationCodeRequestModel {
 
 	@Keep
 	private String authorizationCode;
+	@Keep
+	private int fake;
 
-	public AuthenticationCodeRequestModel(String authorizationCode) {
+	public AuthenticationCodeRequestModel(String authorizationCode, int fake) {
 		this.authorizationCode = authorizationCode;
+		this.fake = fake;
 	}
 
 }

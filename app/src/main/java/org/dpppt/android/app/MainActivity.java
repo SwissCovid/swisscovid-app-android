@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity {
 			InfoDialog forceUpdateDialog =
 					(InfoDialog) getSupportFragmentManager().findFragmentByTag(InfoDialog.class.getCanonicalName());
 			if (forceUpdate && forceUpdateDialog == null) {
-				forceUpdateDialog = InfoDialog.newInstance(R.string.force_update_text, R.string.force_update_title);
+				forceUpdateDialog = InfoDialog.newInstanceWithButtonLabel(R.string.force_update_text, R.string.force_update_title);
 				forceUpdateDialog.setCancelable(false);
 				forceUpdateDialog.setButtonOnClickListener(v -> {
 					String packageName = getPackageName();
