@@ -95,7 +95,7 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal|bottom"
 		android:layout_marginBottom="@dimen/spacing_larger"
-		android:text="Bliblablub"
+		android:text="@string/meldung_animation_continue_button"
 		android:visibility="gone"
 		tools:visibility="visible" />
 
