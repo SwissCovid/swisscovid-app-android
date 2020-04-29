@@ -13,7 +13,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-
 import androidx.core.app.NotificationCompat;
 
 import com.crashlytics.android.Crashlytics;
@@ -25,7 +24,7 @@ import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.backend.models.ApplicationInfo;
 import org.dpppt.android.sdk.internal.backend.BackendBucketRepository;
-import org.dpppt.android.sdk.internal.database.models.MatchedContact;
+import org.dpppt.android.sdk.internal.database.models.ExposureDay;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
 
 import io.fabric.sdk.android.Fabric;
@@ -54,16 +53,16 @@ public class MainApplication extends Application {
 			SecureStorage secureStorage = SecureStorage.getInstance(context);
 			TracingStatus status = DP3T.getStatus(context);
 			if (status.getInfectionStatus() == InfectionStatus.EXPOSED) {
-				MatchedContact newestContact = null;
+				ExposureDay exposureDay = null;
 				long dateNewest = 0;
-				for (MatchedContact contact : status.getMatchedContacts()) {
-					if (contact.getReportDate() > dateNewest) {
-						newestContact = contact;
-						dateNewest = contact.getReportDate();
+				for (ExposureDay day : status.getExposureDays()) {
+					if (day.getExposedDate().getStartOfDayTimestamp() > dateNewest) {
+						exposureDay = day;
+						dateNewest = day.getExposedDate().getStartOfDayTimestamp();
 					}
 				}
-				if (newestContact != null && secureStorage.getLastShownContactId() != newestContact.getId()) {
-					createNewContactNotifaction(context, newestContact.getId());
+				if (exposureDay != null && secureStorage.getLastShownContactId() != exposureDay.getId()) {
+					createNewContactNotifaction(context, exposureDay.getId());
 				}
 			}
 		}

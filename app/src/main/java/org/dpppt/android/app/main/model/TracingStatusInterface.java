@@ -4,15 +4,13 @@ import java.util.List;
 
 import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.database.models.MatchedContact;
+import org.dpppt.android.sdk.internal.database.models.ExposureDay;
 
 public interface TracingStatusInterface {
 
 	boolean isReportedAsInfected();
 
-	long getDaySinceExposed();
-
-	List<MatchedContact> getMatches();
+	List<ExposureDay> getExposureDays();
 
 	boolean wasContactReportedAsExposed();
 

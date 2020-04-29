@@ -30,6 +30,8 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.TimeZone;
+
 import org.dpppt.android.app.BuildConfig;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.contacts.ContactsFragment;
@@ -40,11 +42,7 @@ import org.dpppt.android.app.main.model.NotificationStateError;
 import org.dpppt.android.app.main.views.HeaderView;
 import org.dpppt.android.app.reports.ReportsFragment;
 import org.dpppt.android.app.storage.SecureStorage;
-import org.dpppt.android.app.util.AssetUtil;
-import org.dpppt.android.app.util.NotificationStateHelper;
-import org.dpppt.android.app.util.NotificationUtil;
-import org.dpppt.android.app.util.NotificatonErrorStateHelper;
-import org.dpppt.android.app.util.TracingErrorStateHelper;
+import org.dpppt.android.app.util.*;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.app.whattodo.WtdPositiveTestFragment;
 import org.dpppt.android.app.whattodo.WtdSymptomsFragment;
@@ -258,9 +256,11 @@ public class HomeFragment extends Fragment {
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.POSITIVE_TESTED);
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
+				long time = tracingStatusInterface.getExposureDays().get(0).getExposedDate()
+						.getStartOfDay(TimeZone.getDefault());
+				long daysSinceExposure = DateUtils.getDaysDiff(time);
 				NotificationStateHelper
-						.updateStatusView(reportStatusView, NotificationState.EXPOSED,
-								tracingStatusInterface.getDaySinceExposed());
+						.updateStatusView(reportStatusView, NotificationState.EXPOSED, daysSinceExposure);
 			} else {
 				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_REPORTS);
 			}

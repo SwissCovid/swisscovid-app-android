@@ -27,15 +27,15 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
-import org.dpppt.android.app.MainApplication;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.DateUtils;
 import org.dpppt.android.app.util.NotificationUtil;
 import org.dpppt.android.app.util.PhoneUtil;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
-import org.dpppt.android.sdk.internal.database.models.MatchedContact;
+import org.dpppt.android.sdk.internal.database.models.ExposureDay;
 
 public class ReportsFragment extends Fragment {
 
@@ -123,19 +123,21 @@ public class ReportsFragment extends Fragment {
 				infectedView.setVisibility(View.VISIBLE);
 				items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, secureStorage.getInfectedDate()));
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
-				List<MatchedContact> matchedContacts = tracingStatusInterface.getMatches();
+				List<ExposureDay> exposureDays = tracingStatusInterface.getExposureDays();
 				boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
 				if (isHotlineCallPending) {
 					hotlineView.setVisibility(View.VISIBLE);
 				} else {
 					saveOthersView.setVisibility(View.VISIBLE);
 				}
-				for (int i = 0; i < matchedContacts.size(); i++) {
-					MatchedContact matchedContact = matchedContacts.get(i);
+				for (int i = 0; i < exposureDays.size(); i++) {
+					ExposureDay exposureDay = exposureDays.get(i);
 					if (i == 0) {
-						items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, matchedContact.getReportDate()));
+						items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION,
+								exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault())));
 					} else {
-						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, matchedContact.getReportDate()));
+						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT,
+								exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault())));
 					}
 				}
 			} else {

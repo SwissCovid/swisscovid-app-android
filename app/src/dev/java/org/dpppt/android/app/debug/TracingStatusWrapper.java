@@ -12,7 +12,8 @@ import org.dpppt.android.app.util.DateUtils;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.database.models.MatchedContact;
+import org.dpppt.android.sdk.internal.database.models.ExposureDay;
+import org.dpppt.android.sdk.internal.util.DayDate;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
 
@@ -33,32 +34,17 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	}
 
 	@Override
-	public long getDaySinceExposed() {
-		long time = 0;
-
-		for (MatchedContact matchedContact : getMatches()) {
-			if (time < matchedContact.getReportDate()) {
-				time = matchedContact.getReportDate();
-			}
-		}
-		if (time == 0) {
-			return 0;
-		}
-		return DateUtils.getDaysDiff(time);
-	}
-
-	@Override
-	public List<MatchedContact> getMatches() {
+	public List<ExposureDay> getExposureDays() {
 		if (debugAppState == DebugAppState.CONTACT_EXPOSED) {
-			List<MatchedContact> matches = new ArrayList<>();
+			List<ExposureDay> matches = new ArrayList<>();
 			Calendar calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_YEAR, -2);
-			matches.add(new MatchedContact(0, calendar.getTimeInMillis()));
-			calendar.add(Calendar.DAY_OF_YEAR, -1);
-			matches.add(new MatchedContact(1, calendar.getTimeInMillis()));
+			calendar.add(Calendar.DAY_OF_YEAR, -3);
+			matches.add(new ExposureDay(0, new DayDate(calendar.getTimeInMillis()), System.currentTimeMillis()));
+			calendar.add(Calendar.DAY_OF_YEAR, 1);
+			matches.add(new ExposureDay(1, new DayDate(calendar.getTimeInMillis()), System.currentTimeMillis()));
 			return matches;
 		}
-		return status.getMatchedContacts();
+		return status.getExposureDays();
 	}
 
 	@Override

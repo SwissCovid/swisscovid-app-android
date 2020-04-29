@@ -10,7 +10,7 @@ import org.dpppt.android.app.util.DateUtils;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.database.models.MatchedContact;
+import org.dpppt.android.sdk.internal.database.models.ExposureDay;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
 
@@ -32,19 +32,8 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	}
 
 	@Override
-	public long getDaySinceExposed() {
-		long time = 0;
-		for (MatchedContact matchedContact : getMatches()) {
-			if (time < matchedContact.getReportDate()) {
-				time = matchedContact.getReportDate();
-			}
-		}
-		return DateUtils.getDaysDiff(time);
-	}
-
-	@Override
-	public List<MatchedContact> getMatches() {
-		return status.getMatchedContacts();
+	public List<ExposureDay> getExposureDays() {
+		return status.getExposureDays();
 	}
 
 	@Override
