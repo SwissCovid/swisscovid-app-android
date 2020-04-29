@@ -82,7 +82,7 @@ public class DebugFragment extends Fragment {
 					.show();
 			tracingViewModel.resetSdk(() -> {
 				progressDialog.dismiss();
-				InfoDialog.newInstance(R.string.debug_sdk_reset_text)
+				InfoDialog.newInstance(R.string.android_debug_sdk_reset_text)
 						.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
 				updateRadioGroup(getView().findViewById(R.id.debug_state_options_group));
 			});
@@ -133,7 +133,7 @@ public class DebugFragment extends Fragment {
 	private SpannableString formatStatusString(TracingStatus status) {
 		SpannableStringBuilder builder = new SpannableStringBuilder();
 		boolean isTracing = (status.isAdvertising() || status.isReceiving()) && status.getErrors().size() == 0;
-		builder.append(getString(isTracing ? R.string.tracing_active_title : R.string.tracing_error_title)).append("\n")
+		builder.append(getString(isTracing ? R.string.tracing_active_title : R.string.android_tracing_error_title)).append("\n")
 				.setSpan(new StyleSpan(Typeface.BOLD), 0, builder.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
 		long lastSyncDateUTC = status.getLastSyncDate();

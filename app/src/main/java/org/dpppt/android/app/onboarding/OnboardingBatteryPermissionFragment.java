@@ -59,9 +59,9 @@ public class OnboardingBatteryPermissionFragment extends Fragment {
 	private void updateFragmentState() {
 		boolean batteryOptDeactivated = DeviceFeatureHelper.isBatteryOptimizationDeactivated(requireContext());
 		if (batteryOptDeactivated) {
-			setButtonOk(batteryButton, R.string.onboarding_android_battery_permission_button_deactivated);
+			setButtonOk(batteryButton, R.string.android_onboarding_battery_permission_button_deactivated);
 		} else {
-			setButtonDefault(batteryButton, R.string.onboarding_android_battery_permission_button);
+			setButtonDefault(batteryButton, R.string.android_onboarding_battery_permission_button);
 		}
 		continueButton.setVisibility(batteryOptDeactivated ? View.VISIBLE : View.GONE);
 

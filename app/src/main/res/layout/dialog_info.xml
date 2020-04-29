@@ -34,6 +34,6 @@
 		style="@style/NextStep.Button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="@string/button_ok" />
+		android:text="@string/android_button_ok" />
 
 </LinearLayout>

@@ -105,7 +105,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:gravity="start"
-			android:text="@string/tel_hotline" />
+			android:text="@string/exposed_info_line_tel" />
 
 		<TextView
 			android:id="@+id/status_additional_info_since"

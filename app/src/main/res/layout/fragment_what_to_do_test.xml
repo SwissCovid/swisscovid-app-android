@@ -6,6 +6,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/grey_light"
@@ -113,7 +114,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginBottom="@dimen/spacing_large"
-					android:text="@string/inform_detail_info_title" />
+					tools:text="TITLE" />
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -127,7 +128,7 @@
 						style="@style/NextStep.Text"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:text="@string/inform_detail_info_text_1" />
+						tools:text="INFO-TEXT" />
 
 				</LinearLayout>
 
@@ -142,7 +143,7 @@
 						style="@style/NextStep.Text"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:text="@string/inform_detail_info_text_2" />
+						tools:text="INFO-TEXT" />
 
 				</LinearLayout>
 

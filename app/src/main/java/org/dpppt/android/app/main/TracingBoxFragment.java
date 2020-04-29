@@ -107,9 +107,9 @@ public class TracingBoxFragment extends Fragment {
 						requestPermissions(permissions, REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION);
 					} else {
 						new AlertDialog.Builder(requireActivity())
-								.setTitle(R.string.button_permission_location_android)
-								.setMessage(R.string.foreground_service_notification_error_location_permission)
-								.setPositiveButton(getString(R.string.button_ok),
+								.setTitle(R.string.android_button_permission_location)
+								.setMessage(R.string.android_foreground_service_notification_error_location_permission)
+								.setPositiveButton(getString(R.string.android_button_ok),
 										(dialogInterface, i) -> {
 											DeviceFeatureHelper.openApplicationSettings(requireActivity());
 											dialogInterface.dismiss();

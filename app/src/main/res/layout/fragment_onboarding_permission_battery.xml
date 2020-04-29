@@ -40,7 +40,7 @@
 			android:gravity="center_horizontal"
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
-			android:text="@string/onboarding_android_battery_permission_title" />
+			android:text="@string/android_onboarding_battery_permission_title" />
 
 		<TextView
 			android:id="@+id/onboarding_description"
@@ -51,7 +51,7 @@
 			android:gravity="center_horizontal"
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
-			android:text="@string/onboarding_android_battery_permission_text" />
+			android:text="@string/android_onboarding_battery_permission_text" />
 
 		<Button
 			android:id="@+id/onboarding_battery_permission_button"
@@ -60,7 +60,7 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
 			android:layout_marginTop="@dimen/spacing_small"
-			android:text="@string/onboarding_android_battery_permission_button" />
+			android:text="@string/android_onboarding_battery_permission_button" />
 
 		<Button
 			android:id="@+id/onboarding_battery_permission_continue_button"
@@ -88,7 +88,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_small"
-				android:text="@string/onboarding_android_battery_permission_info_1_title" />
+				android:text="@string/android_onboarding_battery_permission_info_1_title" />
 
 			<LinearLayout
 				android:layout_width="match_parent"
@@ -109,7 +109,7 @@
 					android:layout_height="wrap_content"
 					android:breakStrategy="high_quality"
 					android:hyphenationFrequency="full"
-					android:text="@string/onboarding_android_battery_permission_info_1_text" />
+					android:text="@string/android_onboarding_battery_permission_info_1_text" />
 
 			</LinearLayout>
 
@@ -118,7 +118,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_small"
-				android:text="@string/onboarding_android_battery_permission_info_2_title" />
+				android:text="@string/android_onboarding_battery_permission_info_2_title" />
 
 			<LinearLayout
 				android:layout_width="match_parent"
@@ -138,7 +138,7 @@
 					android:layout_height="wrap_content"
 					android:breakStrategy="high_quality"
 					android:hyphenationFrequency="full"
-					android:text="@string/onboarding_android_battery_permission_info_2_text" />
+					android:text="@string/android_onboarding_battery_permission_info_2_text" />
 
 			</LinearLayout>
 
