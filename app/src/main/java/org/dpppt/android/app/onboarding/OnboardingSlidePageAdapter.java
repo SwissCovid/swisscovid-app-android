@@ -3,7 +3,6 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.onboarding;
 
 import androidx.annotation.NonNull;
@@ -58,6 +57,16 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 			case 4:
 				return OnboardingBatteryPermissionFragment.newInstance();
 			case 5:
+				return OnboardingContentFragment.newInstance(
+						R.string.onboarding_meldung_title,
+						R.string.onboarding_meldung_heading,
+						R.drawable.ill_meldung,
+						R.string.onboarding_meldung_text1,
+						R.drawable.ic_message_alert,
+						R.string.onboarding_meldung_text2,
+						R.drawable.ic_begegnungen,
+						false);
+			case 6:
 				return OnboardingFinishedFragment.newInstance();
 		}
 		throw new IllegalArgumentException("There is no fragment for view pager position " + position);
@@ -65,7 +74,7 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 
 	@Override
 	public int getItemCount() {
-		return 6;
+		return 7;
 	}
 
 }
