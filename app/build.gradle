@@ -48,6 +48,12 @@ android {
 		}
 	}
 
+	sourceSets {
+		abnahme {
+			java.srcDirs += 'src/prod/java'
+		}
+	}
+
 	signingConfigs {
 		release {
 			storeFile file('testKeystore')
