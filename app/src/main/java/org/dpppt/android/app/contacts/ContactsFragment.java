@@ -60,10 +60,9 @@ public class ContactsFragment extends Fragment {
 
 		headerView = view.findViewById(R.id.contacts_header_view);
 		scrollView = view.findViewById(R.id.contacts_scroll_view);
-		tracingViewModel.getAppStatusLiveData()
-				.observe(getViewLifecycleOwner(), tracingStatus -> {
-					headerView.setState(tracingStatus);
-				});
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatus -> {
+			headerView.setState(tracingStatus);
+		});
 		setupScrollBehavior();
 		setupTracingView();
 	}

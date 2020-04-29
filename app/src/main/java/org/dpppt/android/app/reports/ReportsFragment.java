@@ -74,7 +74,6 @@ public class ReportsFragment extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		pagerAdapter = new ReportsSlidePageAdapter();
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
 		secureStorage = SecureStorage.getInstance(getContext());
 	}
@@ -111,8 +110,10 @@ public class ReportsFragment extends Fragment {
 			PhoneUtil.callHelpline(getContext());
 		});
 
+		pagerAdapter = new ReportsSlidePageAdapter();
 		headerViewPager.setAdapter(pagerAdapter);
 		circlePageIndicator.setViewPager(headerViewPager);
+
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			healthyView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.GONE);
@@ -239,6 +240,7 @@ public class ReportsFragment extends Fragment {
 	}
 
 	private void setupScrollBehavior() {
+		if (!isVisible()) return;
 
 		Rect rect = new Rect();
 		headerViewPager.getDrawingRect(rect);
