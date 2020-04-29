@@ -16,7 +16,7 @@ public class PhoneUtil {
 
 	public static void callHelpline(Context context) {
 		Intent intent = new Intent(Intent.ACTION_DIAL);
-		intent.setData(Uri.parse("tel:" + context.getString(R.string.tel_hotline)));
+		intent.setData(Uri.parse("tel:" + context.getString(R.string.exposed_info_line_tel)));
 		if (intent.resolveActivity(context.getPackageManager()) != null) {
 			context.startActivity(intent);
 		}

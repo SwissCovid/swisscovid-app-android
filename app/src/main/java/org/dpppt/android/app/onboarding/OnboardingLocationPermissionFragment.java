@@ -59,9 +59,9 @@ public class OnboardingLocationPermissionFragment extends Fragment {
 	private void updateFragmentState() {
 		boolean locationPermissionGranted = DeviceFeatureHelper.isLocationPermissionGranted(requireContext());
 		if (locationPermissionGranted) {
-			setButtonOk(locationButton, R.string.onboarding_android_bt_permission_button_allowed);
+			setButtonOk(locationButton, R.string.android_onboarding_bt_permission_button_allowed);
 		} else {
-			setButtonDefault(locationButton, R.string.onboarding_android_bt_permission_button);
+			setButtonDefault(locationButton, R.string.android_onboarding_bt_permission_button);
 		}
 		continueButton.setVisibility(locationPermissionGranted ? View.VISIBLE : View.GONE);
 	}
@@ -73,9 +73,9 @@ public class OnboardingLocationPermissionFragment extends Fragment {
 				if (!ActivityCompat
 						.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
 					new AlertDialog.Builder(requireActivity())
-							.setTitle(R.string.button_permission_location_android)
-							.setMessage(R.string.foreground_service_notification_error_location_permission)
-							.setPositiveButton(getString(R.string.button_ok),
+							.setTitle(R.string.android_button_permission_location)
+							.setMessage(R.string.android_foreground_service_notification_error_location_permission)
+							.setPositiveButton(getString(R.string.android_button_ok),
 									(dialogInterface, i) -> {
 										DeviceFeatureHelper.openApplicationSettings(requireActivity());
 										dialogInterface.dismiss();

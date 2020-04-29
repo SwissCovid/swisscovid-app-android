@@ -88,12 +88,8 @@ public class HtmlFragment extends Fragment {
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
 				if (url.toLowerCase().endsWith(".pdf")) {
 					openFileFromUrl(url, "application/pdf");
-					downloadingFileToast = Toast.makeText(getContext(), R.string.downloading_pdf, Toast.LENGTH_LONG);
-					downloadingFileToast.show();
 				} else if (url.toLowerCase().endsWith(".xlsx")) {
 					openFileFromUrl(url, "text/csv");
-					downloadingFileToast = Toast.makeText(getContext(), R.string.downloading_csv, Toast.LENGTH_LONG);
-					downloadingFileToast.show();
 				} else {
 					Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 					startActivity(webIntent);

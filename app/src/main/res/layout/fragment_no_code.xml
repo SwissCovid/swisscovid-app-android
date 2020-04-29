@@ -56,7 +56,7 @@
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal"
 				android:layout_marginBottom="@dimen/spacing_large"
-				android:text="@string/tel_hotline" />
+				android:text="@string/exposed_info_line_tel" />
 
 		</LinearLayout>
 	</ScrollView>

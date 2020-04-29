@@ -47,6 +47,6 @@
 		android:layout_height="wrap_content"
 		android:gravity="center"
 		android:paddingTop="20dp"
-		android:text="@string/activate_bluetooth_button" />
+		android:text="@string/bluetooth_turn_on_button_title" />
 
 </LinearLayout>
