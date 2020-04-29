@@ -240,13 +240,9 @@ public class ReportsFragment extends Fragment {
 
 	private void setupScrollBehavior() {
 
-		if (pagerAdapter.getItemCount() > 1) {
-			Rect rect = new Rect();
-			headerViewPager.getDrawingRect(rect);
-			scrollView.setScrollPreventRect(rect);
-		} else {
-			scrollView.setScrollPreventRect(null);
-		}
+		Rect rect = new Rect();
+		headerViewPager.getDrawingRect(rect);
+		scrollView.setScrollPreventRect(rect);
 
 		int scrollRangePx = scrollViewFirstchild.getPaddingTop();
 		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
