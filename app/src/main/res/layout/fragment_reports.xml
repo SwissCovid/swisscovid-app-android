@@ -18,20 +18,26 @@
 		app:navigationIcon="@drawable/ic_arrow_back"
 		app:title="@string/reports_title_homescreen" />
 
-	<androidx.viewpager2.widget.ViewPager2
-		android:id="@+id/reports_header_viewpager"
-		android:layout_width="match_parent"
-		android:layout_height="@dimen/header_height_reports"
-		app:layout_constraintTop_toBottomOf="@id/reports_toolbar"/>
-
-	<org.dpppt.android.app.reports.CirclePageIndicator
-		android:id="@+id/reports_pageindicator"
+	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="@dimen/spacing_huge"
-		android:visibility="gone"
-		app:layout_constraintBottom_toBottomOf="@id/reports_header_viewpager"
-		tools:visibility="visible" />
+		app:layout_constraintTop_toBottomOf="@id/reports_toolbar">
+
+		<androidx.viewpager2.widget.ViewPager2
+			android:id="@+id/reports_header_viewpager"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/header_height_reports" />
+
+		<org.dpppt.android.app.reports.CirclePageIndicator
+			android:id="@+id/reports_pageindicator"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:layout_marginBottom="@dimen/spacing_huge"
+			android:visibility="gone"
+			tools:visibility="visible" />
+
+	</FrameLayout>
 
 	<org.dpppt.android.app.reports.LockableScrollView
 		android:id="@+id/reports_scrollview"

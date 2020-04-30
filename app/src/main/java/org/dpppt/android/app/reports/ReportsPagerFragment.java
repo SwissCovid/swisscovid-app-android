@@ -82,18 +82,19 @@ public class ReportsPagerFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
 		if (timestamp != 0) {
+			TextView date = view.findViewById(R.id.fragment_reports_pager_date);
+
+			String dateStr = DateUtils.getFormattedDate(timestamp) + " / ";
 			int daysDiff = DateUtils.getDaysDiff(timestamp);
 
-			TextView date = view.findViewById(R.id.fragment_reports_pager_date);
 			if (daysDiff == 0) {
-				date.setText(R.string.date_today);
+				dateStr += getString(R.string.date_today);
 			} else if (daysDiff == 1) {
-				date.setText(R.string.date_one_day_ago);
+				dateStr += getString(R.string.date_one_day_ago);
 			} else {
-				String dateStr = getResources().getString(R.string.date_days_ago);
-				dateStr = dateStr.replace("{COUNT}", String.valueOf(daysDiff));
-				date.setText(dateStr);
+				dateStr += getString(R.string.date_days_ago).replace("{COUNT}", String.valueOf(daysDiff));
 			}
+			date.setText(dateStr);
 		}
 
 		if (type == Type.POSSIBLE_INFECTION || type == Type.NEW_CONTACT) {

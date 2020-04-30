@@ -60,7 +60,6 @@
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/spacing_tiny_small"
-			android:gravity="center_vertical"
 			android:text="@string/no_meldungen_box_text"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintLeft_toLeftOf="parent"

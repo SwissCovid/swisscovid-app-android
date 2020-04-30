@@ -7,7 +7,9 @@ package org.dpppt.android.app.reports;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
@@ -58,8 +60,6 @@ public class ReportsFragment extends Fragment {
 	private View hotlineView;
 	private View infectedView;
 
-	private Button callHotlineButton1;
-	private Button callHotlineButton2;
 	private TextView callHotlineLastText1;
 	private TextView callHotlineLastText2;
 
@@ -93,32 +93,44 @@ public class ReportsFragment extends Fragment {
 		hotlineView = view.findViewById(R.id.reports_hotline);
 		infectedView = view.findViewById(R.id.reports_infected);
 
-		callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
-		callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
 		callHotlineLastText1 = hotlineView.findViewById(R.id.card_encounters_last_call);
 		callHotlineLastText2 = saveOthersView.findViewById(R.id.card_encounters_last_call);
 
-		callHotlineButton1.setOnClickListener(view1 -> {
-			hotlineJustCalled = true;
-			secureStorage.justCalledHotline();
-			PhoneUtil.callHelpline(getContext());
-		});
+		Button callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
+		Button callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
 
-		callHotlineButton2.setOnClickListener(view1 -> {
-			hotlineJustCalled = true;
-			secureStorage.justCalledHotline();
-			PhoneUtil.callHelpline(getContext());
-		});
+		callHotlineButton1.setOnClickListener(view1 -> callHotline());
+		callHotlineButton2.setOnClickListener(view1 -> callHotline());
+
+		Button faqButton3 = hotlineView.findViewById(R.id.card_encounters_faq_button);
+		Button faqButton4 = infectedView.findViewById(R.id.card_encounters_faq_button);
+
+		faqButton3.setOnClickListener(v -> showFaq());
+		faqButton4.setOnClickListener(v -> showFaq());
+
+		View link1 = infectedView.findViewById(R.id.card_encounters_link);
+		View link2 = hotlineView.findViewById(R.id.card_encounters_link);
+
+		link1.setOnClickListener(v -> openLink());
+		link2.setOnClickListener(v -> openLink());
 
 		pagerAdapter = new ReportsSlidePageAdapter();
 		headerViewPager.setAdapter(pagerAdapter);
 		circlePageIndicator.setViewPager(headerViewPager);
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
+			
 			healthyView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.GONE);
 			hotlineView.setVisibility(View.GONE);
 			infectedView.setVisibility(View.GONE);
+			/* Debug mode
+			healthyView.setVisibility(View.VISIBLE);
+			saveOthersView.setVisibility(View.VISIBLE);
+			hotlineView.setVisibility(View.VISIBLE);
+			infectedView.setVisibility(View.VISIBLE);
+			 */
+
 			List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				infectedView.setVisibility(View.VISIBLE);
@@ -145,12 +157,37 @@ public class ReportsFragment extends Fragment {
 				healthyView.setVisibility(View.VISIBLE);
 				items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
 			}
+
+			/* Debug items
+			items.clear();
+			items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
+			items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, 1585835019000L));
+			items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, 1585835019000L));
+			items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, 1585835019000L));
+			 */
+
 			pagerAdapter.updateItems(items);
 		});
 
 		NotificationManager notificationManager =
 				(NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.cancel(NotificationUtil.NOTIFICATION_ID_CONTACT);
+	}
+
+	private void openLink() {
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.meldungen_explanation_link_url)));
+		startActivity(browserIntent);
+	}
+
+	private void showFaq() {
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
+		startActivity(browserIntent);
+	}
+
+	private void callHotline() {
+		hotlineJustCalled = true;
+		secureStorage.justCalledHotline();
+		PhoneUtil.callHelpline(getContext());
 	}
 
 	@Override
@@ -167,7 +204,7 @@ public class ReportsFragment extends Fragment {
 		if (lastHotlineCallTimestamp != 0) {
 			((TextView) hotlineView.findViewById(R.id.card_encounters_title)).setText(R.string.meldungen_detail_call_again);
 
-			String date = DateUtils.getFormattedTimestamp(lastHotlineCallTimestamp);
+			String date = DateUtils.getFormattedDateTime(lastHotlineCallTimestamp);
 			date = getString(R.string.meldungen_detail_call_last_call).replace("{DATE}", date);
 			callHotlineLastText1.setText(date);
 			callHotlineLastText2.setText(date);

@@ -12,7 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 public class DateUtils {
 
-	private static final DateFormat DATE_FORMAT_LAST_CALL = SimpleDateFormat.getDateTimeInstance();
+	private static final DateFormat DATE_TIME_FORMAT = SimpleDateFormat.getDateTimeInstance();
+	private static final DateFormat DATE_FORMAT = SimpleDateFormat.getDateInstance();
 
 	public static int getDaysDiff(long date) {
 
@@ -24,8 +25,12 @@ public class DateUtils {
 		}
 	}
 
-	public static String getFormattedTimestamp(long date) {
-		return DATE_FORMAT_LAST_CALL.format(new Date(date));
+	public static String getFormattedDateTime(long date) {
+		return DATE_TIME_FORMAT.format(new Date(date));
+	}
+
+	public static String getFormattedDate(long date) {
+		return DATE_FORMAT.format(new Date(date));
 	}
 
 }
