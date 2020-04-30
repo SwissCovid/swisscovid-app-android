@@ -7,6 +7,7 @@
 package org.dpppt.android.app.debug;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -16,8 +17,10 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -36,6 +39,11 @@ import org.dpppt.android.app.util.InfoDialog;
 import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.util.FileUploadRepository;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DebugFragment extends Fragment {
 
@@ -71,6 +79,36 @@ public class DebugFragment extends Fragment {
 
 		setupSdkViews(view);
 		setupStateOptions(view);
+
+		View debugUploadButton = getView().findViewById(R.id.button_upload_debug_data);
+		debugUploadButton.setOnClickListener(v -> {
+			AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+			builder.setTitle("Identifier");
+			final EditText input = new EditText(getContext());
+			builder.setView(input);
+			builder.setPositiveButton("OK", (dialog, which) -> {
+				String name = input.getText().toString();
+				ProgressDialog progressDialog = ProgressDialog.show(getContext(), "Upload", "");
+				new FileUploadRepository()
+						.uploadDatabase(getContext(), name,
+								new Callback<Void>() {
+									@Override
+									public void onResponse(Call<Void> call, Response<Void> response) {
+										progressDialog.hide();
+										Toast.makeText(getContext(), "Upload success!", Toast.LENGTH_LONG).show();
+									}
+
+									@Override
+									public void onFailure(Call<Void> call, Throwable t) {
+										t.printStackTrace();
+										progressDialog.hide();
+										Toast.makeText(getContext(), "Upload failed!", Toast.LENGTH_LONG).show();
+									}
+								});
+			});
+			builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+			builder.show();
+		});
 	}
 
 	private void setupSdkViews(View view) {

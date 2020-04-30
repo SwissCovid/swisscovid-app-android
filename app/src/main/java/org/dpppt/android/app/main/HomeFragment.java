@@ -7,10 +7,8 @@ package org.dpppt.android.app.main;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -20,10 +18,8 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -50,11 +46,6 @@ import org.dpppt.android.app.viewmodel.TracingViewModel;
 import org.dpppt.android.app.whattodo.WtdPositiveTestFragment;
 import org.dpppt.android.app.whattodo.WtdSymptomsFragment;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.util.FileUploadRepository;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import static android.view.View.VISIBLE;
 
@@ -114,7 +105,7 @@ public class HomeFragment extends Fragment {
 						HtmlFragment.newInstance(R.string.menu_impressum, AssetUtil.getImpressumBaseUrl(getContext()),
 								AssetUtil.getImpressumHtml(getContext()));
 				getParentFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, htmlFragment)
 						.addToBackStack(HtmlFragment.class.getCanonicalName())
 						.commit();
@@ -234,7 +225,7 @@ public class HomeFragment extends Fragment {
 
 	private void showContactsFragment() {
 		getParentFragmentManager().beginTransaction()
-				.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 				.replace(R.id.main_fragment_container, ContactsFragment.newInstance())
 				.addToBackStack(ContactsFragment.class.getCanonicalName())
 				.commit();
@@ -244,7 +235,7 @@ public class HomeFragment extends Fragment {
 	private void setupNotification() {
 		cardNotifications.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
 						.addToBackStack(ReportsFragment.class.getCanonicalName())
 						.commit());
@@ -339,13 +330,13 @@ public class HomeFragment extends Fragment {
 
 		cardSymptoms.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
 						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
 						.commit());
 		cardTest.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
 						.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
 						.commit());
@@ -359,36 +350,6 @@ public class HomeFragment extends Fragment {
 		} else {
 			debugButton.setVisibility(View.GONE);
 		}
-
-		View debugUploadButton = getView().findViewById(R.id.main_button_upload_debug_data);
-		debugUploadButton.setOnClickListener(view -> {
-			AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-			builder.setTitle("Identifier");
-			final EditText input = new EditText(getContext());
-			builder.setView(input);
-			builder.setPositiveButton("OK", (dialog, which) -> {
-				String name = input.getText().toString();
-				ProgressDialog progressDialog = ProgressDialog.show(getContext(), "Upload", "");
-				new FileUploadRepository()
-						.uploadDatabase(getContext(), name,
-								new Callback<Void>() {
-									@Override
-									public void onResponse(Call<Void> call, Response<Void> response) {
-										progressDialog.hide();
-										Toast.makeText(getContext(), "Upload success!", Toast.LENGTH_LONG).show();
-									}
-
-									@Override
-									public void onFailure(Call<Void> call, Throwable t) {
-										t.printStackTrace();
-										progressDialog.hide();
-										Toast.makeText(getContext(), "Upload failed!", Toast.LENGTH_LONG).show();
-									}
-								});
-			});
-			builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
-			builder.show();
-		});
 	}
 
 	private void setupScrollBehavior() {

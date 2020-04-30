@@ -144,14 +144,6 @@
 					android:layout_marginBottom="@dimen/spacing_larger"
 					android:text="@string/debug_settings_title" />
 
-				<Button
-					android:id="@+id/main_button_upload_debug_data"
-					style="@style/NextStep.Button.Outlined.Red"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_gravity="center_horizontal"
-					android:text="Upload debug data" />
-
 			</LinearLayout>
 
 		</ScrollView>
