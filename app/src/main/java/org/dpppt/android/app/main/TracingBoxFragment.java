@@ -77,14 +77,14 @@ public class TracingBoxFragment extends Fragment {
 			TracingStatus.ErrorState errorState = tracingStatusInterface.getTracingErrorState();
 			if (errorState != null) {
 				handleErrorState(errorState);
-			} else if (!isTracing) {
-				tracingStatusView.setVisibility(View.GONE);
-				tracingErrorView.setVisibility(View.VISIBLE);
-				TracingStatusHelper.showTracingDeactivated(tracingErrorView);
 			} else if (tracingStatusInterface.isReportedAsInfected()) {
 				tracingStatusView.setVisibility(View.VISIBLE);
 				tracingErrorView.setVisibility(View.GONE);
 				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ENDED);
+			} else if (!isTracing) {
+				tracingStatusView.setVisibility(View.GONE);
+				tracingErrorView.setVisibility(View.VISIBLE);
+				TracingStatusHelper.showTracingDeactivated(tracingErrorView);
 			} else {
 				tracingStatusView.setVisibility(View.VISIBLE);
 				tracingErrorView.setVisibility(View.GONE);
