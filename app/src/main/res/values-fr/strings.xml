@@ -314,7 +314,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="meldung_detail_positive_test_box_title">"Selbst-Isolation"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
-    <string name="meldung_detail_positive_test_box_text">"Befolgen Sie die Anweisungen des Testcenters zur Selbst-Isolation"</string>
+    <string name="meldung_detail_positive_test_box_text">"Befolgen Sie die Anweisungen zur Selbst-Isolation"</string>
     <string name="tracing_ended_title">"Tracing beendet"</string>
     <string name="tracing_ended_text">"Es werden keine Begegnungen mehr gespeichert."</string>
     <string name="exposed_info_contact_hotline">"Kontaktieren Sie die"</string>
@@ -336,7 +336,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="reset_onboarding">"Onboarding zurücksetzen"</string>
 
     <!-- Heute -->
-    <string name="date_today">"Heute"</string>
+    <string name="date_today">"heute"</string>
 
     <!-- Meldung Detail: Vor wievielen Tagen {COUNT} wird durch Zahl ersetzt -->
     <string name="date_days_ago">"vor {COUNT} Tagen"</string>
@@ -407,7 +407,7 @@ garantiert"</string>
     <string name="onboarding_privacy_text2">"Sämtliche Daten werden verschlüsselt und nur lokal auf dem Smartphone gespeichert."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"Was macht die App?"</string>
+    <string name="onboarding_begegnungen_heading">"Wie funktioniert die App?"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"Begegnungen erkennen
@@ -738,7 +738,7 @@ Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist werden sie 
     <string name="meldungen_detail_explanation_text3">"Bei ersten Symptomen kontaktieren Sie Ihren Arzt/Ihre Ärztin."</string>
 
     <!-- Meldungen: Meldung Weisse Box Link Titel -->
-    <string name="meldungen_explanation_link_title">"Anweisung zur Selbstquarantäne"</string>
+    <string name="meldungen_explanation_link_title">"Anweisung zur Selbst-Isolation"</string>
 
     <!-- Meldungen: Meldung Weisse Box Link URL -->
     <string name="meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/selbst-isolierung-und-selbst-quarantaene.html"</string>
@@ -750,12 +750,6 @@ Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist werden sie 
     <string name="meldungen_meldungen_faq1_text">"Es ist wichtig, dass Sie bei jeder neuen Meldung anrufen.
 
 Sie bleiben dabei anonym. Es werden keine Personendaten erfasst."</string>
-
-    <!-- Meldungen: Meldungen FAQ Titel -->
-    <string name="meldungen_meldungen_faq2_title">"Was passiert nach 10 Tagen?"</string>
-
-    <!-- Meldungen: Meldungen FAQ Text -->
-    <string name="meldungen_meldungen_faq2_text">"Die App informiert Sie 10 Tage nach einer möglichen Ansteckung. Sind bis dann keine Symptome aufgetreten, können Sie die Selbst-Quarantäne beenden."</string>
 
     <!-- Meldungen Detail: Anruf Titel -->
     <string name="meldungen_detail_call_thankyou_title">"Danke für das Mitmachen"</string>
@@ -834,4 +828,22 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
 
     <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
     <string name="language_key">"fr"</string>
+
+    <!-- Meldungen: Meldungen FAQ Titel -->
+    <string name="meldungen_meldungen_faq2_title">"Was passiert nach 10 Tagen?"</string>
+
+    <!-- Meldungen: Meldungen FAQ Tex -->
+    <string name="meldungen_meldungen_faq2_text">"Die App informiert Sie 10 Tage nach einer möglichen Ansteckung. Sind bis dann keine Symptome aufgetreten, können Sie die Selbst-Quarantäne beenden."</string>
+
+    <!-- Meldungen Homescreen: Name Hotline -->
+    <string name="exposed_info_contact_hotline_name">"Infoline Coronavirus"</string>
+
+    <!-- Meldung Detail: "Noch 1 Tag" Label -->
+    <string name="date_in_one_day">"Noch 1 Tag"</string>
+
+    <!-- Meldung Detail: Anzeige "Noch x Tage" {COUNT} wird durch Zahl ersetzt -->
+    <string name="date_in_days">"Noch {COUNT} Tage"</string>
+
+    <!-- Datum: Text vor Datum: am 26.2.2020 / {DATE} wird ersetzt durch Datum -->
+    <string name="date_text_before_date">"am {DATE}"</string>
 </resources>
