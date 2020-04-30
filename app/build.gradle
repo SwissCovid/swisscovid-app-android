@@ -23,6 +23,8 @@ android {
 		versionCode 1000
 		versionName "1.0"
 		resConfigs "en", "fr", "de", "it"
+
+		buildConfigField "long", "BUILD_TIME", System.currentTimeMillis() + "L"
 	}
 
 	flavorDimensions "version"

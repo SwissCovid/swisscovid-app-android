@@ -26,6 +26,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import org.dpppt.android.app.R;
+import org.dpppt.android.app.util.AssetUtil;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
@@ -42,7 +43,6 @@ public class HtmlFragment extends Fragment {
 	@StringRes
 	private int titleRes;
 	private View loadingSpinner;
-	private Toast downloadingFileToast;
 
 	public static HtmlFragment newInstance(int titleRes, String baseUrl, @Nullable String data) {
 		Bundle args = new Bundle();
@@ -86,16 +86,31 @@ public class HtmlFragment extends Fragment {
 
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
-				if (url.toLowerCase().endsWith(".pdf")) {
-					openFileFromUrl(url, "application/pdf");
-				} else if (url.toLowerCase().endsWith(".xlsx")) {
-					openFileFromUrl(url, "text/csv");
-				} else {
-					Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-					startActivity(webIntent);
+				if (url.toLowerCase().startsWith("dp3t://")) {
+					String strippedUrl = url.substring(7);
+					HtmlFragment htmlFragment =
+							HtmlFragment.newInstance(R.string.menu_impressum, baseUrl,
+									AssetUtil.loadImpressumHtmlFile(getContext(), strippedUrl));
+					getParentFragmentManager().beginTransaction()
+							.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+							.replace(R.id.main_fragment_container, htmlFragment)
+							.addToBackStack(HtmlFragment.class.getCanonicalName())
+							.commit();
 					return true;
 				}
-				return false;
+				if (url.toLowerCase().endsWith(".pdf")) {
+					openFileFromUrl(url, "application/pdf");
+					return true;
+				} else if (url.toLowerCase().endsWith(".xlsx")) {
+					openFileFromUrl(url, "text/csv");
+					return true;
+				} else {
+					Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+					if (webIntent.resolveActivity(getContext().getPackageManager()) != null) {
+						startActivity(webIntent);
+					}
+					return true;
+				}
 			}
 		});
 
@@ -151,7 +166,6 @@ public class HtmlFragment extends Fragment {
 						activity.startActivity(shareIntent);
 					}
 					loadingSpinner.setVisibility(View.GONE);
-					downloadingFileToast.cancel();
 				});
 	}
 

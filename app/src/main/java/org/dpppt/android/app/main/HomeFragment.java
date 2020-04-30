@@ -111,7 +111,7 @@ public class HomeFragment extends Fragment {
 		toolbar.setOnMenuItemClickListener(item -> {
 			if (item.getItemId() == R.id.homescreen_menu_impressum) {
 				HtmlFragment htmlFragment =
-						HtmlFragment.newInstance(R.string.menu_impressum, AssetUtil.getImpressumBaseUrl(),
+						HtmlFragment.newInstance(R.string.menu_impressum, AssetUtil.getImpressumBaseUrl(getContext()),
 								AssetUtil.getImpressumHtml(getContext()));
 				getParentFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
