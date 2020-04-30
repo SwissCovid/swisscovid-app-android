@@ -826,4 +826,13 @@ Damit können andere dp3t-app App Nutzer prüfen, ob Sie in den letzten Tagen ei
     <string name="symptom_faq1_text">"Sie haben Symptome und sind unsicher, wie Sie sich verhalten sollen? 
 
 Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfehlung."</string>
+
+    <!-- Meldungen: Positiv getestet FAQ Titel -->
+    <string name="meldungen_positive_tested_faq1_title">"Warum ist das Tracing beendet?"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ Text -->
+    <string name="meldungen_positive_tested_faq1_text">"Nach einem positiven Test wird das Tracing in der App automatisch beendet."</string>
+
+    <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
+    <string name="language_key">"de"</string>
 </resources>

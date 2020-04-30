@@ -5,6 +5,8 @@
  */
 package org.dpppt.android.app.contacts;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ScrollView;
@@ -65,6 +67,11 @@ public class ContactsFragment extends Fragment {
 		});
 		setupScrollBehavior();
 		setupTracingView();
+
+		view.findViewById(R.id.contacts_faq_button).setOnClickListener(v -> {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
+			startActivity(browserIntent);
+		});
 	}
 
 	private void setupTracingView() {
