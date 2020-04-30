@@ -21,6 +21,7 @@
 			android:id="@+id/notifications_header"
 			android:layout_width="match_parent"
 			android:layout_marginTop="5dp"
+			android:paddingBottom="5dp"
 			android:layout_height="match_parent"
 			android:gravity="center_vertical"
 			android:orientation="horizontal">

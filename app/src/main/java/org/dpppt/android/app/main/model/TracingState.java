@@ -50,7 +50,7 @@ public enum TracingState {
 			case NOT_ACTIVE:
 				return R.drawable.ic_warning_red;
 			case ENDED:
-				return R.drawable.ic_info;
+				return R.drawable.ic_stopp;
 		}
 		return -1;
 	}
@@ -86,7 +86,7 @@ public enum TracingState {
 			case ACTIVE:
 				return R.drawable.ill_tracking_active;
 			case ENDED:
-				return R.drawable.ill_positiv_getestet;
+				return R.drawable.ic_illu_tracing_ended;
 			case NOT_ACTIVE:
 			default:
 				return -1;
