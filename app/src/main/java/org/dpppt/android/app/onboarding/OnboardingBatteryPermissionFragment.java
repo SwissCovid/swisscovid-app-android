@@ -63,10 +63,9 @@ public class OnboardingBatteryPermissionFragment extends Fragment {
 		} else {
 			setButtonDefault(batteryButton, R.string.android_onboarding_battery_permission_button);
 		}
-		continueButton.setVisibility(batteryOptDeactivated ? View.VISIBLE : View.GONE);
+		continueButton.setVisibility(wasUserActive ? View.VISIBLE : View.GONE);
 
 		if (batteryOptDeactivated && wasUserActive) {
-			wasUserActive = false;
 			((OnboardingActivity) getActivity()).continueToNextPage();
 		}
 	}

@@ -26,6 +26,7 @@ public class OnboardingActivity extends FragmentActivity {
 		setContentView(R.layout.activity_onboarding);
 
 		viewPager = findViewById(R.id.pager);
+		viewPager.setUserInputEnabled(false);
 		pagerAdapter = new OnboardingSlidePageAdapter(this);
 		viewPager.setAdapter(pagerAdapter);
 	}
@@ -40,15 +41,4 @@ public class OnboardingActivity extends FragmentActivity {
 			finish();
 		}
 	}
-
-	@Override
-	public void onBackPressed() {
-		if (viewPager.getCurrentItem() == 0) {
-			setResult(RESULT_CANCELED);
-			finish();
-		} else {
-			viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
-		}
-	}
-
 }

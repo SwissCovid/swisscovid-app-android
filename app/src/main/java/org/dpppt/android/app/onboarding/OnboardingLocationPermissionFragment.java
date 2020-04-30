@@ -83,9 +83,8 @@ public class OnboardingLocationPermissionFragment extends Fragment {
 							.create()
 							.show();
 				}
-			} else {
-				((OnboardingActivity) getActivity()).continueToNextPage();
 			}
+			((OnboardingActivity) getActivity()).continueToNextPage();
 		}
 	}
 
