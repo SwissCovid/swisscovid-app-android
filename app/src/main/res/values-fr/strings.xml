@@ -358,10 +358,10 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="meldungen_detail_explanation_title">"Vorsicht!"</string>
 
     <!-- Meldungen Detail Weisse Box Erklärungstext 1 -->
-    <string name="meldungen_detail_explanation_text1">"Sie könnten ansteckend sein, ohne es zu merken."</string>
+    <string name="meldungen_detail_explanation_text1">"Sie könnten bereits ansteckend sein, ohne es zu merken."</string>
 
     <!-- Meldungen Detail: Weisse Box Erklärtext 2 -->
-    <string name="meldungen_detail_explanation_text2">"Bitte schützen Sie Ihre Familie, Ihre Freunde und Ihr Umfeld, indem Sie in den nächsten 10 Tagen Kontakte vermeiden."</string>
+    <string name="meldungen_detail_explanation_text2">"Bitte schützen Sie Ihre Familie, Ihre Freunde und Ihr Umfeld. Vermeiden Sie Kontakte bis 10 Tage nach einer möglichen Ansteckung."</string>
 
     <!-- Meldungen Detail Weisse Box Titel -->
     <string name="meldungen_detail_guard_others">"Schützen Sie andere"</string>
@@ -738,7 +738,7 @@ Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist werden sie 
     <string name="meldungen_detail_explanation_text3">"Bei ersten Symptomen kontaktieren Sie Ihren Arzt/Ihre Ärztin."</string>
 
     <!-- Meldungen: Meldung Weisse Box Link Titel -->
-    <string name="meldungen_explanation_link_title">"Anweisung zur Selbst-Isolation"</string>
+    <string name="meldungen_explanation_link_title">"Anweisungen zur Selbst-Isolation"</string>
 
     <!-- Meldungen: Meldung Weisse Box Link URL -->
     <string name="meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/selbst-isolierung-und-selbst-quarantaene.html"</string>
