@@ -16,16 +16,18 @@ public class NotificationStateHelper {
 		Context context = statusView.getContext();
 		if (NotificationState.getBackgroundColor(state) != -1) {
 			statusView.findViewById(R.id.status_background)
-					.setBackgroundColor(ContextCompat.getColor(context, NotificationState.getBackgroundColor(state)));
+					.setBackgroundTintList(
+							ColorStateList.valueOf(ContextCompat.getColor(context, NotificationState.getBackgroundColor(state))));
 		}
 		ImageView iconView = statusView.findViewById(R.id.status_icon);
 		TextView titleView = statusView.findViewById(R.id.status_title);
 		TextView textView = statusView.findViewById(R.id.status_text);
 		ImageView illustrationView = statusView.findViewById(R.id.status_illustration);
-		int color = ContextCompat.getColor(context, NotificationState.getTextColor(state));
-		titleView.setTextColor(color);
-		textView.setTextColor(color);
-		iconView.setImageTintList(ColorStateList.valueOf(color));
+		int titleColor = ContextCompat.getColor(context, NotificationState.getTitleTextColor(state));
+		int textColor = ContextCompat.getColor(context, NotificationState.geTextColor(state));
+		titleView.setTextColor(titleColor);
+		textView.setTextColor(textColor);
+		iconView.setImageTintList(ColorStateList.valueOf(titleColor));
 
 		if (NotificationState.getTitle(state) != -1) {
 			titleView.setText(NotificationState.getTitle(state));
@@ -64,7 +66,7 @@ public class NotificationStateHelper {
 			triangle.setImageResource(R.drawable.triangle_status_exposed);
 			infoContainer.setVisibility(View.VISIBLE);
 			infoText.setText(R.string.exposed_info_contact_hotline);
-			infoTel.setText(R.string.infoline_tel_number);
+			infoTel.setText(R.string.meldungen_detail_call_text);
 			infoSince.setVisibility(View.VISIBLE);
 			if (daySinceExposed == 0) {
 				infoSince.setText(R.string.date_today);

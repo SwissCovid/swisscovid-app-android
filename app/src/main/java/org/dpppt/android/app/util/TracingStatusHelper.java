@@ -25,7 +25,8 @@ public class TracingStatusHelper {
 		Context context = statusView.getContext();
 		if (TracingState.getBackgroundColor(state) != -1) {
 			statusView.findViewById(R.id.status_background)
-					.setBackgroundColor(ContextCompat.getColor(context, TracingState.getBackgroundColor(state)));
+					.setBackgroundTintList(
+							ColorStateList.valueOf(ContextCompat.getColor(context, TracingState.getBackgroundColor(state))));
 		}
 		ImageView iconView = statusView.findViewById(R.id.status_icon);
 		TextView titleView = statusView.findViewById(R.id.status_title);
@@ -47,7 +48,6 @@ public class TracingStatusHelper {
 		} else {
 			textView.setVisibility(View.GONE);
 		}
-		textView.setTextColor(color);
 		if (TracingState.getIcon(state) != -1) {
 			iconView.setImageResource(TracingState.getIcon(state));
 			iconView.setVisibility(View.VISIBLE);

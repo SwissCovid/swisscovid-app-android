@@ -13,6 +13,7 @@
 		android:id="@+id/card_tracing"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
 		android:foreground="?selectableItemBackground"
 		android:orientation="vertical">
 
@@ -35,6 +36,7 @@
 				android:id="@+id/contacs_chevron"
 				android:layout_width="@dimen/chevron_size_title"
 				android:layout_height="@dimen/chevron_size_title"
+				android:layout_marginEnd="@dimen/spacing_small"
 				android:src="@drawable/ic_chevron_right"
 				android:tint="@color/dark_main" />
 
@@ -43,7 +45,7 @@
 		<FrameLayout
 			android:id="@+id/status_container"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
+			android:layout_height="wrap_content" />
 
 	</LinearLayout>
 
