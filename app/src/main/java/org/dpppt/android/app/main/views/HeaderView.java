@@ -146,8 +146,6 @@ public class HeaderView extends ConstraintLayout {
 				}
 			}
 		} else if (state.getNotificationState() == NotificationState.POSITIVE_TESTED) {
-			iconRes = R.drawable.ic_info;
-			iconBgRes = R.drawable.bg_header_icon_off;
 			backgroundColor = getResources().getColor(R.color.header_bg_exposed, null);
 		} else {
 			throw new IllegalStateException(
@@ -181,7 +179,11 @@ public class HeaderView extends ConstraintLayout {
 			iconBackground.setImageResource(iconBgRes);
 		}
 
-		circleView.setState(state.getTracingState() == TracingState.ACTIVE && !hasTracingError, initialUpdate);
+		circleView.setState(
+				state.getNotificationState() != NotificationState.POSITIVE_TESTED
+						&& state.getTracingState() == TracingState.ACTIVE
+						&& !hasTracingError,
+				initialUpdate);
 		icon.post(() -> {
 			circleView.setCenter(Math.round(icon.getX() + icon.getWidth() / 2), Math.round(icon.getY() + icon.getHeight() / 2));
 		});
