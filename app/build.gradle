@@ -10,6 +10,8 @@ plugins {
 	id 'io.fabric'
 }
 
+apply from: 'backend_certs.gradle'
+
 android {
 	compileSdkVersion 29
 	buildToolsVersion "29.0.3"
@@ -31,6 +33,8 @@ android {
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-d.bfs.admin.ch/"'
+			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.dev.CONFIG_CERTIFICATE}\""
+			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.dev.BUCKET_PUBLIC_KEY}\""
 		}
 		abnahme {
 			buildConfigField 'boolean', 'IS_DEV', 'false'
@@ -38,6 +42,8 @@ android {
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-a.bfs.admin.ch/"'
+			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.abnahme.CONFIG_CERTIFICATE}\""
+			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.abnahme.BUCKET_PUBLIC_KEY}\""
 		}
 		prod {
 			buildConfigField 'boolean', 'IS_DEV', 'false'
@@ -45,6 +51,8 @@ android {
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
+			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
+			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
 		}
 	}
 

@@ -15,6 +15,8 @@ import android.content.Intent;
 import android.os.Build;
 import androidx.core.app.NotificationCompat;
 
+import java.security.PublicKey;
+
 import com.crashlytics.android.Crashlytics;
 
 import org.dpppt.android.app.networking.FakeWorker;
@@ -27,9 +29,9 @@ import org.dpppt.android.sdk.backend.models.ApplicationInfo;
 import org.dpppt.android.sdk.internal.backend.BackendBucketRepository;
 import org.dpppt.android.sdk.internal.database.models.ExposureDay;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
+import org.dpppt.android.sdk.util.SignatureUtil;
 
 import io.fabric.sdk.android.Fabric;
-
 
 public class MainApplication extends Application {
 
@@ -41,7 +43,8 @@ public class MainApplication extends Application {
 		}
 		if (ProcessUtil.isMainProcess(this)) {
 			registerReceiver(contactUpdateReceiver, DP3T.getUpdateIntentFilter());
-			DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL));
+			PublicKey signaturePublicKey = SignatureUtil.getPublicKeyFromBase64OrThrow(BuildConfig.BUCKET_PUBLIC_KEY);
+			DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL), signaturePublicKey);
 			FakeWorker.safeStartFakeWorker(this);
 		}
 		if (!BuildConfig.DEBUG) {

@@ -15,10 +15,7 @@ import retrofit2.http.Query;
 
 public interface ConfigService {
 
-	@Headers({
-					 "accept: */*",
-					 "content-type: application/json"
-			 })
+	@Headers("Accept: application/json")
 	@GET("v1/config")
 	Call<ConfigResponseModel> getConfig(@Query("appversion") String appVersion, @Query("osversion") String osVersion);
 
