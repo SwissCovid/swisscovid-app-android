@@ -55,6 +55,7 @@
 
 			<ImageView
 				android:layout_width="@dimen/chevron_size_title"
+				android:layout_marginEnd="@dimen/spacing_small"
 				android:layout_height="@dimen/chevron_size_title"
 				android:src="@drawable/ic_chevron_right"
 				android:tint="@color/purple_main" />

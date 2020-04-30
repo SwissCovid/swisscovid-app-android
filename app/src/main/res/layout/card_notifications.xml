@@ -20,6 +20,7 @@
 		<LinearLayout
 			android:id="@+id/notifications_header"
 			android:layout_width="match_parent"
+			android:layout_marginTop="5dp"
 			android:layout_height="match_parent"
 			android:gravity="center_vertical"
 			android:orientation="horizontal">
@@ -35,6 +36,7 @@
 			<ImageView
 				android:layout_width="@dimen/chevron_size_title"
 				android:layout_height="@dimen/chevron_size_title"
+				android:layout_marginEnd="@dimen/spacing_small"
 				android:src="@drawable/ic_chevron_right"
 				android:tint="@color/dark_main" />
 

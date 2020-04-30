@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ScrollView;
@@ -209,7 +210,10 @@ public class HomeFragment extends Fragment {
 
 	private void setupTracingView() {
 
-		tracingCard.setOnClickListener(v -> showContactsFragment());
+		TypedValue outValue = new TypedValue();
+		getContext().getTheme().resolveAttribute(
+				android.R.attr.selectableItemBackground, outValue, true);
+		tracingCard.setForeground(getContext().getDrawable(outValue.resourceId));
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			if (tracingStatusInterface.isReportedAsInfected()) {
@@ -217,6 +221,7 @@ public class HomeFragment extends Fragment {
 				cardTestFrame.setVisibility(View.GONE);
 				tracingCard.findViewById(R.id.contacs_chevron).setVisibility(View.GONE);
 				tracingCard.setOnClickListener(null);
+				tracingCard.setForeground(null);
 			} else {
 				cardSymptomsFrame.setVisibility(VISIBLE);
 				cardTestFrame.setVisibility(VISIBLE);
