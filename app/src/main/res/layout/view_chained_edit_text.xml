@@ -159,7 +159,6 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toEndOf="@+id/chained_edit_text_view_11"
 		app:layout_constraintTop_toTopOf="parent"
-		android:layout_marginEnd="@dimen/spacing_medium"
 		tools:text="4" />
 
 </merge>

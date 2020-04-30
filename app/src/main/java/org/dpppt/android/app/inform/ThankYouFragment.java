@@ -31,7 +31,7 @@ public class ThankYouFragment extends Fragment {
 
 		view.findViewById(R.id.inform_thank_you_button_continue).setOnClickListener(v -> {
 			getParentFragmentManager().beginTransaction()
-					.replace(R.id.inform_fragment_container, GetWellFragment.newInstance())
+					.replace(R.id.inform_fragment_container, TracingStoppedFragment.newInstance())
 					.commit();
 		});
 	}

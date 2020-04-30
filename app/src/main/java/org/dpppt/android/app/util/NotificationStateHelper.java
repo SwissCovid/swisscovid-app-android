@@ -64,7 +64,7 @@ public class NotificationStateHelper {
 			triangle.setImageResource(R.drawable.triangle_status_exposed);
 			infoContainer.setVisibility(View.VISIBLE);
 			infoText.setText(R.string.exposed_info_contact_hotline);
-			infoTel.setText(R.string.exposed_info_line_tel);
+			infoTel.setText(R.string.infoline_tel_number);
 			infoSince.setVisibility(View.VISIBLE);
 			if (daySinceExposed == 0) {
 				infoSince.setText(R.string.date_today);

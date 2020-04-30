@@ -109,13 +109,6 @@ public class InformFragment extends Fragment {
 		view.findViewById(R.id.cancel_button).setOnClickListener(v -> {
 			getActivity().onBackPressed();
 		});
-
-		view.findViewById(R.id.trigger_fragment_no_code_button).setOnClickListener(v -> {
-			getParentFragmentManager().beginTransaction()
-					.replace(R.id.inform_fragment_container, NoCodeFragment.newInstance())
-					.addToBackStack(NoCodeFragment.class.getCanonicalName())
-					.commit();
-		});
 	}
 
 	private void authenticateInput(String authCode) {

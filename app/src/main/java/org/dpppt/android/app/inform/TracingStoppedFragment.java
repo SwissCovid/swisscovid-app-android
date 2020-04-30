@@ -13,24 +13,28 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.util.PhoneUtil;
 
-public class NoCodeFragment extends Fragment {
+public class TracingStoppedFragment extends Fragment {
 
-	public static NoCodeFragment newInstance() {
-		return new NoCodeFragment();
+	public static TracingStoppedFragment newInstance() {
+		return new TracingStoppedFragment();
 	}
 
-	public NoCodeFragment() {
-		super(R.layout.fragment_no_code);
+	public TracingStoppedFragment() {
+		super(R.layout.fragment_tracing_stopped);
 	}
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		view.findViewById(R.id.no_code_fragment_cancel).setOnClickListener(v -> getActivity().onBackPressed());
-		view.findViewById(R.id.no_code_fragment_support_tel).setOnClickListener(v -> PhoneUtil.callHelpline(getContext()));
+		view.findViewById(R.id.inform_end_tracing_button_continue).setOnClickListener(v -> {
+			getParentFragmentManager().beginTransaction()
+					.replace(R.id.inform_fragment_container, GetWellFragment.newInstance())
+					.commit();
+		});
 	}
+
+
 
 }
