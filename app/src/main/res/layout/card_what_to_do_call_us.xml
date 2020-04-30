@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ Created by Ubique Innovation AG
   ~ https://www.ubique.ch
   ~ Copyright (c) 2020. All rights reserved.
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical">
@@ -107,10 +109,10 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_small"
-				android:text="@string/meldungen_detail_call_last_call"
 				android:textColor="@color/grey_dark"
 				android:textSize="@dimen/text_size_small"
-				app:layout_constraintTop_toBottomOf="@id/card_encounters_button" />
+				app:layout_constraintTop_toBottomOf="@id/card_encounters_button"
+				tools:text="@string/meldungen_detail_call_last_call" />
 
 			<LinearLayout
 				android:id="@+id/card_encounters_last_lines"
@@ -151,11 +153,25 @@
 
 					<include layout="@layout/view_text_bullet" />
 
-					<TextView
-						style="@style/NextStep.Text"
+					<LinearLayout
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:text="@string/meldungen_detail_explanation_text2" />
+						android:orientation="vertical">
+
+						<TextView
+							style="@style/NextStep.Text"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/meldungen_detail_explanation_text2" />
+
+						<TextView
+							android:id="@+id/card_encounters_days_left"
+							style="@style/NextStep.Text.Bold"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							tools:text="@string/date_in_days" />
+
+					</LinearLayout>
 
 				</LinearLayout>
 

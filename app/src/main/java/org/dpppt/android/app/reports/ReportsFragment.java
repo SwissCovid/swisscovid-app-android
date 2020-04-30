@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -62,6 +63,8 @@ public class ReportsFragment extends Fragment {
 
 	private TextView callHotlineLastText1;
 	private TextView callHotlineLastText2;
+	private TextView daysLeftText1;
+	private TextView daysLeftText2;
 
 	private boolean hotlineJustCalled = false;
 
@@ -95,6 +98,8 @@ public class ReportsFragment extends Fragment {
 
 		callHotlineLastText1 = hotlineView.findViewById(R.id.card_encounters_last_call);
 		callHotlineLastText2 = saveOthersView.findViewById(R.id.card_encounters_last_call);
+		daysLeftText1 = hotlineView.findViewById(R.id.card_encounters_days_left);
+		daysLeftText2 = saveOthersView.findViewById(R.id.card_encounters_days_left);
 
 		Button callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
 		Button callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
@@ -102,34 +107,36 @@ public class ReportsFragment extends Fragment {
 		callHotlineButton1.setOnClickListener(view1 -> callHotline());
 		callHotlineButton2.setOnClickListener(view1 -> callHotline());
 
+		Button faqButton1 = healthyView.findViewById(R.id.card_encounters_faq_button);
+		Button faqButton2 = saveOthersView.findViewById(R.id.card_encounters_faq_button);
 		Button faqButton3 = hotlineView.findViewById(R.id.card_encounters_faq_button);
 		Button faqButton4 = infectedView.findViewById(R.id.card_encounters_faq_button);
 
+		faqButton1.setOnClickListener(v -> showFaq());
+		faqButton2.setOnClickListener(v -> showFaq());
 		faqButton3.setOnClickListener(v -> showFaq());
 		faqButton4.setOnClickListener(v -> showFaq());
 
 		View link1 = infectedView.findViewById(R.id.card_encounters_link);
 		View link2 = hotlineView.findViewById(R.id.card_encounters_link);
+		View link3 = saveOthersView.findViewById(R.id.card_encounters_link);
+		View link4 = healthyView.findViewById(R.id.card_encounters_link);
 
-		link1.setOnClickListener(v -> openLink());
-		link2.setOnClickListener(v -> openLink());
+		link1.setOnClickListener(v -> openLink(R.string.meldungen_explanation_link_url));
+		link2.setOnClickListener(v -> openLink(R.string.meldungen_explanation_link_url));
+		link3.setOnClickListener(v -> openLink(R.string.meldungen_explanation_link_url));
+		link4.setOnClickListener(v -> openLink(R.string.no_meldungen_box_url));
 
 		pagerAdapter = new ReportsSlidePageAdapter();
 		headerViewPager.setAdapter(pagerAdapter);
 		circlePageIndicator.setViewPager(headerViewPager);
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
-			
+
 			healthyView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.GONE);
 			hotlineView.setVisibility(View.GONE);
 			infectedView.setVisibility(View.GONE);
-			/* Debug mode
-			healthyView.setVisibility(View.VISIBLE);
-			saveOthersView.setVisibility(View.VISIBLE);
-			hotlineView.setVisibility(View.VISIBLE);
-			infectedView.setVisibility(View.VISIBLE);
-			 */
 
 			List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
 			if (tracingStatusInterface.isReportedAsInfected()) {
@@ -143,14 +150,28 @@ public class ReportsFragment extends Fragment {
 				} else {
 					saveOthersView.setVisibility(View.VISIBLE);
 				}
+				daysLeftText1.setVisibility(View.GONE);
+				daysLeftText2.setVisibility(View.GONE);
 				for (int i = 0; i < exposureDays.size(); i++) {
 					ExposureDay exposureDay = exposureDays.get(i);
+					long exposureTimestamp = exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault());
 					if (i == 0) {
-						items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION,
-								exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault())));
+						items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, exposureTimestamp));
+						int daysDiff = DateUtils.getDaysDiffUntil(exposureTimestamp, 10);
+						if (daysDiff == 1) {
+							daysLeftText1.setText(R.string.date_in_one_day);
+							daysLeftText2.setText(R.string.date_in_one_day);
+							daysLeftText1.setVisibility(View.VISIBLE);
+							daysLeftText2.setVisibility(View.VISIBLE);
+						} else if (daysDiff > 1) {
+							String dateStr = getString(R.string.date_in_days).replace("{COUNT}", String.valueOf(daysDiff));
+							daysLeftText1.setText(dateStr);
+							daysLeftText2.setText(dateStr);
+							daysLeftText1.setVisibility(View.VISIBLE);
+							daysLeftText2.setVisibility(View.VISIBLE);
+						}
 					} else {
-						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT,
-								exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault())));
+						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, exposureTimestamp));
 					}
 				}
 			} else {
@@ -174,8 +195,8 @@ public class ReportsFragment extends Fragment {
 		notificationManager.cancel(NotificationUtil.NOTIFICATION_ID_CONTACT);
 	}
 
-	private void openLink() {
-		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.meldungen_explanation_link_url)));
+	private void openLink(@StringRes int stringRes) {
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(stringRes)));
 		startActivity(browserIntent);
 	}
 
@@ -283,17 +304,19 @@ public class ReportsFragment extends Fragment {
 		headerViewPager.getDrawingRect(rect);
 		scrollView.setScrollPreventRect(rect);
 
+		View headerParent = (View) headerViewPager.getParent();
+
 		int scrollRangePx = scrollViewFirstchild.getPaddingTop();
 		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
 		scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
 			float progress = computeScrollAnimProgress(scrollY, scrollRangePx);
-			headerViewPager.setAlpha(1 - progress);
-			headerViewPager.setTranslationY(progress * translationRangePx);
+			headerParent.setAlpha(1 - progress);
+			headerParent.setTranslationY(progress * translationRangePx);
 		});
 		scrollView.post(() -> {
 			float progress = computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
-			headerViewPager.setAlpha(1 - progress);
-			headerViewPager.setTranslationY(progress * translationRangePx);
+			headerParent.setAlpha(1 - progress);
+			headerParent.setTranslationY(progress * translationRangePx);
 		});
 	}
 

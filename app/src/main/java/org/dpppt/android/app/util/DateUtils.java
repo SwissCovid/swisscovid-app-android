@@ -7,6 +7,7 @@ package org.dpppt.android.app.util;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +20,21 @@ public class DateUtils {
 
 		try {
 			return (int) TimeUnit.DAYS.convert(System.currentTimeMillis() - date, TimeUnit.MILLISECONDS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+	public static int getDaysDiffUntil(long date, int addDays) {
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTimeInMillis(date);
+		calendar.add(Calendar.DATE, addDays);
+		date = calendar.getTimeInMillis();
+
+		try {
+			return (int) TimeUnit.DAYS.convert(date - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
