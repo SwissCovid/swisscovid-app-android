@@ -9,16 +9,16 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import java.io.IOException;
-import java.util.Random;
+import java.security.PublicKey;
 
 import org.dpppt.android.app.BuildConfig;
 import org.dpppt.android.app.networking.errors.ResponseError;
 import org.dpppt.android.app.networking.models.ConfigResponseModel;
-import org.dpppt.android.app.networking.models.InfoBoxModel;
+import org.dpppt.android.sdk.backend.SignatureVerificationInterceptor;
+import org.dpppt.android.sdk.util.SignatureUtil;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -28,14 +28,10 @@ public class ConfigRepository {
 	private ConfigService configService;
 
 	public ConfigRepository(@NonNull Context context) {
-
 		OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
-		okHttpBuilder.addInterceptor(chain -> {
-			Request request = chain.request()
-					.newBuilder()
-					.build();
-			return chain.proceed(request);
-		});
+
+		PublicKey publicKey = SignatureUtil.getPublicKeyFromCertificateBase64OrThrow(BuildConfig.CONFIG_CERTIFICATE);
+		okHttpBuilder.addInterceptor(new SignatureVerificationInterceptor(publicKey));
 
 		int cacheSize = 5 * 1024 * 1024; // 5 MB
 		Cache cache = new Cache(context.getCacheDir(), cacheSize);
