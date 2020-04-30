@@ -114,6 +114,7 @@ public class HomeFragment extends Fragment {
 						HtmlFragment.newInstance(R.string.menu_impressum, AssetUtil.getImpressumBaseUrl(),
 								AssetUtil.getImpressumHtml(getContext()));
 				getParentFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, htmlFragment)
 						.addToBackStack(HtmlFragment.class.getCanonicalName())
 						.commit();
@@ -233,6 +234,7 @@ public class HomeFragment extends Fragment {
 
 	private void showContactsFragment() {
 		getParentFragmentManager().beginTransaction()
+				.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 				.replace(R.id.main_fragment_container, ContactsFragment.newInstance())
 				.addToBackStack(ContactsFragment.class.getCanonicalName())
 				.commit();
@@ -242,6 +244,7 @@ public class HomeFragment extends Fragment {
 	private void setupNotification() {
 		cardNotifications.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
 						.addToBackStack(ReportsFragment.class.getCanonicalName())
 						.commit());
@@ -336,11 +339,13 @@ public class HomeFragment extends Fragment {
 
 		cardSymptoms.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
 						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
 						.commit());
 		cardTest.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
 						.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
 						.commit());

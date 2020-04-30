@@ -3,7 +3,6 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.inform;
 
 import android.content.Intent;
@@ -30,6 +29,8 @@ public class GetWellFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
+		((InformActivity) requireActivity()).allowBackButton(false);
+
 		view.findViewById(R.id.inform_get_well_button_continue).setOnClickListener(v -> {
 			Intent intent = new Intent(getActivity(), MainActivity.class);
 			intent.setAction(MainActivity.ACTION_STOP_TRACING);
@@ -37,7 +38,5 @@ public class GetWellFragment extends Fragment {
 			getActivity().finish();
 		});
 	}
-
-
 
 }

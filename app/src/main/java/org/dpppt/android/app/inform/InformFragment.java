@@ -6,7 +6,6 @@
 package org.dpppt.android.app.inform;
 
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import androidx.annotation.NonNull;
@@ -14,15 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import java.nio.charset.StandardCharsets;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.google.gson.Gson;
-
 import org.dpppt.android.app.R;
-import org.dpppt.android.app.inform.models.AccessTokenModel;
 import org.dpppt.android.app.inform.views.ChainedEditText;
 import org.dpppt.android.app.networking.AuthCodeRepository;
 import org.dpppt.android.app.networking.errors.InvalidCodeError;
@@ -67,6 +60,7 @@ public class InformFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
+		((InformActivity) requireActivity()).allowBackButton(true);
 		buttonSend = view.findViewById(R.id.trigger_fragment_button_trigger);
 		authCodeInput = view.findViewById(R.id.trigger_fragment_input);
 		authCodeInput.addTextChangedListener(new ChainedEditText.ChainedEditTextListener() {
@@ -106,7 +100,7 @@ public class InformFragment extends Fragment {
 		});
 
 		view.findViewById(R.id.cancel_button).setOnClickListener(v -> {
-			getActivity().onBackPressed();
+			getActivity().finish();
 		});
 	}
 
@@ -161,6 +155,8 @@ public class InformFragment extends Fragment {
 						}
 						secureStorage.clearInformTimeAndCodeAndToken();
 						getParentFragmentManager().beginTransaction()
+								.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter,
+										R.anim.slide_pop_exit)
 								.replace(R.id.inform_fragment_container, ThankYouFragment.newInstance())
 								.commit();
 					}

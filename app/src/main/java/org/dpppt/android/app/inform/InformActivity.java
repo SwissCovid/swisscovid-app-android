@@ -13,6 +13,8 @@ import org.dpppt.android.app.R;
 
 public class InformActivity extends FragmentActivity {
 
+	private boolean allowed = true;
+
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,6 +26,17 @@ public class InformActivity extends FragmentActivity {
 					.add(R.id.inform_fragment_container, InformIntroFragment.newInstance())
 					.commit();
 		}
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (allowed) {
+			super.onBackPressed();
+		}
+	}
+
+	public void allowBackButton(boolean allowed) {
+		this.allowed = allowed;
 	}
 
 }

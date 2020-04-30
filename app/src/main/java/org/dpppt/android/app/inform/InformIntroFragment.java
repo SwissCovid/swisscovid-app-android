@@ -30,15 +30,17 @@ public class InformIntroFragment extends Fragment {
 		cancelButton.setOnClickListener(v -> {
 			getActivity().finish();
 		});
+		((InformActivity) requireActivity()).allowBackButton(true);
 
 		Button continueButton = view.findViewById(R.id.inform_intro_button_continue);
 		continueButton.setOnClickListener(v -> {
 			getParentFragmentManager()
 					.beginTransaction()
+					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 					.replace(R.id.inform_fragment_container, InformFragment.newInstance())
+					.addToBackStack(InformFragment.class.getCanonicalName())
 					.commit();
 		});
-
 	}
 
 }
