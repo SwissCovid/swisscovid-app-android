@@ -18,12 +18,19 @@ import org.dpppt.android.sdk.backend.SignatureVerificationInterceptor;
 import org.dpppt.android.sdk.util.SignatureUtil;
 
 import okhttp3.Cache;
+import okhttp3.CertificatePinner;
 import okhttp3.OkHttpClient;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConfigRepository {
+
+	private static CertificatePinner certificatePinner = CertificatePinner.DEFAULT;
+
+	public static void setCertificatePinner(@NonNull CertificatePinner certificatePinner) {
+		ConfigRepository.certificatePinner = certificatePinner;
+	}
 
 	private ConfigService configService;
 
@@ -36,6 +43,8 @@ public class ConfigRepository {
 		int cacheSize = 5 * 1024 * 1024; // 5 MB
 		Cache cache = new Cache(context.getCacheDir(), cacheSize);
 		okHttpBuilder.cache(cache);
+
+		okHttpBuilder.certificatePinner(certificatePinner);
 
 		Retrofit retrofit = new Retrofit.Builder()
 				.baseUrl(BuildConfig.CONFIG_URL)
