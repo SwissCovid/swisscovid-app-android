@@ -85,7 +85,7 @@ public class ConfigWorker extends Worker {
 		secureStorage.setDoForceUpdate(config.getDoForceUpdate());
 
 		if (config.getInfoBox() != null) {
-			InfoBoxModel info = config.getInfoBox();
+			InfoBoxModel info = config.getInfoBox(context.getString(R.string.language_key));
 			secureStorage.setInfoboxTitle(info.getTitle());
 			secureStorage.setInfoboxText(info.getMsg());
 			secureStorage.setInfoboxLinkTitle(info.getUrlTitle());
@@ -103,6 +103,9 @@ public class ConfigWorker extends Worker {
 		} else {
 			cancelNotification(context);
 		}
+
+		// TODO PP-289: Set sdk parameters
+		// DP3T.setMatchingParameters() (try - handle notInitalized throwable)
 	}
 
 	private void showNotification(Context context) {
