@@ -24,11 +24,12 @@ import org.dpppt.android.app.viewmodel.TracingViewModel;
 public class MainActivity extends FragmentActivity {
 
 	public static final String ACTION_GOTO_REPORTS = "ACTION_GOTO_REPORTS";
+	public static final String ACTION_STOP_TRACING = "ACTION_STOP_TRACING";
 
 	private static final int REQ_ONBOARDING = 123;
 
-	private static final String STATE_CONSUMED_INTENT = "STATE_CONSUMED_INTENT";
-	private boolean consumedIntent;
+	private static final String STATE_CONSUMED_EXPOSED_INTENT = "STATE_CONSUMED_EXPOSED_INTENT";
+	private boolean consumedExposedIntent;
 
 	private SecureStorage secureStorage;
 
@@ -71,7 +72,7 @@ public class MainActivity extends FragmentActivity {
 				startActivityForResult(new Intent(this, OnboardingActivity.class), REQ_ONBOARDING);
 			}
 		} else {
-			consumedIntent = savedInstanceState.getBoolean(STATE_CONSUMED_INTENT);
+			consumedExposedIntent = savedInstanceState.getBoolean(STATE_CONSUMED_EXPOSED_INTENT);
 		}
 
 		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
@@ -84,7 +85,7 @@ public class MainActivity extends FragmentActivity {
 
 		checkIntentForActions();
 
-		if (!consumedIntent) {
+		if (!consumedExposedIntent) {
 			boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
 			if (isHotlineCallPending) {
 				gotoReportsFragment();
@@ -95,18 +96,21 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public void onSaveInstanceState(@NonNull Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putBoolean(STATE_CONSUMED_INTENT, consumedIntent);
+		outState.putBoolean(STATE_CONSUMED_EXPOSED_INTENT, consumedExposedIntent);
 	}
 
 	private void checkIntentForActions() {
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
-		if (intentAction != null && !launchedFromHistory && !consumedIntent) {
-			consumedIntent = true;
-			if (intentAction.equals(MainActivity.ACTION_GOTO_REPORTS)) {
-				gotoReportsFragment();
-			}
+		if (ACTION_STOP_TRACING.equals(intentAction) && !launchedFromHistory) {
+			tracingViewModel.setTracingEnabled(false);
+			intent.setAction(null);
+			setIntent(intent);
+		}
+		else if (ACTION_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory && !consumedExposedIntent) {
+			consumedExposedIntent = true;
+			gotoReportsFragment();
 			intent.setAction(null);
 			setIntent(intent);
 		}

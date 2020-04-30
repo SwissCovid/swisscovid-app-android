@@ -112,7 +112,7 @@ public class InformFragment extends Fragment {
 
 	private void authenticateInput(String authCode) {
 		AuthCodeRepository authCodeRepository = new AuthCodeRepository(getContext());
-		authCodeRepository.getAccessToken(new AuthenticationCodeRequestModel(authCode, 0),
+		authCodeRepository.getAccessToken(new AuthenticationCodeRequestModel(authCode, 1),
 				new ResponseCallback<AuthenticationCodeResponseModel>() {
 					@Override
 					public void onSuccess(AuthenticationCodeResponseModel response) {

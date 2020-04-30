@@ -18,7 +18,7 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
 			android:layout_marginTop="@dimen/spacing_enormous"
-			android:src="@drawable/ill_danke" />
+			android:src="@drawable/ill_tracing_beenden" />
 
 		<TextView
 			style="@style/NextStep.Text.Title"
