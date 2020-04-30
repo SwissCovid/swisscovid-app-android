@@ -401,7 +401,7 @@ Schritt voraus"</string>
 garantiert"</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text1">"Es werden zu keinem Zeitpunkt personenbezogene Daten geteilt. Die Kommunikation zwischen den Geräten findet anonym statt."</string>
+    <string name="onboarding_privacy_text1">"Die Kommunikation zwischen den Geräten findet anonym statt."</string>
 
     <!-- Onboarding Privacy: Text -->
     <string name="onboarding_privacy_text2">"Sämtliche Daten werden verschlüsselt und nur lokal auf dem Smartphone gespeichert."</string>
@@ -697,8 +697,7 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="begegnung_detail_faq1_title">"Was bedeutet Begegnung?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq1_text">"Wenn sich Telefone mit der App für mehrere Minuten nahe beieinander befinden, wird das als Begegnung im Gerät gespeichert.
-"</string>
+    <string name="begegnung_detail_faq1_text">"Wenn sich Telefone mit der App für mehrere Minuten nahe beieinander befinden, wird das als Begegnung im Gerät gespeichert."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnung_detail_faq2_title">"Sind meine Daten sicher?"</string>
@@ -748,7 +747,7 @@ Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist werden sie 
     <string name="meldungen_meldungen_faq1_title">"Muss ich anrufen?"</string>
 
     <!-- Meldungen: Meldungen FAQ Text -->
-    <string name="meldungen_meldungen_faq1_text">"Ja, es ist wichtig, dass Sie bei jeder neuen Meldung anrufen.
+    <string name="meldungen_meldungen_faq1_text">"Es ist wichtig, dass Sie bei jeder neuen Meldung anrufen.
 
 Sie bleiben dabei anonym. Es werden keine Personendaten erfasst."</string>
 
@@ -780,7 +779,7 @@ Sie bleiben dabei anonym. Es werden keine Personendaten erfasst."</string>
     <string name="no_meldungen_box_link">"So schützen wir uns"</string>
 
     <!-- Keine Meldungen Weisse Box Link URL -->
-    <string name="no_meldungen_box_url">"www.bag-coronavirus.ch"</string>
+    <string name="no_meldungen_box_url">"https://www.bag-coronavirus.ch"</string>
 
     <!-- Informieren Detail: FAQ Titel -->
     <string name="inform_detail_faq1_title">"Was ist ein Covidcode?"</string>
@@ -806,4 +805,24 @@ Damit können andere dp3t-app App Nutzer prüfen, ob Sie in den letzten Tagen ei
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
+
+    <!-- URL für Häufige Fragen Button -->
+    <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html"</string>
+
+    <!-- Informieren Flow: Titel erster Screen -->
+    <string name="inform_code_intro_title">"Wichtiger Hinweis"</string>
+
+    <!-- Informieren-Flow: Erster Screen Text -->
+    <string name="inform_code_intro_text">"Obwohl keine Daten zu Ihrer Person gesendet werden kann es sein, dass sich jemand anhand des Datums an die Begegnung erinnern kann."</string>
+
+    <!-- Inform-Flow: Erster Screen Button -->
+    <string name="inform_code_intro_button">"Verstanden"</string>
+
+    <!-- Symptome: FAQ Titel -->
+    <string name="symptom_faq1_title">"Unsicher bei Symptomen?"</string>
+
+    <!-- Symptome: FAQ Text -->
+    <string name="symptom_faq1_text">"Sie haben Symptome und sind unsicher, wie Sie sich verhalten sollen? 
+
+Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfehlung."</string>
 </resources>

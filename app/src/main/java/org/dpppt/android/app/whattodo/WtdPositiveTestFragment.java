@@ -6,6 +6,7 @@
 package org.dpppt.android.app.whattodo;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -35,6 +36,12 @@ public class WtdPositiveTestFragment extends Fragment {
 			Intent intent = new Intent(getActivity(), InformActivity.class);
 			startActivity(intent);
 		});
+
+		view.findViewById(R.id.wtd_inform_faq_button).setOnClickListener(v -> {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
+			startActivity(browserIntent);
+		});
+
 	}
 
 }

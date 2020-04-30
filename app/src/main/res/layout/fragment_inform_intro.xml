@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Created by Ubique Innovation AG
   ~ https://www.ubique.ch
   ~ Copyright (c) 2020. All rights reserved.
@@ -10,12 +9,14 @@
 
 	<FrameLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:padding="@dimen/spacing_medium_large">
+		android:layout_height="wrap_content">
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
+			android:layout_marginStart="@dimen/spacing_medium_large"
+			android:layout_marginTop="@dimen/spacing_enormous"
+			android:layout_marginEnd="@dimen/spacing_medium_large"
 			android:gravity="center_horizontal"
 			android:orientation="vertical"
 			android:paddingTop="@dimen/spacing_huge">
@@ -23,29 +24,23 @@
 			<ImageView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:src="@drawable/ill_danke" />
+				android:src="@drawable/ill_wichtiger_hinweis" />
 
 			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				style="@style/NextStep.Text.Bold.Purple"
-				android:layout_marginTop="@dimen/spacing_large"
-				android:text="TBD"/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:gravity="center_horizontal"
 				style="@style/NextStep.Text.Title"
-				android:text="TBD"/>
-
-			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:gravity="center_horizontal"
+				android:text="@string/inform_code_intro_title" />
+
+			<TextView
 				style="@style/NextStep.Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_larger"
 				android:gravity="center_horizontal"
-				android:text="TBD"/>
+				android:text="@string/inform_code_intro_text" />
 
 			<Button
 				android:id="@+id/inform_intro_button_continue"
@@ -55,7 +50,7 @@
 				android:layout_gravity="center_horizontal"
 				android:layout_marginTop="@dimen/spacing_enormous"
 				android:layout_marginBottom="@dimen/spacing_huger"
-				android:text="@string/inform_continue_button"/>
+				android:text="@string/inform_code_intro_button" />
 
 		</LinearLayout>
 
@@ -65,6 +60,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
+			android:layout_marginTop="@dimen/spacing_medium_large"
+			android:layout_marginEnd="@dimen/spacing_medium_large"
 			android:text="@string/cancel" />
 
 	</FrameLayout>
