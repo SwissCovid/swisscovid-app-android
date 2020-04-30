@@ -31,6 +31,7 @@ import org.dpppt.android.app.networking.models.AuthenticationCodeRequestModel;
 import org.dpppt.android.app.networking.models.AuthenticationCodeResponseModel;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.InfoDialog;
+import org.dpppt.android.app.util.JwtUtil;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
@@ -40,8 +41,6 @@ public class InformFragment extends Fragment {
 	private static final long TIMEOUT_VALID_CODE = 1000 * 60 * 5;
 
 	private static final String REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}";
-
-	private static final SimpleDateFormat ONSET_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
 	private ChainedEditText authCodeInput;
 	private AlertDialog progressDialog;
@@ -99,7 +98,7 @@ public class InformFragment extends Fragment {
 
 			progressDialog = createProgressDialog();
 			if (System.currentTimeMillis() - lastRequestTime < TIMEOUT_VALID_CODE && lastToken != null) {
-				Date onsetDate = getOnsetDate(lastToken);
+				Date onsetDate = JwtUtil.getOnsetDate(lastToken);
 				informExposed(onsetDate, getAuthorizationHeader(lastToken));
 			} else {
 				authenticateInput(authCode);
@@ -121,7 +120,7 @@ public class InformFragment extends Fragment {
 
 						secureStorage.saveInformTimeAndCodeAndToken(authCode, accessToken);
 
-						Date onsetDate = getOnsetDate(accessToken);
+						Date onsetDate = JwtUtil.getOnsetDate(accessToken);
 						if (onsetDate == null) {
 							showErrorDialog(getString(R.string.invalid_response_auth_code), null);
 							if (progressDialog != null && progressDialog.isShowing()) {
@@ -176,24 +175,6 @@ public class InformFragment extends Fragment {
 						buttonSend.setEnabled(true);
 					}
 				});
-	}
-
-	private Date getOnsetDate(String accessToken) {
-		String[] tokenParts = accessToken.split("\\.");
-		if (tokenParts.length < 3) {
-			return null;
-		}
-		String payloadString = new String(Base64.decode(tokenParts[1], Base64.NO_WRAP), StandardCharsets.UTF_8);
-		AccessTokenModel tokenModel = new Gson().fromJson(payloadString, AccessTokenModel.class);
-		if (tokenModel != null && tokenModel.getOnset() != null) {
-			try {
-				return ONSET_DATE_FORMAT.parse(tokenModel.getOnset());
-			} catch (ParseException e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
-		return null;
 	}
 
 	@Override

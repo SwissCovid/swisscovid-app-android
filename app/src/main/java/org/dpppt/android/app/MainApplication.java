@@ -17,6 +17,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.crashlytics.android.Crashlytics;
 
+import org.dpppt.android.app.networking.FakeWorker;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.NotificationUtil;
 import org.dpppt.android.sdk.DP3T;
@@ -41,6 +42,7 @@ public class MainApplication extends Application {
 		if (ProcessUtil.isMainProcess(this)) {
 			registerReceiver(contactUpdateReceiver, DP3T.getUpdateIntentFilter());
 			DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL));
+			FakeWorker.safeStartFakeWorker(this);
 		}
 		if (!BuildConfig.DEBUG) {
 			Fabric.with(this, new Crashlytics());

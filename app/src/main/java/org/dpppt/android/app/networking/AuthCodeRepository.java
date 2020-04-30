@@ -8,6 +8,8 @@ package org.dpppt.android.app.networking;
 import android.content.Context;
 import androidx.annotation.NonNull;
 
+import java.io.IOException;
+
 import org.dpppt.android.app.BuildConfig;
 import org.dpppt.android.app.networking.errors.InvalidCodeError;
 import org.dpppt.android.app.networking.errors.ResponseError;
@@ -74,6 +76,13 @@ public class AuthCodeRepository {
 				callbackListener.onError(t);
 			}
 		});
+	}
+
+	public AuthenticationCodeResponseModel getAccessTokenSync(@NonNull AuthenticationCodeRequestModel authenticationCode)
+			throws IOException, ResponseError {
+		Response<AuthenticationCodeResponseModel> response = authCodeService.getAccessToken(authenticationCode).execute();
+		if (!response.isSuccessful()) throw new ResponseError(response.raw());
+		return response.body();
 	}
 
 }
