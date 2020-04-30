@@ -20,13 +20,13 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.app.BuildConfig;
-import org.dpppt.android.app.MainActivity;
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.networking.errors.ResponseError;
 import org.dpppt.android.app.networking.models.ConfigResponseModel;
 import org.dpppt.android.app.networking.models.InfoBoxModel;
 import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.NotificationUtil;
+import org.dpppt.android.sdk.DP3T;
 
 public class ConfigWorker extends Worker {
 
@@ -104,8 +104,9 @@ public class ConfigWorker extends Worker {
 			cancelNotification(context);
 		}
 
-		// TODO PP-289: Set sdk parameters
-		// DP3T.setMatchingParameters() (try - handle notInitalized throwable)
+		DP3T.setMatchingParameters(context, config.getSdkConfig().getBadAttenuationThreshold(),
+				config.getSdkConfig().getContactAttenuationThreshold(), config.getSdkConfig().getEventThreshold(),
+				config.getSdkConfig().getNumberOfWindowsForExposure());
 	}
 
 	private void showNotification(Context context) {

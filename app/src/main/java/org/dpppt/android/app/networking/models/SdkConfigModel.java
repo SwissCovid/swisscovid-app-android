@@ -1,6 +1,6 @@
 package org.dpppt.android.app.networking.models;
 
-class SdkConfigModel {
+public class SdkConfigModel {
 
 	private int numberOfWindowsForExposure;
 	private float eventThreshold;
