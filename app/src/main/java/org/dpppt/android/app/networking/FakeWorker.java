@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.work.*;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +16,6 @@ import org.dpppt.android.app.networking.models.AuthenticationCodeResponseModel;
 import org.dpppt.android.app.util.ExponentialDistribution;
 import org.dpppt.android.app.util.JwtUtil;
 import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
 
 public class FakeWorker extends Worker {
@@ -55,13 +55,14 @@ public class FakeWorker extends Worker {
 		try {
 			executeFakeRequest(getApplicationContext());
 			startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND);
-		} catch (IOException | ResponseError | InvalidAuthResponseException e) {
+		} catch (IOException | ResponseError | InvalidAuthResponseException | NoSuchAlgorithmException e) {
 			return Result.retry();
 		}
 		return Result.success();
 	}
 
-	private void executeFakeRequest(Context context) throws IOException, ResponseError, InvalidAuthResponseException {
+	private void executeFakeRequest(Context context)
+			throws IOException, ResponseError, InvalidAuthResponseException, NoSuchAlgorithmException {
 		AuthCodeRepository authCodeRepository = new AuthCodeRepository(context);
 		AuthenticationCodeResponseModel accessTokenResponse =
 				authCodeRepository.getAccessTokenSync(new AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1));
@@ -70,13 +71,7 @@ public class FakeWorker extends Worker {
 		Date onsetDate = JwtUtil.getOnsetDate(accessToken);
 		if (onsetDate == null) throw new InvalidAuthResponseException();
 
-		DP3T.sendIAmInfected(context, onsetDate, new ExposeeAuthMethodAuthorization(accessToken), new ResponseCallback<Void>() {
-			@Override
-			public void onSuccess(Void response) {}
-
-			@Override
-			public void onError(Throwable throwable) {}
-		});
+		DP3T.sendFakeInfectedRequest(context, onsetDate, new ExposeeAuthMethodAuthorization(accessToken));
 	}
 
 	private class InvalidAuthResponseException extends Throwable {}
