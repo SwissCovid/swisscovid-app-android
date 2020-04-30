@@ -3,10 +3,10 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.inform.views;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.InputType;
@@ -53,7 +53,13 @@ public class ChainedEditText extends ConstraintLayout {
 	}
 
 	private void init(Context context, AttributeSet attrs, int defStyleAttr) {
-		textViewGroup = LayoutInflater.from(context).inflate(R.layout.view_chained_edit_text, this, true);
+		Configuration c = getResources().getConfiguration();
+		float scale = c.fontScale;
+		if (scale > 1) {
+			textViewGroup = LayoutInflater.from(context).inflate(R.layout.view_chained_edit_text_more_space, this, true);
+		} else {
+			textViewGroup = LayoutInflater.from(context).inflate(R.layout.view_chained_edit_text, this, true);
+		}
 		for (int i = 0; i < NUM_CHARACTERS; i++) {
 			textViews[i] = textViewGroup
 					.findViewById(getResources().getIdentifier(ID_TEXT_FIELD + (i + 1), "id", context.getPackageName()));

@@ -28,6 +28,7 @@
 	<color name="grey_dark_lighter">#DFDFDF</color>
 	<color name="grey_medium">#E5E5E5</color>
 	<color name="grey_light_darker">#E9E9E9</color>
+	<color name="grey_light_medium">#eeeeee</color>
 	<color name="grey_light">#F7F7F7</color>
 	<color name="white">#FFFFFF</color>
 	<color name="white_10">#19FFFFFF</color>
