@@ -41,9 +41,16 @@ public class HeaderView extends ConstraintLayout {
 	static final long INITIAL_DELAY = 500;
 
 	private static final int[] BACKGROUND_IMAGES =
-			new int[] { R.drawable.header_image_basel,
-					R.drawable.header_image_bern,
-					R.drawable.header_image_geneva };
+			new int[] { R.drawable.header_basel,
+					R.drawable.header_bern,
+					R.drawable.header_chur,
+					R.drawable.header_geneva,
+					R.drawable.header_lausanne,
+					R.drawable.header_locarno,
+					R.drawable.header_lugano,
+					R.drawable.header_luzern,
+					R.drawable.header_stgallen,
+					R.drawable.header_zurich };
 	private static Integer backgroundImageIndex = null;
 
 	private ImageView backgroundImage;

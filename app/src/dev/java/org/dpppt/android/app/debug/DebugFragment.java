@@ -43,7 +43,7 @@ public class DebugFragment extends Fragment {
 				.commit();
 	}
 
-	private static DebugFragment newInstance() {
+	public static DebugFragment newInstance() {
 		return new DebugFragment();
 	}
 
