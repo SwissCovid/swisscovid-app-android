@@ -28,7 +28,8 @@ public class PermissionButtonUtil {
 	public static void setButtonOk(Button button, @StringRes int grantedLabel) {
 		Context context = button.getContext();
 		button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle, 0, 0, 0);
-		button.setTextColor(context.getResources().getColor(R.color.green_main, null));
+		button.setCompoundDrawableTintList(ContextCompat.getColorStateList(context, R.color.blue_main));
+		button.setTextColor(ContextCompat.getColor(context, R.color.blue_main));
 		button.setText(grantedLabel);
 		button.setClickable(false);
 		button.setElevation(0);

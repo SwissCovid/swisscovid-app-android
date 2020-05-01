@@ -8,6 +8,7 @@ package org.dpppt.android.app.util;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.text.SpannableString;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -75,12 +76,20 @@ public class NotificationStateHelper {
 			infoTel.setText(R.string.meldungen_detail_call_text);
 			infoSince.setVisibility(View.VISIBLE);
 			if (daySinceExposed == 0) {
-				infoSince.setText(R.string.date_today);
+				String string = context.getString(R.string.date_today);
+				infoSince.setText(StringUtil.makePartiallyBold(string, 0, string.length()));
 			} else if (daySinceExposed == 1) {
-				infoSince.setText(R.string.date_one_day_ago);
+				String string = context.getString(R.string.date_one_day_ago);
+				infoSince.setText(StringUtil.makePartiallyBold(string, string.indexOf(' ') + 1, string.length()));
 			} else if (daySinceExposed > 1) {
-				String text = context.getString(R.string.date_days_ago).replace("{COUNT}", String.valueOf(daySinceExposed));
-				infoSince.setText(text);
+				String string = context.getString(R.string.date_days_ago);
+				int start = string.indexOf("{COUNT}");
+				if (start >= 0) {
+					String finalString = string.replace("{COUNT}", String.valueOf(daySinceExposed));
+					infoSince.setText(StringUtil.makePartiallyBold(finalString, start, finalString.length()));
+				} else {
+					infoSince.setText(string);
+				}
 			} else {
 				infoSince.setVisibility(View.GONE);
 			}

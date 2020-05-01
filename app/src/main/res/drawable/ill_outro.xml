@@ -1,16 +1,10 @@
-<!--
-  ~ Created by Ubique Innovation AG
-  ~ https://www.ubique.ch
-  ~ Copyright (c) 2020. All rights reserved.
-  -->
-
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="325dp"
     android:height="180dp"
     android:viewportWidth="325"
     android:viewportHeight="180">
   <path
-      android:pathData="M172.97,167.116a28.4,2 0,1 0,56.8 0a28.4,2 0,1 0,-56.8 0z"
+      android:pathData="M131.97,167.116a28.4,2 0,1 0,56.8 0a28.4,2 0,1 0,-56.8 0z"
       android:strokeAlpha="0.1"
       android:fillColor="#63A0C7"
       android:fillType="nonZero"
@@ -86,11 +80,11 @@
       android:fillColor="#E6E8EC"
       android:fillType="nonZero"/>
   <path
-      android:pathData="M180.97,40.892h-6.78v0.818c0,2.14 -1.735,3.876 -3.876,3.876h-21.636c-2.14,0 -3.876,-1.735 -3.876,-3.876v-0.818h-6.368c-1.248,0 -2.446,0.496 -3.328,1.38 -0.883,0.882 -1.379,2.08 -1.378,3.328v104.786c0,1.248 0.495,2.446 1.378,3.329 0.882,0.883 2.08,1.379 3.328,1.379h42.536c2.6,0 4.708,-2.108 4.708,-4.708L185.678,45.6c0,-2.6 -2.108,-4.708 -4.708,-4.708z"
+      android:pathData="M181.242,41h-6.78v0.818c0,2.14 -1.735,3.876 -3.876,3.876L148.95,45.694c-2.14,0 -3.876,-1.735 -3.876,-3.876L145.074,41h-6.368c-1.248,0 -2.446,0.496 -3.328,1.38 -0.883,0.882 -1.379,2.08 -1.378,3.328v104.786c0,1.248 0.495,2.446 1.378,3.329 0.882,0.883 2.08,1.379 3.328,1.379h42.536c2.6,0 4.708,-2.108 4.708,-4.708L185.95,45.708c0,-2.6 -2.108,-4.708 -4.708,-4.708z"
       android:fillColor="#63A0C7"
       android:fillType="nonZero"/>
   <path
-      android:pathData="M146.583,97.701L155.43,106.564 172.417,89.594 169.978,87.189 155.43,101.72 148.988,95.279z"
-      android:fillColor="#63A0C7"
+      android:pathData="M150,98.766L158.219,107 174,91.234 171.734,89 158.219,102.5 152.234,96.516z"
+      android:fillColor="#FFF"
       android:fillType="evenOdd"/>
 </vector>

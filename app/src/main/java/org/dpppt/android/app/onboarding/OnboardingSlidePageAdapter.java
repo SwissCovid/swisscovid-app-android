@@ -41,9 +41,9 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 						R.string.onboarding_privacy_heading,
 						R.drawable.ill_privacy,
 						R.string.onboarding_privacy_text1,
-						R.drawable.ic_lock,
-						R.string.onboarding_privacy_text2,
 						R.drawable.ic_key,
+						R.string.onboarding_privacy_text2,
+						R.drawable.ic_lock,
 						true);
 			case 2:
 				return OnboardingContentFragment.newInstance(
@@ -67,7 +67,7 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 						R.string.onboarding_meldung_text1,
 						R.drawable.ic_message_alert,
 						R.string.onboarding_meldung_text2,
-						R.drawable.ic_begegnungen,
+						R.drawable.ic_home,
 						false);
 			case 6:
 				return OnboardingFinishedFragment.newInstance();

@@ -50,6 +50,7 @@
 				android:breakStrategy="high_quality"
 				android:hyphenationFrequency="full"
 				android:layout_marginBottom="@dimen/spacing_very_large"
+				android:gravity="center_horizontal"
 				android:text="@string/onboarding_go_text" />
 
 			<Button

@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Created by Ubique Innovation AG
-  ~ https://www.ubique.ch
-  ~ Copyright (c) 2020. All rights reserved.
-  -->
-
 <resources>
 
     <!-- App Name -->
@@ -537,7 +531,7 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="android_onboarding_battery_permission_info_2_title">"Leicht erhöhte Batterienutzung"</string>
 
     <!-- Info-Text 2 auf Battery-Permission Screen -->
-    <string name="android_onboarding_battery_permission_info_2_text">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterie-nutzung erhöht sich nur leicht."</string>
+    <string name="android_onboarding_battery_permission_info_2_text">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterienutzung erhöht sich nur leicht."</string>
 
     <!-- Button-Text auf Location-Permission Screen - Zugelassen -->
     <string name="android_onboarding_bt_permission_button_allowed">"Zugelassen"</string>

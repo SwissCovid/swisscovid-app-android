@@ -84,7 +84,7 @@
 			android:paddingBottom="@dimen/spacing_huge">
 
 			<TextView
-				style="@style/NextStep.Text.Blue"
+				style="@style/NextStep.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_large"

@@ -1,14 +1,8 @@
-<!--
-  ~ Created by Ubique Innovation AG
-  ~ https://www.ubique.ch
-  ~ Copyright (c) 2020. All rights reserved.
-  -->
-
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="326dp"
+    android:width="325dp"
     android:height="180dp"
-    android:viewportWidth="326"
+    android:viewportWidth="325"
     android:viewportHeight="180">
   <path
       android:pathData="M140.432,38.284m-16.633,0a16.633,16.633 0,1 1,33.266 0a16.633,16.633 0,1 1,-33.266 0"
@@ -474,7 +468,7 @@
       android:fillType="nonZero"/>
   <path
       android:pathData="M230.725,124.664l0,-12.462l3.317,3.317L257.565,115.519c0.343,-0 0.62,0.278 0.62,0.62L258.185,124.665c0,0.343 -0.277,0.621 -0.62,0.621L231.345,125.286C231.003,125.285 230.725,125.007 230.725,124.664z"
-      android:fillColor="#00BFA6"
+      android:fillColor="#63A0C7"
       android:fillType="nonZero"/>
   <path
       android:pathData="M236.898,123.074L252.907,123.074L252.907,120.863L236.898,120.863zM236.898,119.757L252.907,119.757L252.907,117.546L236.898,117.546z"
