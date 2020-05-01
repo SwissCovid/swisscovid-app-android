@@ -16,6 +16,7 @@
 		android:id="@+id/wtd_symptoms_toolbar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		app:navigationContentDescription="@string/android_accessibility_back_button"
 		app:navigationIcon="@drawable/ic_arrow_back"
 		app:title="@string/symptom_detail_navigation_title" />
 

@@ -16,6 +16,7 @@
 		android:layout_height="wrap_content"
 		app:layout_constraintTop_toTopOf="parent"
 		app:navigationIcon="@drawable/ic_arrow_back"
+		app:navigationContentDescription="@string/android_accessibility_back_button"
 		app:title="@string/reports_title_homescreen" />
 
 	<FrameLayout

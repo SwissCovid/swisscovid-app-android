@@ -15,6 +15,7 @@
 		android:id="@+id/contacts_toolbar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		app:navigationContentDescription="@string/android_accessibility_back_button"
 		app:navigationIcon="@drawable/ic_arrow_back"
 		app:title="@string/handshakes_title_homescreen" />
 
@@ -36,8 +37,8 @@
 			<LinearLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:paddingTop="@dimen/top_item_padding"
-				android:orientation="vertical">
+				android:orientation="vertical"
+				android:paddingTop="@dimen/top_item_padding">
 
 				<androidx.cardview.widget.CardView
 					style="@style/NextStep.Card"
@@ -92,7 +93,7 @@
 						<FrameLayout
 							android:id="@+id/status_container"
 							android:layout_width="match_parent"
-							android:layout_height="wrap_content"/>
+							android:layout_height="wrap_content" />
 
 					</LinearLayout>
 
@@ -101,18 +102,18 @@
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_huger"
 					android:layout_marginStart="@dimen/spacing_large"
+					android:layout_marginTop="@dimen/spacing_huger"
 					android:layout_marginEnd="@dimen/spacing_large"
 					android:layout_marginBottom="@dimen/spacing_very_large"
 					android:orientation="vertical">
 
 					<TextView
-					style="@style/NextStep.Text.Bold"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="@dimen/spacing_small"
-					android:text="@string/begegnung_detail_faq1_title" />
+						style="@style/NextStep.Text.Bold"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginBottom="@dimen/spacing_small"
+						android:text="@string/begegnung_detail_faq1_title" />
 
 					<LinearLayout
 						android:layout_width="match_parent"

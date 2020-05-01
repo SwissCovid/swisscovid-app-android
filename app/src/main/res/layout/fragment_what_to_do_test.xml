@@ -6,7 +6,6 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/grey_light"
@@ -16,6 +15,7 @@
 		android:id="@+id/wtd_test_toolbar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		app:navigationContentDescription="@string/android_accessibility_back_button"
 		app:navigationIcon="@drawable/ic_arrow_back"
 		app:title="@string/inform_detail_navigation_title" />
 

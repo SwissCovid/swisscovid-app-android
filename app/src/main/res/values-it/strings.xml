@@ -846,4 +846,5 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
 
     <!-- Datum: Text vor Datum: am 26.2.2020 / {DATE} wird ersetzt durch Datum -->
     <string name="date_text_before_date">"am {DATE}"</string>
+	<string name="android_accessibility_back_button">Back</string>
 </resources>
