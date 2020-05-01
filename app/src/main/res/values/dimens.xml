@@ -53,7 +53,6 @@
 	<dimen name="chained_edit_text_width">25sp</dimen>
 	<dimen name="size_progress_bar">48dp</dimen>
 	<dimen name="marging_status_error">10dp</dimen>
-	<dimen name="padding_status_error">20dp</dimen>
 	<dimen name="padding_bottom_status_error">30dp</dimen>
 	<dimen name="onboarding_continue_button_height">72dp</dimen>
 	<dimen name="padding_between_code">1dp</dimen>

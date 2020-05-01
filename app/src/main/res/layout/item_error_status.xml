@@ -8,11 +8,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_margin="@dimen/marging_status_error"
 	android:background="@color/grey_light"
 	android:gravity="center_horizontal"
 	android:orientation="vertical"
-	android:padding="@dimen/padding_status_error">
+	android:padding="@dimen/spacing_large">
 
 	<ImageView
 		android:id="@+id/error_status_image"
@@ -36,15 +37,8 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:gravity="center"
+		android:layout_marginBottom="@dimen/spacing_small"
 		android:text="@string/bluetooth_permission_error_text" />
-
-	<TextView
-		android:id="@+id/error_status_code"
-		style="@style/NextStep.Text"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textColor="@color/grey_dark"
-		android:textSize="@dimen/text_size_small" />
 
 	<TextView
 		android:id="@+id/error_status_button"
@@ -52,7 +46,19 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:gravity="center"
-		android:paddingTop="20dp"
-		android:text="@string/bluetooth_turn_on_button_title" />
+		android:padding="@dimen/spacing_small"
+		android:background="?selectableItemBackground"
+		android:text="@string/bluetooth_turn_on_button_title"
+		android:visibility="visible"/>
+
+	<TextView
+		android:id="@+id/error_status_code"
+		style="@style/NextStep.Text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@color/grey_dark"
+		android:textSize="@dimen/text_size_small"
+		android:layout_marginTop="@dimen/spacing_small"
+		tools:text="RTSETE"/>
 
 </LinearLayout>

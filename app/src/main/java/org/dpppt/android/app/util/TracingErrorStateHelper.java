@@ -207,6 +207,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_SIGNATURE:
 				return "RTSESI";
 			case SYNC_ERROR_DATABASE:
+				return "RTSEDB";
 			case SYNC_ERROR_TIMING:
 			case MISSING_LOCATION_PERMISSION:
 			case LOCATION_SERVICE_DISABLED:
