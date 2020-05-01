@@ -86,6 +86,7 @@ public class HtmlFragment extends Fragment {
 
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
+				if (baseUrl.equals(url)) return true;
 				if (url.toLowerCase().startsWith("dp3t://")) {
 					String strippedUrl = url.substring(7);
 					HtmlFragment htmlFragment =
@@ -100,17 +101,15 @@ public class HtmlFragment extends Fragment {
 				}
 				if (url.toLowerCase().endsWith(".pdf")) {
 					openFileFromUrl(url, "application/pdf");
-					return true;
 				} else if (url.toLowerCase().endsWith(".xlsx")) {
 					openFileFromUrl(url, "text/csv");
-					return true;
 				} else {
 					Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 					if (webIntent.resolveActivity(getContext().getPackageManager()) != null) {
 						startActivity(webIntent);
 					}
-					return true;
 				}
+				return true;
 			}
 		});
 

@@ -105,6 +105,25 @@ body {
       body header div.version {
         font-weight: 300;
         text-align: right; }
+  body footer {
+    background-color: #f7f7f7;
+    padding: 22px 16px 17px 25px;
+    width: calc(100% - 37px);
+    display: flex;
+    justify-content: space-between; }
+    body footer div {
+      font-family: Inter;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #4a4969;
+      letter-spacing: normal;
+      font-stretch: normal;
+      font-style: normal; }
+      body footer div.title {
+        font-weight: bold; }
+      body footer div.build {
+        font-weight: 300;
+        text-align: right; }
   body .container {
     padding: 20px 21px 38px 20px;
     width: calc(100% - 58px); }

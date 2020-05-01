@@ -24,7 +24,7 @@ public class AssetUtil {
 	private static final String FILE_NAME_IMPRESSUM = "impressum.html";
 
 	private static final String REPLACE_STRING_VERSION = "{VERSION}";
-	private static final String REPLACE_STRING_BUILDNR = "{BUILDNR}";
+	private static final String REPLACE_STRING_BUILDNR = "{BUILD}";
 
 	public static String getImpressumBaseUrl(Context context) {
 		return PREFIX_ASSET_FILE + getFolderNameImpressum(context);
@@ -47,10 +47,15 @@ public class AssetUtil {
 				html.append(line);
 			}
 			String impressum = html.toString();
-			String version = BuildConfig.VERSION_NAME + ", " + org.dpppt.android.sdk.BuildConfig.VERSION_NAME;
-			String buildDate = SimpleDateFormat.getDateTimeInstance().format(new Date(BuildConfig.BUILD_TIME));
-			impressum = impressum.replace(REPLACE_STRING_VERSION, version);
-			impressum = impressum.replace(REPLACE_STRING_BUILDNR, buildDate);
+			StringBuilder versionString = new StringBuilder(BuildConfig.VERSION_NAME)
+					.append(", ")
+					.append(org.dpppt.android.sdk.BuildConfig.VERSION_NAME);
+			StringBuilder buildString =
+					new StringBuilder(SimpleDateFormat.getDateTimeInstance().format(new Date(BuildConfig.BUILD_TIME)))
+							.append(" / ")
+							.append(BuildConfig.FLAVOR);
+					impressum = impressum.replace(REPLACE_STRING_VERSION, versionString);
+			impressum = impressum.replace(REPLACE_STRING_BUILDNR, buildString);
 			return impressum;
 		} catch (IOException e) {
 			e.printStackTrace();

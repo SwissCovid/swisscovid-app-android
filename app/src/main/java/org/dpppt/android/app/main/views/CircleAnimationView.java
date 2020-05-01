@@ -28,7 +28,7 @@ public class CircleAnimationView extends View {
 
 	private static final float CIRCLE_RADIUS_START_FRAC = 0.15f;
 	private static final float CIRCLE_RADIUS_DELTA = 0.4f;
-	private static final float CIRCLE_SIZE_DELTA = 1.33f;
+	private static final float CIRCLE_SIZE_DELTA = 2f;
 	private static final long CIRCLE_MAX_AGE = 2000;
 	private static final long CIRCLE_PAUSE_DELAY = 5000;
 	private static final long CIRCLE_CONSEC_DELAY = CIRCLE_MAX_AGE - 500;
