@@ -30,6 +30,8 @@ import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.backend.models.ApplicationInfo;
 import org.dpppt.android.sdk.internal.backend.BackendBucketRepository;
 import org.dpppt.android.sdk.internal.database.models.ExposureDay;
+import org.dpppt.android.sdk.internal.logger.LogLevel;
+import org.dpppt.android.sdk.internal.logger.Logger;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
 import org.dpppt.android.sdk.util.SignatureUtil;
 
@@ -43,6 +45,7 @@ public class MainApplication extends Application {
 
 		if (BuildConfig.IS_DEV) {
 			BackendBucketRepository.BATCH_LENGTH = 5 * 60 * 1000L;
+			Logger.init(getApplicationContext(), LogLevel.DEBUG);
 		}
 
 		if (ProcessUtil.isMainProcess(this)) {
