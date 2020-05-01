@@ -21,3 +21,6 @@
 #-renamesourcefileattribute SourceFile
 
 -dontobfuscate
+
+-keep class org.dpppt.android.app.inform.models.** { *; }
+-keep class org.dpppt.android.app.networking.models.** { *; }
