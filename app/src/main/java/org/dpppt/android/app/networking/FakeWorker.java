@@ -3,11 +3,9 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.networking;
 
 import android.content.Context;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.work.*;
 
@@ -26,6 +24,7 @@ import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
 
 public class FakeWorker extends Worker {
 
+	private static final String TAG = "FakeWorker";
 	private static final String WORK_TAG = "org.dpppt.android.app.FakeWorker";
 	private static final String FAKE_AUTH_CODE = "000000000000";
 
@@ -58,12 +57,15 @@ public class FakeWorker extends Worker {
 	@NonNull
 	@Override
 	public Result doWork() {
+		org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "start FakeWorker");
 		try {
 			executeFakeRequest(getApplicationContext());
 			startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND);
 		} catch (IOException | ResponseError | InvalidAuthResponseException | NoSuchAlgorithmException e) {
+			org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "FakeWorker finished with exception " + e.getMessage());
 			return Result.retry();
 		}
+		org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "FakeWorker finished with success");
 		return Result.success();
 	}
 
@@ -80,6 +82,6 @@ public class FakeWorker extends Worker {
 		DP3T.sendFakeInfectedRequest(context, onsetDate, new ExposeeAuthMethodAuthorization(accessToken));
 	}
 
-	private class InvalidAuthResponseException extends Throwable {}
+	private class InvalidAuthResponseException extends Throwable { }
 
 }

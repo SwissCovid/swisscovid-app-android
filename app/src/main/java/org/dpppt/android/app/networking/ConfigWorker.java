@@ -34,6 +34,7 @@ public class ConfigWorker extends Worker {
 	private static final String APP_VERSION_PREFIX_ANDROID = "android-";
 	private static final String OS_VERSION_PREFIX_ANDROID = "android";
 
+	private static final String TAG = "ConfigWorker";
 	private static final String WORK_TAG = "org.dpppt.android.app.ConfigWorker";
 
 	public static void startConfigWorker(Context context) {
@@ -62,12 +63,15 @@ public class ConfigWorker extends Worker {
 	@NonNull
 	@Override
 	public Result doWork() {
+		org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "start ConfigWorker");
 		try {
 			loadConfig();
 		} catch (IOException | ResponseError e) {
+			org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "ConfigWorker finished with exception " + e.getMessage());
 			return Result.retry();
 		}
 
+		org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "ConfigWorker finished with success");
 		return Result.success();
 	}
 

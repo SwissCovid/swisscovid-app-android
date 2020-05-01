@@ -90,9 +90,9 @@ android {
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-	devImplementation 'org.dpppt:dp3t-sdk-android:0.2.0-calibration'
-	abnahmeImplementation 'org.dpppt:dp3t-sdk-android:0.2.0'
-	prodImplementation 'org.dpppt:dp3t-sdk-android:0.2.0'
+	devImplementation 'org.dpppt:dp3t-sdk-android:0.2.1-calibration'
+	abnahmeImplementation 'org.dpppt:dp3t-sdk-android:0.2.1'
+	prodImplementation 'org.dpppt:dp3t-sdk-android:0.2.1'
 
 	implementation 'androidx.appcompat:appcompat:1.1.0'
 	implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
