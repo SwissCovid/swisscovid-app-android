@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import java.util.Random;
 
@@ -117,13 +118,15 @@ public class HeaderView extends ConstraintLayout {
 
 		int backgroundColor;
 		int iconRes = 0;
+		Integer iconTintColor = null;
 		int iconBgRes = 0;
 		TracingStatus.ErrorState error = state.getTracingErrorState();
-		boolean hasTracingError = error != null ? TracingErrorStateHelper.isTracingErrorState(error) : false;
+		boolean hasTracingError = error != null && TracingErrorStateHelper.isTracingErrorState(error);
 		if (state.getNotificationState() == NotificationState.NO_REPORTS ||
 				state.getNotificationState() == NotificationState.EXPOSED) {
-			if (hasTracingError) {
+			if (currentTracingState == TracingState.ACTIVE && hasTracingError) {
 				iconBgRes = R.drawable.bg_header_icon_off;
+				iconTintColor = R.color.white;
 				backgroundColor = getResources().getColor(R.color.header_bg_error, null);
 				switch (error) {
 					case SYNC_ERROR_TIMING:
@@ -144,6 +147,7 @@ public class HeaderView extends ConstraintLayout {
 			} else {
 				if (state.getTracingState() == TracingState.ACTIVE) {
 					iconRes = R.drawable.ic_begegnungen;
+					iconTintColor = R.color.white;
 					iconBgRes = R.drawable.bg_header_icon_on;
 					backgroundColor = getResources().getColor(R.color.header_bg_on, null);
 				} else {
@@ -177,12 +181,22 @@ public class HeaderView extends ConstraintLayout {
 			Animator iconBgAnimator =
 					createSizeAnimation(iconBackground, iconBackground.getScaleX(), 1, ICON_ANIM_DURATION, INITIAL_DELAY);
 			icon.setImageResource(iconRes);
+			if (iconTintColor != null) {
+				icon.setImageTintList(ContextCompat.getColorStateList(getContext(), iconTintColor));
+			} else {
+				icon.setImageTintList(null);
+			}
 			iconBackground.setImageResource(iconBgRes);
 			iconAnimatorSet = new AnimatorSet();
 			iconAnimatorSet.playTogether(iconAnimator, iconBgAnimator);
 			iconAnimatorSet.start();
 		} else {
 			icon.setImageResource(iconRes);
+			if (iconTintColor != null) {
+				icon.setImageTintList(ContextCompat.getColorStateList(getContext(), iconTintColor));
+			} else {
+				icon.setImageTintList(null);
+			}
 			iconBackground.setImageResource(iconBgRes);
 		}
 

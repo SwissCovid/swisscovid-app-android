@@ -91,6 +91,7 @@
 					<Button
 						android:id="@+id/wtd_inform_button"
 						style="@style/NextStep.Button.Purple"
+						android:textAllCaps="true"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:layout_gravity="center_horizontal"

@@ -16,8 +16,8 @@
 
 	<ImageView
 		android:id="@+id/error_status_image"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
+		android:layout_width="@dimen/icon_size"
+		android:layout_height="@dimen/icon_size"
 		android:src="@drawable/ic_ic_bluetooth_disabled" />
 
 	<TextView

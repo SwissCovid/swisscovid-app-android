@@ -81,7 +81,7 @@ public class TracingBoxFragment extends Fragment {
 			boolean isTracing = tracingStatusInterface.getTracingState().equals(TracingState.ACTIVE);
 
 			TracingStatus.ErrorState errorState = tracingStatusInterface.getTracingErrorState();
-			if (errorState != null) {
+			if (isTracing && errorState != null) {
 				handleErrorState(errorState);
 			} else if (tracingStatusInterface.isReportedAsInfected()) {
 				tracingStatusView.setVisibility(View.VISIBLE);
