@@ -3,8 +3,9 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.debug;
+
+import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,6 +16,7 @@ import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
 import org.dpppt.android.app.main.model.TracingStatusInterface;
+import org.dpppt.android.app.storage.SecureStorage;
 import org.dpppt.android.app.util.DateUtils;
 import org.dpppt.android.app.util.TracingErrorStateHelper;
 import org.dpppt.android.sdk.InfectionStatus;
@@ -27,10 +29,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	private DebugAppState debugAppState = DebugAppState.NONE;
 	private TracingStatus status;
 
-	public TracingStatusWrapper(DebugAppState debugAppState) {
-		this.debugAppState = debugAppState;
-	}
-
+	@Override
 	public void setStatus(TracingStatus status) {
 		this.status = status;
 	}
@@ -59,12 +58,14 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 		return status.getInfectionStatus() == InfectionStatus.EXPOSED || debugAppState == DebugAppState.CONTACT_EXPOSED;
 	}
 
-	@Override
-	public void setDebugAppState(DebugAppState debugAppState) {
+	public void setDebugAppState(Context context, DebugAppState debugAppState) {
 		this.debugAppState = debugAppState;
+		if (debugAppState == DebugAppState.CONTACT_EXPOSED) {
+			SecureStorage secureStorage = SecureStorage.getInstance(context);
+			secureStorage.setReportsHeaderAnimationPending(true);
+		}
 	}
 
-	@Override
 	public DebugAppState getDebugAppState() {
 		return debugAppState;
 	}

@@ -3,13 +3,11 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.debug;
 
 import java.util.List;
 import java.util.TimeZone;
 
-import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.NotificationState;
 import org.dpppt.android.app.main.model.TracingState;
 import org.dpppt.android.app.main.model.TracingStatusInterface;
@@ -21,14 +19,9 @@ import org.dpppt.android.sdk.internal.database.models.ExposureDay;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
 
-	private DebugAppState debugAppState = DebugAppState.NONE;
 	private TracingStatus status;
 
-	public TracingStatusWrapper(DebugAppState debugAppState) {
-		//Always none on PROD
-		this.debugAppState = DebugAppState.NONE; ;
-	}
-
+	@Override
 	public void setStatus(TracingStatus status) {
 		this.status = status;
 	}
@@ -47,17 +40,6 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	public boolean wasContactReportedAsExposed() {
 		return status.getInfectionStatus() == InfectionStatus.EXPOSED;
 	}
-
-	@Override
-	public void setDebugAppState(DebugAppState debugAppState) {
-		//do not implement
-	}
-
-	@Override
-	public DebugAppState getDebugAppState() {
-		return DebugAppState.NONE;
-	}
-
 
 	@Override
 	public TracingState getTracingState() {

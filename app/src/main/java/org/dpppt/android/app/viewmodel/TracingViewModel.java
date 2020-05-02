@@ -21,7 +21,6 @@ import java.util.Collection;
 import java.util.Collections;
 
 import org.dpppt.android.app.debug.TracingStatusWrapper;
-import org.dpppt.android.app.debug.model.DebugAppState;
 import org.dpppt.android.app.main.model.TracingStatusInterface;
 import org.dpppt.android.app.util.DeviceFeatureHelper;
 import org.dpppt.android.sdk.DP3T;
@@ -44,7 +43,7 @@ public class TracingViewModel extends AndroidViewModel {
 			new MutableLiveData<>(Collections.emptyList());
 	private final MutableLiveData<TracingStatusInterface> appStatusLiveData = new MutableLiveData<>();
 
-	private TracingStatusWrapper tracingStatusWrapper = new TracingStatusWrapper(DebugAppState.NONE);
+	private TracingStatusInterface tracingStatusInterface = new TracingStatusWrapper();
 
 	private final MutableLiveData<Boolean> bluetoothEnabledLiveData = new MutableLiveData<>();
 	private BroadcastReceiver bluetoothReceiver = new BroadcastReceiver() {
@@ -64,13 +63,13 @@ public class TracingViewModel extends AndroidViewModel {
 			errorsLiveData.setValue(status.getErrors());
 			tracingEnabledLiveData.setValue(status.isAdvertising() && status.isReceiving());
 			numberOfHandshakesLiveData.setValue(status.getNumberOfContacts());
-			tracingStatusWrapper.setStatus(status);
+			tracingStatusInterface.setStatus(status);
 
 			exposedLiveData
-					.setValue(new Pair<>(tracingStatusWrapper.isReportedAsInfected(),
-							tracingStatusWrapper.wasContactReportedAsExposed()));
+					.setValue(new Pair<>(tracingStatusInterface.isReportedAsInfected(),
+							tracingStatusInterface.wasContactReportedAsExposed()));
 
-			appStatusLiveData.setValue(tracingStatusWrapper);
+			appStatusLiveData.setValue(tracingStatusInterface);
 		});
 
 		invalidateBluetoothState();
@@ -82,7 +81,6 @@ public class TracingViewModel extends AndroidViewModel {
 
 	public void resetSdk(Runnable onDeleteListener) {
 		if (tracingEnabledLiveData.getValue()) DP3T.stop(getApplication());
-		tracingStatusWrapper.setDebugAppState(DebugAppState.NONE);
 		DP3T.clearData(getApplication(), onDeleteListener);
 	}
 
@@ -123,8 +121,12 @@ public class TracingViewModel extends AndroidViewModel {
 		}
 	}
 
+	public TracingStatusInterface getTracingStatusInterface() {
+		return tracingStatusInterface;
+	}
+
 	public void sync() {
-		new Thread(){
+		new Thread() {
 			@Override
 			public void run() {
 				DP3T.sync(getApplication());
@@ -146,14 +148,6 @@ public class TracingViewModel extends AndroidViewModel {
 	protected void onCleared() {
 		getApplication().unregisterReceiver(tracingStatusBroadcastReceiver);
 		getApplication().unregisterReceiver(bluetoothReceiver);
-	}
-
-	public DebugAppState getDebugAppState() {
-		return tracingStatusWrapper.getDebugAppState();
-	}
-
-	public void setDebugAppState(DebugAppState debugAppState) {
-		tracingStatusWrapper.setDebugAppState(debugAppState);
 	}
 
 }

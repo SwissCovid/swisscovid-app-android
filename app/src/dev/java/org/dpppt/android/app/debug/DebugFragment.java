@@ -3,7 +3,6 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-
 package org.dpppt.android.app.debug;
 
 import android.app.AlertDialog;
@@ -52,7 +51,7 @@ public class DebugFragment extends Fragment {
 
 	public static void startDebugFragment(FragmentManager parentFragmentManager) {
 		parentFragmentManager.beginTransaction()
-				.setCustomAnimations(R.anim.slide_enter,R.anim.slide_exit,R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 				.replace(R.id.main_fragment_container, DebugFragment.newInstance())
 				.addToBackStack(DebugFragment.class.getCanonicalName())
 				.commit();
@@ -125,6 +124,8 @@ public class DebugFragment extends Fragment {
 			AlertDialog progressDialog = new AlertDialog.Builder(getContext())
 					.setView(R.layout.dialog_loading)
 					.show();
+
+			setDebugAppState(DebugAppState.NONE);
 			tracingViewModel.resetSdk(() -> {
 				progressDialog.dismiss();
 				InfoDialog.newInstance(R.string.android_debug_sdk_reset_text)
@@ -139,16 +140,16 @@ public class DebugFragment extends Fragment {
 		optionsGroup.setOnCheckedChangeListener((group, checkedId) -> {
 			switch (checkedId) {
 				case R.id.debug_state_option_none:
-					tracingViewModel.setDebugAppState(DebugAppState.NONE);
+					setDebugAppState(DebugAppState.NONE);
 					break;
 				case R.id.debug_state_option_healthy:
-					tracingViewModel.setDebugAppState(DebugAppState.HEALTHY);
+					setDebugAppState(DebugAppState.HEALTHY);
 					break;
 				case R.id.debug_state_option_exposed:
-					tracingViewModel.setDebugAppState(DebugAppState.CONTACT_EXPOSED);
+					setDebugAppState(DebugAppState.CONTACT_EXPOSED);
 					break;
 				case R.id.debug_state_option_infected:
-					tracingViewModel.setDebugAppState(DebugAppState.REPORTED_EXPOSED);
+					setDebugAppState(DebugAppState.REPORTED_EXPOSED);
 					break;
 			}
 		});
@@ -158,7 +159,7 @@ public class DebugFragment extends Fragment {
 
 	private void updateRadioGroup(RadioGroup optionsGroup) {
 		int preSetId = -1;
-		switch (tracingViewModel.getDebugAppState()) {
+		switch (getDebugAppState()) {
 			case NONE:
 				preSetId = R.id.debug_state_option_none;
 				break;
@@ -209,6 +210,14 @@ public class DebugFragment extends Fragment {
 
 	private String getBooleanDebugString(boolean value) {
 		return getString(value ? R.string.debug_sdk_state_boolean_true : R.string.debug_sdk_state_boolean_false);
+	}
+
+	public DebugAppState getDebugAppState() {
+		return ((TracingStatusWrapper) tracingViewModel.getTracingStatusInterface()).getDebugAppState();
+	}
+
+	public void setDebugAppState(DebugAppState debugAppState) {
+		((TracingStatusWrapper) tracingViewModel.getTracingStatusInterface()).setDebugAppState(getContext(), debugAppState);
 	}
 
 }
