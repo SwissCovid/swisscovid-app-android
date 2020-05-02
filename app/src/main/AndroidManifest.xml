@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Created by Ubique Innovation AG
   ~ https://www.ubique.ch
   ~ Copyright (c) 2020. All rights reserved.
@@ -48,13 +47,6 @@
 			android:launchMode="singleTop"
 			android:screenOrientation="portrait"
 			tools:ignore="LockedOrientationActivity" />
-
-		<meta-data
-			android:name="firebase_analytics_collection_deactivated"
-			android:value="true" />
-		<meta-data
-			android:name="google_analytics_adid_collection_enabled"
-			android:value="false" />
 
 	</application>
 

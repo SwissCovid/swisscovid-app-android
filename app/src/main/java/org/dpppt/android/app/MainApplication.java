@@ -17,8 +17,6 @@ import androidx.core.app.NotificationCompat;
 
 import java.security.PublicKey;
 
-import com.crashlytics.android.Crashlytics;
-
 import org.dpppt.android.app.networking.CertificatePinning;
 import org.dpppt.android.app.networking.ConfigRepository;
 import org.dpppt.android.app.networking.FakeWorker;
@@ -34,8 +32,6 @@ import org.dpppt.android.sdk.internal.logger.LogLevel;
 import org.dpppt.android.sdk.internal.logger.Logger;
 import org.dpppt.android.sdk.internal.util.ProcessUtil;
 import org.dpppt.android.sdk.util.SignatureUtil;
-
-import io.fabric.sdk.android.Fabric;
 
 public class MainApplication extends Application {
 
@@ -58,10 +54,6 @@ public class MainApplication extends Application {
 			ConfigRepository.setCertificatePinner(CertificatePinning.getCertificatePinner());
 
 			FakeWorker.safeStartFakeWorker(this);
-		}
-
-		if (!BuildConfig.DEBUG) {
-			Fabric.with(this, new Crashlytics());
 		}
 	}
 

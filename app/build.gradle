@@ -6,8 +6,6 @@
 
 plugins {
 	id 'com.android.application'
-	id 'com.google.gms.google-services'
-	id 'io.fabric'
 }
 
 apply from: 'backend_certs.gradle'
@@ -110,6 +108,4 @@ dependencies {
 
 	implementation 'com.squareup.retrofit2:retrofit:2.6.2'
 	implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
-
-	implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 }
