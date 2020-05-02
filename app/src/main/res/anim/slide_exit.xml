@@ -1,0 +1,13 @@
+<!--
+  ~ Created by Ubique Innovation AG
+  ~ https://www.ubique.ch
+  ~ Copyright (c) 2020. All rights reserved.
+  -->
+
+<set>
+	<translate xmlns:android="http://schemas.android.com/apk/res/android"
+		android:fromXDelta="0"
+		android:toXDelta="-10%"
+		android:interpolator="@android:anim/accelerate_interpolator"
+		android:duration="@android:integer/config_shortAnimTime"/>
+</set>

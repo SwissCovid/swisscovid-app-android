@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Ubique Innovation AG
+  ~ https://www.ubique.ch
+  ~ Copyright (c) 2020. All rights reserved.
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<include
+		android:id="@+id/tracing_status"
+		layout="@layout/layout_status" />
+
+	<include
+		android:id="@+id/tracing_error"
+		layout="@layout/item_error_status"
+		android:visibility="gone" />
+
+</FrameLayout>

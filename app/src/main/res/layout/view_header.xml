@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Ubique Innovation AG
+  ~ https://www.ubique.ch
+  ~ Copyright (c) 2020. All rights reserved.
+  -->
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	tools:layout_height="@dimen/header_height"
+	tools:layout_width="match_parent"
+	tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+	<ImageView
+		android:id="@+id/main_header_bg_image"
+		android:layout_width="match_parent"
+		android:scaleType="centerCrop"
+		android:layout_height="match_parent"/>
+
+	<ImageView
+		android:id="@+id/main_header_icon_bg"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		android:scaleType="fitCenter"
+		android:layout_marginTop="@dimen/spacing_small"
+		android:layout_marginBottom="@dimen/spacing_larger"
+		tools:src="@drawable/bg_header_icon_on" />
+
+	<org.dpppt.android.app.main.views.CircleAnimationView
+		android:id="@+id/main_header_anim_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"/>
+
+	<ImageView
+		android:id="@+id/main_header_icon"
+		android:layout_width="@dimen/header_size_icon"
+		android:layout_height="@dimen/header_size_icon"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		android:scaleType="fitCenter"
+		android:layout_marginTop="@dimen/spacing_small"
+		android:layout_marginBottom="@dimen/spacing_larger"
+		tools:src="@drawable/ic_begegnungen" />
+
+</merge>

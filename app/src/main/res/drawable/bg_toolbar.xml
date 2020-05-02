@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Ubique Innovation AG
+  ~ https://www.ubique.ch
+  ~ Copyright (c) 2020. All rights reserved.
+  -->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item >
+        <shape android:shape="rectangle">
+            <solid android:color="@color/navigation_selected"/>
+        </shape>
+    </item>
+
+    <item android:bottom="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/navigation_background"/>
+        </shape>
+    </item>
+
+</layer-list>
