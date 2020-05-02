@@ -15,6 +15,7 @@ import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -68,7 +69,6 @@ public class ReportsFragment extends Fragment {
 
 	private boolean hotlineJustCalled = false;
 
-	private int originalHeaderHeight = 0;
 	private int originalFirstChildPadding = 0;
 
 	public ReportsFragment() { super(R.layout.fragment_reports); }
@@ -280,9 +280,7 @@ public class ReportsFragment extends Fragment {
 
 			TransitionManager.beginDelayedTransition(rootView, autoTransition);
 
-			ViewGroup.LayoutParams headerLp = headerViewPager.getLayoutParams();
-			headerLp.height = originalHeaderHeight;
-			headerViewPager.setLayoutParams(headerLp);
+			updateHeaderSize(false);
 
 			scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
 					originalFirstChildPadding,
@@ -295,6 +293,21 @@ public class ReportsFragment extends Fragment {
 			circlePageIndicator.setVisibility(View.VISIBLE);
 			headerViewPager.setUserInputEnabled(true);
 		});
+	}
+
+	private void updateHeaderSize(boolean isReportsHeaderAnimationPending) {
+		ViewGroup.LayoutParams headerLp = headerViewPager.getLayoutParams();
+		FrameLayout headerLayout = (FrameLayout) headerViewPager.getParent();
+		ViewGroup.LayoutParams headerLayoutLp = headerLayout.getLayoutParams();
+		if (isReportsHeaderAnimationPending) {
+			headerLp.height = ViewGroup.LayoutParams.MATCH_PARENT;
+			headerLayoutLp.height = ViewGroup.LayoutParams.MATCH_PARENT;
+		} else {
+			headerLp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports);
+			headerLayoutLp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+		}
+		headerViewPager.setLayoutParams(headerLp);
+		headerLayout.setLayoutParams(headerLayoutLp);
 	}
 
 	private void setupScrollBehavior() {
@@ -360,13 +373,10 @@ public class ReportsFragment extends Fragment {
 						scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
 			}
 
+			updateHeaderSize(isReportsHeaderAnimationPending);
+			
 			if (isReportsHeaderAnimationPending) {
 				headerViewPager.setUserInputEnabled(false);
-
-				ViewGroup.LayoutParams headerLp = headerViewPager.getLayoutParams();
-				originalHeaderHeight = headerLp.height;
-				headerLp.height = ViewGroup.LayoutParams.MATCH_PARENT;
-				headerViewPager.setLayoutParams(headerLp);
 
 				originalFirstChildPadding = scrollViewFirstchild.getPaddingTop();
 
