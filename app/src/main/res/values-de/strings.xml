@@ -96,28 +96,11 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <!-- Bluetooth Control: Tracking deaktiviert -->
     <string name="bluetooth_setting_tracking_inactive">"Tracing deaktiviert"</string>
 
-    <!-- Bluetooth Setting: Titel unten -->
-    <string name="bluetooth_setting_tracking_explanation_title">"Wie funktioniert das Tracing?"</string>
-
     <!-- Bluetooth Setting Text unten -->
     <string name="bluetooth_setting_data_explanation_title">"Sind meine Daten sicher?"</string>
 
     <!-- Bluetooth Setting: Text unten -->
-    <string name="bluetooth_setting_tracking_explanation_text1">"Die App erkennt mittels Bluetooth, genauer gesagt Bluetooth Low Energy, Begegnungen mit anderen Nutzern. Eine Begegnung wird durch die App registriert, wenn zwei Nutzer sich für eine bestimmte Zeit in der Nähe aufhalten, und nach 21 Tagen wieder gelöscht."</string>
-
-    <!-- Bluetooth Setting: Text unten -->
-    <string name="bluetooth_setting_tracking_explanation_text2">"Eine Begegnung mit einem anderen Nutzer wird nur lokal auf deinem Smartphone gespeichert."</string>
-
-    <!-- Bluetooth Setting: Text unten -->
-    <string name="bluetooth_setting_data_explanation_text1">"Jede App hat eine dynamische ID, die alle 15 Minuten mittels «HMAC(SHA256)» zufällig generiert wird. So bleibt jeder Nutzer anonym."</string>
-
-    <!-- Bluetooth Setting: Text unten -->
-    <string name="bluetooth_setting_data_explanation_text2">"Wichtige Eigenschaften:
-- Kein Location-Tracking
-- Keine Analytics oder Advertising Dienste
-- Offene Architektur / Protokoll und Spezifikation inkl. SDK für iOS und Android
-- Interoperabilität (Eigene App, eigenes Backend)
-- Open Source"</string>
+    <string name="bluetooth_setting_tracking_explanation_text2">"Eine Begegnung mit einem anderen Nutzer wird nur lokal auf ihrem Smartphone gespeichert."</string>
 
     <!-- Titel auf Homescreen -->
     <string name="reports_title_homescreen">"Meldungen"</string>
@@ -145,12 +128,6 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
 
     <!-- Android: Fehler Text bei Tracing -->
     <string name="android_tracing_error_title">"Tracing nicht aktiv"</string>
-
-    <!-- Android Meldungen Detail: Gemeldet Titel -->
-    <string name="android_meldungen_infected_title">"Infektion gemeldet"</string>
-
-    <!-- Android: Meldungen Text -->
-    <string name="android_meldungen_infected_text">"Vielen Dank! Nutzer denen du begegnet bist, werden anonym informiert und können sich isolieren."</string>
 
     <!-- Fehlertitel mit Foreground Service Notification -->
     <string name="android_foreground_service_notification_errors">"App kann zur Zeit nicht richtig funktionieren:"</string>
@@ -296,10 +273,10 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="no_meldungen_box_title">"Schützen Sie sich"</string>
 
     <!-- Keine Meldungen Weisse Box Subtitel -->
-    <string name="no_meldungen_box_subtitle">"Sie schützen andere"</string>
+    <string name="no_meldungen_box_subtitle">"Was soll ich tun?"</string>
 
     <!-- Keine Meldungen Weisse Box Text -->
-    <string name="no_meldungen_box_text">"Halten Sie sich an die geltenden BAG Verhaltens- und Hygieneempfehlungen."</string>
+    <string name="no_meldungen_box_text">"Halten Sie sich an die geltenden Empfehlungen des BAG."</string>
 
     <!-- Meldung Detail: Positiv Getestet Titel -->
     <string name="meldung_detail_positive_tested_title">"Positiv getestet"</string>
@@ -319,6 +296,8 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="tracing_ended_text">"Es werden keine Begegnungen mehr gespeichert."</string>
     <string name="exposed_info_contact_hotline">"Kontaktieren Sie die"</string>
     <string name="meldung_homescreen_positive_info_line1">"Befolgen Sie die"</string>
+
+    <!-- CFL: Selbst-Isolation -->
     <string name="meldung_homescreen_positive_info_line2">"Anweisungen zur Selbstisolation"</string>
 
     <!-- Meldung Detail Exposed Neue Meldung -->
@@ -336,7 +315,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="reset_onboarding">"Onboarding zurücksetzen"</string>
 
     <!-- Heute -->
-    <string name="date_today">"heute"</string>
+    <string name="date_today">"Heute"</string>
 
     <!-- Meldung Detail: Vor wievielen Tagen {COUNT} wird durch Zahl ersetzt -->
     <string name="date_days_ago">"vor {COUNT} Tagen"</string>
@@ -358,9 +337,9 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="meldungen_detail_explanation_title">"Vorsicht!"</string>
 
     <!-- Meldungen Detail Weisse Box Erklärungstext 1 -->
-    <!-- Fuzzy -->
-    <string name="meldungen_detail_explanation_text1">"Sie könnten bereits ansteckend sein, ohne es zu merken."</string>
+    <string name="meldungen_detail_explanation_text1">"Sie könnten ansteckend sein, ohne es zu merken."</string>
 
+    <!-- CFL: Hier hats die Latest Version deutsch mit "10 Tage ab Anstechung" nicht mehr reingeschafft. Schauen wir, wenn Übersetzungen da sind. -->
     <!-- Meldungen Detail: Weisse Box Erklärtext 2 -->
     <string name="meldungen_detail_explanation_text2">"Bitte schützen Sie Ihre Familie, Ihre Freunde und Ihr Umfeld. Vermeiden Sie Kontakte bis 10 Tage nach einer möglichen Ansteckung."</string>
 
@@ -378,11 +357,12 @@ Infoline Coronavirus
     <!-- Meldungen Detail: Weisse Box Anruf Zeitpunkt -->
     <string name="meldungen_detail_call_last_call">"Letzter Anruf: {DATE}"</string>
 
+    <!-- CFL: Platzhalter-Text Onboarding – ev. später obsolet -->
     <!-- Subtitel im Onboarding erste Seite -->
-    <string name="app_subtitle">"Gemeinsam gegen das Virus"</string>
+    <string name="app_subtitle">"Untertitel"</string>
 
     <!-- Onboarding: Titel oben -->
-    <string name="onboarding_prinzip_heading">"Das Prinzip"</string>
+    <string name="onboarding_prinzip_heading">"Das Ziel"</string>
 
     <!-- Onboarding: Titel -->
     <string name="onboarding_prinzip_title">"Dem Virus einen
@@ -408,7 +388,7 @@ garantiert"</string>
     <string name="onboarding_privacy_text2">"Sämtliche Daten werden verschlüsselt und nur lokal auf dem Smartphone gespeichert."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"Wie funktioniert die App?"</string>
+    <string name="onboarding_begegnungen_heading">"Was macht die App?"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"Begegnungen erkennen
@@ -455,7 +435,7 @@ möglichen Ansteckung"</string>
     <string name="onboarding_bluetooth_gtk_title2">"Leicht erhöhte Batterienutzung"</string>
 
     <!-- Onboarding Bluetooth: Text unten -->
-    <string name="onboarding_bluetooth_gtk_text2">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterie-nutzung erhöht sich nur leicht."</string>
+    <string name="onboarding_bluetooth_gtk_text2">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterienutzung erhöht sich nur leicht."</string>
 
     <!-- Onboarding Mitteilungen: Titel -->
     <string name="onboarding_push_title">"Mitteilungen erlauben"</string>
@@ -554,8 +534,8 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="inform_code_invalid_title">"Code ungültig"</string>
 
     <!-- Fehlermeldung Subtitle ungültiger Code -->
-    <string name="inform_code_invalid_subtitle">"Bei Fragen: Infoline Coronavirus
-+41 58 463 00 00"</string>
+    <string name="inform_code_invalid_subtitle">"Bei Fragen: App-Hotline
++41 58 466 07 99"</string>
 
     <!-- Datum: Vor 1 Tag -->
     <string name="date_one_day_ago">"vor 1 Tag"</string>
@@ -605,6 +585,7 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <!-- Unerwarteter Fehler, mit Aufforderung Aktion erneut zu versuchen -->
     <string name="unexpected_error_with_retry">"Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut."</string>
 
+    <!-- CFL: Nummer anzeigen? -->
     <!-- Fehlermeldung, wenn die Antwort des Authentifizierungs-Services nicht verwertbar ist -->
     <string name="invalid_response_auth_code">"Aufgrund eines System-Fehlers konnte Ihr Authentifizierungs-Code nicht korrekt verwendet werden. Bitte rufen Sie die Hotline an."</string>
 
@@ -739,8 +720,9 @@ Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist werden sie 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"Bei ersten Symptomen kontaktieren Sie Ihren Arzt/Ihre Ärztin."</string>
 
+    <!-- CFL: Den sollte es ev. 2x geben -->
     <!-- Meldungen: Meldung Weisse Box Link Titel -->
-    <string name="meldungen_explanation_link_title">"Anweisungen zur Selbst-Isolation"</string>
+    <string name="meldungen_explanation_link_title">"Anweisung zur Selbstquarantäne"</string>
 
     <!-- Meldungen: Meldung Weisse Box Link URL -->
     <string name="meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/selbst-isolierung-und-selbst-quarantaene.html"</string>
@@ -831,12 +813,6 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
     <string name="language_key">"de"</string>
 
-    <!-- Meldungen: Meldungen FAQ Titel -->
-    <string name="meldungen_meldungen_faq2_title">"Was passiert nach 10 Tagen?"</string>
-
-    <!-- Meldungen: Meldungen FAQ Tex -->
-    <string name="meldungen_meldungen_faq2_text">"Die App informiert Sie 10 Tage nach einer möglichen Ansteckung. Sind bis dann keine Symptome aufgetreten, können Sie die Selbst-Quarantäne beenden."</string>
-
     <!-- Meldungen Homescreen: Name Hotline -->
     <!-- Fuzzy -->
     <string name="exposed_info_contact_hotline_name">"Infoline Coronavirus"</string>
@@ -845,9 +821,12 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="date_in_one_day">"Noch 1 Tag"</string>
 
     <!-- Meldung Detail: Anzeige "Noch x Tage" {COUNT} wird durch Zahl ersetzt -->
-    <string name="date_in_days">"Noch {COUNT} Tage"</string>
+    <string name="date_in_days">"Davon bleiben noch {COUNT} Tage"</string>
 
     <!-- Datum: Text vor Datum: am 26.2.2020 / {DATE} wird ersetzt durch Datum -->
     <string name="date_text_before_date">"am {DATE}"</string>
-    <string name="android_accessibility_back_button">Back</string>
+
+    <!-- Accessibility Talk back information for android back button in toolbar -->
+    <!-- Fuzzy -->
+    <string name="android_accessibility_back_button">"Zurück"</string>
 </resources>

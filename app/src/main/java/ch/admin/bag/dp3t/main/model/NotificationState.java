@@ -24,7 +24,7 @@ public enum NotificationState {
 			case EXPOSED:
 				return R.string.meldungen_meldung_title;
 			case POSITIVE_TESTED:
-				return R.string.android_meldungen_infected_title;
+				return R.string.meldung_homescreen_positiv_title;
 		}
 		return -1;
 	}
@@ -36,7 +36,7 @@ public enum NotificationState {
 			case EXPOSED:
 				return R.string.meldungen_meldung_text;
 			case POSITIVE_TESTED:
-				return R.string.android_meldungen_infected_text;
+				return R.string.meldung_homescreen_positiv_text;
 		}
 		return -1;
 	}
