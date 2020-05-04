@@ -19,14 +19,16 @@ import androidx.work.*;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.backend.SignatureException;
+
+import ch.admin.bag.dp3t.BuildConfig;
+import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModel;
-import ch.admin.bag.dp3t.BuildConfig;
-import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.NotificationUtil;
-import org.dpppt.android.sdk.DP3T;
 
 public class ConfigWorker extends Worker {
 
@@ -66,7 +68,7 @@ public class ConfigWorker extends Worker {
 		org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "start ConfigWorker");
 		try {
 			loadConfig();
-		} catch (IOException | ResponseError e) {
+		} catch (IOException | ResponseError | SignatureException e) {
 			org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "ConfigWorker finished with exception " + e.getMessage());
 			return Result.retry();
 		}
@@ -75,7 +77,7 @@ public class ConfigWorker extends Worker {
 		return Result.success();
 	}
 
-	public void loadConfig() throws IOException, ResponseError {
+	public void loadConfig() throws IOException, ResponseError, SignatureException {
 		Context context = getApplicationContext();
 
 		ConfigRepository configRepository = new ConfigRepository(context);
