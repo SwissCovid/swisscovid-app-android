@@ -18,25 +18,7 @@ h1 {
   line-height: 1.36;
   letter-spacing: normal;
   color: #4a4969;
-  margin-bottom: 20px;
-  margin-top: 0;
-  padding: 0;
-  margin-top: 40px;
-  width: 83.8%;
-  padding-left: 16.2%; }
-  h1 a {
-    font-size: 22px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.36;
-    letter-spacing: normal;
-    color: #4a4969;
-    margin: 0;
-    padding: 0; }
-
-h1:first-of-type {
-  margin-top: 0px; }
+  margin: 0; }
 
 h2 {
   font-family: Inter;
@@ -47,33 +29,26 @@ h2 {
   line-height: 1.5;
   letter-spacing: normal;
   color: #4a4969;
-  width: 83.8%;
-  padding-left: 16.2%; }
+  margin: 0; }
 
 p {
   font-family: Inter;
   font-size: 16px;
-  font-weight: 300;
   line-height: 1.5;
   color: #4a4969;
-  margin: 0;
-  width: 83.8%;
-  padding-left: 16.2%; }
+  margin: 0; }
   p strong {
     font-weight: bold; }
 
-li {
+ul li {
   font-family: Inter;
   font-size: 16px;
-  font-weight: 300;
   line-height: 1.5;
-  color: #4a4969;
-  margin-bottom: 15px; }
-  li strong {
+  color: #4a4969; }
+  ul li strong {
     font-weight: bold; }
 
 a {
-  font-family: Inter;
   font-family: Inter;
   font-size: 16px;
   font-weight: bold;
@@ -88,8 +63,8 @@ body {
   margin: 0; }
   body header {
     background-color: #f7f7f7;
-    padding: 20px 16px 17px 20px;
-    width: calc(100% - 37px);
+    padding: 20px 16px 18px 20px;
+    width: calc(100% - 36px);
     display: flex;
     justify-content: space-between; }
     body header div {
@@ -103,51 +78,67 @@ body {
       body header div.title {
         font-weight: bold; }
       body header div.version {
-        font-weight: 300;
         text-align: right; }
   body footer {
     background-color: #f7f7f7;
-    padding: 22px 16px 17px 25px;
-    width: calc(100% - 37px);
-    display: flex;
-    justify-content: space-between; }
-    body footer div {
+    padding: 22px 21px 26px;
+    width: calc(100% - 42px); }
+    body footer div.build {
       font-family: Inter;
       font-size: 16px;
       line-height: 1.5;
       color: #4a4969;
       letter-spacing: normal;
       font-stretch: normal;
-      font-style: normal; }
-      body footer div.title {
-        font-weight: bold; }
-      body footer div.build {
-        font-weight: 300;
-        text-align: right; }
+      font-style: normal;
+      width: 100%;
+      text-align: right; }
   body .container {
-    padding: 20px 21px 38px 20px;
-    width: calc(100% - 58px); }
-    body .container .list1 ul {
-      list-style-type: none;
-      width: 83.8%;
-      padding-left: 16.2%; }
-    body .container .list2s ul {
-      list-style-type: none;
-      width: 83.8%;
-      padding-left: 16.2%; }
-    body .container .list2s li:before {
-      content: "";
-      display: block;
-      background: url("../img/ic-arrow-blue.svg") no-repeat;
-      width: 24px;
-      height: 24px;
-      float: left;
-      margin: 0 0 0 0;
-      padding-right: 10px; }
+    padding: 17px 15px 26px 15px;
+    width: calc(100% - 30px); }
+    body .container.impressum > :not(.bag-logo):not(.divider) {
+      margin-left: 52px; }
+    body .container.licence {
+      background-color: #f7f7f7; }
+      body .container.licence > :not(.divider) {
+        margin-left: 10px; }
+      body .container.licence > h1:first-child {
+        margin-top: 21px; }
+    body .container > h1 {
+      margin-bottom: 20px; }
+      body .container > h1:not(:first-child) {
+        margin-top: 31px; }
+      body .container > h1 + h2 {
+        margin-top: 0; }
+    body .container h2 {
+      margin-top: 26px;
+      margin-bottom: 10px; }
+      body .container h2.no-bottom-margin {
+        margin-bottom: 0; }
+    body .container ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-right: 19px; }
+      body .container ul li:not(:first-child) {
+        margin-top: 15px; }
+    body .container .licence-list {
+      margin-top: 49px; }
+      body .container .licence-list ul li {
+        margin-left: 35px;
+        position: relative; }
+        body .container .licence-list ul li:not(:first-child) {
+          margin-top: 42px; }
+        body .container .licence-list ul li:before {
+          content: "";
+          display: block;
+          background: url("../img/ic-arrow-blue.svg") no-repeat;
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          left: -34px; }
     body .container .link {
-      display: flex;
-      width: 83.8%;
-      padding-left: 16.2%; }
+      display: flex; }
       body .container .link img {
         width: 24px;
         height: 24px;
@@ -155,49 +146,35 @@ body {
       body .container .link a {
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
-        margin-bottom: 20px; }
+        text-overflow: ellipsis; }
     body .container .divider {
       height: 1px;
       width: 100%;
       background-color: #e6e6e6;
-      margin-top: 40px; }
-    body .container .text + .divider {
-      margin-top: 30px; }
-    body .container .text + .link {
-      margin-top: 20px; }
-    body .container .last-text {
-      margin-top: 20px; }
-    body .container .img-title {
-      margin-top: 20px; }
+      margin-top: 61px; }
+    body .container .text {
+      padding-right: 27px; }
+      body .container .text + .link, body .container .text + .text {
+        margin-top: 20px; }
     body .container img.bag-logo {
-      width: 100%;
-      margin-bottom: 0; }
-      body .container img.bag-logo + .link {
-        margin-left: 44px;
-        margin-bottom: 20px;
-        max-width: calc(100% - 44px); }
-        body .container img.bag-logo + .link + .link {
-          margin-left: 44px;
-          margin-bottom: 32px;
-          max-width: calc(100& - 44px); }
+      max-width: 100%;
+      margin-left: 5px;
+      margin-bottom: 14px; }
     body .container img.logo {
-      margin-top: 0;
-      margin-left: 16.2%; }
-      body .container img.logo + .link {
-        margin-top: 20px;
-        margin-bottom: 21px; }
-    body .container img.logo-epfl {
-      height: 36px; }
-    body .container img.logo-ethz {
-      margin-top: 20px;
-      height: 32px; }
-    body .container img.logo-ubique {
-      height: 46px; }
-    body .container .licence span {
-      float: right; }
-    body .container .licence span img {
-      width: 24px;
-      height: 24px;
-      margin: 2px;
-      text-align: right; }
+      max-width: 100%; }
+      body .container img.logo.logo-epfl {
+        margin-top: 6px;
+        margin-bottom: 20px; }
+      body .container img.logo.logo-ethz {
+        margin-top: 38px;
+        margin-bottom: 13px; }
+      body .container img.logo.logo-ubique {
+        width: 176px;
+        height: auto;
+        margin-top: -7px;
+        margin-bottom: 10px; }
+    body .container .licence-link {
+      margin-top: 31px;
+      padding-right: 6px;
+      display: flex;
+      justify-content: space-between; }
