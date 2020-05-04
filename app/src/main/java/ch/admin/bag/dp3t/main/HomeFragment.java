@@ -27,6 +27,10 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.dpppt.android.sdk.TracingStatus;
+
+import ch.admin.bag.dp3t.BuildConfig;
+import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.debug.DebugFragment;
 import ch.admin.bag.dp3t.html.HtmlFragment;
@@ -43,9 +47,6 @@ import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
 import ch.admin.bag.dp3t.whattodo.WtdSymptomsFragment;
-import ch.admin.bag.dp3t.BuildConfig;
-import ch.admin.bag.dp3t.R;
-import org.dpppt.android.sdk.TracingStatus;
 
 import static android.view.View.VISIBLE;
 
@@ -244,7 +245,9 @@ public class HomeFragment extends Fragment {
 			//update status view
 			if (loadingView.getVisibility() == VISIBLE) {
 				loadingView.animate()
-						.setDuration(2000)
+						.setStartDelay(getResources().getInteger(android.R.integer.config_mediumAnimTime))
+						.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
+						.alpha(0f)
 						.setListener(new AnimatorListenerAdapter() {
 							@Override
 							public void onAnimationEnd(Animator animation) {
@@ -264,22 +267,20 @@ public class HomeFragment extends Fragment {
 			}
 
 			TracingStatus.ErrorState errorState = tracingStatusInterface.getReportErrorState();
-
 			if (errorState != null) {
 				TracingErrorStateHelper
 						.updateErrorView(reportErrorView, errorState);
 				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
 					loadingView.animate()
 							.alpha(1f)
-							.setDuration(2000)
+							.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
 							.setListener(new AnimatorListenerAdapter() {
 								@Override
 								public void onAnimationEnd(Animator animation) {
 									loadingView.setVisibility(VISIBLE);
+									tracingViewModel.sync();
 								}
 							});
-
-					tracingViewModel.sync();
 				});
 			} else if (!isNotificationChannelEnabled(getContext(), NotificationUtil.NOTIFICATION_CHANNEL_ID)) {
 				NotificatonErrorStateHelper
