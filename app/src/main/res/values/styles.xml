@@ -146,6 +146,11 @@
 		<item name="android:background">@drawable/bg_button_blue</item>
 	</style>
 
+	<style name="NextStep.Button.WhiteBlue">
+		<item name="android:background">@drawable/bg_button_white</item>
+		<item name="android:textColor">@color/blue_main</item>
+	</style>
+
 	<style name="NextStep.Button.Red">
 		<item name="backgroundTint">@color/red_main</item>
 		<item name="android:backgroundTint">@color/red_main</item>

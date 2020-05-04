@@ -24,7 +24,7 @@
 			android:orientation="vertical"
 			android:paddingLeft="@dimen/spacing_larger"
 			android:paddingRight="@dimen/spacing_larger"
-			android:paddingBottom="@dimen/spacing_medium_large">
+			android:paddingBottom="@dimen/spacing_larger">
 
 			<TextView
 				android:id="@+id/card_encounters_subtitle"
@@ -212,7 +212,7 @@
 					style="@style/NextStep.Text.Bold.Blue"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/meldung_homescreen_positive_info_line2" />
+					android:text="@string/meldungen_explanation_link_title" />
 
 			</LinearLayout>
 
