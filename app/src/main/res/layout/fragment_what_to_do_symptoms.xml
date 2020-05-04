@@ -129,15 +129,33 @@
 
 				</LinearLayout>
 
-				<TextView
+				<LinearLayout
 					android:id="@+id/wtd_symptoms_check_button"
-					style="@style/NextStep.Text.Bold.ExternalLink"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_very_small"
 					android:layout_marginStart="@dimen/spacing_larger"
-					android:layout_marginTop="@dimen/spacing_medium"
-					android:layout_marginEnd="@dimen/spacing_medium"
-					android:text="@string/symptom_detail_box_button" />
+					android:paddingStart="@dimen/spacing_medium"
+					android:paddingTop="@dimen/spacing_small"
+					android:paddingEnd="@dimen/spacing_medium"
+					android:paddingBottom="@dimen/spacing_small"
+					android:background="@drawable/ripple_button"
+					android:orientation="horizontal">
+
+					<ImageView
+						android:layout_width="@dimen/icon_size"
+						android:layout_height="@dimen/icon_size"
+						android:src="@drawable/ic_launch"
+						android:tint="@color/purple_main" />
+
+					<TextView
+						style="@style/NextStep.Text.Bold.Purple"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/spacing_small"
+						android:text="@string/symptom_detail_box_button" />
+
+				</LinearLayout>
 
 				<Button
 					android:id="@+id/wtd_symptoms_faq_button"
@@ -146,7 +164,7 @@
 					android:layout_height="wrap_content"
 					android:layout_gravity="center_horizontal"
 					android:layout_marginStart="@dimen/spacing_medium"
-					android:layout_marginTop="@dimen/spacing_huge"
+					android:layout_marginTop="@dimen/spacing_very_large"
 					android:layout_marginEnd="@dimen/spacing_medium"
 					android:layout_marginBottom="@dimen/spacing_huger"
 					android:text="@string/faq_button_title" />
