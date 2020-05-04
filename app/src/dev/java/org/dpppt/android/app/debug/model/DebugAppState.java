@@ -4,7 +4,7 @@
  * Copyright (c) 2020. All rights reserved.
  */
 
-package org.dpppt.android.app.debug.model;
+package ch.admin.bag.dp3t.debug.model;
 
 public enum DebugAppState {
 	NONE,

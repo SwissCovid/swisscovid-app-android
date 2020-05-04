@@ -5,7 +5,7 @@
   -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	package="org.dpppt.android.app">
+	package="ch.admin.bag.dp3t">
 
 	<uses-permission android:name="android.permission.BLUETOOTH" />
 	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -13,7 +13,7 @@
 	<uses-permission android:name="android.permission.INTERNET" />
 
 	<application
-		android:name="org.dpppt.android.app.MainApplication"
+		android:name="ch.admin.bag.dp3t.MainApplication"
 		android:allowBackup="false"
 		android:fullBackupContent="false"
 		android:icon="@mipmap/ic_launcher"
@@ -26,7 +26,7 @@
 		tools:replace="android:fullBackupContent">
 
 		<activity
-			android:name="org.dpppt.android.app.MainActivity"
+			android:name="ch.admin.bag.dp3t.MainActivity"
 			android:launchMode="singleTop"
 			android:screenOrientation="portrait"
 			tools:ignore="LockedOrientationActivity">
@@ -37,13 +37,13 @@
 		</activity>
 
 		<activity
-			android:name="org.dpppt.android.app.onboarding.OnboardingActivity"
+			android:name="ch.admin.bag.dp3t.onboarding.OnboardingActivity"
 			android:launchMode="singleTop"
 			android:screenOrientation="portrait"
 			tools:ignore="LockedOrientationActivity" />
 
 		<activity
-			android:name="org.dpppt.android.app.inform.InformActivity"
+			android:name="ch.admin.bag.dp3t.inform.InformActivity"
 			android:launchMode="singleTop"
 			android:screenOrientation="portrait"
 			tools:ignore="LockedOrientationActivity" />

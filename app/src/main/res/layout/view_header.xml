@@ -31,7 +31,7 @@
 		android:layout_marginBottom="@dimen/spacing_larger"
 		tools:src="@drawable/bg_header_icon_on" />
 
-	<org.dpppt.android.app.main.views.CircleAnimationView
+	<ch.admin.bag.dp3t.main.views.CircleAnimationView
 		android:id="@+id/main_header_anim_view"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"

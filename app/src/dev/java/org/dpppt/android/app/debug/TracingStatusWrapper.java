@@ -3,7 +3,7 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-package org.dpppt.android.app.debug;
+package ch.admin.bag.dp3t.debug;
 
 import android.content.Context;
 
@@ -12,13 +12,13 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-import org.dpppt.android.app.debug.model.DebugAppState;
-import org.dpppt.android.app.main.model.NotificationState;
-import org.dpppt.android.app.main.model.TracingState;
-import org.dpppt.android.app.main.model.TracingStatusInterface;
-import org.dpppt.android.app.storage.SecureStorage;
-import org.dpppt.android.app.util.DateUtils;
-import org.dpppt.android.app.util.TracingErrorStateHelper;
+import ch.admin.bag.dp3t.debug.model.DebugAppState;
+import ch.admin.bag.dp3t.main.model.NotificationState;
+import ch.admin.bag.dp3t.main.model.TracingState;
+import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
+import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.util.DateUtils;
+import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.database.models.ExposureDay;

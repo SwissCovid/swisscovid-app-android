@@ -22,5 +22,5 @@
 
 -dontobfuscate
 
--keep class org.dpppt.android.app.inform.models.** { *; }
--keep class org.dpppt.android.app.networking.models.** { *; }
+-keep class ch.admin.bag.dp3t.inform.models.** { *; }
+-keep class ch.admin.bag.dp3t.networking.models.** { *; }
