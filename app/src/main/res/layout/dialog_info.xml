@@ -26,12 +26,12 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:gravity="center_horizontal"
-		android:layout_marginBottom="@dimen/spacing_large"
 		tools:text="This is an example text for information purposes on at least two lines" />
 
 	<Button
 		android:id="@+id/dialog_info_button"
 		style="@style/NextStep.Button"
+		android:layout_marginTop="@dimen/spacing_large"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/android_button_ok" />
