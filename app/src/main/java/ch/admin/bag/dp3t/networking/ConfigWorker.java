@@ -82,8 +82,9 @@ public class ConfigWorker extends Worker {
 
 		String appVersion = APP_VERSION_PREFIX_ANDROID + BuildConfig.VERSION_NAME;
 		String osVersion = OS_VERSION_PREFIX_ANDROID + Build.VERSION.SDK_INT;
+		String buildNumber = String.valueOf(BuildConfig.BUILD_TIME);
 
-		ConfigResponseModel config = configRepository.getConfig(appVersion, osVersion);
+		ConfigResponseModel config = configRepository.getConfig(appVersion, osVersion, buildNumber);
 
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		secureStorage.setDoForceUpdate(config.getDoForceUpdate());
@@ -106,6 +107,19 @@ public class ConfigWorker extends Worker {
 			}
 		} else {
 			cancelNotification(context);
+		}
+
+		boolean forceTraceShutdown = config.getForceTraceShutdown();
+		if (forceTraceShutdown) {
+			if (DP3T.isStarted(context)) {
+				secureStorage.setForcedTraceShutdown(true);
+				DP3T.stop(context);
+			}
+		} else {
+			if (secureStorage.getForcedTraceShutdown() && !DP3T.isStarted(context)) {
+				DP3T.start(context);
+			}
+			secureStorage.setForcedTraceShutdown(false);
 		}
 
 		DP3T.setMatchingParameters(context, config.getSdkConfig().getBadAttenuationThreshold(),

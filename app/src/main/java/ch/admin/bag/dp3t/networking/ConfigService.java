@@ -16,6 +16,10 @@ public interface ConfigService {
 
 	@Headers("Accept: application/json")
 	@GET("v1/config")
-	Call<ConfigResponseModel> getConfig(@Query("appversion") String appVersion, @Query("osversion") String osVersion);
+	Call<ConfigResponseModel> getConfig(
+			@Query("appversion") String appVersion,
+			@Query("osversion") String osVersion,
+			@Query("buildnr") String buildNumber
+	);
 
 }
