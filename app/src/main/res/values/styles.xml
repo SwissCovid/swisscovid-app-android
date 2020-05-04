@@ -101,15 +101,6 @@
 		<item name="android:background">@drawable/bg_chained_edit_text</item>
 	</style>
 
-	<style name="NextStep.Text.Bold.ExternalLink">
-		<item name="android:textColor">@color/purple_main</item>
-		<item name="android:drawableStart">@drawable/ic_launch</item>
-		<item name="android:drawableTint">@color/purple_main</item>
-		<item name="android:drawablePadding">@dimen/spacing_small</item>
-		<item name="android:padding">@dimen/spacing_medium</item>
-		<item name="android:background">?selectableItemBackground</item>
-	</style>
-
 	<style name="NextStep.Button.Transparent" parent="TextAppearance.AppCompat">
 		<item name="android:padding">@dimen/spacing_medium</item>
 		<item name="android:textSize">@dimen/text_size_button</item>
