@@ -110,7 +110,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:gravity="start"
-			android:text="@string/meldungen_detail_call_text" />
+			android:text="@string/exposed_info_contact_hotline_name" />
 
 		<TextView
 			android:id="@+id/status_additional_info_since"

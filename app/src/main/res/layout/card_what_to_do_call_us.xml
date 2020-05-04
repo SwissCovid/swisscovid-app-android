@@ -83,7 +83,7 @@
 					style="@style/NextStep.Text"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/meldungen_detail_call_text" />
+					android:text="@string/exposed_info_contact_hotline_name" />
 
 			</LinearLayout>
 
