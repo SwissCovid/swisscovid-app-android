@@ -132,7 +132,7 @@ public class ChainedEditText extends ConstraintLayout {
 			} else {
 				textView.setText("");
 			}
-			textView.setSelected(hasFocus && i == Math.max(0, input.length() - 1));
+			textView.setSelected(hasFocus && i == Math.min(input.length(), NUM_CHARACTERS - 1));
 		}
 	}
 
