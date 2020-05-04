@@ -19,9 +19,9 @@
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
 			android:orientation="vertical"
-			android:paddingStart="@dimen/spacing_huge"
+			android:paddingStart="@dimen/spacing_large"
 			android:paddingTop="@dimen/spacing_huge"
-			android:paddingEnd="@dimen/spacing_huge"
+			android:paddingEnd="@dimen/spacing_large"
 			android:paddingBottom="@dimen/spacing_large">
 
 			<TextView
