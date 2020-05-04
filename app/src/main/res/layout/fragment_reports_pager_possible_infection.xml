@@ -67,7 +67,7 @@
 
 		<TextView
 			android:id="@+id/fragment_reports_pager_date"
-			style="@style/NextStep.Text"
+			style="@style/NextStep.Text.Bold"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
@@ -91,7 +91,7 @@
 
 	<Button
 		android:id="@+id/fragment_reports_pager_button"
-		style="@style/NextStep.Button.Outlined.Red"
+		style="@style/NextStep.Button.WhiteBlue"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal|bottom"
