@@ -14,6 +14,7 @@ import java.security.PublicKey;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
 import ch.admin.bag.dp3t.BuildConfig;
+
 import org.dpppt.android.sdk.backend.SignatureVerificationInterceptor;
 import org.dpppt.android.sdk.util.SignatureUtil;
 
@@ -55,8 +56,9 @@ public class ConfigRepository {
 		configService = retrofit.create(ConfigService.class);
 	}
 
-	public ConfigResponseModel getConfig(@NonNull String appVersion, @NonNull String osVersion) throws IOException, ResponseError {
-		Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion).execute();
+	public ConfigResponseModel getConfig(@NonNull String appVersion, @NonNull String osVersion, @NonNull String buildNumber)
+			throws IOException, ResponseError {
+		Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion, buildNumber).execute();
 		if (configResponse.isSuccessful()) {
 			return configResponse.body();
 		} else {
