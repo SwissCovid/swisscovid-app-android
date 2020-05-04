@@ -3,7 +3,7 @@
  * https://www.ubique.ch
  * Copyright (c) 2020. All rights reserved.
  */
-package org.dpppt.android.app.debug;
+package ch.admin.bag.dp3t.debug;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -32,10 +32,10 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
-import org.dpppt.android.app.R;
-import org.dpppt.android.app.debug.model.DebugAppState;
-import org.dpppt.android.app.util.InfoDialog;
-import org.dpppt.android.app.viewmodel.TracingViewModel;
+import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.debug.model.DebugAppState;
+import ch.admin.bag.dp3t.util.InfoDialog;
+import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.util.FileUploadRepository;

@@ -15,7 +15,7 @@ android {
 	buildToolsVersion "29.0.3"
 
 	defaultConfig {
-		applicationId "org.dpppt.android.app"
+		applicationId "ch.admin.bag.dp3t"
 		minSdkVersion 23
 		targetSdkVersion 29
 		versionCode 1000
