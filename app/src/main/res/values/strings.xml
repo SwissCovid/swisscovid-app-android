@@ -316,7 +316,7 @@ Thank you for helping to contain the spread of the coronavirus."</string>
     <string name="date_today">"Today"</string>
 
     <!-- Meldung Detail: Vor wievielen Tagen {COUNT} wird durch Zahl ersetzt -->
-    <string name="date_days_ago">"(COUNT) days ago"</string>
+    <string name="date_days_ago">"{COUNT} days ago"</string>
 
     <!-- Meldungen Detail: Subtitel Weisse Box -->
     <string name="meldungen_detail_whattodo">"What should I do?"</string>
