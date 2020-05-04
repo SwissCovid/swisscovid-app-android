@@ -19,6 +19,7 @@ import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
+
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.database.models.ExposureDay;
