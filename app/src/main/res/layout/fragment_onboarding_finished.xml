@@ -4,15 +4,13 @@
   ~ Copyright (c) 2020. All rights reserved.
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
 	<ScrollView
 		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1">
+		android:layout_height="match_parent">
 
 		<LinearLayout
 			android:layout_width="match_parent"
@@ -22,7 +20,9 @@
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingTop="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
-			android:paddingBottom="@dimen/spacing_large">
+			android:paddingBottom="@dimen/spacing_large"
+			android:clipChildren="false"
+			android:clipToPadding="false">
 
 			<ImageView
 				android:id="@+id/onboarding_illustration"
