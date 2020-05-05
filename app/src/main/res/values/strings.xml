@@ -791,7 +791,7 @@ Infoline Coronavirus
     <string name="meldungen_positive_tested_faq1_text">"Following a positive text, tracing in the app is automatically ended."</string>
 
     <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
-    <string name="language_key">"de"</string>
+    <string name="language_key">"en"</string>
 
     <!-- Meldungen Homescreen: Name Hotline -->
     <string name="exposed_info_contact_hotline_name">"Coronavirus infoline"</string>
