@@ -36,14 +36,15 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
+import org.dpppt.android.sdk.InfectionStatus;
+import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.internal.database.Database;
+import org.dpppt.android.sdk.util.FileUploadRepository;
+
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
 import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
-import org.dpppt.android.sdk.InfectionStatus;
-import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.util.FileUploadRepository;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -186,6 +187,7 @@ public class DebugFragment extends Fragment {
 		builder.append(getString(isTracing ? R.string.tracing_active_title : R.string.android_tracing_error_title)).append("\n")
 				.setSpan(new StyleSpan(Typeface.BOLD), 0, builder.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
+		Database database = new Database(getContext());
 		long lastSyncDateUTC = status.getLastSyncDate();
 		String lastSyncDateString =
 				lastSyncDateUTC > 0 ? DATE_FORMAT_SYNC.format(new Date(lastSyncDateUTC)) : "n/a";
@@ -196,7 +198,9 @@ public class DebugFragment extends Fragment {
 				.append(getString(R.string.debug_sdk_state_contact_exposed))
 				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.EXPOSED)).append("\n")
 				.append(getString(R.string.debug_sdk_state_number_contacts))
-				.append(String.valueOf(status.getNumberOfContacts()));
+				.append(String.valueOf(status.getNumberOfContacts())).append("\n")
+				.append(getString(R.string.debug_sdk_state_number_handshakes))
+				.append(String.valueOf(database.getHandshakes().size()));
 
 		Collection<TracingStatus.ErrorState> errors = status.getErrors();
 		if (errors != null && errors.size() > 0) {
