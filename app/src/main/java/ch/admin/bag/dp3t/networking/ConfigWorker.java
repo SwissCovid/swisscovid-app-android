@@ -128,8 +128,7 @@ public class ConfigWorker extends Worker {
 			secureStorage.setForcedTraceShutdown(false);
 		}
 
-		DP3T.setMatchingParameters(context, config.getSdkConfig().getBadAttenuationThreshold(),
-				config.getSdkConfig().getContactAttenuationThreshold(), config.getSdkConfig().getEventThreshold(),
+		DP3T.setMatchingParameters(context, config.getSdkConfig().getContactAttenuationThreshold(),
 				config.getSdkConfig().getNumberOfWindowsForExposure());
 	}
 
