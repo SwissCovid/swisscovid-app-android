@@ -29,7 +29,7 @@ Bugs or potential problems should be reported using Github issues. We welcome al
 ## Repositories
 * Android SDK & Calibration app: [dp3t-sdk-android](https://github.com/DP-3T/dp3t-sdk-android)
 * iOS SDK & Calibration app: [dp3t-sdk-ios](https://github.com/DP-3T/dp3t-sdk-ios)
-* Android App: [dp3t-app-android](https://github.com/DP-3T/dp3t-app-android-ch)
+* Android App: [dp3t-app-android](https://github.com/DP-3T/dp3t-app-android)
 * iOS App: [dp3t-app-ios](https://github.com/DP-3T/dp3t-app-ios-ch)
 * Backend SDK: [dp3t-sdk-backend](https://github.com/DP-3T/dp3t-sdk-backend)
 
