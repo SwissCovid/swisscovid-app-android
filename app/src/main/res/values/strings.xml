@@ -8,14 +8,13 @@
   ~
   ~ SPDX-License-Identifier: MPL-2.0
   -->
-
 <resources>
 
     <!-- App Name -->
-    <string name="app_name">"dp3t app"</string>
+    <string name="app_name">"Swiss PT"</string>
 
     <!-- App Name (unter Icon auf iOS) -->
-    <string name="CFBundleDisplayName">"dp3t app"</string>
+    <string name="CFBundleDisplayName">"Swiss PT"</string>
 
     <!-- Loading View: Erneut laden -->
     <string name="loading_view_reload">"Reload"</string>
@@ -155,7 +154,7 @@ Thank you for helping to contain the spread of the coronavirus."</string>
     <string name="preview_warning_title">"Version preview"</string>
 
     <!-- Text der Nachricht, die auf Beta-Status hinweist -->
-    <string name="preview_warning_text">"This app provides a preview of how the DP-*T works. It is not a functioning COVIS-19 tracer."</string>
+    <string name="preview_warning_text">"This app provides a preview of how the DP-3T works. It is not a functioning COVIS-19 tracer."</string>
 
     <!-- Debug: Label auf dem Button, der zum Debug-Screen führt -->
     <string name="debug_settings_title">"Debug settings"</string>
@@ -373,7 +372,7 @@ Infoline Coronavirus
     <string name="onboarding_prinzip_title">"Staying one step ahead of the virus"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"By using the dp3t app, we can all help to contain the spread of the new coronavirus."</string>
+    <string name="onboarding_prinzip_text1">"By using the Swiss PT app, we can all help to contain the spread of the new coronavirus."</string>
 
     <!-- Onboarding Prinzip Text -->
     <string name="onboarding_prinzip_text2">"The app provides information on suspected infections. In this way, the chain of infection can be broken."</string>
@@ -755,7 +754,7 @@ Infoline Coronavirus
     <string name="inform_detail_faq2_title">"How do I remain anonymous?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Only the temporary keys from your app are sent. No personal data. Other dp3t apps can then check if they have had an encounter with your app in the past few days. "</string>
+    <string name="inform_detail_faq2_text">"Only the temporary keys from your app are sent. No personal data. Other Swiss PT apps can then check if they have had an encounter with your app in the past few days."</string>
 
     <!-- Informieren: Titel Tracing beendet -->
     <string name="inform_send_endtracing_title">"Tracing ended"</string>
