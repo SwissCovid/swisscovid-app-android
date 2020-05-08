@@ -61,7 +61,7 @@ Thank you for helping to contain the spread of the coronavirus."</string>
     <string name="android_button_permission_location">"Permit localisation"</string>
 
     <!-- Okay Button Titel -->
-    <string name="android_button_ok">"Ok"</string>
+    <string name="android_button_ok">"OK"</string>
 
     <!-- Onboarding: Weiter Button Titel -->
     <string name="onboarding_continue_button">"Continue"</string>
@@ -106,7 +106,7 @@ Thank you for helping to contain the spread of the coronavirus."</string>
     <string name="bluetooth_setting_tracking_inactive">"Tracing deactivated"</string>
 
     <!-- Bluetooth Setting Text unten -->
-    <string name="bluetooth_setting_data_explanation_title">"Are my data secure?"</string>
+    <string name="bluetooth_setting_data_explanation_title">"Is my data secure?"</string>
 
     <!-- Bluetooth Setting: Text unten -->
     <string name="bluetooth_setting_tracking_explanation_text2">"An encounter with another user is only saved locally on your smartphone."</string>
@@ -399,7 +399,7 @@ Infoline Coronavirus
     <string name="onboarding_begegnungen_text1">"The app automatically recognises when two users have been in close proximity for a certain time."</string>
 
     <!-- Onboarding Begegnungen: Text -->
-    <string name="onboarding_begegnungen_text2">"It uses Bluetooth Low Energy (BLE) to do this. No GPS data are used."</string>
+    <string name="onboarding_begegnungen_text2">"It uses Bluetooth Low Energy (BLE) to do this. No GPS data is used."</string>
 
     <!-- Onboarding Meldung: Text oben -->
     <string name="onboarding_meldung_heading">"What does the app do?"</string>
@@ -679,7 +679,7 @@ Infoline Coronavirus
     <string name="begegnung_detail_faq1_text">"If smartphones with the app are in close proximity for several minutes, this is registered on your device as an encounter."</string>
 
     <!-- Begegnungen: FAQ Titel -->
-    <string name="begegnung_detail_faq2_title">"Are my data secure?"</string>
+    <string name="begegnung_detail_faq2_title">"Is my data secure?"</string>
 
     <!-- Begegnungen: FAQ Text -->
     <string name="begegnung_detail_faq2_text">"In the event of an encounter, only an encrypted code is exchanged. This is saved locally on the devices and then deleted 21 days later."</string>
@@ -703,7 +703,7 @@ Infoline Coronavirus
     <string name="meldungen_nomeldungen_faq2_titel">"What is a potential infection?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"The app not only checks whether you have had encounters with infected persons, but how long and how close these were. You will only be notified if there is sufficent suspicion that you have been infected. "</string>
+    <string name="meldungen_nomeldungen_faq2_text">"The app not only checks whether you have had encounters with infected persons, but how long and how close these were. You will only be notified if there is sufficient suspicion that you have been infected."</string>
 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"As soon as you have any symptoms, contact your doctor."</string>
@@ -775,13 +775,13 @@ Infoline Coronavirus
     <string name="inform_code_intro_text">"Although no personal data relating to you is sent out, it may well be that someone remembers their encounter with you from the date. "</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
-    <string name="inform_code_intro_button">"ok"</string>
+    <string name="inform_code_intro_button">"OK"</string>
 
     <!-- Symptome: FAQ Titel -->
     <string name="symptom_faq1_title">"Unsure about symptoms?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"You have symptoms but are unsuare what you should do? Answer the questions in the FOPH Coronavirus Check to receive advice on what to do."</string>
+    <string name="symptom_faq1_text">"You have symptoms but are unsure what you should do? Answer the questions in the FOPH Coronavirus Check to receive advice on what to do."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Why has tracing ended?"</string>
