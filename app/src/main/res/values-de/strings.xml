@@ -460,7 +460,7 @@ möglichen Ansteckung"</string>
     <string name="onboarding_push_gtk_title1">"Sofort informiert"</string>
 
     <!-- Onboarding Mitteilungen: Text unten -->
-    <string name="onboarding_push_gtk_text1">"Bei einer möglichen Ansteckung werden Sie mit einer Mitteilung im Sperrbildschirm informiert."</string>
+    <string name="onboarding_push_gtk_text1">"Bei einer möglichen Ansteckung werden Sie mit einer Mitteilung auf dem Sperrbildschirm informiert."</string>
 
     <!-- Code senden: Abschluss Gute Besserung -->
     <string name="inform_send_getwell_title">"Gute Besserung"</string>
@@ -517,7 +517,7 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="android_onboarding_battery_permission_info_1_title">"Nur für diese App"</string>
 
     <!-- Info-Text 1 auf Battery-Permission Screen -->
-    <string name="android_onboarding_battery_permission_info_1_text">"Damit die App funktioniert, muss sie auch im Hintergrund ausgeführt werden. Die Akku-Optimierung kann für einzelne Apps ausgeschaltet werden, damit dies möglich ist."</string>
+    <string name="android_onboarding_battery_permission_info_1_text">"Damit die App funktioniert, muss sie auch im Hintergrund ausgeführt werden. Zu diesem Zweck kann die Akku-Optimierung für einzelne Apps ausgeschaltet werden."</string>
 
     <!-- Info-Titel 2 auf Battery-Permission Screen -->
     <string name="android_onboarding_battery_permission_info_2_title">"Leicht erhöhte Batterienutzung"</string>
@@ -597,10 +597,10 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
 
     <!-- CFL: Nummer anzeigen? -->
     <!-- Fehlermeldung, wenn die Antwort des Authentifizierungs-Services nicht verwertbar ist -->
-    <string name="invalid_response_auth_code">"Aufgrund eines System-Fehlers konnte Ihr Authentifizierungs-Code nicht korrekt verwendet werden. Bitte rufen Sie die Hotline an."</string>
+    <string name="invalid_response_auth_code">"Aufgrund eines Systemfehlers konnte Ihr Authentifizierungs-Code nicht korrekt verwendet werden. Bitte rufen Sie die Hotline an."</string>
 
     <!-- Titel für Fehlermeldung mit Standort -->
-    <string name="error_location_permission_title">"Standort Verwendung abgelehnt"</string>
+    <string name="error_location_permission_title">"Standort-Verwendung abgelehnt"</string>
 
     <!-- Button für Fehlermeldung mit Standort -->
     <string name="error_location_permission_button">"Zulassen"</string>
