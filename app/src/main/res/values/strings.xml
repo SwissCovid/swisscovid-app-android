@@ -155,7 +155,7 @@ Thank you for helping to contain the spread of the coronavirus."</string>
     <string name="preview_warning_title">"Version preview"</string>
 
     <!-- Text der Nachricht, die auf Beta-Status hinweist -->
-    <string name="preview_warning_text">"This app provides a preview of how the DP-*T works. It is not a functioning COVID-19 tracker."</string>
+    <string name="preview_warning_text">"This app provides a preview of how the DP-*T works. It is not a functioning COVID-19 tracer."</string>
 
     <!-- Debug: Label auf dem Button, der zum Debug-Screen führt -->
     <string name="debug_settings_title">"Debug settings"</string>
