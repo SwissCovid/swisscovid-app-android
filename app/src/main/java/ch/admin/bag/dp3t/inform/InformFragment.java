@@ -19,6 +19,11 @@ import androidx.fragment.app.Fragment;
 
 import java.util.Date;
 
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.backend.ResponseCallback;
+import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
+
+import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.inform.views.ChainedEditText;
 import ch.admin.bag.dp3t.networking.AuthCodeRepository;
 import ch.admin.bag.dp3t.networking.errors.InvalidCodeError;
@@ -26,12 +31,8 @@ import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.util.JwtUtil;
-import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.backend.ResponseCallback;
-import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
 
 public class InformFragment extends Fragment {
 
@@ -120,7 +121,7 @@ public class InformFragment extends Fragment {
 
 						Date onsetDate = JwtUtil.getOnsetDate(accessToken);
 						if (onsetDate == null) {
-							showErrorDialog(getString(R.string.invalid_response_auth_code), null);
+							showErrorDialog(getString(R.string.invalid_response_auth_code), "ONDT");
 							if (progressDialog != null && progressDialog.isShowing()) {
 								progressDialog.dismiss();
 							}
@@ -144,6 +145,7 @@ public class InformFragment extends Fragment {
 						} else {
 							showErrorDialog(getString(R.string.network_error), null);
 						}
+						throwable.printStackTrace();
 						buttonSend.setEnabled(true);
 					}
 				});
@@ -170,12 +172,20 @@ public class InformFragment extends Fragment {
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
-						showErrorDialog(getString(R.string.network_error), null);
+						if (throwable instanceof ResponseError) {
+							showErrorDialog(getString(R.string.unexpected_error_title),
+									String.valueOf(((ResponseError) throwable).getStatusCode()));
+						} else if (throwable.getMessage() != null && throwable.getMessage().contains("EXPOSURE_NOTIFICATION_API")) {
+							showErrorDialog(getString(R.string.unexpected_error_title), "ENAPI");
+						} else {
+							showErrorDialog(getString(R.string.network_error), null);
+						}
 						throwable.printStackTrace();
 						buttonSend.setEnabled(true);
 					}
 				});
 	}
+
 
 	@Override
 	public void onResume() {

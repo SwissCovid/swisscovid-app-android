@@ -20,6 +20,7 @@
 	<TextView
 		android:id="@+id/dialog_info_text"
 		style="@style/NextStep.Text"
+		android:gravity="center"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		tools:text="This is an example text for information purposes on at least two lines" />
