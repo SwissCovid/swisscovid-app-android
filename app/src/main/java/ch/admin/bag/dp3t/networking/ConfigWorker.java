@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.DP3TCalibrationHelper;
 import org.dpppt.android.sdk.backend.SignatureException;
 
 import ch.admin.bag.dp3t.BuildConfig;

@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
-  ~
-  ~ This Source Code Form is subject to the terms of the Mozilla Public
-  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
-  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
-  ~
-  ~ SPDX-License-Identifier: MPL-2.0
-  -->
 <resources>
 
     <!-- App Name -->
@@ -154,7 +145,7 @@ Thank you for helping to contain the spread of the coronavirus."</string>
     <string name="preview_warning_title">"Version preview"</string>
 
     <!-- Text der Nachricht, die auf Beta-Status hinweist -->
-    <string name="preview_warning_text">"This app provides a preview of how the DP-3T works. It is not a functioning COVIS-19 tracer."</string>
+    <string name="preview_warning_text">"This app provides a preview of how the DP-3T works. It is not a functioning COVID-19 tracker."</string>
 
     <!-- Debug: Label auf dem Button, der zum Debug-Screen führt -->
     <string name="debug_settings_title">"Debug settings"</string>
@@ -366,7 +357,7 @@ Infoline Coronavirus
     <string name="app_subtitle">"Subtitle"</string>
 
     <!-- Onboarding: Titel oben -->
-    <string name="onboarding_prinzip_heading">"The aim"</string>
+    <string name="onboarding_prinzip_heading">"The goal"</string>
 
     <!-- Onboarding: Titel -->
     <string name="onboarding_prinzip_title">"Staying one step ahead of the virus"</string>
@@ -631,6 +622,7 @@ Infoline Coronavirus
     <string name="accessibility_12nd">"Twelfth"</string>
 
     <!-- Voiceover: Hilfetext bei Codeeingabe -->
+    <!-- Fuzzy -->
     <string name="accessibility_code_button_disabled_hint">"Please enter the code in full, then press button."</string>
 
     <!-- Fehler Titel: Akkuverbrauch aktiviert -->
@@ -707,9 +699,6 @@ Infoline Coronavirus
 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"As soon as you have any symptoms, contact your doctor."</string>
-
-    <!-- Meldungen: Meldung Weisse Box Link Titel -->
-    <string name="meldungen_explanation_link_title">"Instructions on self-quarantine"</string>
 
     <!-- Meldungen: Meldung Weisse Box Link URL -->
     <string name="meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/selbst-isolierung-und-selbst-quarantaene.html"</string>
@@ -790,7 +779,7 @@ Infoline Coronavirus
     <string name="meldungen_positive_tested_faq1_text">"Following a positive text, tracing in the app is automatically ended."</string>
 
     <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
-    <string name="language_key">"de"</string>
+    <string name="language_key">"en"</string>
 
     <!-- Meldungen Homescreen: Name Hotline -->
     <string name="exposed_info_contact_hotline_name">"Coronavirus infoline"</string>
@@ -806,4 +795,46 @@ Infoline Coronavirus
 
     <!-- Accessibility Talk back information for android back button in toolbar -->
     <string name="android_accessibility_back_button">"Back"</string>
+
+    <!-- VoiceOver: Hilfetext bei Codeeingabe Button -->
+    <string name="accessibility_code_button_current_code_hint">"Eingegebener Code: "</string>
+
+    <!-- Accessibility: Codeeingabe einer Ziffer -->
+    <string name="accessibility_code_input_textfield">"Textfeld. Momentane Ziffer: "</string>
+
+    <!-- Accessibility: Code Input Textfeld wenn leer -->
+    <string name="accessibility_code_input_textfield_empty">"Textfeld. Leer."</string>
+
+    <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
+    <string name="accessibility_code_input_hint">"Doppeltippen zum bearbeiten"</string>
+
+    <!-- Accessibility: FAW Button Titel  -->
+    <string name="accessibility_faq_button_hint">"Dieser Button verlässt die App und öffnet die Website vom B. A. G."</string>
+
+    <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_title">"Tracing aktivieren"</string>
+
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_text">"Um die App nutzen zu können, muss die Funktion (COVID-19 Exposure Logging) aktiviert werden."</string>
+
+    <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_button_activate">"Aktivieren"</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: "Gut zu wissen" Titel -->
+    <string name="onboarding_gaen_good_to_know">"Gut zu wissen:"</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
+    <string name="onboarding_gaen_info_title_1">"Sie bleiben anonym"</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
+    <string name="onboarding_gaen_info_text_1">"Es werden nur anonyme IDs ausgetauscht. Keine Daten zum Standort oder Ihrer Person."</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
+    <string name="onboarding_gaen_info_title_2">"Leicht erhöhte Batterienutzung"</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 2 -->
+    <string name="onboarding_gaen_info_text_2">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterie-nutzung erhöht sich nur leicht."</string>
+
+    <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_button_activated">"Aktiviert"</string>
 </resources>

@@ -41,7 +41,6 @@ public class OnboardingActivity extends FragmentActivity {
 		if (currentItem < pagerAdapter.getItemCount() - 1) {
 			viewPager.setCurrentItem(currentItem + 1, true);
 		} else {
-			DP3T.start(this);
 			setResult(RESULT_OK);
 			finish();
 		}
