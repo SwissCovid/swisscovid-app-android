@@ -31,7 +31,7 @@ import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.util.JwtUtil;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
-import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
+import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
 
 public class InformFragment extends Fragment {
 
@@ -150,7 +150,7 @@ public class InformFragment extends Fragment {
 	}
 
 	private void informExposed(Date onsetDate, String authorizationHeader) {
-		DP3T.sendIAmInfected(getContext(), onsetDate,
+		DP3T.sendIAmInfected(getActivity(), onsetDate,
 				new ExposeeAuthMethodAuthorization(authorizationHeader), new ResponseCallback<Void>() {
 					@Override
 					public void onSuccess(Void response) {

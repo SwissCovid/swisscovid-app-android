@@ -37,13 +37,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.dpppt.android.sdk.models.ExposureDay;
+
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 import ch.admin.bag.dp3t.util.PhoneUtil;
-import org.dpppt.android.sdk.internal.database.models.ExposureDay;
 
 public class ReportsFragment extends Fragment {
 

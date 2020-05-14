@@ -17,6 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.dpppt.android.sdk.DP3T;
+
 import ch.admin.bag.dp3t.main.HomeFragment;
 import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
@@ -108,7 +110,7 @@ public class MainActivity extends FragmentActivity {
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
 		if (ACTION_STOP_TRACING.equals(intentAction) && !launchedFromHistory) {
-			tracingViewModel.setTracingEnabled(false);
+			tracingViewModel.setTracingEnabled(this, false);
 			intent.setAction(null);
 			setIntent(intent);
 		}
@@ -138,6 +140,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		DP3T.onActivityResult(this, requestCode, resultCode, data);
 		if (requestCode == REQ_ONBOARDING) {
 			if (resultCode == RESULT_OK) {
 				secureStorage.setOnboardingCompleted(true);

@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.DP3TCalibrationHelper;
 import org.dpppt.android.sdk.backend.SignatureException;
 
 import ch.admin.bag.dp3t.BuildConfig;
@@ -121,15 +122,7 @@ public class ConfigWorker extends Worker {
 				secureStorage.setForcedTraceShutdown(true);
 				DP3T.stop(context);
 			}
-		} else {
-			if (secureStorage.getForcedTraceShutdown() && !DP3T.isStarted(context)) {
-				DP3T.start(context);
-			}
-			secureStorage.setForcedTraceShutdown(false);
 		}
-
-		DP3T.setMatchingParameters(context, config.getSdkConfig().getContactAttenuationThreshold(),
-				config.getSdkConfig().getNumberOfWindowsForExposure());
 	}
 
 	private void showNotification(Context context) {

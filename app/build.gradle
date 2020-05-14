@@ -104,10 +104,10 @@ android {
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-	def dp3t_sdk_version = '0.2.6'
-	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
-	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
-	prodImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
+	def dp3t_sdk_version = '0.3.0'
+	devImplementation "org.dpppt:dp3t-sdk-android:gaen-$dp3t_sdk_version-calibration"
+	abnahmeImplementation "org.dpppt:dp3t-sdk-android:gaen-$dp3t_sdk_version"
+	prodImplementation "org.dpppt:dp3t-sdk-android:gaen-$dp3t_sdk_version"
 
 	implementation 'androidx.appcompat:appcompat:1.1.0'
 	implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

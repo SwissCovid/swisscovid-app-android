@@ -29,14 +29,9 @@ public class TracingErrorStateHelper {
 
 	private static final List<TracingStatus.ErrorState> possibleErrorStatesOrderedByPriority = Arrays.asList(
 			TracingStatus.ErrorState.BLE_NOT_SUPPORTED,
-			TracingStatus.ErrorState.MISSING_LOCATION_PERMISSION,
 			TracingStatus.ErrorState.BLE_DISABLED,
 			TracingStatus.ErrorState.LOCATION_SERVICE_DISABLED,
-			TracingStatus.ErrorState.BATTERY_OPTIMIZER_ENABLED,
-			TracingStatus.ErrorState.SYNC_ERROR_TIMING,
-			TracingStatus.ErrorState.BLE_INTERNAL_ERROR,
-			TracingStatus.ErrorState.BLE_ADVERTISING_ERROR,
-			TracingStatus.ErrorState.BLE_SCANNER_ERROR);
+			TracingStatus.ErrorState.SYNC_ERROR_TIMING);
 
 	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
 			TracingStatus.ErrorState.SYNC_ERROR_DATABASE,
@@ -52,10 +47,6 @@ public class TracingErrorStateHelper {
 				return R.string.error_location_services_title;
 			case BLE_DISABLED:
 				return R.string.bluetooth_turned_off_title;
-			case MISSING_LOCATION_PERMISSION:
-				return R.string.error_location_permission_title;
-			case BATTERY_OPTIMIZER_ENABLED:
-				return R.string.error_battery_optimization_title;
 			case SYNC_ERROR_TIMING:
 				return R.string.time_inconsistency_title;
 			case SYNC_ERROR_SERVER:
@@ -64,9 +55,6 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_DATABASE:
 				return R.string.sync_error_title;
 			case BLE_NOT_SUPPORTED:
-			case BLE_INTERNAL_ERROR:
-			case BLE_ADVERTISING_ERROR:
-			case BLE_SCANNER_ERROR:
 			default:
 				return R.string.begegnungen_restart_error_title;
 		}
@@ -84,10 +72,6 @@ public class TracingErrorStateHelper {
 				return R.drawable.ic_gps_off;
 			case BLE_DISABLED:
 				return R.drawable.ic_bluetooth_off;
-			case MISSING_LOCATION_PERMISSION:
-				return R.drawable.ic_location_off_red;
-			case BATTERY_OPTIMIZER_ENABLED:
-				return R.drawable.ic_battery;
 			case SYNC_ERROR_TIMING:
 				return R.drawable.ic_time;
 			case SYNC_ERROR_SERVER:
@@ -95,9 +79,6 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_DATABASE:
 			case SYNC_ERROR_SIGNATURE:
 			case BLE_NOT_SUPPORTED:
-			case BLE_INTERNAL_ERROR:
-			case BLE_ADVERTISING_ERROR:
-			case BLE_SCANNER_ERROR:
 			default:
 				return R.drawable.ic_warning_red;
 		}
@@ -110,9 +91,6 @@ public class TracingErrorStateHelper {
 				return R.string.error_location_services_button;
 			case BLE_DISABLED:
 				return R.string.bluetooth_turn_on_button_title;
-			case MISSING_LOCATION_PERMISSION:
-			case BATTERY_OPTIMIZER_ENABLED:
-				return R.string.error_location_permission_button;
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_DATABASE:
@@ -120,9 +98,6 @@ public class TracingErrorStateHelper {
 				return R.string.homescreen_meldung_data_outdated_retry_button;
 			case SYNC_ERROR_TIMING:
 			case BLE_NOT_SUPPORTED:
-			case BLE_INTERNAL_ERROR:
-			case BLE_ADVERTISING_ERROR:
-			case BLE_SCANNER_ERROR:
 			default:
 				return -1;
 		}
@@ -198,12 +173,6 @@ public class TracingErrorStateHelper {
 		switch (errorState) {
 			case BLE_NOT_SUPPORTED:
 				return "NSBNS";
-			case BLE_INTERNAL_ERROR:
-				return "NSBIR";
-			case BLE_ADVERTISING_ERROR:
-				return "NSBAE";
-			case BLE_SCANNER_ERROR:
-				return "NSBSE";
 			case SYNC_ERROR_SERVER:
 				return "RTSES";
 			case SYNC_ERROR_NETWORK:
@@ -213,10 +182,8 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_DATABASE:
 				return "RTSEDB";
 			case SYNC_ERROR_TIMING:
-			case MISSING_LOCATION_PERMISSION:
 			case LOCATION_SERVICE_DISABLED:
 			case BLE_DISABLED:
-			case BATTERY_OPTIMIZER_ENABLED:
 			default:
 				return "";
 		}

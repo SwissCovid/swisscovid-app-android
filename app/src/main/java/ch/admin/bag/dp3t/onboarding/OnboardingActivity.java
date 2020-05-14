@@ -9,6 +9,7 @@
  */
 package ch.admin.bag.dp3t.onboarding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
@@ -45,4 +46,11 @@ public class OnboardingActivity extends FragmentActivity {
 			finish();
 		}
 	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		DP3T.onActivityResult(this, requestCode, resultCode, data);
+	}
+
 }

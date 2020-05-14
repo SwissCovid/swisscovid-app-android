@@ -57,10 +57,6 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 						R.drawable.ic_bluetooth,
 						false);
 			case 3:
-				return OnboardingLocationPermissionFragment.newInstance();
-			case 4:
-				return OnboardingBatteryPermissionFragment.newInstance();
-			case 5:
 				return OnboardingContentFragment.newInstance(
 						R.string.onboarding_meldung_title,
 						R.string.onboarding_meldung_heading,
@@ -70,7 +66,7 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 						R.string.onboarding_meldung_text2,
 						R.drawable.ic_home,
 						false);
-			case 6:
+			case 4:
 				return OnboardingFinishedFragment.newInstance();
 		}
 		throw new IllegalArgumentException("There is no fragment for view pager position " + position);
@@ -78,7 +74,7 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 
 	@Override
 	public int getItemCount() {
-		return 7;
+		return 5;
 	}
 
 }

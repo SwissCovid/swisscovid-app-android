@@ -34,11 +34,6 @@ public class DeviceFeatureHelper {
 		return powerManager.isIgnoringBatteryOptimizations(context.getPackageName());
 	}
 
-	public static boolean isLocationPermissionGranted(Context context) {
-		return ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) ==
-				PackageManager.PERMISSION_GRANTED;
-	}
-
 	public static void openApplicationSettings(@NonNull Activity activity) {
 		Intent intent = new Intent();
 		intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);

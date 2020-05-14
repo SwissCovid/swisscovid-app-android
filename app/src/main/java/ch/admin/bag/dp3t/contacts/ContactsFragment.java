@@ -80,18 +80,17 @@ public class ContactsFragment extends Fragment {
 
 	private void setupTracingView() {
 
-		tracingSwitch.setOnClickListener(v -> tracingViewModel.setTracingEnabled(tracingSwitch.isChecked()));
+		tracingSwitch.setOnClickListener(v -> tracingViewModel.setTracingEnabled(getActivity(), tracingSwitch.isChecked()));
 
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
-			boolean isTracing = status.isAdvertising() && status.isReceiving();
-			tracingSwitch.setChecked(isTracing);
+			tracingSwitch.setChecked(status.isTracingEnabled());
 		});
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		tracingViewModel.invalidateService();
+		tracingViewModel.invalidateService(getActivity());
 	}
 
 	@Override

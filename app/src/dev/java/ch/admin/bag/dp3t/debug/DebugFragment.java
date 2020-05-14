@@ -10,7 +10,6 @@
 package ch.admin.bag.dp3t.debug;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -20,10 +19,8 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -38,16 +35,10 @@ import java.util.Date;
 
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.database.Database;
-import org.dpppt.android.sdk.util.FileUploadRepository;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
-import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class DebugFragment extends Fragment {
 
@@ -83,43 +74,13 @@ public class DebugFragment extends Fragment {
 
 		setupSdkViews(view);
 		setupStateOptions(view);
-
-		View debugUploadButton = getView().findViewById(R.id.button_upload_debug_data);
-		debugUploadButton.setOnClickListener(v -> {
-			AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-			builder.setTitle("Identifier");
-			final EditText input = new EditText(getContext());
-			builder.setView(input);
-			builder.setPositiveButton("OK", (dialog, which) -> {
-				String name = input.getText().toString();
-				ProgressDialog progressDialog = ProgressDialog.show(getContext(), "Upload", "");
-				new FileUploadRepository()
-						.uploadDatabase(getContext(), name,
-								new Callback<Void>() {
-									@Override
-									public void onResponse(Call<Void> call, Response<Void> response) {
-										progressDialog.hide();
-										Toast.makeText(getContext(), "Upload success!", Toast.LENGTH_LONG).show();
-									}
-
-									@Override
-									public void onFailure(Call<Void> call, Throwable t) {
-										t.printStackTrace();
-										progressDialog.hide();
-										Toast.makeText(getContext(), "Upload failed!", Toast.LENGTH_LONG).show();
-									}
-								});
-			});
-			builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
-			builder.show();
-		});
 	}
 
 	private void setupSdkViews(View view) {
 		TextView statusText = view.findViewById(R.id.debug_sdk_state_text);
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
 			statusText.setText(formatStatusString(status));
-			boolean isTracing = (status.isAdvertising() || status.isReceiving()) && status.getErrors().size() == 0;
+			boolean isTracing = (status.isTracingEnabled()) && status.getErrors().size() == 0;
 			statusText.setBackgroundTintList(ColorStateList.valueOf(
 					isTracing ? getResources().getColor(R.color.status_green_bg, null)
 							  : getResources().getColor(R.color.status_purple_bg, null)));
@@ -131,12 +92,8 @@ public class DebugFragment extends Fragment {
 					.show();
 
 			setDebugAppState(DebugAppState.NONE);
-			tracingViewModel.resetSdk(() -> {
-				progressDialog.dismiss();
-				InfoDialog.newInstance(R.string.android_debug_sdk_reset_text)
-						.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
-				updateRadioGroup(getView().findViewById(R.id.debug_state_options_group));
-			});
+			tracingViewModel.resetSdk();
+			updateRadioGroup(getView().findViewById(R.id.debug_state_options_group));
 		});
 	}
 
@@ -183,11 +140,10 @@ public class DebugFragment extends Fragment {
 
 	private SpannableString formatStatusString(TracingStatus status) {
 		SpannableStringBuilder builder = new SpannableStringBuilder();
-		boolean isTracing = (status.isAdvertising() || status.isReceiving()) && status.getErrors().size() == 0;
+		boolean isTracing = (status.isTracingEnabled()) && status.getErrors().size() == 0;
 		builder.append(getString(isTracing ? R.string.tracing_active_title : R.string.android_tracing_error_title)).append("\n")
 				.setSpan(new StyleSpan(Typeface.BOLD), 0, builder.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
-		Database database = new Database(getContext());
 		long lastSyncDateUTC = status.getLastSyncDate();
 		String lastSyncDateString =
 				lastSyncDateUTC > 0 ? DATE_FORMAT_SYNC.format(new Date(lastSyncDateUTC)) : "n/a";
@@ -196,11 +152,7 @@ public class DebugFragment extends Fragment {
 				.append(getString(R.string.debug_sdk_state_self_exposed))
 				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.INFECTED)).append("\n")
 				.append(getString(R.string.debug_sdk_state_contact_exposed))
-				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.EXPOSED)).append("\n")
-				.append(getString(R.string.debug_sdk_state_number_contacts))
-				.append(String.valueOf(status.getNumberOfContacts())).append("\n")
-				.append(getString(R.string.debug_sdk_state_number_handshakes))
-				.append(String.valueOf(database.getHandshakes().size()));
+				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.EXPOSED));
 
 		Collection<TracingStatus.ErrorState> errors = status.getErrors();
 		if (errors != null && errors.size() > 0) {

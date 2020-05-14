@@ -12,7 +12,7 @@ package ch.admin.bag.dp3t.main.model;
 import java.util.List;
 
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.database.models.ExposureDay;
+import org.dpppt.android.sdk.models.ExposureDay;
 
 public interface TracingStatusInterface {
 

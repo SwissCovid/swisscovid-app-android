@@ -9,6 +9,7 @@
  */
 package ch.admin.bag.dp3t.viewmodel;
 
+import android.app.Activity;
 import android.app.Application;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
@@ -42,7 +43,6 @@ public class TracingViewModel extends AndroidViewModel {
 
 	private final MutableLiveData<Boolean> tracingEnabledLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Pair<Boolean, Boolean>> exposedLiveData = new MutableLiveData<>();
-	private final MutableLiveData<Integer> numberOfHandshakesLiveData = new MutableLiveData<>(0);
 	private final MutableLiveData<Collection<TracingStatus.ErrorState>> errorsLiveData =
 			new MutableLiveData<>(Collections.emptyList());
 	private final MutableLiveData<TracingStatusInterface> appStatusLiveData = new MutableLiveData<>();
@@ -65,8 +65,7 @@ public class TracingViewModel extends AndroidViewModel {
 
 		tracingStatusLiveData.observeForever(status -> {
 			errorsLiveData.setValue(status.getErrors());
-			tracingEnabledLiveData.setValue(status.isAdvertising() && status.isReceiving());
-			numberOfHandshakesLiveData.setValue(status.getNumberOfContacts());
+			tracingEnabledLiveData.setValue(status.isTracingEnabled());
 			tracingStatusInterface.setStatus(status);
 
 			exposedLiveData
@@ -83,9 +82,9 @@ public class TracingViewModel extends AndroidViewModel {
 		application.registerReceiver(bluetoothReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
 	}
 
-	public void resetSdk(Runnable onDeleteListener) {
+	public void resetSdk() {
 		if (tracingEnabledLiveData.getValue()) DP3T.stop(getApplication());
-		DP3T.clearData(getApplication(), onDeleteListener);
+		DP3T.clearData(getApplication());
 	}
 
 	public void invalidateTracingStatus() {
@@ -117,9 +116,9 @@ public class TracingViewModel extends AndroidViewModel {
 		return bluetoothEnabledLiveData;
 	}
 
-	public void setTracingEnabled(boolean enabled) {
+	public void setTracingEnabled(Activity activity, boolean enabled) {
 		if (enabled) {
-			DP3T.start(getApplication());
+			DP3T.start(activity);
 		} else {
 			DP3T.stop(getApplication());
 		}
@@ -138,9 +137,9 @@ public class TracingViewModel extends AndroidViewModel {
 		}.start();
 	}
 
-	public void invalidateService() {
+	public void invalidateService(Activity activity) {
 		if (tracingEnabledLiveData.getValue()) {
-			DP3T.start(getApplication());
+			DP3T.start(activity);
 		}
 	}
 

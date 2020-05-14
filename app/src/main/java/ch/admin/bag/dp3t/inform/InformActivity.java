@@ -9,9 +9,12 @@
  */
 package ch.admin.bag.dp3t.inform;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
+
+import org.dpppt.android.sdk.DP3T;
 
 import ch.admin.bag.dp3t.R;
 
@@ -41,6 +44,12 @@ public class InformActivity extends FragmentActivity {
 
 	public void allowBackButton(boolean allowed) {
 		this.allowed = allowed;
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		DP3T.onActivityResult(this, requestCode, resultCode, data);
 	}
 
 }

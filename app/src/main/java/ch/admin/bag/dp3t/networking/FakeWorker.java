@@ -24,7 +24,7 @@ import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
 import ch.admin.bag.dp3t.util.ExponentialDistribution;
 import ch.admin.bag.dp3t.util.JwtUtil;
 import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
+import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
 
 public class FakeWorker extends Worker {
 

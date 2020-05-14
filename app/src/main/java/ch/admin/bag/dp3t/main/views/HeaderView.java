@@ -134,12 +134,7 @@ public class HeaderView extends ConstraintLayout {
 				backgroundColor = getResources().getColor(R.color.header_bg_error, null);
 				switch (error) {
 					case SYNC_ERROR_TIMING:
-					case MISSING_LOCATION_PERMISSION:
 					case BLE_NOT_SUPPORTED:
-					case BLE_INTERNAL_ERROR:
-					case BATTERY_OPTIMIZER_ENABLED:
-					case BLE_ADVERTISING_ERROR:
-					case BLE_SCANNER_ERROR:
 						iconRes = R.drawable.ic_warning;
 						break;
 					case BLE_DISABLED:

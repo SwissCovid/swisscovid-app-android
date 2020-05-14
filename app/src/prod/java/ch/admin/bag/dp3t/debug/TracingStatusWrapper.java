@@ -15,7 +15,7 @@ import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.database.models.ExposureDay;
+import org.dpppt.android.sdk.models.ExposureDay;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
 
@@ -43,8 +43,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public TracingState getTracingState() {
-		boolean tracingOff = !(status.isAdvertising() || status.isReceiving());
-		return tracingOff ? TracingState.NOT_ACTIVE : TracingState.ACTIVE;
+		return status.isTracingEnabled() ? TracingState.ACTIVE : TracingState.NOT_ACTIVE;
 	}
 
 	@Override

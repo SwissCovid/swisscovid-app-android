@@ -10,25 +10,19 @@
 
 package ch.admin.bag.dp3t.main;
 
-import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import ch.admin.bag.dp3t.main.model.TracingState;
-import ch.admin.bag.dp3t.onboarding.OnboardingLocationPermissionFragment;
-import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.util.TracingStatusHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
@@ -37,13 +31,10 @@ import org.dpppt.android.sdk.TracingStatus;
 
 public class TracingBoxFragment extends Fragment {
 
-
 	private static final int REQUEST_CODE_BLE_INTENT = 330;
-	private static final int REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT = 420;
 	private static final int REQUEST_CODE_LOCATION_INTENT = 510;
 	private static String ARG_TRACING = "isHomeFragment";
 	private TracingViewModel tracingViewModel;
-
 
 	private View tracingStatusView;
 
@@ -108,25 +99,6 @@ public class TracingBoxFragment extends Fragment {
 		TracingErrorStateHelper.updateErrorView(tracingErrorView, errorState);
 		tracingErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
 			switch (errorState) {
-				case MISSING_LOCATION_PERMISSION:
-					if (ActivityCompat
-							.shouldShowRequestPermissionRationale(requireActivity(),
-									Manifest.permission.ACCESS_FINE_LOCATION)) {
-						String[] permissions = new String[] { Manifest.permission.ACCESS_FINE_LOCATION };
-						requestPermissions(permissions, OnboardingLocationPermissionFragment.REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION);
-					} else {
-						new AlertDialog.Builder(requireActivity())
-								.setTitle(R.string.android_button_permission_location)
-								.setMessage(R.string.android_foreground_service_notification_error_location_permission)
-								.setPositiveButton(getString(R.string.android_button_ok),
-										(dialogInterface, i) -> {
-											DeviceFeatureHelper.openApplicationSettings(requireActivity());
-											dialogInterface.dismiss();
-										})
-								.create()
-								.show();
-					}
-					break;
 				case BLE_DISABLED:
 					BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 					if (!mBluetoothAdapter.isEnabled()) {
@@ -139,12 +111,6 @@ public class TracingBoxFragment extends Fragment {
 							Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 					startActivityForResult(locationInent, REQUEST_CODE_LOCATION_INTENT);
 					break;
-				case BATTERY_OPTIMIZER_ENABLED:
-					String packageName = requireActivity().getPackageName();
-					Intent batteryIntent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
-					batteryIntent.setData(Uri.parse("package:" + packageName));
-					startActivityForResult(batteryIntent, REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT);
-					break;
 			}
 		});
 	}
@@ -152,20 +118,9 @@ public class TracingBoxFragment extends Fragment {
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 		if (requestCode == REQUEST_CODE_BLE_INTENT && resultCode == Activity.RESULT_OK) {
-			tracingViewModel.invalidateService();
-		} else if (requestCode == REUQEST_CODE_BATTERY_OPTIMIZATIONS_INTENT && resultCode == Activity.RESULT_OK) {
-			tracingViewModel.invalidateService();
+			tracingViewModel.invalidateService(getActivity());
 		} else if (requestCode == REQUEST_CODE_LOCATION_INTENT && resultCode == Activity.RESULT_OK) {
-			tracingViewModel.invalidateService();
-		}
-	}
-
-	@Override
-	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-		if (requestCode == OnboardingLocationPermissionFragment.REQUEST_CODE_ASK_PERMISSION_FINE_LOCATION) {
-			if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-				tracingViewModel.invalidateService();
-			}
+			tracingViewModel.invalidateService(getActivity());
 		}
 	}
 
