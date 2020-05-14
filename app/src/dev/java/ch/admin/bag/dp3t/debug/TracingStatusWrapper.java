@@ -16,6 +16,11 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.dpppt.android.sdk.InfectionStatus;
+import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.models.DayDate;
+import org.dpppt.android.sdk.models.ExposureDay;
+
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
 import ch.admin.bag.dp3t.main.model.NotificationState;
 import ch.admin.bag.dp3t.main.model.TracingState;
@@ -23,11 +28,6 @@ import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
-
-import org.dpppt.android.sdk.InfectionStatus;
-import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.models.DayDate;
-import org.dpppt.android.sdk.models.ExposureDay;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
 
@@ -65,9 +65,11 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	public void setDebugAppState(Context context, DebugAppState debugAppState) {
 		this.debugAppState = debugAppState;
+		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		if (debugAppState == DebugAppState.CONTACT_EXPOSED) {
-			SecureStorage secureStorage = SecureStorage.getInstance(context);
 			secureStorage.setReportsHeaderAnimationPending(true);
+		} else {
+			secureStorage.setReportsHeaderAnimationPending(false);
 		}
 	}
 
