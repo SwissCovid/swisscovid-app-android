@@ -851,4 +851,6 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activated">"Aktiviert"</string>
+    <string name="delete_reports_text">Meldung löschen</string>
+    <string name="delete_reports_dialog_text">Möchten sie die Meldung wirklich löschen</string>
 </resources>
