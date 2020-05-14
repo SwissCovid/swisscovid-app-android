@@ -9,10 +9,7 @@
  */
 package ch.admin.bag.dp3t.onboarding;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import androidx.annotation.NonNull;
@@ -20,10 +17,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.TracingStatus;
 
-import ch.admin.bag.dp3t.onboarding.util.PermissionButtonUtil;
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.onboarding.util.PermissionButtonUtil;
 
 public class OnboardingGaenPermissionFragment extends Fragment {
 
@@ -44,9 +40,13 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		activateButton = view.findViewById(R.id.onboarding_gaen_button);
 		activateButton.setOnClickListener(v -> {
-			// TODO: implement reaction on callback (when available in the sdk) and call update (remove line below)
-			continueButton.setVisibility(View.VISIBLE);
-			DP3T.start(getActivity());
+
+			DP3T.start(getActivity(), () -> {
+				((OnboardingActivity) getActivity()).continueToNextPage();
+			}, (e) -> {
+				// TODO: show error popup and check if exception is play services upgrade needed
+				continueButton.setVisibility(View.VISIBLE);
+			});
 		});
 		continueButton = view.findViewById(R.id.onboarding_gaen_continue_button);
 		continueButton.setOnClickListener(v -> {

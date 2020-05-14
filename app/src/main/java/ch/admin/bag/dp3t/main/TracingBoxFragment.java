@@ -7,13 +7,11 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.main;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -22,12 +20,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.dpppt.android.sdk.TracingStatus;
+
+import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.model.TracingState;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.util.TracingStatusHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
-import ch.admin.bag.dp3t.R;
-import org.dpppt.android.sdk.TracingStatus;
 
 public class TracingBoxFragment extends Fragment {
 
@@ -118,9 +117,9 @@ public class TracingBoxFragment extends Fragment {
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 		if (requestCode == REQUEST_CODE_BLE_INTENT && resultCode == Activity.RESULT_OK) {
-			tracingViewModel.invalidateService(getActivity());
+			tracingViewModel.invalidateTracingStatus();
 		} else if (requestCode == REQUEST_CODE_LOCATION_INTENT && resultCode == Activity.RESULT_OK) {
-			tracingViewModel.invalidateService(getActivity());
+			tracingViewModel.invalidateTracingStatus();
 		}
 	}
 

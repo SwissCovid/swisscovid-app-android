@@ -18,6 +18,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.core.util.Consumer;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -117,12 +118,12 @@ public class TracingViewModel extends AndroidViewModel {
 		return bluetoothEnabledLiveData;
 	}
 
-	public void setTracingEnabled(Activity activity, boolean enabled) {
-		if (enabled) {
-			DP3T.start(activity);
-		} else {
-			DP3T.stop(getApplication());
-		}
+	public void enableTracing(Activity activity, Runnable successCallback, Consumer<Exception> errorCallback) {
+		DP3T.start(activity, successCallback, errorCallback);
+	}
+
+	public void disableTracing() {
+		DP3T.stop(getApplication());
 	}
 
 	public TracingStatusInterface getTracingStatusInterface() {
@@ -136,12 +137,6 @@ public class TracingViewModel extends AndroidViewModel {
 				DP3T.sync(getApplication());
 			}
 		}.start();
-	}
-
-	public void invalidateService(Activity activity) {
-		if (tracingEnabledLiveData.getValue()) {
-			DP3T.start(activity);
-		}
 	}
 
 	private void invalidateBluetoothState() {

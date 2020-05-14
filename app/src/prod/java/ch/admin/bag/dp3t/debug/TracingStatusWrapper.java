@@ -5,6 +5,8 @@
  */
 package ch.admin.bag.dp3t.debug;
 
+import android.content.Context;
+
 import java.util.List;
 import java.util.TimeZone;
 
@@ -78,13 +80,13 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	}
 
 	@Override
-	public void resetInfectionStatus() {
-		DP3T.resetInfectionStatus();
+	public void resetInfectionStatus(Context context) {
+		DP3T.resetInfectionStatus(context);
 	}
 
 	@Override
-	public void resetExposureDays() {
-		DP3T.resetInfectionStatus();
+	public void resetExposureDays(Context context) {
+		DP3T.resetInfectionStatus(context);
 	}
 
 

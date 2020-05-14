@@ -118,14 +118,15 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	}
 
 	@Override
-	public void resetInfectionStatus() {
+	public void resetInfectionStatus(Context context) {
 		debugAppState = DebugAppState.NONE;
-		DP3T.resetInfectionStatus();
+		DP3T.resetInfectionStatus(context);
 	}
 
-	public void resetExposureDays() {
+	@Override
+	public void resetExposureDays(Context context) {
 		debugAppState = DebugAppState.NONE;
-		DP3T.resetExposureDays();
+		DP3T.resetExposureDays(context);
 	}
 
 	@Override

@@ -21,10 +21,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import ch.admin.bag.dp3t.main.views.HeaderView;
-import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.TracingBoxFragment;
+import ch.admin.bag.dp3t.main.views.HeaderView;
+import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ContactsFragment extends Fragment {
 
@@ -80,17 +80,21 @@ public class ContactsFragment extends Fragment {
 
 	private void setupTracingView() {
 
-		tracingSwitch.setOnClickListener(v -> tracingViewModel.setTracingEnabled(getActivity(), tracingSwitch.isChecked()));
+		tracingSwitch.setOnClickListener(v -> {
+			if (tracingSwitch.isChecked()) {
+				tracingViewModel.enableTracing(getActivity(), () -> {
+					//ignore
+				}, (e) -> {
+					//TODO show error
+				});
+			} else {
+				tracingViewModel.disableTracing();
+			}
+		});
 
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
 			tracingSwitch.setChecked(status.isTracingEnabled());
 		});
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		tracingViewModel.invalidateService(getActivity());
 	}
 
 	@Override

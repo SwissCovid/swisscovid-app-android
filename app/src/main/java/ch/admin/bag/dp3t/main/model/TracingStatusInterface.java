@@ -9,6 +9,8 @@
  */
 package ch.admin.bag.dp3t.main.model;
 
+import android.content.Context;
+
 import java.util.List;
 
 import org.dpppt.android.sdk.TracingStatus;
@@ -34,8 +36,8 @@ public interface TracingStatusInterface {
 
 	long getDaysSinceExposure();
 
-	void resetInfectionStatus();
+	void resetInfectionStatus(Context context);
 
-	void resetExposureDays();
+	void resetExposureDays(Context context);
 
 }

@@ -110,11 +110,10 @@ public class MainActivity extends FragmentActivity {
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
 		if (ACTION_STOP_TRACING.equals(intentAction) && !launchedFromHistory) {
-			tracingViewModel.setTracingEnabled(this, false);
+			tracingViewModel.disableTracing();
 			intent.setAction(null);
 			setIntent(intent);
-		}
-		else if (ACTION_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory && !consumedExposedIntent) {
+		} else if (ACTION_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory && !consumedExposedIntent) {
 			consumedExposedIntent = true;
 			gotoReportsFragment();
 			intent.setAction(null);
