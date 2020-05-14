@@ -102,7 +102,7 @@ android {
 }
 
 dependencies {
-	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
 	def dp3t_sdk_version = '0.3.0'
 	devImplementation "org.dpppt:dp3t-sdk-android:gaen-$dp3t_sdk_version-calibration"
