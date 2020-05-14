@@ -9,6 +9,7 @@
  */
 package ch.admin.bag.dp3t.reports;
 
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -39,12 +40,12 @@ import java.util.TimeZone;
 
 import org.dpppt.android.sdk.models.ExposureDay;
 
-import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 import ch.admin.bag.dp3t.util.PhoneUtil;
+import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ReportsFragment extends Fragment {
 
@@ -141,6 +142,19 @@ public class ReportsFragment extends Fragment {
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				infectedView.setVisibility(View.VISIBLE);
 				items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, secureStorage.getInfectedDate()));
+				infectedView.findViewById(R.id.delete_reports).setOnClickListener(v -> {
+					AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),R.style.AlertDialogStyle);
+					builder.setMessage(R.string.delete_reports_dialog_text)
+							.setPositiveButton(R.string.android_button_ok, (dialog, id) -> {
+								tracingStatusInterface.resetInfectionStatus();
+								getParentFragmentManager().popBackStack();
+							})
+							.setNegativeButton(R.string.cancel, (dialog, id) -> {
+								//do nothing
+							});
+					builder.create();
+					builder.show();
+				});
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
 				List<ExposureDay> exposureDays = tracingStatusInterface.getExposureDays();
 				boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
@@ -173,18 +187,24 @@ public class ReportsFragment extends Fragment {
 						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, exposureTimestamp));
 					}
 				}
+
+				saveOthersView.findViewById(R.id.delete_reports).setOnClickListener(v -> {
+					AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),R.style.AlertDialogStyle);
+					builder.setMessage(R.string.delete_reports_dialog_text)
+							.setPositiveButton(R.string.android_button_ok, (dialog, id) -> {
+								tracingStatusInterface.resetExposureDays();
+								getParentFragmentManager().popBackStack();
+							})
+							.setNegativeButton(R.string.cancel, (dialog, id) -> {
+								//do nothing
+							});
+					builder.create();
+					builder.show();
+				});
 			} else {
 				healthyView.setVisibility(View.VISIBLE);
 				items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
 			}
-
-			/* Debug items
-			items.clear();
-			items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
-			items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, 1585835019000L));
-			items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, 1585835019000L));
-			items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, 1585835019000L));
-			 */
 
 			pagerAdapter.updateItems(items);
 		});
@@ -373,7 +393,7 @@ public class ReportsFragment extends Fragment {
 			}
 
 			updateHeaderSize(isReportsHeaderAnimationPending);
-			
+
 			if (isReportsHeaderAnimationPending) {
 				headerViewPager.setUserInputEnabled(false);
 

@@ -8,14 +8,16 @@ package ch.admin.bag.dp3t.debug;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.InfectionStatus;
+import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.models.ExposureDay;
+
 import ch.admin.bag.dp3t.main.model.NotificationState;
 import ch.admin.bag.dp3t.main.model.TracingState;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
-import org.dpppt.android.sdk.InfectionStatus;
-import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.models.ExposureDay;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
 
@@ -73,6 +75,16 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			return DateUtils.getDaysDiff(time);
 		}
 		return -1;
+	}
+
+	@Override
+	public void resetInfectionStatus() {
+		DP3T.resetInfectionStatus();
+	}
+
+	@Override
+	public void resetExposureDays() {
+		DP3T.resetInfectionStatus();
 	}
 
 

@@ -34,4 +34,8 @@ public interface TracingStatusInterface {
 
 	long getDaysSinceExposure();
 
+	void resetInfectionStatus();
+
+	void resetExposureDays();
+
 }

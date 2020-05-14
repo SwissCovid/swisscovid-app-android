@@ -16,6 +16,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.models.DayDate;
@@ -114,6 +115,17 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			return DateUtils.getDaysDiff(time);
 		}
 		return -1;
+	}
+
+	@Override
+	public void resetInfectionStatus() {
+		debugAppState = DebugAppState.NONE;
+		DP3T.resetInfectionStatus();
+	}
+
+	public void resetExposureDays() {
+		debugAppState = DebugAppState.NONE;
+		DP3T.resetExposureDays();
 	}
 
 	@Override

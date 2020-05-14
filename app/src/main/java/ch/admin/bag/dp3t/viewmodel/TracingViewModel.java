@@ -25,11 +25,12 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.Collection;
 import java.util.Collections;
 
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.TracingStatus;
+
 import ch.admin.bag.dp3t.debug.TracingStatusWrapper;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
-import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.TracingStatus;
 
 public class TracingViewModel extends AndroidViewModel {
 
