@@ -122,15 +122,9 @@ public class ReportsFragment extends Fragment {
 		faqButton3.setOnClickListener(v -> showFaq());
 		faqButton4.setOnClickListener(v -> showFaq());
 
-		View link1 = infectedView.findViewById(R.id.card_encounters_link);
-		View link2 = hotlineView.findViewById(R.id.card_encounters_link);
-		View link3 = saveOthersView.findViewById(R.id.card_encounters_link);
-		View link4 = healthyView.findViewById(R.id.card_encounters_link);
+		View infoLinkHealthy = healthyView.findViewById(R.id.card_encounters_link);
 
-		link1.setOnClickListener(v -> openLink(R.string.meldungen_explanation_link_url));
-		link2.setOnClickListener(v -> openLink(R.string.meldungen_explanation_link_url));
-		link3.setOnClickListener(v -> openLink(R.string.meldungen_explanation_link_url));
-		link4.setOnClickListener(v -> openLink(R.string.no_meldungen_box_url));
+		infoLinkHealthy.setOnClickListener(v -> openLink(R.string.no_meldungen_box_url));
 
 		pagerAdapter = new ReportsSlidePageAdapter();
 		headerViewPager.setAdapter(pagerAdapter);

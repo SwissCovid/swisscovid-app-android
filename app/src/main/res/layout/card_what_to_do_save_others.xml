@@ -181,29 +181,6 @@
 
 				</LinearLayout>
 
-				<LinearLayout
-					android:id="@+id/card_encounters_link"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_large"
-					android:orientation="horizontal"
-					app:layout_constraintTop_toBottomOf="@id/card_encounters_last_lines">
-
-					<ImageView
-						android:layout_width="@dimen/icon_size"
-						android:layout_height="@dimen/icon_size"
-						android:layout_marginRight="@dimen/spacing_small"
-						android:src="@drawable/ic_launch"
-						android:tint="@color/blue_main" />
-
-					<TextView
-						style="@style/NextStep.Text.Bold.Blue"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:text="@string/meldungen_explanation_link_title" />
-
-				</LinearLayout>
-
 			</LinearLayout>
 
 		</androidx.constraintlayout.widget.ConstraintLayout>
