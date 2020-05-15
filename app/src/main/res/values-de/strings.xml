@@ -772,4 +772,6 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="android_onboarding_battery_permission_info_2_text">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterienutzung erhöht sich nur leicht."</string>
     <string name="android_foreground_service_notification_error_battery_optimization">"Damit Tracing präzise funktioniert, muss die App auch im Hintergrund ausgeführt werden. Die Batterienutzung erhöht sich nur leicht."</string>
     <string name="error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>
+    <string name="gaen_not_available_text">Bitte aktualisieren sie ihre Google Play Services</string>
+    <string name="gaen_not_unexpectedly_disabled">Tracing ist deaktiviert. Versuchen sie er erneut zu starten</string>
 </resources>

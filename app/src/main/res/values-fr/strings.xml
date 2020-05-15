@@ -752,4 +752,6 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="android_onboarding_battery_permission_info_2_text">"L'application utilise aussi peu d'énergie que possible. La consommation n'augmente que légèrement."</string>
     <string name="android_foreground_service_notification_error_battery_optimization">"Pour que le traçage soit précis, l'application doit aussi pouvoir fonctionner en arrière-plan. Cela n'augmente que légèrement la consommation d'énergie."</string>
     <string name="error_battery_optimization_title">"Optimisation de la consommation de la batterie activée"</string>
+    <string name="gaen_not_available_text">Bitte aktualisieren sie ihre Google Play Services</string>
+    <string name="gaen_not_unexpectedly_disabled">Tracing ist deaktiviert. Versuchen sie er erneut zu starten</string>
 </resources>

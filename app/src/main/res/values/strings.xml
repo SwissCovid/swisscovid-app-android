@@ -738,4 +738,6 @@ Infoline Coronavirus
     <string name="android_onboarding_battery_permission_info_2_text">"The app operates using as little energy as possible. There is only a minor increase in battery usage."</string>
     <string name="android_foreground_service_notification_error_battery_optimization">"For tracing to work precisely, the app must also run in the background. This will cause a minor increase in battery usage."</string>
     <string name="error_battery_optimization_title">"Optimisation of battery usage activated"</string>
+	<string name="gaen_not_available_text">Bitte aktualisieren sie ihre Google Play Services</string>
+	<string name="gaen_not_unexpectedly_disabled">Tracing ist deaktiviert. Versuchen sie er erneut zu starten</string>
 </resources>
