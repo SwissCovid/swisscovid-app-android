@@ -727,4 +727,5 @@ Infoline Coronavirus
 
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
+	<string name="gaen_not_aviable">Play Services nicht aktuell</string>
 </resources>

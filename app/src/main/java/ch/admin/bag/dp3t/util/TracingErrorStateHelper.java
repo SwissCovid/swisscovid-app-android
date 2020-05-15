@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.util;
 
 import android.graphics.Paint;
@@ -22,12 +21,15 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import ch.admin.bag.dp3t.R;
 import org.dpppt.android.sdk.TracingStatus;
+
+import ch.admin.bag.dp3t.R;
 
 public class TracingErrorStateHelper {
 
 	private static final List<TracingStatus.ErrorState> possibleErrorStatesOrderedByPriority = Arrays.asList(
+			TracingStatus.ErrorState.GAEN_NOT_AVAILABLE,
+			TracingStatus.ErrorState.GAEN_UNEXPECTEDLY_DISABLED,
 			TracingStatus.ErrorState.BLE_NOT_SUPPORTED,
 			TracingStatus.ErrorState.BLE_DISABLED,
 			TracingStatus.ErrorState.LOCATION_SERVICE_DISABLED,
@@ -49,6 +51,10 @@ public class TracingErrorStateHelper {
 				return R.string.bluetooth_turned_off_title;
 			case SYNC_ERROR_TIMING:
 				return R.string.time_inconsistency_title;
+			case GAEN_NOT_AVAILABLE:
+				return R.string.gaen_not_aviable;
+			case GAEN_UNEXPECTEDLY_DISABLED:
+				return R.string.bluetooth_setting_tracking_inactive;
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_SIGNATURE:
@@ -75,6 +81,8 @@ public class TracingErrorStateHelper {
 				return R.drawable.ic_bluetooth_off;
 			case SYNC_ERROR_TIMING:
 				return R.drawable.ic_time;
+			case GAEN_NOT_AVAILABLE:
+			case GAEN_UNEXPECTEDLY_DISABLED:
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_DATABASE:
@@ -92,11 +100,13 @@ public class TracingErrorStateHelper {
 				return R.string.android_error_location_services_button;
 			case BLE_DISABLED:
 				return R.string.bluetooth_turn_on_button_title;
+			case GAEN_UNEXPECTEDLY_DISABLED:
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_DATABASE:
 			case SYNC_ERROR_SIGNATURE:
 				return R.string.homescreen_meldung_data_outdated_retry_button;
+			case GAEN_NOT_AVAILABLE:
 			case SYNC_ERROR_TIMING:
 			case BLE_NOT_SUPPORTED:
 			default:
@@ -174,6 +184,10 @@ public class TracingErrorStateHelper {
 		switch (errorState) {
 			case BLE_NOT_SUPPORTED:
 				return "NSBNS";
+			case GAEN_NOT_AVAILABLE:
+				return "GANA";
+			case GAEN_UNEXPECTEDLY_DISABLED:
+				return "GAUD";
 			case SYNC_ERROR_SERVER:
 				return "RTSES";
 			case SYNC_ERROR_NETWORK:

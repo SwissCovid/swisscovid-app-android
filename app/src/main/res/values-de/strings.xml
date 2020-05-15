@@ -761,4 +761,5 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <!-- Fuzzy -->
     <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
+    <string name="gaen_not_aviable">Play Services nicht aktuell</string>
 </resources>

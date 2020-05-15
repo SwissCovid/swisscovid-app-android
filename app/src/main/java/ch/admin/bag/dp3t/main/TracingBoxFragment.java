@@ -9,6 +9,8 @@
  */
 package ch.admin.bag.dp3t.main;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
@@ -28,6 +30,8 @@ import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.util.TracingStatusHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
+import static android.view.View.VISIBLE;
+
 public class TracingBoxFragment extends Fragment {
 
 	private static final int REQUEST_CODE_BLE_INTENT = 330;
@@ -39,6 +43,7 @@ public class TracingBoxFragment extends Fragment {
 
 	private View tracingErrorView;
 	private boolean isHomeFragment;
+	private View tracingLoadingView;
 
 	public TracingBoxFragment() {
 		super(R.layout.fragment_tracing_box);
@@ -65,6 +70,7 @@ public class TracingBoxFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		tracingStatusView = view.findViewById(R.id.tracing_status);
 		tracingErrorView = view.findViewById(R.id.tracing_error);
+		tracingLoadingView = view.findViewById(R.id.tracing_loading_view);
 
 		showStatus();
 	}
@@ -110,8 +116,40 @@ public class TracingBoxFragment extends Fragment {
 							Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 					startActivityForResult(locationInent, REQUEST_CODE_LOCATION_INTENT);
 					break;
+				case GAEN_UNEXPECTEDLY_DISABLED:
+					showLoadingView();
 			}
 		});
+	}
+
+	private void showLoadingView() {
+		tracingLoadingView.animate()
+				.alpha(1f)
+				.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
+				.setListener(new AnimatorListenerAdapter() {
+					@Override
+					public void onAnimationEnd(Animator animation) {
+						tracingLoadingView.setVisibility(VISIBLE);
+						tracingViewModel.enableTracing(getActivity(), () -> {
+							hideLoadingView();
+						}, (e) -> {
+							hideLoadingView();
+						});
+					}
+				});
+	}
+
+	private void hideLoadingView() {
+		tracingLoadingView.animate()
+				.setStartDelay(getResources().getInteger(android.R.integer.config_mediumAnimTime))
+				.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
+				.alpha(0f)
+				.setListener(new AnimatorListenerAdapter() {
+					@Override
+					public void onAnimationEnd(Animator animation) {
+						tracingLoadingView.setVisibility(View.GONE);
+					}
+				});
 	}
 
 	@Override
