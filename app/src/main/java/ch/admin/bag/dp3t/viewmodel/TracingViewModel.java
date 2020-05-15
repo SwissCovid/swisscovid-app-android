@@ -118,8 +118,9 @@ public class TracingViewModel extends AndroidViewModel {
 		return bluetoothEnabledLiveData;
 	}
 
-	public void enableTracing(Activity activity, Runnable successCallback, Consumer<Exception> errorCallback) {
-		DP3T.start(activity, successCallback, errorCallback);
+	public void enableTracing(Activity activity, Runnable successCallback, Consumer<Exception> errorCallback,
+			Runnable cancelledCallback) {
+		DP3T.start(activity, successCallback, errorCallback, cancelledCallback);
 	}
 
 	public void disableTracing() {

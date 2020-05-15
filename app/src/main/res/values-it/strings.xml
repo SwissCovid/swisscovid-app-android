@@ -751,4 +751,14 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
     <string name="gaen_not_aviable">Play Services nicht aktuell</string>
+    <string name="android_onboarding_battery_permission_title">"Ignora l'ottimizzazione della batteria"</string>
+    <string name="android_onboarding_battery_permission_text">"Per poter riconoscere sempre gli incontri, l'ottimizzazione della batteria deve essere disattivata per questa app."</string>
+    <string name="android_onboarding_battery_permission_button">"Consenti"</string>
+    <string name="android_onboarding_battery_permission_button_deactivated">"Disattivata"</string>
+    <string name="android_onboarding_battery_permission_info_1_title">"Solo per questa app"</string>
+    <string name="android_onboarding_battery_permission_info_1_text">"Per funzionare, l'app deve poter essere eseguita anche in background. Affinché ciò sia possibile, l'ottimizzazione della batteria può essere disattivata per le singole app."</string>
+    <string name="android_onboarding_battery_permission_info_2_title">"Il consumo della batteria aumenta leggermente"</string>
+    <string name="android_onboarding_battery_permission_info_2_text">"L'app è stata realizzata per funzionare con il massimo risparmio energetico. Il consumo della batteria aumenta soltanto leggermente."</string>
+    <string name="android_foreground_service_notification_error_battery_optimization">"Per un funzionamento preciso del tracciamento, l'app deve essere eseguita anche in background. Il consumo della batteria aumenta solo leggermente."</string>
+    <string name="error_battery_optimization_title">"Optimisation of battery usage activated"</string>
 </resources>

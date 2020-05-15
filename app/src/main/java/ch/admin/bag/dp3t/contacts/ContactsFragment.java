@@ -24,6 +24,7 @@ import androidx.lifecycle.ViewModelProvider;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.TracingBoxFragment;
 import ch.admin.bag.dp3t.main.views.HeaderView;
+import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ContactsFragment extends Fragment {
@@ -85,7 +86,10 @@ public class ContactsFragment extends Fragment {
 				tracingViewModel.enableTracing(getActivity(), () -> {
 					//ignore
 				}, (e) -> {
-					//TODO show error
+					InfoDialog.newInstance(e.getLocalizedMessage())
+							.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+				}, () -> {
+					//ignore
 				});
 			} else {
 				tracingViewModel.disableTracing();

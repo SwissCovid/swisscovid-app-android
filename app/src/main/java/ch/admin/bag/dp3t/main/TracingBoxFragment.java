@@ -26,6 +26,7 @@ import org.dpppt.android.sdk.TracingStatus;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.model.TracingState;
+import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.util.TracingStatusHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
@@ -133,6 +134,9 @@ public class TracingBoxFragment extends Fragment {
 						tracingViewModel.enableTracing(getActivity(), () -> {
 							hideLoadingView();
 						}, (e) -> {
+							InfoDialog.newInstance(e.getLocalizedMessage()).show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+							hideLoadingView();
+						},() -> {
 							hideLoadingView();
 						});
 					}

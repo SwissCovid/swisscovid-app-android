@@ -20,6 +20,7 @@ import org.dpppt.android.sdk.DP3T;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.onboarding.util.PermissionButtonUtil;
+import ch.admin.bag.dp3t.util.InfoDialog;
 
 public class OnboardingGaenPermissionFragment extends Fragment {
 
@@ -40,12 +41,15 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		activateButton = view.findViewById(R.id.onboarding_gaen_button);
 		activateButton.setOnClickListener(v -> {
-
+			wasUserActive = true;
 			DP3T.start(getActivity(), () -> {
+				updateFragmentState(true);
 				((OnboardingActivity) getActivity()).continueToNextPage();
 			}, (e) -> {
-				// TODO: show error popup and check if exception is play services upgrade needed
-				continueButton.setVisibility(View.VISIBLE);
+				InfoDialog.newInstance(e.getLocalizedMessage()).show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+				updateFragmentState(false);
+			}, () -> {
+				updateFragmentState(false);
 			});
 		});
 		continueButton = view.findViewById(R.id.onboarding_gaen_continue_button);
@@ -66,10 +70,6 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 			PermissionButtonUtil.setButtonDefault(activateButton, R.string.onboarding_gaen_button_activate);
 		}
 		continueButton.setVisibility(activated || wasUserActive ? View.VISIBLE : View.GONE);
-
-		if (activated && wasUserActive) {
-			((OnboardingActivity) getActivity()).continueToNextPage();
-		}
 	}
 
 }

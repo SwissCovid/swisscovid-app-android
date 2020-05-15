@@ -742,4 +742,14 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
     <string name="gaen_not_aviable">Play Services nicht aktuell</string>
+    <string name="android_onboarding_battery_permission_title">"Ignorer l'optimisation de la batterie"</string>
+    <string name="android_onboarding_battery_permission_text">"Pour pouvoir détecter les contacts en tout temps, désactiver l'optimisation de la batterie pour cette application."</string>
+    <string name="android_onboarding_battery_permission_button">"Autoriser"</string>
+    <string name="android_onboarding_battery_permission_button_deactivated">"Désactivé"</string>
+    <string name="android_onboarding_battery_permission_info_1_title">"Seulement pour cette application"</string>
+    <string name="android_onboarding_battery_permission_info_1_text">"L'application doit pouvoir tourner en arrière-plan pour fonctionner. Pour ce faire, l'optimisation de la batterie peut être désactivée pour des applications précises."</string>
+    <string name="android_onboarding_battery_permission_info_2_title">"Légère augmentation de la consommation d'énergie."</string>
+    <string name="android_onboarding_battery_permission_info_2_text">"L'application utilise aussi peu d'énergie que possible. La consommation n'augmente que légèrement."</string>
+    <string name="android_foreground_service_notification_error_battery_optimization">"Pour que le traçage soit précis, l'application doit aussi pouvoir fonctionner en arrière-plan. Cela n'augmente que légèrement la consommation d'énergie."</string>
+    <string name="error_battery_optimization_title">"Optimisation de la consommation de la batterie activée"</string>
 </resources>

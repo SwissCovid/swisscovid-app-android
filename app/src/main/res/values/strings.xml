@@ -728,4 +728,14 @@ Infoline Coronavirus
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
 	<string name="gaen_not_aviable">Play Services nicht aktuell</string>
+    <string name="android_onboarding_battery_permission_title">"Ignore battery optimisation"</string>
+    <string name="android_onboarding_battery_permission_text">"To be able to recognise encounters at all times, the battery optimisation function for this app must be disabled."</string>
+    <string name="android_onboarding_battery_permission_button">"Allow"</string>
+    <string name="android_onboarding_battery_permission_button_deactivated">"Deactivated"</string>
+    <string name="android_onboarding_battery_permission_info_1_title">"Only for this app"</string>
+    <string name="android_onboarding_battery_permission_info_1_text">"For the app to work, it must also run in the background. Battery optimisation can be disabled for individual apps, so that this is possible."</string>
+    <string name="android_onboarding_battery_permission_info_2_title">"Minor increase in battery usage"</string>
+    <string name="android_onboarding_battery_permission_info_2_text">"The app operates using as little energy as possible. There is only a minor increase in battery usage."</string>
+    <string name="android_foreground_service_notification_error_battery_optimization">"For tracing to work precisely, the app must also run in the background. This will cause a minor increase in battery usage."</string>
+    <string name="error_battery_optimization_title">"Optimisation of battery usage activated"</string>
 </resources>

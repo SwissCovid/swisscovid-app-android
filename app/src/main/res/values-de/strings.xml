@@ -762,4 +762,14 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <!-- Fuzzy -->
     <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
     <string name="gaen_not_aviable">Play Services nicht aktuell</string>
+    <string name="android_onboarding_battery_permission_title">"Akku-Optimierung ignorieren"</string>
+    <string name="android_onboarding_battery_permission_text">"Um Begegnungen immer erkennen zu können, muss die Akku-Optimierung für diese App ausgeschaltet sein."</string>
+    <string name="android_onboarding_battery_permission_button">"Zulassen"</string>
+    <string name="android_onboarding_battery_permission_button_deactivated">"Deaktiviert"</string>
+    <string name="android_onboarding_battery_permission_info_1_title">"Nur für diese App"</string>
+    <string name="android_onboarding_battery_permission_info_1_text">"Damit die App funktioniert, muss sie auch im Hintergrund ausgeführt werden. Zu diesem Zweck kann die Akku-Optimierung für einzelne Apps ausgeschaltet werden."</string>
+    <string name="android_onboarding_battery_permission_info_2_title">"Leicht erhöhte Batterienutzung"</string>
+    <string name="android_onboarding_battery_permission_info_2_text">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterienutzung erhöht sich nur leicht."</string>
+    <string name="android_foreground_service_notification_error_battery_optimization">"Damit Tracing präzise funktioniert, muss die App auch im Hintergrund ausgeführt werden. Die Batterienutzung erhöht sich nur leicht."</string>
+    <string name="error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>
 </resources>
