@@ -36,9 +36,6 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <!-- Titel auf Homescreen für Begegnungen -->
     <string name="handshakes_title_homescreen">"Contacts"</string>
 
-    <!-- Titel der About Seite -->
-    <string name="tab_theapp_title">"L'appli"</string>
-
     <!-- Abbrechen -->
     <string name="cancel">"Annuler"</string>
 
@@ -47,9 +44,6 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
 
     <!-- Titel für Push-Nachrichten, wenn erkannt wird, dass ein Nutzer exposed war -->
     <string name="push_exposed_text">"Ouvrez l'application pour lire le message."</string>
-
-    <!-- Titel für Button um Ortung zu erlauben -->
-    <string name="android_button_permission_location">"Autoriser la géolocalisation"</string>
 
     <!-- Okay Button Titel -->
     <string name="android_button_ok">"OK"</string>
@@ -96,12 +90,6 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <!-- Bluetooth Control: Tracking deaktiviert -->
     <string name="bluetooth_setting_tracking_inactive">"Traçage désactivé"</string>
 
-    <!-- Bluetooth Setting Text unten -->
-    <string name="bluetooth_setting_data_explanation_title">"Mes données sont-elles sûres ?"</string>
-
-    <!-- Bluetooth Setting: Text unten -->
-    <string name="bluetooth_setting_tracking_explanation_text2">"Le contact avec un autre utilisateur n'est sauvegardé que localement sur votre smartphone."</string>
-
     <!-- Titel auf Homescreen -->
     <string name="reports_title_homescreen">"Notifications"</string>
 
@@ -109,7 +97,7 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <string name="meldungen_no_meldungen_title">"Pas de notification"</string>
 
     <!-- Push deaktiviert Titel -->
-    <string name="push_deactivated_title">"Communications désactivées"</string>
+    <string name="push_deactivated_title">"Notifications désactivées"</string>
 
     <!-- Push deaktiviert Text -->
     <string name="push_deactivated_text">"Veuillez modifier les paramètres pour pouvoir recevoir les notifications"</string>
@@ -131,15 +119,6 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
 
     <!-- Fehlertitel mit Foreground Service Notification -->
     <string name="android_foreground_service_notification_errors">"L'application ne peut pas fonctionner correctement :"</string>
-
-    <!-- Fehler Beschreibung -->
-    <string name="android_foreground_service_notification_error_network_sync">"une erreur est survenue pendant le chargement des données."</string>
-
-    <!-- Fehler Beschreibung -->
-    <string name="android_foreground_service_notification_error_location_permission">"Pour que l'application puisse utiliser Bluetooth, vous devez autoriser la géolocalisation. L'application ne connaît votre position à aucun moment."</string>
-
-    <!-- Fehler Beschreibung Akku -->
-    <string name="android_foreground_service_notification_error_battery_optimization">"Pour que le traçage soit précis, l'application doit aussi pouvoir fonctionner en arrière-plan. Cela n'augmente que légèrement la consommation d'énergie."</string>
 
     <!-- Titel der Nachricht, die auf Beta-Status hinweist -->
     <string name="preview_warning_title">"Prototype"</string>
@@ -183,9 +162,6 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <!-- Debug: Bezeichnung für den Fall, bei dem ein Kontakt als positiv getestet gemeldet wurde -->
     <string name="debug_sdk_state_contact_exposed">"Contact signalé :"</string>
 
-    <!-- Debug: Bezeichnung für die Anzahl bluetooth-handshakes, die ausgeführt wurden -->
-    <string name="debug_sdk_state_number_handshakes">"Nombre de poignées de mains"</string>
-
     <!-- Debug-Status-Bezeichnung für boleschen Wert 'true' -->
     <string name="debug_sdk_state_boolean_true">"Vrai"</string>
 
@@ -194,9 +170,6 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
 
     <!-- Debug: Button-Text für das Zurücksetzen des lokalen SDK Zustandes -->
     <string name="debug_sdk_button_reset">"réinitialiser le SDK"</string>
-
-    <!-- Infotext, wenn lokal das SDK zurückgesetzt wurde -->
-    <string name="android_debug_sdk_reset_text">"L'état local du SDK de DP-3T a été réinitialisé."</string>
 
     <!-- Tab-Titel -->
     <string name="tab_tracing_title">"Traçage"</string>
@@ -318,9 +291,6 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <!-- Meldung Detail: Vor wievielen Tagen {COUNT} wird durch Zahl ersetzt -->
     <string name="date_days_ago">"Il y a {COUNT} jours"</string>
 
-    <!-- Meldungen Detail: Subtitel Weisse Box -->
-    <string name="meldungen_detail_whattodo">"Que dois-je faire ?"</string>
-
     <!-- Meldungen Detail: Weisse Box Titel -->
     <string name="meldungen_detail_call">"Appelez-nous"</string>
 
@@ -338,9 +308,6 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
 
     <!-- Meldungen Detail: Weisse Box Erklärtext 2 -->
     <string name="meldungen_detail_explanation_text2">"Protégez votre famille, vos amis et votre entourage. Évitez les contacts jusqu'à 10 jours suivant une possible infection."</string>
-
-    <!-- Meldungen Detail Weisse Box Titel -->
-    <string name="meldungen_detail_guard_others">"Protégez les autres"</string>
 
     <!-- Meldungen Detail: Weisse Box Text -->
     <string name="meldungen_detail_guard_text">"En cas de questions, appelez l'infoline coronavirus au +41 58 387 77 78"</string>
@@ -427,13 +394,13 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <string name="onboarding_bluetooth_gtk_text2">"L'application utilise aussi peu d'énergie que possible. La consommation n'augmente que légèrement."</string>
 
     <!-- Onboarding Mitteilungen: Titel -->
-    <string name="onboarding_push_title">"Autoriser les communications"</string>
+    <string name="onboarding_push_title">"Autoriser les notifications"</string>
 
     <!-- Onboarding Mitteilungen: Text -->
-    <string name="onboarding_push_text">"Vous devez autorisez les communications pour recevoir des informations de la part de l'application."</string>
+    <string name="onboarding_push_text">"Vous devez autorisez les notifications pour recevoir des informations de la part de l'application."</string>
 
     <!-- Onboarding Mitteilungen: Button -->
-    <string name="onboarding_push_button">"Autoriser les communications"</string>
+    <string name="onboarding_push_button">"Autoriser les notifications"</string>
 
     <!-- Onboarding Mitteilungen: Titel Unten -->
     <string name="onboarding_push_gtk_title1">"Information immédiate"</string>
@@ -457,57 +424,6 @@ Respectez les consignes sur l'auto-isolement."</string>
 
     <!-- Button-Label auf dem letzten Onboarding screen -->
     <string name="onboarding_go_button">"Commencer"</string>
-
-    <!-- Titel auf Location-Permission Screen -->
-    <string name="android_onboarding_bt_permission_title">"Autoriser la géolocalisation pour Bluetooth."</string>
-
-    <!-- Text auf Location-Permission Screen -->
-    <string name="android_onboarding_bt_permission_text">"Vous devez autoriser la fonction de géolocalisation pour que l'application fonctionne et ait accès à Bluetooth."</string>
-
-    <!-- Button-Text auf Location-Permission Screen -->
-    <string name="android_onboarding_bt_permission_button">"Autoriser"</string>
-
-    <!-- Label für Info-Section -->
-    <string name="android_onboarding_bt_permission_goodtoknow">"Bon à savoir"</string>
-
-    <!-- Info-Titel 1 auf Location-Permission Screen -->
-    <string name="android_onboarding_bt_permission_info_1_title">"Votre localisation reste cachée."</string>
-
-    <!-- Info-Text 1 auf Location-Permission Screen -->
-    <string name="android_onboarding_bt_permission_info_1_text">"Sur les appareils Android, l'accès à Bluetooth va de pair avec votre géolocalisation. Vous devez donc activer la fonction de géolocalisation, même si l'application ne pourra jamais savoir où vous vous trouvez."</string>
-
-    <!-- Info-Titel 2 auf Location-Permission Screen -->
-    <string name="android_onboarding_bt_permission_info_2_title">"Vous restez anonyme"</string>
-
-    <!-- Info-Text 2 auf Location-Permission Screen -->
-    <string name="android_onboarding_bt_permission_info_2_text">"Aucune donnée personnelle n'est visible sur Bluetooth."</string>
-
-    <!-- Titel auf Battery-Permission Screen -->
-    <string name="android_onboarding_battery_permission_title">"Ignorer l'optimisation de la batterie"</string>
-
-    <!-- Text auf Battery-Permission Screen -->
-    <string name="android_onboarding_battery_permission_text">"Pour pouvoir détecter les contacts en tout temps, désactiver l'optimisation de la batterie pour cette application."</string>
-
-    <!-- Button-Text auf Battery-Permission Screen -->
-    <string name="android_onboarding_battery_permission_button">"Autoriser"</string>
-
-    <!-- Info-Titel 1 auf Battery-Permission Screen -->
-    <string name="android_onboarding_battery_permission_info_1_title">"Seulement pour cette application"</string>
-
-    <!-- Info-Text 1 auf Battery-Permission Screen -->
-    <string name="android_onboarding_battery_permission_info_1_text">"L'application doit pouvoir tourner en arrière-plan pour fonctionner. Pour ce faire, l'optimisation de la batterie peut être désactivée pour des applications précises."</string>
-
-    <!-- Info-Titel 2 auf Battery-Permission Screen -->
-    <string name="android_onboarding_battery_permission_info_2_title">"Légère augmentation de la consommation d'énergie."</string>
-
-    <!-- Info-Text 2 auf Battery-Permission Screen -->
-    <string name="android_onboarding_battery_permission_info_2_text">"L'application utilise aussi peu d'énergie que possible. La consommation n'augmente que légèrement."</string>
-
-    <!-- Button-Text auf Location-Permission Screen - Zugelassen -->
-    <string name="android_onboarding_bt_permission_button_allowed">"Autorisé"</string>
-
-    <!-- Button-Text auf Battery-Permission Screen - Deaktiviert -->
-    <string name="android_onboarding_battery_permission_button_deactivated">"Désactivé"</string>
 
     <!-- Homescreen: Titel bei Fehler mit Daten -->
     <string name="homescreen_meldung_data_outdated_title">"Aucune donnée actuelle"</string>
@@ -572,15 +488,6 @@ Respectez les consignes sur l'auto-isolement."</string>
     <!-- Unerwarteter Fehler, mit Aufforderung Aktion erneut zu versuchen -->
     <string name="unexpected_error_with_retry">"Erreur inattendue : réessayez."</string>
 
-    <!-- Fehlermeldung, wenn die Antwort des Authentifizierungs-Services nicht verwertbar ist -->
-    <string name="invalid_response_auth_code">"En raison d'une erreur de système, votre code d'authentification n'a pas été utilisé correctement. Veuillez contacter la Hotline."</string>
-
-    <!-- Titel für Fehlermeldung mit Standort -->
-    <string name="error_location_permission_title">"Utilisation de la géolocalisation refusée"</string>
-
-    <!-- Button für Fehlermeldung mit Standort -->
-    <string name="error_location_permission_button">"Autoriser"</string>
-
     <!-- VoiceOver: Datum -->
     <string name="accessibility_date">"Date"</string>
 
@@ -624,23 +531,20 @@ Respectez les consignes sur l'auto-isolement."</string>
     <!-- Fuzzy -->
     <string name="accessibility_code_button_disabled_hint">"Code incomplet : impossible d'imprimer."</string>
 
-    <!-- Fehler Titel: Akkuverbrauch aktiviert -->
-    <string name="error_battery_optimization_title">"Optimisation de la consommation de la batterie activée."</string>
-
     <!-- Fehler: Standortinformationen / Bluetooth -->
-    <string name="foreground_service_notification_error_location_service">"Activez les informations concernant la géolocalisation afin que l'application puisse utiliser Bluetooth. L'application ne connaît votre position à aucun moment."</string>
+    <!-- Fuzzy -->
+    <string name="android_foreground_service_notification_error_location_service">"Activez les informations concernant la géolocalisation afin que l'application puisse utiliser Bluetooth. L'application ne connaît votre position à aucun moment."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
-    <string name="error_location_services_title">"Géolocalisation désactivée"</string>
+    <!-- Fuzzy -->
+    <string name="android_error_location_services_title">"Géolocalisation désactivée"</string>
 
     <!-- Location Services ausgeschaltet Button -->
-    <string name="error_location_services_button">"Activer la géolocalisation"</string>
+    <!-- Fuzzy -->
+    <string name="android_error_location_services_button">"Activer la géolocalisation"</string>
 
     <!-- Information Button in the navigation bar -->
     <string name="accessibility_info_button">"Information"</string>
-
-    <!-- Debug: Anzahl Kontakte Titel -->
-    <string name="debug_sdk_state_number_contacts">"Nombre de contacts :"</string>
 
     <!-- Synchronisations-Fehler Titel -->
     <string name="sync_warning_notification_title">"Une erreur est survenue"</string>
@@ -653,15 +557,6 @@ Respectez les consignes sur l'auto-isolement."</string>
 
     <!-- Titel Impressum Menu -->
     <string name="menu_impressum">"Impressum"</string>
-
-    <!-- Synchronisations-Fehler Titel -->
-    <string name="sync_error_title">"Erreur inattendue"</string>
-
-    <!-- Synchronisations-Fehler Text -->
-    <string name="sync_error_text">"Une erreur de synchronisation est survenue."</string>
-
-    <!-- Synchronisations-Fehler Button Titel -->
-    <string name="sync_error_button">"Réessayez"</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnung_detail_faq1_title">"Que signifie contact ?"</string>
@@ -706,7 +601,8 @@ Vous serez informé seulement lorsque le risque d'infection est suffisamment imp
     <string name="meldungen_detail_explanation_text3">"Contactez un médecin dès les premiers symptômes"</string>
 
     <!-- Meldungen: Meldung Weisse Box Link URL -->
-    <string name="meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html"</string>
+    <!-- Fuzzy -->
+    <string name="ios_meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html"</string>
 
     <!-- Meldungen: Meldungen FAQ -->
     <string name="meldungen_meldungen_faq1_title">"Dois-je appeler ?"</string>
@@ -721,18 +617,6 @@ Vous conservez votre anonymat. Aucune donnée personnelle n'est saisie."</string
 
     <!-- Meldungen Detail Anruf Danke Subtitel -->
     <string name="meldungen_detail_call_thankyou_subtitle">"Vous protégez les autres"</string>
-
-    <!-- Meldungen Detail Keine Meldungen Titel -->
-    <string name="meldungen_detail_no_meldungen_title">"Aucune nouvelle notification"</string>
-
-    <!-- Meldungen Detail Keine Meldung Subtitel -->
-    <string name="meldungen_detail_no_meldungen_subtitle">"La dernière infection possible a eu lieu il y a plus de 10 jours"</string>
-
-    <!-- Meldungen Detail: Keine Meldungen Button -->
-    <string name="meldungen_detail_no_meldungen_continue">"Suivant"</string>
-
-    <!-- Meldungen Detail: Keine Meldungen Hinweis -->
-    <string name="meldungen_detail_no_meldungen_hinweis">"Avis"</string>
 
     <!-- Keine Meldungen Link in weisser Box Titel -->
     <string name="no_meldungen_box_link">"Voici comment nous protéger"</string>
@@ -755,12 +639,6 @@ Cela permet d'assurer que seuls les cas confirmés sont signalés via l'applicat
     <string name="inform_detail_faq2_text">"Seules les clés temporaires de votre application sont envoyées, aucune donnée personnelle.
 
 Ainsi, d'autres utilisateurs de l'application Swiss PT peuvent vérifier s'ils ont été en contact avec vous ces derniers jours."</string>
-
-    <!-- Informieren: Titel Tracing beendet -->
-    <string name="inform_send_endtracing_title">"Traçage terminé"</string>
-
-    <!-- Informieren: Text Tracing beendet -->
-    <string name="inform_send_endtracing_text">"Après un test positif, le traçage est automatiquement interrompu."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -851,6 +729,16 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activated">"Aktiviert"</string>
-    <string name="delete_reports_text">Meldung löschen</string>
-    <string name="delete_reports_dialog_text">Möchten sie die Meldung wirklich löschen</string>
+
+    <!-- Meldung in der App löschen, wenn möglicherweise angesteckt -->
+    <string name="delete_reports_button">"Meldung löschen"</string>
+
+    <!-- Meldung im Löschen Dialog wenn möglicherweise angesteckt -->
+    <string name="delete_reports_dialog">"Möchten sie die Meldung wirklich löschen? Es ist wichtig, dass Sie die Infoline angerufen haben."</string>
+
+    <!-- Code-Eingabe in der App löschen, wenn infiziert -->
+    <string name="delete_infection_button">"Meldung löschen"</string>
+
+    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
 </resources>

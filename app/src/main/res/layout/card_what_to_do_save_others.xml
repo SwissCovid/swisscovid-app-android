@@ -203,7 +203,7 @@
 				android:gravity="center"
 				android:paddingTop="15dp"
 				android:paddingBottom="10dp"
-				android:text="@string/delete_reports_text"
+				android:text="@string/delete_reports_button"
 				android:textAllCaps="true"
 				android:textColor="@color/blue_main"
 				app:layout_constraintBottom_toBottomOf="parent"

@@ -121,7 +121,7 @@ public class InformFragment extends Fragment {
 
 						Date onsetDate = JwtUtil.getOnsetDate(accessToken);
 						if (onsetDate == null) {
-							showErrorDialog(getString(R.string.invalid_response_auth_code), "ONDT");
+							showErrorDialog(getString(R.string.unexpected_error_title), "ONDT");
 							if (progressDialog != null && progressDialog.isShowing()) {
 								progressDialog.dismiss();
 							}

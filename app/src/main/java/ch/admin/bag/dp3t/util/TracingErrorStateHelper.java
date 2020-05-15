@@ -44,7 +44,7 @@ public class TracingErrorStateHelper {
 	private static int getTitle(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
 			case LOCATION_SERVICE_DISABLED:
-				return R.string.error_location_services_title;
+				return R.string.android_error_location_services_title;
 			case BLE_DISABLED:
 				return R.string.bluetooth_turned_off_title;
 			case SYNC_ERROR_TIMING:
@@ -52,8 +52,9 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_SIGNATURE:
+				return R.string.homescreen_meldung_data_outdated_title;
 			case SYNC_ERROR_DATABASE:
-				return R.string.sync_error_title;
+				return R.string.unexpected_error_title;
 			case BLE_NOT_SUPPORTED:
 			default:
 				return R.string.begegnungen_restart_error_title;
@@ -88,7 +89,7 @@ public class TracingErrorStateHelper {
 	private static int getButtonText(TracingStatus.ErrorState errorState) {
 		switch (errorState) {
 			case LOCATION_SERVICE_DISABLED:
-				return R.string.error_location_services_button;
+				return R.string.android_error_location_services_button;
 			case BLE_DISABLED:
 				return R.string.bluetooth_turn_on_button_title;
 			case SYNC_ERROR_SERVER:

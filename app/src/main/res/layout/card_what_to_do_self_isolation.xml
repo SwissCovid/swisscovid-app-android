@@ -102,7 +102,7 @@
 				android:paddingTop="15dp"
 				android:paddingBottom="10dp"
 				android:layout_marginBottom="10dp"
-				android:text="@string/delete_reports_text"
+				android:text="@string/delete_infection_button"
 				android:textAllCaps="true"
 				app:layout_constraintBottom_toBottomOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"

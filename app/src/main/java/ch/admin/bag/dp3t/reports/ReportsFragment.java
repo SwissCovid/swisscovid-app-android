@@ -144,7 +144,7 @@ public class ReportsFragment extends Fragment {
 				items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, secureStorage.getInfectedDate()));
 				infectedView.findViewById(R.id.delete_reports).setOnClickListener(v -> {
 					AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogStyle);
-					builder.setMessage(R.string.delete_reports_dialog_text)
+					builder.setMessage(R.string.delete_infection_dialog)
 							.setPositiveButton(R.string.android_button_ok, (dialog, id) -> {
 								tracingStatusInterface.resetInfectionStatus(getContext());
 								getParentFragmentManager().popBackStack();
@@ -190,7 +190,7 @@ public class ReportsFragment extends Fragment {
 
 				saveOthersView.findViewById(R.id.delete_reports).setOnClickListener(v -> {
 					AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogStyle);
-					builder.setMessage(R.string.delete_reports_dialog_text)
+					builder.setMessage(R.string.delete_reports_dialog)
 							.setPositiveButton(R.string.android_button_ok, (dialog, id) -> {
 								tracingStatusInterface.resetExposureDays(getContext());
 								getParentFragmentManager().popBackStack();
