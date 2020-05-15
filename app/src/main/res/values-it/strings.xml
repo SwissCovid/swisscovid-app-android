@@ -761,9 +761,9 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <string name="android_onboarding_battery_permission_info_2_text">"L'app è stata realizzata per funzionare con il massimo risparmio energetico. Il consumo della batteria aumenta soltanto leggermente."</string>
     <string name="android_foreground_service_notification_error_battery_optimization">"Per un funzionamento preciso del tracciamento, l'app deve essere eseguita anche in background. Il consumo della batteria aumenta solo leggermente."</string>
     <string name="error_battery_optimization_title">"Optimisation of battery usage activated"</string>
-</resources>
+
 	<!-- Meldung im Löschen Dialog nach Code-Einfragen -->
-	<string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
-	<string name="gaen_not_aviable">Play Services nicht aktuell</string>
 	<string name="gaen_not_available_text">Bitte aktualisieren sie ihre Google Play Services</string>
-	<string name="gaen_not_unexpectedly_disabled">Tracing ist deaktiviert. Versuchen sie er erneut zu starten</string></resources>
+    <string name="gaen_not_unexpectedly_disabled">Tracing ist deaktiviert. Versuchen sie er erneut zu starten</string>
+
+</resources>
