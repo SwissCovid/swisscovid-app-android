@@ -14,13 +14,15 @@ import androidx.annotation.NonNull;
 
 import java.io.IOException;
 
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.backend.ResponseCallback;
+import org.dpppt.android.sdk.backend.UserAgentInterceptor;
+
+import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.networking.errors.InvalidCodeError;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
-import ch.admin.bag.dp3t.BuildConfig;
-import org.dpppt.android.sdk.backend.ResponseCallback;
-
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -47,6 +49,9 @@ public class AuthCodeRepository {
 		int cacheSize = 5 * 1024 * 1024; // 5 MB
 		Cache cache = new Cache(context.getCacheDir(), cacheSize);
 		okHttpBuilder.cache(cache);
+
+		okHttpBuilder.certificatePinner(CertificatePinning.getCertificatePinner());
+		okHttpBuilder.addInterceptor(new UserAgentInterceptor(DP3T.getUserAgent()));
 
 		Retrofit retrofit = new Retrofit.Builder()
 				.baseUrl(BuildConfig.AUTH_CODE_URL)

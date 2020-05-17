@@ -21,12 +21,6 @@ import androidx.core.app.NotificationCompat;
 
 import java.security.PublicKey;
 
-import ch.admin.bag.dp3t.networking.CertificatePinning;
-import ch.admin.bag.dp3t.networking.ConfigRepository;
-import ch.admin.bag.dp3t.networking.FakeWorker;
-import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.NotificationUtil;
-
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
@@ -36,6 +30,12 @@ import org.dpppt.android.sdk.internal.logger.Logger;
 import org.dpppt.android.sdk.models.ApplicationInfo;
 import org.dpppt.android.sdk.models.ExposureDay;
 import org.dpppt.android.sdk.util.SignatureUtil;
+
+import ch.admin.bag.dp3t.networking.CertificatePinning;
+import ch.admin.bag.dp3t.networking.ConfigRepository;
+import ch.admin.bag.dp3t.networking.FakeWorker;
+import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.util.NotificationUtil;
 
 public class MainApplication extends Application {
 
@@ -54,7 +54,8 @@ public class MainApplication extends Application {
 		DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL), signaturePublicKey);
 
 		DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
-		ConfigRepository.setCertificatePinner(CertificatePinning.getCertificatePinner());
+		DP3T.setUserAgent(getPackageName() + ";" + BuildConfig.VERSION_NAME + ";" + BuildConfig.BUILD_TIME + ";Android;" +
+				Build.VERSION.SDK_INT);
 
 		FakeWorker.safeStartFakeWorker(this);
 	}
