@@ -40,4 +40,6 @@ public interface TracingStatusInterface {
 
 	void resetExposureDays(Context context);
 
+	boolean canInfectedStatusBeResetted(Context context);
+
 }

@@ -69,6 +69,10 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		if (debugAppState == DebugAppState.CONTACT_EXPOSED) {
 			secureStorage.setReportsHeaderAnimationPending(true);
+		} else if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
+			DP3T.stop(context);
+			status = DP3T.getStatus(context);
+			secureStorage.setReportsHeaderAnimationPending(false);
 		} else {
 			secureStorage.setReportsHeaderAnimationPending(false);
 		}
@@ -119,8 +123,20 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public void resetInfectionStatus(Context context) {
-		debugAppState = DebugAppState.NONE;
-		DP3T.resetInfectionStatus(context);
+		if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
+			debugAppState = DebugAppState.HEALTHY;
+		} else {
+			DP3T.resetInfectionStatus(context);
+		}
+	}
+
+	@Override
+	public boolean canInfectedStatusBeResetted(Context context) {
+		if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
+			return true;
+		} else {
+			return DP3T.getIAmInfectedIsResettable(context);
+		}
 	}
 
 	@Override

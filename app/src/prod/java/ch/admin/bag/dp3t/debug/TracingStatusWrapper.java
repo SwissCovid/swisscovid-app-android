@@ -85,6 +85,11 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	}
 
 	@Override
+	public boolean canInfectedStatusBeResetted(Context context) {
+		return DP3T.getIAmInfectedIsResettable(context);
+	}
+
+	@Override
 	public void resetExposureDays(Context context) {
 		DP3T.resetInfectionStatus(context);
 	}
