@@ -133,6 +133,7 @@ public class InformFragment extends Fragment {
 
 					@Override
 					public void onError(Throwable throwable) {
+						throwable.printStackTrace();
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
@@ -145,7 +146,6 @@ public class InformFragment extends Fragment {
 						} else {
 							showErrorDialog(getString(R.string.network_error), null);
 						}
-						throwable.printStackTrace();
 						buttonSend.setEnabled(true);
 					}
 				});
