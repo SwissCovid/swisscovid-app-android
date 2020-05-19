@@ -132,6 +132,10 @@ public class TracingViewModel extends AndroidViewModel {
 	}
 
 	public void sync() {
+		if (!DP3T.isTracingEnabled(getApplication())) {
+			return;
+		}
+
 		new Thread() {
 			@Override
 			public void run() {
