@@ -155,7 +155,7 @@ public class ReportsFragment extends Fragment {
 					builder.create();
 					builder.show();
 				});
-				if (!tracingStatusInterface.canInfectedStatusBeResetted(getContext())) {
+				if (!tracingStatusInterface.canInfectedStatusBeReset(getContext())) {
 					infectedView.findViewById(R.id.delete_reports).setVisibility(View.GONE);
 				}
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {

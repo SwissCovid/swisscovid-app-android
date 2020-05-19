@@ -98,18 +98,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public TracingStatus.ErrorState getReportErrorState() {
-		boolean hasError = status.getErrors().size() > 0;
-		if (hasError) {
-			TracingStatus.ErrorState errorState = TracingErrorStateHelper.getErrorStateForReports(status.getErrors());
-			if (TracingStatus.ErrorState.SYNC_ERROR_DATABASE.equals(errorState)) {
-				return errorState;
-			} else {
-				if (DateUtils.getDaysDiff(status.getLastSyncDate()) > 1) {
-					return errorState;
-				}
-			}
-		}
-		return null;
+		return TracingErrorStateHelper.getErrorStateForReports(status.getErrors());
 	}
 
 	@Override
@@ -131,7 +120,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	}
 
 	@Override
-	public boolean canInfectedStatusBeResetted(Context context) {
+	public boolean canInfectedStatusBeReset(Context context) {
 		if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
 			return true;
 		} else {

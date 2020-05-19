@@ -85,7 +85,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	}
 
 	@Override
-	public boolean canInfectedStatusBeResetted(Context context) {
+	public boolean canInfectedStatusBeReset(Context context) {
 		return DP3T.getIAmInfectedIsResettable(context);
 	}
 
