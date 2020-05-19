@@ -2,7 +2,7 @@ name: Android Build
 
 on:
   push:
-    branches: [ master, develop ]
+    branches: [ master, develop, feature/gaen-sdk-update ]
 
 jobs:
   build:
