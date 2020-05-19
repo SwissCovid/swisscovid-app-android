@@ -37,7 +37,7 @@ public class GetWellFragment extends Fragment {
 
 		view.findViewById(R.id.inform_get_well_button_continue).setOnClickListener(v -> {
 			Intent intent = new Intent(getActivity(), MainActivity.class);
-			intent.setAction(MainActivity.ACTION_STOP_TRACING);
+			intent.setAction(MainActivity.ACTION_INFORMED_STOP_TRACING);
 			startActivity(intent);
 			getActivity().finish();
 		});

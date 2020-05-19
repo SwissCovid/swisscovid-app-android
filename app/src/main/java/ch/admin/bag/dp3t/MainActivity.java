@@ -30,7 +30,7 @@ import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 public class MainActivity extends FragmentActivity {
 
 	public static final String ACTION_GOTO_REPORTS = "ACTION_GOTO_REPORTS";
-	public static final String ACTION_STOP_TRACING = "ACTION_STOP_TRACING";
+	public static final String ACTION_INFORMED_STOP_TRACING = "ACTION_INFORMED_STOP_TRACING";
 
 	private static final int REQ_ONBOARDING = 123;
 
@@ -109,8 +109,9 @@ public class MainActivity extends FragmentActivity {
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
-		if (ACTION_STOP_TRACING.equals(intentAction) && !launchedFromHistory) {
+		if (ACTION_INFORMED_STOP_TRACING.equals(intentAction) && !launchedFromHistory) {
 			tracingViewModel.disableTracing();
+			gotoReportsFragment();
 			intent.setAction(null);
 			setIntent(intent);
 		} else if (ACTION_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory && !consumedExposedIntent) {
