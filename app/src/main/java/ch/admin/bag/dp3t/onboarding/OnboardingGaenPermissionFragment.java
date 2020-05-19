@@ -17,15 +17,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.GaenAvailability;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.onboarding.util.PermissionButtonUtil;
+import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 import ch.admin.bag.dp3t.util.InfoDialog;
 
 public class OnboardingGaenPermissionFragment extends Fragment {
 
 	private Button activateButton;
 	private Button continueButton;
+
+	private	InfoDialog playServicesUpdateDialog;
 
 	private boolean wasUserActive = false;
 
@@ -41,26 +45,66 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		activateButton = view.findViewById(R.id.onboarding_gaen_button);
 		activateButton.setOnClickListener(v -> {
-			wasUserActive = true;
-			DP3T.start(getActivity(), () -> {
-				updateFragmentState(true);
-				((OnboardingActivity) getActivity()).continueToNextPage();
-			}, (e) -> {
-				InfoDialog.newInstance(e.getLocalizedMessage()).show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
-				updateFragmentState(false);
-			}, () -> {
-				updateFragmentState(false);
-			});
+			checkGaen();
 		});
 		continueButton = view.findViewById(R.id.onboarding_gaen_continue_button);
 		continueButton.setOnClickListener(v -> {
-			((OnboardingActivity) getActivity()).continueToNextPage();
+			((OnboardingActivity) requireActivity()).continueToNextPage();
 		});
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
+
+		if (playServicesUpdateDialog != null) {
+			playServicesUpdateDialog.dismissAllowingStateLoss();
+			playServicesUpdateDialog = null;
+			checkGaen();
+		}
+	}
+
+	private void checkGaen() {
+		DP3T.checkGaenAvailability(requireContext(), availability -> {
+			switch (availability) {
+				case AVAILABLE:
+					activateGaen();
+					break;
+				case UPDATE_REQUIRED:
+				case UNAVAILABLE:
+					showPlayServicesUpdate(availability);
+					break;
+			}
+		});
+	}
+
+	private void showPlayServicesUpdate(GaenAvailability availability) {
+		playServicesUpdateDialog = InfoDialog.newInstance(
+				R.string.playservices_title,
+				R.string.playservices_text,
+				availability == GaenAvailability.UPDATE_REQUIRED ? R.string.playservices_update : R.string.playservices_install
+		);
+		playServicesUpdateDialog.setButtonOnClickListener(v -> {
+			DeviceFeatureHelper.openPlayServicesInPlayStore(v.getContext());
+		});
+		playServicesUpdateDialog.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+	}
+
+	private void activateGaen() {
+		wasUserActive = true;
+		DP3T.start(requireActivity(),
+				() -> {
+					updateFragmentState(true);
+					((OnboardingActivity) requireActivity()).continueToNextPage();
+				},
+				(e) -> {
+					InfoDialog.newInstance(e.getLocalizedMessage())
+							.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+					updateFragmentState(false);
+				},
+				() -> {
+					updateFragmentState(false);
+				});
 	}
 
 	private void updateFragmentState(boolean activated) {

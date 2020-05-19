@@ -107,6 +107,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_SIGNATURE:
 				return R.string.homescreen_meldung_data_outdated_retry_button;
 			case GAEN_NOT_AVAILABLE:
+				return R.string.playservices_update;
 			case SYNC_ERROR_TIMING:
 			case BLE_NOT_SUPPORTED:
 			default:

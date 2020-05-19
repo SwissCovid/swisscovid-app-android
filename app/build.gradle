@@ -116,7 +116,7 @@ android {
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
-	def dp3t_sdk_version = 'gaen-0.3.4'
+	def dp3t_sdk_version = 'gaen-0.3.6'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
 	teschtImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
@@ -129,7 +129,6 @@ dependencies {
 	implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
 	implementation 'androidx.viewpager2:viewpager2:1.0.0'
 	implementation 'androidx.security:security-crypto:1.0.0-rc01'
-	implementation 'io.jsonwebtoken:jjwt-api:0.11.1'
 	implementation 'androidx.work:work-runtime:2.3.4'
 
 	implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'

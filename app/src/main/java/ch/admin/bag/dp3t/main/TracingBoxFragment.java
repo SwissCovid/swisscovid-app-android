@@ -26,12 +26,11 @@ import org.dpppt.android.sdk.TracingStatus;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.model.TracingState;
+import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.util.TracingStatusHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
-
-import static android.view.View.VISIBLE;
 
 public class TracingBoxFragment extends Fragment {
 
@@ -113,32 +112,40 @@ public class TracingBoxFragment extends Fragment {
 					}
 					break;
 				case LOCATION_SERVICE_DISABLED:
-					Intent locationInent = new Intent(
-							Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-					startActivityForResult(locationInent, REQUEST_CODE_LOCATION_INTENT);
+					Intent locationIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+					startActivityForResult(locationIntent, REQUEST_CODE_LOCATION_INTENT);
 					break;
 				case GAEN_UNEXPECTEDLY_DISABLED:
-					showLoadingView();
+					enableTracing();
+					break;
+				case GAEN_NOT_AVAILABLE:
+					DeviceFeatureHelper.openPlayServicesInPlayStore(v.getContext());
+					break;
 			}
 		});
 	}
 
+	private void enableTracing() {
+		showLoadingView();
+		tracingViewModel.enableTracing(getActivity(),
+				this::hideLoadingView,
+				(e) -> {
+					InfoDialog.newInstance(e.getLocalizedMessage())
+							.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+					hideLoadingView();
+				},
+				this::hideLoadingView);
+	}
+
 	private void showLoadingView() {
+		tracingLoadingView.setVisibility(View.VISIBLE);
+		tracingLoadingView.setAlpha(0);
 		tracingLoadingView.animate()
 				.alpha(1f)
 				.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
 				.setListener(new AnimatorListenerAdapter() {
 					@Override
 					public void onAnimationEnd(Animator animation) {
-						tracingLoadingView.setVisibility(VISIBLE);
-						tracingViewModel.enableTracing(getActivity(), () -> {
-							hideLoadingView();
-						}, (e) -> {
-							InfoDialog.newInstance(e.getLocalizedMessage()).show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
-							hideLoadingView();
-						},() -> {
-							hideLoadingView();
-						});
 					}
 				});
 	}

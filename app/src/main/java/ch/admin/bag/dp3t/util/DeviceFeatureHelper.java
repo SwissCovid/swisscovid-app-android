@@ -10,17 +10,14 @@
 
 package ch.admin.bag.dp3t.util;
 
-import android.Manifest;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.PowerManager;
 import android.provider.Settings;
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 
 public class DeviceFeatureHelper {
 
@@ -40,6 +37,16 @@ public class DeviceFeatureHelper {
 		Uri uri = Uri.fromParts("package", activity.getPackageName(), null);
 		intent.setData(uri);
 		activity.startActivity(intent);
+	}
+
+	public static void openPlayServicesInPlayStore(@NonNull Context context) {
+		final String playServicesPackageName = "com.google.android.gms";
+		try {
+			context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + playServicesPackageName)));
+		} catch (android.content.ActivityNotFoundException e) {
+			context.startActivity(new Intent(Intent.ACTION_VIEW,
+					Uri.parse("https://play.google.com/store/apps/details?id=" + playServicesPackageName)));
+		}
 	}
 
 }

@@ -768,10 +768,10 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="gaen_not_aviable">"Google Play Services nicht aktuell"</string>
 
     <!-- Google Play Services nicht aktuell text -->
-    <string name="gaen_not_available_text">"Bitte aktualisieren sie ihre Google Play Services"</string>
+    <string name="gaen_not_available_text">"Bitte aktualisieren Sie die Google Play Services."</string>
 
-    <!-- Tracing erneute starten -->
-    <string name="gaen_not_unexpectedly_disabled">"Tracing ist deaktiviert. Versuchen sie er erneut zu starten"</string>
+    <!-- Tracing wurde vom System deaktiviert, erneut starten -->
+    <string name="gaen_unexpectedly_disabled">"Tracing wurde deaktiviert. Bitte starten Sie es erneut."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
     <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) deaktiviert"</string>
@@ -781,4 +781,16 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht durchgeführt werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der Swiss PT App."</string>
+
+    <!-- Button um die Google Play Services zu aktualisieren -->
+    <string name="playservices_update">"Aktualisieren"</string>
+
+    <!-- Button um die Google Play Services zu installieren -->
+    <string name="playservices_install">"Installieren"</string>
+
+    <!-- Titel für Infos zu den Google Play Services -->
+    <string name="playservices_title">"Google Play Services"</string>
+
+    <!-- Meldung, dass die Google Play Services benötigt werden -->
+    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der google Play Services benötigt."</string>
 </resources>

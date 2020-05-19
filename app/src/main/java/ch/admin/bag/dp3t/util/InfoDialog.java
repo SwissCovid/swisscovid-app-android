@@ -25,10 +25,11 @@ import ch.admin.bag.dp3t.R;
 
 public class InfoDialog extends DialogFragment {
 
-	private static final String ARG_TEXT_ID = "arg_text_id";
-	private static final String ARG_BUTTON_LABEL_ID = "arg_button_label_id";
-	private static final String ARG_TEXT_STRING = "arg_text_string";
-	private static final String ARG_DETAIL_STRING = "ARG_DETAIL_STRING";
+	private static final String ARG_TEXT_ID = "text_id";
+	private static final String ARG_DETAIL_ID = "detail_id";
+	private static final String ARG_BUTTON_LABEL_ID = "button_label_id";
+	private static final String ARG_TEXT_STRING = "text_string";
+	private static final String ARG_DETAIL_STRING = "detail_string";
 
 	private Button button;
 	private View.OnClickListener onClickListener;
@@ -44,6 +45,16 @@ public class InfoDialog extends DialogFragment {
 	public static InfoDialog newInstanceWithButtonLabel(@StringRes int text, @StringRes int buttonLabelId) {
 		Bundle args = new Bundle();
 		args.putInt(ARG_TEXT_ID, text);
+		args.putInt(ARG_BUTTON_LABEL_ID, buttonLabelId);
+		InfoDialog fragment = new InfoDialog();
+		fragment.setArguments(args);
+		return fragment;
+	}
+
+	public static InfoDialog newInstance(@StringRes int text, @StringRes int detail, @StringRes int buttonLabelId) {
+		Bundle args = new Bundle();
+		args.putInt(ARG_TEXT_ID, text);
+		args.putInt(ARG_DETAIL_ID, detail);
 		args.putInt(ARG_BUTTON_LABEL_ID, buttonLabelId);
 		InfoDialog fragment = new InfoDialog();
 		fragment.setArguments(args);
@@ -77,7 +88,7 @@ public class InfoDialog extends DialogFragment {
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-		Bundle args = getArguments();
+		Bundle args = requireArguments();
 
 		TextView textView = view.findViewById(R.id.dialog_info_text);
 		if (args.containsKey(ARG_TEXT_ID)) {
@@ -87,16 +98,20 @@ public class InfoDialog extends DialogFragment {
 		}
 
 		TextView detailView = view.findViewById(R.id.dialog_info_subtext);
-		String detail = args.getString(ARG_DETAIL_STRING);
-		if (detail != null) {
+		if (args.containsKey(ARG_DETAIL_STRING)) {
 			detailView.setVisibility(View.VISIBLE);
-			detailView.setText(detail);
+			detailView.setText(args.getString(ARG_DETAIL_STRING));
+		} else if (args.containsKey(ARG_DETAIL_ID)) {
+			detailView.setVisibility(View.VISIBLE);
+			detailView.setText(args.getInt(ARG_DETAIL_ID));
 		} else {
 			detailView.setVisibility(View.GONE);
 		}
 
 		button = view.findViewById(R.id.dialog_info_button);
-		if (args.containsKey(ARG_BUTTON_LABEL_ID)) button.setText(args.getInt(ARG_BUTTON_LABEL_ID));
+		if (args.containsKey(ARG_BUTTON_LABEL_ID)) {
+			button.setText(args.getInt(ARG_BUTTON_LABEL_ID));
+		}
 		button.setOnClickListener(v -> {
 			if (onClickListener != null) {
 				onClickListener.onClick(v);

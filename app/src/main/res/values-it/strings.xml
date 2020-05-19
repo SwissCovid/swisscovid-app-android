@@ -757,10 +757,10 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <string name="gaen_not_aviable">"Google Play Services nicht aktuell"</string>
 
     <!-- Google Play Services nicht aktuell text -->
-    <string name="gaen_not_available_text">"Bitte aktualisieren sie ihre Google Play Services"</string>
+    <string name="gaen_not_available_text">"Bitte aktualisieren Sie die Google Play Services."</string>
 
-    <!-- Tracing erneute starten -->
-    <string name="gaen_not_unexpectedly_disabled">"Tracing ist deaktiviert. Versuchen sie er erneut zu starten"</string>
+    <!-- Tracing wurde vom System deaktiviert, erneut starten -->
+    <string name="gaen_unexpectedly_disabled">"Tracing wurde deaktiviert. Bitte starten Sie es erneut."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
     <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) deaktiviert"</string>

@@ -32,7 +32,6 @@ import org.dpppt.android.sdk.models.ExposureDay;
 import org.dpppt.android.sdk.util.SignatureUtil;
 
 import ch.admin.bag.dp3t.networking.CertificatePinning;
-import ch.admin.bag.dp3t.networking.ConfigRepository;
 import ch.admin.bag.dp3t.networking.FakeWorker;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.NotificationUtil;
@@ -75,13 +74,13 @@ public class MainApplication extends Application {
 					}
 				}
 				if (exposureDay != null && secureStorage.getLastShownContactId() != exposureDay.getId()) {
-					createNewContactNotifaction(context, exposureDay.getId());
+					createNewContactNotification(context, exposureDay.getId());
 				}
 			}
 		}
 	};
 
-	private void createNewContactNotifaction(Context context, int contactId) {
+	private void createNewContactNotification(Context context, int contactId) {
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
