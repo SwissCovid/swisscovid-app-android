@@ -609,10 +609,6 @@ L'utente viene informato soltanto se il sospetto di un contagio è sufficienteme
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"Ai primi sintomi contatta il tuo medico."</string>
 
-    <!-- Meldungen: Meldung Weisse Box Link URL -->
-    <!-- Fuzzy -->
-    <string name="ios_meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/selbst-isolierung-und-selbst-quarantaene.html"</string>
-
     <!-- Meldungen: Meldungen FAQ -->
     <string name="meldungen_meldungen_faq1_title">"Devo telefonare?"</string>
 
@@ -721,9 +717,6 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktivieren"</string>
 
-    <!-- Onboarding Page für die Permission der Exposure-Library: "Gut zu wissen" Titel -->
-    <string name="onboarding_gaen_good_to_know">"Gut zu wissen:"</string>
-
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
     <string name="onboarding_gaen_info_title_1">"Sie bleiben anonym"</string>
 
@@ -750,7 +743,6 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
 
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
-    <string name="gaen_not_aviable">Play Services nicht aktuell</string>
     <string name="android_onboarding_battery_permission_title">"Ignora l'ottimizzazione della batteria"</string>
     <string name="android_onboarding_battery_permission_text">"Per poter riconoscere sempre gli incontri, l'ottimizzazione della batteria deve essere disattivata per questa app."</string>
     <string name="android_onboarding_battery_permission_button">"Consenti"</string>
@@ -760,10 +752,22 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <string name="android_onboarding_battery_permission_info_2_title">"Il consumo della batteria aumenta leggermente"</string>
     <string name="android_onboarding_battery_permission_info_2_text">"L'app è stata realizzata per funzionare con il massimo risparmio energetico. Il consumo della batteria aumenta soltanto leggermente."</string>
     <string name="android_foreground_service_notification_error_battery_optimization">"Per un funzionamento preciso del tracciamento, l'app deve essere eseguita anche in background. Il consumo della batteria aumenta solo leggermente."</string>
-    <string name="error_battery_optimization_title">"Optimisation of battery usage activated"</string>
 
-	<!-- Meldung im Löschen Dialog nach Code-Einfragen -->
-	<string name="gaen_not_available_text">Bitte aktualisieren sie ihre Google Play Services</string>
-    <string name="gaen_not_unexpectedly_disabled">Tracing ist deaktiviert. Versuchen sie er erneut zu starten</string>
+    <!-- Google Play Services nicht aktuell -->
+    <string name="gaen_not_aviable">"Google Play Services nicht aktuell"</string>
 
+    <!-- Google Play Services nicht aktuell text -->
+    <string name="gaen_not_available_text">"Bitte aktualisieren sie ihre Google Play Services"</string>
+
+    <!-- Tracing erneute starten -->
+    <string name="gaen_not_unexpectedly_disabled">"Tracing ist deaktiviert. Versuchen sie er erneut zu starten"</string>
+
+    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
+    <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) deaktiviert"</string>
+
+    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
+    <string name="tracing_permission_error_text">"Aktivieren Sie die Funktion (COVID-19 Exposure Logging), damit das anonyme Tracing funktioniert."</string>
+
+    <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
+    <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht durchgeführt werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der Swiss PT App."</string>
 </resources>

@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import java.util.Date;
+import java.util.concurrent.CancellationException;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
@@ -91,14 +92,17 @@ public class InformFragment extends Fragment {
 		}
 
 		buttonSend.setOnClickListener(v -> {
+			long lastTimestamp = secureStorage.getLastInformRequestTime();
+			String lastAuthToken = secureStorage.getLastInformToken();
+
 			buttonSend.setEnabled(false);
 			setInvalidCodeErrorVisible(false);
 			String authCode = authCodeInput.getText();
 
 			progressDialog = createProgressDialog();
-			if (System.currentTimeMillis() - lastRequestTime < TIMEOUT_VALID_CODE && lastToken != null) {
-				Date onsetDate = JwtUtil.getOnsetDate(lastToken);
-				informExposed(onsetDate, getAuthorizationHeader(lastToken));
+			if (System.currentTimeMillis() - lastTimestamp < TIMEOUT_VALID_CODE && lastAuthToken != null) {
+				Date onsetDate = JwtUtil.getOnsetDate(lastAuthToken);
+				informExposed(onsetDate, getAuthorizationHeader(lastAuthToken));
 			} else {
 				authenticateInput(authCode);
 			}
@@ -175,8 +179,11 @@ public class InformFragment extends Fragment {
 						if (throwable instanceof ResponseError) {
 							showErrorDialog(getString(R.string.unexpected_error_title),
 									String.valueOf(((ResponseError) throwable).getStatusCode()));
+						} else if (throwable instanceof CancellationException) {
+							showErrorDialog(getString(R.string.user_cancelled_key_sharing_error), null);
 						} else if (throwable.getMessage() != null && throwable.getMessage().contains("EXPOSURE_NOTIFICATION_API")) {
 							showErrorDialog(getString(R.string.unexpected_error_title), "ENAPI");
+
 						} else {
 							showErrorDialog(getString(R.string.network_error), null);
 						}

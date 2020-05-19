@@ -595,10 +595,6 @@ Infoline Coronavirus
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"As soon as you have any symptoms, contact your doctor."</string>
 
-    <!-- Meldungen: Meldung Weisse Box Link URL -->
-    <!-- Fuzzy -->
-    <string name="ios_meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/selbst-isolierung-und-selbst-quarantaene.html"</string>
-
     <!-- Meldungen: Meldungen FAQ -->
     <string name="meldungen_meldungen_faq1_title">"Do I have to call?"</string>
 
@@ -698,9 +694,6 @@ Infoline Coronavirus
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktivieren"</string>
 
-    <!-- Onboarding Page für die Permission der Exposure-Library: "Gut zu wissen" Titel -->
-    <string name="onboarding_gaen_good_to_know">"Gut zu wissen:"</string>
-
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
     <string name="onboarding_gaen_info_title_1">"Sie bleiben anonym"</string>
 
@@ -727,7 +720,6 @@ Infoline Coronavirus
 
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
-	<string name="gaen_not_aviable">Play Services nicht aktuell</string>
     <string name="android_onboarding_battery_permission_title">"Ignore battery optimisation"</string>
     <string name="android_onboarding_battery_permission_text">"To be able to recognise encounters at all times, the battery optimisation function for this app must be disabled."</string>
     <string name="android_onboarding_battery_permission_button">"Allow"</string>
@@ -737,7 +729,22 @@ Infoline Coronavirus
     <string name="android_onboarding_battery_permission_info_2_title">"Minor increase in battery usage"</string>
     <string name="android_onboarding_battery_permission_info_2_text">"The app operates using as little energy as possible. There is only a minor increase in battery usage."</string>
     <string name="android_foreground_service_notification_error_battery_optimization">"For tracing to work precisely, the app must also run in the background. This will cause a minor increase in battery usage."</string>
-    <string name="error_battery_optimization_title">"Optimisation of battery usage activated"</string>
-	<string name="gaen_not_available_text">Bitte aktualisieren sie ihre Google Play Services</string>
-	<string name="gaen_not_unexpectedly_disabled">Tracing ist deaktiviert. Versuchen sie er erneut zu starten</string>
+
+    <!-- Google Play Services nicht aktuell -->
+    <string name="gaen_not_aviable">"Google Play Services nicht aktuell"</string>
+
+    <!-- Google Play Services nicht aktuell text -->
+    <string name="gaen_not_available_text">"Bitte aktualisieren sie ihre Google Play Services"</string>
+
+    <!-- Tracing erneute starten -->
+    <string name="gaen_not_unexpectedly_disabled">"Tracing ist deaktiviert. Versuchen sie er erneut zu starten"</string>
+
+    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
+    <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) deaktiviert"</string>
+
+    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
+    <string name="tracing_permission_error_text">"Aktivieren Sie die Funktion (COVID-19 Exposure Logging), damit das anonyme Tracing funktioniert."</string>
+
+    <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
+    <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht durchgeführt werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der Swiss PT App."</string>
 </resources>

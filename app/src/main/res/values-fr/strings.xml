@@ -600,10 +600,6 @@ Vous serez informé seulement lorsque le risque d'infection est suffisamment imp
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"Contactez un médecin dès les premiers symptômes"</string>
 
-    <!-- Meldungen: Meldung Weisse Box Link URL -->
-    <!-- Fuzzy -->
-    <string name="ios_meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html"</string>
-
     <!-- Meldungen: Meldungen FAQ -->
     <string name="meldungen_meldungen_faq1_title">"Dois-je appeler ?"</string>
 
@@ -712,9 +708,6 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktivieren"</string>
 
-    <!-- Onboarding Page für die Permission der Exposure-Library: "Gut zu wissen" Titel -->
-    <string name="onboarding_gaen_good_to_know">"Gut zu wissen:"</string>
-
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
     <string name="onboarding_gaen_info_title_1">"Sie bleiben anonym"</string>
 
@@ -741,7 +734,6 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
 
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
-    <string name="gaen_not_aviable">Play Services nicht aktuell</string>
     <string name="android_onboarding_battery_permission_title">"Ignorer l'optimisation de la batterie"</string>
     <string name="android_onboarding_battery_permission_text">"Pour pouvoir détecter les contacts en tout temps, désactiver l'optimisation de la batterie pour cette application."</string>
     <string name="android_onboarding_battery_permission_button">"Autoriser"</string>
@@ -751,7 +743,22 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="android_onboarding_battery_permission_info_2_title">"Légère augmentation de la consommation d'énergie."</string>
     <string name="android_onboarding_battery_permission_info_2_text">"L'application utilise aussi peu d'énergie que possible. La consommation n'augmente que légèrement."</string>
     <string name="android_foreground_service_notification_error_battery_optimization">"Pour que le traçage soit précis, l'application doit aussi pouvoir fonctionner en arrière-plan. Cela n'augmente que légèrement la consommation d'énergie."</string>
-    <string name="error_battery_optimization_title">"Optimisation de la consommation de la batterie activée"</string>
-    <string name="gaen_not_available_text">Bitte aktualisieren sie ihre Google Play Services</string>
-    <string name="gaen_not_unexpectedly_disabled">Tracing ist deaktiviert. Versuchen sie er erneut zu starten</string>
+
+    <!-- Google Play Services nicht aktuell -->
+    <string name="gaen_not_aviable">"Google Play Services nicht aktuell"</string>
+
+    <!-- Google Play Services nicht aktuell text -->
+    <string name="gaen_not_available_text">"Bitte aktualisieren sie ihre Google Play Services"</string>
+
+    <!-- Tracing erneute starten -->
+    <string name="gaen_not_unexpectedly_disabled">"Tracing ist deaktiviert. Versuchen sie er erneut zu starten"</string>
+
+    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
+    <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) deaktiviert"</string>
+
+    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
+    <string name="tracing_permission_error_text">"Aktivieren Sie die Funktion (COVID-19 Exposure Logging), damit das anonyme Tracing funktioniert."</string>
+
+    <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
+    <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht durchgeführt werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der Swiss PT App."</string>
 </resources>
