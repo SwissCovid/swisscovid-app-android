@@ -5,17 +5,21 @@
  */
 package ch.admin.bag.dp3t.debug;
 
+import android.content.Context;
+
 import java.util.List;
 import java.util.TimeZone;
+
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.InfectionStatus;
+import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.main.model.NotificationState;
 import ch.admin.bag.dp3t.main.model.TracingState;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
-import org.dpppt.android.sdk.InfectionStatus;
-import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.database.models.ExposureDay;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
 
@@ -43,8 +47,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public TracingState getTracingState() {
-		boolean tracingOff = !(status.isAdvertising() || status.isReceiving());
-		return tracingOff ? TracingState.NOT_ACTIVE : TracingState.ACTIVE;
+		return status.isTracingEnabled() ? TracingState.ACTIVE : TracingState.NOT_ACTIVE;
 	}
 
 	@Override
@@ -74,6 +77,21 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			return DateUtils.getDaysDiff(time);
 		}
 		return -1;
+	}
+
+	@Override
+	public void resetInfectionStatus(Context context) {
+		DP3T.resetInfectionStatus(context);
+	}
+
+	@Override
+	public boolean canInfectedStatusBeReset(Context context) {
+		return DP3T.getIAmInfectedIsResettable(context);
+	}
+
+	@Override
+	public void resetExposureDays(Context context) {
+		DP3T.resetInfectionStatus(context);
 	}
 
 

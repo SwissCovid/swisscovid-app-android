@@ -15,27 +15,21 @@ import androidx.annotation.NonNull;
 import java.io.IOException;
 import java.security.PublicKey;
 
-import ch.admin.bag.dp3t.networking.errors.ResponseError;
-import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
-import ch.admin.bag.dp3t.BuildConfig;
-
+import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.SignatureVerificationInterceptor;
+import org.dpppt.android.sdk.backend.UserAgentInterceptor;
 import org.dpppt.android.sdk.util.SignatureUtil;
 
+import ch.admin.bag.dp3t.BuildConfig;
+import ch.admin.bag.dp3t.networking.errors.ResponseError;
+import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
 import okhttp3.Cache;
-import okhttp3.CertificatePinner;
 import okhttp3.OkHttpClient;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConfigRepository {
-
-	private static CertificatePinner certificatePinner = CertificatePinner.DEFAULT;
-
-	public static void setCertificatePinner(@NonNull CertificatePinner certificatePinner) {
-		ConfigRepository.certificatePinner = certificatePinner;
-	}
 
 	private ConfigService configService;
 
@@ -49,7 +43,8 @@ public class ConfigRepository {
 		Cache cache = new Cache(context.getCacheDir(), cacheSize);
 		okHttpBuilder.cache(cache);
 
-		okHttpBuilder.certificatePinner(certificatePinner);
+		okHttpBuilder.certificatePinner(CertificatePinning.getCertificatePinner());
+		okHttpBuilder.addInterceptor(new UserAgentInterceptor(DP3T.getUserAgent()));
 
 		Retrofit retrofit = new Retrofit.Builder()
 				.baseUrl(BuildConfig.CONFIG_URL)

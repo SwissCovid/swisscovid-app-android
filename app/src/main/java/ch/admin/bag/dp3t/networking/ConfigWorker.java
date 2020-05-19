@@ -92,6 +92,9 @@ public class ConfigWorker extends Worker {
 
 		ConfigResponseModel config = configRepository.getConfig(appVersion, osVersion, buildNumber);
 
+		//TODO set parameters from backend
+		DP3T.setMatchingParameters(context, 50, 74, 15);
+
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		secureStorage.setDoForceUpdate(config.getDoForceUpdate());
 
@@ -117,19 +120,11 @@ public class ConfigWorker extends Worker {
 
 		boolean forceTraceShutdown = config.getForceTraceShutdown();
 		if (forceTraceShutdown) {
-			if (DP3T.isStarted(context)) {
+			if (DP3T.isTracingEnabled(context)) {
 				secureStorage.setForcedTraceShutdown(true);
 				DP3T.stop(context);
 			}
-		} else {
-			if (secureStorage.getForcedTraceShutdown() && !DP3T.isStarted(context)) {
-				DP3T.start(context);
-			}
-			secureStorage.setForcedTraceShutdown(false);
 		}
-
-		DP3T.setMatchingParameters(context, config.getSdkConfig().getContactAttenuationThreshold(),
-				config.getSdkConfig().getNumberOfWindowsForExposure());
 	}
 
 	private void showNotification(Context context) {

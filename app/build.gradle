@@ -34,8 +34,8 @@ android {
 		applicationId "ch.admin.bag.dp3t"
 		minSdkVersion 23
 		targetSdkVersion 29
-		versionCode 1000
-		versionName "1.0"
+		versionCode 1001
+		versionName "0.1"
 		resConfigs "en", "fr", "de", "it"
 
 		buildConfigField "long", "BUILD_TIME", System.currentTimeMillis() + "L"
@@ -51,6 +51,15 @@ android {
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.dev.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.dev.BUCKET_PUBLIC_KEY}\""
+		}
+		tescht {
+			buildConfigField 'boolean', 'IS_DEV', 'false'
+			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-t.bag.admin.ch/"'
+			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-t.bfs.admin.ch/"'
+			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-t.bfs.admin.ch/"'
+			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-t.bfs.admin.ch/"'
+			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.test.CONFIG_CERTIFICATE}\""
+			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.test.BUCKET_PUBLIC_KEY}\""
 		}
 		abnahme {
 			buildConfigField 'boolean', 'IS_DEV', 'false'
@@ -73,6 +82,9 @@ android {
 	}
 
 	sourceSets {
+		tescht {
+			java.srcDirs += 'src/prod/java'
+		}
 		abnahme {
 			java.srcDirs += 'src/prod/java'
 		}
@@ -102,10 +114,11 @@ android {
 }
 
 dependencies {
-	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
-	def dp3t_sdk_version = '0.2.6'
+	def dp3t_sdk_version = '0.4.0'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
+	teschtImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	prodImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 
@@ -116,7 +129,6 @@ dependencies {
 	implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
 	implementation 'androidx.viewpager2:viewpager2:1.0.0'
 	implementation 'androidx.security:security-crypto:1.0.0-rc01'
-	implementation 'io.jsonwebtoken:jjwt-api:0.11.1'
 	implementation 'androidx.work:work-runtime:2.3.4'
 
 	implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'

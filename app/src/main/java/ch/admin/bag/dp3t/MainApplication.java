@@ -21,21 +21,20 @@ import androidx.core.app.NotificationCompat;
 
 import java.security.PublicKey;
 
-import ch.admin.bag.dp3t.networking.CertificatePinning;
-import ch.admin.bag.dp3t.networking.ConfigRepository;
-import ch.admin.bag.dp3t.networking.FakeWorker;
-import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.NotificationUtil;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.backend.models.ApplicationInfo;
 import org.dpppt.android.sdk.internal.backend.BackendBucketRepository;
-import org.dpppt.android.sdk.internal.database.models.ExposureDay;
 import org.dpppt.android.sdk.internal.logger.LogLevel;
 import org.dpppt.android.sdk.internal.logger.Logger;
-import org.dpppt.android.sdk.internal.util.ProcessUtil;
+import org.dpppt.android.sdk.models.ApplicationInfo;
+import org.dpppt.android.sdk.models.ExposureDay;
 import org.dpppt.android.sdk.util.SignatureUtil;
+
+import ch.admin.bag.dp3t.networking.CertificatePinning;
+import ch.admin.bag.dp3t.networking.FakeWorker;
+import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.util.NotificationUtil;
 
 public class MainApplication extends Application {
 
@@ -48,17 +47,16 @@ public class MainApplication extends Application {
 			Logger.init(getApplicationContext(), LogLevel.DEBUG);
 		}
 
-		if (ProcessUtil.isMainProcess(this)) {
-			registerReceiver(contactUpdateReceiver, DP3T.getUpdateIntentFilter());
+		registerReceiver(contactUpdateReceiver, DP3T.getUpdateIntentFilter());
 
-			PublicKey signaturePublicKey = SignatureUtil.getPublicKeyFromBase64OrThrow(BuildConfig.BUCKET_PUBLIC_KEY);
-			DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL), signaturePublicKey);
+		PublicKey signaturePublicKey = SignatureUtil.getPublicKeyFromBase64OrThrow(BuildConfig.BUCKET_PUBLIC_KEY);
+		DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL), signaturePublicKey);
 
-			DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
-			ConfigRepository.setCertificatePinner(CertificatePinning.getCertificatePinner());
+		DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
+		DP3T.setUserAgent(getPackageName() + ";" + BuildConfig.VERSION_NAME + ";" + BuildConfig.BUILD_TIME + ";Android;" +
+				Build.VERSION.SDK_INT);
 
-			FakeWorker.safeStartFakeWorker(this);
-		}
+		FakeWorker.safeStartFakeWorker(this);
 	}
 
 	private BroadcastReceiver contactUpdateReceiver = new BroadcastReceiver() {
@@ -76,13 +74,13 @@ public class MainApplication extends Application {
 					}
 				}
 				if (exposureDay != null && secureStorage.getLastShownContactId() != exposureDay.getId()) {
-					createNewContactNotifaction(context, exposureDay.getId());
+					createNewContactNotification(context, exposureDay.getId());
 				}
 			}
 		}
 	};
 
-	private void createNewContactNotifaction(Context context, int contactId) {
+	private void createNewContactNotification(Context context, int contactId) {
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

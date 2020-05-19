@@ -17,6 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.dpppt.android.sdk.DP3T;
+
 import ch.admin.bag.dp3t.main.HomeFragment;
 import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
@@ -28,7 +30,7 @@ import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 public class MainActivity extends FragmentActivity {
 
 	public static final String ACTION_GOTO_REPORTS = "ACTION_GOTO_REPORTS";
-	public static final String ACTION_STOP_TRACING = "ACTION_STOP_TRACING";
+	public static final String ACTION_INFORMED_STOP_TRACING = "ACTION_INFORMED_STOP_TRACING";
 
 	private static final int REQ_ONBOARDING = 123;
 
@@ -107,12 +109,12 @@ public class MainActivity extends FragmentActivity {
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
-		if (ACTION_STOP_TRACING.equals(intentAction) && !launchedFromHistory) {
-			tracingViewModel.setTracingEnabled(false);
+		if (ACTION_INFORMED_STOP_TRACING.equals(intentAction) && !launchedFromHistory) {
+			tracingViewModel.disableTracing();
+			gotoReportsFragment();
 			intent.setAction(null);
 			setIntent(intent);
-		}
-		else if (ACTION_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory && !consumedExposedIntent) {
+		} else if (ACTION_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory && !consumedExposedIntent) {
 			consumedExposedIntent = true;
 			gotoReportsFragment();
 			intent.setAction(null);
@@ -138,6 +140,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		DP3T.onActivityResult(this, requestCode, resultCode, data);
 		if (requestCode == REQ_ONBOARDING) {
 			if (resultCode == RESULT_OK) {
 				secureStorage.setOnboardingCompleted(true);

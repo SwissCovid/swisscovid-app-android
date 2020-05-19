@@ -18,7 +18,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import java.util.Date;
+import java.util.concurrent.CancellationException;
 
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.backend.ResponseCallback;
+import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
+
+import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.inform.views.ChainedEditText;
 import ch.admin.bag.dp3t.networking.AuthCodeRepository;
 import ch.admin.bag.dp3t.networking.errors.InvalidCodeError;
@@ -26,12 +32,8 @@ import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.util.JwtUtil;
-import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.backend.ResponseCallback;
-import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
 
 public class InformFragment extends Fragment {
 
@@ -90,14 +92,17 @@ public class InformFragment extends Fragment {
 		}
 
 		buttonSend.setOnClickListener(v -> {
+			long lastTimestamp = secureStorage.getLastInformRequestTime();
+			String lastAuthToken = secureStorage.getLastInformToken();
+
 			buttonSend.setEnabled(false);
 			setInvalidCodeErrorVisible(false);
 			String authCode = authCodeInput.getText();
 
 			progressDialog = createProgressDialog();
-			if (System.currentTimeMillis() - lastRequestTime < TIMEOUT_VALID_CODE && lastToken != null) {
-				Date onsetDate = JwtUtil.getOnsetDate(lastToken);
-				informExposed(onsetDate, getAuthorizationHeader(lastToken));
+			if (System.currentTimeMillis() - lastTimestamp < TIMEOUT_VALID_CODE && lastAuthToken != null) {
+				Date onsetDate = JwtUtil.getOnsetDate(lastAuthToken);
+				informExposed(onsetDate, getAuthorizationHeader(lastAuthToken));
 			} else {
 				authenticateInput(authCode);
 			}
@@ -120,7 +125,7 @@ public class InformFragment extends Fragment {
 
 						Date onsetDate = JwtUtil.getOnsetDate(accessToken);
 						if (onsetDate == null) {
-							showErrorDialog(getString(R.string.invalid_response_auth_code), null);
+							showErrorDialog(getString(R.string.unexpected_error_title), "ONDT");
 							if (progressDialog != null && progressDialog.isShowing()) {
 								progressDialog.dismiss();
 							}
@@ -132,6 +137,7 @@ public class InformFragment extends Fragment {
 
 					@Override
 					public void onError(Throwable throwable) {
+						throwable.printStackTrace();
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
@@ -150,7 +156,7 @@ public class InformFragment extends Fragment {
 	}
 
 	private void informExposed(Date onsetDate, String authorizationHeader) {
-		DP3T.sendIAmInfected(getContext(), onsetDate,
+		DP3T.sendIAmInfected(getActivity(), onsetDate,
 				new ExposeeAuthMethodAuthorization(authorizationHeader), new ResponseCallback<Void>() {
 					@Override
 					public void onSuccess(Void response) {
@@ -170,12 +176,23 @@ public class InformFragment extends Fragment {
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
-						showErrorDialog(getString(R.string.network_error), null);
+						if (throwable instanceof ResponseError) {
+							showErrorDialog(getString(R.string.unexpected_error_title),
+									String.valueOf(((ResponseError) throwable).getStatusCode()));
+						} else if (throwable instanceof CancellationException) {
+							showErrorDialog(getString(R.string.user_cancelled_key_sharing_error), null);
+						} else if (throwable.getMessage() != null && throwable.getMessage().contains("EXPOSURE_NOTIFICATION_API")) {
+							showErrorDialog(getString(R.string.unexpected_error_title), "ENAPI");
+
+						} else {
+							showErrorDialog(getString(R.string.network_error), null);
+						}
 						throwable.printStackTrace();
 						buttonSend.setEnabled(true);
 					}
 				});
 	}
+
 
 	@Override
 	public void onResume() {

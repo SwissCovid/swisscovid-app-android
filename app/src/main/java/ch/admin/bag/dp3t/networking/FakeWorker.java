@@ -14,17 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.work.*;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
 
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
 import ch.admin.bag.dp3t.util.ExponentialDistribution;
-import ch.admin.bag.dp3t.util.JwtUtil;
-import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.backend.models.ExposeeAuthMethodAuthorization;
 
 public class FakeWorker extends Worker {
 
@@ -33,7 +31,7 @@ public class FakeWorker extends Worker {
 	private static final String FAKE_AUTH_CODE = "000000000000";
 
 	private static final float SAMPLING_RATE = 0.2f;
-	private static final long FACTOR_DAY_MILLIS = 24 * 60 * 60 * 60 * 1000L;
+	private static final long FACTOR_DAY_MILLIS = 24 * 60 * 60 * 1000L;
 
 	public static void safeStartFakeWorker(Context context) {
 		startFakeWorker(context, ExistingWorkPolicy.KEEP);
@@ -65,7 +63,7 @@ public class FakeWorker extends Worker {
 		try {
 			executeFakeRequest(getApplicationContext());
 			startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND);
-		} catch (IOException | ResponseError | InvalidAuthResponseException | NoSuchAlgorithmException e) {
+		} catch (IOException | ResponseError e) {
 			org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "FakeWorker finished with exception " + e.getMessage());
 			return Result.retry();
 		}
@@ -74,18 +72,13 @@ public class FakeWorker extends Worker {
 	}
 
 	private void executeFakeRequest(Context context)
-			throws IOException, ResponseError, InvalidAuthResponseException, NoSuchAlgorithmException {
+			throws IOException, ResponseError {
 		AuthCodeRepository authCodeRepository = new AuthCodeRepository(context);
 		AuthenticationCodeResponseModel accessTokenResponse =
 				authCodeRepository.getAccessTokenSync(new AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1));
 		String accessToken = accessTokenResponse.getAccessToken();
 
-		Date onsetDate = JwtUtil.getOnsetDate(accessToken);
-		if (onsetDate == null) throw new InvalidAuthResponseException();
-
-		DP3T.sendFakeInfectedRequest(context, onsetDate, new ExposeeAuthMethodAuthorization(accessToken));
+		DP3T.sendFakeInfectedRequest(context, new ExposeeAuthMethodAuthorization(accessToken));
 	}
-
-	private class InvalidAuthResponseException extends Throwable { }
 
 }

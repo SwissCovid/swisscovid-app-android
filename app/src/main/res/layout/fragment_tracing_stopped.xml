@@ -31,17 +31,17 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/spacing_huge"
 			android:gravity="bottom|center_horizontal"
-			android:text="@string/inform_send_endtracing_title" />
+			android:text="@string/tracing_ended_title" />
 
 		<TextView
 			style="@style/NextStep.Text"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/spacing_medium_large"
 			android:gravity="center_horizontal"
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
-			android:text="@string/inform_send_endtracing_text" />
+			android:text="@string/meldungen_positive_tested_faq1_text" />
 
 		<Button
 			android:id="@+id/inform_end_tracing_button_continue"

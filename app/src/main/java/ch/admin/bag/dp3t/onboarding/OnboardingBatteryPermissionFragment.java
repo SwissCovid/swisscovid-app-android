@@ -43,7 +43,7 @@ public class OnboardingBatteryPermissionFragment extends Fragment {
 		batteryButton = view.findViewById(R.id.onboarding_battery_permission_button);
 		batteryButton.setOnClickListener(v -> {
 			startActivity(new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
-					Uri.parse("package:" + requireContext().getPackageName())));
+					Uri.parse("package:" + getContext().getPackageName())));
 			wasUserActive = true;
 		});
 		continueButton = view.findViewById(R.id.onboarding_battery_permission_continue_button);

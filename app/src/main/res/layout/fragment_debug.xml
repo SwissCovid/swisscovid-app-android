@@ -167,14 +167,6 @@
 
 			</androidx.cardview.widget.CardView>
 
-			<Button
-				android:id="@+id/button_upload_debug_data"
-				style="@style/NextStep.Button.Outlined.Red"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center_horizontal"
-				android:text="Upload debug data" />
-
 		</LinearLayout>
 
 	</ScrollView>

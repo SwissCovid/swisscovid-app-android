@@ -9,14 +9,14 @@
   -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:background="@color/grey_light">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:background="@color/white"
 		android:clipChildren="false"
 		android:clipToPadding="false"
 		android:gravity="center_horizontal"
@@ -24,7 +24,6 @@
 		android:paddingTop="@dimen/spacing_huge">
 
 		<ImageView
-			android:id="@+id/onboarding_illustration"
 			android:layout_width="match_parent"
 			android:layout_height="@dimen/illustration_height"
 			android:layout_marginTop="@dimen/spacing_huge"
@@ -32,7 +31,7 @@
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
 			android:scaleType="fitCenter"
-			android:src="@drawable/ill_bt_permission" />
+			android:src="@drawable/ill_onboarding_gapple" />
 
 		<TextView
 			android:id="@+id/onboarding_title"
@@ -44,7 +43,7 @@
 			android:gravity="center_horizontal"
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
-			android:text="@string/android_onboarding_bt_permission_title" />
+			android:text="@string/onboarding_gaen_title" />
 
 		<TextView
 			android:id="@+id/onboarding_description"
@@ -55,33 +54,33 @@
 			android:gravity="center_horizontal"
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
-			android:text="@string/android_onboarding_bt_permission_text" />
+			android:text="@string/onboarding_gaen_text" />
 
 		<Button
-			android:id="@+id/onboarding_location_permission_button"
+			android:id="@+id/onboarding_gaen_button"
 			style="@style/NextStep.Button"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
 			android:layout_marginTop="@dimen/spacing_small"
-			android:text="@string/android_onboarding_bt_permission_button" />
+			android:text="@string/onboarding_gaen_button_activate" />
 
 		<Button
-			android:id="@+id/onboarding_location_permission_continue_button"
+			android:id="@+id/onboarding_gaen_continue_button"
 			style="@style/NextStep.Button.Transparent.Blue.Light"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
 			android:layout_marginTop="@dimen/spacing_small"
 			android:text="@string/onboarding_continue_button"
-			android:visibility="gone"/>
+			android:visibility="gone" />
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_huge"
 			android:background="@color/grey_light"
 			android:orientation="vertical"
-			android:layout_marginTop="@dimen/spacing_huge"
 			android:paddingStart="@dimen/spacing_large"
 			android:paddingTop="@dimen/spacing_medium_large"
 			android:paddingEnd="@dimen/spacing_large"
@@ -92,44 +91,14 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_large"
-				android:text="@string/android_onboarding_bt_permission_goodtoknow" />
+				android:text="@string/onboarding_good_to_know" />
 
 			<TextView
 				style="@style/NextStep.Text.Bold"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_small"
-				android:text="@string/android_onboarding_bt_permission_info_1_title" />
-
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/spacing_very_large"
-				android:orientation="horizontal">
-
-				<ImageView
-					android:layout_width="@dimen/icon_size"
-					android:layout_height="@dimen/icon_size"
-					android:layout_marginRight="@dimen/spacing_medium_large"
-					android:tint="@color/blue_main"
-					android:src="@drawable/ic_location_off" />
-
-				<TextView
-					style="@style/NextStep.Text"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:breakStrategy="high_quality"
-					android:hyphenationFrequency="full"
-					android:text="@string/android_onboarding_bt_permission_info_1_text" />
-
-			</LinearLayout>
-
-			<TextView
-				style="@style/NextStep.Text.Bold"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/spacing_small"
-				android:text="@string/android_onboarding_bt_permission_info_2_title" />
+				android:text="@string/onboarding_gaen_info_title_1" />
 
 			<LinearLayout
 				android:layout_width="match_parent"
@@ -140,8 +109,8 @@
 					android:layout_width="@dimen/icon_size"
 					android:layout_height="@dimen/icon_size"
 					android:layout_marginRight="@dimen/spacing_medium_large"
-					android:tint="@color/blue_main"
-					android:src="@drawable/ic_lock" />
+					android:src="@drawable/ic_lock"
+					android:tint="@color/blue_main" />
 
 				<TextView
 					style="@style/NextStep.Text"
@@ -149,7 +118,7 @@
 					android:layout_height="wrap_content"
 					android:breakStrategy="high_quality"
 					android:hyphenationFrequency="full"
-					android:text="@string/android_onboarding_bt_permission_info_2_text" />
+					android:text="@string/onboarding_gaen_info_text_1" />
 
 			</LinearLayout>
 

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import ch.admin.bag.dp3t.main.model.NotificationStateError;
 import ch.admin.bag.dp3t.R;
 
-public class NotificatonErrorStateHelper {
+public class NotificationErrorStateHelper {
 
 	public static void updateNotificationErrorView(View reportErrorView, NotificationStateError notificationStateError) {
 		if (notificationStateError == null) {

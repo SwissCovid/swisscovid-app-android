@@ -9,14 +9,14 @@
   -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:background="@color/grey_light">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:background="@color/white"
 		android:clipChildren="false"
 		android:clipToPadding="false"
 		android:gravity="center_horizontal"
@@ -74,14 +74,14 @@
 			android:layout_gravity="center"
 			android:layout_marginTop="@dimen/spacing_small"
 			android:text="@string/onboarding_continue_button"
-			android:visibility="gone"/>
+			android:visibility="gone" />
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_huge"
 			android:background="@color/grey_light"
 			android:orientation="vertical"
-			android:layout_marginTop="@dimen/spacing_huge"
 			android:paddingStart="@dimen/spacing_large"
 			android:paddingTop="@dimen/spacing_medium_large"
 			android:paddingEnd="@dimen/spacing_large"
@@ -92,7 +92,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_large"
-				android:text="@string/android_onboarding_bt_permission_goodtoknow" />
+				android:text="@string/onboarding_good_to_know" />
 
 			<TextView
 				style="@style/NextStep.Text.Bold"
@@ -111,8 +111,8 @@
 					android:layout_width="@dimen/icon_size"
 					android:layout_height="@dimen/icon_size"
 					android:layout_marginRight="@dimen/spacing_medium_large"
-					android:tint="@color/blue_main"
-					android:src="@drawable/ic_power_saving" />
+					android:src="@drawable/ic_power_saving"
+					android:tint="@color/blue_main" />
 
 				<TextView
 					style="@style/NextStep.Text"
@@ -140,8 +140,8 @@
 					android:layout_width="@dimen/icon_size"
 					android:layout_height="@dimen/icon_size"
 					android:layout_marginRight="@dimen/spacing_medium_large"
-					android:tint="@color/blue_main"
-					android:src="@drawable/ic_battery_power" />
+					android:src="@drawable/ic_battery_power"
+					android:tint="@color/blue_main" />
 
 				<TextView
 					style="@style/NextStep.Text"

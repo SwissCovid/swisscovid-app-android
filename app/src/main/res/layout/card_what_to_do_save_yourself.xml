@@ -35,7 +35,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_medium_large"
-				android:text="@string/meldungen_detail_whattodo"
+				android:text="@string/no_meldungen_box_subtitle"
 				app:layout_constraintTop_toTopOf="parent" />
 
 			<TextView

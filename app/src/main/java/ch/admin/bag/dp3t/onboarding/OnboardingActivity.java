@@ -9,6 +9,7 @@
  */
 package ch.admin.bag.dp3t.onboarding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
@@ -40,9 +41,15 @@ public class OnboardingActivity extends FragmentActivity {
 		if (currentItem < pagerAdapter.getItemCount() - 1) {
 			viewPager.setCurrentItem(currentItem + 1, true);
 		} else {
-			DP3T.start(this);
 			setResult(RESULT_OK);
 			finish();
 		}
 	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		DP3T.onActivityResult(this, requestCode, resultCode, data);
+	}
+
 }

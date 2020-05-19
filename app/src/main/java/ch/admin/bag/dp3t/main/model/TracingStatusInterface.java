@@ -9,10 +9,12 @@
  */
 package ch.admin.bag.dp3t.main.model;
 
+import android.content.Context;
+
 import java.util.List;
 
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.database.models.ExposureDay;
+import org.dpppt.android.sdk.models.ExposureDay;
 
 public interface TracingStatusInterface {
 
@@ -33,5 +35,11 @@ public interface TracingStatusInterface {
 	TracingStatus.ErrorState getReportErrorState();
 
 	long getDaysSinceExposure();
+
+	void resetInfectionStatus(Context context);
+
+	void resetExposureDays(Context context);
+
+	boolean canInfectedStatusBeReset(Context context);
 
 }

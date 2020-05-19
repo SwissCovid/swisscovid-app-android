@@ -16,6 +16,12 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.InfectionStatus;
+import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.models.DayDate;
+import org.dpppt.android.sdk.models.ExposureDay;
+
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
 import ch.admin.bag.dp3t.main.model.NotificationState;
 import ch.admin.bag.dp3t.main.model.TracingState;
@@ -23,11 +29,6 @@ import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
-
-import org.dpppt.android.sdk.InfectionStatus;
-import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.database.models.ExposureDay;
-import org.dpppt.android.sdk.internal.util.DayDate;
 
 public class TracingStatusWrapper implements TracingStatusInterface {
 
@@ -65,9 +66,15 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	public void setDebugAppState(Context context, DebugAppState debugAppState) {
 		this.debugAppState = debugAppState;
+		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		if (debugAppState == DebugAppState.CONTACT_EXPOSED) {
-			SecureStorage secureStorage = SecureStorage.getInstance(context);
 			secureStorage.setReportsHeaderAnimationPending(true);
+		} else if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
+			DP3T.stop(context);
+			status = DP3T.getStatus(context);
+			secureStorage.setReportsHeaderAnimationPending(false);
+		} else {
+			secureStorage.setReportsHeaderAnimationPending(false);
 		}
 	}
 
@@ -77,8 +84,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public TracingState getTracingState() {
-		boolean tracingOff = !(status.isAdvertising() || status.isReceiving());
-		return tracingOff ? TracingState.NOT_ACTIVE : TracingState.ACTIVE;
+		return status.isTracingEnabled() ? TracingState.ACTIVE : TracingState.NOT_ACTIVE;
 	}
 
 	@Override
@@ -92,18 +98,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public TracingStatus.ErrorState getReportErrorState() {
-		boolean hasError = status.getErrors().size() > 0;
-		if (hasError) {
-			TracingStatus.ErrorState errorState = TracingErrorStateHelper.getErrorStateForReports(status.getErrors());
-			if (TracingStatus.ErrorState.SYNC_ERROR_DATABASE.equals(errorState)) {
-				return errorState;
-			} else {
-				if (DateUtils.getDaysDiff(status.getLastSyncDate()) > 1) {
-					return errorState;
-				}
-			}
-		}
-		return null;
+		return TracingErrorStateHelper.getErrorStateForReports(status.getErrors());
 	}
 
 	@Override
@@ -113,6 +108,30 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			return DateUtils.getDaysDiff(time);
 		}
 		return -1;
+	}
+
+	@Override
+	public void resetInfectionStatus(Context context) {
+		if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
+			debugAppState = DebugAppState.HEALTHY;
+		} else {
+			DP3T.resetInfectionStatus(context);
+		}
+	}
+
+	@Override
+	public boolean canInfectedStatusBeReset(Context context) {
+		if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
+			return true;
+		} else {
+			return DP3T.getIAmInfectedIsResettable(context);
+		}
+	}
+
+	@Override
+	public void resetExposureDays(Context context) {
+		debugAppState = DebugAppState.NONE;
+		DP3T.resetExposureDays(context);
 	}
 
 	@Override
