@@ -9,8 +9,6 @@
  */
 package ch.admin.bag.dp3t.main;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
@@ -126,40 +124,16 @@ public class TracingBoxFragment extends Fragment {
 	}
 
 	private void enableTracing() {
-		showLoadingView();
 		tracingViewModel.enableTracing(getActivity(),
-				this::hideLoadingView,
+				() -> {
+					// nothing, handled via error state update
+				},
 				(e) -> {
 					InfoDialog.newInstance(e.getLocalizedMessage())
 							.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
-					hideLoadingView();
 				},
-				this::hideLoadingView);
-	}
-
-	private void showLoadingView() {
-		tracingLoadingView.setVisibility(View.VISIBLE);
-		tracingLoadingView.setAlpha(0);
-		tracingLoadingView.animate()
-				.alpha(1f)
-				.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
-				.setListener(new AnimatorListenerAdapter() {
-					@Override
-					public void onAnimationEnd(Animator animation) {
-					}
-				});
-	}
-
-	private void hideLoadingView() {
-		tracingLoadingView.animate()
-				.setStartDelay(getResources().getInteger(android.R.integer.config_mediumAnimTime))
-				.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
-				.alpha(0f)
-				.setListener(new AnimatorListenerAdapter() {
-					@Override
-					public void onAnimationEnd(Animator animation) {
-						tracingLoadingView.setVisibility(View.GONE);
-					}
+				() -> {
+					// cancelled
 				});
 	}
 
