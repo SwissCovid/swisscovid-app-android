@@ -318,7 +318,7 @@ public class HomeFragment extends Fragment {
 				NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 				NotificationChannel channel = manager.getNotificationChannel(channelId);
 				if (channel == null) {
-					return true;
+					return manager.areNotificationsEnabled();
 				}
 				return channel.getImportance() != NotificationManager.IMPORTANCE_NONE &&
 						!(!manager.areNotificationsEnabled() &&
