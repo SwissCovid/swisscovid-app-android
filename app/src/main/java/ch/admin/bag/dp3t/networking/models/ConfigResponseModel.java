@@ -13,16 +13,11 @@ package ch.admin.bag.dp3t.networking.models;
 public class ConfigResponseModel {
 
 	private boolean forceUpdate;
-	private boolean forceTraceShutdown;
 	private InfoBoxModelCollection infoBox;
 	private SdkConfigModel sdkConfig;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
-	}
-
-	public boolean getForceTraceShutdown() {
-		return forceTraceShutdown;
 	}
 
 	public InfoBoxModelCollection getInfoBox() {
