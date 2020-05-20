@@ -2,10 +2,10 @@
 <resources>
 
     <!-- App Name -->
-    <string name="app_name">"Swiss PT"</string>
+    <string name="app_name">"SwissCovid"</string>
 
     <!-- App Name (unter Icon auf iOS) -->
-    <string name="CFBundleDisplayName">"Swiss PT"</string>
+    <string name="CFBundleDisplayName">"SwissCovid"</string>
 
     <!-- Loading View: Erneut laden -->
     <string name="loading_view_reload">"Erneut laden"</string>
@@ -336,7 +336,7 @@ Infoline Coronavirus
 Schritt voraus"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"Mit der Swiss PT App können alle dazu beitragen die Verbreitung des neuen Coronavirus einzudämmen."</string>
+    <string name="onboarding_prinzip_text1">"Mit der SwissCovid-App können alle dazu beitragen die Verbreitung des neuen Coronavirus einzudämmen."</string>
 
     <!-- Onboarding Prinzip Text -->
     <string name="onboarding_prinzip_text2">"Die App informiert im Verdachtsfall. So können Infektionsketten unterbrochen werden."</string>
@@ -431,7 +431,7 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="onboarding_go_title">"Die App ist eingerichtet"</string>
 
     <!-- Text auf dem letzten Onboarding Screen -->
-    <string name="onboarding_go_text">"Vielen Dank dass Sie mithelfen, sich und andere zu schützen."</string>
+    <string name="onboarding_go_text">"Vielen Dank, dass Sie mithelfen, sich und andere zu schützen."</string>
 
     <!-- Button-Label auf dem letzten Onboarding screen -->
     <string name="onboarding_go_button">"Starten"</string>
@@ -588,7 +588,7 @@ Dieser wird lokal auf den Geräten gespeichert und nach 21 Tagen wieder gelösch
     <string name="begegnungen_detail_faq3_title">"Muss Bluetooth immer an sein?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnungen_detail_faq3_text">"Damit Begegnungen erkannt werden können muss Bluetooth immer eingeschaltet sein.
+    <string name="begegnungen_detail_faq3_text">"Damit Begegnungen erkannt werden können, muss Bluetooth immer eingeschaltet sein.
 
 Die Batterienutzung erhöht sich dadurch nur leicht."</string>
 
@@ -646,9 +646,9 @@ Damit wird sichergestellt, dass nur bestätigte Fälle über die App gemeldet we
     <string name="inform_detail_faq2_title">"Wie bleibe ich anonym?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Es werden nur die temporären Schlüssel Ihrer App gesendet. Keine persönlichen Daten.
+    <string name="inform_detail_faq2_text">"Es werden nur die temporären Schlüssel Ihrer App gesendet, keine persönlichen Daten.
 
-Damit können andere Swiss PT App Nutzer prüfen, ob Sie in den letzten Tagen eine Begegnung mit Ihnen hatten."</string>
+Damit können andere SwissCovid-App Nutzer prüfen, ob Sie in den letzten Tagen eine Begegnung mit Ihnen hatten."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -660,7 +660,7 @@ Damit können andere Swiss PT App Nutzer prüfen, ob Sie in den letzten Tagen ei
     <string name="inform_code_intro_title">"Wichtiger Hinweis"</string>
 
     <!-- Informieren-Flow: Erster Screen Text -->
-    <string name="inform_code_intro_text">"Obwohl keine Daten zu Ihrer Person gesendet werden kann es sein, dass sich jemand anhand des Datums an die Begegnung erinnern kann."</string>
+    <string name="inform_code_intro_text">"Obwohl keine Daten zu Ihrer Person gesendet werden, kann es sein, dass sich jemand anhand des Datums an die Begegnung erinnern kann."</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
     <string name="inform_code_intro_button">"Verstanden"</string>
@@ -669,7 +669,7 @@ Damit können andere Swiss PT App Nutzer prüfen, ob Sie in den letzten Tagen ei
     <string name="symptom_faq1_title">"Unsicher bei Symptomen?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Sie haben Symptome und sind unsicher, wie Sie sich verhalten sollen? 
+    <string name="symptom_faq1_text">"Sie haben Symptome und sind unsicher, wie Sie sich verhalten sollen?
 
 Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfehlung."</string>
 
@@ -757,7 +757,7 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="android_onboarding_battery_permission_title">"Akku-Optimierung ignorieren"</string>
     <string name="android_onboarding_battery_permission_text">"Um Begegnungen immer erkennen zu können, muss die Akku-Optimierung für diese App ausgeschaltet sein."</string>
     <string name="android_onboarding_battery_permission_button">"Zulassen"</string>
-    <string name="android_onboarding_battery_permission_button_deactivated">"Deaktiviert"</string>
+    <string name="android_onboarding_battery_permission_button_deactivated">"OK"</string>
     <string name="android_onboarding_battery_permission_info_1_title">"Nur für diese App"</string>
     <string name="android_onboarding_battery_permission_info_1_text">"Damit die App funktioniert, muss sie auch im Hintergrund ausgeführt werden. Zu diesem Zweck kann die Akku-Optimierung für einzelne Apps ausgeschaltet werden."</string>
     <string name="android_onboarding_battery_permission_info_2_title">"Leicht erhöhte Batterienutzung"</string>
@@ -780,7 +780,7 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="tracing_permission_error_text">"Aktivieren Sie die Funktion (COVID-19 Exposure Logging), damit das anonyme Tracing funktioniert."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
-    <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht durchgeführt werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der Swiss PT App."</string>
+    <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht gesendet werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der SwissCovid-App."</string>
 
     <!-- Button um die Google Play Services zu aktualisieren -->
     <string name="playservices_update">"Aktualisieren"</string>
@@ -792,7 +792,9 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt. Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
+    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt.
+
+Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
 
     <!-- Fuzzy -->
     <string name="android_error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>

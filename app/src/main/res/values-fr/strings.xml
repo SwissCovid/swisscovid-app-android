@@ -2,10 +2,10 @@
 <resources>
 
     <!-- App Name -->
-    <string name="app_name">"Swiss PT"</string>
+    <string name="app_name">"SwissCovid"</string>
 
     <!-- App Name (unter Icon auf iOS) -->
-    <string name="CFBundleDisplayName">"Swiss PT"</string>
+    <string name="CFBundleDisplayName">"SwissCovid"</string>
 
     <!-- Loading View: Erneut laden -->
     <string name="loading_view_reload">"Recharger"</string>
@@ -328,7 +328,7 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <string name="onboarding_prinzip_title">"Gardons une longueur d'avance sur le virus"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"Grâce à Swiss PT app, tout le monde peut contribuer à endiguer la propagation du virus."</string>
+    <string name="onboarding_prinzip_text1">"Grâce à l'application SwissCovid, tout le monde peut contribuer à endiguer la propagation du virus."</string>
 
     <!-- Onboarding Prinzip Text -->
     <string name="onboarding_prinzip_text2">"L'application signale les infections potentielles et permet d'interrompre les chaînes de transmission."</string>
@@ -438,7 +438,8 @@ Respectez les consignes sur l'auto-isolement."</string>
     <string name="inform_code_invalid_title">"Code incorrect"</string>
 
     <!-- Fehlermeldung Subtitle ungültiger Code -->
-    <string name="inform_code_invalid_subtitle">"En cas de questions, appelez +41 58 466 07 99"</string>
+    <string name="inform_code_invalid_subtitle">"En cas de questions: App-Hotline
++41 58 466 07 99"</string>
 
     <!-- Datum: Vor 1 Tag -->
     <string name="date_one_day_ago">"depuis 1 jour"</string>
@@ -634,7 +635,7 @@ Cela permet d'assurer que seuls les cas confirmés sont signalés via l'applicat
     <!-- Inform Detail FAQ Text -->
     <string name="inform_detail_faq2_text">"Seules les clés temporaires de votre application sont envoyées, aucune donnée personnelle.
 
-Ainsi, d'autres utilisateurs de l'application Swiss PT peuvent vérifier s'ils ont été en contact avec vous ces derniers jours."</string>
+Ainsi, d'autres utilisateurs de l'application SwissCovid peuvent vérifier s'ils ont été en contact avec vous ces derniers jours."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -655,7 +656,7 @@ Ainsi, d'autres utilisateurs de l'application Swiss PT peuvent vérifier s'ils o
     <string name="symptom_faq1_title">"Des doutes à propos des symptômes ?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Vous avez des symptômes et ne savez pas quel comportement adopter ? 
+    <string name="symptom_faq1_text">"Vous avez des symptômes et ne savez pas quel comportement adopter ?
 
 Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir une recommandation."</string>
 
@@ -685,59 +686,59 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="android_accessibility_back_button">"Retour"</string>
 
     <!-- VoiceOver: Hilfetext bei Codeeingabe Button -->
-    <string name="accessibility_code_button_current_code_hint">"Eingegebener Code: "</string>
+    <string name="accessibility_code_button_current_code_hint">"Code saisi: "</string>
 
     <!-- Accessibility: Codeeingabe einer Ziffer -->
-    <string name="accessibility_code_input_textfield">"Textfeld. Momentane Ziffer: "</string>
+    <string name="accessibility_code_input_textfield">"Zone de texte. Chiffre actuel : "</string>
 
     <!-- Accessibility: Code Input Textfeld wenn leer -->
-    <string name="accessibility_code_input_textfield_empty">"Textfeld. Leer."</string>
+    <string name="accessibility_code_input_textfield_empty">"Zone de texte. Vide."</string>
 
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
-    <string name="accessibility_code_input_hint">"Doppeltippen zum bearbeiten"</string>
+    <string name="accessibility_code_input_hint">"Double tapotement pour éditer"</string>
 
     <!-- Accessibility: FAW Button Titel  -->
-    <string name="accessibility_faq_button_hint">"Dieser Button verlässt die App und öffnet die Website vom B. A. G."</string>
+    <string name="accessibility_faq_button_hint">"Ce bouton permet de quitter l'application et d'ouvrir le site du O.F.S.P."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_title">"Tracing aktivieren"</string>
+    <string name="onboarding_gaen_title">"Activer le traçage"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"Um die App nutzen zu können, muss die Funktion (COVID-19 Exposure Logging) aktiviert werden."</string>
+    <string name="onboarding_gaen_text">"Pour utiliser l'application, la fonction (COVID-19 Exposure Logging) doit être activée."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_button_activate">"Aktivieren"</string>
+    <string name="onboarding_gaen_button_activate">"Activer"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
-    <string name="onboarding_gaen_info_title_1">"Sie bleiben anonym"</string>
+    <string name="onboarding_gaen_info_title_1">"Vous restez anonyme."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
-    <string name="onboarding_gaen_info_text_1">"Es werden nur anonyme IDs ausgetauscht. Keine Daten zum Standort oder Ihrer Person."</string>
+    <string name="onboarding_gaen_info_text_1">"Seules des pièces d'identité anonymes sont échangées. Aucune donnée sur votre localisation ou votre personne."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
-    <string name="onboarding_gaen_info_title_2">"Leicht erhöhte Batterienutzung"</string>
+    <string name="onboarding_gaen_info_title_2">"Légère augmentation de la consommation d'énergie."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 2 -->
-    <string name="onboarding_gaen_info_text_2">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterie-nutzung erhöht sich nur leicht."</string>
+    <string name="onboarding_gaen_info_text_2">"L'application utilise aussi peu d'énergie que possible. La consommation n'augmente que légèrement."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_button_activated">"Aktiviert"</string>
+    <string name="onboarding_gaen_button_activated">"Activé"</string>
 
     <!-- Meldung in der App löschen, wenn möglicherweise angesteckt -->
-    <string name="delete_reports_button">"Meldung löschen"</string>
+    <string name="delete_reports_button">"Supprimer la notification"</string>
 
     <!-- Meldung im Löschen Dialog wenn möglicherweise angesteckt -->
-    <string name="delete_reports_dialog">"Möchten sie die Meldung wirklich löschen? Es ist wichtig, dass Sie die Infoline angerufen haben."</string>
+    <string name="delete_reports_dialog">"Voulez-vous vraiment supprimer la notification ? "</string>
 
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
-    <string name="delete_infection_button">"Meldung löschen"</string>
+    <string name="delete_infection_button">"Supprimer la notification"</string>
 
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
-    <string name="delete_infection_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
+    <string name="delete_infection_dialog">"Voulez-vous vraiment supprimer la notification ? "</string>
     <string name="android_onboarding_battery_permission_title">"Ignorer l'optimisation de la batterie"</string>
     <string name="android_onboarding_battery_permission_text">"Pour pouvoir détecter les contacts en tout temps, désactiver l'optimisation de la batterie pour cette application."</string>
     <string name="android_onboarding_battery_permission_button">"Autoriser"</string>
-    <string name="android_onboarding_battery_permission_button_deactivated">"Désactivé"</string>
+    <string name="android_onboarding_battery_permission_button_deactivated">"OK"</string>
     <string name="android_onboarding_battery_permission_info_1_title">"Seulement pour cette application"</string>
     <string name="android_onboarding_battery_permission_info_1_text">"L'application doit pouvoir tourner en arrière-plan pour fonctionner. Pour ce faire, l'optimisation de la batterie peut être désactivée pour des applications précises."</string>
     <string name="android_onboarding_battery_permission_info_2_title">"Légère augmentation de la consommation d'énergie."</string>
@@ -745,34 +746,36 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="android_foreground_service_notification_error_battery_optimization">"Pour que le traçage soit précis, l'application doit aussi pouvoir fonctionner en arrière-plan. Cela n'augmente que légèrement la consommation d'énergie."</string>
 
     <!-- Google Play Services nicht aktuell -->
-    <string name="gaen_not_aviable">"Google Play Services nicht aktuell"</string>
+    <string name="gaen_not_aviable">"Les services Google Play ne sont pas à jour"</string>
 
     <!-- Google Play Services nicht aktuell text -->
-    <string name="gaen_not_available_text">"Bitte aktualisieren Sie die Google Play Services."</string>
+    <string name="gaen_not_available_text">"Veuillez mettre à jour vos services Google Play"</string>
 
     <!-- Tracing wurde vom System deaktiviert, erneut starten -->
-    <string name="gaen_unexpectedly_disabled">"Tracing wurde deaktiviert. Bitte starten Sie es erneut."</string>
+    <string name="gaen_unexpectedly_disabled">"Le traçage est désactivé. Essayez de le relancer."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) deaktiviert"</string>
+    <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) désactivé"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Aktivieren Sie die Funktion (COVID-19 Exposure Logging), damit das anonyme Tracing funktioniert."</string>
+    <string name="tracing_permission_error_text">"Activez la fonction (COVID-19 Exposure Logging) pour que le traçage anonyme fonctionne."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
-    <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht durchgeführt werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der Swiss PT App."</string>
+    <string name="user_cancelled_key_sharing_error">"Le message n'a pas pu être envoyé. Veuillez autoriser le partage de vos identifiants aléatoires avec l'application SwissCovid."</string>
 
     <!-- Button um die Google Play Services zu aktualisieren -->
-    <string name="playservices_update">"Aktualisieren"</string>
+    <string name="playservices_update">"Mettre à jour"</string>
 
     <!-- Button um die Google Play Services zu installieren -->
-    <string name="playservices_install">"Installieren"</string>
+    <string name="playservices_install">"Installer"</string>
 
     <!-- Titel für Infos zu den Google Play Services -->
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt. Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
+    <string name="playservices_text">"Une version plus récente des services Google Play est requise pour activer le traçage.
+
+Si aucune mise à jour n'est actuellement disponible sur votre appareil, veuillez réessayer plus tard."</string>
 
     <!-- Fuzzy -->
     <string name="android_error_battery_optimization_title">"Optimisation de la consommation de la batterie activée"</string>
