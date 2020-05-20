@@ -792,5 +792,9 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der google Play Services benötigt."</string>
+    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt. Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
+
+    <!-- Fuzzy -->
+    <string name="android_error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>
+    <string name="android_error_battery_optimization_button">"Zulassen"</string>
 </resources>
