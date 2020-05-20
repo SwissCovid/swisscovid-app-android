@@ -12,6 +12,7 @@ package ch.admin.bag.dp3t.main;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -20,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
 
 import ch.admin.bag.dp3t.R;
@@ -34,6 +36,7 @@ public class TracingBoxFragment extends Fragment {
 
 	private static final int REQUEST_CODE_BLE_INTENT = 330;
 	private static final int REQUEST_CODE_LOCATION_INTENT = 510;
+	private static final int REQUEST_CODE_BATTERY_OPTIMIZATIONS_INTENT = 420;
 	private static String ARG_TRACING = "isHomeFragment";
 	private TracingViewModel tracingViewModel;
 
@@ -109,6 +112,11 @@ public class TracingBoxFragment extends Fragment {
 						startActivityForResult(bleIntent, REQUEST_CODE_BLE_INTENT);
 					}
 					break;
+				case BATTERY_OPTIMIZER_ENABLED:
+					Intent batteryIntent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+					batteryIntent.setData(Uri.parse("package:" + getContext().getPackageName()));
+					startActivityForResult(batteryIntent, REQUEST_CODE_BATTERY_OPTIMIZATIONS_INTENT);
+					break;
 				case LOCATION_SERVICE_DISABLED:
 					Intent locationIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 					startActivityForResult(locationIntent, REQUEST_CODE_LOCATION_INTENT);
@@ -143,7 +151,10 @@ public class TracingBoxFragment extends Fragment {
 			tracingViewModel.invalidateTracingStatus();
 		} else if (requestCode == REQUEST_CODE_LOCATION_INTENT && resultCode == Activity.RESULT_OK) {
 			tracingViewModel.invalidateTracingStatus();
+		} else if (requestCode == REQUEST_CODE_BATTERY_OPTIMIZATIONS_INTENT && resultCode == Activity.RESULT_OK) {
+			tracingViewModel.invalidateTracingStatus();
 		}
+		DP3T.onActivityResult(getActivity(), requestCode, resultCode, data);
 	}
 
 }

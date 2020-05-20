@@ -33,6 +33,7 @@ public class TracingErrorStateHelper {
 			TracingStatus.ErrorState.BLE_NOT_SUPPORTED,
 			TracingStatus.ErrorState.BLE_DISABLED,
 			TracingStatus.ErrorState.LOCATION_SERVICE_DISABLED,
+			TracingStatus.ErrorState.BATTERY_OPTIMIZER_ENABLED,
 			TracingStatus.ErrorState.SYNC_ERROR_TIMING);
 
 	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
@@ -45,6 +46,8 @@ public class TracingErrorStateHelper {
 	@StringRes
 	private static int getTitle(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
+			case BATTERY_OPTIMIZER_ENABLED:
+				return R.string.android_error_battery_optimization_title;
 			case LOCATION_SERVICE_DISABLED:
 				return R.string.android_error_location_services_title;
 			case BLE_DISABLED:
@@ -75,6 +78,8 @@ public class TracingErrorStateHelper {
 	@DrawableRes
 	private static int getIcon(TracingStatus.ErrorState tracingErrorState) {
 		switch (tracingErrorState) {
+			case BATTERY_OPTIMIZER_ENABLED:
+				return R.drawable.ic_battery_power;
 			case LOCATION_SERVICE_DISABLED:
 				return R.drawable.ic_gps_off;
 			case BLE_DISABLED:
@@ -96,6 +101,8 @@ public class TracingErrorStateHelper {
 	@StringRes
 	private static int getButtonText(TracingStatus.ErrorState errorState) {
 		switch (errorState) {
+			case BATTERY_OPTIMIZER_ENABLED:
+				return R.string.android_error_battery_optimization_button;
 			case LOCATION_SERVICE_DISABLED:
 				return R.string.android_error_location_services_button;
 			case BLE_DISABLED:
@@ -200,6 +207,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_TIMING:
 			case LOCATION_SERVICE_DISABLED:
 			case BLE_DISABLED:
+			case BATTERY_OPTIMIZER_ENABLED:
 			default:
 				return "";
 		}
