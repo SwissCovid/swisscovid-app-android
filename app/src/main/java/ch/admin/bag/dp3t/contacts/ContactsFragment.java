@@ -88,9 +88,8 @@ public class ContactsFragment extends Fragment {
 				}, (e) -> {
 					InfoDialog.newInstance(e.getLocalizedMessage())
 							.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
-				}, () -> {
-					//ignore
-				});
+					tracingSwitch.setChecked(false);
+				}, () -> tracingSwitch.setChecked(false));
 			} else {
 				tracingViewModel.disableTracing();
 			}
