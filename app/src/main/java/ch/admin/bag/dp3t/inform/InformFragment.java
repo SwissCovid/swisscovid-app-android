@@ -22,6 +22,8 @@ import androidx.fragment.app.Fragment;
 import java.util.Date;
 import java.util.concurrent.CancellationException;
 
+import com.google.android.gms.common.api.ApiException;
+
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
@@ -131,7 +133,7 @@ public class InformFragment extends Fragment {
 
 						Date onsetDate = JwtUtil.getOnsetDate(accessToken);
 						if (onsetDate == null) {
-							showErrorDialog(getString(R.string.unexpected_error_title), "ONDT");
+							showErrorDialog(InformRequestError.BLACK_INVALID_AUTH_RESPONSE_FORM);
 							if (progressDialog != null && progressDialog.isShowing()) {
 								progressDialog.dismiss();
 							}
@@ -151,10 +153,10 @@ public class InformFragment extends Fragment {
 							setInvalidCodeErrorVisible(true);
 							return;
 						} else if (throwable instanceof ResponseError) {
-							showErrorDialog(getString(R.string.unexpected_error_title),
+							showErrorDialog(InformRequestError.BLACK_STATUS_ERROR,
 									String.valueOf(((ResponseError) throwable).getStatusCode()));
 						} else {
-							showErrorDialog(getString(R.string.network_error), null);
+							showErrorDialog(InformRequestError.BLACK_MISC_NETWORK_ERROR);
 						}
 						buttonSend.setEnabled(true);
 					}
@@ -183,14 +185,15 @@ public class InformFragment extends Fragment {
 							progressDialog.dismiss();
 						}
 						if (throwable instanceof ResponseError) {
-							showErrorDialog(getString(R.string.unexpected_error_title),
+							showErrorDialog(InformRequestError.RED_STATUS_ERROR,
 									String.valueOf(((ResponseError) throwable).getStatusCode()));
 						} else if (throwable instanceof CancellationException) {
-							showErrorDialog(getString(R.string.user_cancelled_key_sharing_error), null);
-						} else if (throwable.getMessage() != null && throwable.getMessage().contains("EXPOSURE_NOTIFICATION_API")) {
-							showErrorDialog(getString(R.string.unexpected_error_title), "ENAPI");
+							showErrorDialog(InformRequestError.RED_USER_CANCELLED_SHARE);
+						} else if (throwable instanceof ApiException) {
+							showErrorDialog(InformRequestError.RED_EXPOSURE_API_ERROR,
+									String.valueOf(((ApiException) throwable).getStatusCode()));
 						} else {
-							showErrorDialog(getString(R.string.network_error), null);
+							showErrorDialog(InformRequestError.RED_MISC_NETWORK_ERROR);
 						}
 						throwable.printStackTrace();
 						buttonSend.setEnabled(true);
@@ -216,16 +219,19 @@ public class InformFragment extends Fragment {
 				.show();
 	}
 
-	private void showErrorDialog(String error, @Nullable String errorCode) {
+	private void showErrorDialog(InformRequestError error) {
+		showErrorDialog(error, null);
+	}
+
+	private void showErrorDialog(InformRequestError error, @Nullable String addErrorCode) {
 		AlertDialog.Builder errorDialogBuilder = new AlertDialog.Builder(getContext(), R.style.NextStep_AlertDialogStyle)
-				.setMessage(error)
+				.setMessage(error.getErrorMessage())
 				.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {});
-		if (errorCode != null && !errorCode.isEmpty()) {
-			TextView errorCodeView =
-					(TextView) getLayoutInflater().inflate(R.layout.view_dialog_error_code, (ViewGroup) getView(), false);
-			errorCodeView.setText(errorCode);
-			errorDialogBuilder.setView(errorCodeView);
-		}
+		String errorCode = error.getErrorCode(addErrorCode);
+		TextView errorCodeView =
+				(TextView) getLayoutInflater().inflate(R.layout.view_dialog_error_code, (ViewGroup) getView(), false);
+		errorCodeView.setText(errorCode);
+		errorDialogBuilder.setView(errorCodeView);
 		errorDialogBuilder.show();
 	}
 
