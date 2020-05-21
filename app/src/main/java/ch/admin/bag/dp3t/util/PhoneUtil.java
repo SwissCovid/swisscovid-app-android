@@ -26,4 +26,12 @@ public class PhoneUtil {
 		}
 	}
 
+	public static void callAppHotline(Context context) {
+		Intent intent = new Intent(Intent.ACTION_DIAL);
+		intent.setData(Uri.parse("tel:" + context.getString(R.string.app_hotline_tel_number)));
+		if (intent.resolveActivity(context.getPackageManager()) != null) {
+			context.startActivity(intent);
+		}
+	}
+
 }

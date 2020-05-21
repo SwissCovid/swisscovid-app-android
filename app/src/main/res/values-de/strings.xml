@@ -669,7 +669,7 @@ Damit können andere SwissCovid-App Nutzer prüfen, ob Sie in den letzten Tagen 
     <string name="symptom_faq1_title">"Unsicher bei Symptomen?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Sie haben Symptome und sind unsicher, wie Sie sich verhalten sollen?
+    <string name="symptom_faq1_text">"Sie haben Symptome und sind unsicher, wie Sie sich verhalten sollen? 
 
 Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfehlung."</string>
 
@@ -792,11 +792,14 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt.
+    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt. 
 
 Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
 
     <!-- Fuzzy -->
     <string name="android_error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>
     <string name="android_error_battery_optimization_button">"Zulassen"</string>
+
+    <!-- Telefonnummer für Hilfe bei App-Problemen -->
+    <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
 </resources>

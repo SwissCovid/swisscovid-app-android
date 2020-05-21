@@ -35,6 +35,7 @@ import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.JwtUtil;
+import ch.admin.bag.dp3t.util.PhoneUtil;
 
 public class InformFragment extends Fragment {
 
@@ -111,6 +112,10 @@ public class InformFragment extends Fragment {
 
 		view.findViewById(R.id.cancel_button).setOnClickListener(v -> {
 			getActivity().finish();
+		});
+
+		view.findViewById(R.id.inform_invalid_code_error).setOnClickListener(v -> {
+			PhoneUtil.callAppHotline(v.getContext());
 		});
 	}
 

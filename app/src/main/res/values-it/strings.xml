@@ -664,7 +664,7 @@ Con esse gli altri utenti dell'app SwissCovid possono controllare se nei giorni 
     <string name="symptom_faq1_title">"Incertezza in caso di sintomi?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Hai dei sintomi e non sai bene come comportarti?
+    <string name="symptom_faq1_text">"Hai dei sintomi e non sai bene come comportarti? 
 
 Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricevere una raccomandazione pratica."</string>
 
@@ -781,11 +781,14 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"Per attivare il tracciamento, è necessaria una versione corrente di Google Play Services.
+    <string name="playservices_text">"Per attivare il tracciamento, è necessaria una versione corrente di Google Play Services. 
 
 Se al momento non è disponibile alcun aggiornamento sul vostro dispositivo, si prega di riprovare più tardi."</string>
 
     <!-- Fuzzy -->
     <string name="android_error_battery_optimization_title">"Ottimizzazione della batteria attivata"</string>
     <string name="android_error_battery_optimization_button">"Consenti"</string>
+
+    <!-- Telefonnummer für Hilfe bei App-Problemen -->
+    <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
 </resources>
