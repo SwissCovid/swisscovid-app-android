@@ -770,4 +770,7 @@ If no update is currently available on your device, please try again later."</st
 
     <!-- Telefonnummer für Hilfe bei App-Problemen -->
     <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
+
+    <!-- text shown in notification when we get an exception from the GAEN api -->
+    <string name="sync_api_error">"An unexpected error has occurred while synchronising reports."</string>
 </resources>

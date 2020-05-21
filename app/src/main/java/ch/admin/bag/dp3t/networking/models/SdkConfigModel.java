@@ -7,30 +7,34 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.networking.models;
 
 public class SdkConfigModel {
 
-	private int numberOfWindowsForExposure;
-	private float eventThreshold;
-	private float badAttenuationThreshold;
-	private float contactAttenuationThreshold;
+	private int lowerThreshold;
+	private int higherThreshold;
+	private float factorLow;
+	private float factorHigh;
+	private int triggerThreshold;
 
-	public int getNumberOfWindowsForExposure() {
-		return numberOfWindowsForExposure;
+	public int getLowerThreshold() {
+		return lowerThreshold;
 	}
 
-	public float getEventThreshold() {
-		return eventThreshold;
+	public int getHigherThreshold() {
+		return higherThreshold;
 	}
 
-	public float getBadAttenuationThreshold() {
-		return badAttenuationThreshold;
+	public float getFactorLow() {
+		return factorLow;
 	}
 
-	public float getContactAttenuationThreshold() {
-		return contactAttenuationThreshold;
+	public float getFactorHigh() {
+		return factorHigh;
+	}
+
+	public int getTriggerThreshold() {
+		return triggerThreshold;
 	}
 
 }

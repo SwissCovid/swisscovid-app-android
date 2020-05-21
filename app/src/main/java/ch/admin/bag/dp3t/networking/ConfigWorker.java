@@ -92,8 +92,10 @@ public class ConfigWorker extends Worker {
 
 		ConfigResponseModel config = configRepository.getConfig(appVersion, osVersion, buildNumber);
 
-		//TODO set parameters from backend
-		DP3T.setMatchingParameters(context, 50, 74, 15);
+		DP3T.setMatchingParameters(context,
+				config.getSdkConfig().getLowerThreshold(), config.getSdkConfig().getHigherThreshold(),
+				config.getSdkConfig().getFactorLow(), config.getSdkConfig().getFactorHigh(),
+				config.getSdkConfig().getTriggerThreshold());
 
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		secureStorage.setDoForceUpdate(config.getDoForceUpdate());
