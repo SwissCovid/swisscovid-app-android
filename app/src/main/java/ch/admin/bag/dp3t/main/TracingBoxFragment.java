@@ -18,6 +18,7 @@ import android.provider.Settings;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -27,7 +28,6 @@ import org.dpppt.android.sdk.TracingStatus;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.model.TracingState;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
-import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.util.TracingStatusHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
@@ -137,8 +137,10 @@ public class TracingBoxFragment extends Fragment {
 					// nothing, handled via error state update
 				},
 				(e) -> {
-					InfoDialog.newInstance(e.getLocalizedMessage())
-							.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+							.setMessage(e.getLocalizedMessage())
+							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
+							.show();
 				},
 				() -> {
 					// cancelled
