@@ -117,14 +117,6 @@ public class ConfigWorker extends Worker {
 		} else {
 			cancelNotification(context);
 		}
-
-		boolean forceTraceShutdown = config.getForceTraceShutdown();
-		if (forceTraceShutdown) {
-			if (DP3T.isTracingEnabled(context)) {
-				secureStorage.setForcedTraceShutdown(true);
-				DP3T.stop(context);
-			}
-		}
 	}
 
 	private void showNotification(Context context) {

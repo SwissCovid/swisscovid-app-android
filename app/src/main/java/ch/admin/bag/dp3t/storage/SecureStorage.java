@@ -40,7 +40,6 @@ public class SecureStorage {
 	private static final String KEY_CONFIG_INFOBOX_TEXT = "ghettobox_text";
 	private static final String KEY_CONFIG_INFOBOX_LINK_TITLE = "ghettobox_link_title";
 	private static final String KEY_CONFIG_INFOBOX_LINK_URL = "ghettobox_link_url";
-	private static final String KEY_CONFIG_FORCED_TRACE_SHUTDOWN = "forced_trace_shutdown";
 
 	private static SecureStorage instance;
 
@@ -192,14 +191,6 @@ public class SecureStorage {
 
 	public void setInfoboxLinkTitle(String title) {
 		prefs.edit().putString(KEY_CONFIG_INFOBOX_LINK_TITLE, title).apply();
-	}
-
-	public boolean getForcedTraceShutdown() {
-		return prefs.getBoolean(KEY_CONFIG_FORCED_TRACE_SHUTDOWN, false);
-	}
-
-	public void setForcedTraceShutdown(boolean forcedTraceShutdown) {
-		prefs.edit().putBoolean(KEY_CONFIG_FORCED_TRACE_SHUTDOWN, forcedTraceShutdown).apply();
 	}
 
 	public String getInfoboxLinkTitle() {
