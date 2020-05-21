@@ -22,6 +22,8 @@ import androidx.fragment.app.Fragment;
 import java.util.Date;
 import java.util.concurrent.CancellationException;
 
+import com.google.android.gms.common.api.ApiException;
+
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
@@ -187,8 +189,9 @@ public class InformFragment extends Fragment {
 									String.valueOf(((ResponseError) throwable).getStatusCode()));
 						} else if (throwable instanceof CancellationException) {
 							showErrorDialog(InformRequestError.RED_USER_CANCELLED_SHARE);
-						} else if (throwable.getMessage() != null && throwable.getMessage().contains("EXPOSURE_NOTIFICATION_API")) {
-							showErrorDialog(InformRequestError.RED_EXPOSURE_API_ERROR);
+						} else if (throwable instanceof ApiException) {
+							showErrorDialog(InformRequestError.RED_EXPOSURE_API_ERROR,
+									String.valueOf(((ApiException) throwable).getStatusCode()));
 						} else {
 							showErrorDialog(InformRequestError.RED_MISC_NETWORK_ERROR);
 						}
