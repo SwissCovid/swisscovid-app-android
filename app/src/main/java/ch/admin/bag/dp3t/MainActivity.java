@@ -9,11 +9,13 @@
  */
 package ch.admin.bag.dp3t;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -24,7 +26,6 @@ import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class MainActivity extends FragmentActivity {
@@ -41,6 +42,8 @@ public class MainActivity extends FragmentActivity {
 
 	private TracingViewModel tracingViewModel;
 
+	private AlertDialog forceUpdateDialog;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,22 +53,27 @@ public class MainActivity extends FragmentActivity {
 
 		secureStorage.getForceUpdateLiveData().observe(this, forceUpdate -> {
 			forceUpdate = forceUpdate && secureStorage.getDoForceUpdate();
-			InfoDialog forceUpdateDialog =
-					(InfoDialog) getSupportFragmentManager().findFragmentByTag(InfoDialog.class.getCanonicalName());
 			if (forceUpdate && forceUpdateDialog == null) {
-				forceUpdateDialog = InfoDialog.newInstance(R.string.force_update_text);
-				forceUpdateDialog.setCancelable(false);
-				forceUpdateDialog.setButtonOnClickListener(v -> {
-					String packageName = getPackageName();
-					Intent intent = new Intent(Intent.ACTION_VIEW);
-					intent.setData(Uri.parse("market://details?id=" + packageName));
-					if (intent.resolveActivity(getPackageManager()) != null) {
-						startActivity(intent);
-					}
-				});
-				forceUpdateDialog.show(getSupportFragmentManager(), InfoDialog.class.getCanonicalName());
+				forceUpdateDialog = new AlertDialog.Builder(this, R.style.NextStep_AlertDialogStyle)
+						.setTitle(R.string.force_update_title)
+						.setMessage(R.string.force_update_text)
+						.setPositiveButton(R.string.playservices_update, null)
+						.setCancelable(false)
+						.create();
+				forceUpdateDialog.setOnShowListener(dialog ->
+						forceUpdateDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+						.setOnClickListener(v -> {
+							String packageName = getPackageName();
+							Intent intent = new Intent(Intent.ACTION_VIEW);
+							intent.setData(Uri.parse("market://details?id=" + packageName));
+							if (intent.resolveActivity(getPackageManager()) != null) {
+								startActivity(intent);
+							}
+						}));
+				forceUpdateDialog.show();
 			} else if (!forceUpdate && forceUpdateDialog != null) {
 				forceUpdateDialog.dismiss();
+				forceUpdateDialog = null;
 			}
 		});
 		ConfigWorker.startConfigWorker(this);

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import org.dpppt.android.sdk.DP3T;
@@ -22,16 +23,18 @@ import org.dpppt.android.sdk.GaenAvailability;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.onboarding.util.PermissionButtonUtil;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
-import ch.admin.bag.dp3t.util.InfoDialog;
 
 public class OnboardingGaenPermissionFragment extends Fragment {
+
+	private static final String STATE_USER_ACTIVE = "STATE_USER_ACTIVE";
 
 	private Button activateButton;
 	private Button continueButton;
 
-	private	InfoDialog playServicesUpdateDialog;
+	private AlertDialog playServicesUpdateDialog;
 
 	private boolean wasUserActive = false;
+	private boolean startedService = false;
 
 	public static OnboardingGaenPermissionFragment newInstance() {
 		return new OnboardingGaenPermissionFragment();
@@ -42,10 +45,19 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 	}
 
 	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		if (savedInstanceState != null) {
+			wasUserActive = savedInstanceState.getBoolean(STATE_USER_ACTIVE, false);
+		}
+	}
+
+	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		activateButton = view.findViewById(R.id.onboarding_gaen_button);
 		activateButton.setOnClickListener(v -> {
 			checkGaen();
+			wasUserActive = true;
 		});
 		continueButton = view.findViewById(R.id.onboarding_gaen_continue_button);
 		continueButton.setOnClickListener(v -> {
@@ -56,12 +68,15 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-
-		if (playServicesUpdateDialog != null) {
-			playServicesUpdateDialog.dismissAllowingStateLoss();
-			playServicesUpdateDialog = null;
+		if (wasUserActive && !startedService) {
 			checkGaen();
 		}
+	}
+
+	@Override
+	public void onSaveInstanceState(@NonNull Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putBoolean(STATE_USER_ACTIVE, wasUserActive);
 	}
 
 	private void checkGaen() {
@@ -79,31 +94,34 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 	}
 
 	private void showPlayServicesUpdate(GaenAvailability availability) {
-		playServicesUpdateDialog = InfoDialog.newInstance(
-				R.string.playservices_title,
-				R.string.playservices_text,
-				availability == GaenAvailability.UPDATE_REQUIRED ? R.string.playservices_update : R.string.playservices_install
-		);
-		playServicesUpdateDialog.setButtonOnClickListener(v -> {
-			DeviceFeatureHelper.openPlayServicesInPlayStore(v.getContext());
-		});
-		playServicesUpdateDialog.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+		if (playServicesUpdateDialog != null) playServicesUpdateDialog.dismiss();
+		playServicesUpdateDialog = new AlertDialog.Builder(getContext(), R.style.NextStep_AlertDialogStyle)
+				.setTitle(R.string.playservices_title)
+				.setMessage(R.string.playservices_text)
+				.setPositiveButton(availability == GaenAvailability.UPDATE_REQUIRED ? R.string.playservices_update
+																					: R.string.playservices_install,
+						(dialog, which) -> DeviceFeatureHelper.openPlayServicesInPlayStore(getContext()))
+				.setCancelable(false)
+				.show();
 	}
 
 	private void activateGaen() {
-		wasUserActive = true;
+		startedService = true;
 		DP3T.start(requireActivity(),
 				() -> {
 					updateFragmentState(true);
 					((OnboardingActivity) requireActivity()).continueToNextPage();
 				},
 				(e) -> {
-					InfoDialog.newInstance(e.getLocalizedMessage())
-							.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+							.setMessage(e.getLocalizedMessage())
+							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
+							.show();
 					updateFragmentState(false);
 				},
 				() -> {
 					updateFragmentState(false);
+					((OnboardingActivity) requireActivity()).continueToNextPage();
 				});
 	}
 

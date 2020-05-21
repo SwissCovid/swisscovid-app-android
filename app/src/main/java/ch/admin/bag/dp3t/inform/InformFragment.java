@@ -11,7 +11,9 @@ package ch.admin.bag.dp3t.inform;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -32,8 +34,8 @@ import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.util.JwtUtil;
+import ch.admin.bag.dp3t.util.PhoneUtil;
 
 public class InformFragment extends Fragment {
 
@@ -111,6 +113,10 @@ public class InformFragment extends Fragment {
 		view.findViewById(R.id.cancel_button).setOnClickListener(v -> {
 			getActivity().finish();
 		});
+
+		view.findViewById(R.id.inform_invalid_code_error).setOnClickListener(v -> {
+			PhoneUtil.callAppHotline(v.getContext());
+		});
 	}
 
 	private void authenticateInput(String authCode) {
@@ -183,7 +189,6 @@ public class InformFragment extends Fragment {
 							showErrorDialog(getString(R.string.user_cancelled_key_sharing_error), null);
 						} else if (throwable.getMessage() != null && throwable.getMessage().contains("EXPOSURE_NOTIFICATION_API")) {
 							showErrorDialog(getString(R.string.unexpected_error_title), "ENAPI");
-
 						} else {
 							showErrorDialog(getString(R.string.network_error), null);
 						}
@@ -212,7 +217,16 @@ public class InformFragment extends Fragment {
 	}
 
 	private void showErrorDialog(String error, @Nullable String errorCode) {
-		InfoDialog.newInstanceWithDetail(error, errorCode).show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+		AlertDialog.Builder errorDialogBuilder = new AlertDialog.Builder(getContext(), R.style.NextStep_AlertDialogStyle)
+				.setMessage(error)
+				.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {});
+		if (errorCode != null && !errorCode.isEmpty()) {
+			TextView errorCodeView =
+					(TextView) getLayoutInflater().inflate(R.layout.view_dialog_error_code, (ViewGroup) getView(), false);
+			errorCodeView.setText(errorCode);
+			errorDialogBuilder.setView(errorCodeView);
+		}
+		errorDialogBuilder.show();
 	}
 
 	private String getAuthorizationHeader(String accessToken) {

@@ -623,7 +623,7 @@ Infoline Coronavirus
     <string name="inform_detail_faq2_title">"How do I remain anonymous?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Only the temporary keys from your app are sent, no personal data.
+    <string name="inform_detail_faq2_text">"Only the temporary keys from your app are sent, no personal data. 
 
 Other SwissCovid apps can then check if they have had an encounter with your app in the past few days."</string>
 
@@ -760,11 +760,14 @@ Other SwissCovid apps can then check if they have had an encounter with your app
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"To activate tracing, a current version of Google Play Services is required.
+    <string name="playservices_text">"To activate tracing, a current version of Google Play Services is required. 
 
 If no update is currently available on your device, please try again later."</string>
 
     <!-- Fuzzy -->
     <string name="android_error_battery_optimization_title">"Optimisation of battery usage activated"</string>
     <string name="android_error_battery_optimization_button">"Allow"</string>
+
+    <!-- Telefonnummer für Hilfe bei App-Problemen -->
+    <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
 </resources>

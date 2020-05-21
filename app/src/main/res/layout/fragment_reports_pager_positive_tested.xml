@@ -38,17 +38,6 @@
 			android:textColor="@color/white" />
 
 		<TextView
-			android:id="@+id/fragment_reports_pager_date"
-			style="@style/NextStep.Text"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
-			android:layout_marginTop="@dimen/spacing_tiny_small"
-			android:gravity="center"
-			android:textSize="@dimen/text_size_small"
-			tools:text="am 30.04.2020 / Heute" />
-
-		<TextView
 			style="@style/NextStep.Text"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

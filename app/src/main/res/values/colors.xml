@@ -28,6 +28,7 @@
 	<color name="navigation_icon_toolbar">@color/anthracite</color>
 
 	<color name="anthracite">#535263</color>
+	<color name="anthracite_lighter">#888798</color>
 	<color name="grey_dark">#cdcdd0</color>
 	<color name="grey_dark_lighter">#DFDFDF</color>
 	<color name="grey_medium">#E5E5E5</color>

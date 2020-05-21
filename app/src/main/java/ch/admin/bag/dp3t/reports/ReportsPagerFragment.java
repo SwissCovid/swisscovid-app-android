@@ -104,7 +104,9 @@ public class ReportsPagerFragment extends Fragment {
 			} else {
 				dateStr += getString(R.string.date_days_ago).replace("{COUNT}", String.valueOf(daysDiff));
 			}
-			date.setText(dateStr);
+			if (date != null) {
+				date.setText(dateStr);
+			}
 		}
 
 		if (type == Type.POSSIBLE_INFECTION || type == Type.NEW_CONTACT) {

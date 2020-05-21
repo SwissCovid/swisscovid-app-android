@@ -17,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -24,7 +25,6 @@ import androidx.lifecycle.ViewModelProvider;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.TracingBoxFragment;
 import ch.admin.bag.dp3t.main.views.HeaderView;
-import ch.admin.bag.dp3t.util.InfoDialog;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ContactsFragment extends Fragment {
@@ -86,8 +86,10 @@ public class ContactsFragment extends Fragment {
 				tracingViewModel.enableTracing(getActivity(), () -> {
 					//ignore
 				}, (e) -> {
-					InfoDialog.newInstance(e.getLocalizedMessage())
-							.show(getChildFragmentManager(), InfoDialog.class.getCanonicalName());
+					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+							.setMessage(e.getLocalizedMessage())
+							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
+							.show();
 					tracingSwitch.setChecked(false);
 				}, () -> tracingSwitch.setChecked(false));
 			} else {

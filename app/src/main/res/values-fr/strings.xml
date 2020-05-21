@@ -438,7 +438,7 @@ Respectez les consignes sur l'auto-isolement."</string>
     <string name="inform_code_invalid_title">"Code incorrect"</string>
 
     <!-- Fehlermeldung Subtitle ungültiger Code -->
-    <string name="inform_code_invalid_subtitle">"En cas de questions: App-Hotline
+    <string name="inform_code_invalid_subtitle">"En cas de questions: App-Hotline 
 +41 58 466 07 99"</string>
 
     <!-- Datum: Vor 1 Tag -->
@@ -656,7 +656,7 @@ Ainsi, d'autres utilisateurs de l'application SwissCovid peuvent vérifier s'ils
     <string name="symptom_faq1_title">"Des doutes à propos des symptômes ?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Vous avez des symptômes et ne savez pas quel comportement adopter ?
+    <string name="symptom_faq1_text">"Vous avez des symptômes et ne savez pas quel comportement adopter ? 
 
 Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir une recommandation."</string>
 
@@ -773,11 +773,14 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"Une version plus récente des services Google Play est requise pour activer le traçage.
+    <string name="playservices_text">"Une version plus récente des services Google Play est requise pour activer le traçage. 
 
 Si aucune mise à jour n'est actuellement disponible sur votre appareil, veuillez réessayer plus tard."</string>
 
     <!-- Fuzzy -->
     <string name="android_error_battery_optimization_title">"Optimisation de la consommation de la batterie activée"</string>
     <string name="android_error_battery_optimization_button">"Autoriser"</string>
+
+    <!-- Telefonnummer für Hilfe bei App-Problemen -->
+    <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
 </resources>
