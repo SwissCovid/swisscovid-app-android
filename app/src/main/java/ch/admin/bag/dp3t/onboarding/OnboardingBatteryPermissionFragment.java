@@ -19,11 +19,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import ch.admin.bag.dp3t.onboarding.util.PermissionButtonUtil;
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.onboarding.util.PermissionButtonUtil;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 
 public class OnboardingBatteryPermissionFragment extends Fragment {
+
+	private static final int REQUEST_CODE_BATTERY_OPTIMIZATIONS_INTENT = 421;
 
 	private Button batteryButton;
 	private Button continueButton;
@@ -42,9 +44,10 @@ public class OnboardingBatteryPermissionFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		batteryButton = view.findViewById(R.id.onboarding_battery_permission_button);
 		batteryButton.setOnClickListener(v -> {
-			startActivity(new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
-					Uri.parse("package:" + getContext().getPackageName())));
 			wasUserActive = true;
+			Intent batteryIntent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+			batteryIntent.setData(Uri.parse("package:" + getContext().getPackageName()));
+			startActivityForResult(batteryIntent, REQUEST_CODE_BATTERY_OPTIMIZATIONS_INTENT);
 		});
 		continueButton = view.findViewById(R.id.onboarding_battery_permission_continue_button);
 		continueButton.setOnClickListener(v -> {
@@ -66,8 +69,13 @@ public class OnboardingBatteryPermissionFragment extends Fragment {
 			PermissionButtonUtil.setButtonDefault(batteryButton, R.string.android_onboarding_battery_permission_button);
 		}
 		continueButton.setVisibility(batteryOptDeactivated || wasUserActive ? View.VISIBLE : View.GONE);
+	}
 
-		if (batteryOptDeactivated && wasUserActive) {
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		if (requestCode == REQUEST_CODE_BATTERY_OPTIMIZATIONS_INTENT) {
 			((OnboardingActivity) getActivity()).continueToNextPage();
 		}
 	}
