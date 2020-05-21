@@ -42,7 +42,11 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public boolean isReportedAsInfected() {
-		return status.getInfectionStatus() == InfectionStatus.INFECTED || debugAppState == DebugAppState.REPORTED_EXPOSED;
+		if (debugAppState == DebugAppState.NONE) {
+			return status.getInfectionStatus() == InfectionStatus.INFECTED;
+		} else {
+			return debugAppState == DebugAppState.REPORTED_EXPOSED;
+		}
 	}
 
 	@Override
@@ -61,7 +65,11 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 
 	@Override
 	public boolean wasContactReportedAsExposed() {
-		return status.getInfectionStatus() == InfectionStatus.EXPOSED || debugAppState == DebugAppState.CONTACT_EXPOSED;
+		if (debugAppState == DebugAppState.NONE) {
+			return status.getInfectionStatus() == InfectionStatus.EXPOSED;
+		} else {
+			return debugAppState == DebugAppState.CONTACT_EXPOSED;
+		}
 	}
 
 	public void setDebugAppState(Context context, DebugAppState debugAppState) {
@@ -152,7 +160,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			case CONTACT_EXPOSED:
 				return NotificationState.EXPOSED;
 		}
-		throw new IllegalStateException("Unkown debug AppState: " + debugAppState.toString());
+		throw new IllegalStateException("Unknown debug AppState: " + debugAppState.toString());
 	}
 
 }
