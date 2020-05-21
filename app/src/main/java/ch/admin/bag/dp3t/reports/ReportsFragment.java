@@ -312,7 +312,7 @@ public class ReportsFragment extends Fragment {
 			image.setVisibility(View.GONE);
 			button.setVisibility(View.GONE);
 
-			circlePageIndicator.setVisibility(View.VISIBLE);
+			circlePageIndicator.setVisibility(pagerAdapter.items.size() > 1 ? View.VISIBLE : View.GONE);
 			headerViewPager.setUserInputEnabled(true);
 		});
 	}
