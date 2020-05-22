@@ -38,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
@@ -173,7 +174,12 @@ public class ReportsFragment extends Fragment {
 					long exposureTimestamp = exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault());
 					if (i == 0) {
 						items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, exposureTimestamp));
-						int daysDiff = DateUtils.getDaysDiffUntil(exposureTimestamp, 10);
+					} else {
+						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, exposureTimestamp));
+					}
+					if (i == exposureDays.size() - 1) {
+						int daysDiff =
+								DateUtils.getDaysDiffUntil(new DayDate(), exposureDay.getExposedDate().addDays(10));
 						if (daysDiff == 1) {
 							daysLeftText1.setText(R.string.date_in_one_day);
 							daysLeftText2.setText(R.string.date_in_one_day);
@@ -186,8 +192,6 @@ public class ReportsFragment extends Fragment {
 							daysLeftText1.setVisibility(View.VISIBLE);
 							daysLeftText2.setVisibility(View.VISIBLE);
 						}
-					} else {
-						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, exposureTimestamp));
 					}
 				}
 

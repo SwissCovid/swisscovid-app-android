@@ -73,7 +73,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	@Override
 	public long getDaysSinceExposure() {
 		if (getExposureDays().size() > 0) {
-			long time = getExposureDays().get(0).getExposedDate().getStartOfDay(TimeZone.getDefault());
+			long time = getExposureDays().get(getExposureDays().size() - 1).getExposedDate().getStartOfDay(TimeZone.getDefault());
 			return DateUtils.getDaysDiff(time);
 		}
 		return -1;

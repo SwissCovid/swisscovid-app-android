@@ -11,9 +11,10 @@ package ch.admin.bag.dp3t.util;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import org.dpppt.android.sdk.models.DayDate;
 
 public class DateUtils {
 
@@ -30,15 +31,9 @@ public class DateUtils {
 		}
 	}
 
-	public static int getDaysDiffUntil(long date, int addDays) {
-
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTimeInMillis(date);
-		calendar.add(Calendar.DATE, addDays);
-		date = calendar.getTimeInMillis();
-
+	public static int getDaysDiffUntil(DayDate from, DayDate to) {
 		try {
-			return (int) TimeUnit.DAYS.convert(date - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
+			return (int) TimeUnit.DAYS.convert(to.getStartOfDayTimestamp() - from.getStartOfDayTimestamp(), TimeUnit.MILLISECONDS);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
