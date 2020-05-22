@@ -111,6 +111,7 @@ public class TracingErrorStateHelper {
 			case BLE_DISABLED:
 				return R.string.bluetooth_turn_on_button_title;
 			case GAEN_UNEXPECTEDLY_DISABLED:
+				return R.string.onboarding_gaen_button_activate;
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_DATABASE:
