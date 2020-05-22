@@ -44,9 +44,9 @@ import ch.admin.bag.dp3t.main.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.AssetUtil;
+import ch.admin.bag.dp3t.util.NotificationErrorStateHelper;
 import ch.admin.bag.dp3t.util.NotificationStateHelper;
 import ch.admin.bag.dp3t.util.NotificationUtil;
-import ch.admin.bag.dp3t.util.NotificationErrorStateHelper;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
@@ -139,6 +139,7 @@ public class HomeFragment extends Fragment {
 		setupNotification();
 		setupWhatToDo();
 		setupDebugButton();
+		setupNonProductionHint();
 		setupScrollBehavior();
 	}
 
@@ -354,6 +355,15 @@ public class HomeFragment extends Fragment {
 			debugButton.setOnClickListener(v -> DebugFragment.startDebugFragment(getParentFragmentManager()));
 		} else {
 			debugButton.setVisibility(View.GONE);
+		}
+	}
+
+	private void setupNonProductionHint() {
+		View nonProduction = getView().findViewById(R.id.non_production_message);
+		if (BuildConfig.FLAVOR.equals("prod")) {
+			nonProduction.setVisibility(View.GONE);
+		} else {
+			nonProduction.setVisibility(VISIBLE);
 		}
 	}
 

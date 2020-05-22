@@ -99,6 +99,7 @@
 					android:layout_marginBottom="@dimen/spacing_very_large" />
 
 				<LinearLayout
+					android:id="@+id/non_production_message"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_larger"
