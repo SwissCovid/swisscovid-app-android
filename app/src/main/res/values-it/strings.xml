@@ -722,7 +722,7 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <string name="onboarding_gaen_title">"Attivare il tracciamento"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"Per utilizzare l'app è necessario attivare la funzione (COVID-19 Exposure Logging)."</string>
+    <string name="onboarding_gaen_text">"Per utilizzare l'app è necessario attivare la funzione \"Notifiche relative al COVID-19\"."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Attivare"</string>
@@ -773,10 +773,10 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <string name="gaen_unexpectedly_disabled">"Il tracciamento è disattivato. Prova a riavviare."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) disabilitato"</string>
+    <string name="tracing_permission_error_title">"Notifiche relative al COVID-19 disabilitato"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Attivare la funzione (COVID-19 Exposure Logging) in modo che il tracciamento anonimo funzioni."</string>
+    <string name="tracing_permission_error_text">"Attivare la funzione \"Notifiche relative al COVID-19\" in modo che il tracciamento anonimo funzioni."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Il messaggio non ha potuto essere inviato. Ti preghiamo di consentire la condivisione dei tuoi ID casuali con l'app SwissCovid."</string>
@@ -801,4 +801,7 @@ Se al momento non è disponibile alcun aggiornamento sul vostro dispositivo, si 
 
     <!-- Telefonnummer für Hilfe bei App-Problemen -->
     <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
+
+    <!-- text shown in notification when we get an exception from the GAEN api -->
+    <string name="sync_api_error">"Si è verificato un errore durante la sincronizzazione delle segnalazioni."</string>
 </resources>

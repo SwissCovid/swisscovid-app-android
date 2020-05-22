@@ -701,7 +701,7 @@ Other SwissCovid apps can then check if they have had an encounter with your app
     <string name="onboarding_gaen_title">"Activate tracing"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"To use the app, the function (COVID-19 Exposure Logging) must be activated."</string>
+    <string name="onboarding_gaen_text">"To use the app, the function \"COVID-19 notifications\" must be activated."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Activate"</string>
@@ -752,10 +752,10 @@ Other SwissCovid apps can then check if they have had an encounter with your app
     <string name="gaen_unexpectedly_disabled">"Tracing is deactivated. Try to start it again."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) disabled"</string>
+    <string name="tracing_permission_error_title">"COVID-19 notifications disabled"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Activate the function (COVID-19 Exposure Logging) for anonymous tracing to work."</string>
+    <string name="tracing_permission_error_text">"Activate the function \"COVID-19 notification\" for anonymous tracing to work."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"The message could not be sent. Please allow sharing your random IDs with the SwissCovid app."</string>

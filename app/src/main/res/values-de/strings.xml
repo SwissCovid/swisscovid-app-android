@@ -729,7 +729,8 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="onboarding_gaen_title">"Tracing aktivieren"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"Um die App nutzen zu können, muss die Funktion (COVID-19 Exposure Logging) aktiviert werden."</string>
+    <!-- Fuzzy -->
+    <string name="onboarding_gaen_text">"Um die App nutzen zu können, muss die Funktion \"COVID-19 Benachrichtigungen\"aktiviert werden."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktivieren"</string>
@@ -784,10 +785,10 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="gaen_unexpectedly_disabled">"Tracing wurde deaktiviert. Bitte starten Sie es erneut."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) deaktiviert"</string>
+    <string name="tracing_permission_error_title">"COVID-19 Benachrichtigungen deaktiviert"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Aktivieren Sie die Funktion (COVID-19 Exposure Logging), damit das anonyme Tracing funktioniert."</string>
+    <string name="tracing_permission_error_text">"Aktivieren Sie die Funktion \"COVID-19 Benachrichtigungen\", damit das anonyme Tracing funktioniert."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht gesendet werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der SwissCovid-App."</string>

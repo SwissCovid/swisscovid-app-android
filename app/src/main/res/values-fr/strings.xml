@@ -714,7 +714,7 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="onboarding_gaen_title">"Activer le traçage"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"Pour utiliser l'application, la fonction (COVID-19 Exposure Logging) doit être activée."</string>
+    <string name="onboarding_gaen_text">"Pour utiliser l'application, la fonction \"Notifications COVID-19\" doit être activée."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Activer"</string>
@@ -765,10 +765,10 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="gaen_unexpectedly_disabled">"Le traçage est désactivé. Essayez de le relancer."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"(COVID-19 Exposure Logging) désactivé"</string>
+    <string name="tracing_permission_error_title">"Notifications COVID-19 désactivé"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Activez la fonction (COVID-19 Exposure Logging) pour que le traçage anonyme fonctionne."</string>
+    <string name="tracing_permission_error_text">"Activez la fonction \"Notifications COVID-19\" pour que le traçage anonyme fonctionne."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Le message n'a pas pu être envoyé. Veuillez autoriser le partage de vos identifiants aléatoires avec l'application SwissCovid."</string>
@@ -793,4 +793,7 @@ Si aucune mise à jour n'est actuellement disponible sur votre appareil, veuille
 
     <!-- Telefonnummer für Hilfe bei App-Problemen -->
     <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
+
+    <!-- text shown in notification when we get an exception from the GAEN api -->
+    <string name="sync_api_error">"Une erreur inattendue s'est produite lors de la synchronisation des notifications."</string>
 </resources>
