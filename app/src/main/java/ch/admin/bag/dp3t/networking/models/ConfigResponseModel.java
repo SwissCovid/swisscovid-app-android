@@ -7,14 +7,13 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.networking.models;
 
 public class ConfigResponseModel {
 
 	private boolean forceUpdate;
 	private InfoBoxModelCollection infoBox;
-	private SdkConfigModel sdkConfig;
+	private SdkConfigModel androidGaenSdkConfig;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -29,7 +28,7 @@ public class ConfigResponseModel {
 	}
 
 	public SdkConfigModel getSdkConfig() {
-		return sdkConfig;
+		return androidGaenSdkConfig;
 	}
 
 }

@@ -9,6 +9,7 @@
  */
 package ch.admin.bag.dp3t.util;
 
+import android.content.Context;
 import android.graphics.Paint;
 import android.text.TextUtils;
 import android.view.View;
@@ -37,6 +38,7 @@ public class TracingErrorStateHelper {
 			TracingStatus.ErrorState.SYNC_ERROR_TIMING);
 
 	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
+			TracingStatus.ErrorState.SYNC_ERROR_API_EXCPETION,
 			TracingStatus.ErrorState.SYNC_ERROR_DATABASE,
 			TracingStatus.ErrorState.SYNC_ERROR_SERVER,
 			TracingStatus.ErrorState.SYNC_ERROR_NETWORK,
@@ -61,6 +63,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_SIGNATURE:
+			case SYNC_ERROR_API_EXCPETION:
 				return R.string.homescreen_meldung_data_outdated_title;
 			case SYNC_ERROR_DATABASE:
 				return R.string.unexpected_error_title;
@@ -70,9 +73,8 @@ public class TracingErrorStateHelper {
 		}
 	}
 
-	@StringRes
-	private static int getText(TracingStatus.ErrorState tracingErrorState) {
-		return tracingErrorState.getErrorString();
+	private static String getText(Context context, TracingStatus.ErrorState tracingErrorState) {
+		return tracingErrorState.getErrorString(context);
 	}
 
 	@DrawableRes
@@ -92,6 +94,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_DATABASE:
 			case SYNC_ERROR_SIGNATURE:
+			case SYNC_ERROR_API_EXCPETION:
 			case BLE_NOT_SUPPORTED:
 			default:
 				return R.drawable.ic_warning_red;
@@ -117,6 +120,7 @@ public class TracingErrorStateHelper {
 				return R.string.playservices_update;
 			case SYNC_ERROR_TIMING:
 			case BLE_NOT_SUPPORTED:
+			case SYNC_ERROR_API_EXCPETION:
 			default:
 				return -1;
 		}
@@ -166,8 +170,8 @@ public class TracingErrorStateHelper {
 		titleView.setText(TracingErrorStateHelper.getTitle(errorState));
 		titleView.setVisibility(View.VISIBLE);
 
-		if (TracingErrorStateHelper.getText(errorState) != -1) {
-			textView.setText(TracingErrorStateHelper.getText(errorState));
+		if (TracingErrorStateHelper.getText(textView.getContext(), errorState) != null) {
+			textView.setText(TracingErrorStateHelper.getText(textView.getContext(), errorState));
 			textView.setVisibility(View.VISIBLE);
 		} else {
 			textView.setVisibility(View.GONE);
@@ -199,7 +203,9 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_SERVER:
 				return "RTSES";
 			case SYNC_ERROR_NETWORK:
-				return "RTSEN";
+				return "RTSEN" + errorState.getErrorCode();
+			case SYNC_ERROR_API_EXCPETION:
+				return errorState.getErrorCode();
 			case SYNC_ERROR_SIGNATURE:
 				return "RTSESI";
 			case SYNC_ERROR_DATABASE:

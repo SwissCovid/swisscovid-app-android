@@ -22,6 +22,7 @@
 	<string name="dp3t_sdk_service_notification_error_sync_server">@string/homescreen_meldung_data_outdated_text</string>
 	<string name="dp3t_sdk_service_notification_error_sync_signature">@string/homescreen_meldung_data_outdated_text</string>
 	<string name="dp3t_sdk_service_notification_error_sync_timing">@string/time_inconsistency_text</string>
+	<string name="dp3t_sdk_service_notification_error_sync_api">@string/sync_api_error</string>
 	<string name="dp3t_sdk_service_notification_error_gaen_not_available">@string/gaen_not_available_text</string>
 	<string name="dp3t_sdk_service_notification_error_gaen_unexpectedly_disabled">@string/gaen_unexpectedly_disabled</string>
 </resources>
