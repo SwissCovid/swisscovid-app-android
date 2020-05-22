@@ -118,7 +118,6 @@ public class MainActivity extends FragmentActivity {
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
 		if (ACTION_INFORMED_STOP_TRACING.equals(intentAction) && !launchedFromHistory) {
-			tracingViewModel.disableTracing();
 			gotoReportsFragment();
 			intent.setAction(null);
 			setIntent(intent);
