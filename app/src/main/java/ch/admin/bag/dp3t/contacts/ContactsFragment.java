@@ -9,6 +9,7 @@
  */
 package ch.admin.bag.dp3t.contacts;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -80,18 +81,22 @@ public class ContactsFragment extends Fragment {
 	}
 
 	private void setupTracingView() {
+		Activity activity = requireActivity();
 
 		tracingSwitch.setOnClickListener(v -> {
 			if (tracingSwitch.isChecked()) {
-				tracingViewModel.enableTracing(getActivity(), () -> {
-					//ignore
-				}, (e) -> {
-					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
-							.setMessage(e.getLocalizedMessage())
-							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
-							.show();
-					tracingSwitch.setChecked(false);
-				}, () -> tracingSwitch.setChecked(false));
+				tracingViewModel.enableTracing(activity,
+						() -> {
+							// success, do nothing
+						},
+						(e) -> {
+							new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
+									.setMessage(e.getLocalizedMessage())
+									.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
+									.show();
+							tracingSwitch.setChecked(false);
+						},
+						() -> tracingSwitch.setChecked(false));
 			} else {
 				tracingViewModel.disableTracing();
 			}
