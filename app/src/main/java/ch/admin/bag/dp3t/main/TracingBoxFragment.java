@@ -132,12 +132,17 @@ public class TracingBoxFragment extends Fragment {
 	}
 
 	private void enableTracing() {
-		tracingViewModel.enableTracing(getActivity(),
+		Activity activity = getActivity();
+		if (activity == null) {
+			return;
+		}
+
+		tracingViewModel.enableTracing(activity,
 				() -> {
 					// nothing, handled via error state update
 				},
 				(e) -> {
-					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+					new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
 							.setMessage(e.getLocalizedMessage())
 							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
 							.show();
