@@ -45,6 +45,8 @@ public class MainApplication extends Application {
 		if (BuildConfig.IS_DEV) {
 			BackendBucketRepository.BATCH_LENGTH = 5 * 60 * 1000L;
 			Logger.init(getApplicationContext(), LogLevel.DEBUG);
+		} else {
+			Logger.init(getApplicationContext(), LogLevel.DEBUG);
 		}
 
 		registerReceiver(contactUpdateReceiver, DP3T.getUpdateIntentFilter());
