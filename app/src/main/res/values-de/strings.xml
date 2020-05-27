@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
-  ~
-  ~ This Source Code Form is subject to the terms of the Mozilla Public
-  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
-  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
-  ~
-  ~ SPDX-License-Identifier: MPL-2.0
-  -->
-
 <resources>
 
     <!-- App Name -->
@@ -730,7 +720,7 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
     <!-- Fuzzy -->
-    <string name="onboarding_gaen_text">"Um die App nutzen zu können, muss die Funktion \"COVID-19 Benachrichtigungen\"aktiviert werden."</string>
+    <string name="onboarding_gaen_text">"Um die App nutzen zu können, müssen COVID-19 Benachrichtigungen aktiviert werden."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktivieren"</string>
@@ -788,7 +778,7 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="tracing_permission_error_title">"COVID-19 Benachrichtigungen deaktiviert"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Aktivieren Sie die Funktion \"COVID-19 Benachrichtigungen\", damit das anonyme Tracing funktioniert."</string>
+    <string name="tracing_permission_error_text">"Aktivieren Sie COVID-19 Benachrichtigungen, damit das anonyme Tracing funktioniert."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht gesendet werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der SwissCovid-App."</string>
@@ -816,4 +806,10 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
 
     <!-- text shown in notification when we get an exception from the GAEN api -->
     <string name="sync_api_error">"Es ist ein unerwarteter Fehler beim Synchronisieren der Meldungen aufgetreten."</string>
+
+    <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
+    <string name="certificate_validation_error">"Keine sichere Verbindung zum Server möglich. Bitte prüfen oder deaktivieren Sie Ihr VPN bzw. Ihren Proxy oder prüfen Sie, ob Sie über ein Public WLAN verbunden sind."</string>
+
+    <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
+    <string name="android_en_start_failure">"COVID-19 Benachrichtigungen konnten nicht aktiviert werden"</string>
 </resources>

@@ -24,6 +24,7 @@ import org.dpppt.android.sdk.GaenAvailability;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.onboarding.util.PermissionButtonUtil;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
+import ch.admin.bag.dp3t.util.ENExceptionHelper;
 
 public class OnboardingGaenPermissionFragment extends Fragment {
 
@@ -127,8 +128,10 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 					activity.continueToNextPage();
 				},
 				(e) -> {
+					String message = ENExceptionHelper.getErrorMessage(e, activity);
 					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
-							.setMessage(e.getLocalizedMessage())
+							.setTitle(R.string.android_en_start_failure)
+							.setMessage(message)
 							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
 							.show();
 					updateFragmentState(false);

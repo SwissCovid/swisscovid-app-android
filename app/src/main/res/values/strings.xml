@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
-  ~
-  ~ This Source Code Form is subject to the terms of the Mozilla Public
-  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
-  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
-  ~
-  ~ SPDX-License-Identifier: MPL-2.0
-  -->
-
 <resources>
 
     <!-- App Name -->
@@ -683,10 +673,10 @@ Other SwissCovid apps can then check if they have had an encounter with your app
     <string name="android_accessibility_back_button">"Back"</string>
 
     <!-- VoiceOver: Hilfetext bei Codeeingabe Button -->
-    <string name="accessibility_code_button_current_code_hint">"Entered code"</string>
+    <string name="accessibility_code_button_current_code_hint">"Code entered: "</string>
 
     <!-- Accessibility: Codeeingabe einer Ziffer -->
-    <string name="accessibility_code_input_textfield">"Text box. Current digit: "</string>
+    <string name="accessibility_code_input_textfield">"Text box. Current figure: "</string>
 
     <!-- Accessibility: Code Input Textfeld wenn leer -->
     <string name="accessibility_code_input_textfield_empty">"Text box. Empty."</string>
@@ -701,7 +691,7 @@ Other SwissCovid apps can then check if they have had an encounter with your app
     <string name="onboarding_gaen_title">"Activate tracing"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"To use the app, the function \"COVID-19 notifications\" must be activated."</string>
+    <string name="onboarding_gaen_text">"COVID-19 Notifications must be activated to use the app."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Activate"</string>
@@ -710,7 +700,7 @@ Other SwissCovid apps can then check if they have had an encounter with your app
     <string name="onboarding_gaen_info_title_1">"You remain anonymous"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
-    <string name="onboarding_gaen_info_text_1">"Only anonymous IDs are exchanged. No data about your location or your person."</string>
+    <string name="onboarding_gaen_info_text_1">"Only anonymous IDs are exchanged, not data about your location or your person."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
     <string name="onboarding_gaen_info_title_2">"Minor increase in battery usage"</string>
@@ -743,22 +733,22 @@ Other SwissCovid apps can then check if they have had an encounter with your app
     <string name="android_foreground_service_notification_error_battery_optimization">"For tracing to work precisely, the app must also run in the background. This will cause a minor increase in battery usage."</string>
 
     <!-- Google Play Services nicht aktuell -->
-    <string name="gaen_not_aviable">"Google Play Services not up-to-date"</string>
+    <string name="gaen_not_aviable">"Google Play Services is not up to date"</string>
 
     <!-- Google Play Services nicht aktuell text -->
-    <string name="gaen_not_available_text">"Please update your Google Play Services"</string>
+    <string name="gaen_not_available_text">"Please update Google Play Services"</string>
 
     <!-- Tracing wurde vom System deaktiviert, erneut starten -->
     <string name="gaen_unexpectedly_disabled">"Tracing is deactivated. Try to start it again."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"COVID-19 notifications disabled"</string>
+    <string name="tracing_permission_error_title">"COVID-19 Notifications disabled"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Activate the function \"COVID-19 notification\" for anonymous tracing to work."</string>
+    <string name="tracing_permission_error_text">"Activate COVID-19 Notifications for anonymous tracing to work."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
-    <string name="user_cancelled_key_sharing_error">"The message could not be sent. Please allow sharing your random IDs with the SwissCovid app."</string>
+    <string name="user_cancelled_key_sharing_error">"The message could not be sent. Please allow your random IDs to be shared with the SwissCovid app."</string>
 
     <!-- Button um die Google Play Services zu aktualisieren -->
     <string name="playservices_update">"Update"</string>
@@ -770,7 +760,7 @@ Other SwissCovid apps can then check if they have had an encounter with your app
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"To activate tracing, a current version of Google Play Services is required. 
+    <string name="playservices_text">"To activate tracing, an up-to-date version of Google Play Services is required.
 
 If no update is currently available on your device, please try again later."</string>
 
@@ -783,4 +773,10 @@ If no update is currently available on your device, please try again later."</st
 
     <!-- text shown in notification when we get an exception from the GAEN api -->
     <string name="sync_api_error">"An unexpected error has occurred while synchronising reports."</string>
+
+    <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
+    <string name="certificate_validation_error">"A secure connection cannot be made to the server. Please check or deactivate your VPN and/or your proxy or check whether you are connected via a public Wi-Fi network."</string>
+
+    <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
+    <string name="android_en_start_failure">"Failed to enable COVID-19 Notifications"</string>
 </resources>

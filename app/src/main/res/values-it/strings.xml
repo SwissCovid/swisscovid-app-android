@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
-  ~
-  ~ This Source Code Form is subject to the terms of the Mozilla Public
-  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
-  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
-  ~
-  ~ SPDX-License-Identifier: MPL-2.0
-  -->
-
 <resources>
 
     <!-- App Name -->
@@ -704,37 +694,37 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <string name="android_accessibility_back_button">"Indietro"</string>
 
     <!-- VoiceOver: Hilfetext bei Codeeingabe Button -->
-    <string name="accessibility_code_button_current_code_hint">"Codice inserito: "</string>
+    <string name="accessibility_code_button_current_code_hint">"Codice immesso: "</string>
 
     <!-- Accessibility: Codeeingabe einer Ziffer -->
     <string name="accessibility_code_input_textfield">"Casella di testo. Cifra corrente: "</string>
 
     <!-- Accessibility: Code Input Textfeld wenn leer -->
-    <string name="accessibility_code_input_textfield_empty">"Casella di testo. Vuoto."</string>
+    <string name="accessibility_code_input_textfield_empty">"Casella di testo. Vuota."</string>
 
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"Doppio tocco per modificare"</string>
 
     <!-- Accessibility: FAW Button Titel  -->
-    <string name="accessibility_faq_button_hint">"Questo pulsante lascia l'app e apre il sito web del U.F.S.P."</string>
+    <string name="accessibility_faq_button_hint">"Questo pulsante abbandona l'app e apre il sito web dell'U.F.S.P."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_title">"Attivare il tracciamento"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"Per utilizzare l'app è necessario attivare la funzione \"Notifiche relative al COVID-19\"."</string>
+    <string name="onboarding_gaen_text">"Per utilizzare l'app è necessario attivare le notifiche relative al COVID-19."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_button_activate">"Attivare"</string>
+    <string name="onboarding_gaen_button_activate">"Attiva"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
-    <string name="onboarding_gaen_info_title_1">"L'anonimato è garantito"</string>
+    <string name="onboarding_gaen_info_title_1">"L'anonimato è garantito."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
-    <string name="onboarding_gaen_info_text_1">"Vengono scambiati solo ID anonimi. Nessun dato sulla vostra posizione o sulla vostra persona."</string>
+    <string name="onboarding_gaen_info_text_1">"Vengono scambiati solo ID anonimi. Nessun dato sulla tua posizione o sulla tua persona."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
-    <string name="onboarding_gaen_info_title_2">"Il consumo della batteria aumenta leggermente"</string>
+    <string name="onboarding_gaen_info_title_2">"Il consumo della batteria aumenta leggermente."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 2 -->
     <string name="onboarding_gaen_info_text_2">"L'app è stata realizzata per funzionare con il massimo risparmio energetico. Il consumo della batteria aumenta soltanto leggermente."</string>
@@ -743,16 +733,16 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <string name="onboarding_gaen_button_activated">"Attivato"</string>
 
     <!-- Meldung in der App löschen, wenn möglicherweise angesteckt -->
-    <string name="delete_reports_button">"Cancellare la notifica"</string>
+    <string name="delete_reports_button">"Elimina segnalazione"</string>
 
     <!-- Meldung im Löschen Dialog wenn möglicherweise angesteckt -->
-    <string name="delete_reports_dialog">"Volete davvero cancellare la notifica? "</string>
+    <string name="delete_reports_dialog">"Eliminare la segnalazione?"</string>
 
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
-    <string name="delete_infection_button">"Cancellare la notifica"</string>
+    <string name="delete_infection_button">"Elimina segnalazione"</string>
 
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
-    <string name="delete_infection_dialog">"Volete davvero cancellare la notifica? "</string>
+    <string name="delete_infection_dialog">"Eliminare la segnalazione?"</string>
     <string name="android_onboarding_battery_permission_title">"Ignora l'ottimizzazione della batteria"</string>
     <string name="android_onboarding_battery_permission_text">"Per poter riconoscere sempre gli incontri, l'ottimizzazione della batteria deve essere disattivata per questa app."</string>
     <string name="android_onboarding_battery_permission_button">"Consenti"</string>
@@ -764,36 +754,36 @@ Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricever
     <string name="android_foreground_service_notification_error_battery_optimization">"Per un funzionamento preciso del tracciamento, l'app deve essere eseguita anche in background. Il consumo della batteria aumenta solo leggermente."</string>
 
     <!-- Google Play Services nicht aktuell -->
-    <string name="gaen_not_aviable">"Google Play Services non aggiornato"</string>
+    <string name="gaen_not_aviable">"Google Play Services non è aggiornato"</string>
 
     <!-- Google Play Services nicht aktuell text -->
-    <string name="gaen_not_available_text">"Si prega di aggiornare i servizi di Google Play"</string>
+    <string name="gaen_not_available_text">"Aggiorna Google Play Services"</string>
 
     <!-- Tracing wurde vom System deaktiviert, erneut starten -->
     <string name="gaen_unexpectedly_disabled">"Il tracciamento è disattivato. Prova a riavviare."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"Notifiche relative al COVID-19 disabilitato"</string>
+    <string name="tracing_permission_error_title">"Notifiche relative al COVID-19 disattivato"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Attivare la funzione \"Notifiche relative al COVID-19\" in modo che il tracciamento anonimo funzioni."</string>
+    <string name="tracing_permission_error_text">"Attiva le notifiche relative al COVID-19 per avviare il tracciamento anonimo."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
-    <string name="user_cancelled_key_sharing_error">"Il messaggio non ha potuto essere inviato. Ti preghiamo di consentire la condivisione dei tuoi ID casuali con l'app SwissCovid."</string>
+    <string name="user_cancelled_key_sharing_error">"Impossibile inviare la segnalazione. Consenti la condivisione dei tuoi ID casuali con l'app SwissCovid."</string>
 
     <!-- Button um die Google Play Services zu aktualisieren -->
-    <string name="playservices_update">"Aggiornare"</string>
+    <string name="playservices_update">"Aggiorna"</string>
 
     <!-- Button um die Google Play Services zu installieren -->
-    <string name="playservices_install">"Installare"</string>
+    <string name="playservices_install">"Installa"</string>
 
     <!-- Titel für Infos zu den Google Play Services -->
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"Per attivare il tracciamento, è necessaria una versione corrente di Google Play Services. 
+    <string name="playservices_text">"Per poter attivare il tracciamento è necessaria una versione aggiornata di Google Play Services. 
 
-Se al momento non è disponibile alcun aggiornamento sul vostro dispositivo, si prega di riprovare più tardi."</string>
+Se al momento non è disponibile alcun aggiornamento sul tuo dispositivo, riprova più tardi."</string>
 
     <!-- Fuzzy -->
     <string name="android_error_battery_optimization_title">"Ottimizzazione della batteria attivata"</string>
@@ -804,4 +794,7 @@ Se al momento non è disponibile alcun aggiornamento sul vostro dispositivo, si 
 
     <!-- text shown in notification when we get an exception from the GAEN api -->
     <string name="sync_api_error">"Si è verificato un errore durante la sincronizzazione delle segnalazioni."</string>
+
+    <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
+    <string name="certificate_validation_error">"Impossibile stabilire una connessione sicura al server. Verifica o disattiva la tua rete VPN o il tuo proxy oppure controlla se sei connesso attraverso una WLAN pubblica."</string>
 </resources>
