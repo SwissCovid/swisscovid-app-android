@@ -34,8 +34,8 @@ android {
 		applicationId "ch.admin.bag.dp3t"
 		minSdkVersion 23
 		targetSdkVersion 29
-		versionCode 10000
-		versionName "1.0-pilot"
+		versionCode 10010
+		versionName "1.0.1-pilot"
 		resConfigs "en", "fr", "de", "it"
 
 		buildConfigField "long", "BUILD_TIME", System.currentTimeMillis() + "L"
@@ -116,7 +116,7 @@ android {
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
-	def dp3t_sdk_version = '0.5.0'
+	def dp3t_sdk_version = '0.5.1'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
 	teschtImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
