@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
-  ~
-  ~ This Source Code Form is subject to the terms of the Mozilla Public
-  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
-  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
-  ~
-  ~ SPDX-License-Identifier: MPL-2.0
-  -->
-
 <resources>
 
     <!-- App Name -->
@@ -708,13 +698,13 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="accessibility_code_input_hint">"Double tapotement pour éditer"</string>
 
     <!-- Accessibility: FAW Button Titel  -->
-    <string name="accessibility_faq_button_hint">"Ce bouton permet de quitter l'application et d'ouvrir le site du O.F.S.P."</string>
+    <string name="accessibility_faq_button_hint">"Ce bouton permet de quitter l'application et d'ouvrir le site de l'O.F.S.P."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_title">"Activer le traçage"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"Pour utiliser l'application, la fonction \"Notifications COVID-19\" doit être activée."</string>
+    <string name="onboarding_gaen_text">"Pour utiliser l'application, les notifications COVID-19 doivent être activée."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Activer"</string>
@@ -723,7 +713,7 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="onboarding_gaen_info_title_1">"Vous restez anonyme."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
-    <string name="onboarding_gaen_info_text_1">"Seules des pièces d'identité anonymes sont échangées. Aucune donnée sur votre localisation ou votre personne."</string>
+    <string name="onboarding_gaen_info_text_1">"Seuls des identifiants anonymes sont échangés. Aucune donnée sur votre localisation ou votre personne."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
     <string name="onboarding_gaen_info_title_2">"Légère augmentation de la consommation d'énergie."</string>
@@ -768,7 +758,7 @@ Répondez aux questions de l'auto-évaluation coronavirus de l'OFSP pour obtenir
     <string name="tracing_permission_error_title">"Notifications COVID-19 désactivé"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Activez la fonction \"Notifications COVID-19\" pour que le traçage anonyme fonctionne."</string>
+    <string name="tracing_permission_error_text">"Activez les notifications COVID-19 pour que le traçage anonyme fonctionne."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Le message n'a pas pu être envoyé. Veuillez autoriser le partage de vos identifiants aléatoires avec l'application SwissCovid."</string>
@@ -796,4 +786,7 @@ Si aucune mise à jour n'est actuellement disponible sur votre appareil, veuille
 
     <!-- text shown in notification when we get an exception from the GAEN api -->
     <string name="sync_api_error">"Une erreur inattendue s'est produite lors de la synchronisation des notifications."</string>
+
+    <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
+    <string name="certificate_validation_error">"Connexion sécurisée au serveur impossible. Vérifiez ou désactivez votre VPN ou proxy, ou contrôlez si vous êtes connecté à un WLAN public."</string>
 </resources>

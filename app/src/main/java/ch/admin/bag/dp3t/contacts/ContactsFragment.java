@@ -26,6 +26,7 @@ import androidx.lifecycle.ViewModelProvider;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.TracingBoxFragment;
 import ch.admin.bag.dp3t.main.views.HeaderView;
+import ch.admin.bag.dp3t.util.ENExceptionHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ContactsFragment extends Fragment {
@@ -90,8 +91,10 @@ public class ContactsFragment extends Fragment {
 							// success, do nothing
 						},
 						(e) -> {
-							new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
-									.setMessage(e.getLocalizedMessage())
+							String message = ENExceptionHelper.getErrorMessage(e, activity);
+							new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+									.setTitle(R.string.android_en_start_failure)
+									.setMessage(message)
 									.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
 									.show();
 							tracingSwitch.setChecked(false);

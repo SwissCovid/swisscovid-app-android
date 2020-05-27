@@ -28,6 +28,7 @@ import org.dpppt.android.sdk.TracingStatus;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.model.TracingState;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
+import ch.admin.bag.dp3t.util.ENExceptionHelper;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.util.TracingStatusHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
@@ -142,8 +143,10 @@ public class TracingBoxFragment extends Fragment {
 					// nothing, handled via error state update
 				},
 				(e) -> {
-					new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
-							.setMessage(e.getLocalizedMessage())
+					String message = ENExceptionHelper.getErrorMessage(e, activity);
+					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+							.setTitle(R.string.android_en_start_failure)
+							.setMessage(message)
 							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
 							.show();
 				},
