@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.storage;
 
 import android.content.Context;
@@ -40,6 +39,7 @@ public class SecureStorage {
 	private static final String KEY_CONFIG_INFOBOX_TEXT = "ghettobox_text";
 	private static final String KEY_CONFIG_INFOBOX_LINK_TITLE = "ghettobox_link_title";
 	private static final String KEY_CONFIG_INFOBOX_LINK_URL = "ghettobox_link_url";
+	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
 
 	private static SecureStorage instance;
 
@@ -54,7 +54,6 @@ public class SecureStorage {
 			this.prefs = EncryptedSharedPreferences
 					.create(PREFERENCES, masterKeys, context, EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
 							EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
-
 		} catch (GeneralSecurityException | IOException e) {
 			this.prefs = null;
 			e.printStackTrace();
@@ -203,6 +202,14 @@ public class SecureStorage {
 
 	public String getInfoboxLinkUrl() {
 		return prefs.getString(KEY_CONFIG_INFOBOX_LINK_URL, null);
+	}
+
+	public boolean isUserNotInPilotGroup() {
+		return prefs.getBoolean(KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP, false);
+	}
+
+	public void setUserNotInPilotGroup(boolean notInPilotGroup) {
+		prefs.edit().putBoolean(KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP, notInPilotGroup).apply();
 	}
 
 }

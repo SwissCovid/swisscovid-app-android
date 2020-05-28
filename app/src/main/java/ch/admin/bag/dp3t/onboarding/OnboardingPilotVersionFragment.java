@@ -20,6 +20,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.storage.SecureStorage;
 
 public class OnboardingPilotVersionFragment extends Fragment {
 
@@ -37,6 +38,10 @@ public class OnboardingPilotVersionFragment extends Fragment {
 
 		Button continueButton = view.findViewById(R.id.onboarding_continue_button);
 		continueButton.setOnClickListener(v -> showConfirmationDialog(v.getContext()));
+
+		if (SecureStorage.getInstance(getContext()).isUserNotInPilotGroup()) {
+			showGameOverDialog(getContext());
+		}
 	}
 
 	private void showConfirmationDialog(Context context) {
@@ -49,6 +54,7 @@ public class OnboardingPilotVersionFragment extends Fragment {
 				})
 				.setNegativeButton(R.string.onboarding_legal_alert_no, (dialog1, which) -> {
 					dialog1.dismiss();
+					SecureStorage.getInstance(context).setUserNotInPilotGroup(true);
 					showGameOverDialog(context);
 				})
 				.create();
