@@ -38,7 +38,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
-import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
@@ -71,8 +70,6 @@ public class ReportsFragment extends Fragment {
 
 	private TextView callHotlineLastText1;
 	private TextView callHotlineLastText2;
-	private TextView daysLeftText1;
-	private TextView daysLeftText2;
 
 	private boolean hotlineJustCalled = false;
 
@@ -105,8 +102,6 @@ public class ReportsFragment extends Fragment {
 
 		callHotlineLastText1 = hotlineView.findViewById(R.id.card_encounters_last_call);
 		callHotlineLastText2 = saveOthersView.findViewById(R.id.card_encounters_last_call);
-		daysLeftText1 = hotlineView.findViewById(R.id.card_encounters_days_left);
-		daysLeftText2 = saveOthersView.findViewById(R.id.card_encounters_days_left);
 
 		Button callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
 		Button callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
@@ -167,8 +162,6 @@ public class ReportsFragment extends Fragment {
 				} else {
 					saveOthersView.setVisibility(View.VISIBLE);
 				}
-				daysLeftText1.setVisibility(View.GONE);
-				daysLeftText2.setVisibility(View.GONE);
 				for (int i = 0; i < exposureDays.size(); i++) {
 					ExposureDay exposureDay = exposureDays.get(i);
 					long exposureTimestamp = exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault());
@@ -176,22 +169,6 @@ public class ReportsFragment extends Fragment {
 						items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, exposureTimestamp));
 					} else {
 						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, exposureTimestamp));
-					}
-					if (i == exposureDays.size() - 1) {
-						int daysDiff =
-								DateUtils.getDaysDiffUntil(new DayDate(), exposureDay.getExposedDate().addDays(10));
-						if (daysDiff == 1) {
-							daysLeftText1.setText(R.string.date_in_one_day);
-							daysLeftText2.setText(R.string.date_in_one_day);
-							daysLeftText1.setVisibility(View.VISIBLE);
-							daysLeftText2.setVisibility(View.VISIBLE);
-						} else if (daysDiff > 1) {
-							String dateStr = getString(R.string.date_in_days).replace("{COUNT}", String.valueOf(daysDiff));
-							daysLeftText1.setText(dateStr);
-							daysLeftText2.setText(dateStr);
-							daysLeftText1.setVisibility(View.VISIBLE);
-							daysLeftText2.setVisibility(View.VISIBLE);
-						}
 					}
 				}
 
