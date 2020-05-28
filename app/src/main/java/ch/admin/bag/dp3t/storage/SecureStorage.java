@@ -29,7 +29,7 @@ public class SecureStorage {
 	private static final String KEY_INFORM_TIME_REQ = "inform_time_req";
 	private static final String KEY_INFORM_CODE_REQ = "inform_code_req";
 	private static final String KEY_INFORM_TOKEN_REQ = "inform_token_req";
-	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed2";
+	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
 	private static final String KEY_HOTLINE_CALL_PENDING = "hotline_call_pending";
 	private static final String KEY_HOTLINE_LAST_CALL_TIMESTAMP = "hotline_ever_called_timestamp";
