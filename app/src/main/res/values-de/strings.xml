@@ -812,4 +812,42 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
 
     <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
     <string name="android_en_start_failure">"COVID-19 Benachrichtigungen konnten nicht aktiviert werden"</string>
+
+    <!-- Certificate pinning Debug screen section title -->
+    <string name="certificate_pinning_title">"Certificate Pinning"</string>
+
+    <!-- Fuzzy -->
+    <string name="certificate_pinning_button_disable">"Deaktivieren"</string>
+    <string name="certificate_pinning_button_enable">"Aktivieren"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
+    <string name="onboarding_legal_heading">"Preview Version"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Titel -->
+    <string name="onboarding_legal_title">"Nutzung nur für Teilnehmer der Pilotphase"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
+    <string name="onboarding_legal_text1">"Die Nutzung dieser App ist zur Zeit nur für die folgenden Gruppen, die vom BAG zum Pilot eingeladen wurden, vorgesehen und gestattet: Angehörige der Schweizer Armee im Ausbildungs-, Assistenz- und Aktivdienst, Mitarbeitende von Hochschulen, Mitarbeitende von Spitälern und Kliniken, Mitarbeitende von kantonalen Verwaltungen und der Bundesverwaltung, Mitglieder von Vereinigungen, die Beiträge an die Qualitätsverbesserung des Systems leisten wollen.
+"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
+    <string name="onboarding_legal_text2">"Die Pilotphase wird mit produktiven Systemen durchgeführt und beinhaltet echte Daten. Kantonsärzte dürfen im Falle eines positiven COVID-19-Tests den nicht zugelassenen Nutzern keinen CovidCode für die Benachrichtigung aus der App generieren. Angriffe («Penetration Tests») auf das System ausserhalb des abgegrenzten Public Security Tests sind Angriffe auf das produktive System und somit illegal."</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_title">"Gehören Sie zu einer Organisation, die an der Pilotphase teilnehmen darf?"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_message">"Gehören Sie zu einer der folgenden Gruppen: Angehörige der Schweizer Armee im Ausbildungs-, Assistenz- und Aktivdienst, Mitarbeitende von Hochschulen, Mitarbeitende von Spitälern und Kliniken, Mitarbeitende von kantonalen Verwaltungen und der Bundesverwaltung, Mitglieder von Vereinigungen, die Beiträge an die Qualitätsverbesserung des Systems leisten wollen"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_no">"Nein"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_yes">"Ja"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
+    <string name="onboarding_legal_blocker_title">"Pilotphase"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
+    <string name="onboarding_legal_blocker_message">"Sie gehören nicht zu einer Organisation, die an der Pilotphase teilnimmt. Bitte installieren Sie nach dem offiziellen Start der App das entsprechende Update und öffnen die App erneut."</string>
 </resources>
