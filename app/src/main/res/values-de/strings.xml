@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
 <resources>
 
     <!-- App Name -->
@@ -837,7 +847,7 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
     <string name="onboarding_legal_alert_title">"Gehören Sie zu einer Organisation, die an der Pilotphase teilnehmen darf?"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_message">"Gehören Sie zu einer der folgenden Gruppen: Angehörige der Schweizer Armee im Ausbildungs-, Assistenz- und Aktivdienst, Mitarbeitende von Hochschulen, Mitarbeitende von Spitälern und Kliniken, Mitarbeitende von kantonalen Verwaltungen und der Bundesverwaltung, Mitglieder von Vereinigungen, die Beiträge an die Qualitätsverbesserung des Systems leisten wollen"</string>
+    <string name="onboarding_legal_alert_message">"Gehören Sie zu einer der folgenden Gruppen: Angehörige der Schweizer Armee im Ausbildungs-, Assistenz- und Aktivdienst, Mitarbeitende von Hochschulen, Mitarbeitende von Spitälern und Kliniken, Mitarbeitende von kantonalen Verwaltungen und der Bundesverwaltung, Mitglieder von Vereinigungen, die Beiträge an die Qualitätsverbesserung des Systems leisten wollen?"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
     <string name="onboarding_legal_alert_no">"Nein"</string>

@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
 <resources>
 
     <!-- App Name -->
@@ -788,33 +798,33 @@ If no update is currently available on your device, please try again later."</st
     <string name="certificate_pinning_button_enable">"Enable"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
-    <string name="onboarding_legal_heading">"Preview Version"</string>
+    <string name="onboarding_legal_heading">"Preview version"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Titel -->
-    <string name="onboarding_legal_title">"Nutzung nur für Teilnehmer der Pilotphase"</string>
+    <string name="onboarding_legal_title">"Use only for participants of the pilot phase"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
-    <string name="onboarding_legal_text1">"Die Nutzung dieser App ist zur Zeit nur für die folgenden Gruppen, die vom BAG zum Pilot eingeladen wurden, vorgesehen und gestattet: Angehörige der Schweizer Armee im Ausbildungs-, Assistenz- und Aktivdienst, Mitarbeitende von Hochschulen, Mitarbeitende von Spitälern und Kliniken, Mitarbeitende von kantonalen Verwaltungen und der Bundesverwaltung, Mitglieder von Vereinigungen, die Beiträge an die Qualitätsverbesserung des Systems leisten wollen.
-"</string>
+    <string name="onboarding_legal_text1">"The use of this app is currently intended and authorised only for the following groups, who have been invited by the FOPH to take part in the pilot: Members of the Swiss Armed Forces in training, assistance and active service, staff of universities, staff of hospitals and clinics, staff of cantonal administrations and the Federal Administration, members of associations wishing to contribute to improving the quality of the system."</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
-    <string name="onboarding_legal_text2">"Die Pilotphase wird mit produktiven Systemen durchgeführt und beinhaltet echte Daten. Kantonsärzte dürfen im Falle eines positiven COVID-19-Tests den nicht zugelassenen Nutzern keinen CovidCode für die Benachrichtigung aus der App generieren. Angriffe («Penetration Tests») auf das System ausserhalb des abgegrenzten Public Security Tests sind Angriffe auf das produktive System und somit illegal."</string>
+    <string name="onboarding_legal_text2">"The pilot phase is carried out with productive systems and contains real data. In case of a positive COVID-19 test, cantonal physicians are not allowed to generate a covid code for notification from the app for non-authorized users. Attacks (\"penetration tests\") on the system outside the delimited public security test are attacks on the productive system and are therefore illegal."</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_title">"Gehören Sie zu einer Organisation, die an der Pilotphase teilnehmen darf?"</string>
+    <string name="onboarding_legal_alert_title">"Do you belong to an organization that is allowed to participate in the pilot phase?"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_message">"Gehören Sie zu einer der folgenden Gruppen: Angehörige der Schweizer Armee im Ausbildungs-, Assistenz- und Aktivdienst, Mitarbeitende von Hochschulen, Mitarbeitende von Spitälern und Kliniken, Mitarbeitende von kantonalen Verwaltungen und der Bundesverwaltung, Mitglieder von Vereinigungen, die Beiträge an die Qualitätsverbesserung des Systems leisten wollen"</string>
+    <string name="onboarding_legal_alert_message">"Do you belong to one of the following groups: Members of the Swiss Armed Forces in training, assistance and active service, employees of universities, employees of hospitals and clinics, employees of cantonal administrations and the Federal Administration, members of associations who wish to contribute to the quality improvement of the system?
+"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_no">"Nein"</string>
+    <string name="onboarding_legal_alert_no">"No"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_yes">"Ja"</string>
+    <string name="onboarding_legal_alert_yes">"Yes"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
-    <string name="onboarding_legal_blocker_title">"Pilotphase"</string>
+    <string name="onboarding_legal_blocker_title">"Pilot phase"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
-    <string name="onboarding_legal_blocker_message">"Sie gehören nicht zu einer Organisation, die an der Pilotphase teilnimmt. Bitte installieren Sie nach dem offiziellen Start der App das entsprechende Update und öffnen die App erneut."</string>
+    <string name="onboarding_legal_blocker_message">"You are not part of an organisation participating in the pilot phase. Please install the appropriate update after the official launch of the app and open the app again."</string>
 </resources>
