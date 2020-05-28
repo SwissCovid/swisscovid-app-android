@@ -46,6 +46,11 @@ public class OnboardingActivity extends FragmentActivity {
 		}
 	}
 
+	public void abortOnboarding() {
+		setResult(RESULT_CANCELED);
+		finish();
+	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);

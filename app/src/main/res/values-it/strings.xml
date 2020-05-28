@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
 <resources>
 
     <!-- App Name -->
@@ -797,4 +807,44 @@ Se al momento non è disponibile alcun aggiornamento sul tuo dispositivo, riprov
 
     <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
     <string name="certificate_validation_error">"Impossibile stabilire una connessione sicura al server. Verifica o disattiva la tua rete VPN o il tuo proxy oppure controlla se sei connesso attraverso una WLAN pubblica."</string>
+
+    <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
+    <string name="android_en_start_failure">"Non è stato possibile attivare le notifiche COVID-19"</string>
+
+    <!-- Certificate pinning Debug screen section title -->
+    <string name="certificate_pinning_title">"Certificate Pinning"</string>
+
+    <!-- Fuzzy -->
+    <string name="certificate_pinning_button_disable">"Disattivare"</string>
+    <string name="certificate_pinning_button_enable">"Attivare"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
+    <string name="onboarding_legal_heading">"Version preview"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Titel -->
+    <string name="onboarding_legal_title">"Da utilizzare solo dai partecipanti della fase pilota"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
+    <string name="onboarding_legal_text1">"L'utilizzo di questa app è attualmente previsto e autorizzato solo per i seguenti gruppi, che sono stati invitati dall'UFSP a partecipare al pilota: membri dell'Esercito svizzero in formazione, assistenza e servizio attivo, personale delle università, personale di ospedali e cliniche, personale delle amministrazioni cantonali e dell'Amministrazione federale, membri di associazioni che desiderano contribuire a migliorare la qualità del sistema."</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
+    <string name="onboarding_legal_text2">"La fase pilota viene effettuata con sistemi produttivi e contiene dati reali. In caso di test COVID-19 positivo, i medici cantonali non sono autorizzati a generare un codice Covid per la notifica dall'app per gli utenti non autorizzati. Gli attacchi (\"penetration test\") al sistema al di fuori del test di sicurezza pubblica delimitato sono attacchi al sistema produttivo e sono pertanto illegali."</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_title">"Fai parte di un'organizzazione che può partecipare alla fase pilota?"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_message">"Appartenete a uno dei seguenti gruppi: membri dell'Esercito svizzero in formazione, assistenza e servizio attivo, collaboratori di università, collaboratori di ospedali e cliniche, collaboratori delle amministrazioni cantonali e dell'amministrazione federale, membri di associazioni che desiderano contribuire al miglioramento della qualità del sistema?"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_no">"No"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_yes">"Si"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
+    <string name="onboarding_legal_blocker_title">"Fase pilota"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
+    <string name="onboarding_legal_blocker_message">"Non fate parte di un'organizzazione che partecipa alla fase pilota. Si prega di installare l'aggiornamento appropriato dopo il lancio ufficiale dell'applicazione e di riaprire l'applicazione."</string>
 </resources>
