@@ -39,7 +39,7 @@ public class SecureStorage {
 	private static final String KEY_CONFIG_INFOBOX_TEXT = "ghettobox_text";
 	private static final String KEY_CONFIG_INFOBOX_LINK_TITLE = "ghettobox_link_title";
 	private static final String KEY_CONFIG_INFOBOX_LINK_URL = "ghettobox_link_url";
-	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "userIsNotInPilotGroup";
+	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
 
 	private static SecureStorage instance;
 
