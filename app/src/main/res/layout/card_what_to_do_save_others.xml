@@ -147,25 +147,11 @@
 
 						<include layout="@layout/view_text_bullet" />
 
-						<LinearLayout
+						<TextView
+							style="@style/NextStep.Text"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
-							android:orientation="vertical">
-
-							<TextView
-								style="@style/NextStep.Text"
-								android:layout_width="match_parent"
-								android:layout_height="wrap_content"
-								android:text="@string/meldungen_detail_explanation_text2" />
-
-							<TextView
-								android:id="@+id/card_encounters_days_left"
-								style="@style/NextStep.Text.Bold"
-								android:layout_width="match_parent"
-								android:layout_height="wrap_content"
-								tools:text="@string/date_in_days" />
-
-						</LinearLayout>
+							android:text="@string/meldungen_detail_explanation_text2" />
 
 					</LinearLayout>
 
