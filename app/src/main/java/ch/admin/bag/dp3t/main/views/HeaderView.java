@@ -205,7 +205,7 @@ public class HeaderView extends ConstraintLayout {
 						&& !hasTracingError,
 				initialUpdate);
 		icon.post(() -> {
-			circleView.setCenter(Math.round(icon.getX() + icon.getWidth() / 2), Math.round(icon.getY() + icon.getHeight() / 2));
+			circleView.setCenter(Math.round(icon.getX() + icon.getWidth() / 2f), Math.round(icon.getY() + icon.getHeight() / 2f));
 		});
 	}
 
