@@ -36,4 +36,6 @@ jobs:
       with:
         java-version: 1.8
     - name: Sonar Analysis
-      run: ./gradlew sonarqube -Dsonar.login=${{secrets.SONAR_LOGIN}} 
+      run: ./gradlew sonarqube -Dsonar.login=${{secrets.SONAR_LOGIN}}
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
