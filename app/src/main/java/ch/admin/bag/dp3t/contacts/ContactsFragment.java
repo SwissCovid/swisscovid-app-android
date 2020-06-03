@@ -23,6 +23,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.dpppt.android.sdk.internal.logger.Logger;
+
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.TracingBoxFragment;
 import ch.admin.bag.dp3t.main.views.HeaderView;
@@ -31,14 +33,12 @@ import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ContactsFragment extends Fragment {
 
-	private static final int REQUEST_CODE_BLE_INTENT = 330;
+	private static final String TAG = "ContactsFragment";
 
 	private TracingViewModel tracingViewModel;
 	private HeaderView headerView;
 	private ScrollView scrollView;
 
-	private View tracingStatusView;
-	private View tracingErrorView;
 	private Switch tracingSwitch;
 
 	public static ContactsFragment newInstance() {
@@ -63,8 +63,8 @@ public class ContactsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.contacts_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-		tracingStatusView = view.findViewById(R.id.tracing_status);
-		tracingErrorView = view.findViewById(R.id.tracing_error);
+		View tracingStatusView = view.findViewById(R.id.tracing_status);
+		View tracingErrorView = view.findViewById(R.id.tracing_error);
 		tracingSwitch = view.findViewById(R.id.contacts_tracing_switch);
 
 		headerView = view.findViewById(R.id.contacts_header_view);
@@ -92,6 +92,7 @@ public class ContactsFragment extends Fragment {
 						},
 						(e) -> {
 							String message = ENExceptionHelper.getErrorMessage(e, activity);
+							Logger.e(TAG, message);
 							new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
 									.setTitle(R.string.android_en_start_failure)
 									.setMessage(message)

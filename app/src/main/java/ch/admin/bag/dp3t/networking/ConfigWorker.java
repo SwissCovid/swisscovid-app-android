@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.SignatureException;
+import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
@@ -69,15 +70,15 @@ public class ConfigWorker extends Worker {
 	@NonNull
 	@Override
 	public Result doWork() {
-		org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "start ConfigWorker");
+		Logger.d(TAG, "started");
 		try {
 			loadConfig();
 		} catch (IOException | ResponseError | SignatureException e) {
-			org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "ConfigWorker finished with exception " + e.getMessage());
+			Logger.e(TAG, "failed", e);
 			return Result.retry();
 		}
 
-		org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "ConfigWorker finished with success");
+		Logger.d(TAG, "finished with success");
 		return Result.success();
 	}
 

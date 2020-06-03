@@ -17,6 +17,7 @@ import java.io.IOException;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.backend.UserAgentInterceptor;
+import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.networking.errors.InvalidCodeError;
@@ -33,6 +34,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AuthCodeRepository {
+
+	private static final String TAG = "AuthCodeRepo";
 
 	private AuthCodeService authCodeService;
 
@@ -64,11 +67,11 @@ public class AuthCodeRepository {
 
 	public void getAccessToken(@NonNull AuthenticationCodeRequestModel authenticationCode,
 			@NonNull ResponseCallback<AuthenticationCodeResponseModel> callbackListener) {
-
 		authCodeService.getAccessToken(authenticationCode).enqueue(new Callback<AuthenticationCodeResponseModel>() {
 			@Override
 			public void onResponse(Call<AuthenticationCodeResponseModel> call,
 					Response<AuthenticationCodeResponseModel> response) {
+				Logger.d(TAG, "getAccessToken response code=" + response.code());
 				if (response.isSuccessful()) {
 					callbackListener.onSuccess(response.body());
 				} else {
@@ -82,6 +85,7 @@ public class AuthCodeRepository {
 
 			@Override
 			public void onFailure(Call<AuthenticationCodeResponseModel> call, Throwable t) {
+				Logger.e(TAG, "getAccessToken", t);
 				callbackListener.onError(t);
 			}
 		});

@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.GaenAvailability;
+import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.onboarding.util.PermissionButtonUtil;
@@ -27,6 +28,8 @@ import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 import ch.admin.bag.dp3t.util.ENExceptionHelper;
 
 public class OnboardingGaenPermissionFragment extends Fragment {
+
+	private static final String TAG = "OnboardingGaen";
 
 	private static final String STATE_USER_ACTIVE = "STATE_USER_ACTIVE";
 
@@ -129,6 +132,7 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 				},
 				(e) -> {
 					String message = ENExceptionHelper.getErrorMessage(e, activity);
+					Logger.e(TAG, message);
 					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
 							.setTitle(R.string.android_en_start_failure)
 							.setMessage(message)
