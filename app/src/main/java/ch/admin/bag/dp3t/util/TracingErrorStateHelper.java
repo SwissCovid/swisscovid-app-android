@@ -38,7 +38,7 @@ public class TracingErrorStateHelper {
 			TracingStatus.ErrorState.SYNC_ERROR_TIMING);
 
 	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
-			TracingStatus.ErrorState.SYNC_ERROR_API_EXCPETION,
+			TracingStatus.ErrorState.SYNC_ERROR_API_EXCEPTION,
 			TracingStatus.ErrorState.SYNC_ERROR_DATABASE,
 			TracingStatus.ErrorState.SYNC_ERROR_SERVER,
 			TracingStatus.ErrorState.SYNC_ERROR_NETWORK,
@@ -63,7 +63,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_SIGNATURE:
-			case SYNC_ERROR_API_EXCPETION:
+			case SYNC_ERROR_API_EXCEPTION:
 				return R.string.homescreen_meldung_data_outdated_title;
 			case SYNC_ERROR_DATABASE:
 				return R.string.unexpected_error_title;
@@ -94,7 +94,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_DATABASE:
 			case SYNC_ERROR_SIGNATURE:
-			case SYNC_ERROR_API_EXCPETION:
+			case SYNC_ERROR_API_EXCEPTION:
 			case BLE_NOT_SUPPORTED:
 			default:
 				return R.drawable.ic_warning_red;
@@ -121,7 +121,7 @@ public class TracingErrorStateHelper {
 				return R.string.playservices_update;
 			case SYNC_ERROR_TIMING:
 			case BLE_NOT_SUPPORTED:
-			case SYNC_ERROR_API_EXCPETION:
+			case SYNC_ERROR_API_EXCEPTION:
 			default:
 				return -1;
 		}
@@ -205,7 +205,7 @@ public class TracingErrorStateHelper {
 				return "RTSES";
 			case SYNC_ERROR_NETWORK:
 				return "RTSEN" + errorState.getErrorCode();
-			case SYNC_ERROR_API_EXCPETION:
+			case SYNC_ERROR_API_EXCEPTION:
 				return errorState.getErrorCode();
 			case SYNC_ERROR_SIGNATURE:
 				return "RTSESI";
