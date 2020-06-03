@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.internal.logger.Logger;
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
 
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
@@ -41,6 +42,8 @@ public class FakeWorker extends Worker {
 		double newDelayDays = ExponentialDistribution.sampleFromStandard() / SAMPLING_RATE;
 		long newDelayMillis = Math.round(FACTOR_DAY_MILLIS * newDelayDays);
 
+		Logger.d(TAG, "scheduled for execution in " + newDelayDays + " days");
+
 		Constraints constraints = new Constraints.Builder()
 				.setRequiredNetworkType(NetworkType.CONNECTED)
 				.build();
@@ -58,16 +61,16 @@ public class FakeWorker extends Worker {
 
 	@NonNull
 	@Override
-	public Result doWork() {
-		org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "start FakeWorker");
+	public ListenableWorker.Result doWork() {
+		Logger.d(TAG, "start");
 		try {
 			executeFakeRequest(getApplicationContext());
 			startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND);
 		} catch (IOException | ResponseError e) {
-			org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "FakeWorker finished with exception " + e.getMessage());
+			Logger.e(TAG, "failed", e);
 			return Result.retry();
 		}
-		org.dpppt.android.sdk.internal.logger.Logger.d(TAG, "FakeWorker finished with success");
+		Logger.d(TAG, "finished with success");
 		return Result.success();
 	}
 

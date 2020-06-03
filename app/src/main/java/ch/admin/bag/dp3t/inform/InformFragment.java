@@ -145,7 +145,6 @@ public class InformFragment extends Fragment {
 
 					@Override
 					public void onError(Throwable throwable) {
-						throwable.printStackTrace();
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
