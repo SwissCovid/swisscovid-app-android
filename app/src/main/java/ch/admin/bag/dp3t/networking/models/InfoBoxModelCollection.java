@@ -10,41 +10,30 @@
 
 package ch.admin.bag.dp3t.networking.models;
 
-class InfoBoxModelCollection {
+import java.util.HashMap;
 
-	private InfoBoxModel deInfoBox;
-	private InfoBoxModel frInfoBox;
-	private InfoBoxModel itInfoBox;
-	private InfoBoxModel enInfoBox;
+class InfoBoxModelCollection extends HashMap<String, InfoBoxModel> {
 
-	public InfoBoxModel getDeInfoBox() {
-		return deInfoBox;
-	}
-
-	public InfoBoxModel getFrInfoBox() {
-		return frInfoBox;
-	}
-
-	public InfoBoxModel getItInfoBox() {
-		return itInfoBox;
-	}
-
-	public InfoBoxModel getEnInfoBox() {
-		return enInfoBox;
-	}
+	private static final String KEY_POSTFIX = "InfoBox";
 
 	public InfoBoxModel getInfoBox(String languageKey) {
-		switch (languageKey) {
-			case "de":
-				return deInfoBox;
-			case "en":
-				return enInfoBox;
-			case "fr":
-				return frInfoBox;
-			case "it":
-				return itInfoBox;
+		InfoBoxModel infoBoxModel;
+
+		infoBoxModel = get(getKeyForLang(languageKey));
+		if (infoBoxModel != null) {
+			return infoBoxModel;
 		}
+
+		infoBoxModel = get(getKeyForLang("en"));
+		if (infoBoxModel != null) {
+			return infoBoxModel;
+		}
+
 		return null;
+	}
+
+	private static String getKeyForLang(String language) {
+		return language + KEY_POSTFIX;
 	}
 
 }

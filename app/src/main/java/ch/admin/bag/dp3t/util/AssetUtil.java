@@ -43,11 +43,12 @@ public class AssetUtil {
 
 	public static String loadImpressumHtmlFile(Context context, String filename) {
 		try {
-			BufferedReader reader = new BufferedReader(
-					new InputStreamReader(context.getAssets().open(getFolderNameImpressum(context) + filename)));
 			StringBuilder html = new StringBuilder();
-			for (String line; (line = reader.readLine()) != null; ) {
-				html.append(line);
+			try (BufferedReader reader = new BufferedReader(
+					new InputStreamReader(context.getAssets().open(getFolderNameImpressum(context) + filename)))) {
+				for (String line; (line = reader.readLine()) != null; ) {
+					html.append(line);
+				}
 			}
 			String impressum = html.toString();
 			StringBuilder versionString = new StringBuilder(BuildConfig.VERSION_NAME)
@@ -57,7 +58,7 @@ public class AssetUtil {
 					new StringBuilder(SimpleDateFormat.getDateTimeInstance().format(new Date(BuildConfig.BUILD_TIME)))
 							.append(" / ")
 							.append(BuildConfig.FLAVOR);
-					impressum = impressum.replace(REPLACE_STRING_VERSION, versionString);
+			impressum = impressum.replace(REPLACE_STRING_VERSION, versionString);
 			impressum = impressum.replace(REPLACE_STRING_BUILDNR, buildString);
 			return impressum;
 		} catch (IOException e) {

@@ -41,7 +41,7 @@ import ch.admin.bag.dp3t.util.PhoneUtil;
 
 public class InformFragment extends Fragment {
 
-	private static final long TIMEOUT_VALID_CODE = 1000 * 60 * 5;
+	private static final long TIMEOUT_VALID_CODE = 1000l * 60 * 5;
 
 	private static final String REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}";
 
@@ -145,7 +145,6 @@ public class InformFragment extends Fragment {
 
 					@Override
 					public void onError(Throwable throwable) {
-						throwable.printStackTrace();
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}

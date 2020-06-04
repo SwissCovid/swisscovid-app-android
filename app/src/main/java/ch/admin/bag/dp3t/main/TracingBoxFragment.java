@@ -24,6 +24,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.model.TracingState;
@@ -34,6 +35,8 @@ import ch.admin.bag.dp3t.util.TracingStatusHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class TracingBoxFragment extends Fragment {
+
+	private static final String TAG = "TracingBox";
 
 	private static final int REQUEST_CODE_BLE_INTENT = 330;
 	private static final int REQUEST_CODE_LOCATION_INTENT = 510;
@@ -144,6 +147,7 @@ public class TracingBoxFragment extends Fragment {
 				},
 				(e) -> {
 					String message = ENExceptionHelper.getErrorMessage(e, activity);
+					Logger.e(TAG, message);
 					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
 							.setTitle(R.string.android_en_start_failure)
 							.setMessage(message)
