@@ -93,7 +93,7 @@ android {
 
 	signingConfigs {
 		release {
-			storeFile file('testKeystore')
+			storeFile file(readProperty('keystoreFile'))
 			storePassword readProperty('keystorePassword')
 			keyAlias 'keyAlias'
 			keyPassword readProperty('keyAliasPassword')
