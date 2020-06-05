@@ -343,7 +343,7 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <string name="onboarding_privacy_text1">"La communication entre les appareils est anonyme."</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text2">"Toutes les données sont cryptées et uniquement sauvegardées localement sur l'appareil."</string>
+    <string name="onboarding_privacy_text2">"Toutes les données sont chiffrées et uniquement sauvegardées localement sur l'appareil."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
     <string name="onboarding_begegnungen_heading">"Que fait l'application ?"</string>
@@ -569,7 +569,7 @@ Respectez les consignes sur l'auto-isolement."</string>
     <string name="begegnung_detail_faq2_title">"Mes données sont-elles en sécurité?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq2_text">"Lors d'un contact, seul un code crypté est échangé.
+    <string name="begegnung_detail_faq2_text">"Lors d'un contact, seul un code chiffré est échangé.
 
 Ce code est enregistré localement dans les appareils et effacé au bout de 21 jours."</string>
 
