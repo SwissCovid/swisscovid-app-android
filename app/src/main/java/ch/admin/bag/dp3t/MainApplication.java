@@ -91,7 +91,7 @@ public class MainApplication extends Application {
 
 		Intent resultIntent = new Intent(context, MainActivity.class);
 		resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-		resultIntent.setAction(MainActivity.ACTION_GOTO_REPORTS);
+		resultIntent.setAction(MainActivity.ACTION_EXPOSED_GOTO_REPORTS);
 
 		PendingIntent pendingIntent =
 				PendingIntent.getActivity(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
