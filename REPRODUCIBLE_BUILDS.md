@@ -1,6 +1,8 @@
 
 # Reproducible Builds
 
+Note: reproducible builds work starting version 1.0.3
+
 ## Install Docker
 
 Download and install [Docker](https://www.docker.com/).
