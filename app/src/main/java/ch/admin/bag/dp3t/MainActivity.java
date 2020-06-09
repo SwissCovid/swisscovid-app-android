@@ -39,7 +39,6 @@ public class MainActivity extends FragmentActivity {
 	private boolean consumedExposedIntent;
 
 	private SecureStorage secureStorage;
-
 	private TracingViewModel tracingViewModel;
 
 	private AlertDialog forceUpdateDialog;
@@ -91,12 +90,11 @@ public class MainActivity extends FragmentActivity {
 
 		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
 		tracingViewModel.sync();
+
+		checkRedirectionIntents();
 	}
 
-	@Override
-	public void onResume() {
-		super.onResume();
-
+	public void checkRedirectionIntents() {
 		checkIntentForActions();
 
 		if (!consumedExposedIntent) {
