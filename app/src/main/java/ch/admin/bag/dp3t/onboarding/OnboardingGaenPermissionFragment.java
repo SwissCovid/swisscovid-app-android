@@ -133,7 +133,7 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 				(e) -> {
 					String message = ENExceptionHelper.getErrorMessage(e, activity);
 					Logger.e(TAG, message);
-					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+					new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
 							.setTitle(R.string.android_en_start_failure)
 							.setMessage(message)
 							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
