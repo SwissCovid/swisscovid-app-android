@@ -81,7 +81,11 @@ public class FakeWorker extends Worker {
 				authCodeRepository.getAccessTokenSync(new AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1));
 		String accessToken = accessTokenResponse.getAccessToken();
 
-		DP3T.sendFakeInfectedRequest(context, new ExposeeAuthMethodAuthorization(accessToken));
+		DP3T.sendFakeInfectedRequest(context, new ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)));
+	}
+
+	private String getAuthorizationHeader(String accessToken) {
+		return "Bearer " + accessToken;
 	}
 
 }
