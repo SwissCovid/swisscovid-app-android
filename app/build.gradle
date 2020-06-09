@@ -44,7 +44,7 @@ android {
 		versionName "1.0.2-pilot"
 		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr"
 
-		buildConfigField "long", "BUILD_TIME", System.currentTimeMillis() + "L"
+		buildConfigField "long", "BUILD_TIME", readPropertyWithDefault('buildTimestamp', System.currentTimeMillis() + "L")
 	}
 
 	flavorDimensions "version"
