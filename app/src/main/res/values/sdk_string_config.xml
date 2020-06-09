@@ -19,6 +19,7 @@
 	<string name="dp3t_sdk_service_notification_error_bluetooth_not_supported">@string/begegnungen_restart_error_text</string>
 	<string name="dp3t_sdk_service_notification_error_sync_database">@string/unexpected_error_with_retry</string>
 	<string name="dp3t_sdk_service_notification_error_sync_network">@string/homescreen_meldung_data_outdated_text</string>
+	<string name="dp3t_sdk_service_notification_error_sync_ssltls">@string/certificate_validation_error</string>
 	<string name="dp3t_sdk_service_notification_error_sync_server">@string/homescreen_meldung_data_outdated_text</string>
 	<string name="dp3t_sdk_service_notification_error_sync_signature">@string/homescreen_meldung_data_outdated_text</string>
 	<string name="dp3t_sdk_service_notification_error_sync_timing">@string/time_inconsistency_text</string>
