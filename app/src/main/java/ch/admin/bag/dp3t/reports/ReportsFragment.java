@@ -41,6 +41,7 @@ import java.util.TimeZone;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.NotificationUtil;
@@ -128,7 +129,6 @@ public class ReportsFragment extends Fragment {
 		circlePageIndicator.setViewPager(headerViewPager);
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
-
 			healthyView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.GONE);
 			hotlineView.setVisibility(View.GONE);
@@ -172,19 +172,8 @@ public class ReportsFragment extends Fragment {
 					}
 				}
 
-				saveOthersView.findViewById(R.id.delete_reports).setOnClickListener(v -> {
-					AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.NextStep_AlertDialogStyle);
-					builder.setMessage(R.string.delete_reports_dialog)
-							.setPositiveButton(R.string.android_button_ok, (dialog, id) -> {
-								tracingStatusInterface.resetExposureDays(getContext());
-								getParentFragmentManager().popBackStack();
-							})
-							.setNegativeButton(R.string.cancel, (dialog, id) -> {
-								//do nothing
-							});
-					builder.create();
-					builder.show();
-				});
+				hotlineView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
+				saveOthersView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
 			} else {
 				healthyView.setVisibility(View.VISIBLE);
 				items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
@@ -196,6 +185,20 @@ public class ReportsFragment extends Fragment {
 		NotificationManager notificationManager =
 				(NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.cancel(NotificationUtil.NOTIFICATION_ID_CONTACT);
+	}
+
+	private void deleteNotifications(TracingStatusInterface tracingStatusInterface) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.NextStep_AlertDialogStyle);
+		builder.setMessage(R.string.delete_reports_dialog)
+				.setPositiveButton(R.string.android_button_ok, (dialog, id) -> {
+					tracingStatusInterface.resetExposureDays(getContext());
+					getParentFragmentManager().popBackStack();
+				})
+				.setNegativeButton(R.string.cancel, (dialog, id) -> {
+					//do nothing
+				});
+		builder.create();
+		builder.show();
 	}
 
 	private void openLink(@StringRes int stringRes) {
