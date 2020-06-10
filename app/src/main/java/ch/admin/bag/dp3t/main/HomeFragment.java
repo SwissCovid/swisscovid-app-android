@@ -343,7 +343,7 @@ public class HomeFragment extends Fragment {
 
 	private void setupDebugButton() {
 		View debugButton = getView().findViewById(R.id.main_button_debug);
-		if (!BuildConfig.IS_FLAVOR_PROD) {
+		if (DebugFragment.EXISTS) {
 			debugButton.setVisibility(VISIBLE);
 			debugButton.setOnClickListener(v -> DebugFragment.startDebugFragment(getParentFragmentManager()));
 		} else {

@@ -44,6 +44,8 @@ import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class DebugFragment extends Fragment {
 
+	public static final boolean EXISTS = true;
+
 	private static final DateFormat DATE_FORMAT_SYNC = SimpleDateFormat.getDateTimeInstance();
 	private TracingViewModel tracingViewModel;
 

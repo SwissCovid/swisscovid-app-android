@@ -15,6 +15,8 @@ import androidx.fragment.app.FragmentManager;
 
 public class DebugFragment extends Fragment {
 
+	public static final boolean EXISTS = false;
+
 	public static void startDebugFragment(FragmentManager parentFragmentManager) {
 		/*
 		 *
