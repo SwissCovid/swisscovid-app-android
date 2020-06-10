@@ -48,7 +48,7 @@ public class MainApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 
-		if (BuildConfig.IS_DEV) {
+		if (BuildConfig.IS_FLAVOR_DEV) {
 			BackendBucketRepository.BATCH_LENGTH = 5 * 60 * 1000L;
 			Logger.init(getApplicationContext(), LogLevel.DEBUG);
 		} else {
@@ -57,12 +57,7 @@ public class MainApplication extends Application {
 
 		registerReceiver(contactUpdateReceiver, DP3T.getUpdateIntentFilter());
 
-		PublicKey signaturePublicKey = SignatureUtil.getPublicKeyFromBase64OrThrow(BuildConfig.BUCKET_PUBLIC_KEY);
-		DP3T.init(this, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL), signaturePublicKey);
-
-		DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
-		DP3T.setUserAgent(getPackageName() + ";" + BuildConfig.VERSION_NAME + ";" + BuildConfig.BUILD_TIME + ";Android;" +
-				Build.VERSION.SDK_INT);
+		initDP3T(this);
 
 		FakeWorker.safeStartFakeWorker(this);
 
@@ -99,6 +94,15 @@ public class MainApplication extends Application {
 		});
 	}
 
+	public static void initDP3T(Context context) {
+		PublicKey signaturePublicKey = SignatureUtil.getPublicKeyFromBase64OrThrow(BuildConfig.BUCKET_PUBLIC_KEY);
+		DP3T.init(context, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL), signaturePublicKey);
+
+		DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
+		DP3T.setUserAgent(context.getPackageName() + ";" + BuildConfig.VERSION_NAME + ";" + BuildConfig.BUILD_TIME + ";Android;" +
+				Build.VERSION.SDK_INT);
+	}
+
 	private BroadcastReceiver contactUpdateReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
@@ -120,7 +124,7 @@ public class MainApplication extends Application {
 		}
 	};
 
-	private void createNewContactNotification(Context context, int contactId) {
+	private static void createNewContactNotification(Context context, int contactId) {
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

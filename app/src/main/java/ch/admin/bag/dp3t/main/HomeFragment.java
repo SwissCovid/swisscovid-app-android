@@ -101,7 +101,6 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
 		Toolbar toolbar = view.findViewById(R.id.home_toolbar);
 		toolbar.inflateMenu(R.menu.homescreen_menu);
 		toolbar.setOnMenuItemClickListener(item -> {
@@ -156,12 +155,10 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupHeader() {
-		tracingViewModel.getAppStatusLiveData()
-				.observe(getViewLifecycleOwner(), headerView::setState);
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), headerView::setState);
 	}
 
 	private void setupInfobox() {
-
 		secureStorage.getInfoBoxLiveData().observe(getViewLifecycleOwner(), hasInfobox -> {
 			hasInfobox = hasInfobox && secureStorage.getHasInfobox();
 
@@ -207,7 +204,6 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupTracingView() {
-
 		TypedValue outValue = new TypedValue();
 		getContext().getTheme().resolveAttribute(
 				android.R.attr.selectableItemBackground, outValue, true);
@@ -236,7 +232,6 @@ public class HomeFragment extends Fragment {
 				.addToBackStack(ContactsFragment.class.getCanonicalName())
 				.commit();
 	}
-
 
 	private void setupNotification() {
 		cardNotifications.setOnClickListener(
@@ -301,7 +296,6 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void openChannelSettings(String channelId) {
-
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			Intent intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
 			intent.putExtra(Settings.EXTRA_APP_PACKAGE, requireActivity().getPackageName());
@@ -333,7 +327,6 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupWhatToDo() {
-
 		cardSymptoms.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
@@ -350,7 +343,7 @@ public class HomeFragment extends Fragment {
 
 	private void setupDebugButton() {
 		View debugButton = getView().findViewById(R.id.main_button_debug);
-		if (BuildConfig.IS_DEV) {
+		if (!BuildConfig.IS_FLAVOR_PROD) {
 			debugButton.setVisibility(VISIBLE);
 			debugButton.setOnClickListener(v -> DebugFragment.startDebugFragment(getParentFragmentManager()));
 		} else {
@@ -360,7 +353,7 @@ public class HomeFragment extends Fragment {
 
 	private void setupNonProductionHint() {
 		View nonProduction = getView().findViewById(R.id.non_production_message);
-		if (BuildConfig.FLAVOR.equals("prod")) {
+		if (BuildConfig.IS_FLAVOR_PROD) {
 			nonProduction.setVisibility(View.GONE);
 		} else {
 			nonProduction.setVisibility(VISIBLE);
@@ -368,7 +361,6 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupScrollBehavior() {
-
 		int scrollRangePx = getResources().getDimensionPixelSize(R.dimen.top_item_padding);
 		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
 		scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {

@@ -7,10 +7,20 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
+
 package ch.admin.bag.dp3t.debug;
 
-import ch.admin.bag.dp3t.main.model.DefaultTracingStatusWrapper;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
-public class TracingStatusWrapper extends DefaultTracingStatusWrapper {
-	// default implementation
+public class DebugFragment extends Fragment {
+
+	public static void startDebugFragment(FragmentManager parentFragmentManager) {
+		/*
+		 *
+		 * NOT IMPLEMENTED ON PROD. ONLY MODIFY THIS FRAGMENT IN THE DEV FOLDER
+		 *
+		 * */
+	}
+
 }

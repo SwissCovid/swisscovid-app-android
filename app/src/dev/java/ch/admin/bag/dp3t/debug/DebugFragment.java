@@ -9,7 +9,6 @@
  */
 package ch.admin.bag.dp3t.debug;
 
-import android.app.AlertDialog;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -35,6 +34,9 @@ import java.util.Date;
 
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.internal.ExposureDayStorage;
+import org.dpppt.android.sdk.models.DayDate;
+import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
@@ -87,13 +89,11 @@ public class DebugFragment extends Fragment {
 		});
 
 		view.findViewById(R.id.debug_button_reset).setOnClickListener(v -> {
-			AlertDialog progressDialog = new AlertDialog.Builder(getContext())
-					.setView(R.layout.dialog_loading)
-					.show();
-
 			setDebugAppState(DebugAppState.NONE);
 			tracingViewModel.resetSdk();
 			updateRadioGroup(getView().findViewById(R.id.debug_state_options_group));
+
+			requireActivity().recreate();
 		});
 	}
 
@@ -117,6 +117,20 @@ public class DebugFragment extends Fragment {
 		});
 
 		updateRadioGroup(optionsGroup);
+
+		view.findViewById(R.id.debug_button_testmeldung).setOnClickListener(v -> {
+			exposeMyself();
+			getActivity().finish();
+		});
+	}
+
+	private void exposeMyself() {
+		ExposureDayStorage eds = ExposureDayStorage.getInstance(requireContext());
+		eds.clear();
+
+		DayDate dayOfExposure = new DayDate();
+		ExposureDay exposureDay = new ExposureDay(-1, dayOfExposure, System.currentTimeMillis());
+		eds.addExposureDay(requireContext(), exposureDay);
 	}
 
 	private void updateRadioGroup(RadioGroup optionsGroup) {
