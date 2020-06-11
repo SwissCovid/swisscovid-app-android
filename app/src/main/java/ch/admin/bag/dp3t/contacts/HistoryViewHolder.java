@@ -26,7 +26,7 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder {
 		if (item.getStatus() != null) label.append(" ").append(item.getStatus());
 		((TextView) itemView.findViewById(R.id.item_history_label)).setText(label.toString());
 		((TextView) itemView.findViewById(R.id.item_history_date))
-				.setText(DateUtils.getFormattedDateTimeHistory(item.getTime()));
+				.setText(DateUtils.getFormattedDateTime(item.getTime()));
 	}
 
 	@StringRes

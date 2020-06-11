@@ -24,8 +24,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.util.Date;
-
 import org.dpppt.android.sdk.internal.history.HistoryEntry;
 import org.dpppt.android.sdk.internal.history.HistoryEntryType;
 import org.dpppt.android.sdk.internal.logger.Logger;
@@ -137,7 +135,7 @@ public class ContactsFragment extends Fragment {
 					if (entry.getType() == HistoryEntryType.SYNC && entry.isSuccessful())
 					{
 						timeSync = entry.getTime();
-						lastSyncDate.setText(DateUtils.getFormattedDateTimeHistory(timeSync));
+						lastSyncDate.setText(DateUtils.getFormattedDateTime(timeSync));
 						break;
 					}
 				}
