@@ -17,6 +17,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Pair;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -104,11 +105,11 @@ public class ReportsFragment extends Fragment {
 		callHotlineLastText1 = hotlineView.findViewById(R.id.card_encounters_last_call);
 		callHotlineLastText2 = saveOthersView.findViewById(R.id.card_encounters_last_call);
 
-		Button callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
-		Button callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
+		Button callHotlineButtonNow = hotlineView.findViewById(R.id.card_encounters_button);
+		Button callHotlineButtonAgain = saveOthersView.findViewById(R.id.card_encounters_button);
 
-		callHotlineButton1.setOnClickListener(view1 -> callHotline());
-		callHotlineButton2.setOnClickListener(view1 -> callHotline());
+		callHotlineButtonNow.setOnClickListener(v -> showPreCallDialog());
+		callHotlineButtonAgain.setOnClickListener(v -> showPreCallDialog());
 
 		Button faqButton1 = healthyView.findViewById(R.id.card_encounters_faq_button);
 		Button faqButton2 = saveOthersView.findViewById(R.id.card_encounters_faq_button);
@@ -173,7 +174,8 @@ public class ReportsFragment extends Fragment {
 				}
 
 				hotlineView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
-				saveOthersView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
+				saveOthersView.findViewById(R.id.delete_reports)
+						.setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
 			} else {
 				healthyView.setVisibility(View.VISIBLE);
 				items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
@@ -341,6 +343,32 @@ public class ReportsFragment extends Fragment {
 
 	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
 		return Math.min(scrollY, scrollRange) / (float) scrollRange;
+	}
+
+	private void showPreCallDialog() {
+		View dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_pre_call_exposed, null);
+		TextView dateView = dialogView.findViewById(R.id.pre_call_dialog_date);
+		TextView codeView = dialogView.findViewById(R.id.pre_call_dialog_code);
+		Button callButton = dialogView.findViewById(R.id.pre_call_dialog_call_button);
+		Button cancelButton = dialogView.findViewById(R.id.pre_call_dialog_cancel_button);
+
+		AlertDialog codeDialog = new AlertDialog.Builder(requireContext())
+				.setView(dialogView)
+				.create();
+
+		PreCallInformation preCallInformation = tracingViewModel.computePreCallExposedInformation();
+		dateView.setText(preCallInformation.getExposureDate());
+		codeView.setText(preCallInformation.getCode());
+
+		callButton.setOnClickListener(v -> {
+			callHotline();
+			codeDialog.dismiss();
+		});
+		cancelButton.setOnClickListener(v -> {
+			codeDialog.dismiss();
+		});
+
+		codeDialog.show();
 	}
 
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {

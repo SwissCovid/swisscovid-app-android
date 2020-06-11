@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/white"
+	android:gravity="center_horizontal"
+	android:orientation="vertical"
+	android:paddingStart="@dimen/spacing_larger"
+	android:paddingTop="@dimen/spacing_larger"
+	android:paddingEnd="@dimen/spacing_larger"
+	android:paddingBottom="@dimen/spacing_medium">
+
+	<TextView
+		style="@style/NextStep.Text.Bold.Blue"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:text="@string/pre_call_dialog_before_title" />
+
+	<TextView
+		style="@style/NextStep.Text.Title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/spacing_tiny_small"
+		android:gravity="center_horizontal"
+		android:text="@string/pre_call_dialog_main_title" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/spacing_large"
+		android:layout_marginBottom="@dimen/spacing_huge"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="1dp"
+			android:layout_weight="1"
+			android:background="@color/status_blue_bg"
+			android:orientation="vertical"
+			android:padding="@dimen/spacing_small">
+
+			<TextView
+				style="@style/NextStep.Text.Bold.Blue"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:text="@string/pre_call_dialog_box_datum" />
+
+			<TextView
+				android:id="@+id/pre_call_dialog_date"
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_tiny_small"
+				android:gravity="center_horizontal"
+				tools:text="11.06.2020" />
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="1dp"
+			android:layout_weight="1"
+			android:background="@color/status_blue_bg"
+			android:orientation="vertical"
+			android:padding="@dimen/spacing_small">
+
+			<TextView
+				style="@style/NextStep.Text.Bold.Blue"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:text="@string/pre_call_dialog_box_number" />
+
+			<TextView
+				android:id="@+id/pre_call_dialog_code"
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_tiny_small"
+				android:gravity="center_horizontal"
+				tools:text="11.06.2020" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/pre_call_dialog_call_button"
+		style="@style/NextStep.Button.Blue"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/spacing_small"
+		android:text="@string/meldungen_detail_call_button"
+		android:textAllCaps="true" />
+
+	<Button
+		android:id="@+id/pre_call_dialog_cancel_button"
+		style="@style/NextStep.Button.Transparent.Blue"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/spacing_small"
+		android:text="@string/cancel"
+		android:textStyle="normal" />
+
+</LinearLayout>

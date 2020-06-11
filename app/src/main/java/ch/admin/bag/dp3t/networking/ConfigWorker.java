@@ -100,6 +100,7 @@ public class ConfigWorker extends Worker {
 				config.getSdkConfig().getTriggerThreshold());
 
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
+		secureStorage.setExposureCodeTweak(config.getExposureCodeTweak());
 		secureStorage.setDoForceUpdate(config.getDoForceUpdate());
 
 		if (config.getInfoBox() != null) {

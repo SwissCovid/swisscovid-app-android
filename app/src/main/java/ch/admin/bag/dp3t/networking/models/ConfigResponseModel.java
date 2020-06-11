@@ -14,6 +14,7 @@ public class ConfigResponseModel {
 	private boolean forceUpdate;
 	private InfoBoxModelCollection infoBox;
 	private SdkConfigModel androidGaenSdkConfig;
+	private String codeTweak;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -29,6 +30,11 @@ public class ConfigResponseModel {
 
 	public SdkConfigModel getSdkConfig() {
 		return androidGaenSdkConfig;
+	}
+
+	public String getExposureCodeTweak() {
+		// TODO PRE_CALL_CODE: name the new field correctly (according to new request definition)
+		return codeTweak;
 	}
 
 }

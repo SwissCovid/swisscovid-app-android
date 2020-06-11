@@ -30,10 +30,14 @@ import java.util.List;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.history.HistoryEntry;
+import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.MainApplication;
 import ch.admin.bag.dp3t.debug.TracingStatusWrapper;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
+import ch.admin.bag.dp3t.reports.PreCallInformation;
+import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 
 public class TracingViewModel extends AndroidViewModel {
@@ -172,6 +176,24 @@ public class TracingViewModel extends AndroidViewModel {
 
 	public LiveData<List<HistoryEntry>> getHistoryLiveDate() {
 		return historyMutableLiveData;
+	}
+
+	public PreCallInformation computePreCallExposedInformation() {
+		List<ExposureDay> exposureDays = tracingStatusInterface.getExposureDays();
+		ExposureDay newestExposure = null;
+		for (ExposureDay exposure : exposureDays) {
+			if (newestExposure == null || newestExposure.getExposedDate().isBefore(exposure.getExposedDate())) {
+				newestExposure = exposure;
+			}
+		}
+		if (newestExposure == null) return null;
+		String date = DateUtils.getFormattedDate(newestExposure.getExposedDate().getStartOfDayTimestamp());
+
+		// TODO PRE_CALL_CODE: generate code for hotline call
+		// may be null if ConfigWorker never has run successfully until now
+		String tweak = SecureStorage.getInstance(getApplication()).getExposureCodeTweak();
+
+		return new PreCallInformation(date, "123456");
 	}
 
 }
