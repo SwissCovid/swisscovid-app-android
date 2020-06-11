@@ -295,7 +295,7 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <string name="meldungen_detail_call">"Appelez-nous"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Infoline coronavirus (24/7)"</string>
+    <string name="meldungen_detail_call_text">"Infoline coronavirus"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Appelez maintenant"</string>
@@ -605,7 +605,7 @@ Vous serez informé seulement lorsque le risque d'infection est suffisamment imp
     <string name="meldungen_meldungen_faq1_title">"Dois-je appeler ?"</string>
 
     <!-- Meldungen: Meldungen FAQ Text -->
-    <string name="meldungen_meldungen_faq1_text">"Il est important que vous appeliez après chaque alerte.
+    <string name="meldungen_meldungen_faq1_text">"Il est recommandé d'appeler après chaque notification.
 
 Vous conservez votre anonymat. Aucune donnée personnelle n'est saisie."</string>
 
@@ -829,4 +829,16 @@ Si aucune mise à jour n'est actuellement disponible sur votre appareil, veuille
 
     <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
     <string name="onboarding_legal_blocker_message">"Vous ne faites pas partie d'une organisation participant à la phase pilote. Veuillez installer la mise à jour appropriée après le lancement officiel de l'application et ouvrir l'application à nouveau."</string>
+    <string name="begegnung_detail_last_sync_title">"Latest successful synchronisation"</string>
+    <string name="synchronizations_view_title">"Overview"</string>
+    <string name="synchronizations_view_info_title">"Synchronizations"</string>
+    <string name="synchronizations_view_info_question">"What are synchronizations?"</string>
+    <string name="synchronizations_view_info_answer">"The app regularly checks the published keys from users that were tested positive."</string>
+    <string name="synchronizations_view_period_title">"During the last 14 days"</string>
+    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
+    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
+    <string name="synchronizations_view_empty_list">"No entries"</string>
+    <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
+    <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
+    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
 </resources>

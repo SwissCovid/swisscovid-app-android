@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.Switch;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -23,11 +24,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.Date;
+
+import org.dpppt.android.sdk.internal.history.HistoryEntry;
+import org.dpppt.android.sdk.internal.history.HistoryEntryType;
 import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.TracingBoxFragment;
 import ch.admin.bag.dp3t.main.views.HeaderView;
+import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.ENExceptionHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
@@ -74,6 +80,7 @@ public class ContactsFragment extends Fragment {
 		});
 		setupScrollBehavior();
 		setupTracingView();
+		setupHistoryCard(view);
 
 		view.findViewById(R.id.contacts_faq_button).setOnClickListener(v -> {
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
@@ -109,6 +116,41 @@ public class ContactsFragment extends Fragment {
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
 			tracingSwitch.setChecked(status.isTracingEnabled());
 		});
+	}
+
+	private void setupHistoryCard(View view) {
+		view.findViewById(R.id.contacts_card_history).setOnClickListener(v -> {
+			getParentFragmentManager().beginTransaction()
+					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+					.replace(R.id.main_fragment_container, HistoryFragment.newInstance())
+					.addToBackStack(HistoryFragment.class.getCanonicalName())
+					.commit();
+		});
+		View historyCardLoadingView = view.findViewById(R.id.card_history_loading_view);
+		historyCardLoadingView.setVisibility(View.VISIBLE);
+		TextView lastSyncDate = view.findViewById(R.id.card_history_last_synchronization_date);
+
+		tracingViewModel.getHistoryLiveDate().observe(getViewLifecycleOwner(), historyEntries -> {
+			if (historyEntries != null) {
+				Long timeSync = null;
+				for (HistoryEntry entry : historyEntries) {
+					if (entry.getType() == HistoryEntryType.SYNC && entry.isSuccessful())
+					{
+						timeSync = entry.getTime();
+						lastSyncDate.setText(DateUtils.getFormattedDateTimeHistory(timeSync));
+						break;
+					}
+				}
+				if (timeSync == null) lastSyncDate.setText("-");
+				historyCardLoadingView.animate()
+						.alpha(0f)
+						.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime))
+						.withEndAction(() -> historyCardLoadingView.setVisibility(View.GONE))
+						.start();
+			}
+
+		});
+		tracingViewModel.loadHistoryEntries();
 	}
 
 	@Override

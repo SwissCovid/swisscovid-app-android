@@ -20,6 +20,7 @@ public class DateUtils {
 
 	private static final DateFormat DATE_TIME_FORMAT = SimpleDateFormat.getDateTimeInstance();
 	private static final DateFormat DATE_FORMAT = SimpleDateFormat.getDateInstance();
+	private static final DateFormat DATE_TIME_FORMAT_HISTORY = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 
 	public static int getDaysDiff(long date) {
 
@@ -42,6 +43,10 @@ public class DateUtils {
 
 	public static String getFormattedDateTime(long date) {
 		return DATE_TIME_FORMAT.format(new Date(date));
+	}
+
+	public static String getFormattedDateTimeHistory(long date) {
+		return DATE_TIME_FORMAT_HISTORY.format(new Date(date));
 	}
 
 	public static String getFormattedDate(long date) {

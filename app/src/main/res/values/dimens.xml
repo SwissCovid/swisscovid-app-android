@@ -61,4 +61,5 @@
 	<dimen name="onboarding_continue_button_height">72dp</dimen>
 	<dimen name="padding_between_code">1dp</dimen>
 	<dimen name="chained_edit_text_min_width">20dp</dimen>
+	<dimen name="card_loading_view_size">32dp</dimen>
 </resources>

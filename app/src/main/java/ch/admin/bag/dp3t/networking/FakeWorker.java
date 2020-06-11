@@ -53,6 +53,8 @@ public class FakeWorker extends Worker {
 				.setInitialDelay(newDelayMillis, TimeUnit.MILLISECONDS)
 				.build();
 		WorkManager.getInstance(context).enqueueUniqueWork(WORK_TAG, policy, fakeWorker);
+
+		DP3T.fakeWorkerScheduled(context);
 	}
 
 	public FakeWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {

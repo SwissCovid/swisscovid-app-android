@@ -258,7 +258,7 @@ Thank you for helping to contain the spread of the coronavirus."</string>
     <string name="meldung_detail_positive_tested_subtitle">"You have tested positive for the new coronavirus."</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
-    <string name="meldung_detail_positive_test_box_subtitle">"What do I have to do?"</string>
+    <string name="meldung_detail_positive_test_box_subtitle">"What should I do?"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Titel -->
     <string name="meldung_detail_positive_test_box_title">"Self-isolation"</string>
@@ -295,7 +295,7 @@ Thank you for helping to contain the spread of the coronavirus."</string>
     <string name="meldungen_detail_call">"Call us"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Coronavirus infoline (24hrs-a-day)"</string>
+    <string name="meldungen_detail_call_text">"Coronavirus infoline"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Call now"</string>
@@ -599,7 +599,9 @@ Infoline Coronavirus
     <string name="meldungen_meldungen_faq1_title">"Do I have to call?"</string>
 
     <!-- Meldungen: Meldungen FAQ Text -->
-    <string name="meldungen_meldungen_faq1_text">"It is important that you call every time you receive a notification. You will remain anonymous. No personal data will be recorded."</string>
+    <string name="meldungen_meldungen_faq1_text">"It is recommended that you call every time you receive a notification. 
+
+You will remain anonymous. No personal data will be recorded."</string>
 
     <!-- Meldungen Detail: Anruf Titel -->
     <string name="meldungen_detail_call_thankyou_title">"Thank you for your cooperation."</string>
@@ -817,4 +819,16 @@ If no update is currently available on your device, please try again later."</st
 
     <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
     <string name="onboarding_legal_blocker_message">"You are not part of an organization participating in the pilot phase. Please install the appropriate update after the official launch of the app and open the app again."</string>
+    <string name="begegnung_detail_last_sync_title">"Latest successful synchronisation"</string>
+    <string name="synchronizations_view_title">"Overview"</string>
+    <string name="synchronizations_view_info_title">"Synchronizations"</string>
+    <string name="synchronizations_view_info_question">"What are synchronizations?"</string>
+    <string name="synchronizations_view_info_answer">"The app regularly checks the published keys from users that were tested positive."</string>
+    <string name="synchronizations_view_period_title">"During the last 14 days"</string>
+    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
+    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
+    <string name="synchronizations_view_empty_list">"No entries"</string>
+    <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
+    <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
+    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
 </resources>
