@@ -118,7 +118,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="android_tracing_error_title">"Tracing nicht aktiv"</string>
 
     <!-- Fehlertitel mit Foreground Service Notification -->
-    <string name="android_foreground_service_notification_errors">"App kann zur Zeit nicht richtig funktionieren:"</string>
+    <string name="android_foreground_service_notification_errors">"App kann zurzeit nicht richtig funktionieren:"</string>
 
     <!-- Titel der Nachricht, die auf Beta-Status hinweist -->
     <string name="preview_warning_title">"Vorschau Version"</string>
@@ -178,16 +178,16 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="whattodo_title_symptoms">"Krankheitssymptomen"</string>
 
     <!-- Subtitel auf Homescreen für Was Tun Section -->
-    <string name="whattodo_subtitle_symptoms">"Was tun bei..."</string>
+    <string name="whattodo_subtitle_symptoms">"Was tun bei ..."</string>
 
     <!-- Titel auf Homescreen bei Was tun Section -->
     <string name="whattodo_title_positivetest">"positiven Testresultat"</string>
 
     <!-- Subtitel auf Homescreen bei Was tun Section -->
-    <string name="whattodo_subtitle_positivetest">"Was tun bei einem..."</string>
+    <string name="whattodo_subtitle_positivetest">"Was tun bei einem ..."</string>
 
     <!-- Informieren Detail: Subtitel -->
-    <string name="inform_detail_subtitle">"Was tun bei einem..."</string>
+    <string name="inform_detail_subtitle">"Was tun bei einem ..."</string>
 
     <!-- Informieren Detail: Titel -->
     <string name="inform_detail_title">"positiven Test?"</string>
@@ -205,7 +205,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="inform_detail_box_text">"Mit dem Ihnen zugestellten Covidcode können Sie den Test anonym in der App melden."</string>
 
     <!-- Symptome Detail Subtitel -->
-    <string name="symptom_detail_subtitle">"Was tun wenn ich..."</string>
+    <string name="symptom_detail_subtitle">"Was tun, wenn ich ..."</string>
 
     <!-- Symptom Detail Titel -->
     <string name="symptom_detail_title">"mich krank fühle?"</string>
@@ -220,7 +220,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="symptom_detail_box_button">"Zum Coronavirus-Check"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Kontaktieren Sie bei Symptomen die auf das neue Coronavirus hindeuten Ihren Arzt / Ihre Ärztin oder den ärztlichen Notfalldienst."</string>
+    <string name="symptom_detail_box_text">"Kontaktieren Sie bei Symptomen, die auf das neue Coronavirus hindeuten, Ihren Arzt / Ihre Ärztin oder den ärztlichen Notfalldienst."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Positiv getestet"</string>
@@ -258,7 +258,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="meldung_detail_positive_tested_subtitle">"Sie wurden positiv auf das neue Coronavirus getestet."</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
-    <string name="meldung_detail_positive_test_box_subtitle">"Was muss ich tun?"</string>
+    <string name="meldung_detail_positive_test_box_subtitle">"Was soll ich tun?"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Titel -->
     <string name="meldung_detail_positive_test_box_title">"Selbst-Isolation"</string>
@@ -297,8 +297,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="meldungen_detail_call">"Rufen Sie uns an"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Infoline Coronavirus
-(täglich, 24h)"</string>
+    <string name="meldungen_detail_call_text">"Infoline Coronavirus"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Jetzt anrufen"</string>
@@ -609,7 +608,7 @@ Bei einer möglichen Ansteckung werden Sie mit einer Mitteilung im Sperrbildschi
     <!-- Meldungen: Keine Meldungen FAQ Text -->
     <string name="meldungen_nomeldungen_faq2_text">"Die App schaut nicht nur, ob Begegnungen mit infizierten Personen stattfanden, sondern auch wie lange und wie nahe diese waren.
 
-Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist werden sie informiert."</string>
+Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist, werden Sie informiert."</string>
 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"Bei ersten Symptomen kontaktieren Sie Ihren Arzt/Ihre Ärztin."</string>
@@ -618,7 +617,7 @@ Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist werden sie 
     <string name="meldungen_meldungen_faq1_title">"Muss ich anrufen?"</string>
 
     <!-- Meldungen: Meldungen FAQ Text -->
-    <string name="meldungen_meldungen_faq1_text">"Es ist wichtig, dass Sie bei jeder neuen Meldung anrufen.
+    <string name="meldungen_meldungen_faq1_text">"Es ist empfohlen, dass Sie bei jeder neuen Meldung anrufen.
 
 Sie bleiben dabei anonym. Es werden keine Personendaten erfasst."</string>
 
@@ -648,7 +647,7 @@ Damit wird sichergestellt, dass nur bestätigte Fälle über die App gemeldet we
     <!-- Inform Detail FAQ Text -->
     <string name="inform_detail_faq2_text">"Es werden nur die temporären Schlüssel Ihrer App gesendet, keine persönlichen Daten.
 
-Damit können andere SwissCovid-App Nutzer prüfen, ob Sie in den letzten Tagen eine Begegnung mit Ihnen hatten."</string>
+Damit können andere SwissCovid-App Nutzer prüfen, ob sie in den letzten Tagen eine Begegnung mit Ihnen hatten."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -690,7 +689,7 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <string name="date_in_one_day">"Noch 1 Tag"</string>
 
     <!-- Meldung Detail: Anzeige "Noch x Tage" {COUNT} wird durch Zahl ersetzt -->
-    <string name="date_in_days">"Davon bleiben noch {COUNT} Tage"</string>
+    <string name="date_in_days">"Noch {COUNT} Tage"</string>
 
     <!-- Datum: Text vor Datum: am 26.2.2020 / {DATE} wird ersetzt durch Datum -->
     <string name="date_text_before_date">"am {DATE}"</string>
@@ -827,7 +826,7 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
     <string name="onboarding_legal_title">"Nutzung nur für Teilnehmer der Pilotphase"</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
-    <string name="onboarding_legal_text1">"Die Nutzung dieser App ist zur Zeit nur für die folgenden Gruppen, die vom BAG zum Pilot eingeladen wurden, vorgesehen und gestattet: Angehörige der Schweizer Armee im Ausbildungs-, Assistenz- und Aktivdienst, Mitarbeitende von Hochschulen, Mitarbeitende von Spitälern und Kliniken, Mitarbeitende von kantonalen Verwaltungen und der Bundesverwaltung, Mitglieder von Vereinigungen, die Beiträge an die Qualitätsverbesserung des Systems leisten wollen.
+    <string name="onboarding_legal_text1">"Die Nutzung dieser App ist zurzeit nur für die folgenden Gruppen, die vom BAG zum Pilot eingeladen wurden, vorgesehen und gestattet: Angehörige der Schweizer Armee im Ausbildungs-, Assistenz- und Aktivdienst, Mitarbeitende von Hochschulen, Mitarbeitende von Spitälern und Kliniken, Mitarbeitende von kantonalen Verwaltungen und der Bundesverwaltung, Mitglieder von Vereinigungen, die Beiträge an die Qualitätsverbesserung des Systems leisten wollen.
 "</string>
 
     <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
@@ -850,4 +849,16 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
 
     <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
     <string name="onboarding_legal_blocker_message">"Sie gehören nicht zu einer Organisation, die an der Pilotphase teilnimmt. Bitte installieren Sie nach dem offiziellen Start der App das entsprechende Update und öffnen die App erneut."</string>
+    <string name="begegnung_detail_last_sync_title">"Letzte erfolgreiche Synchronisation"</string>
+    <string name="synchronizations_view_title">"Übersicht"</string>
+    <string name="synchronizations_view_info_title">"Synchronisationen"</string>
+    <string name="synchronizations_view_info_question">"Was sind Synchronisationen?"</string>
+    <string name="synchronizations_view_info_answer">"Die App prüft regelmässig die von positiv getesteten Nutzern veröffentlichten Schlüssel."</string>
+    <string name="synchronizations_view_period_title">"In den letzten 14 Tagen"</string>
+    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
+    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
+    <string name="synchronizations_view_empty_list">"Keine Einträge"</string>
+    <string name="synchronizations_view_sync_via_scheduled">"  • Geplant"</string>
+    <string name="synchronizations_view_sync_via_fake_request">"  • Gefälschte Anfrage"</string>
+    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Hochladen"</string>
 </resources>

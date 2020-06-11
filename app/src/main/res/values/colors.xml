@@ -38,6 +38,7 @@
 	<color name="white">#FFFFFF</color>
 	<color name="white_10">#19FFFFFF</color>
 	<color name="white_20">#33FFFFFF</color>
+	<color name="white_45">#75FFFFFF</color>
 
 	<color name="status_blue">@color/blue_main</color>
 	<color name="status_blue_bg">#EFF5F9</color>

@@ -295,8 +295,7 @@ Così contribuisci a contenere la diffusione del nuovo coronavirus."</string>
     <string name="meldungen_detail_call">"Telefonaci"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Infoline coronavirus
-(tutti i giorni, 24 ore al giorno)"</string>
+    <string name="meldungen_detail_call_text">"Infoline coronavirus"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Telefona ora"</string>
@@ -837,4 +836,16 @@ Se al momento non è disponibile alcun aggiornamento sul tuo dispositivo, riprov
 
     <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
     <string name="onboarding_legal_blocker_message">"Non fate parte di un'organizzazione che partecipa alla fase pilota. Si prega di installare l'aggiornamento appropriato dopo il lancio ufficiale dell'applicazione e di riaprire l'applicazione."</string>
+    <string name="begegnung_detail_last_sync_title">"Latest successful synchronisation"</string>
+    <string name="synchronizations_view_title">"Overview"</string>
+    <string name="synchronizations_view_info_title">"Synchronizations"</string>
+    <string name="synchronizations_view_info_question">"What are synchronizations?"</string>
+    <string name="synchronizations_view_info_answer">"The app regularly checks the published keys from users that were tested positive."</string>
+    <string name="synchronizations_view_period_title">"During the last 14 days"</string>
+    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
+    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
+    <string name="synchronizations_view_empty_list">"No entries"</string>
+    <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
+    <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
+    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
 </resources>

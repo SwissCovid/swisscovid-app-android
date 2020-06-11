@@ -79,6 +79,7 @@ public class MainApplication extends Application {
 						mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 						startActivity(mainActivityIntent);
 					}
+					DP3T.clientOpened(MainApplication.this);
 				}
 			}
 
@@ -96,7 +97,8 @@ public class MainApplication extends Application {
 
 	public static void initDP3T(Context context) {
 		PublicKey signaturePublicKey = SignatureUtil.getPublicKeyFromBase64OrThrow(BuildConfig.BUCKET_PUBLIC_KEY);
-		DP3T.init(context, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL), signaturePublicKey);
+		DP3T.init(context, new ApplicationInfo("dp3t-app", BuildConfig.REPORT_URL, BuildConfig.BUCKET_URL), signaturePublicKey,
+				BuildConfig.DEV_HISTORY);
 
 		DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
 		DP3T.setUserAgent(context.getPackageName() + ";" + BuildConfig.VERSION_NAME + ";" + BuildConfig.BUILD_TIME + ";Android;" +
