@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+	<string name="debug_test_notification">Test Exposure Notification</string>
+	<string name="debug_devoptions_title">Developer Options</string>
+	<string name="debug_certpinning_enabled">Certificate Pinning enabled</string>
+
+</resources>

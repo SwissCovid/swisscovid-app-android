@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.debug;
 
 import androidx.fragment.app.Fragment;
@@ -15,14 +14,12 @@ import androidx.fragment.app.FragmentManager;
 
 public class DebugFragment extends Fragment {
 
+	/*
+	 * NO IMPLEMENTATION ON PROD.
+	 */
+
 	public static final boolean EXISTS = false;
 
-	public static void startDebugFragment(FragmentManager parentFragmentManager) {
-		/*
-		 *
-		 * NOT IMPLEMENTED ON PROD. ONLY MODIFY THIS FRAGMENT IN THE DEV FOLDER
-		 *
-		 * */
-	}
+	public static void startDebugFragment(FragmentManager parentFragmentManager) { }
 
 }

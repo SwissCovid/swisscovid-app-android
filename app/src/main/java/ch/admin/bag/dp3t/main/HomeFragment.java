@@ -31,6 +31,8 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.dpppt.android.sdk.TracingStatus;
 
 import ch.admin.bag.dp3t.BuildConfig;
@@ -205,9 +207,9 @@ public class HomeFragment extends Fragment {
 
 	private void setupTracingView() {
 		TypedValue outValue = new TypedValue();
-		getContext().getTheme().resolveAttribute(
+		requireContext().getTheme().resolveAttribute(
 				android.R.attr.selectableItemBackground, outValue, true);
-		tracingCard.setForeground(getContext().getDrawable(outValue.resourceId));
+		tracingCard.setForeground(requireContext().getDrawable(outValue.resourceId));
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			if (tracingStatusInterface.isReportedAsInfected()) {
@@ -342,17 +344,22 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupDebugButton() {
-		View debugButton = getView().findViewById(R.id.main_button_debug);
-		if (DebugFragment.EXISTS) {
-			debugButton.setVisibility(VISIBLE);
-			debugButton.setOnClickListener(v -> DebugFragment.startDebugFragment(getParentFragmentManager()));
-		} else {
-			debugButton.setVisibility(View.GONE);
-		}
+		if (!DebugFragment.EXISTS)
+			return;
+
+		AtomicLong lastClick = new AtomicLong(0);
+		requireView().findViewById(R.id.schwiizerchruez).setOnClickListener(v -> {
+			if (lastClick.get() > System.currentTimeMillis() - 1000L) {
+				lastClick.set(0);
+				DebugFragment.startDebugFragment(getParentFragmentManager());
+			} else {
+				lastClick.set(System.currentTimeMillis());
+			}
+		});
 	}
 
 	private void setupNonProductionHint() {
-		View nonProduction = getView().findViewById(R.id.non_production_message);
+		View nonProduction = requireView().findViewById(R.id.non_production_message);
 		if (BuildConfig.IS_FLAVOR_PROD) {
 			nonProduction.setVisibility(View.GONE);
 		} else {

@@ -20,6 +20,7 @@
 		android:layout_height="wrap_content">
 
 		<ImageView
+			android:id="@+id/schwiizerchruez"
 			android:layout_width="wrap_content"
 			android:layout_height="@dimen/icon_size_toolbar"
 			android:layout_gravity="left"
@@ -139,15 +140,6 @@
 					</LinearLayout>
 
 				</LinearLayout>
-
-				<Button
-					android:id="@+id/main_button_debug"
-					style="@style/NextStep.Button.Outlined.Red"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_gravity="center_horizontal"
-					android:layout_marginBottom="@dimen/spacing_larger"
-					android:text="@string/debug_settings_title" />
 
 			</LinearLayout>
 
