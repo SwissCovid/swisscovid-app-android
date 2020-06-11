@@ -36,7 +36,7 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder {
 				return R.string.synchronizations_view_sync_via_open;
 			case SYNC:
 				return R.string.synchronizations_view_sync_via_background;
-			case SCHEDULED_WORKER:
+			case WORKER_STARTED:
 				return R.string.synchronizations_view_sync_via_scheduled;
 			case FAKE_REQUEST:
 				return R.string.synchronizations_view_sync_via_fake_request;
