@@ -14,8 +14,6 @@ import android.content.Context;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
@@ -55,7 +53,7 @@ public class AssetUtil {
 					.append(", ")
 					.append(org.dpppt.android.sdk.BuildConfig.VERSION_NAME);
 			StringBuilder buildString =
-					new StringBuilder(SimpleDateFormat.getDateTimeInstance().format(new Date(BuildConfig.BUILD_TIME)))
+					new StringBuilder(String.valueOf(BuildConfig.BUILD_TIME))
 							.append(" / ")
 							.append(BuildConfig.FLAVOR);
 			impressum = impressum.replace(REPLACE_STRING_VERSION, versionString);
