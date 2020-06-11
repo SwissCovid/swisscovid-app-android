@@ -53,8 +53,6 @@ public class FakeWorker extends Worker {
 				.setInitialDelay(newDelayMillis, TimeUnit.MILLISECONDS)
 				.build();
 		WorkManager.getInstance(context).enqueueUniqueWork(WORK_TAG, policy, fakeWorker);
-
-		DP3T.fakeWorkerScheduled(context);
 	}
 
 	public FakeWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
@@ -65,6 +63,7 @@ public class FakeWorker extends Worker {
 	@Override
 	public ListenableWorker.Result doWork() {
 		Logger.d(TAG, "start");
+		DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake");
 		try {
 			executeFakeRequest(getApplicationContext());
 			startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND);

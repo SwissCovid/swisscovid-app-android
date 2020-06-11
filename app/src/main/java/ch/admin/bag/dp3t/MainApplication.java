@@ -79,7 +79,7 @@ public class MainApplication extends Application {
 						mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 						startActivity(mainActivityIntent);
 					}
-					DP3T.clientOpened(MainApplication.this);
+					DP3T.addClientOpenedToHistory(MainApplication.this);
 				}
 			}
 
