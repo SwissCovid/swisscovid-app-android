@@ -22,6 +22,11 @@ jobs:
       with:
           name: app
           path: app/build/outputs/apk/prod/release/app-prod-release.apk
+    - name: Upload Mapping File
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: mappingFile
+        path: app/build/outputs/mapping/prodRelease/mapping.txt
 
   sonar:
     name: "Sonar Analysis"
