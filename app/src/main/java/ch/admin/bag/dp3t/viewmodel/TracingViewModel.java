@@ -29,6 +29,7 @@ import java.util.Collections;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
 
+import ch.admin.bag.dp3t.MainApplication;
 import ch.admin.bag.dp3t.debug.TracingStatusWrapper;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
@@ -85,8 +86,11 @@ public class TracingViewModel extends AndroidViewModel {
 	}
 
 	public void resetSdk() {
-		if (tracingEnabledLiveData.getValue()) DP3T.stop(getApplication());
+		if (tracingEnabledLiveData.getValue()) {
+			DP3T.stop(getApplication());
+		}
 		DP3T.clearData(getApplication());
+		MainApplication.initDP3T(getApplication());
 	}
 
 	public void invalidateTracingStatus() {
