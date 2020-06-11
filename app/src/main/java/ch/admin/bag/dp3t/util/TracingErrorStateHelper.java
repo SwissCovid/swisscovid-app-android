@@ -42,6 +42,7 @@ public class TracingErrorStateHelper {
 			TracingStatus.ErrorState.SYNC_ERROR_DATABASE,
 			TracingStatus.ErrorState.SYNC_ERROR_SERVER,
 			TracingStatus.ErrorState.SYNC_ERROR_NETWORK,
+			TracingStatus.ErrorState.SYNC_ERROR_SSLTLS,
 			TracingStatus.ErrorState.SYNC_ERROR_SIGNATURE
 	);
 
@@ -62,6 +63,7 @@ public class TracingErrorStateHelper {
 				return R.string.bluetooth_setting_tracking_inactive;
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
+			case SYNC_ERROR_SSLTLS:
 			case SYNC_ERROR_SIGNATURE:
 			case SYNC_ERROR_API_EXCEPTION:
 				return R.string.homescreen_meldung_data_outdated_title;
@@ -92,6 +94,7 @@ public class TracingErrorStateHelper {
 			case GAEN_UNEXPECTEDLY_DISABLED:
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
+			case SYNC_ERROR_SSLTLS:
 			case SYNC_ERROR_DATABASE:
 			case SYNC_ERROR_SIGNATURE:
 			case SYNC_ERROR_API_EXCEPTION:
@@ -114,6 +117,7 @@ public class TracingErrorStateHelper {
 				return R.string.onboarding_gaen_button_activate;
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
+			case SYNC_ERROR_SSLTLS:
 			case SYNC_ERROR_DATABASE:
 			case SYNC_ERROR_SIGNATURE:
 				return R.string.homescreen_meldung_data_outdated_retry_button;
@@ -205,6 +209,8 @@ public class TracingErrorStateHelper {
 				return "RTSES";
 			case SYNC_ERROR_NETWORK:
 				return "RTSEN" + errorState.getErrorCode();
+			case SYNC_ERROR_SSLTLS:
+				return "RTSETLS";
 			case SYNC_ERROR_API_EXCEPTION:
 				return errorState.getErrorCode();
 			case SYNC_ERROR_SIGNATURE:
