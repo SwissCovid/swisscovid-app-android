@@ -27,7 +27,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.backend.BackendBucketRepository;
 import org.dpppt.android.sdk.internal.logger.LogLevel;
 import org.dpppt.android.sdk.internal.logger.Logger;
 import org.dpppt.android.sdk.models.ApplicationInfo;
@@ -49,12 +48,8 @@ public class MainApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 
-		if (BuildConfig.IS_FLAVOR_DEV) {
-			BackendBucketRepository.BATCH_LENGTH = 5 * 60 * 1000L;
-			Logger.init(getApplicationContext(), LogLevel.DEBUG);
-		} else {
-			Logger.init(getApplicationContext(), LogLevel.DEBUG);
-		}
+		// logging on production will be disabled for the final public release
+		Logger.init(getApplicationContext(), LogLevel.DEBUG);
 
 		if (DebugFragment.EXISTS) {
 			CertificatePinning.initDebug(this);
