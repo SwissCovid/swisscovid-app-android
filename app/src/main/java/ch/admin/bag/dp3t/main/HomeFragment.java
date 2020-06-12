@@ -360,7 +360,7 @@ public class HomeFragment extends Fragment {
 
 	private void setupNonProductionHint() {
 		View nonProduction = requireView().findViewById(R.id.non_production_message);
-		if (BuildConfig.IS_FLAVOR_PROD) {
+		if (BuildConfig.IS_FLAVOR_PROD || BuildConfig.IS_FLAVOR_ABNAHME) {
 			nonProduction.setVisibility(View.GONE);
 		} else {
 			nonProduction.setVisibility(VISIBLE);
