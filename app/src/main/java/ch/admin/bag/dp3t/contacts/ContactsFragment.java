@@ -119,7 +119,7 @@ public class ContactsFragment extends Fragment {
 
 	private void setupHistoryCard(View view) {
 		View historyCard = view.findViewById(R.id.contacts_card_history);
-		if (BuildConfig.IS_FLAVOR_PROD) {
+		if (BuildConfig.IS_FLAVOR_PROD || BuildConfig.IS_FLAVOR_ABNAHME) {
 			historyCard.setVisibility(View.GONE);
 			return;
 		}
