@@ -39,9 +39,9 @@ public class TracingErrorStateHelper {
 
 	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
 			TracingStatus.ErrorState.SYNC_ERROR_API_EXCEPTION,
-			TracingStatus.ErrorState.SYNC_ERROR_DATABASE,
 			TracingStatus.ErrorState.SYNC_ERROR_SERVER,
 			TracingStatus.ErrorState.SYNC_ERROR_NETWORK,
+			TracingStatus.ErrorState.SYNC_ERROR_SSLTLS,
 			TracingStatus.ErrorState.SYNC_ERROR_SIGNATURE
 	);
 
@@ -62,11 +62,10 @@ public class TracingErrorStateHelper {
 				return R.string.bluetooth_setting_tracking_inactive;
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
+			case SYNC_ERROR_SSLTLS:
 			case SYNC_ERROR_SIGNATURE:
 			case SYNC_ERROR_API_EXCEPTION:
 				return R.string.homescreen_meldung_data_outdated_title;
-			case SYNC_ERROR_DATABASE:
-				return R.string.unexpected_error_title;
 			case BLE_NOT_SUPPORTED:
 			default:
 				return R.string.begegnungen_restart_error_title;
@@ -92,7 +91,7 @@ public class TracingErrorStateHelper {
 			case GAEN_UNEXPECTEDLY_DISABLED:
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
-			case SYNC_ERROR_DATABASE:
+			case SYNC_ERROR_SSLTLS:
 			case SYNC_ERROR_SIGNATURE:
 			case SYNC_ERROR_API_EXCEPTION:
 			case BLE_NOT_SUPPORTED:
@@ -114,7 +113,7 @@ public class TracingErrorStateHelper {
 				return R.string.onboarding_gaen_button_activate;
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
-			case SYNC_ERROR_DATABASE:
+			case SYNC_ERROR_SSLTLS:
 			case SYNC_ERROR_SIGNATURE:
 				return R.string.homescreen_meldung_data_outdated_retry_button;
 			case GAEN_NOT_AVAILABLE:
@@ -205,12 +204,12 @@ public class TracingErrorStateHelper {
 				return "RTSES";
 			case SYNC_ERROR_NETWORK:
 				return "RTSEN" + errorState.getErrorCode();
+			case SYNC_ERROR_SSLTLS:
+				return "RTSETLS";
 			case SYNC_ERROR_API_EXCEPTION:
 				return errorState.getErrorCode();
 			case SYNC_ERROR_SIGNATURE:
 				return "RTSESI";
-			case SYNC_ERROR_DATABASE:
-				return "RTSEDB";
 			case SYNC_ERROR_TIMING:
 			case LOCATION_SERVICE_DISABLED:
 			case BLE_DISABLED:

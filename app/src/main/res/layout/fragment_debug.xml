@@ -48,6 +48,7 @@
 				android:src="@drawable/legacy_ill_privacy" />
 
 			<androidx.cardview.widget.CardView
+				android:id="@+id/debug_card_sdkstate"
 				style="@style/NextStep.Card"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -101,10 +102,13 @@
 			</androidx.cardview.widget.CardView>
 
 			<androidx.cardview.widget.CardView
+				android:id="@+id/debug_card_overridestate"
 				style="@style/NextStep.Card"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/spacing_medium_large">
+				android:layout_marginStart="@dimen/spacing_medium_large"
+				android:layout_marginTop="@dimen/spacing_medium_large"
+				android:layout_marginEnd="@dimen/spacing_medium_large">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -112,7 +116,7 @@
 					android:layout_marginLeft="@dimen/spacing_large"
 					android:layout_marginTop="@dimen/spacing_medium_large"
 					android:layout_marginRight="@dimen/spacing_large"
-					android:layout_marginBottom="@dimen/spacing_medium"
+					android:layout_marginBottom="@dimen/spacing_large"
 					android:orientation="vertical">
 
 					<TextView
@@ -162,6 +166,52 @@
 							android:text="@string/debug_state_setting_option_infected" />
 
 					</RadioGroup>
+
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginTop="@dimen/spacing_very_small"
+						android:layout_marginBottom="@dimen/spacing_medium"
+						android:background="@color/grey_light" />
+
+					<Button
+						android:id="@+id/debug_button_testmeldung"
+						style="@style/NextStep.Button"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:backgroundTint="@color/purple_main"
+						android:text="@string/debug_test_notification" />
+
+				</LinearLayout>
+
+			</androidx.cardview.widget.CardView>
+
+			<androidx.cardview.widget.CardView
+				style="@style/NextStep.Card"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="@dimen/spacing_medium_large">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="@dimen/spacing_large"
+					android:layout_marginTop="@dimen/spacing_medium_large"
+					android:layout_marginRight="@dimen/spacing_large"
+					android:layout_marginBottom="@dimen/spacing_large"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/NextStep.Text.Title"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/debug_devoptions_title" />
+
+					<CheckBox
+						android:id="@+id/debug_certificate_pinning"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/debug_certpinning_enabled" />
 
 				</LinearLayout>
 

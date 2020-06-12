@@ -31,6 +31,8 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.dpppt.android.sdk.TracingStatus;
 
 import ch.admin.bag.dp3t.BuildConfig;
@@ -101,7 +103,6 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
 		Toolbar toolbar = view.findViewById(R.id.home_toolbar);
 		toolbar.inflateMenu(R.menu.homescreen_menu);
 		toolbar.setOnMenuItemClickListener(item -> {
@@ -156,12 +157,10 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupHeader() {
-		tracingViewModel.getAppStatusLiveData()
-				.observe(getViewLifecycleOwner(), headerView::setState);
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), headerView::setState);
 	}
 
 	private void setupInfobox() {
-
 		secureStorage.getInfoBoxLiveData().observe(getViewLifecycleOwner(), hasInfobox -> {
 			hasInfobox = hasInfobox && secureStorage.getHasInfobox();
 
@@ -207,11 +206,10 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupTracingView() {
-
 		TypedValue outValue = new TypedValue();
-		getContext().getTheme().resolveAttribute(
+		requireContext().getTheme().resolveAttribute(
 				android.R.attr.selectableItemBackground, outValue, true);
-		tracingCard.setForeground(getContext().getDrawable(outValue.resourceId));
+		tracingCard.setForeground(requireContext().getDrawable(outValue.resourceId));
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			if (tracingStatusInterface.isReportedAsInfected()) {
@@ -236,7 +234,6 @@ public class HomeFragment extends Fragment {
 				.addToBackStack(ContactsFragment.class.getCanonicalName())
 				.commit();
 	}
-
 
 	private void setupNotification() {
 		cardNotifications.setOnClickListener(
@@ -301,7 +298,6 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void openChannelSettings(String channelId) {
-
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			Intent intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
 			intent.putExtra(Settings.EXTRA_APP_PACKAGE, requireActivity().getPackageName());
@@ -333,7 +329,6 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupWhatToDo() {
-
 		cardSymptoms.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
@@ -349,18 +344,23 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupDebugButton() {
-		View debugButton = getView().findViewById(R.id.main_button_debug);
-		if (BuildConfig.IS_DEV) {
-			debugButton.setVisibility(VISIBLE);
-			debugButton.setOnClickListener(v -> DebugFragment.startDebugFragment(getParentFragmentManager()));
-		} else {
-			debugButton.setVisibility(View.GONE);
-		}
+		if (!DebugFragment.EXISTS)
+			return;
+
+		AtomicLong lastClick = new AtomicLong(0);
+		requireView().findViewById(R.id.schwiizerchruez).setOnClickListener(v -> {
+			if (lastClick.get() > System.currentTimeMillis() - 1000L) {
+				lastClick.set(0);
+				DebugFragment.startDebugFragment(getParentFragmentManager());
+			} else {
+				lastClick.set(System.currentTimeMillis());
+			}
+		});
 	}
 
 	private void setupNonProductionHint() {
-		View nonProduction = getView().findViewById(R.id.non_production_message);
-		if (BuildConfig.FLAVOR.equals("prod")) {
+		View nonProduction = requireView().findViewById(R.id.non_production_message);
+		if (BuildConfig.IS_FLAVOR_PROD || BuildConfig.IS_FLAVOR_ABNAHME) {
 			nonProduction.setVisibility(View.GONE);
 		} else {
 			nonProduction.setVisibility(VISIBLE);
@@ -368,7 +368,6 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupScrollBehavior() {
-
 		int scrollRangePx = getResources().getDimensionPixelSize(R.dimen.top_item_padding);
 		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
 		scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {

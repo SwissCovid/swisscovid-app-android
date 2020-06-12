@@ -25,10 +25,13 @@ import androidx.lifecycle.MutableLiveData;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.internal.history.HistoryEntry;
 
+import ch.admin.bag.dp3t.MainApplication;
 import ch.admin.bag.dp3t.debug.TracingStatusWrapper;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
@@ -40,6 +43,7 @@ public class TracingViewModel extends AndroidViewModel {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			invalidateTracingStatus();
+			loadHistoryEntries();
 		}
 	};
 
@@ -61,6 +65,8 @@ public class TracingViewModel extends AndroidViewModel {
 			}
 		}
 	};
+
+	private final MutableLiveData<List<HistoryEntry>> historyMutableLiveData = new MutableLiveData<>();
 
 	public TracingViewModel(@NonNull Application application) {
 		super(application);
@@ -85,8 +91,11 @@ public class TracingViewModel extends AndroidViewModel {
 	}
 
 	public void resetSdk() {
-		if (tracingEnabledLiveData.getValue()) DP3T.stop(getApplication());
+		if (tracingEnabledLiveData.getValue()) {
+			DP3T.stop(getApplication());
+		}
 		DP3T.clearData(getApplication());
+		MainApplication.initDP3T(getApplication());
 	}
 
 	public void invalidateTracingStatus() {
@@ -152,6 +161,17 @@ public class TracingViewModel extends AndroidViewModel {
 	protected void onCleared() {
 		getApplication().unregisterReceiver(tracingStatusBroadcastReceiver);
 		getApplication().unregisterReceiver(bluetoothReceiver);
+	}
+
+	public void loadHistoryEntries() {
+		new Thread(() -> {
+			List<HistoryEntry> historyEntries = DP3T.getHistoryEntries(getApplication());
+			historyMutableLiveData.postValue(historyEntries);
+		}).start();
+	}
+
+	public LiveData<List<HistoryEntry>> getHistoryLiveDate() {
+		return historyMutableLiveData;
 	}
 
 }

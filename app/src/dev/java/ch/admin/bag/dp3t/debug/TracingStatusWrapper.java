@@ -14,36 +14,24 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.TimeZone;
 
 import org.dpppt.android.sdk.DP3T;
-import org.dpppt.android.sdk.InfectionStatus;
-import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
+import ch.admin.bag.dp3t.main.model.DefaultTracingStatusWrapper;
 import ch.admin.bag.dp3t.main.model.NotificationState;
-import ch.admin.bag.dp3t.main.model.TracingState;
-import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.DateUtils;
-import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 
-public class TracingStatusWrapper implements TracingStatusInterface {
+public class TracingStatusWrapper extends DefaultTracingStatusWrapper {
 
 	private DebugAppState debugAppState = DebugAppState.NONE;
-	private TracingStatus status;
-
-	@Override
-	public void setStatus(TracingStatus status) {
-		this.status = status;
-	}
 
 	@Override
 	public boolean isReportedAsInfected() {
 		if (debugAppState == DebugAppState.NONE) {
-			return status.getInfectionStatus() == InfectionStatus.INFECTED;
+			return super.isReportedAsInfected();
 		} else {
 			return debugAppState == DebugAppState.REPORTED_EXPOSED;
 		}
@@ -59,14 +47,15 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			calendar.add(Calendar.DAY_OF_YEAR, 1);
 			matches.add(new ExposureDay(1, new DayDate(calendar.getTimeInMillis()), System.currentTimeMillis()));
 			return matches;
+		} else {
+			return super.getExposureDays();
 		}
-		return status.getExposureDays();
 	}
 
 	@Override
 	public boolean wasContactReportedAsExposed() {
 		if (debugAppState == DebugAppState.NONE) {
-			return status.getInfectionStatus() == InfectionStatus.EXPOSED;
+			return super.wasContactReportedAsExposed();
 		} else {
 			return debugAppState == DebugAppState.CONTACT_EXPOSED;
 		}
@@ -79,7 +68,7 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 			secureStorage.setReportsHeaderAnimationPending(true);
 		} else if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
 			DP3T.stop(context);
-			status = DP3T.getStatus(context);
+			setStatus(DP3T.getStatus(context));
 			secureStorage.setReportsHeaderAnimationPending(false);
 		} else {
 			secureStorage.setReportsHeaderAnimationPending(false);
@@ -91,39 +80,11 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 	}
 
 	@Override
-	public TracingState getTracingState() {
-		return status.isTracingEnabled() ? TracingState.ACTIVE : TracingState.NOT_ACTIVE;
-	}
-
-	@Override
-	public TracingStatus.ErrorState getTracingErrorState() {
-		boolean hasError = status.getErrors().size() > 0;
-		if (hasError) {
-			return TracingErrorStateHelper.getErrorState(status.getErrors());
-		}
-		return null;
-	}
-
-	@Override
-	public TracingStatus.ErrorState getReportErrorState() {
-		return TracingErrorStateHelper.getErrorStateForReports(status.getErrors());
-	}
-
-	@Override
-	public long getDaysSinceExposure() {
-		if (getExposureDays().size() > 0) {
-			long time = getExposureDays().get(getExposureDays().size() - 1).getExposedDate().getStartOfDay(TimeZone.getDefault());
-			return DateUtils.getDaysDiff(time);
-		}
-		return -1;
-	}
-
-	@Override
 	public void resetInfectionStatus(Context context) {
 		if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
 			debugAppState = DebugAppState.HEALTHY;
 		} else {
-			DP3T.resetInfectionStatus(context);
+			super.resetInfectionStatus(context);
 		}
 	}
 
@@ -132,27 +93,21 @@ public class TracingStatusWrapper implements TracingStatusInterface {
 		if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
 			return true;
 		} else {
-			return DP3T.getIAmInfectedIsResettable(context);
+			return super.canInfectedStatusBeReset(context);
 		}
 	}
 
 	@Override
 	public void resetExposureDays(Context context) {
 		debugAppState = DebugAppState.NONE;
-		DP3T.resetExposureDays(context);
+		super.resetExposureDays(context);
 	}
 
 	@Override
 	public NotificationState getNotificationState() {
 		switch (debugAppState) {
 			case NONE:
-				if (isReportedAsInfected()) {
-					return NotificationState.POSITIVE_TESTED;
-				} else if (wasContactReportedAsExposed()) {
-					return NotificationState.EXPOSED;
-				} else {
-					return NotificationState.NO_REPORTS;
-				}
+				return super.getNotificationState();
 			case HEALTHY:
 				return NotificationState.NO_REPORTS;
 			case REPORTED_EXPOSED:

@@ -9,16 +9,10 @@
  */
 package ch.admin.bag.dp3t.debug;
 
-import android.app.AlertDialog;
 import android.content.res.ColorStateList;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -28,21 +22,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
-
-import org.dpppt.android.sdk.InfectionStatus;
-import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.internal.ExposureDayStorage;
+import org.dpppt.android.sdk.models.DayDate;
+import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
+import ch.admin.bag.dp3t.networking.CertificatePinning;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class DebugFragment extends Fragment {
 
-	private static final DateFormat DATE_FORMAT_SYNC = SimpleDateFormat.getDateTimeInstance();
+	public static final boolean EXISTS = true;
+
 	private TracingViewModel tracingViewModel;
 
 	public static void startDebugFragment(FragmentManager parentFragmentManager) {
@@ -79,7 +72,7 @@ public class DebugFragment extends Fragment {
 	private void setupSdkViews(View view) {
 		TextView statusText = view.findViewById(R.id.debug_sdk_state_text);
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
-			statusText.setText(formatStatusString(status));
+			statusText.setText(DebugUtils.formatStatusString(status, view.getContext()));
 			boolean isTracing = (status.isTracingEnabled()) && status.getErrors().size() == 0;
 			statusText.setBackgroundTintList(ColorStateList.valueOf(
 					isTracing ? getResources().getColor(R.color.status_green_bg, null)
@@ -87,13 +80,18 @@ public class DebugFragment extends Fragment {
 		});
 
 		view.findViewById(R.id.debug_button_reset).setOnClickListener(v -> {
-			AlertDialog progressDialog = new AlertDialog.Builder(getContext())
-					.setView(R.layout.dialog_loading)
-					.show();
-
 			setDebugAppState(DebugAppState.NONE);
 			tracingViewModel.resetSdk();
 			updateRadioGroup(getView().findViewById(R.id.debug_state_options_group));
+
+			requireActivity().recreate();
+		});
+
+		CheckBox certPinningCheckbox = view.findViewById(R.id.debug_certificate_pinning);
+		certPinningCheckbox.setChecked(CertificatePinning.isEnabled());
+		certPinningCheckbox.setOnCheckedChangeListener((v, isChecked) -> {
+			CertificatePinning.setEnabled(isChecked, v.getContext());
+			DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
 		});
 	}
 
@@ -117,6 +115,20 @@ public class DebugFragment extends Fragment {
 		});
 
 		updateRadioGroup(optionsGroup);
+
+		view.findViewById(R.id.debug_button_testmeldung).setOnClickListener(v -> {
+			exposeMyself();
+			getActivity().finish();
+		});
+	}
+
+	private void exposeMyself() {
+		ExposureDayStorage eds = ExposureDayStorage.getInstance(requireContext());
+		eds.clear();
+
+		DayDate dayOfExposure = new DayDate();
+		ExposureDay exposureDay = new ExposureDay(-1, dayOfExposure, System.currentTimeMillis());
+		eds.addExposureDay(requireContext(), exposureDay);
 	}
 
 	private void updateRadioGroup(RadioGroup optionsGroup) {
@@ -136,40 +148,6 @@ public class DebugFragment extends Fragment {
 				break;
 		}
 		optionsGroup.check(preSetId);
-	}
-
-	private SpannableString formatStatusString(TracingStatus status) {
-		SpannableStringBuilder builder = new SpannableStringBuilder();
-		boolean isTracing = (status.isTracingEnabled()) && status.getErrors().size() == 0;
-		builder.append(getString(isTracing ? R.string.tracing_active_title : R.string.android_tracing_error_title)).append("\n")
-				.setSpan(new StyleSpan(Typeface.BOLD), 0, builder.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-
-		long lastSyncDateUTC = status.getLastSyncDate();
-		String lastSyncDateString =
-				lastSyncDateUTC > 0 ? DATE_FORMAT_SYNC.format(new Date(lastSyncDateUTC)) : "n/a";
-		builder.append(getString(R.string.debug_sdk_state_last_synced))
-				.append(lastSyncDateString).append("\n")
-				.append(getString(R.string.debug_sdk_state_self_exposed))
-				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.INFECTED)).append("\n")
-				.append(getString(R.string.debug_sdk_state_contact_exposed))
-				.append(getBooleanDebugString(status.getInfectionStatus() == InfectionStatus.EXPOSED));
-
-		Collection<TracingStatus.ErrorState> errors = status.getErrors();
-		if (errors != null && errors.size() > 0) {
-			int start = builder.length();
-			builder.append("\n");
-			for (TracingStatus.ErrorState error : errors) {
-				builder.append("\n").append(error.toString());
-			}
-			builder.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.red_main, null)),
-					start, builder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-		}
-
-		return new SpannableString(builder);
-	}
-
-	private String getBooleanDebugString(boolean value) {
-		return getString(value ? R.string.debug_sdk_state_boolean_true : R.string.debug_sdk_state_boolean_false);
 	}
 
 	public DebugAppState getDebugAppState() {

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/item_history_content_group"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	android:paddingStart="@dimen/spacing_very_large"
+	android:paddingTop="@dimen/spacing_tiny_small"
+	android:paddingEnd="@dimen/spacing_very_large"
+	android:paddingBottom="@dimen/spacing_tiny_small">
+
+	<TextView
+		android:id="@+id/item_history_label"
+		style="@style/NextStep.Text"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		tools:text="@string/synchronizations_view_sync_via_background" />
+
+	<TextView
+		android:id="@+id/item_history_date"
+		style="@style/NextStep.Text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="end"
+		tools:text="09.06.2020 14:33:24" />
+
+</LinearLayout>

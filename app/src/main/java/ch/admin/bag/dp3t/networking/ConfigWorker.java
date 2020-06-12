@@ -71,6 +71,7 @@ public class ConfigWorker extends Worker {
 	@Override
 	public Result doWork() {
 		Logger.d(TAG, "started");
+		DP3T.addWorkerStartedToHistory(getApplicationContext(), "config");
 		try {
 			loadConfig();
 		} catch (IOException | ResponseError | SignatureException e) {

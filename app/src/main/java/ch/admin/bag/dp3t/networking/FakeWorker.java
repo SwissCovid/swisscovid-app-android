@@ -63,6 +63,7 @@ public class FakeWorker extends Worker {
 	@Override
 	public ListenableWorker.Result doWork() {
 		Logger.d(TAG, "start");
+		DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake");
 		try {
 			executeFakeRequest(getApplicationContext());
 			startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND);
@@ -81,7 +82,11 @@ public class FakeWorker extends Worker {
 				authCodeRepository.getAccessTokenSync(new AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1));
 		String accessToken = accessTokenResponse.getAccessToken();
 
-		DP3T.sendFakeInfectedRequest(context, new ExposeeAuthMethodAuthorization(accessToken));
+		DP3T.sendFakeInfectedRequest(context, new ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)));
+	}
+
+	private String getAuthorizationHeader(String accessToken) {
+		return "Bearer " + accessToken;
 	}
 
 }

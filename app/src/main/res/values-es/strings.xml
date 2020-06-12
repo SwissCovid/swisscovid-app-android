@@ -295,7 +295,7 @@ De esta forma, está ayudando a contener la propagación del nuevo coronavirus."
     <string name="meldungen_detail_call">"Llámenos"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Infoline coronavirus (24 horas del día)"</string>
+    <string name="meldungen_detail_call_text">"Infoline coronavirus"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Llame ahora"</string>
@@ -595,7 +595,9 @@ Infoline coronavirus
     <string name="meldungen_meldungen_faq1_title">"¿Debo llamar por teléfono?"</string>
 
     <!-- Meldungen: Meldungen FAQ Text -->
-    <string name="meldungen_meldungen_faq1_text">"Se recomienda llamar por teléfono después de cada notificación. Su anonimato está garantizado. No se registran datos personales."</string>
+    <string name="meldungen_meldungen_faq1_text">"Se recomienda llamar por teléfono después de cada notificación. 
+
+Su anonimato está garantizado. No se registran datos personales."</string>
 
     <!-- Meldungen Detail: Anruf Titel -->
     <string name="meldungen_detail_call_thankyou_title">"Gracias por su colaboración."</string>
@@ -807,4 +809,16 @@ If no update is currently available on your device, please try again later."</st
 
     <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
     <string name="onboarding_legal_blocker_message">"You are not part of an organization participating in the pilot phase. Please install the appropriate update after the official launch of the app and open the app again."</string>
+    <string name="begegnung_detail_last_sync_title">"Latest successful synchronisation"</string>
+    <string name="synchronizations_view_title">"Overview"</string>
+    <string name="synchronizations_view_info_title">"Synchronizations"</string>
+    <string name="synchronizations_view_info_question">"What are synchronizations?"</string>
+    <string name="synchronizations_view_info_answer">"The app regularly checks the published keys from users that were tested positive."</string>
+    <string name="synchronizations_view_period_title">"During the last 14 days"</string>
+    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
+    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
+    <string name="synchronizations_view_empty_list">"No entries"</string>
+    <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
+    <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
+    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
 </resources>

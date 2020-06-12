@@ -40,17 +40,25 @@ android {
 		applicationId "ch.admin.bag.dp3t"
 		minSdkVersion 23
 		targetSdkVersion 29
-		versionCode 10020
-		versionName "1.0.2-pilot"
+		versionCode 10030
+		versionName "1.0.3-pilot"
 		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr"
 
 		buildConfigField "long", "BUILD_TIME", readPropertyWithDefault('buildTimestamp', System.currentTimeMillis()) + 'L'
 	}
 
 	flavorDimensions "version"
+
+	productFlavors.whenObjectAdded { flavor ->
+		// generate BuildConfig.IS_FLAVOR_### flags
+		String flavorFieldName = "IS_FLAVOR_" + flavor.name.replaceAll("[^a-zA-Z0-9_]", "_").toUpperCase()
+		defaultConfig.buildConfigField "boolean", flavorFieldName, "false"
+		flavor.buildConfigField "boolean", flavorFieldName, "true"
+	}
+
 	productFlavors {
 		dev {
-			buildConfigField 'boolean', 'IS_DEV', 'true'
+			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-d.bag.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-d.bfs.admin.ch/"'
@@ -59,7 +67,7 @@ android {
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.dev.BUCKET_PUBLIC_KEY}\""
 		}
 		tescht {
-			buildConfigField 'boolean', 'IS_DEV', 'false'
+			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-t.bag.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-t.bfs.admin.ch/"'
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-t.bfs.admin.ch/"'
@@ -68,7 +76,7 @@ android {
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.test.BUCKET_PUBLIC_KEY}\""
 		}
 		abnahme {
-			buildConfigField 'boolean', 'IS_DEV', 'false'
+			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-a.bag.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-a.bfs.admin.ch/"'
@@ -77,22 +85,13 @@ android {
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.abnahme.BUCKET_PUBLIC_KEY}\""
 		}
 		prod {
-			buildConfigField 'boolean', 'IS_DEV', 'false'
+			buildConfigField 'boolean', 'DEV_HISTORY', 'false'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service.bag.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
-		}
-	}
-
-	sourceSets {
-		tescht {
-			java.srcDirs += 'src/prod/java'
-		}
-		abnahme {
-			java.srcDirs += 'src/prod/java'
 		}
 	}
 
@@ -104,6 +103,7 @@ android {
 			keyPassword readProperty('keyAliasPassword')
 		}
 	}
+
 	buildTypes {
 		release {
 			shrinkResources true
@@ -132,7 +132,7 @@ sonarqube {
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
-	def dp3t_sdk_version = '0.5.2'
+	def dp3t_sdk_version = '0.5.6'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
 	teschtImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"

@@ -1,0 +1,12 @@
+name: 'GradleDocker'
+description: 'Run gradle inside Docker image'
+inputs:
+  gradle-cmd:  # id of input
+    description: 'gradleCmd to run'
+    required: true
+runs:
+  using: 'docker'
+  image: '../../../Dockerfile'
+  entrypoint: '.github/actions/gradle_docker/main.sh'
+  args:
+    - ${{ inputs.gradle-cmd }}

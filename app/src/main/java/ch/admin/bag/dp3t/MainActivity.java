@@ -30,8 +30,8 @@ import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class MainActivity extends FragmentActivity {
 
-	public static final String ACTION_GOTO_REPORTS = "ACTION_GOTO_REPORTS";
-	public static final String ACTION_INFORMED_STOP_TRACING = "ACTION_INFORMED_STOP_TRACING";
+	public static final String ACTION_EXPOSED_GOTO_REPORTS = "ACTION_EXPOSED_GOTO_REPORTS";
+	public static final String ACTION_INFORMED_GOTO_REPORTS = "ACTION_INFORMED_GOTO_REPORTS";
 
 	private static final int REQ_ONBOARDING = 123;
 
@@ -39,7 +39,6 @@ public class MainActivity extends FragmentActivity {
 	private boolean consumedExposedIntent;
 
 	private SecureStorage secureStorage;
-
 	private TracingViewModel tracingViewModel;
 
 	private AlertDialog forceUpdateDialog;
@@ -91,17 +90,17 @@ public class MainActivity extends FragmentActivity {
 
 		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
 		tracingViewModel.sync();
+
+		checkRedirectionIntents();
 	}
 
-	@Override
-	public void onResume() {
-		super.onResume();
-
+	public void checkRedirectionIntents() {
 		checkIntentForActions();
 
 		if (!consumedExposedIntent) {
 			boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
-			if (isHotlineCallPending) {
+			boolean isExposed = tracingViewModel.getTracingStatusInterface().wasContactReportedAsExposed();
+			if (isHotlineCallPending && isExposed) {
 				gotoReportsFragment();
 			}
 		}
@@ -117,15 +116,19 @@ public class MainActivity extends FragmentActivity {
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
-		if (ACTION_INFORMED_STOP_TRACING.equals(intentAction) && !launchedFromHistory) {
+		if (ACTION_INFORMED_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory) {
+			secureStorage.setHotlineCallPending(false);
+			secureStorage.setReportsHeaderAnimationPending(false);
 			gotoReportsFragment();
 			intent.setAction(null);
 			setIntent(intent);
-		} else if (ACTION_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory && !consumedExposedIntent) {
+		} else if (ACTION_EXPOSED_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory && !consumedExposedIntent) {
 			consumedExposedIntent = true;
-			gotoReportsFragment();
 			intent.setAction(null);
 			setIntent(intent);
+			if (tracingViewModel.getTracingStatusInterface().wasContactReportedAsExposed()) {
+				gotoReportsFragment();
+			}
 		}
 	}
 
