@@ -78,8 +78,8 @@ public class DebugFragment extends Fragment {
 
 		CheckBox certPinningCheckbox = view.findViewById(R.id.debug_certificate_pinning);
 		certPinningCheckbox.setChecked(CertificatePinning.isEnabled());
-		certPinningCheckbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-			CertificatePinning.setEnabled(isChecked);
+		certPinningCheckbox.setOnCheckedChangeListener((v, isChecked) -> {
+			CertificatePinning.setEnabled(isChecked, v.getContext());
 			DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
 		});
 	}

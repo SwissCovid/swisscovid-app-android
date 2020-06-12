@@ -34,6 +34,7 @@ import org.dpppt.android.sdk.models.ApplicationInfo;
 import org.dpppt.android.sdk.models.ExposureDay;
 import org.dpppt.android.sdk.util.SignatureUtil;
 
+import ch.admin.bag.dp3t.debug.DebugFragment;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
 import ch.admin.bag.dp3t.networking.FakeWorker;
 import ch.admin.bag.dp3t.storage.SecureStorage;
@@ -53,6 +54,10 @@ public class MainApplication extends Application {
 			Logger.init(getApplicationContext(), LogLevel.DEBUG);
 		} else {
 			Logger.init(getApplicationContext(), LogLevel.DEBUG);
+		}
+
+		if (DebugFragment.EXISTS) {
+			CertificatePinning.initDebug(this);
 		}
 
 		registerReceiver(contactUpdateReceiver, DP3T.getUpdateIntentFilter());

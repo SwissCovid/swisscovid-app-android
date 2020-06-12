@@ -14,10 +14,9 @@ import androidx.fragment.app.FragmentManager;
 
 public class DebugFragment extends Fragment {
 
-	/*
-	 * NO IMPLEMENTATION ON PROD.
+	/**
+	 * DOES NOT (AND MUST NOT) EXIST ON PROD.
 	 */
-
 	public static final boolean EXISTS = false;
 
 	public static void startDebugFragment(FragmentManager parentFragmentManager) { }

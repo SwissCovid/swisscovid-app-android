@@ -9,6 +9,9 @@
  */
 package ch.admin.bag.dp3t.networking;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import okhttp3.CertificatePinner;
 
 public class CertificatePinning {
@@ -30,6 +33,9 @@ public class CertificatePinning {
 
 	private static final CertificatePinner CERTIFICATE_PINNER_DISABLED = new CertificatePinner.Builder().build();
 
+	private static final String PREF_NAME_DEBUG = "debug";
+	private static final String PREF_KEY_CERT_PINNING_ENABLED = "certificate_pinning_enabled";
+
 	private static boolean isEnabled = true;
 
 	public static CertificatePinner getCertificatePinner() {
@@ -40,8 +46,17 @@ public class CertificatePinning {
 		return isEnabled;
 	}
 
-	public static void setEnabled(boolean enabled) {
+	public static void setEnabled(boolean enabled, Context context) {
 		isEnabled = enabled;
+		getDebugPrefs(context).edit().putBoolean(PREF_KEY_CERT_PINNING_ENABLED, enabled).apply();
+	}
+
+	public static void initDebug(Context context) {
+		isEnabled = getDebugPrefs(context).getBoolean(PREF_KEY_CERT_PINNING_ENABLED, isEnabled);
+	}
+
+	private static SharedPreferences getDebugPrefs(Context context) {
+		return context.getSharedPreferences(PREF_NAME_DEBUG, Context.MODE_PRIVATE);
 	}
 
 }
