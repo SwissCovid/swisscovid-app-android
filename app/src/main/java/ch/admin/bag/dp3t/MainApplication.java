@@ -48,7 +48,8 @@ public class MainApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 
-		Logger.init(getApplicationContext(), BuildConfig.IS_FLAVOR_DEV ? LogLevel.DEBUG : LogLevel.DEBUG);
+		// logging on production will be disabled for the final public release
+		Logger.init(getApplicationContext(), LogLevel.DEBUG);
 
 		if (DebugFragment.EXISTS) {
 			CertificatePinning.initDebug(this);
