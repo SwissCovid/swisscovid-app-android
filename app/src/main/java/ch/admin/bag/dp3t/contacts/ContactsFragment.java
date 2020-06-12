@@ -28,6 +28,7 @@ import org.dpppt.android.sdk.internal.history.HistoryEntry;
 import org.dpppt.android.sdk.internal.history.HistoryEntryType;
 import org.dpppt.android.sdk.internal.logger.Logger;
 
+import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.TracingBoxFragment;
 import ch.admin.bag.dp3t.main.views.HeaderView;
@@ -117,7 +118,13 @@ public class ContactsFragment extends Fragment {
 	}
 
 	private void setupHistoryCard(View view) {
-		view.findViewById(R.id.contacts_card_history).setOnClickListener(v -> {
+		View historyCard = view.findViewById(R.id.contacts_card_history);
+		if (BuildConfig.IS_FLAVOR_PROD) {
+			historyCard.setVisibility(View.GONE);
+			return;
+		}
+
+		historyCard.setOnClickListener(v -> {
 			getParentFragmentManager().beginTransaction()
 					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 					.replace(R.id.main_fragment_container, HistoryFragment.newInstance())
@@ -132,8 +139,7 @@ public class ContactsFragment extends Fragment {
 			if (historyEntries != null) {
 				Long timeSync = null;
 				for (HistoryEntry entry : historyEntries) {
-					if (entry.getType() == HistoryEntryType.SYNC && entry.isSuccessful())
-					{
+					if (entry.getType() == HistoryEntryType.SYNC && entry.isSuccessful()) {
 						timeSync = entry.getTime();
 						lastSyncDate.setText(DateUtils.getFormattedDateTime(timeSync));
 						break;
@@ -146,7 +152,6 @@ public class ContactsFragment extends Fragment {
 						.withEndAction(() -> historyCardLoadingView.setVisibility(View.GONE))
 						.start();
 			}
-
 		});
 		tracingViewModel.loadHistoryEntries();
 	}
