@@ -36,6 +36,7 @@ import ch.admin.bag.dp3t.MainApplication;
 import ch.admin.bag.dp3t.debug.TracingStatusWrapper;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.reports.PreCallInformation;
+import ch.admin.bag.dp3t.reports.VerificationCode;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
@@ -43,22 +44,12 @@ import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 public class TracingViewModel extends AndroidViewModel {
 
 	private final MutableLiveData<TracingStatus> tracingStatusLiveData = new MutableLiveData<>();
-	private BroadcastReceiver tracingStatusBroadcastReceiver = new BroadcastReceiver() {
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			invalidateTracingStatus();
-			loadHistoryEntries();
-		}
-	};
-
 	private final MutableLiveData<Boolean> tracingEnabledLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Pair<Boolean, Boolean>> exposedLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Collection<TracingStatus.ErrorState>> errorsLiveData =
 			new MutableLiveData<>(Collections.emptyList());
 	private final MutableLiveData<TracingStatusInterface> appStatusLiveData = new MutableLiveData<>();
-
 	private TracingStatusInterface tracingStatusInterface = new TracingStatusWrapper();
-
 	private final MutableLiveData<Boolean> bluetoothEnabledLiveData = new MutableLiveData<>();
 	private BroadcastReceiver bluetoothReceiver = new BroadcastReceiver() {
 		@Override
@@ -69,8 +60,14 @@ public class TracingViewModel extends AndroidViewModel {
 			}
 		}
 	};
-
 	private final MutableLiveData<List<HistoryEntry>> historyMutableLiveData = new MutableLiveData<>();
+	private BroadcastReceiver tracingStatusBroadcastReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			invalidateTracingStatus();
+			loadHistoryEntries();
+		}
+	};
 
 	public TracingViewModel(@NonNull Application application) {
 		super(application);
@@ -189,11 +186,16 @@ public class TracingViewModel extends AndroidViewModel {
 		if (newestExposure == null) return null;
 		String date = DateUtils.getFormattedDate(newestExposure.getExposedDate().getStartOfDayTimestamp());
 
-		// TODO PRE_CALL_CODE: generate code for hotline call
-		// may be null if ConfigWorker never has run successfully until now
+		// TODO make sure that tweak is really loaded
 		String tweak = SecureStorage.getInstance(getApplication()).getExposureCodeTweak();
+		String code = null;
+		try {
+			code = VerificationCode.generateCode(newestExposure.getExposedDate(), tweak);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-		return new PreCallInformation(date, "123456");
+		return new PreCallInformation(date, code);
 	}
 
 }

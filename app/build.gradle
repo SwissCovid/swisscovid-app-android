@@ -45,6 +45,9 @@ android {
 		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr"
 
 		buildConfigField "long", "BUILD_TIME", readPropertyWithDefault('buildTimestamp', System.currentTimeMillis()) + 'L'
+
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+		testInstrumentationRunnerArguments clearPackageData: 'true'
 	}
 
 	flavorDimensions "version"
@@ -155,4 +158,10 @@ dependencies {
 
 	implementation 'com.squareup.retrofit2:retrofit:2.8.1'
 	implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+
+	androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+	androidTestImplementation 'androidx.test:runner:1.2.0'
+	androidTestImplementation 'androidx.test:core:1.2.0'
+	androidTestImplementation 'androidx.test:rules:1.2.0'
+	androidTestImplementation 'androidx.work:work-testing:2.3.4'
 }
