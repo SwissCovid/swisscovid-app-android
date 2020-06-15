@@ -13,11 +13,12 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
-import ch.admin.bag.dp3t.main.model.TracingState;
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.main.model.TracingState;
 
 public class TracingStatusHelper {
 
@@ -36,6 +37,7 @@ public class TracingStatusHelper {
 		TextView titleView = statusView.findViewById(R.id.status_title);
 		TextView textView = statusView.findViewById(R.id.status_text);
 		ImageView illustrationView = statusView.findViewById(R.id.status_illustration);
+		LinearLayout backgroundTracingInfo = statusView.findViewById(R.id.status_tracing_background_info);
 		int color = ContextCompat.getColor(context, TracingState.getTextColor(state));
 		if (color != -1) {
 			titleView.setTextColor(color);
@@ -64,6 +66,11 @@ public class TracingStatusHelper {
 			illustrationView.setVisibility(View.VISIBLE);
 		} else {
 			illustrationView.setVisibility(View.GONE);
+		}
+		if (state.equals(TracingState.ACTIVE)) {
+			backgroundTracingInfo.setVisibility(View.VISIBLE);
+		} else {
+			backgroundTracingInfo.setVisibility(View.GONE);
 		}
 	}
 
