@@ -9,9 +9,9 @@
  */
 package ch.admin.bag.dp3t.onboarding;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
@@ -41,13 +41,25 @@ public class OnboardingActivity extends FragmentActivity {
 		pagerAdapter = new OnboardingSlidePageAdapter(this);
 		viewPager.setAdapter(pagerAdapter);
 
-		splashboarding.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				splashboarding.setVisibility(View.GONE);
-				viewPager.setVisibility(View.VISIBLE);
-			}
-		}, SHOW_SPLASHBOARDING_MILLIS);
+		splashboarding
+				.postDelayed(() -> {
+					splashboarding.setAlpha(1);
+					splashboarding.animate().alpha(0).setDuration(200).withLayer().setListener(new Animator.AnimatorListener() {
+						@Override
+						public void onAnimationStart(Animator animator) {}
+
+						@Override
+						public void onAnimationEnd(Animator animator) {
+							splashboarding.setVisibility(View.GONE);
+						}
+
+						@Override
+						public void onAnimationCancel(Animator animator) {}
+
+						@Override
+						public void onAnimationRepeat(Animator animator) {}
+					}).start();
+				}, SHOW_SPLASHBOARDING_MILLIS);
 	}
 
 	public void continueToNextPage() {
