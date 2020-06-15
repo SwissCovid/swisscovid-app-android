@@ -26,6 +26,30 @@
 		android:gravity="center_horizontal"
 		android:text="@string/pre_call_dialog_main_title" />
 
+	<TextView
+		android:id="@+id/pre_call_error"
+		style="@style/NextStep.Text.Red"
+		android:layout_width="match_parent"
+		android:layout_marginTop="@dimen/spacing_large"
+		android:layout_height="wrap_content"
+		tools:text="@string/unexpected_error_title"
+		android:visibility="gone"
+		tools:visibility="visible"/>
+
+	<TextView
+		android:id="@+id/pre_call_dialog_code_retry"
+		style="@style/NextStep.Text.Bold.Red"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="@dimen/spacing_very_small"
+		android:background="?selectableItemBackground"
+		android:padding="@dimen/spacing_medium"
+		android:text="@string/homescreen_meldung_data_outdated_retry_button"
+		android:visibility="gone"
+		tools:visibility="visible" />
+
+
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -35,10 +59,11 @@
 
 		<LinearLayout
 			android:layout_width="0dp"
-			android:layout_height="wrap_content"
+			android:layout_height="match_parent"
 			android:layout_marginRight="1dp"
 			android:layout_weight="1"
 			android:background="@color/status_blue_bg"
+			android:gravity="center_vertical"
 			android:orientation="vertical"
 			android:padding="@dimen/spacing_small">
 
@@ -66,6 +91,7 @@
 			android:layout_marginLeft="1dp"
 			android:layout_weight="1"
 			android:background="@color/status_blue_bg"
+			android:gravity="center_vertical"
 			android:orientation="vertical"
 			android:padding="@dimen/spacing_small">
 
@@ -83,7 +109,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_tiny_small"
 				android:gravity="center_horizontal"
-				tools:text="11.06.2020" />
+				tools:text="123456" />
 
 		</LinearLayout>
 
