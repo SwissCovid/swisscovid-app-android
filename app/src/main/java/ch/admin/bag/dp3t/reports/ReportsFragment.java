@@ -17,6 +17,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Pair;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,6 +35,7 @@ import androidx.transition.TransitionManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
@@ -42,11 +44,14 @@ import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
+import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 import ch.admin.bag.dp3t.util.PhoneUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class ReportsFragment extends Fragment {
 
@@ -104,11 +109,11 @@ public class ReportsFragment extends Fragment {
 		callHotlineLastText1 = hotlineView.findViewById(R.id.card_encounters_last_call);
 		callHotlineLastText2 = saveOthersView.findViewById(R.id.card_encounters_last_call);
 
-		Button callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
-		Button callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
+		Button callHotlineButtonNow = hotlineView.findViewById(R.id.card_encounters_button);
+		Button callHotlineButtonAgain = saveOthersView.findViewById(R.id.card_encounters_button);
 
-		callHotlineButton1.setOnClickListener(view1 -> callHotline());
-		callHotlineButton2.setOnClickListener(view1 -> callHotline());
+		callHotlineButtonNow.setOnClickListener(v -> showPreCallDialog());
+		callHotlineButtonAgain.setOnClickListener(v -> showPreCallDialog());
 
 		Button faqButton1 = healthyView.findViewById(R.id.card_encounters_faq_button);
 		Button faqButton2 = saveOthersView.findViewById(R.id.card_encounters_faq_button);
@@ -173,7 +178,8 @@ public class ReportsFragment extends Fragment {
 				}
 
 				hotlineView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
-				saveOthersView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
+				saveOthersView.findViewById(R.id.delete_reports)
+						.setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
 			} else {
 				healthyView.setVisibility(View.VISIBLE);
 				items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
@@ -341,6 +347,60 @@ public class ReportsFragment extends Fragment {
 
 	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
 		return Math.min(scrollY, scrollRange) / (float) scrollRange;
+	}
+
+	private void showPreCallDialog() {
+		View dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_pre_call_exposed, null);
+		TextView codeRetryView = dialogView.findViewById(R.id.pre_call_dialog_code_retry);
+		Button callButton = dialogView.findViewById(R.id.pre_call_dialog_call_button);
+		Button cancelButton = dialogView.findViewById(R.id.pre_call_dialog_cancel_button);
+
+		AlertDialog codeDialog = new AlertDialog.Builder(requireContext())
+				.setView(dialogView)
+				.create();
+
+		codeRetryView.setOnClickListener(v -> {
+			computeAndShowPreCallInformation(dialogView);
+		});
+
+		callButton.setOnClickListener(v -> {
+			callHotline();
+			codeDialog.dismiss();
+		});
+		cancelButton.setOnClickListener(v -> {
+			codeDialog.dismiss();
+		});
+
+		computeAndShowPreCallInformation(dialogView);
+		codeDialog.show();
+	}
+
+	private void computeAndShowPreCallInformation(View view) {
+		TextView errorView = view.findViewById(R.id.pre_call_error);
+		TextView dateView = view.findViewById(R.id.pre_call_dialog_date);
+		TextView codeView = view.findViewById(R.id.pre_call_dialog_code);
+		TextView codeRetryView = view.findViewById(R.id.pre_call_dialog_code_retry);
+
+		tracingViewModel.computePreCallExposedInformation()
+				.subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(preCallInformation -> {
+					dateView.setText(preCallInformation.getExposureDate());
+					codeView.setText(preCallInformation.getCode());
+					errorView.setVisibility(View.GONE);
+					codeRetryView.setVisibility(View.GONE);
+				}, throwable -> {
+					throwable.printStackTrace();
+					if (throwable instanceof IOException || throwable instanceof ResponseError) {
+						errorView.setText(R.string.network_error);
+					} else {
+						errorView.setText(R.string.unexpected_error_title);
+					}
+					dateView.setText("-");
+					codeView.setText("-");
+					errorView.setVisibility(View.VISIBLE);
+					codeRetryView.setVisibility(View.VISIBLE);
+				});
 	}
 
 	private class ReportsSlidePageAdapter extends FragmentStateAdapter {

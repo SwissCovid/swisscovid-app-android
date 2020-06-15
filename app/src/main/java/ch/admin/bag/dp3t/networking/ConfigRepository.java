@@ -10,6 +10,7 @@
 package ch.admin.bag.dp3t.networking;
 
 import android.content.Context;
+import android.os.Build;
 import androidx.annotation.NonNull;
 
 import java.io.IOException;
@@ -30,6 +31,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConfigRepository {
+
+	private static final String APP_VERSION_PREFIX_ANDROID = "android-";
+	private static final String OS_VERSION_PREFIX_ANDROID = "android";
 
 	private ConfigService configService;
 
@@ -55,8 +59,11 @@ public class ConfigRepository {
 		configService = retrofit.create(ConfigService.class);
 	}
 
-	public ConfigResponseModel getConfig(@NonNull String appVersion, @NonNull String osVersion, @NonNull String buildNumber)
-			throws IOException, ResponseError {
+	public ConfigResponseModel getConfig() throws IOException, ResponseError {
+		String appVersion = APP_VERSION_PREFIX_ANDROID + BuildConfig.VERSION_NAME;
+		String osVersion = OS_VERSION_PREFIX_ANDROID + Build.VERSION.SDK_INT;
+		String buildNumber = String.valueOf(BuildConfig.BUILD_TIME);
+
 		Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion, buildNumber).execute();
 		if (configResponse.isSuccessful()) {
 			return configResponse.body();

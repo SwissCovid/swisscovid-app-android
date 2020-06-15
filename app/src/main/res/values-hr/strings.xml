@@ -835,10 +835,22 @@ If no update is currently available on your device, please try again later."</st
     <string name="synchronizations_view_info_question">"What are synchronizations?"</string>
     <string name="synchronizations_view_info_answer">"The app regularly checks the published keys from users that were tested positive."</string>
     <string name="synchronizations_view_period_title">"During the last 14 days"</string>
-    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
+    <string name="synchronizations_view_sync_via_open"></string>
     <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
     <string name="synchronizations_view_empty_list">"No entries"</string>
     <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
     <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
     <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
+
+    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_before_title">"Before you call"</string>
+
+    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_main_title">"Please write down the following information"</string>
+
+    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_datum">"Date"</string>
+
+    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_number">"Code"</string>
 </resources>

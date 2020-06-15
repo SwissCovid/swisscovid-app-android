@@ -108,6 +108,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_small"
+					android:textAllCaps="true"
 					android:text="@string/meldungen_detail_call_button"
 					app:layout_constraintTop_toBottomOf="@id/card_encounters_barrier1" />
 
