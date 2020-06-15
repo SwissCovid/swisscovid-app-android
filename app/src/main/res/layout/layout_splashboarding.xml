@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fillViewport="true"
+	android:background="@color/bag_blue">
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_larger"
+			android:weightSum="2">
+
+			<ImageView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:src="@drawable/onb_badge_3x"
+				android:adjustViewBounds="true"
+				android:layout_weight="1" />
+		</LinearLayout>
+
+		<Space
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1" />
+
+		<TextView
+			style="@style/NextStep.Text.SplashTitle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/spacing_huge"
+			android:layout_marginEnd="@dimen/spacing_huge"
+			android:layout_marginTop="@dimen/spacing_larger"
+			android:layout_marginBottom="@dimen/spacing_larger"
+			android:gravity="center"
+			android:text="@string/oboarding_splashscreen_title" />
+
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/spacing_huge"
+			android:layout_marginEnd="@dimen/spacing_huge"
+			android:adjustViewBounds="true"
+			android:layout_gravity="center"
+			android:src="@drawable/onb_pikto" />
+
+		<Space
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1" />
+
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:adjustViewBounds="true"
+			android:layout_marginTop="@dimen/spacing_large"
+			android:paddingStart="@dimen/spacing_very_large"
+			android:paddingEnd="@dimen/spacing_very_large"
+			android:paddingTop="@dimen/spacing_large"
+			android:paddingBottom="@dimen/spacing_large"
+			android:layout_gravity="center"
+			android:src="@drawable/onb_logo_bag_3x" />
+
+	</LinearLayout>
+</ScrollView>

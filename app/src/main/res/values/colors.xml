@@ -47,11 +47,13 @@
 	<color name="status_purple">@color/purple_main</color>
 	<color name="status_purple_bg">#F3F0F5</color>
 	<color name="status_red">@color/red_main</color>
-	
+
 	<color name="header_bg_error">#B2E20008</color>
 	<color name="header_bg_off">#B24A4969</color>
 	<color name="header_bg_on">#B263A0C7</color>
 	<color name="header_bg_exposed">#B28D6A9F</color>
+
+	<color name="bag_blue">#07A0E2</color>
 
 	<color name="dark_main_transparent">#754A4969</color>
 	<color name="transparent">#0000</color>

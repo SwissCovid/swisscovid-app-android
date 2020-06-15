@@ -11,6 +11,8 @@ package ch.admin.bag.dp3t.onboarding;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -22,6 +24,9 @@ import ch.admin.bag.dp3t.R;
 
 public class OnboardingActivity extends FragmentActivity {
 
+	private static final int SHOW_SPLASHBOARDING_MILLIS = 3000;
+
+	private View splashboarding;
 	private ViewPager2 viewPager;
 	private FragmentStateAdapter pagerAdapter;
 
@@ -30,10 +35,19 @@ public class OnboardingActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_onboarding);
 
+		splashboarding = findViewById(R.id.splashboarding);
 		viewPager = findViewById(R.id.pager);
 		viewPager.setUserInputEnabled(false);
 		pagerAdapter = new OnboardingSlidePageAdapter(this);
 		viewPager.setAdapter(pagerAdapter);
+
+		splashboarding.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				splashboarding.setVisibility(View.GONE);
+				viewPager.setVisibility(View.VISIBLE);
+			}
+		}, SHOW_SPLASHBOARDING_MILLIS);
 	}
 
 	public void continueToNextPage() {
