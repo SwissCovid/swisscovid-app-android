@@ -69,9 +69,6 @@ Ainsi, vous contribuez à endiguer la propagation du nouveau coronavirus."</stri
     <!-- Permission Text für Bluetooth -->
     <string name="NSBluetoothAlwaysUsageDescription">"Les contacts sont détectés en arrière-plan via Bluetooth (faible consommation)."</string>
 
-    <!-- Text der bei Android in der permanenten Notification immer angezeigt wird -->
-    <string name="android_foreground_service_notification_text">"Les contacts sont sauvegardés sur votre appareil de manière anonyme."</string>
-
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Entrer le code COVID"</string>
 
@@ -835,7 +832,7 @@ Si aucune mise à jour n'est actuellement disponible sur votre appareil, veuille
     <string name="synchronizations_view_info_question">"What are synchronizations?"</string>
     <string name="synchronizations_view_info_answer">"The app regularly checks the published keys from users that were tested positive."</string>
     <string name="synchronizations_view_period_title">"During the last 14 days"</string>
-    <string name="synchronizations_view_sync_via_open"></string>
+    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
     <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
     <string name="synchronizations_view_empty_list">"No entries"</string>
     <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
@@ -853,4 +850,10 @@ Si aucune mise à jour n'est actuellement disponible sur votre appareil, veuille
 
     <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
     <string name="pre_call_dialog_box_number">"Code"</string>
+    <string name="tracing_active_tracking_always_info"></string>
+
+    <!-- title in splash screen of onboarding -->
+    <string name="oboarding_splashscreen_title"></string>
+    <string name="inform_detail_faq3_text"></string>
+    <string name="inform_detail_faq3_title"></string>
 </resources>
