@@ -40,7 +40,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
-import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;

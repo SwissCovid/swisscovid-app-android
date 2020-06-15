@@ -24,14 +24,12 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.internal.history.HistoryEntry;
 import org.dpppt.android.sdk.models.ExposureDay;
 
@@ -39,7 +37,6 @@ import ch.admin.bag.dp3t.MainApplication;
 import ch.admin.bag.dp3t.debug.TracingStatusWrapper;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.networking.ConfigRepository;
-import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
 import ch.admin.bag.dp3t.reports.PreCallInformation;

@@ -27,7 +27,6 @@ import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.SignatureException;
 import org.dpppt.android.sdk.internal.logger.Logger;
 
-import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
