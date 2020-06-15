@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -90,25 +91,28 @@ public class ContactsFragment extends Fragment {
 	private void setupTracingView() {
 		Activity activity = requireActivity();
 
-		tracingSwitch.setOnClickListener(v -> {
-			if (tracingSwitch.isChecked()) {
-				tracingViewModel.enableTracing(activity,
-						() -> {
-							// success, do nothing
-						},
-						(e) -> {
-							String message = ENExceptionHelper.getErrorMessage(e, activity);
-							Logger.e(TAG, message);
-							new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
-									.setTitle(R.string.android_en_start_failure)
-									.setMessage(message)
-									.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
-									.show();
-							tracingSwitch.setChecked(false);
-						},
-						() -> tracingSwitch.setChecked(false));
-			} else {
-				tracingViewModel.disableTracing();
+		tracingSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					tracingViewModel.enableTracing(activity,
+							() -> {
+								// success, do nothing
+							},
+							(e) -> {
+								String message = ENExceptionHelper.getErrorMessage(e, activity);
+								Logger.e(TAG, message);
+								new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
+										.setTitle(R.string.android_en_start_failure)
+										.setMessage(message)
+										.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
+										.show();
+								tracingSwitch.setChecked(false);
+							},
+							() -> tracingSwitch.setChecked(false));
+				} else {
+					tracingViewModel.disableTracing();
+				}
 			}
 		});
 
