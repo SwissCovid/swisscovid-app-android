@@ -23,7 +23,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -31,30 +30,31 @@ import java.util.List;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.history.HistoryEntry;
-import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.MainApplication;
 import ch.admin.bag.dp3t.debug.TracingStatusWrapper;
 import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
-import ch.admin.bag.dp3t.networking.ConfigRepository;
-import ch.admin.bag.dp3t.networking.errors.ResponseError;
-import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
-import ch.admin.bag.dp3t.reports.PreCallInformation;
-import ch.admin.bag.dp3t.reports.VerificationCode;
-import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
-import io.reactivex.rxjava3.core.Single;
 
 public class TracingViewModel extends AndroidViewModel {
 
 	private final MutableLiveData<TracingStatus> tracingStatusLiveData = new MutableLiveData<>();
+	private BroadcastReceiver tracingStatusBroadcastReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			invalidateTracingStatus();
+			loadHistoryEntries();
+		}
+	};
+
 	private final MutableLiveData<Boolean> tracingEnabledLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Pair<Boolean, Boolean>> exposedLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Collection<TracingStatus.ErrorState>> errorsLiveData =
 			new MutableLiveData<>(Collections.emptyList());
 	private final MutableLiveData<TracingStatusInterface> appStatusLiveData = new MutableLiveData<>();
+
 	private TracingStatusInterface tracingStatusInterface = new TracingStatusWrapper();
+
 	private final MutableLiveData<Boolean> bluetoothEnabledLiveData = new MutableLiveData<>();
 	private BroadcastReceiver bluetoothReceiver = new BroadcastReceiver() {
 		@Override
@@ -65,14 +65,8 @@ public class TracingViewModel extends AndroidViewModel {
 			}
 		}
 	};
+
 	private final MutableLiveData<List<HistoryEntry>> historyMutableLiveData = new MutableLiveData<>();
-	private BroadcastReceiver tracingStatusBroadcastReceiver = new BroadcastReceiver() {
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			invalidateTracingStatus();
-			loadHistoryEntries();
-		}
-	};
 
 	public TracingViewModel(@NonNull Application application) {
 		super(application);
@@ -178,41 +172,6 @@ public class TracingViewModel extends AndroidViewModel {
 
 	public LiveData<List<HistoryEntry>> getHistoryLiveDate() {
 		return historyMutableLiveData;
-	}
-
-	public Single<PreCallInformation> computePreCallExposedInformation() {
-		return Single.fromCallable(() -> {
-			List<ExposureDay> exposureDays = tracingStatusInterface.getExposureDays();
-			ExposureDay newestExposure = null;
-			for (ExposureDay exposure : exposureDays) {
-				if (newestExposure == null || newestExposure.getExposedDate().isBefore(exposure.getExposedDate())) {
-					newestExposure = exposure;
-				}
-			}
-			if (newestExposure == null) throw new IllegalStateException("No valid exposure information!");
-			String date = DateUtils.getFormattedDate(newestExposure.getExposedDate().getStartOfDayTimestamp());
-
-			String tweak = SecureStorage.getInstance(getApplication()).getExposureCodeTweak();
-			if (tweak == null) {
-				try {
-					ConfigRepository configRepository = new ConfigRepository(getApplication());
-					ConfigResponseModel config = configRepository.getConfig();
-					tweak = config.getExposureCodeTweak();
-					if (tweak != null) {
-						SecureStorage.getInstance(getApplication()).setExposureCodeTweak(tweak);
-					} else {
-						throw new IllegalStateException("No tweakCode available in ConfigRequest!");
-					}
-				} catch (ResponseError responseError) {
-					responseError.printStackTrace();
-					throw new IOException("Response error " + responseError.getStatusCode());
-				}
-			}
-			String code = VerificationCode.generateCode(newestExposure.getExposedDate(), tweak);
-			if (code == null) throw new IllegalStateException("The computed verification code is null!");
-
-			return new PreCallInformation(date, code);
-		});
 	}
 
 }
