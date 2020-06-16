@@ -27,8 +27,6 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 	public Fragment createFragment(int position) {
 		switch (position) {
 			case 0:
-				return OnboardingPilotVersionFragment.newInstance();
-			case 1:
 				return OnboardingContentFragment.newInstance(
 						R.string.onboarding_prinzip_title,
 						R.string.onboarding_prinzip_heading,
@@ -38,7 +36,7 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 						R.string.onboarding_prinzip_text2,
 						R.drawable.ic_message_alert,
 						false);
-			case 2:
+			case 1:
 				return OnboardingContentFragment.newInstance(
 						R.string.onboarding_privacy_title,
 						R.string.onboarding_privacy_heading,
@@ -48,7 +46,7 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 						R.string.onboarding_privacy_text2,
 						R.drawable.ic_lock,
 						true);
-			case 3:
+			case 2:
 				return OnboardingContentFragment.newInstance(
 						R.string.onboarding_begegnungen_title,
 						R.string.onboarding_begegnungen_heading,
@@ -58,7 +56,7 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 						R.string.onboarding_begegnungen_text2,
 						R.drawable.ic_bluetooth,
 						false);
-			case 4:
+			case 3:
 				return OnboardingContentFragment.newInstance(
 						R.string.onboarding_meldung_title,
 						R.string.onboarding_meldung_heading,
@@ -68,11 +66,11 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 						R.string.onboarding_meldung_text2,
 						R.drawable.ic_home,
 						false);
-			case 5:
+			case 4:
 				return OnboardingBatteryPermissionFragment.newInstance();
-			case 6:
+			case 5:
 				return OnboardingGaenPermissionFragment.newInstance();
-			case 7:
+			case 6:
 				return OnboardingFinishedFragment.newInstance();
 		}
 		throw new IllegalArgumentException("There is no fragment for view pager position " + position);
@@ -80,7 +78,7 @@ public class OnboardingSlidePageAdapter extends FragmentStateAdapter {
 
 	@Override
 	public int getItemCount() {
-		return 8;
+		return 7;
 	}
 
 }
