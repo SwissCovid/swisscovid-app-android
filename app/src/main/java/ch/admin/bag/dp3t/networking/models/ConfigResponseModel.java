@@ -14,7 +14,6 @@ public class ConfigResponseModel {
 	private boolean forceUpdate;
 	private InfoBoxModelCollection infoBox;
 	private SdkConfigModel androidGaenSdkConfig;
-	private String tweakCode;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -30,10 +29,6 @@ public class ConfigResponseModel {
 
 	public SdkConfigModel getSdkConfig() {
 		return androidGaenSdkConfig;
-	}
-
-	public String getExposureCodeTweak() {
-		return tweakCode;
 	}
 
 }
