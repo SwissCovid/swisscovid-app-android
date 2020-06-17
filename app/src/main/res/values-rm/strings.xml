@@ -665,7 +665,7 @@ Respundai las dumondas en il check online da l'UFSP per ina recumandaziun da cum
     <string name="meldungen_positive_tested_faq1_text">"Suenter in test positiv vegn il tracing en l'app terminà automaticamain."</string>
 
     <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
-    <string name="language_key">"rtr."</string>
+    <string name="language_key">"rm"</string>
 
     <!-- Meldungen Homescreen: Name Hotline -->
     <string name="exposed_info_contact_hotline_name">"Infoline SwissCovid"</string>
@@ -868,9 +868,33 @@ Sche Vus n'avais da preschent a disposiziun nagin'actualisaziun sin Voss apparat
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
     <string name="onboarding_gaen_text_android">"Per pudair utilisar l'app, ston vegnir activadas communicaziuns COVID-19"</string>
 
-    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title_android">"Communicaziuns COVID-19 deactivà"</string>
+    <!-- Onboarding Disclaimer Screen: AppName Title -->
+    <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
 
-    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text_android">"Activai communicaziuns COVID-19 per ch'il tracing anonim funcziunia."</string>
+    <!-- Onboarding Disclaimer Screen: Title -->
+    <string name="onboarding_disclaimer_title"></string>
+
+    <!-- Onboarding Disclaimer Screen: Info -->
+    <string name="onboarding_disclaimer_info"></string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Title -->
+    <string name="onboarding_disclaimer_warning_title">"Avertiment: Quest'app n'As protegia betg d'ina infecziun cun COVID-19."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Text -->
+    <string name="onboarding_disclaimer_warning_body">"L'app è concepida per la reconstrucziun dals contacts e per avertir ils utilisaders en cas d'ina exposiziun potenziala ad ina persuna infectada cun COVID-19. Ella n'è betg in instrument diagnostic. Per plaschair legi cun attenziun  las instrucziuns en mintga visur da l'app."</string>
+
+    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
+    <string name="onboarding_disclaimer_manufacturer"></string>
+
+    <!-- Onboarding Disclaimer Screen: App version title -->
+    <string name="onboarding_disclaimer_app_version"></string>
+
+    <!-- Onboarding Disclaimer Screen: Release version title -->
+    <string name="onboarding_disclaimer_release_version"></string>
+
+    <!-- onboarding privacy and conditions of use button -->
+    <string name="onboarding_disclaimer_legal_button"></string>
+
+    <!-- onboarding privacy and conditions of use url -->
+    <string name="onboarding_disclaimer_legal_button_url"></string>
 </resources>

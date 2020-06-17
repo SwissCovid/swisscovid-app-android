@@ -856,9 +856,33 @@ Si la actualización no estuviera disponible en su dispositivo actualmente, int�
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
     <string name="onboarding_gaen_text_android">"Para poder utilizar la aplicación debe activarse Notificaciones de exposición a la COVID-19"</string>
 
-    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title_android">"Notificaciones de exposición a la COVID-19 desactivado"</string>
+    <!-- Onboarding Disclaimer Screen: AppName Title -->
+    <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
 
-    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text_android">"Active la función Notificaciones de exposición a la COVID-19, para que el rastreo pueda funcionar."</string>
+    <!-- Onboarding Disclaimer Screen: Title -->
+    <string name="onboarding_disclaimer_title"></string>
+
+    <!-- Onboarding Disclaimer Screen: Info -->
+    <string name="onboarding_disclaimer_info"></string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Title -->
+    <string name="onboarding_disclaimer_warning_title">"Advertencia: Esta aplicación no le protege de una infección con COVID-19."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Text -->
+    <string name="onboarding_disclaimer_warning_body">"La aplicación está pensada para el rastreo de proximidad y para advertir a los usuarios de un posible riesgo de exposición a una persona contagiada con el COVID-19. No se trata de un instrumento de diagnóstico. Lea cuidadosamente las instrucciones dadas en todas las pantallas. "</string>
+
+    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
+    <string name="onboarding_disclaimer_manufacturer"></string>
+
+    <!-- Onboarding Disclaimer Screen: App version title -->
+    <string name="onboarding_disclaimer_app_version"></string>
+
+    <!-- Onboarding Disclaimer Screen: Release version title -->
+    <string name="onboarding_disclaimer_release_version"></string>
+
+    <!-- onboarding privacy and conditions of use button -->
+    <string name="onboarding_disclaimer_legal_button"></string>
+
+    <!-- onboarding privacy and conditions of use url -->
+    <string name="onboarding_disclaimer_legal_button_url"></string>
 </resources>
