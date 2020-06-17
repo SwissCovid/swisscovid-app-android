@@ -40,6 +40,7 @@ public class TracingErrorStateHelper {
 	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
 			TracingStatus.ErrorState.SYNC_ERROR_API_EXCEPTION,
 			TracingStatus.ErrorState.SYNC_ERROR_SERVER,
+			TracingStatus.ErrorState.SYNC_ERROR_NO_SPACE,
 			TracingStatus.ErrorState.SYNC_ERROR_NETWORK,
 			TracingStatus.ErrorState.SYNC_ERROR_SSLTLS,
 			TracingStatus.ErrorState.SYNC_ERROR_SIGNATURE
