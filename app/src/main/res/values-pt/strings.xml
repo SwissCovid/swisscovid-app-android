@@ -870,9 +870,33 @@ Se não houver de momento nenhuma atualização disponível no seu dispositivo, 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
     <string name="onboarding_gaen_text_android">"Para poder usar a app, tem de ativar a função Notificações de exposição à COVID-19."</string>
 
-    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title_android">"Notificações de exposição à COVID-19 desativada"</string>
+    <!-- Onboarding Disclaimer Screen: AppName Title -->
+    <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
 
-    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text_android">"Ative a função Notificações de exposição à COVID-19 para que o rastreamento funcione."</string>
+    <!-- Onboarding Disclaimer Screen: Title -->
+    <string name="onboarding_disclaimer_title"></string>
+
+    <!-- Onboarding Disclaimer Screen: Info -->
+    <string name="onboarding_disclaimer_info"></string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Title -->
+    <string name="onboarding_disclaimer_warning_title">"Aviso: Esta app não o protege de uma infeção com COVID-19."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Text -->
+    <string name="onboarding_disclaimer_warning_body">"A app destina-se a rastrear contactos e advertir os utilizadores de um possível contacto com uma pessoa infetada com COVID-19. Também não se trata de uma ferramenta de diagnóstico. Leia cuidadosamente as instruções apresentadas em todos os ecrãs da app."</string>
+
+    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
+    <string name="onboarding_disclaimer_manufacturer"></string>
+
+    <!-- Onboarding Disclaimer Screen: App version title -->
+    <string name="onboarding_disclaimer_app_version"></string>
+
+    <!-- Onboarding Disclaimer Screen: Release version title -->
+    <string name="onboarding_disclaimer_release_version"></string>
+
+    <!-- onboarding privacy and conditions of use button -->
+    <string name="onboarding_disclaimer_legal_button"></string>
+
+    <!-- onboarding privacy and conditions of use url -->
+    <string name="onboarding_disclaimer_legal_button_url"></string>
 </resources>
