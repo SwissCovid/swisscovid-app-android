@@ -40,6 +40,7 @@ public class TracingErrorStateHelper {
 	private static final List<TracingStatus.ErrorState> possibleNotificationErrorStatesOrderedByPriority = Arrays.asList(
 			TracingStatus.ErrorState.SYNC_ERROR_API_EXCEPTION,
 			TracingStatus.ErrorState.SYNC_ERROR_SERVER,
+			TracingStatus.ErrorState.SYNC_ERROR_NO_SPACE,
 			TracingStatus.ErrorState.SYNC_ERROR_NETWORK,
 			TracingStatus.ErrorState.SYNC_ERROR_SSLTLS,
 			TracingStatus.ErrorState.SYNC_ERROR_SIGNATURE
@@ -63,6 +64,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_SERVER:
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_SSLTLS:
+			case SYNC_ERROR_NO_SPACE:
 			case SYNC_ERROR_SIGNATURE:
 			case SYNC_ERROR_API_EXCEPTION:
 				return R.string.homescreen_meldung_data_outdated_title;
@@ -94,6 +96,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_SSLTLS:
 			case SYNC_ERROR_SIGNATURE:
 			case SYNC_ERROR_API_EXCEPTION:
+			case SYNC_ERROR_NO_SPACE:
 			case BLE_NOT_SUPPORTED:
 			default:
 				return R.drawable.ic_warning_red;
@@ -115,6 +118,7 @@ public class TracingErrorStateHelper {
 			case SYNC_ERROR_NETWORK:
 			case SYNC_ERROR_SSLTLS:
 			case SYNC_ERROR_SIGNATURE:
+			case SYNC_ERROR_NO_SPACE:
 				return R.string.homescreen_meldung_data_outdated_retry_button;
 			case GAEN_NOT_AVAILABLE:
 				return R.string.playservices_update;
@@ -204,6 +208,8 @@ public class TracingErrorStateHelper {
 				return "RTSES";
 			case SYNC_ERROR_NETWORK:
 				return "RTSEN" + errorState.getErrorCode();
+			case SYNC_ERROR_NO_SPACE:
+				return "RTSNS" + errorState.getErrorCode();
 			case SYNC_ERROR_SSLTLS:
 				return "RTSETLS";
 			case SYNC_ERROR_API_EXCEPTION:
