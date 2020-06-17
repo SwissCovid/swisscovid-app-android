@@ -41,7 +41,7 @@ android {
 		minSdkVersion 23
 		targetSdkVersion 29
 		versionCode 10050
-		versionName "1.0.5-pilot"
+		versionName "1.0.5"
 		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr", "rm"
 
 		buildConfigField "long", "BUILD_TIME", readPropertyWithDefault('buildTimestamp', System.currentTimeMillis()) + 'L'
