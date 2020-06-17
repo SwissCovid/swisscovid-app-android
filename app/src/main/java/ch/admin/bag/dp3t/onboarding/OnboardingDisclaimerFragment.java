@@ -9,6 +9,8 @@
  */
 package ch.admin.bag.dp3t.onboarding;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +45,12 @@ public class OnboardingDisclaimerFragment extends Fragment {
 				getString(R.string.onboarding_disclaimer_release_version) + " " + sdf.format(BuildConfig.BUILD_TIME);
 		TextView versionInfo = view.findViewById(R.id.onboarding_disclaimer_version_info);
 		versionInfo.setText(versionText);
+
+		view.findViewById(R.id.onboarding_disclaimer_conditions_button).setOnClickListener(v -> {
+			Intent browserIntent =
+					new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.onboarding_disclaimer_legal_button_url)));
+			startActivity(browserIntent);
+		});
 
 		Button continueButton = view.findViewById(R.id.onboarding_continue_button);
 		continueButton.setOnClickListener(v -> ((OnboardingActivity) getActivity()).continueToNextPage());

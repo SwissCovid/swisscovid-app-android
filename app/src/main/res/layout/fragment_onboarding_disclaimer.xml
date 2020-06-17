@@ -75,35 +75,6 @@
 				</LinearLayout>
 
 				<LinearLayout
-					android:id="@+id/onboarding_disclaimer_privacy_button"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_gravity="left"
-					android:layout_marginStart="@dimen/spacing_larger"
-					android:layout_marginTop="@dimen/spacing_large"
-					android:background="@drawable/ripple_button"
-					android:orientation="horizontal"
-					android:paddingStart="@dimen/spacing_medium"
-					android:paddingTop="@dimen/spacing_small"
-					android:paddingEnd="@dimen/spacing_medium"
-					android:paddingBottom="@dimen/spacing_small">
-
-					<ImageView
-						android:layout_width="@dimen/icon_size"
-						android:layout_height="@dimen/icon_size"
-						android:src="@drawable/ic_launch"
-						android:tint="@color/blue_main" />
-
-					<TextView
-						style="@style/NextStep.Text.Bold.Blue"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_marginLeft="@dimen/spacing_small"
-						android:text="@string/onboarding_disclaimer_privacy_button" />
-
-				</LinearLayout>
-
-				<LinearLayout
 					android:id="@+id/onboarding_disclaimer_conditions_button"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
@@ -129,7 +100,7 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginLeft="@dimen/spacing_small"
-						android:text="@string/onboarding_disclaimer_conditions_of_use_button" />
+						android:text="@string/onboarding_disclaimer_legal_button" />
 
 				</LinearLayout>
 
