@@ -90,7 +90,7 @@
 								android:layout_height="wrap_content"
 								android:layout_below="@id/contacts_tracing_title"
 								android:layout_alignParentStart="true"
-								android:text="@string/tracing_setting_text" />
+								android:text="@string/tracing_setting_text_android" />
 
 						</RelativeLayout>
 

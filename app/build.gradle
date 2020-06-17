@@ -42,7 +42,7 @@ android {
 		targetSdkVersion 29
 		versionCode 10040
 		versionName "1.0.4-pilot"
-		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr"
+		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr", "rm"
 
 		buildConfigField "long", "BUILD_TIME", readPropertyWithDefault('buildTimestamp', System.currentTimeMillis()) + 'L'
 
