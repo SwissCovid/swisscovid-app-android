@@ -899,4 +899,36 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
     <string name="tracing_permission_error_text_android">"Aktivieren Sie COVID-19-Benachrichtigungen, damit das Tracing funktioniert."</string>
+
+    <!-- Onboarding Disclaimer Screen: AppName Title -->
+    <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
+
+    <!-- Onboarding Disclaimer Screen: Title -->
+    <string name="onboarding_disclaimer_title">"Hinweise zur Nutzung"</string>
+
+    <!-- Onboarding Disclaimer Screen: Info -->
+    <string name="onboarding_disclaimer_info">"Bitte lesen sie die Datenschutzerklärung und die Nutzungsbestimmungen."</string>
+
+    <!-- Onboarding Disclaimer Screen: Privacy link button text -->
+    <string name="onboarding_disclaimer_privacy_button">"Datenschutzerklärung"</string>
+
+    <!-- Onboarding Disclaimer Screen: Conditions of use link button text -->
+    <string name="onboarding_disclaimer_conditions_of_use_button">"Nutzungsbestimmungen"</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Title -->
+    <string name="onboarding_disclaimer_warning_title">"Warning: This app does not protect you from COVID-19 infection. "</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Text -->
+    <string name="onboarding_disclaimer_warning_body">"The app is intended for proximity tracing and to warn users of potential exposure to someone infected by COVID-19. It is not a diagnostic tool either. Please read the instructions provided in each app screen carefully."</string>
+
+    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
+    <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
+Schwarzenburgstrasse 157
+3097 Liebefeld, Switzerland"</string>
+
+    <!-- Onboarding Disclaimer Screen: App version title -->
+    <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
+
+    <!-- Onboarding Disclaimer Screen: Release version title -->
+    <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
 </resources>
