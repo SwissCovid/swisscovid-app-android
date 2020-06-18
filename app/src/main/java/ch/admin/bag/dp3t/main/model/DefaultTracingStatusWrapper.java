@@ -92,7 +92,7 @@ public abstract class DefaultTracingStatusWrapper implements TracingStatusInterf
 
 	@Override
 	public void resetExposureDays(Context context) {
-		DP3T.resetInfectionStatus(context);
+		DP3T.resetExposureDays(context);
 	}
 
 	@Override
