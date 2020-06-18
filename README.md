@@ -49,11 +49,11 @@ $ ./gradlew assembleProdRelease
 ```
 The APK is generated under app/build/outputs/apk/prod/release/package-prod-release.apk
 
-The app will not be functional unless your Google account is whitelisted for ExposureNotification testing. Please install the app from the PlayStore.
+The app will not be functional unless your Google account is whitelisted for ExposureNotification testing. Please install the app from the [Google PlayStore](https://play.google.com/store/apps/details?id=ch.admin.bag.dp3t).
 
 ## Reproducible builds
 
-To verify that the app distributed on the PlayStore was built by the source code published here, please see the instructions in [REPRODUCIBLE_BUILDS.md](https://github.com/DP-3T/dp3t-app-android-ch/blob/master/REPRODUCIBLE_BUILDS.md).
+To verify that the app distributed on the PlayStore was built by the source code published here, please see the instructions in [REPRODUCIBLE_BUILDS.md](REPRODUCIBLE_BUILDS.md).
 
 ## License
 This project is licensed under the terms of the MPL 2 license. See the [LICENSE](LICENSE) file.
