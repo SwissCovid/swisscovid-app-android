@@ -39,10 +39,6 @@ public class WtdSymptomsFragment extends Fragment {
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.symptom_detail_corona_check_url)));
 			startActivity(browserIntent);
 		});
-		view.findViewById(R.id.wtd_symptoms_check_button2).setOnClickListener(v -> {
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.symptom_detail_corona_check_url)));
-			startActivity(browserIntent);
-		});
 
 		view.findViewById(R.id.wtd_symptoms_faq_button).setOnClickListener(v -> {
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
