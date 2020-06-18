@@ -568,9 +568,9 @@ Follow the instructions  you have received on isolation."</string>
     <string name="begegnung_detail_faq2_title">"Is my data secure?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq2_text">"Only the random IDs from your app are sent, no personal data. 
+    <string name="begegnung_detail_faq2_text">"In the event of an encounter, only random IDs are exchanged. 
 
-This means other SwissCovid app users will know that they might have been infected."</string>
+They are saved locally on the smartphones and then deleted 14 days later."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnungen_detail_faq3_title">"Does Bluetooth have to be turned on all the time?"</string>
