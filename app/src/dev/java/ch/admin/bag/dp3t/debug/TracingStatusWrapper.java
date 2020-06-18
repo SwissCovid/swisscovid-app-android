@@ -99,8 +99,11 @@ public class TracingStatusWrapper extends DefaultTracingStatusWrapper {
 
 	@Override
 	public void resetExposureDays(Context context) {
-		debugAppState = DebugAppState.NONE;
-		super.resetExposureDays(context);
+		if (debugAppState == DebugAppState.CONTACT_EXPOSED) {
+			debugAppState = DebugAppState.NONE;
+		} else {
+			super.resetExposureDays(context);
+		}
 	}
 
 	@Override
