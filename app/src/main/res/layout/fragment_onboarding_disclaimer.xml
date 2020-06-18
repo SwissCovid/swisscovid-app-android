@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/grey_light"
+	android:orientation="vertical">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/white"
+				android:gravity="center_horizontal"
+				android:orientation="vertical"
+				android:paddingStart="@dimen/spacing_large"
+				android:paddingTop="@dimen/spacing_huge"
+				android:paddingEnd="@dimen/spacing_large"
+				android:paddingBottom="@dimen/spacing_large">
+
+				<TextView
+					style="@style/NextStep.Text.Blue"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="@dimen/spacing_very_large"
+					android:gravity="center_horizontal"
+					android:text="@string/onboarding_disclaimer_heading" />
+
+				<TextView
+					style="@style/NextStep.Text.Title"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_medium"
+					android:layout_marginBottom="@dimen/spacing_large"
+					android:gravity="center_horizontal"
+					android:text="@string/onboarding_disclaimer_title" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_huge"
+					android:orientation="horizontal">
+
+					<ImageView
+						android:layout_width="@dimen/icon_size"
+						android:layout_height="@dimen/icon_size"
+						android:layout_marginRight="@dimen/spacing_medium_large"
+						android:src="@drawable/ic_info"
+						android:tint="@color/blue_main" />
+
+					<TextView
+						style="@style/NextStep.Text"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:breakStrategy="high_quality"
+						android:hyphenationFrequency="full"
+						android:text="@string/onboarding_disclaimer_info" />
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:id="@+id/onboarding_disclaimer_conditions_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="left"
+					android:layout_marginStart="@dimen/spacing_larger"
+					android:layout_marginTop="@dimen/spacing_large"
+					android:layout_marginBottom="@dimen/spacing_huge"
+					android:background="@drawable/ripple_button"
+					android:orientation="horizontal"
+					android:paddingStart="@dimen/spacing_medium"
+					android:paddingTop="@dimen/spacing_small"
+					android:paddingEnd="@dimen/spacing_medium"
+					android:paddingBottom="@dimen/spacing_small">
+
+					<ImageView
+						android:layout_width="@dimen/icon_size"
+						android:layout_height="@dimen/icon_size"
+						android:src="@drawable/ic_launch"
+						android:tint="@color/blue_main" />
+
+					<TextView
+						style="@style/NextStep.Text.Bold.Blue"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/spacing_small"
+						android:text="@string/onboarding_disclaimer_legal_button" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:orientation="vertical"
+				android:paddingStart="@dimen/spacing_large"
+				android:paddingTop="@dimen/spacing_huge"
+				android:paddingEnd="@dimen/spacing_large"
+				android:paddingBottom="@dimen/spacing_huge">
+
+				<TextView
+					style="@style/NextStep.Text.Bold"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:breakStrategy="high_quality"
+					android:hyphenationFrequency="full"
+					android:text="@string/onboarding_disclaimer_warning_title" />
+
+				<TextView
+					style="@style/NextStep.Text.Small"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:breakStrategy="high_quality"
+					android:hyphenationFrequency="full"
+					android:text="@string/onboarding_disclaimer_warning_body" />
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingLeft="@dimen/spacing_small"
+				android:paddingRight="@dimen/spacing_small"
+				android:paddingBottom="@dimen/spacing_tiny_small">
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:background="@color/grey_light_medium"
+					android:padding="@dimen/spacing_small"
+					android:src="@drawable/ic_manufacturer_iso_icon" />
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="@dimen/spacing_tiny_small"
+					android:background="@color/grey_light_medium"
+					android:padding="@dimen/spacing_small"
+					android:text="@string/onboarding_disclaimer_manufacturer" />
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingLeft="@dimen/spacing_small"
+				android:paddingRight="@dimen/spacing_small"
+				android:paddingBottom="@dimen/spacing_tiny_small">
+
+				<TextView
+					android:id="@+id/onboarding_disclaimer_version_info"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:background="@color/grey_light_medium"
+					android:padding="@dimen/spacing_small" />
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:background="@color/grey_light_medium"
+					android:paddingRight="@dimen/spacing_medium_large"
+					android:src="@drawable/ic_ce_marking" />
+
+			</LinearLayout>
+
+		</LinearLayout>
+	</ScrollView>
+
+	<Button
+		android:id="@+id/onboarding_continue_button"
+		style="@style/NextStep.Button.Transparent.Blue"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/onboarding_continue_button_height"
+		android:layout_gravity="bottom"
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation"
+		android:foreground="?android:selectableItemBackground"
+		android:text="@string/onboarding_accept_button" />
+
+</LinearLayout>
