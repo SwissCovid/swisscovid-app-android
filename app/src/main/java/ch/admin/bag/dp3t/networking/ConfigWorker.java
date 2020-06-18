@@ -27,7 +27,6 @@ import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.SignatureException;
 import org.dpppt.android.sdk.internal.logger.Logger;
 
-import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
@@ -38,8 +37,6 @@ import ch.admin.bag.dp3t.util.NotificationUtil;
 public class ConfigWorker extends Worker {
 
 	private static final int REPEAT_INTERVAL_CONFIG_HOURS = 6;
-	private static final String APP_VERSION_PREFIX_ANDROID = "android-";
-	private static final String OS_VERSION_PREFIX_ANDROID = "android";
 
 	private static final String TAG = "ConfigWorker";
 	private static final String WORK_TAG = "ch.admin.bag.dp3t.ConfigWorker";
@@ -87,12 +84,7 @@ public class ConfigWorker extends Worker {
 		Context context = getApplicationContext();
 
 		ConfigRepository configRepository = new ConfigRepository(context);
-
-		String appVersion = APP_VERSION_PREFIX_ANDROID + BuildConfig.VERSION_NAME;
-		String osVersion = OS_VERSION_PREFIX_ANDROID + Build.VERSION.SDK_INT;
-		String buildNumber = String.valueOf(BuildConfig.BUILD_TIME);
-
-		ConfigResponseModel config = configRepository.getConfig(appVersion, osVersion, buildNumber);
+		ConfigResponseModel config = configRepository.getConfig();
 
 		DP3T.setMatchingParameters(context,
 				config.getSdkConfig().getLowerThreshold(), config.getSdkConfig().getHigherThreshold(),

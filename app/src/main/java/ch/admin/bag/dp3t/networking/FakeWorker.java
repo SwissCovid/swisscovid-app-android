@@ -20,6 +20,7 @@ import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.internal.logger.Logger;
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
 
+import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
@@ -31,7 +32,7 @@ public class FakeWorker extends Worker {
 	private static final String WORK_TAG = "ch.admin.bag.dp3t.FakeWorker";
 	private static final String FAKE_AUTH_CODE = "000000000000";
 
-	private static final float SAMPLING_RATE = 0.2f;
+	private static final float SAMPLING_RATE = BuildConfig.FLAVOR.equals("dev") ? 1.0f : 0.2f;
 	private static final long FACTOR_DAY_MILLIS = 24 * 60 * 60 * 1000L;
 
 	public static void safeStartFakeWorker(Context context) {

@@ -20,15 +20,15 @@
     <string name="inform_continue_button">"Weiter"</string>
 
     <!-- Informieren: Senden Button -->
-    <string name="inform_send_button_title">"Anonym melden"</string>
+    <string name="inform_send_button_title">"Senden"</string>
 
     <!-- Informieren: Danke -->
     <string name="inform_send_thankyou">"Vielen Dank"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Sie haben Ihren positiven Test anonym in der App gemeldet.
+    <string name="inform_send_thankyou_text">"Die zufälligen IDs Ihrer App wurden gesendet.
 
-Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</string>
+Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
 
     <!-- Informieren: Button Titel -->
     <string name="inform_fertig_button_title">"Schliessen"</string>
@@ -69,14 +69,11 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <!-- Permission Text für Bluetooth -->
     <string name="NSBluetoothAlwaysUsageDescription">"Begegnungen werden über Bluetooth energiesparend im Hintergrund erkannt."</string>
 
-    <!-- Text der bei Android in der permanenten Notification immer angezeigt wird -->
-    <string name="android_foreground_service_notification_text">"Begegnungen werden anonym auf Ihrem Gerät gespeichert."</string>
-
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Covidcode eingeben"</string>
 
     <!-- Inform: Code eingeben Subtext -->
-    <string name="inform_code_text">"Geben Sie den Ihnen zugestellten Covidcode ein."</string>
+    <string name="inform_code_text">"Geben Sie den erhaltenen Covidcode ein."</string>
 
     <!-- Inform: Code eingeben kein Code Button Text -->
     <string name="inform_code_no_code">"Benötigen Sie Hilfe?"</string>
@@ -85,7 +82,8 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="tracing_setting_title">"Tracing"</string>
 
     <!-- Text beim Bluetooth Control -->
-    <string name="tracing_setting_text">"Anonymes Tracing erlauben"</string>
+    <!-- Fuzzy -->
+    <string name="tracing_setting_text_ios">"COVID-19-Kontaktmitteilungen"</string>
 
     <!-- Bluetooth Control: Tracking deaktiviert -->
     <string name="bluetooth_setting_tracking_inactive">"Tracing deaktiviert"</string>
@@ -106,10 +104,10 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="meldungen_meldung_title">"Mögliche Ansteckung"</string>
 
     <!-- Text im Meldung Detail -->
-    <string name="meldungen_meldung_text">"Es besteht der Verdacht auf eine mögliche Ansteckung."</string>
+    <string name="meldungen_meldung_text">"Es besteht die Möglichkeit einer Ansteckung."</string>
 
     <!-- Titel ob Tracing aktiv -->
-    <string name="tracing_active_title">"Tracing aktiv"</string>
+    <string name="tracing_active_title">"App aktiv"</string>
 
     <!-- Text bei Tracing aktiv -->
     <string name="tracing_active_text">"Begegnungen werden anonym gespeichert"</string>
@@ -196,13 +194,13 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="inform_detail_box_subtitle">"Mit dem Covidcode..."</string>
 
     <!-- Inform Detai Weisse Box Titel -->
-    <string name="inform_detail_box_title">"Anonym melden"</string>
+    <string name="inform_detail_box_title">"Infektionsketten stoppen"</string>
 
     <!-- Inform Detail Weisse Box Button -->
     <string name="inform_detail_box_button">"Covidcode eingeben"</string>
 
     <!-- Informieren Detail Weisse Box Text -->
-    <string name="inform_detail_box_text">"Mit dem Ihnen zugestellten Covidcode können Sie den Test anonym in der App melden."</string>
+    <string name="inform_detail_box_text">"Mit der Eingabe des Covidcodes teilen Sie der App mit, dass sie positiv auf das neue Coronavirus getestet wurden."</string>
 
     <!-- Symptome Detail Subtitel -->
     <string name="symptom_detail_subtitle">"Was tun, wenn ich ..."</string>
@@ -211,16 +209,16 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="symptom_detail_title">"mich krank fühle?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Bei Symptomen..."</string>
+    <string name="symptom_detail_box_subtitle">"Machen Sie den ..."</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"Arzt/Ärztin kontaktieren"</string>
+    <string name="symptom_detail_box_title">"Coronavirus-Check"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
     <string name="symptom_detail_box_button">"Zum Coronavirus-Check"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Kontaktieren Sie bei Symptomen, die auf das neue Coronavirus hindeuten, Ihren Arzt / Ihre Ärztin oder den ärztlichen Notfalldienst."</string>
+    <string name="symptom_detail_box_text">"Bleiben Sie zu Hause, machen Sie den Coronavirus-Check oder rufen Sie Ihre Ärztin oder Ihren Arzt an."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Positiv getestet"</string>
@@ -230,10 +228,10 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="tracing_turned_off_title">"Tracing deaktiviert"</string>
     <string name="tracing_turned_off_text">"Aktivieren Sie das Tracing, damit die App funktioniert."</string>
     <string name="bluetooth_turned_off_title">"Bluetooth Off"</string>
-    <string name="bluetooth_turned_off_text">"Schalten Sie Bluetooth auf Ihrem Gerät ein, damit das anonyme Tracing funktioniert."</string>
+    <string name="bluetooth_turned_off_text">"Schalten Sie Bluetooth auf Ihrem Mobiltelefon ein, damit das Tracing funktioniert."</string>
     <string name="bluetooth_turn_on_button_title">"Bluetooth einschalten"</string>
     <string name="bluetooth_permission_error_title">"Bluetooth Verwendung abgelehnt"</string>
-    <string name="bluetooth_permission_error_text">"Erlauben Sie die Verwendung von Bluetooth, damit das anonyme Tracing funktioniert."</string>
+    <string name="bluetooth_permission_error_text">"Erlauben Sie die Verwendung von Bluetooth, damit das Tracing funktioniert."</string>
 
     <!-- URL zum Corona Check -->
     <string name="symptom_detail_corona_check_url">"https://check.bag-coronavirus.ch/screening"</string>
@@ -261,10 +259,10 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="meldung_detail_positive_test_box_subtitle">"Was soll ich tun?"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Titel -->
-    <string name="meldung_detail_positive_test_box_title">"Selbst-Isolation"</string>
+    <string name="meldung_detail_positive_test_box_title">"Isolation"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
-    <string name="meldung_detail_positive_test_box_text">"Befolgen Sie die Anweisungen zur Selbst-Isolation"</string>
+    <string name="meldung_detail_positive_test_box_text">"Befolgen Sie die erhaltenen Anweisungen zur Isolation"</string>
     <string name="tracing_ended_title">"Tracing beendet"</string>
     <string name="tracing_ended_text">"Es werden keine Begegnungen mehr gespeichert."</string>
     <string name="exposed_info_contact_hotline">"Kontaktieren Sie die"</string>
@@ -281,7 +279,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="meldung_homescreen_positiv_title">"Positiv getestet"</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
-    <string name="meldung_detail_exposed_subtitle">"Es besteht der Verdacht auf eine mögliche Ansteckung."</string>
+    <string name="meldung_detail_exposed_subtitle">"Es besteht die Möglichkeit einer Ansteckung."</string>
     <string name="meldung_homescreen_positiv_text">"Sie wurden positiv auf das neue Coronavirus getestet."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
@@ -297,7 +295,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
     <string name="meldungen_detail_call">"Rufen Sie uns an"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Infoline Coronavirus"</string>
+    <string name="meldungen_detail_call_text">"Infoline SwissCovid"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Jetzt anrufen"</string>
@@ -314,7 +312,7 @@ Damit helfen Sie mit, die Verbreitung des neuen Coronavirus einzudämmen."</stri
 
     <!-- Meldungen Detail: Weisse Box Text -->
     <string name="meldungen_detail_guard_text">"Bei Rückfragen:
-Infoline Coronavirus
+Infoline SwissCovid
 +41 58 387 77 78"</string>
 
     <!-- Meldungen Detail Button Weisse Box -->
@@ -335,26 +333,25 @@ Infoline Coronavirus
 Schritt voraus"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"Mit der SwissCovid-App können alle dazu beitragen die Verbreitung des neuen Coronavirus einzudämmen."</string>
+    <string name="onboarding_prinzip_text1">"Mit der SwissCovid App können alle dazu beitragen die Verbreitung des neuen Coronavirus einzudämmen."</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text2">"Die App informiert im Verdachtsfall. So können Infektionsketten unterbrochen werden."</string>
+    <string name="onboarding_prinzip_text2">"Die App informiert Sie, wenn Sie potenziell dem neuen Coronavirus ausgesetzt waren."</string>
 
     <!-- Onboarding Privacy: Titel oben -->
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
 
     <!-- Onboarding Privacy: Titel -->
-    <string name="onboarding_privacy_title">"Schutz der Privatsphäre
-garantiert"</string>
+    <string name="onboarding_privacy_title">"Schutz der Privatsphäre"</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text1">"Die Kommunikation zwischen den Geräten findet anonym statt."</string>
+    <string name="onboarding_privacy_text1">"Zwischen den Mobiltelefonen werden nur zufällige IDs ausgetauscht. Die App sammelt weder Standortdaten noch Daten über Ihre Identität."</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text2">"Sämtliche Daten werden verschlüsselt und nur lokal auf dem Smartphone gespeichert."</string>
+    <string name="onboarding_privacy_text2">"Die gespeicherten zufälligen IDs bleiben auf Ihrem Mobiltelefon und werden nach 14 Tagen gelöscht."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"Was macht die App?"</string>
+    <string name="onboarding_begegnungen_heading">"Wie funktioniert die App?"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"Begegnungen erkennen
@@ -364,7 +361,7 @@ dank Bluetooth"</string>
     <string name="onboarding_begegnungen_text1">"Die App erkennt automatisch, wenn zwei Nutzer für eine gewisse Zeit nahe beieinander sind."</string>
 
     <!-- Onboarding Begegnungen: Text -->
-    <string name="onboarding_begegnungen_text2">"Dafür wird nur Bluetooth Low Energy (BLE) verwendet. Keine GPS-Daten."</string>
+    <string name="onboarding_begegnungen_text2">"Dafür wird nur Bluetooth Low Energy (BLE) verwendet. Keine GPS-, Mobile-, WiFi- oder andere Standort-Daten."</string>
 
     <!-- Onboarding Meldung: Text oben -->
     <string name="onboarding_meldung_heading">"Was macht die App?"</string>
@@ -374,10 +371,10 @@ dank Bluetooth"</string>
 möglichen Ansteckung"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"Die App informiert Sie bei einem Verdacht auf eine mögliche Ansteckung."</string>
+    <string name="onboarding_meldung_text1">"Die App informiert Sie, wenn Sie potenziell dem neuen Coronavirus ausgesetzt waren."</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text2">"Mit dem richtigen Verhalten können Sie sich und andere schützen."</string>
+    <string name="onboarding_meldung_text2">"Mit dem richtigen Verhalten können Sie Infektionsketten unterbrechen und andere schützen."</string>
 
     <!-- Onboarding Bluetooth: Titel -->
     <string name="onboarding_bluetooth_title">"Bluetooth erlauben"</string>
@@ -391,15 +388,19 @@ möglichen Ansteckung"</string>
     <!-- Onboarding: Untetitel unten -->
     <string name="onboarding_good_to_know">"Gut zu wissen"</string>
 
+    <!-- OBSOLETE? -->
     <!-- Onboarding Bluetooth: Titel unten -->
     <string name="onboarding_bluetooth_gtk_title1">"Sie bleiben anonym"</string>
 
+    <!-- OBSOLETE? -->
     <!-- Onboarding Bluetooth: Text unten -->
     <string name="onboarding_bluetooth_gtk_text1">"Über Bluetooth werden keine persönlichen Daten sichtbar."</string>
 
+    <!-- OBSOLETE? -->
     <!-- Onboarding Bluetooth: Titel unten -->
     <string name="onboarding_bluetooth_gtk_title2">"Leicht erhöhte Batterienutzung"</string>
 
+    <!-- OBSOLETE? -->
     <!-- Onboarding Bluetooth: Text unten -->
     <string name="onboarding_bluetooth_gtk_text2">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterienutzung erhöht sich nur leicht."</string>
 
@@ -424,13 +425,13 @@ möglichen Ansteckung"</string>
     <!-- Code senden: Abschluss Gute Besserung -->
     <string name="inform_send_getwell_text">"Werden Sie bald wieder gesund.
 
-Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
+Halten Sie sich an die erhaltenen Anweisungen zur Isolation."</string>
 
     <!-- Titel auf dem letzen Onboarding Screen -->
     <string name="onboarding_go_title">"Die App ist eingerichtet"</string>
 
     <!-- Text auf dem letzten Onboarding Screen -->
-    <string name="onboarding_go_text">"Vielen Dank, dass Sie mithelfen, sich und andere zu schützen."</string>
+    <string name="onboarding_go_text">"Vielen Dank, dass Sie mithelfen, Infektionsketten zu unterbrechen."</string>
 
     <!-- Button-Label auf dem letzten Onboarding screen -->
     <string name="onboarding_go_button">"Starten"</string>
@@ -439,7 +440,7 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="homescreen_meldung_data_outdated_title">"Keine aktuellen Daten"</string>
 
     <!-- Homescreen: Text bei Fehler mit Daten -->
-    <string name="homescreen_meldung_data_outdated_text">"Seit einiger Zeit konnten die Meldungen nicht synchronisiert werden. Stellen Sie sicher, dass Ihr Gerät mit dem Internet verbunden ist."</string>
+    <string name="homescreen_meldung_data_outdated_text">"Seit einiger Zeit konnten die Meldungen nicht synchronisiert werden. Stellen Sie sicher, dass Ihr Mobiltelefon mit dem Internet verbunden ist."</string>
 
     <!-- Homescreen: Button Titel -->
     <string name="homescreen_meldung_data_outdated_retry_button">"Erneut versuchen"</string>
@@ -448,8 +449,7 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="inform_code_invalid_title">"Code ungültig"</string>
 
     <!-- Fehlermeldung Subtitle ungültiger Code -->
-    <string name="inform_code_invalid_subtitle">"Bei Fragen: App-Hotline
-+41 58 466 07 99"</string>
+    <string name="inform_code_invalid_subtitle">"Bei Problemen: Bitte rufen Sie die Stelle an, von der Sie den Covidcode erhalten haben. "</string>
 
     <!-- Datum: Vor 1 Tag -->
     <string name="date_one_day_ago">"vor 1 Tag"</string>
@@ -458,7 +458,7 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="meldung_detail_new_contact_title">"Erneuter Verdacht"</string>
 
     <!-- Meldungen Detail: Text -->
-    <string name="meldung_detail_new_contact_subtitle">"An diesem Tag war eine Ansteckung ebenfalls möglich."</string>
+    <string name="meldung_detail_new_contact_subtitle">"Es besteht die Möglichkeit einer Ansteckung."</string>
 
     <!-- Fehler mit Uhrzeit Titel -->
     <string name="time_inconsistency_title">"Uhrzeit Fehler"</string>
@@ -470,7 +470,7 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="begegnungen_restart_error_title">"Neustart erforderlich"</string>
 
     <!-- Begegnungen: Neustart Text -->
-    <string name="begegnungen_restart_error_text">"Es ist ein unerwarteter Fehler aufgetreten. Starten Sie das Gerät neu."</string>
+    <string name="begegnungen_restart_error_text">"Es ist ein unerwarteter Fehler aufgetreten. Starten Sie das Mobiltelefon neu."</string>
 
     <!-- Fehler Titel für Hintergrund-Fehler -->
     <string name="meldungen_background_error_title">"Hintergrundaktualisierung ausgeschaltet"</string>
@@ -558,10 +558,10 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="accessibility_info_button">"Information"</string>
 
     <!-- Synchronisations-Fehler Titel -->
-    <string name="sync_warning_notification_title">"Es ist ein Fehler aufgetreten"</string>
+    <string name="sync_warning_notification_title">"App synchronisieren"</string>
 
     <!-- Synchronisations-Fehler Text -->
-    <string name="sync_warning_notification_text">"Öffnen Sie die App, um den Fehler zu beheben."</string>
+    <string name="sync_warning_notification_text">"Öffnen Sie die App, um die Liste der gemeldeten zufälligen IDs abzugleichen."</string>
 
     <!-- Meldungen Detail: Button bei Vollansicht -->
     <string name="meldung_animation_continue_button">"Weiter"</string>
@@ -573,15 +573,15 @@ Halten Sie sich an die Anweisungen zur Selbst-Isolation."</string>
     <string name="begegnung_detail_faq1_title">"Was bedeutet Begegnung?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq1_text">"Wenn sich Telefone mit der App für mehrere Minuten nahe beieinander befinden, wird das als Begegnung im Gerät gespeichert."</string>
+    <string name="begegnung_detail_faq1_text">"Wenn sich Mobiltelefone mit der App für eine gewisse Zeit nahe beieinander befinden, wird das als Begegnung im Gerät gespeichert."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnung_detail_faq2_title">"Sind meine Daten sicher?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq2_text">"Bei einer Begegnung wird nur ein verschlüsselter Code ausgetauscht.
+    <string name="begegnung_detail_faq2_text">"Bei einer Begegnung werden nur zufällige IDs ausgetauscht.
 
-Dieser wird lokal auf den Geräten gespeichert und nach 21 Tagen wieder gelöscht."</string>
+Diese werden lokal auf den Mobiltelefonen gespeichert und nach 14 Tagen wieder gelöscht."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnungen_detail_faq3_title">"Muss Bluetooth immer an sein?"</string>
@@ -598,7 +598,7 @@ Die Batterienutzung erhöht sich dadurch nur leicht."</string>
     <string name="meldungen_nomeldungen_faq1_title">"Was sind Meldungen?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq1_text">"Die App kontrolliert regelmässig, ob bei Ihnen gespeicherte Begegnungen positiv getestet wurden.
+    <string name="meldungen_nomeldungen_faq1_text">"Die App prüft regelmässig, ob andere Nutzer, denen Sie begegnet sind, einen positiven Test gemeldet haben.
 
 Bei einer möglichen Ansteckung werden Sie mit einer Mitteilung im Sperrbildschirm informiert."</string>
 
@@ -606,12 +606,12 @@ Bei einer möglichen Ansteckung werden Sie mit einer Mitteilung im Sperrbildschi
     <string name="meldungen_nomeldungen_faq2_titel">"Was bedeutet mögliche Ansteckung?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"Die App schaut nicht nur, ob Begegnungen mit infizierten Personen stattfanden, sondern auch wie lange und wie nahe diese waren.
+    <string name="meldungen_nomeldungen_faq2_text">"Die App prüft nicht nur, ob Begegnungen mit infizierten Personen stattfanden, sondern auch wie lange und wie nahe diese waren.
 
-Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist, werden Sie informiert."</string>
+Nur wenn die Möglichkeit einer Ansteckung gross genug ist, werden Sie informiert."</string>
 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
-    <string name="meldungen_detail_explanation_text3">"Bei ersten Symptomen kontaktieren Sie Ihren Arzt/Ihre Ärztin."</string>
+    <string name="meldungen_detail_explanation_text3">"Die Infoline SwissCovid berät Sie über die Möglichkeit eines kostenlosen Tests."</string>
 
     <!-- Meldungen: Meldungen FAQ -->
     <string name="meldungen_meldungen_faq1_title">"Muss ich anrufen?"</string>
@@ -619,7 +619,9 @@ Erst wenn der Verdacht auf eine mögliche Ansteckung genug gross ist, werden Sie
     <!-- Meldungen: Meldungen FAQ Text -->
     <string name="meldungen_meldungen_faq1_text">"Es ist empfohlen, dass Sie bei jeder neuen Meldung anrufen.
 
-Sie bleiben dabei anonym. Es werden keine Personendaten erfasst."</string>
+Sie bleiben dabei anonym. Es werden keine Personendaten erfasst.
+
+Das Beratungsgespräch ist kostenlos; es fallen nur die Telefongebühren an."</string>
 
     <!-- Meldungen Detail: Anruf Titel -->
     <string name="meldungen_detail_call_thankyou_title">"Danke für das Mitmachen"</string>
@@ -642,12 +644,12 @@ Sie bleiben dabei anonym. Es werden keine Personendaten erfasst."</string>
 Damit wird sichergestellt, dass nur bestätigte Fälle über die App gemeldet werden."</string>
 
     <!-- Inform Detail: FAQ Titel -->
-    <string name="inform_detail_faq2_title">"Wie bleibe ich anonym?"</string>
+    <string name="inform_detail_faq2_title">"Was wird gesendet?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Es werden nur die temporären Schlüssel Ihrer App gesendet, keine persönlichen Daten.
+    <string name="inform_detail_faq2_text">"Es werden nur die zufälligen IDs Ihrer App gesendet, keine persönlichen Daten.
 
-Damit können andere SwissCovid-App Nutzer prüfen, ob sie in den letzten Tagen eine Begegnung mit Ihnen hatten."</string>
+Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteckung besteht."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -665,12 +667,12 @@ Damit können andere SwissCovid-App Nutzer prüfen, ob sie in den letzten Tagen 
     <string name="inform_code_intro_button">"Verstanden"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Unsicher bei Symptomen?"</string>
+    <string name="symptom_faq1_title">"Was ist der Coronavirus-Check?"</string>
 
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Sie haben Symptome und sind unsicher, wie Sie sich verhalten sollen? 
 
-Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfehlung."</string>
+Beantworten Sie die Fragen im Online-Check des BAG für eine Handlungsempfehlung."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Warum ist das Tracing beendet?"</string>
@@ -683,7 +685,7 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
 
     <!-- Meldungen Homescreen: Name Hotline -->
     <!-- Fuzzy -->
-    <string name="exposed_info_contact_hotline_name">"Infoline Coronavirus"</string>
+    <string name="exposed_info_contact_hotline_name">"Infoline SwissCovid"</string>
 
     <!-- Meldung Detail: "Noch 1 Tag" Label -->
     <string name="date_in_one_day">"Noch 1 Tag"</string>
@@ -717,24 +719,24 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_title">"Tracing aktivieren"</string>
 
-    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
     <!-- Fuzzy -->
-    <string name="onboarding_gaen_text">"Um die App nutzen zu können, müssen COVID-19 Benachrichtigungen aktiviert werden."</string>
+    <string name="onboarding_gaen_text_ios">"Um die App nutzen zu können, müssen COVID-19-Kontaktmitteilungen aktiviert werden."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktivieren"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
-    <string name="onboarding_gaen_info_title_1">"Sie bleiben anonym"</string>
+    <string name="onboarding_gaen_info_title_1">"Datenschutz"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
-    <string name="onboarding_gaen_info_text_1">"Es werden nur anonyme IDs ausgetauscht. Keine Daten zum Standort oder Ihrer Person."</string>
+    <string name="onboarding_gaen_info_text_1">"Es werden nur zufällige IDs ausgetauscht. Keine Daten zum Standort oder Ihrer Person."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
     <string name="onboarding_gaen_info_title_2">"Leicht erhöhte Batterienutzung"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 2 -->
-    <string name="onboarding_gaen_info_text_2">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterie-nutzung erhöht sich nur leicht."</string>
+    <string name="onboarding_gaen_info_text_2">"Die App ist so energiesparend wie möglich umgesetzt. Die Batterienutzung erhöht sich nur leicht."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activated">"Aktiviert"</string>
@@ -745,7 +747,7 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
 
     <!-- Meldung im Löschen Dialog wenn möglicherweise angesteckt -->
     <!-- Fuzzy -->
-    <string name="delete_reports_dialog">"Möchten sie die Meldung wirklich löschen? Es ist wichtig, dass Sie die Infoline angerufen haben."</string>
+    <string name="delete_reports_dialog">"Möchten sie die Meldung wirklich löschen?"</string>
 
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
     <!-- Fuzzy -->
@@ -773,14 +775,16 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <!-- Tracing wurde vom System deaktiviert, erneut starten -->
     <string name="gaen_unexpectedly_disabled">"Tracing wurde deaktiviert. Bitte starten Sie es erneut."</string>
 
-    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"COVID-19 Benachrichtigungen deaktiviert"</string>
+    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
+    <!-- Fuzzy -->
+    <string name="tracing_permission_error_title_ios">"COVID-19-Kontaktmitteilungen deaktiviert"</string>
 
-    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Aktivieren Sie COVID-19 Benachrichtigungen, damit das anonyme Tracing funktioniert."</string>
+    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
+    <!-- Fuzzy -->
+    <string name="tracing_permission_error_text_ios">"Aktivieren Sie COVID-19-Kontaktmitteilungen, damit das Tracing funktioniert."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
-    <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht gesendet werden. Bitte erlauben Sie das Teilen Ihrer Zufall-IDs mit der SwissCovid-App."</string>
+    <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht gesendet werden. Bitte erlauben Sie das Teilen Ihrer zufälligen IDs mit der SwissCovid App."</string>
 
     <!-- Button um die Google Play Services zu aktualisieren -->
     <string name="playservices_update">"Aktualisieren"</string>
@@ -794,7 +798,7 @@ Beantworten Sie die Fragen im Coronavirus-Check des BAG für eine Handlungsempfe
     <!-- Meldung, dass die Google Play Services benötigt werden -->
     <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt. 
 
-Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
+Falls auf Ihrem Mobiltelefon zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
 
     <!-- Fuzzy -->
     <string name="android_error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>
@@ -853,7 +857,7 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
     <string name="synchronizations_view_title">"Übersicht"</string>
     <string name="synchronizations_view_info_title">"Synchronisationen"</string>
     <string name="synchronizations_view_info_question">"Was sind Synchronisationen?"</string>
-    <string name="synchronizations_view_info_answer">"Die App prüft regelmässig die von positiv getesteten Nutzern veröffentlichten Schlüssel."</string>
+    <string name="synchronizations_view_info_answer">"Die App prüft regelmässig die von positiv getesteten Nutzern veröffentlichten zufälligen IDs."</string>
     <string name="synchronizations_view_period_title">"In den letzten 14 Tagen"</string>
     <string name="synchronizations_view_sync_via_open">"  • Open"</string>
     <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
@@ -861,4 +865,81 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
     <string name="synchronizations_view_sync_via_scheduled">"  • Geplant"</string>
     <string name="synchronizations_view_sync_via_fake_request">"  • Gefälschte Anfrage"</string>
     <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Hochladen"</string>
+
+    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_before_title">"Vor dem Gespräch"</string>
+
+    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_main_title">"Notieren Sie sich bitte folgende Angaben"</string>
+
+    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_datum">"Datum"</string>
+
+    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_number">"Nummer"</string>
+    <string name="tracing_active_tracking_always_info">"SwissCovid bleibt aktiv, auch wenn die App geschlossen wird."</string>
+
+    <!-- title in splash screen of onboarding -->
+    <string name="oboarding_splashscreen_title">"SwissCovid 
+stoppt 
+Infektionsketten."</string>
+    <string name="inform_detail_faq3_text">"Obwohl keine Daten zu Ihrer Person gesendet werden, kann es sein, dass sich jemand anhand des Datums an die Begegnung erinnern kann."</string>
+    <string name="inform_detail_faq3_title">"Bleibe ich anonym?"</string>
+
+    <!-- Meldung Detail Weiss Box unten -->
+    <!-- Fuzzy -->
+    <string name="meldungen_detail_explanation_text4">"Bei ersten Symptomen machen Sie bitte den Coronavirus-Check oder rufen Sie Ihre Ärztin / Ihren Arzt an."</string>
+
+    <!-- Text beim Bluetooth Control -->
+    <string name="tracing_setting_text_android">"COVID-19-Benachrichtigungen"</string>
+
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
+    <string name="onboarding_gaen_text_android">"Um die App nutzen zu können, müssen COVID-19 Benachrichtigungen aktiviert werden."</string>
+
+    <!-- Onboarding Disclaimer Screen: AppName Title -->
+    <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
+
+    <!-- Onboarding Disclaimer Screen: Title -->
+    <string name="onboarding_disclaimer_title">"Hinweise zur Nutzung"</string>
+
+    <!-- Onboarding Disclaimer Screen: Info -->
+    <string name="onboarding_disclaimer_info">"Hier finden Sie die Datenschutzerklärung und die Nutzungsbedingungen."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Title -->
+    <string name="onboarding_disclaimer_warning_title">"Warnung: Diese App schützt Sie nicht vor einer COVID-19-Infektion."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Text -->
+    <string name="onboarding_disclaimer_warning_body">"Die App dient dem Proximity Tracing und zur Warnung der Benutzer vor einer möglichen Ansteckung nach einer Begegnung mit einer mit COVID-19 infizierten Person. Es ist auch kein diagnostisches Werkzeug. Bitte lesen Sie die Anweisungen, die in jedem App-Screen enthalten sind, sorgfältig durch."</string>
+
+    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
+    <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
+Schwarzenburgstrasse 157
+3097 Liebefeld, Schweiz"</string>
+
+    <!-- Onboarding Disclaimer Screen: App version title -->
+    <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
+
+    <!-- Onboarding Disclaimer Screen: Release version title -->
+    <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
+
+    <!-- onboarding privacy and conditions of use button -->
+    <string name="onboarding_disclaimer_legal_button">"Datenschutzerklärung &amp; Nutzungsbedingungen"</string>
+
+    <!-- onboarding privacy and conditions of use url -->
+    <string name="onboarding_disclaimer_legal_button_url">"https://www.bag.admin.ch/swisscovid-datenschutzerklaerung-und-nutzungsbedingungen"</string>
+
+    <!-- Google Translation -->
+    <!-- Error shown when loading fails because there is not enough free disk space. -->
+    <string name="loading_error_no_disk_space">"Meldungen konnten nicht geprüft werden, da ihr Mobiltelefon über zu wenig freien Speicherplatz verfügt. Bitte geben Sie Speicherplatz frei."</string>
+
+    <!-- Onboarding: Akzeptieren Buttton Titel -->
+    <string name="onboarding_accept_button">"Akzeptieren"</string>
+
+    <!-- Google Translation -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Titel -->
+    <string name="ratelimit_error_title">"Aktualisierung zur Zeit nicht möglich"</string>
+
+    <!-- Google Translation! -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
+    <string name="ratelimit_error_text">"Es wurden heute schon zu viele Abfragen durchgeführt. Die App wird es später erneut probieren."</string>
 </resources>

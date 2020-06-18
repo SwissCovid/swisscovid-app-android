@@ -35,7 +35,7 @@ public class WtdSymptomsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.wtd_symptoms_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-		view.findViewById(R.id.wtd_symptoms_check_button).setOnClickListener(v -> {
+		view.findViewById(R.id.wtd_symptoms_check_button1).setOnClickListener(v -> {
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.symptom_detail_corona_check_url)));
 			startActivity(browserIntent);
 		});

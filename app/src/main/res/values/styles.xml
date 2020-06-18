@@ -97,6 +97,12 @@
 		<item name="android:gravity">center_horizontal</item>
 	</style>
 
+	<style name="NextStep.Text.SplashTitle">
+		<item name="android:textSize">@dimen/text_size_splash_title</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">@color/white</item>
+	</style>
+
 	<style name="NextStep.Text.Status">
 		<item name="android:textStyle">bold</item>
 		<item name="android:letterSpacing">0.1</item>
@@ -142,7 +148,6 @@
 		<item name="android:paddingTop">@dimen/spacing_small</item>
 		<item name="android:paddingStart">@dimen/spacing_large</item>
 		<item name="android:paddingEnd">@dimen/spacing_large</item>
-		<item name="android:drawablePadding">@dimen/spacing_small</item>
 	</style>
 
 	<style name="NextStep.Button.AllCaps">

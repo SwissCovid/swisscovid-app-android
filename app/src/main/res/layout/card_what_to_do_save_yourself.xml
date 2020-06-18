@@ -178,6 +178,8 @@
 			android:layout_marginLeft="@dimen/spacing_medium"
 			android:layout_marginTop="@dimen/spacing_huger"
 			android:layout_marginRight="@dimen/spacing_medium"
+			android:drawableRight="@drawable/ic_launch_blue"
+			android:paddingStart="@dimen/padding_start_icon_button"
 			android:text="@string/faq_button_title" />
 
 	</LinearLayout>

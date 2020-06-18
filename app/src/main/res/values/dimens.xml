@@ -24,6 +24,7 @@
 	<dimen name="spacing_huge">40dp</dimen>
 	<dimen name="spacing_huger">50dp</dimen>
 	<dimen name="spacing_enormous">100dp</dimen>
+	<dimen name="text_size_splash_title">28sp</dimen>
 	<dimen name="text_size_title">22sp</dimen>
 	<dimen name="text_size_normal">16sp</dimen>
 	<dimen name="text_size_small">14sp</dimen>
@@ -62,4 +63,5 @@
 	<dimen name="padding_between_code">1dp</dimen>
 	<dimen name="chained_edit_text_min_width">20dp</dimen>
 	<dimen name="card_loading_view_size">32dp</dimen>
+	<dimen name="padding_start_icon_button">44dp</dimen>
 </resources>

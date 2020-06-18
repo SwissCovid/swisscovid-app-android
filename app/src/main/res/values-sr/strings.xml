@@ -20,15 +20,15 @@
     <string name="inform_continue_button">"Dalje"</string>
 
     <!-- Informieren: Senden Button -->
-    <string name="inform_send_button_title">"Pošalji anonimno"</string>
+    <string name="inform_send_button_title">"Slanje"</string>
 
     <!-- Informieren: Danke -->
     <string name="inform_send_thankyou">"Hvala"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Anonimno ste prijavili svoj pozitivan test putem aplikacije.
+    <string name="inform_send_thankyou_text">"Poslani su nasumični ID-ovi iz vaše aplikacije.
 
-Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
+Time nam pomažete u prekidanju lanca širenja infekcije."</string>
 
     <!-- Informieren: Button Titel -->
     <string name="inform_fertig_button_title">"Zatvori"</string>
@@ -69,9 +69,6 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <!-- Permission Text für Bluetooth -->
     <string name="NSBluetoothAlwaysUsageDescription">"Kontakti se prepoznaju u pozadini preko Bluetooth-a, uz uštedu energije."</string>
 
-    <!-- Text der bei Android in der permanenten Notification immer angezeigt wird -->
-    <string name="android_foreground_service_notification_text">"Kontakti se anonimno čuvaju na vašem uređaju."</string>
-
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Unos Covid šifre"</string>
 
@@ -85,7 +82,8 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="tracing_setting_title">"Praćenje"</string>
 
     <!-- Text beim Bluetooth Control -->
-    <string name="tracing_setting_text">"Dozvoli anonimno praćenje"</string>
+    <!-- Fuzzy -->
+    <string name="tracing_setting_text_ios">"Obavijesti o izloženosti"</string>
 
     <!-- Bluetooth Control: Tracking deaktiviert -->
     <string name="bluetooth_setting_tracking_inactive">"Praćenje je deaktivirano"</string>
@@ -106,10 +104,10 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="meldungen_meldung_title">"Moguća infekcija"</string>
 
     <!-- Text im Meldung Detail -->
-    <string name="meldungen_meldung_text">"Postoji sumnja na moguću infekciju."</string>
+    <string name="meldungen_meldung_text">"Postoji mogućnost infekcije."</string>
 
     <!-- Titel ob Tracing aktiv -->
-    <string name="tracing_active_title">"Praćenje aktivno"</string>
+    <string name="tracing_active_title">"Aplikacija aktivna"</string>
 
     <!-- Text bei Tracing aktiv -->
     <string name="tracing_active_text">"Kontakti se anonimno čuvaju"</string>
@@ -175,13 +173,13 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="tab_tracing_title">"Praćenje"</string>
 
     <!-- Titel auf Homescreen für Was tun Section -->
-    <string name="whattodo_title_symptoms">"Simptomi bolesti"</string>
+    <string name="whattodo_title_symptoms">"simptomi bolesti"</string>
 
     <!-- Subtitel auf Homescreen für Was Tun Section -->
     <string name="whattodo_subtitle_symptoms">"Šta da radim ako..."</string>
 
     <!-- Titel auf Homescreen bei Was tun Section -->
-    <string name="whattodo_title_positivetest">"sam testiran pozitivno"</string>
+    <string name="whattodo_title_positivetest">"test je pozitivan"</string>
 
     <!-- Subtitel auf Homescreen bei Was tun Section -->
     <string name="whattodo_subtitle_positivetest">"Šta da radim u slučaju..."</string>
@@ -196,13 +194,13 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="inform_detail_box_subtitle">"Sa Covid šifrom..."</string>
 
     <!-- Inform Detai Weisse Box Titel -->
-    <string name="inform_detail_box_title">"Anonimno slanje"</string>
+    <string name="inform_detail_box_title">"Zaustavljanje lanca širenja infekcije"</string>
 
     <!-- Inform Detail Weisse Box Button -->
     <string name="inform_detail_box_button">"Unos Covid šifre"</string>
 
     <!-- Informieren Detail Weisse Box Text -->
-    <string name="inform_detail_box_text">"Koristite Covid šifru koju ste dobili da anonimno prijavite test u aplikaciji."</string>
+    <string name="inform_detail_box_text">"Unosom Covid šifre obaveštavate aplikaciju da ste testirani pozitivno na novi virus korona."</string>
 
     <!-- Symptome Detail Subtitel -->
     <string name="symptom_detail_subtitle">"Šta da radim ako..."</string>
@@ -211,16 +209,16 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="symptom_detail_title">"se osećam loše?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"U slučaju simptoma..."</string>
+    <string name="symptom_detail_box_subtitle">"Obavite…"</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"Obratite se lekaru"</string>
+    <string name="symptom_detail_box_title">"proveru na virus korona"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
     <string name="symptom_detail_box_button">"Na proveru na virus korona"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Ako imate simptome koji ukazuju na novi virus korona, obratite se svom lekaru ili medicinskoj službi za hitne slučajeve."</string>
+    <string name="symptom_detail_box_text">"Ostanite kod kuće, obavite proveru na virus korona ili se obratite svom lekaru."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Testiran pozitivno"</string>
@@ -230,10 +228,10 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="tracing_turned_off_title">"Praćenje je deaktivirano"</string>
     <string name="tracing_turned_off_text">"Aktivirajte praćenje da bi aplikacija radila."</string>
     <string name="bluetooth_turned_off_title">"Bluetooth isključen"</string>
-    <string name="bluetooth_turned_off_text">"Uključite Bluetooth na vašem uređaju da bi anonimno praćenje radilo."</string>
+    <string name="bluetooth_turned_off_text">"Uključite Bluetooth na vašem uređaju da bi praćenje radilo."</string>
     <string name="bluetooth_turn_on_button_title">"Uključi Bluetooth"</string>
     <string name="bluetooth_permission_error_title">"Korišćenje Bluetooth-a odbijeno"</string>
-    <string name="bluetooth_permission_error_text">"Dozvolite korišćenje Bluetooth-a da bi anonimno praćenje radilo."</string>
+    <string name="bluetooth_permission_error_text">"Dozvolite korišćenje Bluetooth-a da bi praćenje radilo."</string>
 
     <!-- URL zum Corona Check -->
     <string name="symptom_detail_corona_check_url">"https://coronavirus.unisante.ch/sr/evaluation"</string>
@@ -249,7 +247,7 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="no_meldungen_box_subtitle">"Šta bi trebalo da uradim?"</string>
 
     <!-- Keine Meldungen Weisse Box Text -->
-    <string name="no_meldungen_box_text">"Pridržavajte se preporuka o higijeni i socijalnoj distanci Saveznog ministarstva za zdravlje (BAG)."</string>
+    <string name="no_meldungen_box_text">"Pridržavajte se preporuka o higijeni i socijalnoj distanci Saveznog Ministarstva za zdravlje (BAG)."</string>
 
     <!-- Meldung Detail: Positiv Getestet Titel -->
     <string name="meldung_detail_positive_tested_title">"Testiran pozitivno"</string>
@@ -261,10 +259,10 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="meldung_detail_positive_test_box_subtitle">"Šta bi trebalo da uradim?"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Titel -->
-    <string name="meldung_detail_positive_test_box_title">"Samoizolacija"</string>
+    <string name="meldung_detail_positive_test_box_title">"Izolacija"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
-    <string name="meldung_detail_positive_test_box_text">"Sledite uputstva centra za testiranje za samoizolaciju"</string>
+    <string name="meldung_detail_positive_test_box_text">"Sledite uputstva za izolaciju koja ste dobili"</string>
     <string name="tracing_ended_title">"Praćenje završeno"</string>
     <string name="tracing_ended_text">"Dalji kontakti se više ne čuvaju."</string>
     <string name="exposed_info_contact_hotline">"Obratite se"</string>
@@ -279,7 +277,7 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="meldung_homescreen_positiv_title">"Testiran pozitivno"</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
-    <string name="meldung_detail_exposed_subtitle">"Postoji sumnja na moguću infekciju."</string>
+    <string name="meldung_detail_exposed_subtitle">"Postoji mogućnost infekcije."</string>
     <string name="meldung_homescreen_positiv_text">"Testirani ste pozitivno na novi virus korona."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
@@ -295,7 +293,7 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
     <string name="meldungen_detail_call">"Pozovite nas"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Info linija za virus korona"</string>
+    <string name="meldungen_detail_call_text">"Info linija SwissCovid"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Pozovi odmah"</string>
@@ -311,7 +309,7 @@ Time nam pomažete u suzbijanju širenja novog virusa korona."</string>
 
     <!-- Meldungen Detail: Weisse Box Text -->
     <string name="meldungen_detail_guard_text">"U slučaju dodatnih pitanja:
-Info linija za virus korona
+Info linija SwissCovid
 +41 58 387 77 78"</string>
 
     <!-- Meldungen Detail Button Weisse Box -->
@@ -334,23 +332,22 @@ ispred virusa"</string>
     <string name="onboarding_prinzip_text1">"Pomoću aplikacije Swiss Covid svi možemo da pomognemo u suzbijanju širenja novog virusa korona."</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text2">"Aplikacija pruža informacije o sumnjama na infekcije. Na ovaj način se lanci infekcije mogu prekinuti."</string>
+    <string name="onboarding_prinzip_text2">"Aplikacija vas obaveštava ako postoji sumnja na to da ste zaraženi novim virusom korona."</string>
 
     <!-- Onboarding Privacy: Titel oben -->
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
 
     <!-- Onboarding Privacy: Titel -->
-    <string name="onboarding_privacy_title">"Zaštita vaše privatnosti
-zagarantovana"</string>
+    <string name="onboarding_privacy_title">"Zaštita vaše privatnosti"</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text1">"Komunikacija između uređaja je anonimna."</string>
+    <string name="onboarding_privacy_text1">"Među mobilnim telefonima se razmenjuju samo nasumični ID-ovi. Aplikacija ne prikuplja podatke o lokaciji niti podatke o vašem identitetu."</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text2">"Svi podaci se šifruju i čuvaju samo lokalno na pametnom telefonu."</string>
+    <string name="onboarding_privacy_text2">"Sačuvani nasumični ID-ovi se čuvaju na vašem mobilnom telefonu i brišu se nakon 14 dana."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"Šta aplikacija radi?"</string>
+    <string name="onboarding_begegnungen_heading">"Kako funkcioniše aplikacija?"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"Prepoznavanje kontakta
@@ -360,7 +357,7 @@ pomoću Bluetooth-a"</string>
     <string name="onboarding_begegnungen_text1">"Aplikacija automatski prepoznaje kada su dva korisnika određeni vremenski period blizu."</string>
 
     <!-- Onboarding Begegnungen: Text -->
-    <string name="onboarding_begegnungen_text2">"Za to koristi samo tehnologiju Bluetooth Low Energy (BLE). GPS podaci se ne koriste."</string>
+    <string name="onboarding_begegnungen_text2">"Za to koristi samo tehnologiju Bluetooth Low Energy (BLE). Nema podataka o GPS-u, mobilnih podataka, podataka o WiFi mreži ili nekih drugih podataka o lokaciji."</string>
 
     <!-- Onboarding Meldung: Text oben -->
     <string name="onboarding_meldung_heading">"Šta aplikacija radi?"</string>
@@ -370,7 +367,7 @@ pomoću Bluetooth-a"</string>
 moguće infekcije"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"Aplikacija vas obaveštava ako postoji sumnja na moguću infekciju."</string>
+    <string name="onboarding_meldung_text1">"Aplikacija vas obaveštava ako postoji sumnja na to da ste zaraženi novim virusom korona."</string>
 
     <!-- Onboarding Meldung: Text -->
     <string name="onboarding_meldung_text2">"Ispravnim ponašanjem možete zaštititi sebe i druge."</string>
@@ -420,13 +417,13 @@ moguće infekcije"</string>
     <!-- Code senden: Abschluss Gute Besserung -->
     <string name="inform_send_getwell_text">"Želimo vam brz oporavak.
 
-Pridržavajte se uputstava o samoizolaciji."</string>
+Pridržavajte se dobijenih uputstava o izolaciji."</string>
 
     <!-- Titel auf dem letzen Onboarding Screen -->
     <string name="onboarding_go_title">"Aplikacija je spremna"</string>
 
     <!-- Text auf dem letzten Onboarding Screen -->
-    <string name="onboarding_go_text">"Hvala vam što pomažete u zaštiti sebe i drugih."</string>
+    <string name="onboarding_go_text">"Hvala vam što pomažete u prekidanju lanca širenja infekcije."</string>
 
     <!-- Button-Label auf dem letzten Onboarding screen -->
     <string name="onboarding_go_button">"Pokreni"</string>
@@ -444,17 +441,16 @@ Pridržavajte se uputstava o samoizolaciji."</string>
     <string name="inform_code_invalid_title">"Nevažeća šifra"</string>
 
     <!-- Fehlermeldung Subtitle ungültiger Code -->
-    <string name="inform_code_invalid_subtitle">"U slučaju pitanja: App-Hotline
-+41 58 466 07 99"</string>
+    <string name="inform_code_invalid_subtitle">"U slučaju problema: Pozovite instituciju od koje ste dobili Covid šifru."</string>
 
     <!-- Datum: Vor 1 Tag -->
     <string name="date_one_day_ago">"pre 1 dana"</string>
 
     <!-- Meldungen Detail: Titel -->
-    <string name="meldung_detail_new_contact_title">"Nova sumnja na infekciju"</string>
+    <string name="meldung_detail_new_contact_title">"Moguća infekcija"</string>
 
     <!-- Meldungen Detail: Text -->
-    <string name="meldung_detail_new_contact_subtitle">"Infekcija je takođe bila moguća tog dana."</string>
+    <string name="meldung_detail_new_contact_subtitle">"Postoji sumnja na moguću infekciju."</string>
 
     <!-- Fehler mit Uhrzeit Titel -->
     <string name="time_inconsistency_title">"Vremenska greška"</string>
@@ -550,10 +546,10 @@ Pridržavajte se uputstava o samoizolaciji."</string>
     <string name="accessibility_info_button">"Informacije"</string>
 
     <!-- Synchronisations-Fehler Titel -->
-    <string name="sync_warning_notification_title">"Došlo je do neočekivane greške"</string>
+    <string name="sync_warning_notification_title">"Sinhronizovanje aplikacije"</string>
 
     <!-- Synchronisations-Fehler Text -->
-    <string name="sync_warning_notification_text">"Otvorite aplikaciju da biste ispravili grešku."</string>
+    <string name="sync_warning_notification_text">"Otvorite aplikaciju da biste sinhronizovali listu prijavljenih nasumičnih ID-ova."</string>
 
     <!-- Meldungen Detail: Button bei Vollansicht -->
     <string name="meldung_animation_continue_button">"Dalje"</string>
@@ -565,15 +561,15 @@ Pridržavajte se uputstava o samoizolaciji."</string>
     <string name="begegnung_detail_faq1_title">"Šta znači kontakt?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq1_text">"Ako su pametni telefoni sa aplikacijom nekoliko minuta u neposrednoj blizini, to se na vašem uređaju čuva kao kontakt."</string>
+    <string name="begegnung_detail_faq1_text">"Ako su mobilni telefoni sa aplikacijom određeno vreme u neposrednoj blizini, to se na vašem uređaju čuva kao kontakt."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnung_detail_faq2_title">"Da li su moji podaci sigurni?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq2_text">"Prilikom kontakta, razmenjuje se samo šifrovana šifra.
+    <string name="begegnung_detail_faq2_text">"Prilikom kontakta razmenjuju se samo nasumični ID-ovi. 
 
-Ona se lokalno čuva na uređajima i briše nakon 21 dana."</string>
+Oni se lokalno čuvaju na uređajima i brišu se nakon 14 dana."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnungen_detail_faq3_title">"Da li Bluetooth mora uvek biti uključen?"</string>
@@ -590,7 +586,7 @@ Time se potrošnja baterije samo neznatno povećava."</string>
     <string name="meldungen_nomeldungen_faq1_title">"Šta su poruke?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq1_text">"Aplikacija redovno proverava da li su vaši sačuvani kontakti testirani pozitivno.
+    <string name="meldungen_nomeldungen_faq1_text">"Aplikacija redovno proverava da li su drugi korisnici sa kojima ste bili u kontaktu prijavili pozitivan test.
 
 U slučaju moguće infekcije, dobićete obaveštenje na zaključanom ekranu."</string>
 
@@ -598,12 +594,12 @@ U slučaju moguće infekcije, dobićete obaveštenje na zaključanom ekranu."</s
     <string name="meldungen_nomeldungen_faq2_titel">"Šta je moguća infekcija?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"Aplikacija ne samo da proverava da li ste imali kontakte sa inficiranim osobama, već i koliko dugo su oni trajali i koliko bliski su bili.
+    <string name="meldungen_nomeldungen_faq2_text">"Aplikacija ne samo da proverava da li ste imali kontakte sa inficiranim osobama, već i koliko dugo su oni trajali i koliko bliski su bili.
 
-Bićete obavešteni samo ako postoji dovoljna sumnja na moguću infekciju."</string>
+Bićete obavešteni samo ako postoji dovoljno velika mogućnost infekcije."</string>
 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
-    <string name="meldungen_detail_explanation_text3">"Ako osetite bilo kakve simptome, obratite se svom lekaru."</string>
+    <string name="meldungen_detail_explanation_text3">"Preko info linije aplikacije SwissCovid možete da dobijete savete o mogućnosti besplatnog testiranja."</string>
 
     <!-- Meldungen: Meldungen FAQ -->
     <string name="meldungen_meldungen_faq1_title">"Da li moram da pozovem?"</string>
@@ -611,7 +607,9 @@ Bićete obavešteni samo ako postoji dovoljna sumnja na moguću infekciju."</st
     <!-- Meldungen: Meldungen FAQ Text -->
     <string name="meldungen_meldungen_faq1_text">"Preporučuje se da pozovete svaki put kada dobijete novu poruku.
 
-Pritom ostajete anonimni. Lični podaci se ne prikupljaju."</string>
+Pritom ostajete anonimni. Lični podaci se ne prikupljaju.
+
+Savetovanje je besplatno; plaćaju se samo troškovi poziva."</string>
 
     <!-- Meldungen Detail: Anruf Titel -->
     <string name="meldungen_detail_call_thankyou_title">"Hvala na učešću"</string>
@@ -634,12 +632,12 @@ Pritom ostajete anonimni. Lični podaci se ne prikupljaju."</string>
 Time se osigurava da se putem aplikacije prijavljuju samo potvrđeni slučajevi."</string>
 
     <!-- Inform Detail: FAQ Titel -->
-    <string name="inform_detail_faq2_title">"Kako da ostanem anoniman?"</string>
+    <string name="inform_detail_faq2_title">"Šta se šalje?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Šalju se samo privremeni ključevi iz vaše aplikacije. Nema ličnih podataka.
+    <string name="inform_detail_faq2_text">"Šalju se samo nasumični ID-ovi iz vaše aplikacije, a ne šalju se lični podaci.
 
-Time drugi korisnici aplikacije Swiss Covid mogu da provere da li su imali kontakt sa vama u poslednjih nekoliko dana."</string>
+Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost infekcije."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -657,12 +655,12 @@ Time drugi korisnici aplikacije Swiss Covid mogu da provere da li su imali konta
     <string name="inform_code_intro_button">"Shvatam"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Niste sigurni u vezi sa simptomima?"</string>
+    <string name="symptom_faq1_title">"Šta je provera na virus korona?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Imate simptome, ali niste sigurni šta bi trebalo da uradite? 
+    <string name="symptom_faq1_text">"Imate simptome, ali niste sigurni šta bi trebalo da uradite?
 
-Odgovorite na pitanja u testu na virus korona BAG-a, da biste dobili savet šta treba da uradite."</string>
+Odgovorite na pitanja u proveri na mreži BAG-a da biste dobili savet šta treba da uradite."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Zašto je praćenje završeno?"</string>
@@ -674,7 +672,7 @@ Odgovorite na pitanja u testu na virus korona BAG-a, da biste dobili savet šta 
     <string name="language_key">"sr"</string>
 
     <!-- Meldungen Homescreen: Name Hotline -->
-    <string name="exposed_info_contact_hotline_name">"Info linija za virus korona"</string>
+    <string name="exposed_info_contact_hotline_name">"Info linija SwissCovid"</string>
 
     <!-- Meldung Detail: "Noch 1 Tag" Label -->
     <string name="date_in_one_day">"Još 1 dan"</string>
@@ -701,22 +699,23 @@ Odgovorite na pitanja u testu na virus korona BAG-a, da biste dobili savet šta 
     <string name="accessibility_code_input_hint">"Kliknite dvaput za obradu"</string>
 
     <!-- Accessibility: FAW Button Titel  -->
-    <string name="accessibility_faq_button_hint">"Ovo dugme napušta aplikaciju i otvara web stranicu Saveznog ministarstva za zdravlje."</string>
+    <string name="accessibility_faq_button_hint">"Ovo dugme napušta aplikaciju i otvara web stranicu Saveznog Ministarstva za zdravlje."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_title">"Aktiviraj praćenje"</string>
 
-    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"Da biste mogli da koristite aplikaciju, morate da aktivirate funkciju COVID-19: obavještenja."</string>
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
+    <!-- Fuzzy -->
+    <string name="onboarding_gaen_text_ios">"Da biste mogli da koristite aplikaciju, morate da aktivirate obavijesti o izloženosti bolesti COVID-19."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktiviraj"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
-    <string name="onboarding_gaen_info_title_1">"Ostajete anonimni"</string>
+    <string name="onboarding_gaen_info_title_1">"Zaštita podataka"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
-    <string name="onboarding_gaen_info_text_1">"Razmenjuju se samo anonimne identifikacione oznake. Nema podataka o lokaciji ili vaših ličnih podataka."</string>
+    <string name="onboarding_gaen_info_text_1">"Razmenjuju se samo nasumični ID-ovi. Nema podataka o lokaciji niti vaših ličnih podataka."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
     <string name="onboarding_gaen_info_title_2">"Neznatno povećana potrošnja baterije"</string>
@@ -731,7 +730,7 @@ Odgovorite na pitanja u testu na virus korona BAG-a, da biste dobili savet šta 
     <string name="delete_reports_button">"Obriši poruku"</string>
 
     <!-- Meldung im Löschen Dialog wenn möglicherweise angesteckt -->
-    <string name="delete_reports_dialog">"Da li ste sigurni da želite da obrišete poruku? "</string>
+    <string name="delete_reports_dialog">"Da li ste sigurni da želite da obrišete poruku?"</string>
 
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
     <string name="delete_infection_button">"Obriši poruku"</string>
@@ -755,44 +754,46 @@ Odgovorite na pitanja u testu na virus korona BAG-a, da biste dobili savet šta 
     <string name="gaen_not_available_text">"Molimo ažurirajte Google Play usluge"</string>
 
     <!-- Tracing wurde vom System deaktiviert, erneut starten -->
-    <string name="gaen_unexpectedly_disabled">"Tracing is deactivated. Try to start it again."</string>
+    <string name="gaen_unexpectedly_disabled">"Praćenje je deaktivirano. Pokrenite ga ponovo."</string>
 
-    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"COVID-19: obavještenja deaktivirano"</string>
+    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
+    <!-- Fuzzy -->
+    <string name="tracing_permission_error_title_ios">"COVID-19: obavještenja deaktivirano"</string>
 
-    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Aktivirajte funkciju COVID-19: obavještenja da bi anonimno praćenje radilo."</string>
+    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
+    <!-- Fuzzy -->
+    <string name="tracing_permission_error_text_ios">"Aktivirajte Obavijesti o izloženosti bolesti COVID-19 da bi praćenje radilo."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
-    <string name="user_cancelled_key_sharing_error">"The message could not be sent. Please allow your random IDs to be shared with the SwissCovid app."</string>
+    <string name="user_cancelled_key_sharing_error">"Slanje poruke nije uspelo. Dozvolite deljenje nasumičnog ID-a sa aplikacijom SwissCovid."</string>
 
     <!-- Button um die Google Play Services zu aktualisieren -->
-    <string name="playservices_update">"Update"</string>
+    <string name="playservices_update">"Ažuriraj"</string>
 
     <!-- Button um die Google Play Services zu installieren -->
-    <string name="playservices_install">"Install"</string>
+    <string name="playservices_install">"Instaliraj"</string>
 
     <!-- Titel für Infos zu den Google Play Services -->
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"To activate tracing, an up-to-date version of Google Play Services is required.
+    <string name="playservices_text">"Neophodna je ažurirana verzija aplikacije Google Play Services da biste aktivirali praćenje. 
 
-If no update is currently available on your device, please try again later."</string>
-    <string name="android_error_battery_optimization_title">"Optimisation of battery usage activated"</string>
-    <string name="android_error_battery_optimization_button">"Allow"</string>
+Ako trenutno na uređaju nije dostupno ažuriranje, probajte kasnije ponovo."</string>
+    <string name="android_error_battery_optimization_title">"Optimizacija potrošnje baterije aktivirana"</string>
+    <string name="android_error_battery_optimization_button">"Dozvoli"</string>
 
     <!-- Telefonnummer für Hilfe bei App-Problemen -->
     <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
 
     <!-- text shown in notification when we get an exception from the GAEN api -->
-    <string name="sync_api_error">"An unexpected error has occurred while synchronising reports."</string>
+    <string name="sync_api_error">"Došlo je do neočekivane greške prilikom sinhronizovanja poruka."</string>
 
     <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
-    <string name="certificate_validation_error">"A secure connection cannot be made to the server. Please check or deactivate your VPN and/or your proxy or check whether you are connected via a public Wi-Fi network."</string>
+    <string name="certificate_validation_error">"Bezbedna veza sa serverom nije moguća. Proverite ili deaktivirajte VPN mrežu, odn. proxy server, ili proverite da li ste povezani sa javnom WLAN mrežom."</string>
 
     <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
-    <string name="android_en_start_failure">"Failed to enable COVID-19 Notifications"</string>
+    <string name="android_en_start_failure">"Obaveštenja o virusu COVID-19 ne mogu da se aktiviraju"</string>
 
     <!-- Certificate pinning Debug screen section title -->
     <string name="certificate_pinning_title">"Certificate Pinning"</string>
@@ -829,16 +830,92 @@ If no update is currently available on your device, please try again later."</st
 
     <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
     <string name="onboarding_legal_blocker_message">"You are not part of an organization participating in the pilot phase. Please install the appropriate update after the official launch of the app and open the app again."</string>
-    <string name="begegnung_detail_last_sync_title">"Latest successful synchronisation"</string>
-    <string name="synchronizations_view_title">"Overview"</string>
-    <string name="synchronizations_view_info_title">"Synchronizations"</string>
-    <string name="synchronizations_view_info_question">"What are synchronizations?"</string>
-    <string name="synchronizations_view_info_answer">"The app regularly checks the published keys from users that were tested positive."</string>
-    <string name="synchronizations_view_period_title">"During the last 14 days"</string>
+    <string name="begegnung_detail_last_sync_title">"Poslednja uspešna sinhronizacija"</string>
+    <string name="synchronizations_view_title">"Pregled"</string>
+    <string name="synchronizations_view_info_title">"Sinhronizacije"</string>
+    <string name="synchronizations_view_info_question">"Šta su sinhronizacije?"</string>
+    <string name="synchronizations_view_info_answer">"Aplikacija redovno proverava nasumične ID-ove korisnika koji su pozitivno testirani na virus."</string>
+    <string name="synchronizations_view_period_title">"U poslednjih 14 dana"</string>
     <string name="synchronizations_view_sync_via_open">"  • Open"</string>
     <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
-    <string name="synchronizations_view_empty_list">"No entries"</string>
+    <string name="synchronizations_view_empty_list">"Nema unosa"</string>
     <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
     <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
     <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
+
+    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_before_title">"Pre poziva"</string>
+
+    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_main_title">"Navedite sledeće podatke"</string>
+
+    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_datum">"Datum"</string>
+
+    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_number">"Broj"</string>
+    <string name="tracing_active_tracking_always_info">"Aplikacija SwissCovid ostaje aktivna čak i kad se zatvori."</string>
+
+    <!-- title in splash screen of onboarding -->
+    <string name="oboarding_splashscreen_title">"SwissCovid 
+prekida lanac 
+širenja infekcije."</string>
+    <string name="inform_detail_faq3_text">"Iako se lični podaci koji se odnose na vas ne šalju, možda se neko seća svog kontakta sa vama na osnovu datuma."</string>
+    <string name="inform_detail_faq3_title">"Da li ostajem anoniman?"</string>
+
+    <!-- Meldung Detail Weiss Box unten -->
+    <string name="meldungen_detail_explanation_text4">"U slučaju pojave prvih simptoma obavite proveru na virus korona ili se obratite svom lekaru."</string>
+
+    <!-- Text beim Bluetooth Control -->
+    <string name="tracing_setting_text_android">"Obavijesti o izloženosti bolesti COVID-19"</string>
+
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
+    <string name="onboarding_gaen_text_android">"Da biste mogli da koristite aplikaciju, morate da aktivirate obavijesti o izloženosti bolesti COVID-19."</string>
+
+    <!-- Onboarding Disclaimer Screen: AppName Title -->
+    <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
+
+    <!-- Onboarding Disclaimer Screen: Title -->
+    <string name="onboarding_disclaimer_title">"Napomene za korišćenje"</string>
+
+    <!-- Onboarding Disclaimer Screen: Info -->
+    <string name="onboarding_disclaimer_info">"Ovde nalazite Izjavu o zaštiti ličnih podataka i uslove korišćenja."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Title -->
+    <string name="onboarding_disclaimer_warning_title">"Upozorenje: Ova aplikacija vas ne štiti od infekcije virusom COVID-19."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Text -->
+    <string name="onboarding_disclaimer_warning_body">"Ova aplikacija je namenjena za praćenje kontakata i za upozoravanje korisnika o mogućem kontaktu sa osobama koje su inficirane virusom COVID-19. Ona nije dijagnostička alatka. Pažljivo pročitajte uputstva na svakom ekranu aplikacije."</string>
+
+    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
+    <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
+Schwarzenburgstrasse 157
+3097 Liebefeld, Schweiz"</string>
+
+    <!-- Onboarding Disclaimer Screen: App version title -->
+    <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
+
+    <!-- Onboarding Disclaimer Screen: Release version title -->
+    <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
+
+    <!-- onboarding privacy and conditions of use button -->
+    <string name="onboarding_disclaimer_legal_button">"Izjava o zaštiti ličnih podataka &amp; uslovi korišćenja"</string>
+
+    <!-- onboarding privacy and conditions of use url -->
+    <string name="onboarding_disclaimer_legal_button_url">"https://www.bag.admin.ch/swisscovid-datenschutzerklaerung-und-nutzungsbedingungen"</string>
+
+    <!-- Google Translation -->
+    <!-- Error shown when loading fails because there is not enough free disk space. -->
+    <string name="loading_error_no_disk_space">"Poruke se ne mogu provjeriti jer vaš mobilni telefon nema dovoljno slobodnog prostora. Oslobodite prostor."</string>
+
+    <!-- Onboarding: Akzeptieren Buttton Titel -->
+    <string name="onboarding_accept_button">"Prihvati"</string>
+
+    <!-- Google Translation -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Titel -->
+    <string name="ratelimit_error_title">"Ažuriranje trenutno nije moguće"</string>
+
+    <!-- Google Translation! -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
+    <string name="ratelimit_error_text">"Danas je već izvršeno previše upita. Aplikacija će pokušati ponovo kasnije."</string>
 </resources>

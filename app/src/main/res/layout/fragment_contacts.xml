@@ -90,7 +90,7 @@
 								android:layout_height="wrap_content"
 								android:layout_below="@id/contacts_tracing_title"
 								android:layout_alignParentStart="true"
-								android:text="@string/tracing_setting_text" />
+								android:text="@string/tracing_setting_text_android" />
 
 						</RelativeLayout>
 
@@ -215,6 +215,8 @@
 						android:layout_marginTop="@dimen/spacing_huger"
 						android:layout_marginEnd="@dimen/spacing_medium"
 						android:layout_marginBottom="@dimen/spacing_huger"
+						android:drawableRight="@drawable/ic_launch_blue"
+						android:paddingStart="@dimen/padding_start_icon_button"
 						android:text="@string/faq_button_title" />
 
 				</LinearLayout>

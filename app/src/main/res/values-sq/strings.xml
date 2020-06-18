@@ -20,15 +20,15 @@
     <string name="inform_continue_button">"Vazhdo"</string>
 
     <!-- Informieren: Senden Button -->
-    <string name="inform_send_button_title">"Dërgo raport anonim"</string>
+    <string name="inform_send_button_title">"Dërgo"</string>
 
     <!-- Informieren: Danke -->
     <string name="inform_send_thankyou">"Shumë faleminderit"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Keni raportuar në aplikacion në mënyrë anonime testin tuaj pozitiv.
+    <string name="inform_send_thankyou_text">"ID e rastit të aplikacionit tuaj u dërguan.
 
-Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string>
+Në këtë mënyrë na ndihmoni, për të ndaluar zinxhirin e infeksionit."</string>
 
     <!-- Informieren: Button Titel -->
     <string name="inform_fertig_button_title">"Mbyll"</string>
@@ -69,9 +69,6 @@ Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string
     <!-- Permission Text für Bluetooth -->
     <string name="NSBluetoothAlwaysUsageDescription">"Kontaktet identifikohen në sfond nëpërmjet Bluetooth duke kursyer energji."</string>
 
-    <!-- Text der bei Android in der permanenten Notification immer angezeigt wird -->
-    <string name="android_foreground_service_notification_text">"Kontaktet ruhen në mënyrë anonime në pajisjen tuaj."</string>
-
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Fut kodin e Covid"</string>
 
@@ -85,7 +82,8 @@ Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string
     <string name="tracing_setting_title">"Gjurmimi"</string>
 
     <!-- Text beim Bluetooth Control -->
-    <string name="tracing_setting_text">"Lejo gjurmimin në anonimitet"</string>
+    <!-- Fuzzy -->
+    <string name="tracing_setting_text_ios">"Njoftime rreth ekspozimit"</string>
 
     <!-- Bluetooth Control: Tracking deaktiviert -->
     <string name="bluetooth_setting_tracking_inactive">"Gjurmimi i çaktivizuar"</string>
@@ -109,7 +107,7 @@ Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string
     <string name="meldungen_meldung_text">"Ekziston dyshimi i një infeksioni të mundshëm."</string>
 
     <!-- Titel ob Tracing aktiv -->
-    <string name="tracing_active_title">"Gjurmimi aktiv"</string>
+    <string name="tracing_active_title">"APP është aktiv"</string>
 
     <!-- Text bei Tracing aktiv -->
     <string name="tracing_active_text">"Kontaktet ruhen në mënyrë anonime"</string>
@@ -196,13 +194,13 @@ Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string
     <string name="inform_detail_box_subtitle">"Me kodin Covid..."</string>
 
     <!-- Inform Detai Weisse Box Titel -->
-    <string name="inform_detail_box_title">"Dërgo raport anonim"</string>
+    <string name="inform_detail_box_title">"Ndalo zinxhirin e infeksionit"</string>
 
     <!-- Inform Detail Weisse Box Button -->
     <string name="inform_detail_box_button">"Fut kodin e Covid"</string>
 
     <!-- Informieren Detail Weisse Box Text -->
-    <string name="inform_detail_box_text">"Me kodin Covid që ju është caktuar mund të njoftoni për testin në aplikacion në mënyrë anonime."</string>
+    <string name="inform_detail_box_text">"Me futjen e kodit të Covid ju njoftoni aplikacionin që jeni testuar pozitivë me koronavirusin e ri."</string>
 
     <!-- Symptome Detail Subtitel -->
     <string name="symptom_detail_subtitle">"Ç’të bëj nëse unë..."</string>
@@ -211,16 +209,16 @@ Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string
     <string name="symptom_detail_title">"ndihem i sëmurë?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Në rast simptomash..."</string>
+    <string name="symptom_detail_box_subtitle">"Bëni..."</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"kontaktoni mjekun"</string>
+    <string name="symptom_detail_box_title">"Kontrolli i koronavirusit"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
     <string name="symptom_detail_box_button">"Për kontrollin e koronavirusit"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Në rastin e simptomave që supozojnë për koronavirusin e ri, kontaktoni mjekun ose shërbimin mjekësor të urgjencës."</string>
+    <string name="symptom_detail_box_text">"Qëndroni në shtëpi, bëni kontrollin e koronavirusit ose telefononi mjeken ose mjekun tuaj."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Pozitiv në test"</string>
@@ -230,10 +228,10 @@ Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string
     <string name="tracing_turned_off_title">"Gjurmimi i çaktivizuar"</string>
     <string name="tracing_turned_off_text">"Aktivizoni gjurmimin që aplikacioni të funksionojë."</string>
     <string name="bluetooth_turned_off_title">"Bluetooth fikur"</string>
-    <string name="bluetooth_turned_off_text">"Ndizni Bluetooth në pajisje në mënyrë që gjurmimi anonim të funksionojë."</string>
+    <string name="bluetooth_turned_off_text">"Ndizni Bluetooth në pajisje në mënyrë që gjurmimi të funksionojë."</string>
     <string name="bluetooth_turn_on_button_title">"Ndiz Bluetooth"</string>
     <string name="bluetooth_permission_error_title">"Përdorimi i Bluetooth u refuzua"</string>
-    <string name="bluetooth_permission_error_text">"Lejoni përdorimin e Bluetooth, në mënyrë që gjurmimi anonim të funksionojë."</string>
+    <string name="bluetooth_permission_error_text">"Lejoni përdorimin e Bluetooth, në mënyrë që gjurmimi të funksionojë."</string>
 
     <!-- URL zum Corona Check -->
     <string name="symptom_detail_corona_check_url">"https://coronavirus.unisante.ch/sq/evaluation"</string>
@@ -261,10 +259,10 @@ Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string
     <string name="meldung_detail_positive_test_box_subtitle">"Çfarë nevojitet të bëj?"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Titel -->
-    <string name="meldung_detail_positive_test_box_title">"Vetë-izolimi"</string>
+    <string name="meldung_detail_positive_test_box_title">"Izolimi"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
-    <string name="meldung_detail_positive_test_box_text">"Ndiqni udhëzimet e qendrës së testimit për vetë-izolimin"</string>
+    <string name="meldung_detail_positive_test_box_text">"Ndiqni udhëzimet e caktuara për izolimin"</string>
     <string name="tracing_ended_title">"Gjurmimi i përfunduar"</string>
     <string name="tracing_ended_text">"Nuk ruhet më asnjë kontakt."</string>
     <string name="exposed_info_contact_hotline">"Kontaktoni"</string>
@@ -295,7 +293,7 @@ Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string
     <string name="meldungen_detail_call">"Na telefononi"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Linja e informimit për koronavirusin"</string>
+    <string name="meldungen_detail_call_text">"Linja e informimit SwissCovid"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Telefono tani"</string>
@@ -311,7 +309,7 @@ Kështu na ndihmoni për të frenuar përhapjen e koronavirusit të ri."</string
 
     <!-- Meldungen Detail: Weisse Box Text -->
     <string name="meldungen_detail_guard_text">"Nëse keni pyetje:
-Linja e informimit për koronavirusin
+Linja e informimit SwissCovid
 +41 58 387 77 78"</string>
 
     <!-- Meldungen Detail Button Weisse Box -->
@@ -334,23 +332,22 @@ virusit"</string>
     <string name="onboarding_prinzip_text1">"Me aplikacionin Swiss Covid të gjithë ne mund të ndihmojmë për të frenuar përhapjen e koronavirusit të ri."</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text2">"Aplikacioni informon në rast dyshimi. Kështu mund të ndërprisni zinxhirin e infeksioneve."</string>
+    <string name="onboarding_prinzip_text2">"Aplikacioni ju informon nëse jeni ekspozuar potencialisht me koronavirusin e ri."</string>
 
     <!-- Onboarding Privacy: Titel oben -->
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
 
     <!-- Onboarding Privacy: Titel -->
-    <string name="onboarding_privacy_title">"Mbrojtja e privatësisë
-e garantuar"</string>
+    <string name="onboarding_privacy_title">"Mbrojtja e privatësisë"</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text1">"Komunikimi ndërmjet pajisjeve zhvillohet në mënyrë anonime."</string>
+    <string name="onboarding_privacy_text1">"Shkëmbeni ndërmjet telefonave celularë vetëm ID e rastit. Aplikacioni nuk mbledh as të dhënat e vendndodhjes as të dhënat e identitetit tuaj."</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text2">"Të gjitha të dhënat enkriptohen dhe ruhen vetëm lokalisht në smartfon."</string>
+    <string name="onboarding_privacy_text2">"ID e ruajtura të rastit mbeten në telefonin tuaj celular dhe fshihen pas 14 ditësh."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"Çfarë bën aplikacioni?"</string>
+    <string name="onboarding_begegnungen_heading">"Si funksionon aplikacioni?"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"Identifikon kontaktet
@@ -360,7 +357,7 @@ falë Bluetooth"</string>
     <string name="onboarding_begegnungen_text1">"Aplikacioni identifikon automatikisht nëse dy përdorues janë pranë njëri-tjetrit për një kohë të përcaktuar."</string>
 
     <!-- Onboarding Begegnungen: Text -->
-    <string name="onboarding_begegnungen_text2">"Për këtë përdoret vetëm Bluetooth Low Energy (BLE). Asnjë e dhënë GPS."</string>
+    <string name="onboarding_begegnungen_text2">"Për këtë përdoret vetëm Bluetooth Low Energy (BLE). Nuk ka të dhëna GPS, celulare, WiFi ose të dhëna të tjera për vendndodhjen."</string>
 
     <!-- Onboarding Meldung: Text oben -->
     <string name="onboarding_meldung_heading">"Çfarë bën aplikacioni?"</string>
@@ -370,10 +367,10 @@ falë Bluetooth"</string>
 infeksioni të mundshëm"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"Aplikacioni ju informon kur ekziston dyshimi për një infeksion të mundshëm."</string>
+    <string name="onboarding_meldung_text1">"Aplikacioni ju informon nëse jeni ekspozuar potencialisht me koronavirusin e ri."</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text2">"Me sjelljen e duhur ju mund të mbroni veten dhe të tjerët."</string>
+    <string name="onboarding_meldung_text2">"Me sjelljen e duhur ju mund të ndërprisni zinxhirin e infeksionit dhe të mbroni të tjerët."</string>
 
     <!-- Onboarding Bluetooth: Titel -->
     <string name="onboarding_bluetooth_title">"Lejo Bluetooth"</string>
@@ -420,13 +417,13 @@ infeksioni të mundshëm"</string>
     <!-- Code senden: Abschluss Gute Besserung -->
     <string name="inform_send_getwell_text">"Shërim sa më të shpejtë.
 
-Respektoni udhëzimet për vetë-izolimin."</string>
+Respektoni udhëzimet e caktuara për izolimin."</string>
 
     <!-- Titel auf dem letzen Onboarding Screen -->
     <string name="onboarding_go_title">"Aplikacioni është instaluar"</string>
 
     <!-- Text auf dem letzten Onboarding Screen -->
-    <string name="onboarding_go_text">"Shumë faleminderit që ndihmoni për të mbrojtur veten dhe të tjerët."</string>
+    <string name="onboarding_go_text">"Shumë faleminderit që na ndihmoni për të ndërprerë zinxhirin e infeksionit."</string>
 
     <!-- Button-Label auf dem letzten Onboarding screen -->
     <string name="onboarding_go_button">"Nis"</string>
@@ -444,17 +441,16 @@ Respektoni udhëzimet për vetë-izolimin."</string>
     <string name="inform_code_invalid_title">"Kodi i pavlefshëm"</string>
 
     <!-- Fehlermeldung Subtitle ungültiger Code -->
-    <string name="inform_code_invalid_subtitle">"Për pyetje: App-Hotline
-+41 58 466 07 99"</string>
+    <string name="inform_code_invalid_subtitle">"Në rastin e problemeve: Telefononi zyrën ku keni marrë kodin e Covid."</string>
 
     <!-- Datum: Vor 1 Tag -->
     <string name="date_one_day_ago">"para 1 dite"</string>
 
     <!-- Meldungen Detail: Titel -->
-    <string name="meldung_detail_new_contact_title">"Dyshim i ri"</string>
+    <string name="meldung_detail_new_contact_title">"Infeksion i mundshëm"</string>
 
     <!-- Meldungen Detail: Text -->
-    <string name="meldung_detail_new_contact_subtitle">"Në këtë ditë ishte i mundur gjithashtu një infeksion."</string>
+    <string name="meldung_detail_new_contact_subtitle">"Ekziston dyshimi i një infeksioni të mundshëm."</string>
 
     <!-- Fehler mit Uhrzeit Titel -->
     <string name="time_inconsistency_title">"Gabim i orës"</string>
@@ -550,10 +546,10 @@ Respektoni udhëzimet për vetë-izolimin."</string>
     <string name="accessibility_info_button">"Informacion"</string>
 
     <!-- Synchronisations-Fehler Titel -->
-    <string name="sync_warning_notification_title">"Ka ndodhur një gabim"</string>
+    <string name="sync_warning_notification_title">"Sinkronizo aplikacionin"</string>
 
     <!-- Synchronisations-Fehler Text -->
-    <string name="sync_warning_notification_text">"Hapni aplikacionin për të eliminuar gabimin."</string>
+    <string name="sync_warning_notification_text">"Hapni aplikacionin për të krahasuar listën e ID të rastit të regjistruar."</string>
 
     <!-- Meldungen Detail: Button bei Vollansicht -->
     <string name="meldung_animation_continue_button">"Vazhdo"</string>
@@ -565,15 +561,15 @@ Respektoni udhëzimet për vetë-izolimin."</string>
     <string name="begegnung_detail_faq1_title">"Çfarë do të thotë kontakt?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq1_text">"Nëse telefonat me aplikacionin janë afër njëri-tjetrit për disa minuta, atëherë kjo ruhet si kontakt në pajisje."</string>
+    <string name="begegnung_detail_faq1_text">"Nëse telefonat celularë me aplikacionin janë afër njëri-tjetrit për disa minuta, atëherë kjo ruhet si kontakt në pajisje."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnung_detail_faq2_title">"Janë të sigurta të dhënat e mia?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq2_text">"Në rastin e një kontakti shkëmbehet vetëm një kod i shifruar.
+    <string name="begegnung_detail_faq2_text">"Në rastin e një kontakti shkëmbehen vetëm ID e rastit. 
 
-Ky ruhet lokalisht në pajisje dhe fshihet sërish pas 21 ditësh."</string>
+Këto ruhen lokalisht në pajisje dhe fshihen sërish pas 14 ditësh."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnungen_detail_faq3_title">"Bluetooth duhet të jetë gjithnjë ndezur?"</string>
@@ -590,7 +586,7 @@ Nga kjo, konsumi i baterisë rritet vetëm pak."</string>
     <string name="meldungen_nomeldungen_faq1_title">"Çfarë janë mesazhet?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq1_text">"Aplikacioni kontrollon rregullisht nëse kontaktet e ruajtura kanë rezultuar pozitivë në test.
+    <string name="meldungen_nomeldungen_faq1_text">"Aplikacioni kontrollon rregullisht nëse përdoruesit e tjerë që keni takuar kanë rezultuar pozitivë në test.
 
 Në rast infeksioni të mundshëm informoheni me një mesazh në ekranin e mbyllur."</string>
 
@@ -598,12 +594,12 @@ Në rast infeksioni të mundshëm informoheni me një mesazh në ekranin e mbyll
     <string name="meldungen_nomeldungen_faq2_titel">"Çfarë do të thotë infeksion i mundshëm?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"Aplikacioni nuk kontrollon vetëm nëse ka pasur kontakt me persona të infektuar, por edhe se për sa kohë dhe në çfarë distance.
+    <string name="meldungen_nomeldungen_faq2_text">"Aplikacioni nuk kontrollon vetëm nëse ka pasur kontakt me persona të infektuar, por edhe se për sa kohë dhe në çfarë distance ishin këta persona.
 
 Përdoruesi informohet vetëm nëse dyshimi për një infeksion të mundshëm është mjaft i madh."</string>
 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
-    <string name="meldungen_detail_explanation_text3">"Në rastin e simptomave të para kontaktoni me mjekun tuaj."</string>
+    <string name="meldungen_detail_explanation_text3">"Infoline SwissCovid ju këshillon për mundësinë e një testi falas."</string>
 
     <!-- Meldungen: Meldungen FAQ -->
     <string name="meldungen_meldungen_faq1_title">"A duhet të telefonoj?"</string>
@@ -611,7 +607,9 @@ Përdoruesi informohet vetëm nëse dyshimi për një infeksion të mundshëm ë
     <!-- Meldungen: Meldungen FAQ Text -->
     <string name="meldungen_meldungen_faq1_text">"Rekomandohet që ju të telefononi për çdo njoftim të ri.
 
-Në këtë rast mbeteni anonim. Nuk përfshihen të dhënat e personave."</string>
+Në këtë rast mbeteni anonim. Nuk përfshihen të dhënat e personave.
+
+Biseda e konsultës është falas, aplikohen vetëm tarifat e telefonit."</string>
 
     <!-- Meldungen Detail: Anruf Titel -->
     <string name="meldungen_detail_call_thankyou_title">"Faleminderit për pjesëmarrjen"</string>
@@ -634,12 +632,12 @@ Në këtë rast mbeteni anonim. Nuk përfshihen të dhënat e personave."</strin
 Në këtë mënyrë sigurohet që nga aplikacioni të sinjalizohen vetëm rastet e konfirmuara."</string>
 
     <!-- Inform Detail: FAQ Titel -->
-    <string name="inform_detail_faq2_title">"Si të mbetem anonim?"</string>
+    <string name="inform_detail_faq2_title">"Çfarë dërgohet?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Dërgohen vetëm çelësat e përkohshëm të aplikacionit tuaj. Asnjë e dhënë personale.
+    <string name="inform_detail_faq2_text">"Dërgohen vetëm ID e rastit të aplikacionit tuaj, asnjë e dhënë personale.
 
-Kështu mund të kontrolloni përdoruesit e tjerë të aplikacionit Swiss Covid, nëse keni pasur kontakt me ta gjatë ditëve të fundit."</string>
+Në këtë mënyrë mësoni përdoruesit e tjerë të alikacionit SwissCovid, të cilët mundësisht janë infektuar."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -657,12 +655,12 @@ Kështu mund të kontrolloni përdoruesit e tjerë të aplikacionit Swiss Covid,
     <string name="inform_code_intro_button">"Kuptova"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Jeni i pasigurt në rast simptomash?"</string>
+    <string name="symptom_faq1_title">"Çfarë është kontrolli i koronavirusit?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Keni simptoma dhe nuk jeni i sigurt si duhet të silleni? 
+    <string name="symptom_faq1_text">"Keni simptoma dhe nuk jeni i sigurt se si duhet të silleni? 
 
-Përgjigjuni pyetjeve në kontrollin për koronavirusit të BAG për një rekomandim praktik."</string>
+Përgjigjuni pyetjeve në kontrollin online të BAG për një rekomandim të veprimit."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Përse ka përfunduar gjurmimi?"</string>
@@ -674,7 +672,7 @@ Përgjigjuni pyetjeve në kontrollin për koronavirusit të BAG për një rekoma
     <string name="language_key">"sq"</string>
 
     <!-- Meldungen Homescreen: Name Hotline -->
-    <string name="exposed_info_contact_hotline_name">"Linja e informimit për koronavirusin"</string>
+    <string name="exposed_info_contact_hotline_name">"Linja e informimit SwissCovid"</string>
 
     <!-- Meldung Detail: "Noch 1 Tag" Label -->
     <string name="date_in_one_day">"Edhe 1 ditë"</string>
@@ -706,17 +704,18 @@ Përgjigjuni pyetjeve në kontrollin për koronavirusit të BAG për një rekoma
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_title">"Aktivizo gjurmimin"</string>
 
-    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_text">"Për të përdorur aplikacionin, funksioni Njoftime rreth COVID-19 duhet të jetë i aktivizuar."</string>
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
+    <!-- Fuzzy -->
+    <string name="onboarding_gaen_text_ios">"Për të përdorur aplikacionin, funksioni Njoftime rreth COVID-19 duhet të jetë i aktivizuar."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktivizo"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
-    <string name="onboarding_gaen_info_title_1">"Ju mbeteni anonim"</string>
+    <string name="onboarding_gaen_info_title_1">"Mbrojtja e të dhënave"</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
-    <string name="onboarding_gaen_info_text_1">"Shkëmbehen vetëm ID anonime. Asnjë e dhënë për vendndodhjen ose personin tuaj."</string>
+    <string name="onboarding_gaen_info_text_1">"Shkëmbehen vetëm ID e rastit. Asnjë e dhënë për vendndodhjen ose personin tuaj."</string>
 
     <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
     <string name="onboarding_gaen_info_title_2">"Konsum pak i rritur i baterisë"</string>
@@ -731,7 +730,7 @@ Përgjigjuni pyetjeve në kontrollin për koronavirusit të BAG për një rekoma
     <string name="delete_reports_button">"Fshi njoftimin"</string>
 
     <!-- Meldung im Löschen Dialog wenn möglicherweise angesteckt -->
-    <string name="delete_reports_dialog">"Dëshironi vërtet ta fshini njoftimin? "</string>
+    <string name="delete_reports_dialog">"Dëshironi vërtet ta fshini njoftimin?"</string>
 
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
     <string name="delete_infection_button">"Fshi njoftimin"</string>
@@ -755,45 +754,47 @@ Përgjigjuni pyetjeve në kontrollin për koronavirusit të BAG për një rekoma
     <string name="gaen_not_available_text">"Përditësoni Google Play Services"</string>
 
     <!-- Tracing wurde vom System deaktiviert, erneut starten -->
-    <string name="gaen_unexpectedly_disabled">"Tracing is deactivated. Try to start it again."</string>
+    <string name="gaen_unexpectedly_disabled">"Gjurmimi u çaktivizua. Ju lutemi nisni përsëri."</string>
 
-    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_title">"Njoftime rreth COVID-19 i çaktivizuar"</string>
+    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
+    <!-- Fuzzy -->
+    <string name="tracing_permission_error_title_ios">"Njoftime rreth ekspozimit ndaj COVID-19 i çaktivizuar"</string>
 
-    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System -->
-    <string name="tracing_permission_error_text">"Aktivizoni funksionin Njoftime rreth COVID-19, në mënyrë që gjurmimi anonim të funksionojë."</string>
+    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
+    <!-- Fuzzy -->
+    <string name="tracing_permission_error_text_ios">"Aktivizoni Njoftime rreth ekspozimit ndaj COVID-19, në mënyrë që gjurmimi të funksionojë."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
-    <string name="user_cancelled_key_sharing_error">"The message could not be sent. Please allow your random IDs to be shared with the SwissCovid app."</string>
+    <string name="user_cancelled_key_sharing_error">"Mesazhi nuk u dërgua dot. Ju lutemi lejoni ndarjen e ID të rastit tuaj me aplikacionin SwissCovid."</string>
 
     <!-- Button um die Google Play Services zu aktualisieren -->
-    <string name="playservices_update">"Update"</string>
+    <string name="playservices_update">"Përditësimi"</string>
 
     <!-- Button um die Google Play Services zu installieren -->
-    <string name="playservices_install">"Install"</string>
+    <string name="playservices_install">"Instalimi"</string>
 
     <!-- Titel für Infos zu den Google Play Services -->
     <string name="playservices_title">"Google Play Services
 "</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"To activate tracing, an up-to-date version of Google Play Services is required.
+    <string name="playservices_text">"Për të aktivizuar gjurmimin, nevojitet versioni aktual i Google Play Services. 
 
-If no update is currently available on your device, please try again later."</string>
-    <string name="android_error_battery_optimization_title">"Optimisation of battery usage activated"</string>
-    <string name="android_error_battery_optimization_button">"Allow"</string>
+Në rast se në pajisjen tuaj nuk disponohet ndërkohë asnjë Update, ju lutemi provoni edhe njëherë më vonë."</string>
+    <string name="android_error_battery_optimization_title">"Optimizimi i konsumit të baterisë i aktivizuar"</string>
+    <string name="android_error_battery_optimization_button">"Lejimi"</string>
 
     <!-- Telefonnummer für Hilfe bei App-Problemen -->
     <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
 
     <!-- text shown in notification when we get an exception from the GAEN api -->
-    <string name="sync_api_error">"An unexpected error has occurred while synchronising reports."</string>
+    <string name="sync_api_error">"Ka ndodhur një gabim i papritur gjatë sinkronizimit të mesazheve."</string>
 
     <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
-    <string name="certificate_validation_error">"A secure connection cannot be made to the server. Please check or deactivate your VPN and/or your proxy or check whether you are connected via a public Wi-Fi network."</string>
+    <string name="certificate_validation_error">"Nuk është e mundur asnjë lidhje e sigurt me serverin. Ju lutemi verifikoni ose çaktivizoni VPN tuaj ose Proxy tuaj ose verifikoni nëse jeni lidhur nëpërmjet një Public WLAN."</string>
 
     <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
-    <string name="android_en_start_failure">"Failed to enable COVID-19 Notifications"</string>
+    <string name="android_en_start_failure">"Njoftimet e COVID-19 nuk u aktivizuan dot"</string>
 
     <!-- Certificate pinning Debug screen section title -->
     <string name="certificate_pinning_title">"Certificate Pinning"</string>
@@ -830,16 +831,92 @@ If no update is currently available on your device, please try again later."</st
 
     <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
     <string name="onboarding_legal_blocker_message">"You are not part of an organization participating in the pilot phase. Please install the appropriate update after the official launch of the app and open the app again."</string>
-    <string name="begegnung_detail_last_sync_title">"Latest successful synchronisation"</string>
-    <string name="synchronizations_view_title">"Overview"</string>
-    <string name="synchronizations_view_info_title">"Synchronizations"</string>
-    <string name="synchronizations_view_info_question">"What are synchronizations?"</string>
-    <string name="synchronizations_view_info_answer">"The app regularly checks the published keys from users that were tested positive."</string>
-    <string name="synchronizations_view_period_title">"During the last 14 days"</string>
+    <string name="begegnung_detail_last_sync_title">"Sinkronizimi i fundit i suksesshëm"</string>
+    <string name="synchronizations_view_title">"Përmbledhje"</string>
+    <string name="synchronizations_view_info_title">"Sinkronizime"</string>
+    <string name="synchronizations_view_info_question">"Çfarë janë sinkronizimet?"</string>
+    <string name="synchronizations_view_info_answer">"Aplikacioni verifikon rregullisht ID e rastit të publikuara nga përdoruesit e testuar pozitivë."</string>
+    <string name="synchronizations_view_period_title">"Gjatë 14 ditëve të fundit"</string>
     <string name="synchronizations_view_sync_via_open">"  • Open"</string>
     <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
-    <string name="synchronizations_view_empty_list">"No entries"</string>
+    <string name="synchronizations_view_empty_list">"Asnjë shënim"</string>
     <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
     <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
     <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
+
+    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_before_title">"Para bisedës"</string>
+
+    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_main_title">"Ju lutemi shënoni të dhënat e mëposhtme"</string>
+
+    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_datum">"Data"</string>
+
+    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_number">"Numri"</string>
+    <string name="tracing_active_tracking_always_info">"SwissCovid mbetet aktiv, edhe nëse aplikacioni mbyllet."</string>
+
+    <!-- title in splash screen of onboarding -->
+    <string name="oboarding_splashscreen_title">"SwissCovid 
+ndalon zinxhirin 
+e infeksionit."</string>
+    <string name="inform_detail_faq3_text">"Edhe pse nuk dërgohet asnjë e dhënë personale, mund të ndodhë që dikush mund të kujtohet për kontaktin me anë të datës."</string>
+    <string name="inform_detail_faq3_title">"A mbetem unë anonim?"</string>
+
+    <!-- Meldung Detail Weiss Box unten -->
+    <string name="meldungen_detail_explanation_text4">"Në rastin e simptomave të para bëni kontrollin e koronavirusit ose telefononi mjeken ose mjekun tuaj."</string>
+
+    <!-- Text beim Bluetooth Control -->
+    <string name="tracing_setting_text_android">"Njoftime rreth ekspozimit ndaj COVID-19"</string>
+
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
+    <string name="onboarding_gaen_text_android">"Për të përdorur aplikacionin, funksioni Njoftime rreth COVID-19 duhet të jetë i aktivizuar."</string>
+
+    <!-- Onboarding Disclaimer Screen: AppName Title -->
+    <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
+
+    <!-- Onboarding Disclaimer Screen: Title -->
+    <string name="onboarding_disclaimer_title">"Udhëzime për përdorimin"</string>
+
+    <!-- Onboarding Disclaimer Screen: Info -->
+    <string name="onboarding_disclaimer_info">"Lexoni Politikën për privatësinë dhe rregullat e përdorimit."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Title -->
+    <string name="onboarding_disclaimer_warning_title">"Paralajmërim: Ky aplikacion nuk ju mbron nga infektimi me COVID 19."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Text -->
+    <string name="onboarding_disclaimer_warning_body">"Aplikacioni shërben për gjurmimin Proximity dhe për paralajmërimin e përdoruesit nga një infektim i mundshëm pas një kontakti me një person të infektuar me COVID 19. Gjithashtu nuk është mjet diagnostikues. Lexoni me kujdes udhëzimet, të cilat janë në çdo ekran të aplikacionit."</string>
+
+    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
+    <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
+Schwarzenburgstrasse 157
+3097 Liebefeld, Schweiz"</string>
+
+    <!-- Onboarding Disclaimer Screen: App version title -->
+    <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
+
+    <!-- Onboarding Disclaimer Screen: Release version title -->
+    <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
+
+    <!-- onboarding privacy and conditions of use button -->
+    <string name="onboarding_disclaimer_legal_button">"Politika për privatësinë &amp; kushtet e përdorimit"</string>
+
+    <!-- onboarding privacy and conditions of use url -->
+    <string name="onboarding_disclaimer_legal_button_url">"https://www.bag.admin.ch/swisscovid-datenschutzerklaerung-und-nutzungsbedingungen"</string>
+
+    <!-- Google Translation -->
+    <!-- Error shown when loading fails because there is not enough free disk space. -->
+    <string name="loading_error_no_disk_space">"Mesazhet nuk mund të kontrollohen sepse telefoni juaj celular nuk ka hapësirë ​​të mjaftueshme falas. Ju lutemi lironi hapësirë."</string>
+
+    <!-- Onboarding: Akzeptieren Buttton Titel -->
+    <string name="onboarding_accept_button">"Pranoj"</string>
+
+    <!-- Google Translation -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Titel -->
+    <string name="ratelimit_error_title">"Përditësimi aktualisht nuk është i mundur"</string>
+
+    <!-- Google Translation! -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
+    <string name="ratelimit_error_text">"Shumë pyetje tashmë janë realizuar sot. Aplikacioni do të provojë përsëri më vonë."</string>
 </resources>

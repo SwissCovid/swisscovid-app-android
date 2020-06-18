@@ -60,7 +60,7 @@
 		android:layout_height="wrap_content"
 		android:gravity="start"
 		android:paddingBottom="15dp"
-		app:layout_constraintBottom_toTopOf="@id/status_triangle"
+		app:layout_constraintBottom_toBottomOf="@id/status_illustration"
 		app:layout_constraintEnd_toStartOf="@id/status_illustration"
 		app:layout_constraintStart_toEndOf="@+id/status_icon"
 		tools:text="Subtext" />
@@ -76,6 +76,33 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
 
+	<LinearLayout
+		android:id="@+id/status_tracing_background_info"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_marginStart="@dimen/spacing_small"
+		android:layout_marginEnd="@dimen/spacing_small"
+		android:layout_marginTop="@dimen/spacing_medium"
+		android:layout_marginBottom="@dimen/spacing_small"
+		android:visibility="gone"
+		app:layout_constraintTop_toBottomOf="@id/status_illustration"
+		app:layout_constraintBottom_toBottomOf="parent">
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="@dimen/spacing_medium"
+			android:tint="@color/blue_main"
+			android:src="@drawable/ic_info" />
+
+		<TextView
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/tracing_active_tracking_always_info" />
+	</LinearLayout>
+
 	<ImageView
 		android:id="@+id/status_triangle"
 		android:layout_width="11dp"
@@ -83,6 +110,7 @@
 		android:src="@drawable/triangle_status_exposed"
 		android:translationY="-2dp"
 		android:visibility="gone"
+		app:layout_constraintTop_toBottomOf="@id/status_illustration"
 		app:layout_constraintBottom_toTopOf="@id/status_additional_info"
 		app:layout_constraintEnd_toEndOf="@id/status_icon"
 		tools:visibility="visible" />

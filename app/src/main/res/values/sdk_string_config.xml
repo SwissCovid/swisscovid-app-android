@@ -11,7 +11,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="dp3t_sdk_service_notification_channel">@string/app_name</string>
 	<string name="dp3t_sdk_service_notification_title">@string/app_name</string>
-	<string name="dp3t_sdk_service_notification_text">@string/android_foreground_service_notification_text</string>
 	<string name="dp3t_sdk_service_notification_errors">@string/android_foreground_service_notification_errors</string>
 	<string name="dp3t_sdk_service_notification_error_battery_optimization">@string/android_foreground_service_notification_error_battery_optimization</string>
 	<string name="dp3t_sdk_service_notification_error_location_service">@string/android_foreground_service_notification_error_location_service</string>
@@ -19,6 +18,7 @@
 	<string name="dp3t_sdk_service_notification_error_bluetooth_not_supported">@string/begegnungen_restart_error_text</string>
 	<string name="dp3t_sdk_service_notification_error_sync_database">@string/unexpected_error_with_retry</string>
 	<string name="dp3t_sdk_service_notification_error_sync_network">@string/homescreen_meldung_data_outdated_text</string>
+	<string name="dp3t_sdk_service_notification_error_no_space">@string/loading_error_no_disk_space</string>
 	<string name="dp3t_sdk_service_notification_error_sync_ssltls">@string/certificate_validation_error</string>
 	<string name="dp3t_sdk_service_notification_error_sync_server">@string/homescreen_meldung_data_outdated_text</string>
 	<string name="dp3t_sdk_service_notification_error_sync_signature">@string/homescreen_meldung_data_outdated_text</string>
