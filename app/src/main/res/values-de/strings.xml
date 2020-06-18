@@ -228,7 +228,7 @@ Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
     <string name="tracing_turned_off_title">"Tracing deaktiviert"</string>
     <string name="tracing_turned_off_text">"Aktivieren Sie das Tracing, damit die App funktioniert."</string>
     <string name="bluetooth_turned_off_title">"Bluetooth Off"</string>
-    <string name="bluetooth_turned_off_text">"Schalten Sie Bluetooth auf Ihrem Gerät ein, damit das Tracing funktioniert."</string>
+    <string name="bluetooth_turned_off_text">"Schalten Sie Bluetooth auf Ihrem Mobiltelefon ein, damit das Tracing funktioniert."</string>
     <string name="bluetooth_turn_on_button_title">"Bluetooth einschalten"</string>
     <string name="bluetooth_permission_error_title">"Bluetooth Verwendung abgelehnt"</string>
     <string name="bluetooth_permission_error_text">"Erlauben Sie die Verwendung von Bluetooth, damit das Tracing funktioniert."</string>
@@ -342,13 +342,13 @@ Schritt voraus"</string>
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
 
     <!-- Onboarding Privacy: Titel -->
-    <string name="onboarding_privacy_title">"Ihre Privatsphäre bleibt geschützt"</string>
+    <string name="onboarding_privacy_title">"Schutz der Privatsphäre"</string>
 
     <!-- Onboarding Privacy: Text -->
     <string name="onboarding_privacy_text1">"Zwischen den Mobiltelefonen werden nur zufällige IDs ausgetauscht. Die App sammelt weder Standortdaten noch Daten über Ihre Identität."</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text2">"Die gespeicherten zufälligen IDs bleiben auf Ihrem Gerät und werden nach 14 Tagen gelöscht."</string>
+    <string name="onboarding_privacy_text2">"Die gespeicherten zufälligen IDs bleiben auf Ihrem Mobiltelefon und werden nach 14 Tagen gelöscht."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
     <string name="onboarding_begegnungen_heading">"Wie funktioniert die App?"</string>
@@ -440,7 +440,7 @@ Halten Sie sich an die erhaltenen Anweisungen zur Isolation."</string>
     <string name="homescreen_meldung_data_outdated_title">"Keine aktuellen Daten"</string>
 
     <!-- Homescreen: Text bei Fehler mit Daten -->
-    <string name="homescreen_meldung_data_outdated_text">"Seit einiger Zeit konnten die Meldungen nicht synchronisiert werden. Stellen Sie sicher, dass Ihr Gerät mit dem Internet verbunden ist."</string>
+    <string name="homescreen_meldung_data_outdated_text">"Seit einiger Zeit konnten die Meldungen nicht synchronisiert werden. Stellen Sie sicher, dass Ihr Mobiltelefon mit dem Internet verbunden ist."</string>
 
     <!-- Homescreen: Button Titel -->
     <string name="homescreen_meldung_data_outdated_retry_button">"Erneut versuchen"</string>
@@ -458,7 +458,7 @@ Halten Sie sich an die erhaltenen Anweisungen zur Isolation."</string>
     <string name="meldung_detail_new_contact_title">"Erneuter Verdacht"</string>
 
     <!-- Meldungen Detail: Text -->
-    <string name="meldung_detail_new_contact_subtitle">"An diesem Tag war eine Ansteckung ebenfalls möglich."</string>
+    <string name="meldung_detail_new_contact_subtitle">"Es besteht die Möglichkeit einer Ansteckung."</string>
 
     <!-- Fehler mit Uhrzeit Titel -->
     <string name="time_inconsistency_title">"Uhrzeit Fehler"</string>
@@ -470,7 +470,7 @@ Halten Sie sich an die erhaltenen Anweisungen zur Isolation."</string>
     <string name="begegnungen_restart_error_title">"Neustart erforderlich"</string>
 
     <!-- Begegnungen: Neustart Text -->
-    <string name="begegnungen_restart_error_text">"Es ist ein unerwarteter Fehler aufgetreten. Starten Sie das Gerät neu."</string>
+    <string name="begegnungen_restart_error_text">"Es ist ein unerwarteter Fehler aufgetreten. Starten Sie das Mobiltelefon neu."</string>
 
     <!-- Fehler Titel für Hintergrund-Fehler -->
     <string name="meldungen_background_error_title">"Hintergrundaktualisierung ausgeschaltet"</string>
@@ -581,7 +581,7 @@ Halten Sie sich an die erhaltenen Anweisungen zur Isolation."</string>
     <!-- Begegnungen: FAQ Text -->
     <string name="begegnung_detail_faq2_text">"Bei einer Begegnung werden nur zufällige IDs ausgetauscht.
 
-Diese werden lokal auf den Geräten gespeichert und nach 14 Tagen wieder gelöscht."</string>
+Diese werden lokal auf den Mobiltelefonen gespeichert und nach 14 Tagen wieder gelöscht."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnungen_detail_faq3_title">"Muss Bluetooth immer an sein?"</string>
@@ -798,7 +798,7 @@ Beantworten Sie die Fragen im Online-Check des BAG für eine Handlungsempfehlung
     <!-- Meldung, dass die Google Play Services benötigt werden -->
     <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt. 
 
-Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
+Falls auf Ihrem Mobiltelefon zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
 
     <!-- Fuzzy -->
     <string name="android_error_battery_optimization_title">"Optimierung des Akkuverbrauchs aktiviert"</string>
@@ -880,7 +880,9 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
     <string name="tracing_active_tracking_always_info">"SwissCovid bleibt aktiv, auch wenn die App geschlossen wird."</string>
 
     <!-- title in splash screen of onboarding -->
-    <string name="oboarding_splashscreen_title">"SwissCovid stoppt Infektionsketten."</string>
+    <string name="oboarding_splashscreen_title">"SwissCovid 
+stoppt 
+Infektionsketten."</string>
     <string name="inform_detail_faq3_text">"Obwohl keine Daten zu Ihrer Person gesendet werden, kann es sein, dass sich jemand anhand des Datums an die Begegnung erinnern kann."</string>
     <string name="inform_detail_faq3_title">"Bleibe ich anonym?"</string>
 
@@ -901,7 +903,7 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
     <string name="onboarding_disclaimer_title">"Hinweise zur Nutzung"</string>
 
     <!-- Onboarding Disclaimer Screen: Info -->
-    <string name="onboarding_disclaimer_info">"Hier finden Sie die Datenschutzerklärung und die Nutzungsbestimmungen."</string>
+    <string name="onboarding_disclaimer_info">"Hier finden Sie die Datenschutzerklärung und die Nutzungsbedingungen."</string>
 
     <!-- Onboarding Disclaimer Screen: Warning Title -->
     <string name="onboarding_disclaimer_warning_title">"Warnung: Diese App schützt Sie nicht vor einer COVID-19-Infektion."</string>
@@ -912,7 +914,7 @@ Falls auf Ihrem Gerät zurzeit kein Update verfügbar ist, versuchen Sie es bitt
     <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
     <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
 Schwarzenburgstrasse 157
-3097 Liebefeld, Switzerland"</string>
+3097 Liebefeld, Schweiz"</string>
 
     <!-- Onboarding Disclaimer Screen: App version title -->
     <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
@@ -921,8 +923,23 @@ Schwarzenburgstrasse 157
     <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
 
     <!-- onboarding privacy and conditions of use button -->
-    <string name="onboarding_disclaimer_legal_button">"Datenschutz- &amp; Nutzungsbestimmungen"</string>
+    <string name="onboarding_disclaimer_legal_button">"Datenschutzerklärung &amp; Nutzungsbedingungen"</string>
 
     <!-- onboarding privacy and conditions of use url -->
     <string name="onboarding_disclaimer_legal_button_url">"https://www.bag.admin.ch/swisscovid-datenschutzerklaerung-und-nutzungsbedingungen"</string>
+
+    <!-- Google Translation -->
+    <!-- Error shown when loading fails because there is not enough free disk space. -->
+    <string name="loading_error_no_disk_space">"Meldungen konnten nicht geprüft werden, da ihr Mobiltelefon über zu wenig freien Speicherplatz verfügt. Bitte geben Sie Speicherplatz frei."</string>
+
+    <!-- Onboarding: Akzeptieren Buttton Titel -->
+    <string name="onboarding_accept_button">"Akzeptieren"</string>
+
+    <!-- Google Translation -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Titel -->
+    <string name="ratelimit_error_title">"Aktualisierung zur Zeit nicht möglich"</string>
+
+    <!-- Google Translation! -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
+    <string name="ratelimit_error_text">"Es wurden heute schon zu viele Abfragen durchgeführt. Die App wird es später erneut probieren."</string>
 </resources>
