@@ -104,7 +104,7 @@ Thank you for helping to break the chain of infection."</string>
     <string name="meldungen_meldung_title">"Possible infection"</string>
 
     <!-- Text im Meldung Detail -->
-    <string name="meldungen_meldung_text">"It is possible that you have been infected."</string>
+    <string name="meldungen_meldung_text">"An infection could have occurred"</string>
 
     <!-- Titel ob Tracing aktiv -->
     <string name="tracing_active_title">"App active"</string>
@@ -277,7 +277,7 @@ Thank you for helping to break the chain of infection."</string>
     <string name="meldung_homescreen_positiv_title">"Tested positive"</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
-    <string name="meldung_detail_exposed_subtitle">"It is possible that you have been infected."</string>
+    <string name="meldung_detail_exposed_subtitle">"An infection could have occurred"</string>
     <string name="meldung_homescreen_positiv_text">"You have tested positive for the new coronavirus."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
@@ -447,7 +447,7 @@ Follow the instructions  you have received on isolation."</string>
     <string name="meldung_detail_new_contact_title">"Possible infection"</string>
 
     <!-- Meldungen Detail: Text -->
-    <string name="meldung_detail_new_contact_subtitle">"An infection is suspected."</string>
+    <string name="meldung_detail_new_contact_subtitle">"An infection could have occurred"</string>
 
     <!-- Fehler mit Uhrzeit Titel -->
     <string name="time_inconsistency_title">"Time error"</string>
@@ -568,9 +568,9 @@ Follow the instructions  you have received on isolation."</string>
     <string name="begegnung_detail_faq2_title">"Is my data secure?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq2_text">"Only the random IDs from your app are sent, no personal data. 
+    <string name="begegnung_detail_faq2_text">"In the event of an encounter, only random IDs are exchanged. 
 
-This means other SwissCovid app users will know that they might have been infected."</string>
+They are saved locally on the smartphones and then deleted 14 days later."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnungen_detail_faq3_title">"Does Bluetooth have to be turned on all the time?"</string>
@@ -900,17 +900,20 @@ Schwarzenburgstrasse 157
     <string name="onboarding_disclaimer_legal_button">"Data Protection Statement &amp; Conditions of Use"</string>
 
     <!-- onboarding privacy and conditions of use url -->
-    <string name="onboarding_disclaimer_legal_button_url"></string>
+    <string name="onboarding_disclaimer_legal_button_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international/datenschutzerklaerung-nutzungsbedingungen.html"</string>
 
+    <!-- Google Translation -->
     <!-- Error shown when loading fails because there is not enough free disk space. -->
-    <string name="loading_error_no_disk_space"></string>
+    <string name="loading_error_no_disk_space">"Messages could not be checked because your mobile phone does not have enough free memory space. Please release memory space."</string>
 
     <!-- Onboarding: Akzeptieren Buttton Titel -->
     <string name="onboarding_accept_button">"Accept"</string>
 
+    <!-- Google Translation -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Titel -->
-    <string name="ratelimit_error_title"></string>
+    <string name="ratelimit_error_title">"Update currently not possible"</string>
 
+    <!-- Google Translation! -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
-    <string name="ratelimit_error_text"></string>
+    <string name="ratelimit_error_text">"There have already been too many requests today. The app will try again later."</string>
 </resources>

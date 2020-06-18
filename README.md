@@ -22,9 +22,11 @@ The app design, UX and implementation was done by [Ubique](https://www.ubique.ch
 
 ## Contribution Guide
 
-The DP3T App is not yet complete. It has not yet been reviewed or audited for security and compatibility. We are both continuing the development and have started a security review. This project is truly open-source and we welcome any feedback on the code regarding both the implementation and security aspects.
+This project is truly open-source and we welcome any feedback on the code regarding both the implementation and security aspects.
 
-Bugs or potential problems should be reported using Github issues. We welcome all pull requests that improve the quality the source code. Please note that the app will be available with approved translations in English, German, French and Italian. Pull requests for additional translations currently won't be merged.
+Bugs or potential problems should be reported using Github issues. We welcome all pull requests that improve the quality the source code. Please note that the app will be available with approved translations in English, German, French, Italian, Romansh, Albanian, Bosnian, Croatian, Portuguese, Serbian and Spanish. Pull requests for additional translations currently won't be merged.
+
+Platform independent UX and design discussions should be reported in [dp3t-ux-screenflows-ch](https://github.com/DP-3T/dp3t-ux-screenflows-ch)
 
 ## Repositories
 * Android SDK & Calibration app: [dp3t-sdk-android](https://github.com/DP-3T/dp3t-sdk-android)
@@ -32,6 +34,7 @@ Bugs or potential problems should be reported using Github issues. We welcome al
 * Android App: [dp3t-app-android](https://github.com/DP-3T/dp3t-app-android-ch)
 * iOS App: [dp3t-app-ios](https://github.com/DP-3T/dp3t-app-ios-ch)
 * Backend SDK: [dp3t-sdk-backend](https://github.com/DP-3T/dp3t-sdk-backend)
+* UX & Screenflows [dp3t-ux-screenflows-ch](https://github.com/DP-3T/dp3t-ux-screenflows-ch)
 
 
 ## Further Documentation
@@ -45,6 +48,12 @@ The project can be opened with Android Studio 3.6.1 or later or you can build th
 $ ./gradlew assembleProdRelease
 ```
 The APK is generated under app/build/outputs/apk/prod/release/package-prod-release.apk
+
+The app will not be functional unless your Google account is whitelisted for ExposureNotification testing. Please install the app from the [Google PlayStore](https://play.google.com/store/apps/details?id=ch.admin.bag.dp3t).
+
+## Reproducible builds
+
+To verify that the app distributed on the PlayStore was built by the source code published here, please see the instructions in [REPRODUCIBLE_BUILDS.md](REPRODUCIBLE_BUILDS.md).
 
 ## License
 This project is licensed under the terms of the MPL 2 license. See the [LICENSE](LICENSE) file.
