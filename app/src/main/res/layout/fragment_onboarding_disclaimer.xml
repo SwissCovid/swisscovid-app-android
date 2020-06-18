@@ -194,6 +194,6 @@
 		android:background="@color/white"
 		android:elevation="@dimen/card_elevation"
 		android:foreground="?android:selectableItemBackground"
-		android:text="@string/onboarding_continue_button" />
+		android:text="@string/onboarding_accept_button" />
 
 </LinearLayout>
