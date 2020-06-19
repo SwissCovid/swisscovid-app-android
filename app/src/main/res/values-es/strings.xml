@@ -602,7 +602,7 @@ La aplicación le informará solo si la posibilidad de un contagio es  lo sufici
 
 Su anonimato está garantizado. No se registran datos personales.
 
-La consulta es gratuita; solo se incurre en los gastos telefónicos. "</string>
+La consulta es gratuita; solo se incurre en los gastos telefónicos."</string>
 
     <!-- Meldungen Detail: Anruf Titel -->
     <string name="meldungen_detail_call_thankyou_title">"Gracias por su colaboración."</string>
@@ -823,7 +823,7 @@ Si la actualización no estuviera disponible en su dispositivo actualmente, int�
     <string name="synchronizations_view_title">"Resumen"</string>
     <string name="synchronizations_view_info_title">"Sincronizaciones"</string>
     <string name="synchronizations_view_info_question">"¿Qué son las sincronizaciones?"</string>
-    <string name="synchronizations_view_info_answer">"La aplicación comprueba regularmente los identificadores (ID) aleatorios  publicados por  usuarios que han dado positivo."</string>
+    <string name="synchronizations_view_info_answer">"La aplicación comprueba regularmente los identificadores (ID) aleatorios publicados por usuarios que han dado positivo."</string>
     <string name="synchronizations_view_period_title">"En los últimos 14 días"</string>
     <string name="synchronizations_view_sync_via_open">"  • Open"</string>
     <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
@@ -874,7 +874,7 @@ cadenas de contagio."</string>
     <string name="onboarding_disclaimer_warning_title">"Advertencia: Esta aplicación no le protege de una infección con COVID-19."</string>
 
     <!-- Onboarding Disclaimer Screen: Warning Text -->
-    <string name="onboarding_disclaimer_warning_body">"La aplicación está pensada para el rastreo de proximidad y para advertir a los usuarios de un posible riesgo de exposición a una persona contagiada con el COVID-19. No se trata de un instrumento de diagnóstico. Lea cuidadosamente las instrucciones dadas en todas las pantallas. "</string>
+    <string name="onboarding_disclaimer_warning_body">"La aplicación está pensada para el rastreo de proximidad y para advertir a los usuarios de un posible riesgo de exposición a una persona contagiada con el COVID-19. No se trata de un instrumento de diagnóstico. Lea cuidadosamente las instrucciones dadas en todas las pantallas."</string>
 
     <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
     <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
