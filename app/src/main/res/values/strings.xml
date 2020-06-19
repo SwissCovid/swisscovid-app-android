@@ -316,7 +316,7 @@ Infoline SwissCovid
     <string name="meldungen_detail_call_again_button">"Call again"</string>
 
     <!-- Meldungen Detail: Weisse Box Anruf Zeitpunkt -->
-    <string name="meldungen_detail_call_last_call">"Last call: (DATE)"</string>
+    <string name="meldungen_detail_call_last_call">"Last call: {DATE}"</string>
 
     <!-- Subtitel im Onboarding erste Seite -->
     <string name="app_subtitle">"Subtitle"</string>
