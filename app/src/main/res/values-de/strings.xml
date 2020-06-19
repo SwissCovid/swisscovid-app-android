@@ -540,7 +540,7 @@ Halten Sie sich an die erhaltenen Anweisungen zur Isolation."</string>
 
     <!-- Voiceover: Hilfetext bei Codeeingabe -->
     <!-- Fuzzy -->
-    <string name="accessibility_code_button_disabled_hint">"Drücken nicht möglich, da der Code nicht vollständig eingegeben wurde. "</string>
+    <string name="accessibility_code_button_disabled_hint">"Drücken nicht möglich, da der Code nicht vollständig eingegeben wurde."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
     <!-- Fuzzy -->
