@@ -40,6 +40,7 @@ Platform independent UX and design discussions should be reported in [dp3t-ux-sc
 ## Further Documentation
 The full set of documents for DP3T is at https://github.com/DP-3T/documents. Please refer to the technical documents and whitepapers for a description of the implementation.
 
+A description of the usage of the Google Exposure Notifcation API can be found [here](https://github.com/DP-3T/dp3t-sdk-android/blob/master/EXPOSURE_NOTIFICATION_API_USAGE.md).
 
 ## Installation and Building
 
