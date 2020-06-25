@@ -343,7 +343,7 @@ Infoline SwissCovid
     <string name="onboarding_privacy_text1">"Devices only exchange random IDs. The app does not gather location data or data on your identity."</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text2">"The random IDs are  stored on your device for 14 days and then deleted. "</string>
+    <string name="onboarding_privacy_text2">"The random IDs are stored on your device for 14 days and then deleted. "</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
     <string name="onboarding_begegnungen_heading">"How does the app work?"</string>
