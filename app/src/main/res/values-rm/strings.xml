@@ -67,7 +67,7 @@ Uschia gidais Vus da franar las chadainas d'infecziun."</string>
     <string name="NSBluetoothPeripheralUsageDescription">"Scuntradas vegnan enconuschidas en il fund via bluetooth, economisant l'energia"</string>
 
     <!-- Permission Text für Bluetooth -->
-    <string name="NSBluetoothAlwaysUsageDescription">"Scuntradas vegnan  enconuschidas en il fund  via bluetooth, economisant l'energia"</string>
+    <string name="NSBluetoothAlwaysUsageDescription">"Scuntradas vegnan enconuschidas en il fund via bluetooth, economisant l'energia"</string>
 
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Inditgar il code covid"</string>
@@ -218,7 +218,7 @@ Uschia gidais Vus da franar las chadainas d'infecziun."</string>
     <string name="symptom_detail_box_button">"Tar il check coronavirus"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Restai a chasa, faschai  il check coronavirus u telefonai a Vossa media/Voss medi."</string>
+    <string name="symptom_detail_box_text">"Restai a chasa, faschai il check coronavirus u telefonai a Vossa media/Voss medi."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Testà positiv"</string>
@@ -884,7 +884,7 @@ chadainas d'infecziun."</string>
     <string name="onboarding_disclaimer_warning_title">"Avertiment: Quest'app n'As protegia betg d'ina infecziun cun COVID-19."</string>
 
     <!-- Onboarding Disclaimer Screen: Warning Text -->
-    <string name="onboarding_disclaimer_warning_body">"L'app è concepida per la reconstrucziun dals contacts e per avertir ils utilisaders en cas d'ina exposiziun potenziala ad ina persuna infectada cun COVID-19. Ella n'è betg in instrument diagnostic. Per plaschair legi cun attenziun  las instrucziuns en mintga visur da l'app."</string>
+    <string name="onboarding_disclaimer_warning_body">"L'app è concepida per la reconstrucziun dals contacts e per avertir ils utilisaders en cas d'ina exposiziun potenziala ad ina persuna infectada cun COVID-19. Ella n'è betg in instrument diagnostic. Per plaschair legi cun attenziun las instrucziuns en mintga visur da l'app."</string>
 
     <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
     <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
