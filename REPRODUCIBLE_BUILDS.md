@@ -50,6 +50,12 @@ cd ~/dp3t-app-android-ch
 adb pull `adb shell pm path ch.admin.bag.dp3t | cut -d':' -f2` swisscovid-store.apk
 ```
 
+If you want to check the version of the APK you are pulling from your device:
+
+```shell
+adb shell dumpsys package ch.admin.bag.dp3t | grep versionName=| cut -d '=' -f 2
+```
+
 ## Compare the two files
 
 1. Make sure you have `python` installed
