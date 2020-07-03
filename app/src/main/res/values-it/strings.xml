@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
 <resources>
 
     <!-- App Name -->
-    <string name="app_name">"SwissCovid"</string>
+    <string name="app_name">"DP3T Demo"</string>
 
     <!-- App Name (unter Icon auf iOS) -->
-    <string name="CFBundleDisplayName">"SwissCovid"</string>
+    <string name="CFBundleDisplayName">"DP3T Demo"</string>
 
     <!-- Loading View: Erneut laden -->
     <string name="loading_view_reload">"Ricarica"</string>
@@ -20,21 +30,24 @@
     <string name="inform_continue_button">"Avanti"</string>
 
     <!-- Informieren: Senden Button -->
-    <string name="inform_send_button_title">"Invia"</string>
+    <string name="inform_send_button_title">"Segnala anonimamente"</string>
 
     <!-- Informieren: Danke -->
     <string name="inform_send_thankyou">"Grazie"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Gli ID casuali della tua app sono stati inviati.
+    <string name="inform_send_thankyou_text">"Hai segnalato anonimamente il tuo test positivo nell'app.
 
-Così contribuisci a fermare le catene di infezione."</string>
+Così contribuisci a contenere la dffusione del nuovo coronavirus."</string>
 
     <!-- Informieren: Button Titel -->
     <string name="inform_fertig_button_title">"Chiudi"</string>
 
     <!-- Titel auf Homescreen für Begegnungen -->
     <string name="handshakes_title_homescreen">"Incontri"</string>
+
+    <!-- Titel der About Seite -->
+    <string name="tab_theapp_title">"L'app"</string>
 
     <!-- Abbrechen -->
     <string name="cancel">"Annulla"</string>
@@ -44,6 +57,9 @@ Così contribuisci a fermare le catene di infezione."</string>
 
     <!-- Titel für Push-Nachrichten, wenn erkannt wird, dass ein Nutzer exposed war -->
     <string name="push_exposed_text">"Apri l'app per leggere il messaggio."</string>
+
+    <!-- Titel für Button um Ortung zu erlauben -->
+    <string name="android_button_permission_location">"Consenti localizzazione"</string>
 
     <!-- Okay Button Titel -->
     <string name="android_button_ok">"OK"</string>
@@ -69,11 +85,14 @@ Così contribuisci a fermare le catene di infezione."</string>
     <!-- Permission Text für Bluetooth -->
     <string name="NSBluetoothAlwaysUsageDescription">"Gli incontri vengono riconosciuti tramite Bluetooth in background risparmiando energia."</string>
 
+    <!-- Text der bei Android in der permanenten Notification immer angezeigt wird -->
+    <string name="android_foreground_service_notification_text">"Gli incontri vengono salvati anonimamente sul tuo dispositivo."</string>
+
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Immettere il codice Covid"</string>
 
     <!-- Inform: Code eingeben Subtext -->
-    <string name="inform_code_text">"Immetti il codice Covid che hai ricevuto."</string>
+    <string name="inform_code_text">"Immettere il codice Covid ricevuto."</string>
 
     <!-- Inform: Code eingeben kein Code Button Text -->
     <string name="inform_code_no_code">"Serve aiuto?"</string>
@@ -82,11 +101,16 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="tracing_setting_title">"Tracciamento"</string>
 
     <!-- Text beim Bluetooth Control -->
-    <!-- Fuzzy -->
-    <string name="tracing_setting_text_ios">"Notifiche di esposizione"</string>
+    <string name="tracing_setting_text">"Consenti tracciamento anonimo"</string>
 
     <!-- Bluetooth Control: Tracking deaktiviert -->
     <string name="bluetooth_setting_tracking_inactive">"Tracciamento disattivato"</string>
+
+    <!-- Bluetooth Setting Text unten -->
+    <string name="bluetooth_setting_data_explanation_title">"I miei dati sono sicuri?"</string>
+
+    <!-- Bluetooth Setting: Text unten -->
+    <string name="bluetooth_setting_tracking_explanation_text2">"Un incontro con un altro utente viene salvato soltanto localmente sul tuo smartphone."</string>
 
     <!-- Titel auf Homescreen -->
     <string name="reports_title_homescreen">"Segnalazioni"</string>
@@ -104,10 +128,10 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="meldungen_meldung_title">"Possibile contagio"</string>
 
     <!-- Text im Meldung Detail -->
-    <string name="meldungen_meldung_text">"Vi è la possibilità di un contagio."</string>
+    <string name="meldungen_meldung_text">"Vi è il sospetto di un possibile contagio."</string>
 
     <!-- Titel ob Tracing aktiv -->
-    <string name="tracing_active_title">"App attiva"</string>
+    <string name="tracing_active_title">"Tracciamento attivo"</string>
 
     <!-- Text bei Tracing aktiv -->
     <string name="tracing_active_text">"Gli incontri vengono salvati anonimamente"</string>
@@ -117,6 +141,15 @@ Così contribuisci a fermare le catene di infezione."</string>
 
     <!-- Fehlertitel mit Foreground Service Notification -->
     <string name="android_foreground_service_notification_errors">"Attualmente l'app non è in grado di funzionare correttamente:"</string>
+
+    <!-- Fehler Beschreibung -->
+    <string name="android_foreground_service_notification_error_network_sync">"Si è verificato un errore durante il caricamento dei dati."</string>
+
+    <!-- Fehler Beschreibung -->
+    <string name="android_foreground_service_notification_error_location_permission">"Per permettere all'app di utilizzare Bluetooth occorre consentire l'uso della posizione. L'app non conosce mai la posizione dell'utente."</string>
+
+    <!-- Fehler Beschreibung Akku -->
+    <string name="android_foreground_service_notification_error_battery_optimization">"Per un funzionamento preciso del tracciamento, l'app deve essere eseguita anche in background. Il consumo della batteria aumenta solo leggermente."</string>
 
     <!-- Titel der Nachricht, die auf Beta-Status hinweist -->
     <string name="preview_warning_title">"Versione anteprima"</string>
@@ -160,6 +193,9 @@ Così contribuisci a fermare le catene di infezione."</string>
     <!-- Debug: Bezeichnung für den Fall, bei dem ein Kontakt als positiv getestet gemeldet wurde -->
     <string name="debug_sdk_state_contact_exposed">"Contatto segnalato: "</string>
 
+    <!-- Debug: Bezeichnung für die Anzahl bluetooth-handshakes, die ausgeführt wurden -->
+    <string name="debug_sdk_state_number_handshakes">"Numero di handshake: "</string>
+
     <!-- Debug-Status-Bezeichnung für boleschen Wert 'true' -->
     <string name="debug_sdk_state_boolean_true">"sì"</string>
 
@@ -169,14 +205,11 @@ Così contribuisci a fermare le catene di infezione."</string>
     <!-- Debug: Button-Text für das Zurücksetzen des lokalen SDK Zustandes -->
     <string name="debug_sdk_button_reset">"Reimpostazione SDK"</string>
 
+    <!-- Infotext, wenn lokal das SDK zurückgesetzt wurde -->
+    <string name="android_debug_sdk_reset_text">"Lo stato locale dell'SDK DP-3T è stato reimpostato."</string>
+
     <!-- Tab-Titel -->
     <string name="tab_tracing_title">"Tracciamento"</string>
-
-    <!-- Titel auf Homescreen für Was tun Section -->
-    <string name="whattodo_title_symptoms">"ho sintomi di malattia"</string>
-
-    <!-- Subtitel auf Homescreen für Was Tun Section -->
-    <string name="whattodo_subtitle_symptoms">"Cosa faccio se..."</string>
 
     <!-- Titel auf Homescreen bei Was tun Section -->
     <string name="whattodo_title_positivetest">"il risultato del test è positivo"</string>
@@ -194,13 +227,13 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="inform_detail_box_subtitle">"Con il codice Covid..."</string>
 
     <!-- Inform Detai Weisse Box Titel -->
-    <string name="inform_detail_box_title">"Fermare le catene di infezione"</string>
+    <string name="inform_detail_box_title">"Segnala anonimamente"</string>
 
     <!-- Inform Detail Weisse Box Button -->
     <string name="inform_detail_box_button">"Immetti il codice Covid"</string>
 
     <!-- Informieren Detail Weisse Box Text -->
-    <string name="inform_detail_box_text">"Immettendo il codice Covid, comunichi all'app che sei risultato positivo al test del nuovo coronavirus."</string>
+    <string name="inform_detail_box_text">"Con il codice Covid che hai ricevuto puoi segnalare anonimamente il test nell'app."</string>
 
     <!-- Symptome Detail Subtitel -->
     <string name="symptom_detail_subtitle">"Cosa faccio se..."</string>
@@ -209,16 +242,16 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="symptom_detail_title">"mi sento malato?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Fai…"</string>
+    <string name="symptom_detail_box_subtitle">"In caso di sintomi..."</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"l'autovalutazione sul coronavirus"</string>
+    <string name="symptom_detail_box_title">"Contatta il medico"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
     <string name="symptom_detail_box_button">"All'autovalutazione sul coronavirus"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Resta a casa, fai l'autovalutazione sul coronavirus o telefona al tuo medico."</string>
+    <string name="symptom_detail_box_text">"In caso di sintomi che fanno pensare al nuovo coronavirus, contatta il tuo medico o la guardia medica."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Positivo al test"</string>
@@ -228,10 +261,10 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="tracing_turned_off_title">"Tracciamento disattivato"</string>
     <string name="tracing_turned_off_text">"Attiva il tracciamento per far funzionare l'app."</string>
     <string name="bluetooth_turned_off_title">"Bluetooth disattivato"</string>
-    <string name="bluetooth_turned_off_text">"Attiva Bluetooth sul tuo dispositivo per far funzionare il tracciamento."</string>
+    <string name="bluetooth_turned_off_text">"Attiva Bluetooth sul tuo dispositivo per far funzionare il tracciamento anonimo."</string>
     <string name="bluetooth_turn_on_button_title">"Attiva Bluetooth"</string>
     <string name="bluetooth_permission_error_title">"Uso di Bluetooth negato"</string>
-    <string name="bluetooth_permission_error_text">"Consenti l'uso di Bluetooth sul tuo dispositivo per far funzionare il tracciamento."</string>
+    <string name="bluetooth_permission_error_text">"Consenti l'uso di Bluetooth sul tuo dispositivo per far funzionare il tracciamento anonimo."</string>
 
     <!-- URL zum Corona Check -->
     <string name="symptom_detail_corona_check_url">"https://ufsp-coronavirus.ch/check/"</string>
@@ -259,10 +292,10 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="meldung_detail_positive_test_box_subtitle">"Cosa devo fare?"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Titel -->
-    <string name="meldung_detail_positive_test_box_title">"Isolamento"</string>
+    <string name="meldung_detail_positive_test_box_title">"Auto-isolamento"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
-    <string name="meldung_detail_positive_test_box_text">"Segui le istruzioni sull'isolamento che hai ricevuto."</string>
+    <string name="meldung_detail_positive_test_box_text">"Segui le istruzioni sull'auto-isolamento."</string>
     <string name="tracing_ended_title">"Tracciamento terminato"</string>
     <string name="tracing_ended_text">"Gli incontri non vengono più salvati."</string>
     <string name="exposed_info_contact_hotline">"Contatta la"</string>
@@ -277,7 +310,7 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="meldung_homescreen_positiv_title">"Positivo al test"</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
-    <string name="meldung_detail_exposed_subtitle">"Vi è la possibilità di un contagio."</string>
+    <string name="meldung_detail_exposed_subtitle">"Vi è il sospetto di un possibile contagio."</string>
     <string name="meldung_homescreen_positiv_text">"Sei risultato positivo al test del nuovo coronavirus."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
@@ -289,11 +322,15 @@ Così contribuisci a fermare le catene di infezione."</string>
     <!-- Meldung Detail: Vor wievielen Tagen {COUNT} wird durch Zahl ersetzt -->
     <string name="date_days_ago">"{COUNT} giorni fa"</string>
 
+    <!-- Meldungen Detail: Subtitel Weisse Box -->
+    <string name="meldungen_detail_whattodo">"Cosa devo fare?"</string>
+
     <!-- Meldungen Detail: Weisse Box Titel -->
     <string name="meldungen_detail_call">"Telefonaci"</string>
 
     <!-- Meldungen Detail Text Weisse Box -->
-    <string name="meldungen_detail_call_text">"Infoline SwissCovid"</string>
+    <string name="meldungen_detail_call_text">"Infoline coronavirus
+(tutti i giorni, 24 ore al giorno)"</string>
 
     <!-- Meldungen Detail Weisse Box Button -->
     <string name="meldungen_detail_call_button">"Telefona ora"</string>
@@ -307,13 +344,16 @@ Così contribuisci a fermare le catene di infezione."</string>
     <!-- Meldungen Detail: Weisse Box Erklärtext 2 -->
     <string name="meldungen_detail_explanation_text2">"Proteggi la tua famiglia e i tuoi amici e conoscenti. Evita i contatti per un periodo fino a 10 giorni da un possibile contagio."</string>
 
+    <!-- Meldungen Detail Weisse Box Titel -->
+    <string name="meldungen_detail_guard_others">"Proteggi gli altri"</string>
+
     <!-- Meldungen Detail: Weisse Box Text -->
     <string name="meldungen_detail_guard_text">"Per domande:
-Infoline SwissCovid
-+41 58 387 77 78"</string>
+Infoline coronavirus
+0000"</string>
 
     <!-- Meldungen Detail Button Weisse Box -->
-    <string name="meldungen_detail_call_again_button">"Ritelefona"</string>
+    <string name="meldungen_detail_call_again_button">"Telefona di nuovo"</string>
 
     <!-- Meldungen Detail: Weisse Box Anruf Zeitpunkt -->
     <string name="meldungen_detail_call_last_call">"Ultima telefonata: {DATE}"</string>
@@ -328,25 +368,26 @@ Infoline SwissCovid
     <string name="onboarding_prinzip_title">"Anticipare il virus"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"Con l'app SwissCovid tutti possono contribuire a contenere la diffusione del nuovo coronavirus."</string>
+    <string name="onboarding_prinzip_text1">"Con l'app dp3t-app tutti possono contribuire a contenere la diffusione del nuovo coronavirus."</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text2">"L'app ti informa se sei stato potenzialmente esposto al nuovo coronavirus."</string>
+    <string name="onboarding_prinzip_text2">"L'app informa in caso di sospetto. Così è possibile interrompere le catene di infezione."</string>
 
     <!-- Onboarding Privacy: Titel oben -->
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
 
     <!-- Onboarding Privacy: Titel -->
-    <string name="onboarding_privacy_title">"Protezione della sfera privata"</string>
+    <string name="onboarding_privacy_title">"Protezione della sfera privata
+garantita"</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text1">"Fra i telefoni cellulari vengono scambiati soltanto ID casuali. L'app non raccoglie dati né sulla posizione né sull'identità dell'utente."</string>
+    <string name="onboarding_privacy_text1">"La comunicazione tra i dispositivi avviene in forma anonima."</string>
 
     <!-- Onboarding Privacy: Text -->
-    <string name="onboarding_privacy_text2">"Gli ID casuali salvati restano sul tuo telefono cellulare e vengono eliminati dopo 14 giorni."</string>
+    <string name="onboarding_privacy_text2">"Tutti i dati vengono criptati e salvati soltanto localmente sullo smartphone."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"Come funziona l'app?"</string>
+    <string name="onboarding_begegnungen_heading">"Cosa fa l'app?"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"Riconosce gli incontri
@@ -356,7 +397,7 @@ grazie a Bluetooth"</string>
     <string name="onboarding_begegnungen_text1">"L'app riconosce automaticamente quando due utenti sono stati uno vicino all'altro per un certo tempo."</string>
 
     <!-- Onboarding Begegnungen: Text -->
-    <string name="onboarding_begegnungen_text2">"L'app utilizza soltanto Bluetooth Low Energy (BLE). Nessun dato GPS, di telefonia mobile, del Wi-Fi o altri dati sulla posizione."</string>
+    <string name="onboarding_begegnungen_text2">"L'app utilizza soltanto Bluetooth Low Energy (BLE), non i dati GPS."</string>
 
     <!-- Onboarding Meldung: Text oben -->
     <string name="onboarding_meldung_heading">"Cosa fa l'app?"</string>
@@ -366,10 +407,10 @@ grazie a Bluetooth"</string>
 possibile contagio"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"L'app ti informa se sei stato potenzialmente esposto al nuovo coronavirus."</string>
+    <string name="onboarding_meldung_text1">"L'app ti informa in caso di sospetto di contagio."</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text2">"Con il comportamento giusto puoi interrompere le catene di infezione e proteggere gli altri."</string>
+    <string name="onboarding_meldung_text2">"Con il comportamento giusto puoi proteggere te stesso e gli altri."</string>
 
     <!-- Onboarding Bluetooth: Titel -->
     <string name="onboarding_bluetooth_title">"Consenti Bluetooth"</string>
@@ -416,16 +457,67 @@ possibile contagio"</string>
     <!-- Code senden: Abschluss Gute Besserung -->
     <string name="inform_send_getwell_text">"Guarisci presto.
 
-Segui le istruzioni sull'isolamento che hai ricevuto."</string>
+Segui le istruzioni sull'auto-isolamento."</string>
 
     <!-- Titel auf dem letzen Onboarding Screen -->
     <string name="onboarding_go_title">"L'app è installata"</string>
 
     <!-- Text auf dem letzten Onboarding Screen -->
-    <string name="onboarding_go_text">"Grazie per aiutarci a interrompere le catene di infezione."</string>
+    <string name="onboarding_go_text">"Grazie che ci aiuti a proteggere te e gli altri."</string>
 
     <!-- Button-Label auf dem letzten Onboarding screen -->
     <string name="onboarding_go_button">"Avvia"</string>
+
+    <!-- Titel auf Location-Permission Screen -->
+    <string name="android_onboarding_bt_permission_title">"Consenti posizione per Bluetooth"</string>
+
+    <!-- Text auf Location-Permission Screen -->
+    <string name="android_onboarding_bt_permission_text">"Affinché l'app funzioni e abbia accesso a Bluetooth, devi consentire la posizione."</string>
+
+    <!-- Button-Text auf Location-Permission Screen -->
+    <string name="android_onboarding_bt_permission_button">"Consenti"</string>
+
+    <!-- Label für Info-Section -->
+    <string name="android_onboarding_bt_permission_goodtoknow">"Buono a sapersi:"</string>
+
+    <!-- Info-Titel 1 auf Location-Permission Screen -->
+    <string name="android_onboarding_bt_permission_info_1_title">"La tua posizione rimane segreta"</string>
+
+    <!-- Info-Text 1 auf Location-Permission Screen -->
+    <string name="android_onboarding_bt_permission_info_1_text">"Nei dispositivi Android l'autorizzazione di Bluetooth è associata all'autorizzazione della posizione. Per questo occorre attivare la relativa funzione, anche se l'app non accede mai alla posizione dell'utente."</string>
+
+    <!-- Info-Titel 2 auf Location-Permission Screen -->
+    <string name="android_onboarding_bt_permission_info_2_title">"L'anonimato è garantito"</string>
+
+    <!-- Info-Text 2 auf Location-Permission Screen -->
+    <string name="android_onboarding_bt_permission_info_2_text">"Bluetooth non permette la visualizzazione di dati personali."</string>
+
+    <!-- Titel auf Battery-Permission Screen -->
+    <string name="android_onboarding_battery_permission_title">"Ignora l'ottimizzazione della batteria"</string>
+
+    <!-- Text auf Battery-Permission Screen -->
+    <string name="android_onboarding_battery_permission_text">"Per poter riconoscere sempre gli incontri, l'ottimizzazione della batteria deve essere disattivata per questa app."</string>
+
+    <!-- Button-Text auf Battery-Permission Screen -->
+    <string name="android_onboarding_battery_permission_button">"Consenti"</string>
+
+    <!-- Info-Titel 1 auf Battery-Permission Screen -->
+    <string name="android_onboarding_battery_permission_info_1_title">"Solo per questa app"</string>
+
+    <!-- Info-Text 1 auf Battery-Permission Screen -->
+    <string name="android_onboarding_battery_permission_info_1_text">"Per funzionare, l'app deve poter essere eseguita anche in background. Affinché ciò sia possibile, l'ottimizzazione della batteria può essere disattivata per le singole app."</string>
+
+    <!-- Info-Titel 2 auf Battery-Permission Screen -->
+    <string name="android_onboarding_battery_permission_info_2_title">"Il consumo della batteria aumenta leggermente"</string>
+
+    <!-- Info-Text 2 auf Battery-Permission Screen -->
+    <string name="android_onboarding_battery_permission_info_2_text">"L'app è stata realizzata per funzionare con il massimo risparmio energetico. Il consumo della batteria aumenta soltanto leggermente."</string>
+
+    <!-- Button-Text auf Location-Permission Screen - Zugelassen -->
+    <string name="android_onboarding_bt_permission_button_allowed">"Autorizzata"</string>
+
+    <!-- Button-Text auf Battery-Permission Screen - Deaktiviert -->
+    <string name="android_onboarding_battery_permission_button_deactivated">"Disattivata"</string>
 
     <!-- Homescreen: Titel bei Fehler mit Daten -->
     <string name="homescreen_meldung_data_outdated_title">"Non ci sono dati aggiornati"</string>
@@ -440,16 +532,17 @@ Segui le istruzioni sull'isolamento che hai ricevuto."</string>
     <string name="inform_code_invalid_title">"Codice non valido"</string>
 
     <!-- Fehlermeldung Subtitle ungültiger Code -->
-    <string name="inform_code_invalid_subtitle">"In caso di problemi: telefona al servizio dal quale hai ricevuto il codice Covid."</string>
+    <string name="inform_code_invalid_subtitle">"Per domande: App-Hotline
+0000"</string>
 
     <!-- Datum: Vor 1 Tag -->
     <string name="date_one_day_ago">"1 giorno fa"</string>
 
     <!-- Meldungen Detail: Titel -->
-    <string name="meldung_detail_new_contact_title">"Possibile contagio"</string>
+    <string name="meldung_detail_new_contact_title">"Nuovo sospetto"</string>
 
     <!-- Meldungen Detail: Text -->
-    <string name="meldung_detail_new_contact_subtitle">"Vi è il sospetto di un possibile contagio."</string>
+    <string name="meldung_detail_new_contact_subtitle">"Potrebbe essersi verificato un contagio anche in questa data."</string>
 
     <!-- Fehler mit Uhrzeit Titel -->
     <string name="time_inconsistency_title">"Errore nell'impostazione dell'ora"</string>
@@ -489,6 +582,15 @@ Segui le istruzioni sull'isolamento che hai ricevuto."</string>
 
     <!-- Unerwarteter Fehler, mit Aufforderung Aktion erneut zu versuchen -->
     <string name="unexpected_error_with_retry">"Si è verificato un errore imprevisto. Riprova."</string>
+
+    <!-- Fehlermeldung, wenn die Antwort des Authentifizierungs-Services nicht verwertbar ist -->
+    <string name="invalid_response_auth_code">"A causa di un errore di sistema non è stato possibile utilizzare correttamente il codice di attivazione. Telefona alla hotline."</string>
+
+    <!-- Titel für Fehlermeldung mit Standort -->
+    <string name="error_location_permission_title">"Uso della posizione negato"</string>
+
+    <!-- Button für Fehlermeldung mit Standort -->
+    <string name="error_location_permission_button">"Consenti"</string>
 
     <!-- VoiceOver: Datum -->
     <string name="accessibility_date">"Data"</string>
@@ -530,29 +632,31 @@ Segui le istruzioni sull'isolamento che hai ricevuto."</string>
     <string name="accessibility_12nd">"Dodicesimo"</string>
 
     <!-- Voiceover: Hilfetext bei Codeeingabe -->
-    <!-- Fuzzy -->
     <string name="accessibility_code_button_disabled_hint">"Impossibile premere: il codice immesso non è completo"</string>
 
+    <!-- Fehler Titel: Akkuverbrauch aktiviert -->
+    <string name="error_battery_optimization_title">"Ottimizzazione della batteria attivata"</string>
+
     <!-- Fehler: Standortinformationen / Bluetooth -->
-    <!-- Fuzzy -->
-    <string name="android_foreground_service_notification_error_location_service">"Attiva le informazioni sulla posizione per permettere all'app di utilizzare Bluetooth. L'app non conosce mai la posizione dell'utente."</string>
+    <string name="foreground_service_notification_error_location_service">"Attiva le informazioni sulla posizione per permettere all'app di utilizzare Bluetooth. L'app non conosce mai la posizione dell'utente."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
-    <!-- Fuzzy -->
-    <string name="android_error_location_services_title">"Posizione disattivata"</string>
+    <string name="error_location_services_title">"Posizione disattivata"</string>
 
     <!-- Location Services ausgeschaltet Button -->
-    <!-- Fuzzy -->
-    <string name="android_error_location_services_button">"Attiva la posizione"</string>
+    <string name="error_location_services_button">"Attiva la posizione"</string>
 
     <!-- Information Button in the navigation bar -->
     <string name="accessibility_info_button">"Informazione"</string>
 
+    <!-- Debug: Anzahl Kontakte Titel -->
+    <string name="debug_sdk_state_number_contacts">"Numero di contatti: "</string>
+
     <!-- Synchronisations-Fehler Titel -->
-    <string name="sync_warning_notification_title">"Sincronizzare l'app"</string>
+    <string name="sync_warning_notification_title">"Si è verificato un errore"</string>
 
     <!-- Synchronisations-Fehler Text -->
-    <string name="sync_warning_notification_text">"Apri l'app per sincronizzare l'elenco degli ID casuali segnalati."</string>
+    <string name="sync_warning_notification_text">"Apri l'app per risolvere l'errore."</string>
 
     <!-- Meldungen Detail: Button bei Vollansicht -->
     <string name="meldung_animation_continue_button">"Avanti"</string>
@@ -560,19 +664,28 @@ Segui le istruzioni sull'isolamento che hai ricevuto."</string>
     <!-- Titel Impressum Menu -->
     <string name="menu_impressum">"Impressum"</string>
 
+    <!-- Synchronisations-Fehler Titel -->
+    <string name="sync_error_title">"Errore imprevisto"</string>
+
+    <!-- Synchronisations-Fehler Text -->
+    <string name="sync_error_text">"Si è verificato un errore nella sincronizzazione."</string>
+
+    <!-- Synchronisations-Fehler Button Titel -->
+    <string name="sync_error_button">"Riprova"</string>
+
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnung_detail_faq1_title">"Cosa significa incontro?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq1_text">"Se due telefoni cellulari con l'app si trovano uno vicino all'altro per un certo tempo, l'incontro viene salvato nel dispositivo."</string>
+    <string name="begegnung_detail_faq1_text">"Se due telefoni con l'app si trovano uno vicino all'altro per diversi minuti, l'incontro viene salvato nel dispositivo."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnung_detail_faq2_title">"I miei dati sono sicuri?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq2_text">"In caso di incontro vengono scambiati soltanto ID casuali. 
+    <string name="begegnung_detail_faq2_text">"In caso di incontro viene scambiato soltanto un codice criptato.
 
-Questi vengono salvati localmente sui dispositivi e nuovamente eliminati dopo 14 giorni."</string>
+Il codice viene salvato localmente sui dispositivi e nuovamente eliminato dopo 21 giorni."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnungen_detail_faq3_title">"Bluetooth deve sempre essere attivato?"</string>
@@ -582,14 +695,11 @@ Questi vengono salvati localmente sui dispositivi e nuovamente eliminati dopo 14
 
 Il consumo della batteria aumenta soltanto leggermente."</string>
 
-    <!-- FAQ Button Titel -->
-    <string name="faq_button_title">"Domande frequenti"</string>
-
     <!-- Meldungen Keine Meldungen FAQ Titel -->
     <string name="meldungen_nomeldungen_faq1_title">"Cosa sono le segnalazioni?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq1_text">"L'app controlla regolarmente se altri utenti che hai incontrato hanno segnalato di essere positivi al test.
+    <string name="meldungen_nomeldungen_faq1_text">"L'app controlla regolarmente se gli incontri salvati sul tuo dispositivo sono risultati positivi al test.
 
 In caso di possibile contagio viene visualizzato un messaggio sulla schermata di blocco."</string>
 
@@ -597,12 +707,18 @@ In caso di possibile contagio viene visualizzato un messaggio sulla schermata di
     <string name="meldungen_nomeldungen_faq2_titel">"Cosa significa possibile contagio?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"L'app non controlla solo se ci sono stati incontri con persone infette, ma anche a quale distanza e per quanto tempo.
+    <string name="meldungen_nomeldungen_faq2_text">"L'app non solo controlla se ci sono stati incontri con persone infette, ma anche a quale distanza e per quanto tempo.
 
-L'utente viene informato soltanto se la possibilità di un contagio è sufficientemente fondata."</string>
+L'utente viene informato soltanto se il sospetto di un contagio è sufficientemente fondato."</string>
 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
-    <string name="meldungen_detail_explanation_text3">"La Infoline SwissCovid ti offre consulenza sulla possibilità di fare un test gratuito."</string>
+    <string name="meldungen_detail_explanation_text3">"Ai primi sintomi contatta il tuo medico."</string>
+
+    <!-- Meldungen: Meldung Weisse Box Link Titel -->
+    <string name="meldungen_explanation_link_title">"Istruzioni per l'auto-quarantena"</string>
+
+    <!-- Meldungen: Meldung Weisse Box Link URL -->
+    <string name="meldungen_explanation_link_url">"https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/selbst-isolierung-und-selbst-quarantaene.html"</string>
 
     <!-- Meldungen: Meldungen FAQ -->
     <string name="meldungen_meldungen_faq1_title">"Devo telefonare?"</string>
@@ -610,15 +726,25 @@ L'utente viene informato soltanto se la possibilità di un contagio è sufficien
     <!-- Meldungen: Meldungen FAQ Text -->
     <string name="meldungen_meldungen_faq1_text">"È importante telefonare a ogni nuova segnalazione.
 
-L'utente resta anonimo. Non vengono registrati dati personali.
-
-Il colloquio di consulenza è gratuito; paghi soltanto il costo della telefonata."</string>
+L'utente resta anonimo. Non vengono registrati dati personali."</string>
 
     <!-- Meldungen Detail: Anruf Titel -->
     <string name="meldungen_detail_call_thankyou_title">"Grazie per la tua partecipazione"</string>
 
     <!-- Meldungen Detail Anruf Danke Subtitel -->
     <string name="meldungen_detail_call_thankyou_subtitle">"Proteggi gli altri"</string>
+
+    <!-- Meldungen Detail Keine Meldungen Titel -->
+    <string name="meldungen_detail_no_meldungen_title">"Nessuna nuova segnalazione"</string>
+
+    <!-- Meldungen Detail Keine Meldung Subtitel -->
+    <string name="meldungen_detail_no_meldungen_subtitle">"L'ultimo possibile contagio è avvenuto più di 10 giorni fa."</string>
+
+    <!-- Meldungen Detail: Keine Meldungen Button -->
+    <string name="meldungen_detail_no_meldungen_continue">"Avanti"</string>
+
+    <!-- Meldungen Detail: Keine Meldungen Hinweis -->
+    <string name="meldungen_detail_no_meldungen_hinweis">"Avvertenza"</string>
 
     <!-- Keine Meldungen Link in weisser Box Titel -->
     <string name="no_meldungen_box_link">"Così ci proteggiamo"</string>
@@ -635,18 +761,21 @@ Il colloquio di consulenza è gratuito; paghi soltanto il costo della telefonata
 In questo modo si garantisce che l'app segnali soltanto i casi confermati."</string>
 
     <!-- Inform Detail: FAQ Titel -->
-    <string name="inform_detail_faq2_title">"Che cosa viene inviato?"</string>
+    <string name="inform_detail_faq2_title">"Com'è tutelato il mio anonimato?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Vengono inviati soltanto gli ID casuali della tua app, non i tuoi dati personali.
+    <string name="inform_detail_faq2_text">"Vengono inviate soltanto le chiavi temporanee della tua app, non i tuoi dati personali.
 
-Grazie a questi ID, gli altri utenti dell'app SwissCovid vengono a sapere che vi è la possibilità di un contagio."</string>
+Con esse gli altri utenti dell'app dp3t-app possono controllare se nei giorni scorsi si sono incontrati con te."</string>
+
+    <!-- Informieren: Titel Tracing beendet -->
+    <string name="inform_send_endtracing_title">"Tracciamento terminato"</string>
+
+    <!-- Informieren: Text Tracing beendet -->
+    <string name="inform_send_endtracing_text">"Dopo un test positivo il tracciamento viene terminato automaticamente."</string>
 
     <!-- Telefonnummer der Infoline -->
-    <string name="infoline_tel_number">"+41 58 387 77 78"</string>
-
-    <!-- URL für Häufige Fragen Button -->
-    <string name="faq_button_url">"https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html"</string>
+    <string name="infoline_tel_number">"0000"</string>
 
     <!-- Informieren Flow: Titel erster Screen -->
     <string name="inform_code_intro_title">"Avvertenza importante"</string>
@@ -658,12 +787,12 @@ Grazie a questi ID, gli altri utenti dell'app SwissCovid vengono a sapere che vi
     <string name="inform_code_intro_button">"Capito"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Cos'è l'autovalutazione sul coronavirus?"</string>
+    <string name="symptom_faq1_title">"Incertezza in caso di sintomi?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Hai  sintomi e non sai bene come comportarti? 
+    <string name="symptom_faq1_text">"Hai dei sintomi e non sai bene come comportarti?
 
-Rispondi alle domande dell'autovalutazione online dell'UFSP per ricevere una raccomandazione pratica."</string>
+Rispondi alle domande dell'autovalutazione sul coronavirus dell'UFSP per ricevere una raccomandazione pratica."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Perché il tracciamento è terminato?"</string>
@@ -675,7 +804,7 @@ Rispondi alle domande dell'autovalutazione online dell'UFSP per ricevere una rac
     <string name="language_key">"it"</string>
 
     <!-- Meldungen Homescreen: Name Hotline -->
-    <string name="exposed_info_contact_hotline_name">"Infoline SwissCovid"</string>
+    <string name="exposed_info_contact_hotline_name">"Infoline coronavirus"</string>
 
     <!-- Meldung Detail: "Noch 1 Tag" Label -->
     <string name="date_in_one_day">"Ancora 1 giorno"</string>
@@ -689,240 +818,4 @@ Rispondi alle domande dell'autovalutazione online dell'UFSP per ricevere una rac
     <!-- Accessibility Talk back information for android back button in toolbar -->
     <!-- Fuzzy -->
     <string name="android_accessibility_back_button">"Indietro"</string>
-
-    <!-- VoiceOver: Hilfetext bei Codeeingabe Button -->
-    <string name="accessibility_code_button_current_code_hint">"Codice immesso: "</string>
-
-    <!-- Accessibility: Codeeingabe einer Ziffer -->
-    <string name="accessibility_code_input_textfield">"Casella di testo. Cifra corrente: "</string>
-
-    <!-- Accessibility: Code Input Textfeld wenn leer -->
-    <string name="accessibility_code_input_textfield_empty">"Casella di testo. Vuota."</string>
-
-    <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
-    <string name="accessibility_code_input_hint">"Doppio tocco per modificare"</string>
-
-    <!-- Accessibility: FAW Button Titel  -->
-    <string name="accessibility_faq_button_hint">"Questo pulsante abbandona l'app e apre il sito web dell'U.F.S.P."</string>
-
-    <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_title">"Attivare il tracciamento"</string>
-
-    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
-    <!-- Fuzzy -->
-    <string name="onboarding_gaen_text_ios">"Per utilizzare l'app è necessario attivare le notifiche di esposizione al COVID-19."</string>
-
-    <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_button_activate">"Attiva"</string>
-
-    <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
-    <string name="onboarding_gaen_info_title_1">"Protezione dei dati"</string>
-
-    <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
-    <string name="onboarding_gaen_info_text_1">"Vengono scambiati solo ID casuali. Nessun dato sulla tua posizione o sulla tua persona."</string>
-
-    <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
-    <string name="onboarding_gaen_info_title_2">"Il consumo della batteria aumenta leggermente."</string>
-
-    <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 2 -->
-    <string name="onboarding_gaen_info_text_2">"L'app è stata realizzata per funzionare con il massimo risparmio energetico. Il consumo della batteria aumenta soltanto leggermente."</string>
-
-    <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
-    <string name="onboarding_gaen_button_activated">"Attivato"</string>
-
-    <!-- Meldung in der App löschen, wenn möglicherweise angesteckt -->
-    <string name="delete_reports_button">"Elimina segnalazione"</string>
-
-    <!-- Meldung im Löschen Dialog wenn möglicherweise angesteckt -->
-    <string name="delete_reports_dialog">"Eliminare la segnalazione?"</string>
-
-    <!-- Code-Eingabe in der App löschen, wenn infiziert -->
-    <string name="delete_infection_button">"Elimina segnalazione"</string>
-
-    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
-    <string name="delete_infection_dialog">"Eliminare la segnalazione?"</string>
-    <string name="android_onboarding_battery_permission_title">"Ignora l'ottimizzazione della batteria"</string>
-    <string name="android_onboarding_battery_permission_text">"Per poter riconoscere sempre gli incontri, l'ottimizzazione della batteria deve essere disattivata per questa app."</string>
-    <string name="android_onboarding_battery_permission_button">"Consenti"</string>
-    <string name="android_onboarding_battery_permission_button_deactivated">"OK"</string>
-    <string name="android_onboarding_battery_permission_info_1_title">"Solo per questa app"</string>
-    <string name="android_onboarding_battery_permission_info_1_text">"Per funzionare, l'app deve poter essere eseguita anche in background. Affinché ciò sia possibile, l'ottimizzazione della batteria può essere disattivata per le singole app."</string>
-    <string name="android_onboarding_battery_permission_info_2_title">"Il consumo della batteria aumenta leggermente"</string>
-    <string name="android_onboarding_battery_permission_info_2_text">"L'app è stata realizzata per funzionare con il massimo risparmio energetico. Il consumo della batteria aumenta soltanto leggermente."</string>
-    <string name="android_foreground_service_notification_error_battery_optimization">"Per un funzionamento preciso del tracciamento, l'app deve essere eseguita anche in background. Il consumo della batteria aumenta solo leggermente."</string>
-
-    <!-- Google Play Services nicht aktuell -->
-    <string name="gaen_not_aviable">"Google Play Services non è aggiornato"</string>
-
-    <!-- Google Play Services nicht aktuell text -->
-    <string name="gaen_not_available_text">"Aggiorna Google Play Services"</string>
-
-    <!-- Tracing wurde vom System deaktiviert, erneut starten -->
-    <string name="gaen_unexpectedly_disabled">"Il tracciamento è stato disattivato e deve essere riavviato."</string>
-
-    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
-    <!-- Fuzzy -->
-    <string name="tracing_permission_error_title_ios">"Notifiche di esposizione al COVID-19 disattivato"</string>
-
-    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
-    <!-- Fuzzy -->
-    <string name="tracing_permission_error_text_ios">"Attiva le notifiche di esposizione al COVID-19 per avviare il tracciamento."</string>
-
-    <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
-    <string name="user_cancelled_key_sharing_error">"Impossibile inviare la segnalazione. Consentire la condivisione dei propri ID casuali con l'app SwissCovid."</string>
-
-    <!-- Button um die Google Play Services zu aktualisieren -->
-    <string name="playservices_update">"Aggiorna"</string>
-
-    <!-- Button um die Google Play Services zu installieren -->
-    <string name="playservices_install">"Installa"</string>
-
-    <!-- Titel für Infos zu den Google Play Services -->
-    <string name="playservices_title">"Google Play Services"</string>
-
-    <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"Per poter attivare il tracciamento è necessaria una versione aggiornata di Google Play Services. 
-
-Se al momento non è disponibile alcun aggiornamento sul tuo dispositivo, riprova più tardi."</string>
-
-    <!-- Fuzzy -->
-    <string name="android_error_battery_optimization_title">"Ottimizzazione del consumo della batteria attivata"</string>
-    <string name="android_error_battery_optimization_button">"Consenti"</string>
-
-    <!-- Telefonnummer für Hilfe bei App-Problemen -->
-    <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
-
-    <!-- text shown in notification when we get an exception from the GAEN api -->
-    <string name="sync_api_error">"Si è verificato un errore inatteso durante la sincronizzazione delle segnalazioni."</string>
-
-    <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
-    <string name="certificate_validation_error">"Impossibile stabilire una connessione sicura con il server. Controllare o disattivare la VPN o il proxy o controllare se si è connessi tramite Wi-Fi pubblico."</string>
-
-    <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
-    <string name="android_en_start_failure">"Impossibile attivare le segnalazioni COVID-19."</string>
-
-    <!-- Certificate pinning Debug screen section title -->
-    <string name="certificate_pinning_title">"Certificate Pinning"</string>
-
-    <!-- Fuzzy -->
-    <string name="certificate_pinning_button_disable">"Disattivare"</string>
-    <string name="certificate_pinning_button_enable">"Attivare"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
-    <string name="onboarding_legal_heading">"Version preview"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel -->
-    <string name="onboarding_legal_title">"Da utilizzare solo dai partecipanti della fase pilota"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
-    <string name="onboarding_legal_text1">"L'utilizzo di questa app è attualmente previsto e autorizzato solo per i seguenti gruppi, che sono stati invitati dall'UFSP a partecipare al pilota: membri dell'Esercito svizzero in formazione, assistenza e servizio attivo, personale delle università, personale di ospedali e cliniche, personale delle amministrazioni cantonali e dell'Amministrazione federale, membri di associazioni che desiderano contribuire a migliorare la qualità del sistema."</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
-    <string name="onboarding_legal_text2">"La fase pilota viene effettuata con sistemi produttivi e contiene dati reali. In caso di test COVID-19 positivo, i medici cantonali non sono autorizzati a generare un codice Covid per la notifica dall'app per gli utenti non autorizzati. Gli attacchi (\"penetration test\") al sistema al di fuori del test di sicurezza pubblica delimitato sono attacchi al sistema produttivo e sono pertanto illegali."</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_title">"Fai parte di un'organizzazione che può partecipare alla fase pilota?"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_message">"Appartenete a uno dei seguenti gruppi: membri dell'Esercito svizzero in formazione, assistenza e servizio attivo, collaboratori di università, collaboratori di ospedali e cliniche, collaboratori delle amministrazioni cantonali e dell'amministrazione federale, membri di associazioni che desiderano contribuire al miglioramento della qualità del sistema?"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_no">"No"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_yes">"Si"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
-    <string name="onboarding_legal_blocker_title">"Fase pilota"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
-    <string name="onboarding_legal_blocker_message">"Non fate parte di un'organizzazione che partecipa alla fase pilota. Si prega di installare l'aggiornamento appropriato dopo il lancio ufficiale dell'applicazione e di riaprire l'applicazione."</string>
-    <string name="begegnung_detail_last_sync_title">"Ultima sincronizzazione effettuata"</string>
-    <string name="synchronizations_view_title">"Panoramica"</string>
-    <string name="synchronizations_view_info_title">"Sincronizzazioni"</string>
-    <string name="synchronizations_view_info_question">"Cosa sono le sincronizzazioni?"</string>
-    <string name="synchronizations_view_info_answer">"L'app verifica regolarmente gli ID casuali pubblicati dagli utenti risultati positivi al test."</string>
-    <string name="synchronizations_view_period_title">"Negli ultimi 14 giorni"</string>
-    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
-    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
-    <string name="synchronizations_view_empty_list">"Nessuna voce"</string>
-    <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
-    <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
-    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
-
-    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_before_title">"Prima della chiamata"</string>
-
-    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_main_title">"Annotare le seguenti indicazioni"</string>
-
-    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_datum">"Data"</string>
-
-    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_number">"Numero"</string>
-    <string name="tracing_active_tracking_always_info">"SwissCovid resta attiva anche quando l'app viene chiusa."</string>
-
-    <!-- title in splash screen of onboarding -->
-    <string name="oboarding_splashscreen_title">"SwissCovid 
-ferma le 
-catene di infezione"</string>
-    <string name="inform_detail_faq3_text">"Anche se non vengono inviati dati personali, è possibile che qualcuno possa ricordarsi dell'incontro sulla base della data in cui è avvenuto."</string>
-    <string name="inform_detail_faq3_title">"Resto anonimo?"</string>
-
-    <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"Ai primi sintomi, fai l'autovalutazione del coronavirus o telefona al tuo medico."</string>
-
-    <!-- Text beim Bluetooth Control -->
-    <string name="tracing_setting_text_android">"Notifiche di esposizione al COVID-19"</string>
-
-    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
-    <string name="onboarding_gaen_text_android">"Per utilizzare l'app è necessario attivare le notifiche di esposizione al COVID-19."</string>
-
-    <!-- Onboarding Disclaimer Screen: AppName Title -->
-    <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
-
-    <!-- Onboarding Disclaimer Screen: Title -->
-    <string name="onboarding_disclaimer_title">"Suggerimenti per l'uso"</string>
-
-    <!-- Onboarding Disclaimer Screen: Info -->
-    <string name="onboarding_disclaimer_info">"Qui troverete l'informativa sulla protezione dei dati e le condizioni d'uso."</string>
-
-    <!-- Onboarding Disclaimer Screen: Warning Title -->
-    <string name="onboarding_disclaimer_warning_title">"Attenzione: questa app non ti protegge dalla COVID-19."</string>
-
-    <!-- Onboarding Disclaimer Screen: Warning Text -->
-    <string name="onboarding_disclaimer_warning_body">"Questa app serve per il tracciamento di prossimità e per avvertire gli utenti che sono stati potenzialmente esposti a una persona infetta da COVID-19. Non è nemmeno uno strumento diagnostico. Leggi attentamente le istruzioni fornite da ciascuna schermata dell'app."</string>
-
-    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
-    <string name="onboarding_disclaimer_manufacturer">"Ufficio federale della sanità pubblica UFSP
-Schwarzenburgstrasse 157
-3097 Liebefeld, Svizzera"</string>
-
-    <!-- Onboarding Disclaimer Screen: App version title -->
-    <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
-
-    <!-- Onboarding Disclaimer Screen: Release version title -->
-    <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
-
-    <!-- onboarding privacy and conditions of use button -->
-    <string name="onboarding_disclaimer_legal_button">"Informativa sulla protezione dei dati &amp; condizioni d'uso"</string>
-
-    <!-- onboarding privacy and conditions of use url -->
-    <string name="onboarding_disclaimer_legal_button_url">"https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international/datenschutzerklaerung-nutzungsbedingungen.html"</string>
-
-    <!-- Google Translation -->
-    <!-- Error shown when loading fails because there is not enough free disk space. -->
-    <string name="loading_error_no_disk_space">"Non è stato possibile controllare i messaggi perché il cellulare non ha abbastanza spazio di memoria libero. Si prega di liberare spazio di memoria."</string>
-
-    <!-- Onboarding: Akzeptieren Buttton Titel -->
-    <string name="onboarding_accept_button">"Accetta"</string>
-
-    <!-- Google Translation -->
-    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Titel -->
-    <string name="ratelimit_error_title">"Aggiornamento attualmente non possibile"</string>
-
-    <!-- Google Translation! -->
-    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
-    <string name="ratelimit_error_text">"Ci sono già state troppe domande oggi. L'applicazione riproverà più tardi."</string>
 </resources>

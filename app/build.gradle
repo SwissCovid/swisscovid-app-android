@@ -10,13 +10,9 @@
 
 plugins {
 	id 'com.android.application'
-	id "org.sonarqube" version "2.8"
 }
 
-apply from: 'backend_certs.gradle'
-
-ext.readProperty = { paramName -> readPropertyWithDefault(paramName, null) }
-ext.readPropertyWithDefault = { paramName, defaultValue ->
+ext.readProperty = { paramName ->
 	if (project.hasProperty(paramName)) {
 		return project.getProperties().get(paramName)
 	} else {
@@ -24,11 +20,7 @@ ext.readPropertyWithDefault = { paramName, defaultValue ->
 		if (project.rootProject.file('local.properties').exists()) {
 			properties.load(project.rootProject.file('local.properties').newDataInputStream())
 		}
-		if (properties.getProperty(paramName) != null) {
-			return properties.getProperty(paramName)
-		} else {
-			return defaultValue
-		}
+		return properties.getProperty(paramName)
 	}
 }
 
@@ -37,76 +29,32 @@ android {
 	buildToolsVersion "29.0.3"
 
 	defaultConfig {
-		applicationId "ch.admin.bag.dp3t"
+		applicationId "org.dpppt.android.app"
 		minSdkVersion 23
 		targetSdkVersion 29
-		versionCode 10050
-		versionName "1.0.5"
-		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr", "rm"
+		versionCode 1
+		versionName "1.0"
+		resConfigs "en", "fr", "de", "it"
 
-		buildConfigField "long", "BUILD_TIME", readPropertyWithDefault('buildTimestamp', System.currentTimeMillis()) + 'L'
-
-		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-		testInstrumentationRunnerArguments clearPackageData: 'true'
+		buildConfigField "long", "BUILD_TIME", System.currentTimeMillis() + "L"
 	}
 
 	flavorDimensions "version"
-
-	productFlavors.whenObjectAdded { flavor ->
-		// generate BuildConfig.IS_FLAVOR_### flags
-		String flavorFieldName = "IS_FLAVOR_" + flavor.name.replaceAll("[^a-zA-Z0-9_]", "_").toUpperCase()
-		defaultConfig.buildConfigField "boolean", flavorFieldName, "false"
-		flavor.buildConfigField "boolean", flavorFieldName, "true"
-	}
-
 	productFlavors {
 		dev {
-			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
-			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-d.bag.admin.ch/"'
-			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-d.bfs.admin.ch/"'
-			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-d.bfs.admin.ch/"'
-			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-d.bfs.admin.ch/"'
-			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.dev.CONFIG_CERTIFICATE}\""
-			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.dev.BUCKET_PUBLIC_KEY}\""
-		}
-		tescht {
-			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
-			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-t.bag.admin.ch/"'
-			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-t.bfs.admin.ch/"'
-			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-t.bfs.admin.ch/"'
-			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-t.bfs.admin.ch/"'
-			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.test.CONFIG_CERTIFICATE}\""
-			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.test.BUCKET_PUBLIC_KEY}\""
-		}
-		abnahme {
-			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
-			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-a.bag.admin.ch/"'
-			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-a.bfs.admin.ch/"'
-			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-a.bfs.admin.ch/"'
-			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-a.bfs.admin.ch/"'
-			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.abnahme.CONFIG_CERTIFICATE}\""
-			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.abnahme.BUCKET_PUBLIC_KEY}\""
-		}
-		prod {
-			buildConfigField 'boolean', 'DEV_HISTORY', 'false'
-			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service.bag.admin.ch/"'
-			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt.bfs.admin.ch/"'
-			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt.bfs.admin.ch/"'
-			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
-			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
-			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
+			buildConfigField 'boolean', 'IS_DEV', 'true'
+			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', '"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFdkxXZHVFWThqcnA4aWNSNEpVSlJaU0JkOFh2UgphR2FLeUg2VlFnTXV2Zk1JcmxrNk92QmtKeHdhbUdNRnFWYW9zOW11di9rWGhZdjF1a1p1R2RjREJBPT0KLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg=="'
 		}
 	}
 
 	signingConfigs {
 		release {
-			storeFile file(readPropertyWithDefault('keystoreFile', 'testKeystore'))
+			storeFile file('testKeystore')
 			storePassword readProperty('keystorePassword')
 			keyAlias 'keyAlias'
 			keyPassword readProperty('keyAliasPassword')
 		}
 	}
-
 	buildTypes {
 		release {
 			shrinkResources true
@@ -122,24 +70,11 @@ android {
 	}
 }
 
-
-sonarqube {
-	properties {
-		property "sonar.projectKey", "DP-3T_dp3t-app-android-ch"
-		property "sonar.organization", "dp-3t"
-		property "sonar.host.url", "https://sonarcloud.io"
-		property "sonar.projectName", "dp3t-app-android-ch"
-	}
-}
-
 dependencies {
-	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-	def dp3t_sdk_version = '1.0.0'
-	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
-	teschtImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
-	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
-	prodImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
+	implementation 'org.dpppt:dp3t-sdk-android:0.2.6'
+
 
 	implementation 'androidx.appcompat:appcompat:1.1.0'
 	implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -154,14 +89,7 @@ dependencies {
 	implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
 
 	implementation 'com.google.android.material:material:1.1.0'
-	implementation 'com.google.android.gms:play-services-base:17.2.1'
 
-	implementation 'com.squareup.retrofit2:retrofit:2.8.1'
-	implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
-
-	androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-	androidTestImplementation 'androidx.test:runner:1.2.0'
-	androidTestImplementation 'androidx.test:core:1.2.0'
-	androidTestImplementation 'androidx.test:rules:1.2.0'
-	androidTestImplementation 'androidx.work:work-testing:2.3.4'
+	implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+	implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 }

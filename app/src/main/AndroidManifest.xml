@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
   ~
   ~ This Source Code Form is subject to the terms of the Mozilla Public
@@ -7,31 +8,29 @@
   ~
   ~ SPDX-License-Identifier: MPL-2.0
   -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	package="ch.admin.bag.dp3t">
+	package="org.dpppt.android.app">
 
 	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.INTERNET" />
 
 	<application
-		android:name="ch.admin.bag.dp3t.MainApplication"
-		android:allowBackup="false"
-		android:fullBackupContent="false"
+		android:name="org.dpppt.android.app.MainApplication"
+		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
 		android:networkSecurityConfig="@xml/network_security_config"
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
-		android:theme="@style/NextStepTheme"
-		tools:ignore="UnusedAttribute"
-		tools:replace="android:fullBackupContent">
+		android:theme="@style/NextStepTheme">
 
 		<activity
-			android:name="ch.admin.bag.dp3t.MainActivity"
-			android:launchMode="singleTop"
-			android:screenOrientation="portrait"
-			tools:ignore="LockedOrientationActivity">
+			android:name="org.dpppt.android.app.MainActivity"
+			android:launchMode="singleTop">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -39,13 +38,10 @@
 		</activity>
 
 		<activity
-			android:name="ch.admin.bag.dp3t.onboarding.OnboardingActivity"
-			android:launchMode="singleTop"
-			android:screenOrientation="portrait"
-			tools:ignore="LockedOrientationActivity" />
-
+			android:name="org.dpppt.android.app.onboarding.OnboardingActivity"
+			android:launchMode="singleTop" />
 		<activity
-			android:name="ch.admin.bag.dp3t.inform.InformActivity"
+			android:name=".inform.InformActivity"
 			android:launchMode="singleTop"
 			android:screenOrientation="portrait"
 			tools:ignore="LockedOrientationActivity" />

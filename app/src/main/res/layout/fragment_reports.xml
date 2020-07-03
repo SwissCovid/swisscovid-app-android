@@ -33,7 +33,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent" />
 
-		<ch.admin.bag.dp3t.reports.CirclePageIndicator
+		<org.dpppt.android.app.reports.CirclePageIndicator
 			android:id="@+id/reports_pageindicator"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
 
 	</FrameLayout>
 
-	<ch.admin.bag.dp3t.reports.LockableScrollView
+	<org.dpppt.android.app.reports.LockableScrollView
 		android:id="@+id/reports_scrollview"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
@@ -101,6 +101,6 @@
 
 		</LinearLayout>
 
-	</ch.admin.bag.dp3t.reports.LockableScrollView>
+	</org.dpppt.android.app.reports.LockableScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

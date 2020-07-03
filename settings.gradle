@@ -8,5 +8,5 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-rootProject.name='dp3t-android-app'
+rootProject.name='DP3T Demo'
 include ':app'

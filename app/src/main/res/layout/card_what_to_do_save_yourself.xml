@@ -35,7 +35,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_medium_large"
-				android:text="@string/no_meldungen_box_subtitle"
+				android:text="@string/meldungen_detail_whattodo"
 				app:layout_constraintTop_toTopOf="parent" />
 
 			<TextView
@@ -169,18 +169,6 @@
 				android:text="@string/meldungen_nomeldungen_faq2_text" />
 
 		</LinearLayout>
-
-		<Button
-			android:id="@+id/card_encounters_faq_button"
-			style="@style/NextStep.Button.Outlined"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="@dimen/spacing_medium"
-			android:layout_marginTop="@dimen/spacing_huger"
-			android:layout_marginRight="@dimen/spacing_medium"
-			android:drawableRight="@drawable/ic_launch_blue"
-			android:paddingStart="@dimen/padding_start_icon_button"
-			android:text="@string/faq_button_title" />
 
 	</LinearLayout>
 

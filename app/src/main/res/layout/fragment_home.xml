@@ -19,15 +19,6 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
 
-		<ImageView
-			android:id="@+id/schwiizerchruez"
-			android:layout_width="wrap_content"
-			android:layout_height="@dimen/icon_size_toolbar"
-			android:layout_gravity="left"
-			android:adjustViewBounds="true"
-			android:scaleType="fitCenter"
-			android:src="@drawable/ic_schweiz_wappen" />
-
 		<TextView
 			style="@style/NextStep.Text.Bold"
 			android:layout_width="wrap_content"
@@ -42,7 +33,7 @@
 		android:layout_height="match_parent"
 		android:background="@color/grey_light">
 
-		<ch.admin.bag.dp3t.main.views.HeaderView
+		<org.dpppt.android.app.main.views.HeaderView
 			android:id="@+id/home_header_view"
 			android:layout_width="match_parent"
 			android:layout_height="@dimen/header_height" />
@@ -86,13 +77,6 @@
 					android:layout_marginBottom="@dimen/spacing_very_large" />
 
 				<include
-					android:id="@+id/frame_card_symptoms"
-					layout="@layout/card_what_to_do_symptoms"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="@dimen/spacing_very_small" />
-
-				<include
 					android:id="@+id/frame_card_test"
 					layout="@layout/card_what_to_do_test"
 					android:layout_width="match_parent"
@@ -100,7 +84,6 @@
 					android:layout_marginBottom="@dimen/spacing_very_large" />
 
 				<LinearLayout
-					android:id="@+id/non_production_message"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_larger"
@@ -140,6 +123,15 @@
 					</LinearLayout>
 
 				</LinearLayout>
+
+				<Button
+					android:id="@+id/main_button_debug"
+					style="@style/NextStep.Button.Outlined.Red"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_horizontal"
+					android:layout_marginBottom="@dimen/spacing_larger"
+					android:text="@string/debug_settings_title" />
 
 			</LinearLayout>
 

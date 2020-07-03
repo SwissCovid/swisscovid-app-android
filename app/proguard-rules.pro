@@ -21,6 +21,3 @@
 #-renamesourcefileattribute SourceFile
 
 -dontobfuscate
-
--keep class ch.admin.bag.dp3t.inform.models.** { *; }
--keep class ch.admin.bag.dp3t.networking.models.** { *; }
