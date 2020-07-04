@@ -20,7 +20,7 @@
     <string name="inform_continue_button">"Continuer"</string>
 
     <!-- Informieren: Senden Button -->
-    <string name="inform_send_button_title">"Enviar"</string>
+    <string name="inform_send_button_title">"Envoyer"</string>
 
     <!-- Informieren: Danke -->
     <string name="inform_send_thankyou">"Merci beaucoup"</string>
