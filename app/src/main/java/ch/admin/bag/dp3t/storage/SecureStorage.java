@@ -40,6 +40,7 @@ public class SecureStorage {
 	private static final String KEY_CONFIG_INFOBOX_LINK_TITLE = "ghettobox_link_title";
 	private static final String KEY_CONFIG_INFOBOX_LINK_URL = "ghettobox_link_url";
 	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
+	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS = "last_config_load_success";
 
 	private static SecureStorage instance;
 
@@ -210,6 +211,14 @@ public class SecureStorage {
 
 	public void setUserNotInPilotGroup(boolean notInPilotGroup) {
 		prefs.edit().putBoolean(KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP, notInPilotGroup).apply();
+	}
+
+	public long getLastConfigLoadSuccess() {
+		return prefs.getLong(KEY_LAST_CONFIG_LOAD_SUCCESS, 0);
+	}
+
+	public void setLastConfigLoadSuccess(long time) {
+		prefs.edit().putLong(KEY_LAST_CONFIG_LOAD_SUCCESS, time).apply();
 	}
 
 }
