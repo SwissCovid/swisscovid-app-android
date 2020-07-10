@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.util;
 
 import android.bluetooth.BluetoothAdapter;
@@ -15,6 +14,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.os.UserManager;
 
 import java.security.MessageDigest;
 import java.util.regex.Matcher;
@@ -34,6 +34,7 @@ public class ENExceptionHelper {
 
 	public static String getErrorMessage(Exception exception, Context context) {
 		String errorDetailMessage = null;
+		boolean attachExceptionMessage = true;
 		if (exception instanceof ApiException) {
 			Status status = ((ApiException) exception).getStatus();
 			if (status.getStatusCode() == 17 && status.getStatusMessage() != null) {
@@ -42,6 +43,10 @@ public class ENExceptionHelper {
 					case ExposureNotificationStatusCodes.FAILED_NOT_SUPPORTED:
 						if (!supportsBLE(context)) {
 							errorDetailMessage = "Bluetooth Low Energy is not supported on this device.";
+							attachExceptionMessage = false;
+						} else if (!isUserDeviceOwner(context)) {
+							errorDetailMessage = "ExposureNotifications are only supported for the main device user!";
+							attachExceptionMessage = false;
 						} else if (!supportsMultiAds()) {
 							errorDetailMessage = "Bluetooth Multiple Advertisement is not supported on this device.";
 						} else {
@@ -51,6 +56,7 @@ public class ENExceptionHelper {
 					case ExposureNotificationStatusCodes.FAILED_UNAUTHORIZED:
 						if (!isPackageSignatureValid(context)) {
 							errorDetailMessage = "Unauthorized package signature";
+							attachExceptionMessage = false;
 						} else {
 							errorDetailMessage = "Unauthorized API usage.";
 						}
@@ -61,7 +67,11 @@ public class ENExceptionHelper {
 			}
 		}
 		if (errorDetailMessage != null) {
-			return errorDetailMessage + "\n\n" + exception.getMessage();
+			if (attachExceptionMessage) {
+				return errorDetailMessage + "\n\n" + exception.getMessage();
+			} else {
+				return errorDetailMessage;
+			}
 		} else {
 			return exception.getMessage();
 		}
@@ -102,6 +112,14 @@ public class ENExceptionHelper {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	private static boolean isUserDeviceOwner(Context context) {
+		UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
+		if (um != null) {
+			return um.isSystemUser();
+		}
+		return true;
 	}
 
 }
