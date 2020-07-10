@@ -44,11 +44,11 @@ public class ENExceptionHelper {
 						if (!supportsBLE(context)) {
 							errorDetailMessage = "Bluetooth Low Energy is not supported on this device.";
 							attachExceptionMessage = false;
-						} else if (!supportsMultiAds()) {
-							errorDetailMessage = "Bluetooth Multiple Advertisement is not supported on this device.";
 						} else if (!isUserDeviceOwner(context)) {
 							errorDetailMessage = "ExposureNotifications are only supported for the main device user!";
 							attachExceptionMessage = false;
+						} else if (!supportsMultiAds()) {
+							errorDetailMessage = "Bluetooth Multiple Advertisement is not supported on this device.";
 						} else {
 							errorDetailMessage = "This device does not support Exposure Notifications.";
 						}
