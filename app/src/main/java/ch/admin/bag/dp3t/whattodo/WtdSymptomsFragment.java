@@ -40,10 +40,6 @@ public class WtdSymptomsFragment extends Fragment {
 			startActivity(browserIntent);
 		});
 
-		view.findViewById(R.id.wtd_symptoms_faq_button).setOnClickListener(v -> {
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
-			startActivity(browserIntent);
-		});
 	}
 
 }
