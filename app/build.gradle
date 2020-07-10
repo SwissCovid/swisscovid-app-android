@@ -68,6 +68,7 @@ android {
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.dev.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.dev.BUCKET_PUBLIC_KEY}\""
+			applicationIdSuffix '.dev'
 		}
 		tescht {
 			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
@@ -77,6 +78,7 @@ android {
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-t.bfs.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.test.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.test.BUCKET_PUBLIC_KEY}\""
+			applicationIdSuffix '.test'
 		}
 		abnahme {
 			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
@@ -86,6 +88,7 @@ android {
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.abnahme.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.abnahme.BUCKET_PUBLIC_KEY}\""
+			applicationIdSuffix '.abnahme'
 		}
 		prod {
 			buildConfigField 'boolean', 'DEV_HISTORY', 'false'
