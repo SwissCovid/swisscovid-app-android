@@ -80,16 +80,16 @@
       android:fillColor="#3F3D56"/>
   <path
       android:pathData="M48.386,72.941L48.386,72.941 44.402,75.805 44.402,75.805z"
-      android:fillColor="#63A0C7"/>
+      android:fillColor="#5094bf"/>
   <path
       android:pathData="M49.506,84.774L44.276,76.864 44.276,76.864z"
-      android:fillColor="#63A0C7"/>
+      android:fillColor="#5094bf"/>
   <path
       android:pathData="M54.36,81.909L54.36,81.909 50.129,85.024 50.129,85.024z"
-      android:fillColor="#63A0C7"/>
+      android:fillColor="#5094bf"/>
   <path
       android:pathData="M54.485,80.851L49.07,73.066 49.07,73.066z"
-      android:fillColor="#63A0C7"/>
+      android:fillColor="#5094bf"/>
   <path
       android:pathData="M47.46,71.531L47.46,71.531 42.535,76.054 42.535,76.054z"
       android:fillColor="#B3B3B3"/>
