@@ -76,8 +76,7 @@ public class MainActivity extends FragmentActivity {
 			}
 		});
 
-		ConfigWorker.scheduleConfigWorker(this);
-		ConfigWorker.loadConfigIfOutdated(this);
+		ConfigWorker.scheduleConfigWorkerIfOutdated(this);
 
 		if (savedInstanceState == null) {
 			boolean onboardingCompleted = secureStorage.getOnboardingCompleted();

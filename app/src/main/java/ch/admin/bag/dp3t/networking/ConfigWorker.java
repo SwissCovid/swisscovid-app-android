@@ -42,37 +42,21 @@ public class ConfigWorker extends Worker {
 	private static final String TAG = "ConfigWorker";
 	private static final String WORK_TAG = "ch.admin.bag.dp3t.ConfigWorker";
 
-	public static void scheduleConfigWorker(Context context) {
-		Constraints constraints = new Constraints.Builder()
-				.setRequiredNetworkType(NetworkType.CONNECTED)
-				.build();
-
-		PeriodicWorkRequest periodicWorkRequest =
-				new PeriodicWorkRequest.Builder(ConfigWorker.class, REPEAT_INTERVAL_CONFIG_HOURS, TimeUnit.HOURS)
-						.setConstraints(constraints)
-						.build();
-
-		WorkManager workManager = WorkManager.getInstance(context);
-		workManager.enqueueUniquePeriodicWork(WORK_TAG, ExistingPeriodicWorkPolicy.KEEP, periodicWorkRequest);
-	}
-
-
-	public static void loadConfigIfOutdated(Context context) {
+	public static void scheduleConfigWorkerIfOutdated(Context context) {
 		if (SecureStorage.getInstance(context).getLastConfigLoadSuccess() <
 				System.currentTimeMillis() - MAX_AGE_OF_CONFIG_FOR_RELOAD_AT_APP_START) {
-			new Thread(() -> {
-				try {
-					loadConfig(context);
-				} catch (Throwable e) {
-					e.printStackTrace();
-				}
-			}).start();
-		}
-	}
+			Constraints constraints = new Constraints.Builder()
+					.setRequiredNetworkType(NetworkType.CONNECTED)
+					.build();
 
-	public static void stopConfigWorker(Context context) {
-		WorkManager workManager = WorkManager.getInstance(context);
-		workManager.cancelAllWorkByTag(WORK_TAG);
+			PeriodicWorkRequest periodicWorkRequest =
+					new PeriodicWorkRequest.Builder(ConfigWorker.class, REPEAT_INTERVAL_CONFIG_HOURS, TimeUnit.HOURS)
+							.setConstraints(constraints)
+							.build();
+
+			WorkManager workManager = WorkManager.getInstance(context);
+			workManager.enqueueUniquePeriodicWork(WORK_TAG, ExistingPeriodicWorkPolicy.KEEP, periodicWorkRequest);
+		}
 	}
 
 	public ConfigWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
