@@ -132,32 +132,6 @@
 
 				</LinearLayout>
 
-				<LinearLayout
-					android:id="@+id/wtd_symptoms_check_button1"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginLeft="@dimen/spacing_huge"
-					android:layout_marginTop="@dimen/spacing_very_small"
-					android:background="@drawable/ripple_button"
-					android:orientation="horizontal"
-					android:paddingTop="@dimen/spacing_small"
-					android:paddingBottom="@dimen/spacing_small">
-
-					<ImageView
-						android:layout_width="@dimen/icon_size"
-						android:layout_height="@dimen/icon_size"
-						android:src="@drawable/ic_launch"
-						android:tint="@color/purple_main" />
-
-					<TextView
-						style="@style/NextStep.Text.Bold.Purple"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_marginLeft="@dimen/spacing_small"
-						android:text="@string/symptom_detail_box_button" />
-
-				</LinearLayout>
-
 			</LinearLayout>
 
 		</LinearLayout>
