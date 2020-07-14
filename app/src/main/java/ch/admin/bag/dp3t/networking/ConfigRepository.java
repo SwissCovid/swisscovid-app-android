@@ -24,6 +24,7 @@ import org.dpppt.android.sdk.util.SignatureUtil;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
+import ch.admin.bag.dp3t.storage.SecureStorage;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Response;
@@ -36,6 +37,7 @@ public class ConfigRepository {
 	private static final String OS_VERSION_PREFIX_ANDROID = "android";
 
 	private ConfigService configService;
+	private SecureStorage secureStorage;
 
 	public ConfigRepository(@NonNull Context context) {
 		OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
@@ -57,6 +59,7 @@ public class ConfigRepository {
 				.build();
 
 		configService = retrofit.create(ConfigService.class);
+		secureStorage = SecureStorage.getInstance(context);
 	}
 
 	public ConfigResponseModel getConfig() throws IOException, ResponseError {
@@ -66,6 +69,7 @@ public class ConfigRepository {
 
 		Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion, buildNumber).execute();
 		if (configResponse.isSuccessful()) {
+			secureStorage.setLastConfigLoadSuccess(System.currentTimeMillis());
 			return configResponse.body();
 		} else {
 			throw new ResponseError(configResponse.raw());
