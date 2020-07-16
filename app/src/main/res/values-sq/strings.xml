@@ -209,16 +209,16 @@ Në këtë mënyrë na ndihmoni, për të ndaluar zinxhirin e infeksionit."</str
     <string name="symptom_detail_title">"ndihem i sëmurë?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Bëni..."</string>
+    <string name="symptom_detail_box_subtitle">"Nëse keni simptoma të COVID-19..."</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"Kontrolli i koronavirusit"</string>
+    <string name="symptom_detail_box_title">"Kryeni testin"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"Për kontrollin e koronavirusit"</string>
+    <string name="symptom_detail_box_button">"Mëso më shumë"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Qëndroni në shtëpi, bëni kontrollin e koronavirusit ose telefononi mjeken ose mjekun tuaj."</string>
+    <string name="symptom_detail_box_text">"BAG rekomandon që të gjithë personat me simptoma të COVID-19 të kryejnë testimin. Telefononi një mjeke apo një mjek ose një institucion shëndetësor."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Pozitiv në test"</string>
@@ -655,12 +655,17 @@ Në këtë mënyrë mësoni përdoruesit e tjerë të alikacionit SwissCovid, t�
     <string name="inform_code_intro_button">"Kuptova"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Çfarë është kontrolli i koronavirusit?"</string>
+    <string name="symptom_faq1_title">"Çfarë simptomash ka COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Keni simptoma dhe nuk jeni i sigurt se si duhet të silleni? 
+    <string name="symptom_faq1_text">"Simptomat më të shpeshta janë:
 
-Përgjigjuni pyetjeve në kontrollin online të BAG për një rekomandim të veprimit."</string>
+- Temperaturë, ndjesi ethesh
+- Dhimbje fyti
+- Kollë (zakonisht e thatë)
+- Vështirësi në frymëmarrje
+- Dhimbje muskujsh
+- Humbje e papritur e shqisës së nuhatjes dhe/ose të shijuarit"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Përse ka përfunduar gjurmimi?"</string>
@@ -919,4 +924,10 @@ Schwarzenburgstrasse 157
     <!-- Google Translation! -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
     <string name="ratelimit_error_text">"Shumë pyetje tashmë janë realizuar sot. Aplikacioni do të provojë përsëri më vonë."</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"Gjurmimi u aktivizua"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"Gjurmimi u çaktivizua"</string>
 </resources>

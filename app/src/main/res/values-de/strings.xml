@@ -667,7 +667,7 @@ Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteck
     <string name="inform_code_intro_button">"Verstanden"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Was ist COVID-19-Symptome?"</string>
+    <string name="symptom_faq1_title">"Was sind COVID-19-Symptome?"</string>
 
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Diese Symptome treten häufig auf:

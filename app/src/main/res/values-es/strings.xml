@@ -209,16 +209,16 @@ De esta forma, está ayudando a parar las cadenas de contagio."</string>
     <string name="symptom_detail_title">"me siento enfermo?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Haga la…"</string>
+    <string name="symptom_detail_box_subtitle">"En caso de síntomas de COVID-19…"</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"autoevaluación del coronavirus"</string>
+    <string name="symptom_detail_box_title">"Hacer el test"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"Autoevaluación del coronavirus"</string>
+    <string name="symptom_detail_box_button">"Más información"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Quédese en casa, haga la autoevaluación del coronavirus o llame a su médico."</string>
+    <string name="symptom_detail_box_text">"La OFSP recomienda a todas las personas con síntomas de COVID-19 que se hagan el test. Llame a un médico o a un centro sanitario."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Test positivo"</string>
@@ -646,10 +646,17 @@ De esta forma, se informa a otros usuarios de la aplicación SwissCovid de que e
     <string name="inform_code_intro_button">"Entendido"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"¿Qué es la autoevaluación del coronavirus?"</string>
+    <string name="symptom_faq1_title">"¿Cuáles son los síntomas de COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"¿Tiene usted síntomas y no sabe cómo comportarse? Responda a las preguntas de la autoevaluación online de la OFSP para recibir una recomendación práctica."</string>
+    <string name="symptom_faq1_text">"Los síntomas siguientes aparecen con frecuencia:
+
+- fiebre, sensación febril
+- dolor de garganta
+- tos (casi siempre seca)
+- dificultad respiratoria
+- dolores musculares
+- pérdida repentina del sentido del gusto y/o del olfato"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"¿Por qué ha finalizado el rastreo?"</string>
@@ -907,4 +914,10 @@ Schwarzenburgstrasse 157
     <!-- Google Translation! -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
     <string name="ratelimit_error_text">"Ya ha habido demasiadas preguntas hoy. La aplicación lo intentará de nuevo más tarde."</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"Se ha activado el rastreo"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"Se ha desactivado el rastreo"</string>
 </resources>

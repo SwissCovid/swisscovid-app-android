@@ -210,16 +210,16 @@ Obrigado por ajudar a travar as cadeias de transmissão."</string>
     <string name="symptom_detail_title">"me sentir doente?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Faça a..."</string>
+    <string name="symptom_detail_box_subtitle">"Em caso de sintomas da COVID-19..."</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"avaliação do risco de infeção com COVID-19"</string>
+    <string name="symptom_detail_box_title">"Fazer o teste"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"Ir para a avaliação do risco de infeção com COVID-19"</string>
+    <string name="symptom_detail_box_button">"Saber mais"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Fique em casa, faça avaliação do risco de infeção com COVID-19 ou ligue ao seu médico."</string>
+    <string name="symptom_detail_box_text">"O BAG recomenda que todas as pessoas com sintomas da COVID-19 façam o teste. Telefone a um médico ou a um estabelecimento de saúde."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Teste positivo"</string>
@@ -656,12 +656,17 @@ Desta forma, outros utilizadores da app SwissCovid ficam a saber que existe a po
     <string name="inform_code_intro_button">"Entendi"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"O que é a avaliação do risco de infeção com COVID-19?"</string>
+    <string name="symptom_faq1_title">"Quais são os sintomas da COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Tem sintomas e não está seguro de como deve agir? 
+    <string name="symptom_faq1_text">"Estes sintomas são frequentes:
 
-Responda às perguntas da avaliação do risco de infeção com COVID-19 do Serviço Federal da Saúde Pública, disponível online, para receber uma recomendação."</string>
+- Febre, sensação de febre
+- Dores de garganta
+- Tosse (seca, na maioria dos casos)
+- Falta de ar
+- Dores musculares
+- Perda repentina do olfato e/ou do paladar"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Por que motivo terminou o rastreamento?"</string>
@@ -919,4 +924,10 @@ Schwarzenburgstrasse 157
     <!-- Google Translation! -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
     <string name="ratelimit_error_text">"Já hoje houve demasiadas perguntas. A aplicação irá tentar novamente mais tarde."</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"Foi ativado o rastreamento"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"Foi desativado o rastreamento"</string>
 </resources>
