@@ -20,7 +20,7 @@
     <string name="inform_continue_button">"Continuer"</string>
 
     <!-- Informieren: Senden Button -->
-    <string name="inform_send_button_title">"Enviar"</string>
+    <string name="inform_send_button_title">"Envoyer"</string>
 
     <!-- Informieren: Danke -->
     <string name="inform_send_thankyou">"Merci beaucoup"</string>
@@ -209,16 +209,16 @@ Ainsi, vous contribuez à interrompre les chaînes de transmission."</string>
     <string name="symptom_detail_title">"je me sens malade ?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Faites…"</string>
+    <string name="symptom_detail_box_subtitle">"En cas de symptômes COVID-19…"</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"l’auto-évaluation coronavirus"</string>
+    <string name="symptom_detail_box_title">"Se faire tester"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"Auto-évaluation coronavirus"</string>
+    <string name="symptom_detail_box_button">"En savoir plus"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Restez à la maison, faites l'auto-évaluation coronavirus ou appelez votre médecin."</string>
+    <string name="symptom_detail_box_text">"L'OFSP recommande à toutes les personnes qui présentent des symptômes du COVID-19 de se faire tester. Appelez un médecin ou une institution de santé."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Test positif"</string>
@@ -652,12 +652,17 @@ Ainsi, d'autres utilisateurs de l'application SwissCovid apprennent qu'ils ont p
     <string name="inform_code_intro_button">"Compris"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Qu'est-ce que l'auto-évaluation coronavirus ?"</string>
+    <string name="symptom_faq1_title">"Quels sont les symptômes du COVID-19 ?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Vous avez des symptômes et ne savez pas quel comportement adopter ? 
+    <string name="symptom_faq1_text">"Ces symptômes sont fréquents :
 
-Répondez aux questions de l’auto-évaluation en ligne de l'OFSP pour obtenir une recommandation."</string>
+- Fièvre, sensation de fièvre
+- Mal de gorge
+- Toux (généralement sèche)
+- Difficultés respiratoires
+- Douleurs musculaires
+- Perte soudaine de l’odorat et/ou du goût"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Pourquoi le traçage de proximité est-il interrompu ?"</string>
@@ -925,4 +930,10 @@ Schwarzenburgstrasse 157
     <!-- Google Translation! -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
     <string name="ratelimit_error_text">"Il y a déjà eu trop de demandes aujourd'hui. L'application essaiera de nouveau plus tard."</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"Traçage activé"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"Traçage désactivé"</string>
 </resources>

@@ -209,16 +209,16 @@ Thank you for helping to break the chain of infection."</string>
     <string name="symptom_detail_title">"I feel ill?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Do the …"</string>
+    <string name="symptom_detail_box_subtitle">"If you experience COVID-19 symptoms…"</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"coronavirus check"</string>
+    <string name="symptom_detail_box_title">"Getting tested"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"To the coronavirus check"</string>
+    <string name="symptom_detail_box_button">"More information"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Stay at home, do the coronavirus check, or call your doctor."</string>
+    <string name="symptom_detail_box_text">"The FOPH recommends that anyone with COVID-19 symptoms should get tested. Call your doctor or your healthcare facility to schedule an appointment."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Tested positive"</string>
@@ -653,10 +653,17 @@ Other SwissCovid apps can then check if it is possible that they have been infec
     <string name="inform_code_intro_button">"OK"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"What is the coronavirus check?"</string>
+    <string name="symptom_faq1_title">"What are the symptoms of COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"You have symptoms but are unsure what you should do? Answer the questions in the FOPH online check to receive advice on what to do."</string>
+    <string name="symptom_faq1_text">"These are the most common symptoms of COVID-19:
+
+- Fever, feverish feeling 
+- Sore throat
+- Cough (mostly dry)
+- Shortness of breath
+- Body aches
+- Sudden loss of the sense of taste and/or smell"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Why has proximity tracing ended?"</string>
@@ -918,8 +925,8 @@ Schwarzenburgstrasse 157
     <string name="ratelimit_error_text">"There have already been too many requests today. The app will try again later."</string>
 
     <!-- Info to the user that tracing has been switched on -->
-    <string name="accessibility_tracing_has_been_activated"></string>
+    <string name="accessibility_tracing_has_been_activated">"Tracing has been activated"</string>
 
     <!-- Info to the user that tracing has been switched off -->
-    <string name="accessibility_tracing_has_been_deactivated"></string>
+    <string name="accessibility_tracing_has_been_deactivated">"Tracing has been deactivated"</string>
 </resources>
