@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
 <resources>
 
     <!-- App Name -->
@@ -209,16 +219,16 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="symptom_detail_title">"mi sento malato?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Fai…"</string>
+    <string name="symptom_detail_box_subtitle">"In caso di sintomi di COVID-19…"</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"l'autovalutazione sul coronavirus"</string>
+    <string name="symptom_detail_box_title">"fare il test"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"All'autovalutazione sul coronavirus"</string>
+    <string name="symptom_detail_box_button">"Per saperne di più"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Resta a casa, fai l'autovalutazione sul coronavirus o telefona al tuo medico."</string>
+    <string name="symptom_detail_box_text">"L'UFSP raccomanda a tutte le persone con sintomi di COVID-19 di fare il test. Telefona a un medico o a un'istituzione sanitaria."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Positivo al test"</string>
@@ -658,12 +668,17 @@ Grazie a questi ID, gli altri utenti dell'app SwissCovid vengono a sapere che vi
     <string name="inform_code_intro_button">"Capito"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Cos'è l'autovalutazione sul coronavirus?"</string>
+    <string name="symptom_faq1_title">"Quali sono i sintomi della COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Hai  sintomi e non sai bene come comportarti? 
+    <string name="symptom_faq1_text">"Questi sono i sintomi più frequenti:
 
-Rispondi alle domande dell'autovalutazione online dell'UFSP per ricevere una raccomandazione pratica."</string>
+- febbre, sensazione di febbre
+- mal di gola
+- tosse (perlopiù secca)
+- affanno
+- dolori muscolari
+- perdita improvvisa dell'olfatto e/o del gusto"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Perché il tracciamento è terminato?"</string>
@@ -925,4 +940,10 @@ Schwarzenburgstrasse 157
     <!-- Google Translation! -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
     <string name="ratelimit_error_text">"Ci sono già state troppe domande oggi. L'applicazione riproverà più tardi."</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"Tracciamento attivato"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"Tracciamento disattivato"</string>
 </resources>

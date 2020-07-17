@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
 <resources>
 
     <!-- App Name -->
@@ -43,7 +53,7 @@ Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
     <string name="push_exposed_title">"Neue Nachricht"</string>
 
     <!-- Titel für Push-Nachrichten, wenn erkannt wird, dass ein Nutzer exposed war -->
-    <string name="push_exposed_text">"Öffnen Sie die App um die Nachricht zu lesen."</string>
+    <string name="push_exposed_text">"Öffnen Sie die App, um die Nachricht zu lesen."</string>
 
     <!-- Okay Button Titel -->
     <string name="android_button_ok">"OK"</string>
@@ -200,7 +210,7 @@ Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
     <string name="inform_detail_box_button">"Covidcode eingeben"</string>
 
     <!-- Informieren Detail Weisse Box Text -->
-    <string name="inform_detail_box_text">"Mit der Eingabe des Covidcodes teilen Sie der App mit, dass sie positiv auf das neue Coronavirus getestet wurden."</string>
+    <string name="inform_detail_box_text">"Mit der Eingabe des Covidcodes teilen Sie der App mit, dass Sie positiv auf das neue Coronavirus getestet wurden."</string>
 
     <!-- Symptome Detail Subtitel -->
     <string name="symptom_detail_subtitle">"Was tun, wenn ich ..."</string>
@@ -209,16 +219,16 @@ Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
     <string name="symptom_detail_title">"mich krank fühle?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Machen Sie den ..."</string>
+    <string name="symptom_detail_box_subtitle">"Bei COVID-19-Symptomen..."</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"Coronavirus-Check"</string>
+    <string name="symptom_detail_box_title">"Testen lassen"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"Zum Coronavirus-Check"</string>
+    <string name="symptom_detail_box_button">"Mehr erfahren"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Bleiben Sie zu Hause, machen Sie den Coronavirus-Check oder rufen Sie Ihre Ärztin oder Ihren Arzt an."</string>
+    <string name="symptom_detail_box_text">"Das BAG empfiehlt allen Personen mit COVID-19-Symptomen, sich testen zu lassen. Rufen Sie eine Ärztin bzw. einen Arzt oder eine Gesundheitseinrichtung an."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Positiv getestet"</string>
@@ -333,7 +343,7 @@ Infoline SwissCovid
 Schritt voraus"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"Mit der SwissCovid App können alle dazu beitragen die Verbreitung des neuen Coronavirus einzudämmen."</string>
+    <string name="onboarding_prinzip_text1">"Mit der SwissCovid App können alle dazu beitragen, die Verbreitung des neuen Coronavirus einzudämmen."</string>
 
     <!-- Onboarding Prinzip Text -->
     <string name="onboarding_prinzip_text2">"Die App informiert Sie, wenn Sie potenziell dem neuen Coronavirus ausgesetzt waren."</string>
@@ -540,7 +550,7 @@ Halten Sie sich an die erhaltenen Anweisungen zur Isolation."</string>
 
     <!-- Voiceover: Hilfetext bei Codeeingabe -->
     <!-- Fuzzy -->
-    <string name="accessibility_code_button_disabled_hint">"Drücken nicht möglich, da der Code nicht vollständig eingegeben wurde. "</string>
+    <string name="accessibility_code_button_disabled_hint">"Drücken nicht möglich, da der Code nicht vollständig eingegeben wurde."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
     <!-- Fuzzy -->
@@ -667,12 +677,17 @@ Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteck
     <string name="inform_code_intro_button">"Verstanden"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Was ist der Coronavirus-Check?"</string>
+    <string name="symptom_faq1_title">"Was sind COVID-19-Symptome?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Sie haben Symptome und sind unsicher, wie Sie sich verhalten sollen? 
+    <string name="symptom_faq1_text">"Diese Symptome treten häufig auf:
 
-Beantworten Sie die Fragen im Online-Check des BAG für eine Handlungsempfehlung."</string>
+- Fieber, Fiebergefühl
+- Halsschmerzen
+- Husten (meist trocken)
+- Kurzatmigkeit
+- Muskelschmerzen
+- Plötzlicher Verlust des Geruchs- und oder Geschmackssinns"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Warum ist das Tracing beendet?"</string>
@@ -942,4 +957,10 @@ Schwarzenburgstrasse 157
     <!-- Google Translation! -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
     <string name="ratelimit_error_text">"Es wurden heute schon zu viele Abfragen durchgeführt. Die App wird es später erneut probieren."</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"Tracing wurde aktiviert"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"Tracing wurde deaktiviert"</string>
 </resources>

@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
 <resources>
 
     <!-- App Name -->
@@ -67,7 +77,7 @@ Uschia gidais Vus da franar las chadainas d'infecziun."</string>
     <string name="NSBluetoothPeripheralUsageDescription">"Scuntradas vegnan enconuschidas en il fund via bluetooth, economisant l'energia"</string>
 
     <!-- Permission Text für Bluetooth -->
-    <string name="NSBluetoothAlwaysUsageDescription">"Scuntradas vegnan  enconuschidas en il fund  via bluetooth, economisant l'energia"</string>
+    <string name="NSBluetoothAlwaysUsageDescription">"Scuntradas vegnan enconuschidas en il fund via bluetooth, economisant l'energia"</string>
 
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Inditgar il code covid"</string>
@@ -209,16 +219,16 @@ Uschia gidais Vus da franar las chadainas d'infecziun."</string>
     <string name="symptom_detail_title">"ma sent malsaun(a)?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Faschai il…"</string>
+    <string name="symptom_detail_box_subtitle">"En cas da sintoms da COVID-19…"</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"check coronavirus"</string>
+    <string name="symptom_detail_box_title">"Laschar testar"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"Tar il check coronavirus"</string>
+    <string name="symptom_detail_box_button">"Dapli infurmaziuns"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Restai a chasa, faschai  il check coronavirus u telefonai a Vossa media/Voss medi."</string>
+    <string name="symptom_detail_box_text">"IL UFSP recumonda a tut las persunas cun sintoms da COVID-19 da sa laschar testar. Contactai ina media resp. in medi u ina instituziun da sanadad."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Testà positiv"</string>
@@ -652,12 +662,17 @@ Uschia san auters utilisaders da l'app SwissCovid ch'i dat la pussaivladad d'ina
     <string name="inform_code_intro_button">"Chapì"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Tge è il check coronavirus?"</string>
+    <string name="symptom_faq1_title">"Tge èn sintoms da COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Vus avais sintoms ed essas malsegir/malsegira co che Vus As stuais cumportar? 
+    <string name="symptom_faq1_text">"Quests sintoms cumparan savens:
 
-Respundai las dumondas en il check online da l'UFSP per ina recumandaziun da cumportament."</string>
+- fevra, sentiment da fevra
+- mal la gula
+- tuss (per il solit tuss sitga)
+- respiraziun asmatica
+- mal ils musculs
+- perdita andetga da l'odurat e/u dal palat"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Pertge è il tracing terminà?"</string>
@@ -884,7 +899,7 @@ chadainas d'infecziun."</string>
     <string name="onboarding_disclaimer_warning_title">"Avertiment: Quest'app n'As protegia betg d'ina infecziun cun COVID-19."</string>
 
     <!-- Onboarding Disclaimer Screen: Warning Text -->
-    <string name="onboarding_disclaimer_warning_body">"L'app è concepida per la reconstrucziun dals contacts e per avertir ils utilisaders en cas d'ina exposiziun potenziala ad ina persuna infectada cun COVID-19. Ella n'è betg in instrument diagnostic. Per plaschair legi cun attenziun  las instrucziuns en mintga visur da l'app."</string>
+    <string name="onboarding_disclaimer_warning_body">"L'app è concepida per la reconstrucziun dals contacts e per avertir ils utilisaders en cas d'ina exposiziun potenziala ad ina persuna infectada cun COVID-19. Ella n'è betg in instrument diagnostic. Per plaschair legi cun attenziun las instrucziuns en mintga visur da l'app."</string>
 
     <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
     <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
@@ -917,4 +932,10 @@ Schwarzenburgstrasse 157
     <!-- Google Translation! -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
     <string name="ratelimit_error_text">"Es wurden heute schon zu viele Abfragen durchgeführt. Die App wird es später erneut probieren."</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"Tracing è vegnì activà"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"Tracing è vegnì deactivà"</string>
 </resources>

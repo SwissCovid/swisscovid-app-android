@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
 <resources>
 
     <!-- App Name -->
@@ -209,16 +219,16 @@ Time nam pomažete u prekidanju lanca širenja infekcije."</string>
     <string name="symptom_detail_title">"se osećam loše?"</string>
 
     <!-- Symptom Detail Weisse Box Subtitel -->
-    <string name="symptom_detail_box_subtitle">"Obavite…"</string>
+    <string name="symptom_detail_box_subtitle">"U slučaju simptoma COVID-19..."</string>
 
     <!-- Symptom Detail Weisse Box Titel -->
-    <string name="symptom_detail_box_title">"proveru na virus korona"</string>
+    <string name="symptom_detail_box_title">"Testirajte se"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"Na proveru na virus korona"</string>
+    <string name="symptom_detail_box_button">"Saznajte više"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"Ostanite kod kuće, obavite proveru na virus korona ili se obratite svom lekaru."</string>
+    <string name="symptom_detail_box_text">"BAG preporučuje da se sve osobe sa simptomima COVID-19 testiraju. Pozovite lekara ili zdravstvenu ustanovu."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Testiran pozitivno"</string>
@@ -655,12 +665,17 @@ Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost
     <string name="inform_code_intro_button">"Shvatam"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Šta je provera na virus korona?"</string>
+    <string name="symptom_faq1_title">"Koji su simptomi COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Imate simptome, ali niste sigurni šta bi trebalo da uradite?
+    <string name="symptom_faq1_text">"Ovi simptomi se često javljaju:
 
-Odgovorite na pitanja u proveri na mreži BAG-a da biste dobili savet šta treba da uradite."</string>
+- temperatura, osećaj groznice
+- bolovi u grlu
+- kašalj (najčešće suv)
+- kratak dah
+- bolovi u mišićima
+- iznenadni gubitak čula mirisa i/ili ukusa"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Zašto je praćenje završeno?"</string>
@@ -918,4 +933,10 @@ Schwarzenburgstrasse 157
     <!-- Google Translation! -->
     <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
     <string name="ratelimit_error_text">"Danas je već izvršeno previše upita. Aplikacija će pokušati ponovo kasnije."</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"Praćenje je aktivirano"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"Praćenje je deaktivirano"</string>
 </resources>

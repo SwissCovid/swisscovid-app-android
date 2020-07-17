@@ -124,17 +124,16 @@ public class ContactsFragment extends Fragment {
 	private void setupHistoryCard(View view) {
 		View historyCard = view.findViewById(R.id.contacts_card_history);
 		if (BuildConfig.IS_FLAVOR_PROD || BuildConfig.IS_FLAVOR_ABNAHME) {
-			historyCard.setVisibility(View.GONE);
-			return;
+			historyCard.findViewById(R.id.card_history_chevron).setVisibility(View.GONE);
+		}else {
+			historyCard.setOnClickListener(v -> {
+				getParentFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.main_fragment_container, HistoryFragment.newInstance())
+						.addToBackStack(HistoryFragment.class.getCanonicalName())
+						.commit();
+			});
 		}
-
-		historyCard.setOnClickListener(v -> {
-			getParentFragmentManager().beginTransaction()
-					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-					.replace(R.id.main_fragment_container, HistoryFragment.newInstance())
-					.addToBackStack(HistoryFragment.class.getCanonicalName())
-					.commit();
-		});
 		View historyCardLoadingView = view.findViewById(R.id.card_history_loading_view);
 		historyCardLoadingView.setVisibility(View.VISIBLE);
 		TextView lastSyncDate = view.findViewById(R.id.card_history_last_synchronization_date);

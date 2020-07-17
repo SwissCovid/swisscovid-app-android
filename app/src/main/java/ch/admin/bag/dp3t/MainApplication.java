@@ -35,6 +35,7 @@ import org.dpppt.android.sdk.util.SignatureUtil;
 
 import ch.admin.bag.dp3t.debug.DebugFragment;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
+import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.networking.FakeWorker;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.ActivityLifecycleCallbacksAdapter;
@@ -58,6 +59,7 @@ public class MainApplication extends Application {
 		initDP3T(this);
 
 		FakeWorker.safeStartFakeWorker(this);
+		ConfigWorker.scheduleConfigWorkerIfOutdated(this);
 
 		registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacksAdapter() {
 			private long tsActivitiesStop = 0;

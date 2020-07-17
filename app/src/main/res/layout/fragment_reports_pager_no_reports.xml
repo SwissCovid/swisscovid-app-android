@@ -25,7 +25,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
-			android:src="@drawable/ic_check_circle_inverted" />
+			android:src="@drawable/ic_check_circle_large" />
 
 		<TextView
 			style="@style/NextStep.Text.Title"

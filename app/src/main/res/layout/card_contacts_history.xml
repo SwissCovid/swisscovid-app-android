@@ -69,6 +69,7 @@
 		</FrameLayout>
 
 		<ImageView
+			android:id="@+id/card_history_chevron"
 			android:layout_width="@dimen/chevron_size_title"
 			android:layout_height="@dimen/chevron_size_title"
 			android:layout_marginEnd="@dimen/spacing_small"
