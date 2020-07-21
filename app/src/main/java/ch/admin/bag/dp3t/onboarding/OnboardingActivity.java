@@ -69,6 +69,7 @@ public class OnboardingActivity extends FragmentActivity {
 		} else {
 			setResult(RESULT_OK);
 			finish();
+			overridePendingTransition(R.anim.fragment_open_enter, R.anim.fragment_open_exit);
 		}
 	}
 
