@@ -554,7 +554,7 @@ Halten Sie sich an die erhaltenen Anweisungen zur Isolation."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
     <!-- Fuzzy -->
-    <string name="android_foreground_service_notification_error_location_service">"Schalten Sie die Standortinformation ein, damit die App Bluetooth nützen kann. Die App kennt zu keinem Zeitpunkt Ihren Ort."</string>
+    <string name="android_foreground_service_notification_error_location_service">"Bei Android-Geräten ist Bluetooth an die Freigabe des Standorts gekoppelt. Deshalb muss die Standort-Funktion aktiviert werden, auch wenn die App zu keinem Zeitpunkt auf Ihren Standort zugreift."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
     <!-- Fuzzy -->
@@ -811,7 +811,7 @@ Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteck
     <string name="playservices_title">"Google Play Services"</string>
 
     <!-- Meldung, dass die Google Play Services benötigt werden -->
-    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt. 
+    <string name="playservices_text">"Um das Tracing aktivieren zu können, wird eine aktuelle Version der Google Play Services benötigt.
 
 Falls auf Ihrem Mobiltelefon zurzeit kein Update verfügbar ist, versuchen Sie es bitte später nochmals."</string>
 
@@ -895,8 +895,8 @@ Falls auf Ihrem Mobiltelefon zurzeit kein Update verfügbar ist, versuchen Sie e
     <string name="tracing_active_tracking_always_info">"SwissCovid bleibt aktiv, auch wenn die App geschlossen wird."</string>
 
     <!-- title in splash screen of onboarding -->
-    <string name="oboarding_splashscreen_title">"SwissCovid 
-stoppt 
+    <string name="oboarding_splashscreen_title">"SwissCovid
+stoppt
 Infektionsketten."</string>
     <string name="inform_detail_faq3_text">"Obwohl keine Daten zu Ihrer Person gesendet werden, kann es sein, dass sich jemand anhand des Datums an die Begegnung erinnern kann."</string>
     <string name="inform_detail_faq3_title">"Bleibe ich anonym?"</string>
@@ -963,4 +963,10 @@ Schwarzenburgstrasse 157
 
     <!-- Info to the user that tracing has been switched off -->
     <string name="accessibility_tracing_has_been_deactivated">"Tracing wurde deaktiviert"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Title -->
+    <string name="meldungen_detail_free_test_title">"Kostenloser Test möglich"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"Die Infoline SwissCovid berät Sie über die Möglichkeit eines kostenlosen Corona Tests."</string>
 </resources>
