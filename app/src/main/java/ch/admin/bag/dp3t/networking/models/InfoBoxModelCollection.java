@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.networking.models;
 
 import java.util.HashMap;
@@ -17,19 +16,7 @@ class InfoBoxModelCollection extends HashMap<String, InfoBoxModel> {
 	private static final String KEY_POSTFIX = "InfoBox";
 
 	public InfoBoxModel getInfoBox(String languageKey) {
-		InfoBoxModel infoBoxModel;
-
-		infoBoxModel = get(getKeyForLang(languageKey));
-		if (infoBoxModel != null) {
-			return infoBoxModel;
-		}
-
-		infoBoxModel = get(getKeyForLang("en"));
-		if (infoBoxModel != null) {
-			return infoBoxModel;
-		}
-
-		return null;
+		return get(getKeyForLang(languageKey));
 	}
 
 	private static String getKeyForLang(String language) {
