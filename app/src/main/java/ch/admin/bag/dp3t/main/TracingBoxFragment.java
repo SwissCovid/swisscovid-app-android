@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -90,11 +91,15 @@ public class TracingBoxFragment extends Fragment {
 			} else if (tracingStatusInterface.isReportedAsInfected()) {
 				tracingStatusView.setVisibility(View.VISIBLE);
 				tracingErrorView.setVisibility(View.GONE);
-				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ENDED);
+				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ENDED, isHomeFragment);
 			} else if (!isTracing) {
 				tracingStatusView.setVisibility(View.GONE);
 				tracingErrorView.setVisibility(View.VISIBLE);
-				TracingStatusHelper.showTracingDeactivated(tracingErrorView);
+				TracingStatusHelper.showTracingDeactivated(tracingErrorView, isHomeFragment);
+				TextView buttonView = tracingErrorView.findViewById(R.id.error_status_button);
+				buttonView.setOnClickListener(v -> {
+					enableTracing();
+				});
 			} else {
 				tracingStatusView.setVisibility(View.VISIBLE);
 				tracingErrorView.setVisibility(View.GONE);
