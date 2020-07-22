@@ -273,15 +273,13 @@ public class HomeFragment extends Fragment {
 				TracingErrorStateHelper
 						.updateErrorView(reportErrorView, errorState);
 				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+					loadingView.setVisibility(VISIBLE);
 					loadingView.animate()
 							.alpha(1f)
 							.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
 							.setListener(new AnimatorListenerAdapter() {
 								@Override
-								public void onAnimationEnd(Animator animation) {
-									loadingView.setVisibility(VISIBLE);
-									tracingViewModel.sync();
-								}
+								public void onAnimationEnd(Animator animation) { tracingViewModel.sync(); }
 							});
 				});
 			} else if (!isNotificationChannelEnabled(getContext(), NotificationUtil.NOTIFICATION_CHANNEL_ID)) {
