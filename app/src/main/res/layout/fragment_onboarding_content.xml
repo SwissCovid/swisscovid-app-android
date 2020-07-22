@@ -107,15 +107,24 @@
 		</LinearLayout>
 	</ScrollView>
 
-	<Button
-		android:id="@+id/onboarding_continue_button"
-		style="@style/NextStep.Button.Transparent.Blue"
+	<LinearLayout
 		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
 		android:layout_gravity="bottom"
 		android:background="@color/white"
-		android:foreground="?android:selectableItemBackground"
-		android:layout_height="@dimen/onboarding_continue_button_height"
-		android:elevation="@dimen/card_elevation"
-		android:text="@string/onboarding_continue_button" />
+		android:gravity="center"
+		android:orientation="vertical"
+		android:outlineProvider="bounds"
+		android:elevation="@dimen/onboarding_button_container_elevation"
+		android:padding="@dimen/spacing_medium">
+
+		<Button
+			android:id="@+id/onboarding_continue_button"
+			style="@style/NextStep.Button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/onboarding_continue_button" />
+
+	</LinearLayout>
 
 </LinearLayout>

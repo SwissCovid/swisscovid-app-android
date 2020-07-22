@@ -146,8 +146,8 @@
 		<item name="android:foreground">@drawable/ripple_button</item>
 		<item name="android:paddingBottom">@dimen/spacing_small</item>
 		<item name="android:paddingTop">@dimen/spacing_small</item>
-		<item name="android:paddingStart">@dimen/spacing_large</item>
-		<item name="android:paddingEnd">@dimen/spacing_large</item>
+		<item name="android:paddingStart">@dimen/spacing_huge</item>
+		<item name="android:paddingEnd">@dimen/spacing_huge</item>
 	</style>
 
 	<style name="NextStep.Button.AllCaps">
