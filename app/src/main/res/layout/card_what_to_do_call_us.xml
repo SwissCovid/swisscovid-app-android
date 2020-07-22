@@ -31,8 +31,7 @@
 				android:foreground="?selectableItemBackground"
 				android:orientation="vertical"
 				android:paddingLeft="@dimen/spacing_larger"
-				android:paddingRight="@dimen/spacing_larger"
-				android:paddingBottom="@dimen/spacing_larger">
+				android:paddingRight="@dimen/spacing_larger">
 
 				<TextView
 					android:id="@+id/card_encounters_subtitle"
@@ -124,7 +123,6 @@
 					tools:text="@string/meldungen_detail_call_last_call" />
 
 				<LinearLayout
-					android:id="@+id/card_encounters_last_lines"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_large"
@@ -182,13 +180,52 @@
 							style="@style/NextStep.Text"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
-							android:text="@string/meldungen_detail_explanation_text3" />
+							android:text="@string/meldungen_detail_explanation_text4" />
 
 					</LinearLayout>
 
 				</LinearLayout>
 
 			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/spacing_medium"
+				android:layout_marginEnd="@dimen/spacing_medium"
+				android:layout_marginBottom="@dimen/spacing_medium"
+				android:background="@color/status_blue_bg"
+				android:orientation="horizontal"
+				android:padding="@dimen/spacing_medium">
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="@dimen/spacing_very_small"
+					android:src="@drawable/ic_info"
+					android:tint="@color/dark_main" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/NextStep.Text.Bold"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginBottom="@dimen/spacing_very_small"
+						android:text="@string/meldungen_detail_free_test_title" />
+
+					<TextView
+						style="@style/NextStep.Text"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/meldungen_detail_free_test_text" />
+
+				</LinearLayout>
+
+			</LinearLayout>
 
 			<View
 				android:layout_width="match_parent"

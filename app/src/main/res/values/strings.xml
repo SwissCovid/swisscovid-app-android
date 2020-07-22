@@ -311,6 +311,10 @@ Thank you for helping to break the chain of infection."</string>
     <!-- Meldungen Detail Weisse Box Titel der Erklärungen -->
     <string name="meldungen_detail_explanation_title">"Be careful!"</string>
 
+    <string name="meldungen_detail_free_test_title">"Free Test available"</string>
+
+    <string name="meldungen_detail_free_test_text">"The infoline SwissCovid will advise you on getting a free test."</string>
+
     <!-- Meldungen Detail Weisse Box Erklärungstext 1 -->
     <string name="meldungen_detail_explanation_text1">"You could be infectious without realising it."</string>
 
