@@ -65,4 +65,5 @@
 	<dimen name="chained_edit_text_min_width">20dp</dimen>
 	<dimen name="card_loading_view_size">32dp</dimen>
 	<dimen name="padding_start_icon_button">44dp</dimen>
+	<dimen name="separator_height">1dp</dimen>
 </resources>
