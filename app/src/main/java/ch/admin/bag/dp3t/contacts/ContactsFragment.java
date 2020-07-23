@@ -97,7 +97,7 @@ public class ContactsFragment extends Fragment {
 				if (isChecked) {
 					tracingViewModel.enableTracing(activity,
 							() -> {
-								// success, do nothing
+								tracingViewModel.sync();
 							},
 							(e) -> {
 								String message = ENExceptionHelper.getErrorMessage(e, activity);

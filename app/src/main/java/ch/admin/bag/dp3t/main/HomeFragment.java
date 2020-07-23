@@ -399,7 +399,7 @@ public class HomeFragment extends Fragment {
 
 		tracingViewModel.enableTracing(activity,
 				() -> {
-					// nothing, handled via error state update
+					tracingViewModel.sync();
 				},
 				(e) -> {
 					String message = ENExceptionHelper.getErrorMessage(e, activity);
