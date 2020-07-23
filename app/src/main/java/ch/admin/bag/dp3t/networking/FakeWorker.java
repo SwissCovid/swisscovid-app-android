@@ -81,8 +81,6 @@ public class FakeWorker extends Worker {
 				DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake");
 				try {
 					executeFakeRequest(getApplicationContext());
-					t_dummy += PoissonDistribution.sample(LAMBDA_HOURS) * FACTOR_HOUR_MILLIS;
-					SecureStorage.getInstance(getApplicationContext()).setTDummy(t_dummy);
 					Logger.d(TAG, "finished with success");
 				} catch (IOException | ResponseError e) {
 					Logger.e(TAG, "failed", e);
@@ -91,6 +89,8 @@ public class FakeWorker extends Worker {
 			} else {
 				Logger.d(TAG, "outdated request is dropped.");
 			}
+			t_dummy += PoissonDistribution.sample(LAMBDA_HOURS) * FACTOR_HOUR_MILLIS;
+			SecureStorage.getInstance(getApplicationContext()).setTDummy(t_dummy);
 		}
 		startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND, t_dummy);
 		return Result.success();
