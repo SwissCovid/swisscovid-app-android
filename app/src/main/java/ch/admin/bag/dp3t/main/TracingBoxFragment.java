@@ -147,9 +147,7 @@ public class TracingBoxFragment extends Fragment {
 		}
 
 		tracingViewModel.enableTracing(activity,
-				() -> {
-					tracingViewModel.sync();
-				},
+				() -> { },
 				(e) -> {
 					String message = ENExceptionHelper.getErrorMessage(e, activity);
 					Logger.e(TAG, message);

@@ -96,9 +96,7 @@ public class ContactsFragment extends Fragment {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked) {
 					tracingViewModel.enableTracing(activity,
-							() -> {
-								tracingViewModel.sync();
-							},
+							() -> { },
 							(e) -> {
 								String message = ENExceptionHelper.getErrorMessage(e, activity);
 								Logger.e(TAG, message);
