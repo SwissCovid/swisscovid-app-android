@@ -40,14 +40,15 @@ public class FakeWorker extends Worker {
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 
 	public static void safeStartFakeWorker(Context context) {
-		long t_dummy = System.currentTimeMillis() + PoissonDistribution.sample(LAMBDA_HOURS) * FACTOR_HOUR_MILLIS;
+		long t_dummy = SecureStorage.getInstance(context).getTDummy();
+		if (t_dummy == -1) t_dummy = System.currentTimeMillis() + PoissonDistribution.sample(LAMBDA_HOURS) * FACTOR_HOUR_MILLIS;
 		startFakeWorker(context, ExistingWorkPolicy.KEEP, t_dummy);
 	}
 
 	private static void startFakeWorker(Context context, ExistingWorkPolicy policy, long t_dummy) {
 
 		long now = System.currentTimeMillis();
-		long executionDelay = Math.max(0L, t_dummy - now - MAX_DELAY_HOURS * FACTOR_HOUR_MILLIS);
+		long executionDelay = Math.max(0L, t_dummy - now);
 		double executionDelayDays = (double) executionDelay / FACTOR_DAY_MILLIS;
 
 		Logger.d(TAG, "scheduled for execution in " + executionDelayDays + " days");
@@ -74,21 +75,24 @@ public class FakeWorker extends Worker {
 	public ListenableWorker.Result doWork() {
 		long now = System.currentTimeMillis();
 		long t_dummy = getInputData().getLong(KEY_T_DUMMY, now);
-		if (t_dummy >= now - FACTOR_HOUR_MILLIS * MAX_DELAY_HOURS) {
+		while (t_dummy < now) {
 			Logger.d(TAG, "start");
-			DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake");
-			try {
-				executeFakeRequest(getApplicationContext());
-				Logger.d(TAG, "finished with success");
-			} catch (IOException | ResponseError e) {
-				Logger.e(TAG, "failed", e);
-				return Result.retry();
+			if (t_dummy >= now - FACTOR_HOUR_MILLIS * MAX_DELAY_HOURS) {
+				DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake");
+				try {
+					executeFakeRequest(getApplicationContext());
+					t_dummy += PoissonDistribution.sample(LAMBDA_HOURS) * FACTOR_HOUR_MILLIS;
+					SecureStorage.getInstance(getApplicationContext()).setTDummy(t_dummy);
+					Logger.d(TAG, "finished with success");
+				} catch (IOException | ResponseError e) {
+					Logger.e(TAG, "failed", e);
+					return Result.retry();
+				}
+			} else {
+				Logger.d(TAG, "outdated request is dropped.");
 			}
-		} else {
-			Logger.d(TAG, "outdated request is dropped.");
 		}
-		long new_t_dummy = PoissonDistribution.sample(LAMBDA_HOURS) * FACTOR_HOUR_MILLIS + t_dummy;
-		startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND, new_t_dummy);
+		startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND, t_dummy);
 		return Result.success();
 	}
 
