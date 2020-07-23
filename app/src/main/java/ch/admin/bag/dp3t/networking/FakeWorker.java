@@ -25,7 +25,7 @@ import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.PoissonDistribution;
+import ch.admin.bag.dp3t.util.ExponentialDistribution;
 
 public class FakeWorker extends Worker {
 
@@ -33,15 +33,15 @@ public class FakeWorker extends Worker {
 	private static final String WORK_TAG = "ch.admin.bag.dp3t.FakeWorker";
 	private static final String FAKE_AUTH_CODE = "000000000000";
 
-	private static final long FACTOR_DAY_MILLIS = 24 * 60 * 60 * 1000L;
 	private static final long FACTOR_HOUR_MILLIS = 60 * 60 * 1000L;
+	private static final long FACTOR_DAY_MILLIS = 24 * FACTOR_HOUR_MILLIS;
 	private static final long MAX_DELAY_HOURS = 48;
-	private static final double LAMBDA_HOURS = BuildConfig.FLAVOR.equals("dev") ? 24 : 120;
+	private static final float SAMPLING_RATE = BuildConfig.FLAVOR.equals("dev") ? 1.0f : 0.2f;
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 
 	public static void safeStartFakeWorker(Context context) {
 		long t_dummy = SecureStorage.getInstance(context).getTDummy();
-		if (t_dummy == -1) t_dummy = System.currentTimeMillis() + PoissonDistribution.sample(LAMBDA_HOURS) * FACTOR_HOUR_MILLIS;
+		if (t_dummy == -1) t_dummy = System.currentTimeMillis() + syncInterval();
 		startFakeWorker(context, ExistingWorkPolicy.KEEP, t_dummy);
 	}
 
@@ -89,7 +89,7 @@ public class FakeWorker extends Worker {
 			} else {
 				Logger.d(TAG, "outdated request is dropped.");
 			}
-			t_dummy += PoissonDistribution.sample(LAMBDA_HOURS) * FACTOR_HOUR_MILLIS;
+			t_dummy += syncInterval();
 			SecureStorage.getInstance(getApplicationContext()).setTDummy(t_dummy);
 		}
 		startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND, t_dummy);
@@ -108,6 +108,11 @@ public class FakeWorker extends Worker {
 
 	private String getAuthorizationHeader(String accessToken) {
 		return "Bearer " + accessToken;
+	}
+
+	private static long syncInterval() {
+		double newDelayDays = ExponentialDistribution.sampleFromStandard() / SAMPLING_RATE;
+		return (long) (newDelayDays * FACTOR_DAY_MILLIS);
 	}
 
 }

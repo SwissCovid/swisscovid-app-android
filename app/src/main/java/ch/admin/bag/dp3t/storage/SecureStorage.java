@@ -20,9 +20,6 @@ import androidx.security.crypto.MasterKeys;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
-import ch.admin.bag.dp3t.networking.FakeWorker;
-import ch.admin.bag.dp3t.util.PoissonDistribution;
-
 public class SecureStorage {
 
 	private static final String PREFERENCES = "SecureStorage";
