@@ -34,12 +34,13 @@ public enum TracingState {
 	}
 
 	public static @StringRes
-	int getText(TracingState tracingState) {
+	int getText(TracingState tracingState, boolean isHomeFragment) {
 		switch (tracingState) {
 			case ACTIVE:
 				return R.string.tracing_active_text;
 			case NOT_ACTIVE:
-				return R.string.tracing_turned_off_text;
+				if (isHomeFragment) return R.string.tracing_turned_off_text;
+				else return R.string.tracing_turned_off_detailed_text;
 			case ENDED:
 				return R.string.tracing_ended_text;
 		}

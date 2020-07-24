@@ -130,7 +130,13 @@ public class TracingViewModel extends AndroidViewModel {
 
 	public void enableTracing(Activity activity, Runnable successCallback, Consumer<Exception> errorCallback,
 			Runnable cancelledCallback) {
-		DP3T.start(activity, successCallback, errorCallback, cancelledCallback);
+		DP3T.start(activity,
+				() -> {
+					sync();
+					successCallback.run();
+				},
+				errorCallback,
+				cancelledCallback);
 	}
 
 	public void disableTracing() {

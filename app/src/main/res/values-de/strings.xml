@@ -963,10 +963,7 @@ Schwarzenburgstrasse 157
 
     <!-- Info to the user that tracing has been switched off -->
     <string name="accessibility_tracing_has_been_deactivated">"Tracing wurde deaktiviert"</string>
-
-    <!-- Meldungen Detail Kostenloser Test Box Title -->
-    <string name="meldungen_detail_free_test_title">"Kostenloser Test möglich"</string>
-
+    
     <!-- Meldungen Detail Kostenloser Test Box Text -->
     <string name="meldungen_detail_free_test_text">"Die Infoline SwissCovid berät Sie über die Möglichkeit eines kostenlosen Corona Tests."</string>
 
