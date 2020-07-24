@@ -279,7 +279,8 @@ public class HomeFragment extends Fragment {
 			}
 
 			TracingStatus.ErrorState errorState = tracingStatusInterface.getReportErrorState();
-			if (tracingStatusInterface.getTracingState().equals(TracingState.NOT_ACTIVE)) {
+			if (tracingStatusInterface.getTracingState().equals(TracingState.NOT_ACTIVE) &&
+					!tracingStatusInterface.isReportedAsInfected()) {
 				NotificationErrorStateHelper
 						.updateNotificationErrorView(reportErrorView, NotificationStateError.TRACING_DEACTIVATED);
 				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
