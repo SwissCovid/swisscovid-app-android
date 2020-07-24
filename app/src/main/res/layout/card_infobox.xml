@@ -19,25 +19,26 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:clipChildren="false"
+		android:clipToPadding="false"
 		android:orientation="horizontal"
 		android:paddingStart="@dimen/spacing_medium_large"
-		android:paddingTop="@dimen/spacing_medium_large"
-		android:paddingEnd="@dimen/spacing_medium_large"
-		android:paddingBottom="@dimen/spacing_large"
-		android:clipChildren="false"
-		android:clipToPadding="false">
+		android:paddingBottom="@dimen/spacing_large">
 
 		<ImageView
 			android:id="@+id/contacs_chevron"
 			android:layout_width="@dimen/icon_size"
 			android:layout_height="@dimen/icon_size"
-			android:src="@drawable/ic_info"
+			android:layout_marginTop="@dimen/spacing_medium_large"
 			android:layout_marginRight="@dimen/spacing_medium"
+			android:src="@drawable/ic_info"
 			android:tint="@color/white" />
 
 		<LinearLayout
-			android:layout_width="match_parent"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_medium_large"
+			android:layout_weight="1"
 			android:gravity="center_vertical"
 			android:orientation="vertical">
 
@@ -61,20 +62,20 @@
 				android:id="@+id/infobox_link_group"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_marginLeft="-12dp"
 				android:layout_marginTop="@dimen/spacing_small"
 				android:background="@drawable/ripple_button_white"
-				android:paddingTop="@dimen/spacing_medium"
-				android:paddingBottom="@dimen/spacing_medium"
-				android:paddingRight="@dimen/spacing_medium"
+				android:orientation="horizontal"
 				android:paddingLeft="@dimen/spacing_medium"
-				android:layout_marginLeft="-12dp"
-				android:orientation="horizontal">
+				android:paddingTop="@dimen/spacing_medium"
+				android:paddingRight="@dimen/spacing_medium"
+				android:paddingBottom="@dimen/spacing_medium">
 
 				<ImageView
 					android:layout_width="@dimen/icon_size"
 					android:layout_height="@dimen/icon_size"
 					android:layout_marginRight="@dimen/spacing_medium"
-					android:src="@drawable/ic_launch"/>
+					android:src="@drawable/ic_launch" />
 
 				<TextView
 					android:id="@+id/infobox_link_text"
@@ -82,11 +83,20 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:textColor="@color/white"
-					tools:text="Und ein externer Link"/>
+					tools:text="Und ein externer Link" />
 
 			</LinearLayout>
 
 		</LinearLayout>
+
+		<ImageView
+			android:id="@+id/dismiss_button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@drawable/ripple_button_white"
+			android:padding="@dimen/spacing_small"
+			android:src="@drawable/ic_cross"
+			android:tint="@color/white" />
 
 	</LinearLayout>
 
