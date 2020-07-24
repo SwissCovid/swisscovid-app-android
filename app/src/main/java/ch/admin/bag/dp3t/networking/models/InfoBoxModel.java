@@ -15,10 +15,10 @@ public class InfoBoxModel {
 	private String msg;
 	private String url;
 	private String urlTitle;
-	private Boolean isDismissible;
+	private boolean isDismissible;
 	private String infoId;
 
-	public InfoBoxModel(String title, String msg, String url, String urlTitle, Boolean isDismissible, String infoId) {
+	public InfoBoxModel(String title, String msg, String url, String urlTitle, boolean isDismissible, String infoId) {
 		this.title = title;
 		this.msg = msg;
 		this.url = url;
@@ -43,7 +43,7 @@ public class InfoBoxModel {
 		return urlTitle;
 	}
 
-	public Boolean getDismissible() { return isDismissible; }
+	public boolean getDismissible() { return isDismissible; }
 
 	public String getInfoId() { return infoId; }
 

@@ -215,11 +215,11 @@ public class SecureStorage {
 		return prefs.getString(KEY_CONFIG_INFOBOX_ID, null);
 	}
 
-	public void setInfoboxDismissible(Boolean isDismissible) {
+	public void setInfoboxDismissible(boolean isDismissible) {
 		prefs.edit().putBoolean(KEY_CONFIG_INFOBOX_IS_DISMISSIBLE, isDismissible).apply();
 	}
 
-	public Boolean getInfoboxDismissible() {
+	public boolean getInfoboxDismissible() {
 		return prefs.getBoolean(KEY_CONFIG_INFOBOX_IS_DISMISSIBLE, false);
 	}
 

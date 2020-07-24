@@ -204,7 +204,7 @@ public class HomeFragment extends Fragment {
 				linkGroup.setVisibility(View.GONE);
 			}
 
-			Boolean isDismissible = secureStorage.getInfoboxDismissible();
+			boolean isDismissible = secureStorage.getInfoboxDismissible();
 			View dismissButton = infobox.findViewById(R.id.dismiss_button);
 			if (isDismissible) {
 				dismissButton.setVisibility(VISIBLE);
