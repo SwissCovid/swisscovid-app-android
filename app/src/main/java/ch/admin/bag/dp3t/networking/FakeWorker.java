@@ -14,7 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.work.*;
 
 import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.internal.logger.Logger;
@@ -79,11 +81,11 @@ public class FakeWorker extends Worker {
 			Logger.d(TAG, "start");
 			if (t_dummy >= now - FACTOR_HOUR_MILLIS * MAX_DELAY_HOURS) {
 				DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake");
-				try {
-					executeFakeRequest(getApplicationContext());
+				boolean success = executeFakeRequest(getApplicationContext());
+				if (success) {
 					Logger.d(TAG, "finished with success");
-				} catch (IOException | ResponseError e) {
-					Logger.e(TAG, "failed", e);
+				} else {
+					Logger.e(TAG, "failed");
 					return Result.retry();
 				}
 			} else {
@@ -92,18 +94,35 @@ public class FakeWorker extends Worker {
 			t_dummy += syncInterval();
 			SecureStorage.getInstance(getApplicationContext()).setTDummy(t_dummy);
 		}
+
 		startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND, t_dummy);
 		return Result.success();
 	}
 
-	private void executeFakeRequest(Context context)
-			throws IOException, ResponseError {
-		AuthCodeRepository authCodeRepository = new AuthCodeRepository(context);
-		AuthenticationCodeResponseModel accessTokenResponse =
-				authCodeRepository.getAccessTokenSync(new AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1));
-		String accessToken = accessTokenResponse.getAccessToken();
 
-		DP3T.sendFakeInfectedRequest(context, new ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)));
+	private boolean executeFakeRequest(Context context) {
+		try {
+			AuthCodeRepository authCodeRepository = new AuthCodeRepository(context);
+			AuthenticationCodeResponseModel accessTokenResponse =
+					authCodeRepository.getAccessTokenSync(new AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1));
+			String accessToken = accessTokenResponse.getAccessToken();
+
+			CountDownLatch countdownLatch = new CountDownLatch(1);
+			AtomicBoolean error = new AtomicBoolean(false);
+			DP3T.sendFakeInfectedRequest(context, new ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)),
+					() -> {
+						countdownLatch.countDown();
+					},
+					() -> {
+						error.set(true);
+						countdownLatch.countDown();
+					});
+			countdownLatch.await();
+			if (error.get()) return false;
+			return true;
+		} catch (IOException | ResponseError | InterruptedException e) {
+			return false;
+		}
 	}
 
 	private String getAuthorizationHeader(String accessToken) {
