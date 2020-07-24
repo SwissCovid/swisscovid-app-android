@@ -43,7 +43,10 @@ public class FakeWorker extends Worker {
 
 	public static void safeStartFakeWorker(Context context) {
 		long t_dummy = SecureStorage.getInstance(context).getTDummy();
-		if (t_dummy == -1) t_dummy = System.currentTimeMillis() + syncInterval();
+		if (t_dummy == -1){
+			t_dummy = System.currentTimeMillis() + syncInterval();
+			SecureStorage.getInstance(context).setTDummy(t_dummy);
+		}
 		startFakeWorker(context, ExistingWorkPolicy.KEEP, t_dummy);
 	}
 
@@ -79,6 +82,7 @@ public class FakeWorker extends Worker {
 		long t_dummy = getInputData().getLong(KEY_T_DUMMY, now);
 		while (t_dummy < now) {
 			Logger.d(TAG, "start");
+			// only do request if it was planned to do in the last 48h
 			if (t_dummy >= now - FACTOR_HOUR_MILLIS * MAX_DELAY_HOURS) {
 				DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake");
 				boolean success = executeFakeRequest(getApplicationContext());
@@ -121,6 +125,7 @@ public class FakeWorker extends Worker {
 			if (error.get()) return false;
 			return true;
 		} catch (IOException | ResponseError | InterruptedException e) {
+			Logger.e(TAG, "fake request failed", e);
 			return false;
 		}
 	}
