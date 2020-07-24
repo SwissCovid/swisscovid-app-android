@@ -203,6 +203,15 @@ public class HomeFragment extends Fragment {
 			} else {
 				linkGroup.setVisibility(View.GONE);
 			}
+
+			boolean isDismissible = secureStorage.getInfoboxDismissible();
+			View dismissButton = infobox.findViewById(R.id.dismiss_button);
+			if (isDismissible) {
+				dismissButton.setVisibility(VISIBLE);
+				dismissButton.setOnClickListener(v -> {
+					secureStorage.setHasInfobox(false);
+				});
+			} else dismissButton.setVisibility(View.GONE);
 		});
 	}
 

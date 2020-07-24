@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.networking.models;
 
 public class InfoBoxModel {
@@ -16,12 +15,16 @@ public class InfoBoxModel {
 	private String msg;
 	private String url;
 	private String urlTitle;
+	private boolean isDismissible;
+	private String infoId;
 
-	public InfoBoxModel(String title, String msg, String url, String urlTitle) {
+	public InfoBoxModel(String title, String msg, String url, String urlTitle, boolean isDismissible, String infoId) {
 		this.title = title;
 		this.msg = msg;
 		this.url = url;
 		this.urlTitle = urlTitle;
+		this.isDismissible = isDismissible;
+		this.infoId = infoId;
 	}
 
 	public String getTitle() {
@@ -39,5 +42,9 @@ public class InfoBoxModel {
 	public String getUrlTitle() {
 		return urlTitle;
 	}
+
+	public boolean getDismissible() { return isDismissible; }
+
+	public String getInfoId() { return infoId; }
 
 }

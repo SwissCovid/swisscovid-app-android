@@ -24,6 +24,7 @@ public class ConfigResponseModel {
 	}
 
 	public InfoBoxModel getInfoBox(String languageKey) {
+		if (infoBox == null) return null;
 		return infoBox.getInfoBox(languageKey);
 	}
 

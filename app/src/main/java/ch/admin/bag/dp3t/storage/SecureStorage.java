@@ -39,6 +39,8 @@ public class SecureStorage {
 	private static final String KEY_CONFIG_INFOBOX_TEXT = "ghettobox_text";
 	private static final String KEY_CONFIG_INFOBOX_LINK_TITLE = "ghettobox_link_title";
 	private static final String KEY_CONFIG_INFOBOX_LINK_URL = "ghettobox_link_url";
+	private static final String KEY_CONFIG_INFOBOX_ID = "ghettobox_id";
+	private static final String KEY_CONFIG_INFOBOX_IS_DISMISSIBLE = "ghettobox_is_dismissible";
 	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS = "last_config_load_success";
 
@@ -204,6 +206,23 @@ public class SecureStorage {
 	public String getInfoboxLinkUrl() {
 		return prefs.getString(KEY_CONFIG_INFOBOX_LINK_URL, null);
 	}
+
+	public void setInfoboxId(String id) {
+		prefs.edit().putString(KEY_CONFIG_INFOBOX_ID, id).apply();
+	}
+
+	public String getInfoboxId() {
+		return prefs.getString(KEY_CONFIG_INFOBOX_ID, null);
+	}
+
+	public void setInfoboxDismissible(boolean isDismissible) {
+		prefs.edit().putBoolean(KEY_CONFIG_INFOBOX_IS_DISMISSIBLE, isDismissible).apply();
+	}
+
+	public boolean getInfoboxDismissible() {
+		return prefs.getBoolean(KEY_CONFIG_INFOBOX_IS_DISMISSIBLE, false);
+	}
+
 
 	public boolean isUserNotInPilotGroup() {
 		return prefs.getBoolean(KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP, false);
