@@ -11,7 +11,6 @@ package ch.admin.bag.dp3t.onboarding;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -20,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import java.text.SimpleDateFormat;
@@ -53,53 +53,60 @@ public class OnboardingDisclaimerFragment extends Fragment {
 
 		TextView termsOfUseTextview = view.findViewById(R.id.terms_of_use_textview);
 		TextView dataProtectionTextView = view.findViewById(R.id.data_protection_textview);
-
 		termsOfUseTextview.
 				setText(Html.fromHtml(replaceHtmlTags(AssetUtil.getTermsOfUse(getContext())), null, new MyTagHandler()));
-
 		dataProtectionTextView
 				.setText(Html.fromHtml(replaceHtmlTags(AssetUtil.getDataProtection(getContext())), null, new MyTagHandler()));
 
 		ImageView termsOfUseChevron = view.findViewById(R.id.terms_of_use_chevron_imageview);
 		ImageView dataProtectionChevron = view.findViewById(R.id.data_protection_chevron_imageview);
 
-		View toOnlineVersionButton = view.findViewById(R.id.onboarding_disclaimer_to_online_version_button);
+		View dataProtectionToOnlineVersionButton =
+				view.findViewById(R.id.onboarding_disclaimer_data_protection_to_online_version_button);
+		View termsOfUseToOnlineVersionButton = view.findViewById(R.id.onboarding_disclaimer_terms_of_use_to_online_version_button);
 
-		view.findViewById(R.id.data_protection_container).setOnClickListener(v -> {
-			if (dataProtectionTextView.getVisibility() == View.VISIBLE) dataProtectionTextView.setVisibility(View.GONE);
-			else dataProtectionTextView.setVisibility(View.VISIBLE);
+		View termsOfUseContainer = view.findViewById(R.id.onboarding_disclaimer_terms_of_use_container);
+		View dataProtectionContainer = view.findViewById(R.id.onboarding_disclaimer_data_protection_container);
+
+		view.findViewById(R.id.data_protection_header_container).setOnClickListener(v -> {
+			if (dataProtectionContainer.getVisibility() == View.VISIBLE) {
+				dataProtectionContainer.setVisibility(View.GONE);
+				v.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
+			} else {
+				dataProtectionContainer.setVisibility(View.VISIBLE);
+				v.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.grey_light));
+			}
 			dataProtectionChevron.animate()
 					.rotation(dataProtectionChevron.getRotation() + 180)
 					.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime))
 					.start();
-			if (dataProtectionTextView.getVisibility() == View.VISIBLE || termsOfUseTextview.getVisibility() == View.VISIBLE)
-				toOnlineVersionButton.setVisibility(View.VISIBLE);
-			else toOnlineVersionButton.setVisibility(View.GONE);
 		});
 
-		view.findViewById(R.id.conditions_of_use_container).setOnClickListener(v -> {
-			if (termsOfUseTextview.getVisibility() == View.VISIBLE) {
-				termsOfUseTextview.setVisibility(View.GONE);
+		view.findViewById(R.id.conditions_of_use_header_container).setOnClickListener(v -> {
+			if (termsOfUseContainer.getVisibility() == View.VISIBLE) {
+				termsOfUseContainer.setVisibility(View.GONE);
+				v.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
 			} else {
-				termsOfUseTextview.setVisibility(View.VISIBLE);
+				termsOfUseContainer.setVisibility(View.VISIBLE);
+				v.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.grey_light));
 			}
 			termsOfUseChevron.animate()
 					.rotation(termsOfUseChevron.getRotation() + 180)
 					.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime))
 					.start();
-			if (dataProtectionTextView.getVisibility() == View.VISIBLE || termsOfUseTextview.getVisibility() == View.VISIBLE)
-				toOnlineVersionButton.setVisibility(View.VISIBLE);
-			else toOnlineVersionButton.setVisibility(View.GONE);
 		});
 
-		toOnlineVersionButton.setOnClickListener(v -> {
-			Intent browserIntent =
-					new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.onboarding_disclaimer_legal_button_url)));
-			startActivity(browserIntent);
-		});
+		dataProtectionToOnlineVersionButton.setOnClickListener(v -> { openOnlineVersion();});
+		termsOfUseToOnlineVersionButton.setOnClickListener(v -> { openOnlineVersion();});
 
 		Button continueButton = view.findViewById(R.id.onboarding_continue_button);
 		continueButton.setOnClickListener(v -> ((OnboardingActivity) getActivity()).continueToNextPage());
+	}
+
+	private void openOnlineVersion() {
+		Intent browserIntent =
+				new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.onboarding_disclaimer_legal_button_url)));
+		startActivity(browserIntent);
 	}
 
 
