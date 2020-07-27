@@ -534,7 +534,7 @@
     <string name="accessibility_code_button_disabled_hint">"Kodun tamamı girilmediğinden etkin değildir."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
-    <string name="android_foreground_service_notification_error_location_service">"Uygulamanın Bluetooth'u kullanabilmesi için konum bilgilerini açın. Uygulama hiçbir zaman sizin konumunuzu kaydetmeyecektir."</string>
+    <string name="android_foreground_service_notification_error_location_service">"Android cihazlarda bluetooth, konum paylaşımına bağlıdır. Bu nedenle, uygulama konumunuza asla erişmese dahi, konum özelliği etkinleştirilmelidir."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
     <string name="android_error_location_services_title">"Konumu kapat"</string>
@@ -917,32 +917,35 @@ Schwarzenburgstrasse 157
     <string name="accessibility_tracing_has_been_deactivated">"Takip devre dışı bırakılmıştır"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Title -->
-    <string name="meldungen_detail_free_test_title"></string>
+    <string name="meldungen_detail_free_test_title">"Ücretsiz test olma"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text"></string>
+    <string name="meldungen_detail_free_test_text">"SwissCovid Danışma Hattı size ücretsiz korona testleri konusunda bilgi vermektedir."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Takibi etkinleştir"</string>
 
     <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
-    <string name="tracing_turned_off_detailed_text"></string>
+    <string name="tracing_turned_off_detailed_text">"Uygulamanın temasları kaydedebilmesi ve bildirimleri alabilmesi için takibi etkinleştirin."</string>
 
     <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
-    <string name="meldungen_tracing_not_active_warning"></string>
+    <string name="meldungen_tracing_not_active_warning">"Takip devre dışı bırkıldığında bildirimler de alınamaz."</string>
 
     <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
-    <string name="meldungen_tracing_turned_off_title"></string>
+    <string name="meldungen_tracing_turned_off_title">"Not"</string>
 
     <!-- Data Protection Header String in Onboarding Disclaimer View. -->
-    <string name="onboarding_disclaimer_data_protection_statement"></string>
+    <string name="onboarding_disclaimer_data_protection_statement">"Gizlilik Politikası"</string>
 
     <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
-    <string name="onboarding_disclaimer_conditions_of_use"></string>
+    <string name="onboarding_disclaimer_conditions_of_use">"Kullanım Şartları"</string>
 
     <!-- Button title that links to the website with the data protection statement and conditions of use. -->
-    <string name="onboarding_disclaimer_to_online_version_button"></string>
+    <string name="onboarding_disclaimer_to_online_version_button">"Çevrimiçi Sürüm"</string>
 
     <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
-    <string name="meldungen_tracing_turned_off_warning"></string>
+    <string name="meldungen_tracing_turned_off_warning">"Takip devre dışı bırakıldığında bildirimler de alınamaz."</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"Kapat"</string>
 </resources>
