@@ -544,7 +544,7 @@ Respektoni udhëzimet e caktuara për izolimin."</string>
     <string name="accessibility_code_button_disabled_hint">"Printimi nuk është i mundur, sepse kodi nuk u fut në mënyrë të plotë."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
-    <string name="android_foreground_service_notification_error_location_service">"Aktivizoni informacionin e vendndodhjes që aplikacioni të përdorë Bluetooth. Aplikacioni nuk e njeh në asnjë moment vendndodhjen tuaj."</string>
+    <string name="android_foreground_service_notification_error_location_service">"Te pajisjet Android, Bluetooth është i lidhur me autorizimin e vendndodhjes. Prandaj duhet aktivizuar funksioni i vendndodhjes, edhe nëse aplikacioni nuk akseson kurrë vendndodhjen tuaj."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
     <string name="android_error_location_services_title">"Vendndodhja e fikur"</string>
@@ -942,32 +942,35 @@ Schwarzenburgstrasse 157
     <string name="accessibility_tracing_has_been_deactivated">"Gjurmimi u çaktivizua"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Title -->
-    <string name="meldungen_detail_free_test_title"></string>
+    <string name="meldungen_detail_free_test_title">"Testi pa kosto është i mundur"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text"></string>
+    <string name="meldungen_detail_free_test_text">"Infoline SwissCovid ju këshillon për mundësinë e një testi falas për koronavirusin."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Aktivizo gjurmimin"</string>
 
     <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
-    <string name="tracing_turned_off_detailed_text"></string>
+    <string name="tracing_turned_off_detailed_text">"Aktivizoni gjurmimin, në mënyrë që të ruhen përdorimet e aplikacionit dhe të merren njoftimet."</string>
 
     <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
-    <string name="meldungen_tracing_not_active_warning"></string>
+    <string name="meldungen_tracing_not_active_warning">"Nëse gjurmimi është i çaktivizuar, atëherë nuk mund të merret asnjë njoftim."</string>
 
     <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
-    <string name="meldungen_tracing_turned_off_title"></string>
+    <string name="meldungen_tracing_turned_off_title">"Këshillë"</string>
 
     <!-- Data Protection Header String in Onboarding Disclaimer View. -->
-    <string name="onboarding_disclaimer_data_protection_statement"></string>
+    <string name="onboarding_disclaimer_data_protection_statement">"Politika për privatësinë"</string>
 
     <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
-    <string name="onboarding_disclaimer_conditions_of_use"></string>
+    <string name="onboarding_disclaimer_conditions_of_use">"Kushtet e përdorimit"</string>
 
     <!-- Button title that links to the website with the data protection statement and conditions of use. -->
-    <string name="onboarding_disclaimer_to_online_version_button"></string>
+    <string name="onboarding_disclaimer_to_online_version_button">"Te versioni online"</string>
 
     <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
-    <string name="meldungen_tracing_turned_off_warning"></string>
+    <string name="meldungen_tracing_turned_off_warning">"Nëse gjurmimi është i çaktivizuar, atëherë nuk mund të merret asnjë njoftim."</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"Mbyll"</string>
 </resources>

@@ -92,7 +92,6 @@ Time nam pomažete u prekidanju lanca širenja infekcije."</string>
     <string name="tracing_setting_title">"Praćenje"</string>
 
     <!-- Text beim Bluetooth Control -->
-    <!-- Fuzzy -->
     <string name="tracing_setting_text_ios">"Obavijesti o izloženosti"</string>
 
     <!-- Bluetooth Control: Tracking deaktiviert -->
@@ -544,7 +543,7 @@ Pridržavajte se dobijenih uputstava o izolaciji."</string>
     <string name="accessibility_code_button_disabled_hint">"Unesite šifru u potpunosti, a zatim pritisnite."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
-    <string name="android_foreground_service_notification_error_location_service">"Uključite informacije o lokaciji, kako bi aplikacija mogla da koristi Bluetooth. Sama aplikacija nikad ne prepoznaje vašu lokaciju."</string>
+    <string name="android_foreground_service_notification_error_location_service">"Za Android uređaje, Bluetooth je povezan sa omogućavanjem deljenja lokacije. Zbog toga funkcija lokacije mora biti aktivirana, čak i ako aplikacija nikad ne pristupa vašoj lokaciji."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
     <string name="android_error_location_services_title">"Lokacija isključena"</string>
@@ -720,7 +719,6 @@ Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost
     <string name="onboarding_gaen_title">"Aktiviraj praćenje"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
-    <!-- Fuzzy -->
     <string name="onboarding_gaen_text_ios">"Da biste mogli da koristite aplikaciju, morate da aktivirate obavijesti o izloženosti bolesti COVID-19."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -772,11 +770,9 @@ Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost
     <string name="gaen_unexpectedly_disabled">"Praćenje je deaktivirano. Pokrenite ga ponovo."</string>
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
-    <!-- Fuzzy -->
     <string name="tracing_permission_error_title_ios">"COVID-19: obavještenja deaktivirano"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
-    <!-- Fuzzy -->
     <string name="tracing_permission_error_text_ios">"Aktivirajte Obavijesti o izloženosti bolesti COVID-19 da bi praćenje radilo."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
@@ -941,32 +937,35 @@ Schwarzenburgstrasse 157
     <string name="accessibility_tracing_has_been_deactivated">"Praćenje je deaktivirano"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Title -->
-    <string name="meldungen_detail_free_test_title"></string>
+    <string name="meldungen_detail_free_test_title">"Moguće je besplatno testiranje"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text"></string>
+    <string name="meldungen_detail_free_test_text">"Preko info-linije aplikacije SwissCovid možete da dobijete savete o mogućnosti besplatnog testiranja na virus korona."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Aktiviraj praćenje"</string>
 
     <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
-    <string name="tracing_turned_off_detailed_text"></string>
+    <string name="tracing_turned_off_detailed_text">"Aktivirajte praćenje kako bi aplikacija mogla da čuva kontakte i prima poruke."</string>
 
     <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
-    <string name="meldungen_tracing_not_active_warning"></string>
+    <string name="meldungen_tracing_not_active_warning">"Ako je praćenje deaktivirano, ni primanje poruka neće biti moguće."</string>
 
     <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
-    <string name="meldungen_tracing_turned_off_title"></string>
+    <string name="meldungen_tracing_turned_off_title">"Napomena"</string>
 
     <!-- Data Protection Header String in Onboarding Disclaimer View. -->
-    <string name="onboarding_disclaimer_data_protection_statement"></string>
+    <string name="onboarding_disclaimer_data_protection_statement">"Izjava o zaštiti ličnih podataka"</string>
 
     <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
-    <string name="onboarding_disclaimer_conditions_of_use"></string>
+    <string name="onboarding_disclaimer_conditions_of_use">"Uslovi korišćenja"</string>
 
     <!-- Button title that links to the website with the data protection statement and conditions of use. -->
-    <string name="onboarding_disclaimer_to_online_version_button"></string>
+    <string name="onboarding_disclaimer_to_online_version_button">"Otvori verziju na internetu"</string>
 
     <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
-    <string name="meldungen_tracing_turned_off_warning"></string>
+    <string name="meldungen_tracing_turned_off_warning">"Ako je praćenje deaktivirano, ni primanje poruka neće biti moguće."</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"Zatvori"</string>
 </resources>

@@ -545,7 +545,7 @@ Segui le istruzioni sull'isolamento che hai ricevuto."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
     <!-- Fuzzy -->
-    <string name="android_foreground_service_notification_error_location_service">"Attiva le informazioni sulla posizione per permettere all'app di utilizzare Bluetooth. L'app non conosce mai la posizione dell'utente."</string>
+    <string name="android_foreground_service_notification_error_location_service">"Nei dispositivi Android l'autorizzazione di Bluetooth è associata all'autorizzazione della posizione. Per questo occorre attivare la relativa funzione, anche se l'app non accede mai alla posizione dell'utente."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
     <!-- Fuzzy -->
@@ -948,32 +948,35 @@ Schwarzenburgstrasse 157
     <string name="accessibility_tracing_has_been_deactivated">"Tracciamento disattivato"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Title -->
-    <string name="meldungen_detail_free_test_title"></string>
+    <string name="meldungen_detail_free_test_title">"Possibilità di sottoporsi gratuitamente al test"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text"></string>
+    <string name="meldungen_detail_free_test_text">"L'Infoline SwissCovid ti consiglia sulla possibilità di effettuare gratuitamente un test."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Attivare il tracciamento"</string>
 
     <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
-    <string name="tracing_turned_off_detailed_text"></string>
+    <string name="tracing_turned_off_detailed_text">"Attiva il tracciamento affinché l'app possa salvare gli incontri e ricevere le segnalazioni."</string>
 
     <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
-    <string name="meldungen_tracing_not_active_warning"></string>
+    <string name="meldungen_tracing_not_active_warning">"Se il tracciamento è disattivato, non puoi ricevere alcuna segnalazione."</string>
 
     <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
-    <string name="meldungen_tracing_turned_off_title"></string>
+    <string name="meldungen_tracing_turned_off_title">"Avvertenza"</string>
 
     <!-- Data Protection Header String in Onboarding Disclaimer View. -->
-    <string name="onboarding_disclaimer_data_protection_statement"></string>
+    <string name="onboarding_disclaimer_data_protection_statement">"Informativa sulla protezione dei dati"</string>
 
     <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
-    <string name="onboarding_disclaimer_conditions_of_use"></string>
+    <string name="onboarding_disclaimer_conditions_of_use">"Condizioni di utilizzo"</string>
 
     <!-- Button title that links to the website with the data protection statement and conditions of use. -->
-    <string name="onboarding_disclaimer_to_online_version_button"></string>
+    <string name="onboarding_disclaimer_to_online_version_button">"Alla versione online"</string>
 
     <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
-    <string name="meldungen_tracing_turned_off_warning"></string>
+    <string name="meldungen_tracing_turned_off_warning">"Se il tracciamento è disattivato, non puoi ricevere alcuna segnalazione."</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"Chiudi"</string>
 </resources>
