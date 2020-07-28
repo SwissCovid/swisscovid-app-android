@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.work.*;
 
 import java.io.IOException;
+import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -32,7 +33,7 @@ import ch.admin.bag.dp3t.util.ExponentialDistribution;
 public class FakeWorker extends Worker {
 
 	private static final String TAG = "FakeWorker";
-	private static final String WORK_TAG = "ch.admin.bag.dp3t.FakeWorker";
+	public static final String WORK_TAG = "ch.admin.bag.dp3t.FakeWorker";
 	private static final String FAKE_AUTH_CODE = "000000000000";
 
 	private static final long FACTOR_HOUR_MILLIS = 60 * 60 * 1000L;
@@ -43,7 +44,7 @@ public class FakeWorker extends Worker {
 
 	public static void safeStartFakeWorker(Context context) {
 		long t_dummy = SecureStorage.getInstance(context).getTDummy();
-		if (t_dummy == -1){
+		if (t_dummy == -1) {
 			t_dummy = System.currentTimeMillis() + syncInterval();
 			SecureStorage.getInstance(context).setTDummy(t_dummy);
 		}
@@ -66,6 +67,7 @@ public class FakeWorker extends Worker {
 				.setConstraints(constraints)
 				.setInitialDelay(executionDelay, TimeUnit.MILLISECONDS)
 				.setInputData(new Data.Builder().putLong(KEY_T_DUMMY, t_dummy).build())
+				.addTag(WORK_TAG)
 				.build();
 
 		WorkManager.getInstance(context).enqueueUniqueWork(WORK_TAG, policy, fakeWorker);
