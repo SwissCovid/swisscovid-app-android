@@ -884,10 +884,10 @@ Schwarzenburgstrasse 157
 3097 Liebefeld, İzviçre"</string>
 
     <!-- Onboarding Disclaimer Screen: App version title -->
-    <string name="onboarding_disclaimer_app_version">"SwissCovid Uygulama Sürümü"</string>
+    <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
 
     <!-- Onboarding Disclaimer Screen: Release version title -->
-    <string name="onboarding_disclaimer_release_version">"Yayınlanma tarihi:"</string>
+    <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
 
     <!-- onboarding privacy and conditions of use button -->
     <string name="onboarding_disclaimer_legal_button">"Veri Gizliliği &amp; Kullanım Koşulları"</string>

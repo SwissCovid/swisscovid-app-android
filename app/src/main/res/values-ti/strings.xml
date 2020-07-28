@@ -186,7 +186,7 @@
     <string name="whattodo_subtitle_symptoms">"እንታይ ትገብር እንተ….."</string>
 
     <!-- Titel auf Homescreen bei Was tun Section -->
-    <string name="whattodo_title_positivetest">"ውጽኢት መርመራ ፖዚቲቭ ምስዝኸውን"</string>
+    <string name="whattodo_title_positivetest">"ውጽኢት መርመራ ፖዚቲቭ/ኣሉታዊ ምስዝኸውን"</string>
 
     <!-- Subtitel auf Homescreen bei Was tun Section -->
     <string name="whattodo_subtitle_positivetest">"እንታይ ትገብር ኣብ እዋን….."</string>
@@ -646,8 +646,8 @@
 
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"እዚኦም ምልክታት ብዙሕ ግዜ ይርኣዩ፦ 
-- ረስኒ, ስምዒት ናይ ረስኒ 
-- ቃንዛ ጉሮሮ
+- ረስኒ፣ ስምዒት ናይ ረስኒ
+- ቃንዛ ጎሮሮ
 - ሰዓል (መብዛሕትኡ ግዜ ደረቕ ሰዓል)
 - ሕጽረት እስትንፋስ
 - ቃንዛ ጨዋዳታት
@@ -660,7 +660,7 @@
     <string name="meldungen_positive_tested_faq1_text">"ድሕሪ ፖዚቲቭ ውጽኢት መርመራ እቲ ምክትታል ኣብ ኣፕ ብቐጥታ ይውዳእ። "</string>
 
     <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
-    <string name="language_key">"de"</string>
+    <string name="language_key">"ti"</string>
 
     <!-- Meldungen Homescreen: Name Hotline -->
     <string name="exposed_info_contact_hotline_name">"ናይ ሓበሬታ መስመር ስዊስኮቪድ "</string>
@@ -877,7 +877,7 @@ Schwarzenburgstrasse 157
 3097 Liebefeld, Schweiz"</string>
 
     <!-- Onboarding Disclaimer Screen: App version title -->
-    <string name="onboarding_disclaimer_app_version">"ዓይነት ስዊስኮቪድ ኣፕ"</string>
+    <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
 
     <!-- Onboarding Disclaimer Screen: Release version title -->
     <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
