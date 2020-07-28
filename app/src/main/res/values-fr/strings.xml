@@ -541,7 +541,7 @@ Respectez les consignes reçues sur l'isolement."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
     <!-- Fuzzy -->
-    <string name="android_foreground_service_notification_error_location_service">"Activez les informations concernant la géolocalisation afin que l'application puisse utiliser Bluetooth. L'application ne connaît votre position à aucun moment."</string>
+    <string name="android_foreground_service_notification_error_location_service">"Sur les appareils Android, le Bluetooth est lié à la  fonction de géolocalisation. Cette fonction doit donc être activée, même si l'application n'accède à aucun moment à votre localisation."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
     <!-- Fuzzy -->
@@ -650,7 +650,7 @@ Ainsi, d'autres utilisateurs de l'application SwissCovid apprennent qu'ils ont p
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
 
     <!-- URL für Häufige Fragen Button -->
-    <string name="faq_button_url">"https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html"</string>
+    <string name="faq_button_url">"https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/fr/categories/application-swisscovid"</string>
 
     <!-- Informieren Flow: Titel erster Screen -->
     <string name="inform_code_intro_title">"Avis important"</string>
@@ -719,7 +719,7 @@ Ainsi, d'autres utilisateurs de l'application SwissCovid apprennent qu'ils ont p
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
     <!-- Fuzzy -->
-    <string name="onboarding_gaen_text_ios">"Pour utiliser l'application, les notifications d'exposition au COVID 19 doivent être activée."</string>
+    <string name="onboarding_gaen_text_ios">"Pour utiliser l'application, les notifications d'exposition au COVID 19 doivent être activées."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Activer"</string>
@@ -892,7 +892,7 @@ de transmission."</string>
     <string name="tracing_setting_text_android">"Notifications d'exposition au COVID 19"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
-    <string name="onboarding_gaen_text_android">"Pour utiliser l'application, les notifications d'exposition au COVID 19 doivent être activée."</string>
+    <string name="onboarding_gaen_text_android">"Pour utiliser l'application, les notifications d'exposition au COVID 19 doivent être activées."</string>
 
     <!-- Onboarding Disclaimer Screen: AppName Title -->
     <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
@@ -946,4 +946,37 @@ Schwarzenburgstrasse 157
 
     <!-- Info to the user that tracing has been switched off -->
     <string name="accessibility_tracing_has_been_deactivated">"Traçage désactivé"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Title -->
+    <string name="meldungen_detail_free_test_title">"Test gratuit"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"La ligne d’information SwissCovid vous renseigne sur la possibilité de réaliser un test gratuit du coronavirus. "</string>
+
+    <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
+    <string name="activate_tracing_button">"Activer le traçage"</string>
+
+    <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
+    <string name="tracing_turned_off_detailed_text">"Activez le traçage pour que l'application puisse enregistrer les rencontres et recevoir des messages."</string>
+
+    <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
+    <string name="meldungen_tracing_not_active_warning">"Si le traçage est désactivé, vous ne pouvez recevoir aucun message."</string>
+
+    <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_title">"Information"</string>
+
+    <!-- Data Protection Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_data_protection_statement">"Déclaration de confidentialité"</string>
+
+    <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_conditions_of_use">"Conditions d'utilisation"</string>
+
+    <!-- Button title that links to the website with the data protection statement and conditions of use. -->
+    <string name="onboarding_disclaimer_to_online_version_button">"Version en ligne"</string>
+
+    <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_warning">"Si le traçage est désactivé, vous ne pouvez pas recevoir de message."</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"Fermer"</string>
 </resources>

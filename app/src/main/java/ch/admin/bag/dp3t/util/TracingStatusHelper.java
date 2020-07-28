@@ -11,6 +11,7 @@ package ch.admin.bag.dp3t.util;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Paint;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,11 +23,11 @@ import ch.admin.bag.dp3t.main.model.TracingState;
 
 public class TracingStatusHelper {
 
-	public static void updateStatusView(View statusView, TracingState state) {
-		updateStatusView(statusView, state, true);
+	public static void updateStatusView(View statusView, TracingState state, boolean isHomeFragment) {
+		updateStatusView(statusView, state, true, isHomeFragment);
 	}
 
-	public static void updateStatusView(View statusView, TracingState state, boolean displayIllu) {
+	public static void updateStatusView(View statusView, TracingState state, boolean displayIllu, boolean isHomeFragment) {
 		Context context = statusView.getContext();
 		if (TracingState.getBackgroundColor(state) != -1) {
 			statusView.findViewById(R.id.status_background)
@@ -48,8 +49,8 @@ public class TracingStatusHelper {
 		} else {
 			titleView.setVisibility(View.GONE);
 		}
-		if (TracingState.getText(state) != -1) {
-			textView.setText(TracingState.getText(state));
+		if (TracingState.getText(state, isHomeFragment) != -1) {
+			textView.setText(TracingState.getText(state, isHomeFragment));
 			textView.setVisibility(View.VISIBLE);
 		} else {
 			textView.setVisibility(View.GONE);
@@ -74,7 +75,7 @@ public class TracingStatusHelper {
 		}
 	}
 
-	public static void showTracingDeactivated(View tracingErrorView) {
+	public static void showTracingDeactivated(View tracingErrorView, boolean isHomeFragment) {
 		ImageView iconView = tracingErrorView.findViewById(R.id.error_status_image);
 		if (TracingState.getIcon(TracingState.NOT_ACTIVE) != -1) {
 			iconView.setImageResource(TracingState.getIcon(TracingState.NOT_ACTIVE));
@@ -91,15 +92,21 @@ public class TracingStatusHelper {
 		}
 
 		TextView textView = tracingErrorView.findViewById(R.id.error_status_text);
-		if (TracingState.getText(TracingState.NOT_ACTIVE) != -1) {
-			textView.setText(TracingState.getText(TracingState.NOT_ACTIVE));
+		if (TracingState.getText(TracingState.NOT_ACTIVE, isHomeFragment) != -1) {
+			textView.setText(TracingState.getText(TracingState.NOT_ACTIVE, isHomeFragment));
 			textView.setVisibility(View.VISIBLE);
 		} else {
 			textView.setVisibility(View.GONE);
 		}
 		tracingErrorView.findViewById(R.id.error_status_code).setVisibility(View.GONE);
 		TextView buttonView = tracingErrorView.findViewById(R.id.error_status_button);
-		buttonView.setVisibility(View.GONE);
+		if (isHomeFragment) {
+			buttonView.setText(R.string.activate_tracing_button);
+			buttonView.setPaintFlags(buttonView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+			buttonView.setVisibility(View.VISIBLE);
+		} else {
+			buttonView.setVisibility(View.GONE);
+		}
 	}
 
 }

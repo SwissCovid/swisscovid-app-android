@@ -543,7 +543,7 @@ Follow the instructions  you have received on isolation."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
     <!-- Fuzzy -->
-    <string name="android_foreground_service_notification_error_location_service">"Enable location information so that the app can use Bluetooth. The app does not recognise your location at any time."</string>
+    <string name="android_foreground_service_notification_error_location_service">"On Android devices, Bluetooth depends on location sharing. This means the location function must be enabled even though the app never accesses your location."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
     <!-- Fuzzy -->
@@ -651,7 +651,7 @@ Other SwissCovid apps can then check if it is possible that they have been infec
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
 
     <!-- URL für Häufige Fragen Button -->
-    <string name="faq_button_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html"</string>
+    <string name="faq_button_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/en/categories/swisscovid-app"</string>
 
     <!-- Informieren Flow: Titel erster Screen -->
     <string name="inform_code_intro_title">"Important information"</string>
@@ -939,4 +939,37 @@ Schwarzenburgstrasse 157
 
     <!-- Info to the user that tracing has been switched off -->
     <string name="accessibility_tracing_has_been_deactivated">"Tracing has been deactivated"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Title -->
+    <string name="meldungen_detail_free_test_title">"Test available free of charge"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"The SwissCovid infoline will advise you on the option of taking a test free of charge"</string>
+
+    <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
+    <string name="activate_tracing_button">"Activate proximity tracing"</string>
+
+    <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
+    <string name="tracing_turned_off_detailed_text">"Enable tracing so the app can save encounters and receive reports"</string>
+
+    <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
+    <string name="meldungen_tracing_not_active_warning">"If tracing is disabled, you cannot receive any reports."</string>
+
+    <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_title">"Attention!"</string>
+
+    <!-- Data Protection Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_data_protection_statement">"Data protection declaration"</string>
+
+    <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_conditions_of_use">"Terms of use"</string>
+
+    <!-- Button title that links to the website with the data protection statement and conditions of use. -->
+    <string name="onboarding_disclaimer_to_online_version_button">"To the online version"</string>
+
+    <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_warning">"If tracing is disabled, you cannot receive any reports"</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"Close"</string>
 </resources>

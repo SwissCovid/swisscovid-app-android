@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<resources>
+
+    <!-- App Name -->
+    <string name="app_name">"ስዊስኮቪድ"</string>
+
+    <!-- App Name (unter Icon auf iOS) -->
+    <string name="CFBundleDisplayName">"ስዊስኮቪድ"</string>
+
+    <!-- Loading View: Erneut laden -->
+    <string name="loading_view_reload">"ከምብሓድሽ ምውራድ"</string>
+
+    <!-- Fehler Titel in Loading View -->
+    <string name="loading_view_error_title">"ጌጋ"</string>
+
+    <!-- Alert: Titel wenn die App muss geupdatet werden -->
+    <string name="force_update_title">"እዋናዉ ምግባር ኣድላዪ እዩ"</string>
+
+    <!-- Informieren: Weiter Button -->
+    <string name="inform_continue_button">"ቀጽል "</string>
+
+    <!-- Informieren: Senden Button -->
+    <string name="inform_send_button_title">"ምስዳድ"</string>
+
+    <!-- Informieren: Danke -->
+    <string name="inform_send_thankyou">"የቐንየልና"</string>
+
+    <!-- Informieren: Danke Text -->
+    <string name="inform_send_thankyou_text">"እቶም ብግምት ዝተሰርዑ መለልዪ ቁጽርታት ናይ ኣፕኩም ተሰዲዶም ኣለዉ። ብኸምዚ መንገዲ ሰንሰለት ለበዳ ሕማም ንኽቋረጽ ትሕግዙ።"</string>
+
+    <!-- Informieren: Button Titel -->
+    <string name="inform_fertig_button_title">"ዕጸው"</string>
+
+    <!-- Titel auf Homescreen für Begegnungen -->
+    <string name="handshakes_title_homescreen">"ርክባት "</string>
+
+    <!-- Abbrechen -->
+    <string name="cancel">"ኣቋርጽ"</string>
+
+    <!-- Titel für Push-Nachrichten, wenn erkannt wird, dass ein Nutzer exposed war -->
+    <string name="push_exposed_title">"ሓድሽ መልእኽቲ"</string>
+
+    <!-- Titel für Push-Nachrichten, wenn erkannt wird, dass ein Nutzer exposed war -->
+    <string name="push_exposed_text">"ነቲ መልእኽቲ ንምንባብ ነቲ ኣፕ ክፈትዎ። "</string>
+
+    <!-- Okay Button Titel -->
+    <string name="android_button_ok">"ሐራይ"</string>
+
+    <!-- Onboarding: Weiter Button Titel -->
+    <string name="onboarding_continue_button">"ቀጽል"</string>
+
+    <!-- Onboarding: Fertig Button -->
+    <string name="onboarding_finish_button">"ተፈጺሙ"</string>
+
+    <!-- Unerwarteter Fehler -->
+    <string name="unexpected_error_title">"ዘይተሓስበ ጌጋ ኣጓኒፉ።"</string>
+
+    <!-- Bluetooth Fehlermeldung -->
+    <string name="bluetooth_turned_off">"ብሉቱዝ ጠፊኡ ስለዘሎ እቲ ኣፕ ኣይሰርሕን ኣሎ።"</string>
+
+    <!-- Bluetooth Permission Fehler -->
+    <string name="bluetooth_permission_turned_off">"ብሉቱዝ ፍቓድ ስለዝይሃበ እቲ ኣፕ ኣይሰርሕን ኣሎ።"</string>
+
+    <!-- Permission Text für Bluetooth -->
+    <string name="NSBluetoothPeripheralUsageDescription">"ሓይሊ (ኤነርጂ) ብምቑጣብ ርክባት ኣብ ድሕረባይታ ብብሉቱዝ ይልለዩ ኣለዉ።"</string>
+
+    <!-- Permission Text für Bluetooth -->
+    <string name="NSBluetoothAlwaysUsageDescription">"ርክባት ሓይሊ (ኤነርጂ) ብምቁጣብ ኣብ ድህረባይታ ብብሉቱዝ ይልለዩ ኣለዉ።"</string>
+
+    <!-- Inform: Titel der Code abschicken Seite -->
+    <string name="inform_code_title">"ኮቪድኮድ ኣእትው"</string>
+
+    <!-- Inform: Code eingeben Subtext -->
+    <string name="inform_code_text">"ነቲ ዝተወሃበኩም ኮቪድኮድ ኣእትዉዎ።"</string>
+
+    <!-- Inform: Code eingeben kein Code Button Text -->
+    <string name="inform_code_no_code">"ሓገዝ የድልየኩም ዶ፧ "</string>
+
+    <!-- Titel des Bluetooth Control -->
+    <string name="tracing_setting_title">"ምክትታል (Tracing)"</string>
+
+    <!-- Text beim Bluetooth Control -->
+    <string name="tracing_setting_text_ios">"መልእኽትታት ርክባት ኮቪድ-19 "</string>
+
+    <!-- Bluetooth Control: Tracking deaktiviert -->
+    <string name="bluetooth_setting_tracking_inactive">"ምክትታል ኣይሰርሕን ኣሎ (ጠፊኡ ኣሎ)"</string>
+
+    <!-- Titel auf Homescreen -->
+    <string name="reports_title_homescreen">"ሓበሬታ"</string>
+
+    <!-- Keine Meldungen Titel -->
+    <string name="meldungen_no_meldungen_title">"ሓበሬታ የለን"</string>
+
+    <!-- Push deaktiviert Titel -->
+    <string name="push_deactivated_title">"ኣገልግሎት መልእኽትታት ኣይሰርሕን ኣሎ (ጠፊኡ ኣሎ)"</string>
+
+    <!-- Push deaktiviert Text -->
+    <string name="push_deactivated_text">"መልእኽቲ ምስዝህሉ ብቐጥታ ንኽትሕበር ምእንቲ እቲ ሴቲንግ ቀይሮ።   ."</string>
+
+    <!-- Titel im Meldung Detail -->
+    <string name="meldungen_meldung_title">"ብሕማም  ናይ ምልካፍ ተኽእሎ"</string>
+
+    <!-- Text im Meldung Detail -->
+    <string name="meldungen_meldung_text">"ብሕማም  ናይ ምልካፍ ተኽእሎ ኣሎ።"</string>
+
+    <!-- Titel ob Tracing aktiv -->
+    <string name="tracing_active_title">"ኣፕ ይሰርሕ ኣሎ"</string>
+
+    <!-- Text bei Tracing aktiv -->
+    <string name="tracing_active_text">"ርክባት ብስቱር መንገዲ ክዕቀቡ እዮም"</string>
+
+    <!-- Android: Fehler Text bei Tracing -->
+    <string name="android_tracing_error_title">"ምክትታል ኣይሰርሕን ኣሎ"</string>
+
+    <!-- Fehlertitel mit Foreground Service Notification -->
+    <string name="android_foreground_service_notification_errors">"እቲ ኣፕ ኣብዚ ሕጂ እዋን ብልክዕ ክሰርሕ ኣይክእልን እዩ።"</string>
+
+    <!-- Titel der Nachricht, die auf Beta-Status hinweist -->
+    <string name="preview_warning_title">"ናይ ቅድመ ምርኣይ ዓይነት (Version)"</string>
+
+    <!-- Text der Nachricht, die auf Beta-Status hinweist -->
+    <string name="preview_warning_text">"እዚ ኣፕ ከም መርአዩ (መላመዲ) ንምርኣይ ትግባረ ናይ DP-3T የገልግል። ግቡእ ክትጥቀመሉ ትኽእል ናይ ኮቪድ-19 መከታተሊ ኣይኮነን። "</string>
+
+    <!-- Debug: Label auf dem Button, der zum Debug-Screen führt -->
+    <string name="debug_settings_title">"ናይ ደቡግ (Debug) ሴቲንግ "</string>
+
+    <!-- Debug: Titel für die Debug-Einstellungen zur Status-Überschreibung -->
+    <string name="debug_state_setting_title">"ኩነታት ኣፕ ፍሉጥ/ውሱን ዘይኮነ "</string>
+
+    <!-- Debug: Erklärungstext für die Debug-Einstellungen zur Status-Überschreibung -->
+    <string name="debug_state_setting_text">"እዚ ሴቲንግ ነቲ ርኡይ ዝኾነ ኩነታት ናይቲ ኣፕ ብጽሑፍ ይቕይሮ።  እቲ ናይ ምክትታል ኣገልግሎት በዚ ኣይጽሎን እዩ። "</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Keine -->
+    <string name="debug_state_setting_option_none">"ፍሉጥ/ውሱን ዘይኮነ"</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Gesund -->
+    <string name="debug_state_setting_option_ok">"ጥዑይ (ዘይሕሙም)"</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Einem positiven Kontakt ausgesetzt -->
+    <string name="debug_state_setting_option_exposed">"ውጽትኢ መርመርኡ ፖሲቲቭ ዝኾነ ዝተራኸብካዮ ሰብ"</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Selbst positiv getestet -->
+    <string name="debug_state_setting_option_infected">"ውጽትኢ መርመራኻ ፖሲቲቭ ምዃኑ ዝሓበርካ "</string>
+
+    <!-- Debug: Titel für die Debug-Info zum Tracing-Status -->
+    <string name="debug_sdk_state_title">"ህሉው ኩነታት SDK "</string>
+
+    <!-- Debug: Erklärungstext für die Debug-Info zum Tracing-Status -->
+    <string name="debug_sdk_state_text">"ህሉው ኩነታት ናይ  DP-3T SDK"</string>
+
+    <!-- Debug: Bezeichnung für den letzen sync-Zeitpunkt -->
+    <string name="debug_sdk_state_last_synced">"መወዳእታ ዝተገበረ ምውህሃድ"</string>
+
+    <!-- Debug: Bezeichnung für den Fall, bei dem der User selber als positiv getestet gemeldet wurde -->
+    <string name="debug_sdk_state_self_exposed">"ባዕልካ ሓበሬታ ዝሃብካ/ዝተመዝገብካ፦"</string>
+
+    <!-- Debug: Bezeichnung für den Fall, bei dem ein Kontakt als positiv getestet gemeldet wurde -->
+    <string name="debug_sdk_state_contact_exposed">"ርካባትካ ዘመዝገብካ፦ "</string>
+
+    <!-- Debug-Status-Bezeichnung für boleschen Wert 'true' -->
+    <string name="debug_sdk_state_boolean_true">"እወ"</string>
+
+    <!-- Debug-Status-Bezeichnung für boleschen Wert 'false' -->
+    <string name="debug_sdk_state_boolean_false">"ኣይፋል"</string>
+
+    <!-- Debug: Button-Text für das Zurücksetzen des lokalen SDK Zustandes -->
+    <string name="debug_sdk_button_reset">"SDK ኣብ ዝነበሮ ምምላስ"</string>
+
+    <!-- Tab-Titel -->
+    <string name="tab_tracing_title">"ምክትታል "</string>
+
+    <!-- Titel auf Homescreen für Was tun Section -->
+    <string name="whattodo_title_symptoms">"ምልክታት ሕማም"</string>
+
+    <!-- Subtitel auf Homescreen für Was Tun Section -->
+    <string name="whattodo_subtitle_symptoms">"እንታይ ትገብር እንተ….."</string>
+
+    <!-- Titel auf Homescreen bei Was tun Section -->
+    <string name="whattodo_title_positivetest">"ውጽኢት መርመራ ፖዚቲቭ/ኣሉታዊ ምስዝኸውን"</string>
+
+    <!-- Subtitel auf Homescreen bei Was tun Section -->
+    <string name="whattodo_subtitle_positivetest">"እንታይ ትገብር ኣብ እዋን….."</string>
+
+    <!-- Informieren Detail: Subtitel -->
+    <string name="inform_detail_subtitle">"እንታይ ትገብር ኣብ እዋን….."</string>
+
+    <!-- Informieren Detail: Titel -->
+    <string name="inform_detail_title">"ፖዚቲቭ ውጽኢት መርመራ፧"</string>
+
+    <!-- Inform Detail: Weisse Box Subtitel -->
+    <string name="inform_detail_box_subtitle">"ብኮቪድኮድ"</string>
+
+    <!-- Inform Detai Weisse Box Titel -->
+    <string name="inform_detail_box_title">"ሰንሰለት ለበዳ ሕማም ምቁራጽ"</string>
+
+    <!-- Inform Detail Weisse Box Button -->
+    <string name="inform_detail_box_button">"ኮቪድኮድ ኣእትው"</string>
+
+    <!-- Informieren Detail Weisse Box Text -->
+    <string name="inform_detail_box_text">"ኮቪድኮድ ብምእታውኩም ነቲ ኣፕ  ውጽኢት መርመራኹም ፖዚቲቭ ንሓድሽ ኮሮናቫይረስ ከምዝኾነ ትሕብሩ።   "</string>
+
+    <!-- Symptome Detail Subtitel -->
+    <string name="symptom_detail_subtitle">" ኣነ እንተ…..እንታይ ክገብር"</string>
+
+    <!-- Symptom Detail Titel -->
+    <string name="symptom_detail_title">"ሕማም ተሰሚዑኒ/ተጸሊኡኒ፧"</string>
+
+    <!-- Symptom Detail Weisse Box Subtitel -->
+    <string name="symptom_detail_box_subtitle">"ኣብ እዋን ምልክታት ናይ ኮቪድ-19 …. .."</string>
+
+    <!-- Symptom Detail Weisse Box Titel -->
+    <string name="symptom_detail_box_title">"መርመራ ምግባር "</string>
+
+    <!-- Symptom Detail Weisse Box Button -->
+    <string name="symptom_detail_box_button">"ዝያዳ ምፍላጥ"</string>
+
+    <!-- Symptom Detail Weisse Box Text -->
+    <string name="symptom_detail_box_text">"ሚኒስትሪ ጥዕና ስዊዘርላንድ (BAG) ዝኾነ ምልክት ናይ ኮቪድ-19 ዘለዎ ሰብ ንኽምርመር ይላቦ።  ንሓኪም ወይ ንትካል ሕክምና ደውሉ። "</string>
+
+    <!-- Informieren Titel in NavigationBar/Toolbar -->
+    <string name="inform_detail_navigation_title">"ውጽኢት መርመራ ፖዚቲቭ ኮይኑ"</string>
+
+    <!-- Symptome Detail: NavigationBar/Toolbar Titel -->
+    <string name="symptom_detail_navigation_title">"ምልክታት ሕማም"</string>
+    <string name="tracing_turned_off_title">"ኣገልግሎት ምክትታል ኣይሰርሕን ኣሎ (ጠፊኡ ኣሎ)"</string>
+    <string name="tracing_turned_off_text">"እቲ ኣፕ ክሰርሕ ምእንታን ነቲ ኣገልግሎት ምክትታል ከም ዝሰርሕ ግበርዎ (ወልዕዎ)። "</string>
+    <string name="bluetooth_turned_off_title">"ብሉቱዝ ጠፊኡ ኣሎ"</string>
+    <string name="bluetooth_turned_off_text">"ኣገልግሎት ምክትታል ክስርሕ ምእንታን ኣብ ሞባይልኩም ብሉቱዝ ክፈቱ።"</string>
+    <string name="bluetooth_turn_on_button_title">"ብሉቱዝ ክፈትዎ"</string>
+    <string name="bluetooth_permission_error_title">"ምጥቃም ብሉቱዝ ተነጺጉ"</string>
+    <string name="bluetooth_permission_error_text">"ኣገልግሎት ምክትታል ክስርሕ ምእንታን ብሉቱዝ ምጥቃም ኣፍቅዱ።  "</string>
+
+    <!-- URL zum Corona Check -->
+    <string name="symptom_detail_corona_check_url">"https://check.bag-coronavirus.ch/screening"</string>
+    <string name="push_open_settings_button">"ሴቲንግ ምቕያር "</string>
+
+    <!-- Meldungen Detail: Subtitel wenn keine Meldungen -->
+    <string name="meldungen_no_meldungen_subtitle">"ዝኾነ ተኽእሎ ናይ ለበዳ ሕማም ኣይተሓበረን"</string>
+
+    <!-- Keine Meldungen Weisse Box Titel -->
+    <string name="no_meldungen_box_title">"ንነብስኹም ተኸላኸሉላ"</string>
+
+    <!-- Keine Meldungen Weisse Box Subtitel -->
+    <string name="no_meldungen_box_subtitle">"እንታይ ክገብር ኣለኒ፧ "</string>
+
+    <!-- Keine Meldungen Weisse Box Text -->
+    <string name="no_meldungen_box_text">"ኣብ ስራሕ ዘለዉ ለበዋታት ናይ ሚኒስትሪ ጥዕና ስዊዘርላንድ (BAG) ኣተግብርዎም።"</string>
+
+    <!-- Meldung Detail: Positiv Getestet Titel -->
+    <string name="meldung_detail_positive_tested_title">"ውጽኢት መርመራ ፖዚቲቭ ኮይኑ"</string>
+
+    <!-- Meldung Detail: Positiv Getestet Subtitel -->
+    <string name="meldung_detail_positive_tested_subtitle">"ዝገበርካዮ መርመራ ንኮሮናቫይረስ ውጽኢቱ ፖዚቲቭ ኮይኑ ተረኺቡ።"</string>
+
+    <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
+    <string name="meldung_detail_positive_test_box_subtitle">"እንታይ ክገብር ኣለኒ፧ "</string>
+
+    <!-- Meldung Detail Positiv Getestet Weisse Box Titel -->
+    <string name="meldung_detail_positive_test_box_title">"ምግላል"</string>
+
+    <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
+    <string name="meldung_detail_positive_test_box_text">"ንምግላል ዝምልከት ዝተወሃበኩም መምርሒታት ተኸታተሉ። "</string>
+    <string name="tracing_ended_title">"ምክትታል ተወዲኡ"</string>
+    <string name="tracing_ended_text">"ካብ ሕጂ ንንዮ ርክባት ኣይዕቀቡን እዮም። "</string>
+    <string name="exposed_info_contact_hotline">"ን…..ተወከሱ"</string>
+    <string name="meldung_homescreen_positive_info_line1">"ን……..ተኸታተሉ"</string>
+    <string name="meldung_homescreen_positive_info_line2">"ባዕልኻ ነብስኻ ንምግላል ዝምልከት መምርሒታት "</string>
+
+    <!-- Meldung Detail Exposed Neue Meldung -->
+    <string name="meldung_detail_exposed_new_meldung">"ሓድሽ ሓበሬታ"</string>
+
+    <!-- Meldung Detail Exposed Titel -->
+    <string name="meldung_detail_exposed_title">"ተኽእሎ ናይ መልከፍቲ ሕማም"</string>
+    <string name="meldung_homescreen_positiv_title">"ውጽኢት መርመራ ፖዚቲቭ ኮይኑ"</string>
+
+    <!-- Meldung Detail Exposed Subtitel -->
+    <string name="meldung_detail_exposed_subtitle">"ተኽእሎ ናይ ለበዳ ሕማም ኣሎ። "</string>
+    <string name="meldung_homescreen_positiv_text">"ዝገበርካዮ መርመራ ንኮሮናቫይረስ ውጽኢቱ ፖዚቲቭ ኮይኑ ተረኺቡ።"</string>
+
+    <!-- Debug Screen: Onboarding Reset Button -->
+    <string name="reset_onboarding">"Onboarding ናብ ዝነበሮ ምምላስ"</string>
+
+    <!-- Heute -->
+    <string name="date_today">"ሎሚ "</string>
+
+    <!-- Meldung Detail: Vor wievielen Tagen {COUNT} wird durch Zahl ersetzt -->
+    <string name="date_days_ago">"ቅድሚ {COUNT} መዓልትታት"</string>
+
+    <!-- Meldungen Detail: Weisse Box Titel -->
+    <string name="meldungen_detail_call">"ድውሉልና "</string>
+
+    <!-- Meldungen Detail Text Weisse Box -->
+    <string name="meldungen_detail_call_text">"መስመር ሓበሬታ ስዊስኮቪድ"</string>
+
+    <!-- Meldungen Detail Weisse Box Button -->
+    <string name="meldungen_detail_call_button">"ሕጂ ደውሉ"</string>
+
+    <!-- Meldungen Detail Weisse Box Titel der Erklärungen -->
+    <string name="meldungen_detail_explanation_title">"ተጠንቀቑ!"</string>
+
+    <!-- Meldungen Detail Weisse Box Erklärungstext 1 -->
+    <string name="meldungen_detail_explanation_text1">"ክይተረደኣኩም ኣላባዕቲ ሕማም ክትኮኑ ትኽእሉ ኢኹም።"</string>
+
+    <!-- Meldungen Detail: Weisse Box Erklärtext 2 -->
+    <string name="meldungen_detail_explanation_text2">"በጃኹም ንስድራቤትኩም መሓዙትኩምን  ከባቢኹምን ካብ ሕማም  ተኸላኸሉ። ተኽእሎ በቲ ሕማም ናይ ምልካፍ ምስዝህሉ ክሳብ 10 መዓልቲ ካብ ዝኾነ ርክባት ተቖጠቡ።"</string>
+
+    <!-- Meldungen Detail: Weisse Box Text -->
+    <string name="meldungen_detail_guard_text">"ሕቶ ምስዝህልወኩም፦ መስመር ሓበሬታ ስዊስኮቪድ ቁጽሪ +41 58 387 77 78 ተወከሱ።"</string>
+
+    <!-- Meldungen Detail Button Weisse Box -->
+    <string name="meldungen_detail_call_again_button">"ክምብሓድሽ ምድዋል"</string>
+
+    <!-- Meldungen Detail: Weisse Box Anruf Zeitpunkt -->
+    <string name="meldungen_detail_call_last_call">"መወዳእታ ዝተደወለሉ መዓልቲ: {DATE}"</string>
+
+    <!-- Subtitel im Onboarding erste Seite -->
+    <string name="app_subtitle">"ንኡስ ኣርእስቲ "</string>
+
+    <!-- Onboarding: Titel oben -->
+    <string name="onboarding_prinzip_heading">"ዕላማ"</string>
+
+    <!-- Onboarding: Titel -->
+    <string name="onboarding_prinzip_title">"ሓደ ስጉምቲ ቅድሚ እቲ ቫይረስ"</string>
+
+    <!-- Onboarding Prinzip Text -->
+    <string name="onboarding_prinzip_text1">"ብስዊስኮድ ኣፕ ዝርግሐ ናይ ሓድሽ ኮሮናቫይረስ ንኽዕገት እጃምኩም ተበርክቱ።"</string>
+
+    <!-- Onboarding Prinzip Text -->
+    <string name="onboarding_prinzip_text2">"እቲ ኣፕ ንስኹም ንኮሮናቫይረስ ናይ ምቅላዕ ተኽእሎ እንተኔሩኩም ይሕብረኩም። "</string>
+
+    <!-- Onboarding Privacy: Titel oben -->
+    <string name="onboarding_privacy_heading">"Privacy by Design"</string>
+
+    <!-- Onboarding Privacy: Titel -->
+    <string name="onboarding_privacy_title">"ንውልቅኹም ጥራይ ዝምልከት ነገራት ምክልኻል "</string>
+
+    <!-- Onboarding Privacy: Text -->
+    <string name="onboarding_privacy_text1">"እተን ሞባይላት  ብግምት ዝተሰርዑ መለልዪ ቁጽርታት ጥራይ እየን ዝለዋወጣ።  ዘለኹሞ ቦታ ይኹን ዋላ ካልእ ንመንነትኩም ዝምልከት ሓበሬታ ኣይእክብን እዩ። "</string>
+
+    <!-- Onboarding Privacy: Text -->
+    <string name="onboarding_privacy_text2">"እቶም ዝተዓቀቡ ብግምት ዝተሰርዑ መለልዪ ቁጽርታት ኣብ ሞባይልኩም ጸኒሖም ድሕሪ 14 መዓልቲ ይስረዙ።"</string>
+
+    <!-- Onboarding Begegnungen: Titel oben -->
+    <string name="onboarding_begegnungen_heading">"እቲ ኣፕ ከምይ ይሰርሕ፧"</string>
+
+    <!-- Onboarding Begegnungen: Titel -->
+    <string name="onboarding_begegnungen_title">"ሳላ ብሉቱዝ ርክባት ምልላይ "</string>
+
+    <!-- Onboarding Begegnungen: Text -->
+    <string name="onboarding_begegnungen_text1">"እቲ ኣፕ ክለተ ተጠቀምቲ ንዝተወሰነ እዋን ጥቓ ንጥቓ እንተኔሮም ብቐጥታ የለልይ።"</string>
+
+    <!-- Onboarding Begegnungen: Text -->
+    <string name="onboarding_begegnungen_text2">"ነዚ ንምግባር:  ትሑት ኤነርጂ ብሉቱዝ (Bluetooth Low Energy (BLE)) እዩ ዝዝውተር። ጂፒኤስ ይኹን ስነድ ሞባይል: ዋይፋይ ወይ ካልእ ናይ ዘለኻዮ ቦታ ስነዳት ኣይዝውተርን እዩ።"</string>
+
+    <!-- Onboarding Meldung: Text oben -->
+    <string name="onboarding_meldung_heading">"እቲ ኣፕ እንታይ ይገብር፧ "</string>
+
+    <!-- Onboarding Meldung: Titel -->
+    <string name="onboarding_meldung_title">"ሓበሬታ ኣብ እዋን ተኽእሎ ናይ ምልካፍ ብሕማም "</string>
+
+    <!-- Onboarding Meldung: Text -->
+    <string name="onboarding_meldung_text1">"እቲ ኣፕ ንስኹም ንኮሮናቫይረስ ናይ ምቅላዕ ተኽእሎ እንተኔሩኩም ይሕብረኩም። "</string>
+
+    <!-- Onboarding Meldung: Text -->
+    <string name="onboarding_meldung_text2">"ብትኽክል ዝኾነ ኣካይዳ ሰንሰለት ለበዳ ሕማም ክትዓግቱን ንኻልኦት ሰባት ካብ ሕማም ክትከላኸሉን ትኽእሉ።"</string>
+
+    <!-- Onboarding Bluetooth: Titel -->
+    <string name="onboarding_bluetooth_title">"ብሉቱዝ ንምጥቃም ፍቓድካ ምሃብ"</string>
+
+    <!-- Onboarding Bluetooth: Text -->
+    <string name="onboarding_bluetooth_text">"ኣፕ ክትጥቀሙ ንኽትክእሉ ብሉቱዝ ክተፍቅዱ ኣለኩም።"</string>
+
+    <!-- Onboarding Bluetooth: Button -->
+    <string name="onboarding_bluetooth_button">"ብሉቱዝ ንምጥቃም ፍቓድካ ምሃብ"</string>
+
+    <!-- Onboarding: Untetitel unten -->
+    <string name="onboarding_good_to_know">"ንኽትፈልጦ ጽቡቕ ዝኾነ"</string>
+
+    <!-- Onboarding Bluetooth: Titel unten -->
+    <string name="onboarding_bluetooth_gtk_title1">"ስቱራት ኢኹም "</string>
+
+    <!-- Onboarding Bluetooth: Text unten -->
+    <string name="onboarding_bluetooth_gtk_text1">"ውልቃዊ ሰነዳት ብብሉቱዝ ኣይርኣዩን እዮም።"</string>
+
+    <!-- Onboarding Bluetooth: Titel unten -->
+    <string name="onboarding_bluetooth_gtk_title2">"ሃልኪ ባትሪ ቁሩብ ይውስኽ "</string>
+
+    <!-- Onboarding Bluetooth: Text unten -->
+    <string name="onboarding_bluetooth_gtk_text2">"እቲ ኣፕ ብዝተኻእለ መጠን ኤነርጂ ከምዝቑጠብ ጌሩ እዩ ዝትግበር።  ሃልኪ ባትሪ ቁሩብ ጥራይ እዩ ዝውስኽ። "</string>
+
+    <!-- Onboarding Mitteilungen: Titel -->
+    <string name="onboarding_push_title">"መልእኽትታት ንምጥቃም ፍቓድካ ምሃብ"</string>
+
+    <!-- Onboarding Mitteilungen: Text -->
+    <string name="onboarding_push_text">"ብኣፕ ሓበሬታ ክበጽሓኩም ምእንታን ምጥቃም መልእኽትታት ክተፍቅዱ ኣለኩም።"</string>
+
+    <!-- Onboarding Mitteilungen: Button -->
+    <string name="onboarding_push_button">"መልእኽትታት ንምጥቃም ፍቓድካ ምሃብ"</string>
+
+    <!-- Onboarding Mitteilungen: Titel Unten -->
+    <string name="onboarding_push_gtk_title1">"ብቑልጡፍ ትሕበር"</string>
+
+    <!-- Onboarding Mitteilungen: Text unten -->
+    <string name="onboarding_push_gtk_text1">"ተኽእሎ ናይ መልከፍቲ ብሕማም ምስዝህሉ ብመልእኽቲ ኣብ ዕጹው ስክሪን ሞባይል ትሕበሩ።"</string>
+
+    <!-- Code senden: Abschluss Gute Besserung -->
+    <string name="inform_send_getwell_title">"ምሕረት የውርደልኩም"</string>
+
+    <!-- Code senden: Abschluss Gute Besserung -->
+    <string name="inform_send_getwell_text">"ቀልጢፍኩም ሕወዩ። ዝተወሃበኩም ንምግላል ዝምልከትመምርሒታት ኣኽብሩ።"</string>
+
+    <!-- Titel auf dem letzen Onboarding Screen -->
+    <string name="onboarding_go_title">"እቲ ኣፕ ተዳልዩ ኣሎ።"</string>
+
+    <!-- Text auf dem letzten Onboarding Screen -->
+    <string name="onboarding_go_text">"ሰንሰለት ለበዳ ሕማም ንምቁራጽ ምትሕግጋዝኩም ኣዚና ነመስግነኩም።"</string>
+
+    <!-- Button-Label auf dem letzten Onboarding screen -->
+    <string name="onboarding_go_button">"ምጅማር"</string>
+
+    <!-- Homescreen: Titel bei Fehler mit Daten -->
+    <string name="homescreen_meldung_data_outdated_title">"እዋናዊ ሰነዳት የለን"</string>
+
+    <!-- Homescreen: Text bei Fehler mit Daten -->
+    <string name="homescreen_meldung_data_outdated_text">"ካብ ዝተወሰነ ግዜ ኣትሒዙ ሓበሬታታት ክወሃሃዱ ኣይከኣሉን።  ሞባይልኩም ምስ ኢንተርነት ከምዝራኸብ ግበሩ። "</string>
+
+    <!-- Homescreen: Button Titel -->
+    <string name="homescreen_meldung_data_outdated_retry_button">"ከምብሓድሽ ምፍታን"</string>
+
+    <!-- Titel Fehlermeldung für ungültigen Code -->
+    <string name="inform_code_invalid_title">"ዘይሰርሕ ኮድ "</string>
+
+    <!-- Fehlermeldung Subtitle ungültiger Code -->
+    <string name="inform_code_invalid_subtitle">"ጸገም ምስዝህሉ ነቲ ኮቪድኮድ ዝሃበኩም ትካል ደውሉሉ።  "</string>
+
+    <!-- Datum: Vor 1 Tag -->
+    <string name="date_one_day_ago">"ቅድሚ 1 መዓልቲ"</string>
+
+    <!-- Meldungen Detail: Titel -->
+    <string name="meldung_detail_new_contact_title">"ከምብሓድሽ ጥርጠራ"</string>
+
+    <!-- Meldungen Detail: Text -->
+    <string name="meldung_detail_new_contact_subtitle">"ተኽእሎ ናይ ምልካፍ ብሕማም ኣሎ።"</string>
+
+    <!-- Fehler mit Uhrzeit Titel -->
+    <string name="time_inconsistency_title">"ናይ ሰዓት ጌጋ"</string>
+
+    <!-- Fehler mit Uhrzeit Text -->
+    <string name="time_inconsistency_text">"ምክትታል ሕማም ክስርሕ ምእንታን: ሰዓት ብግቡእ ኣስተኻኽልዎ።"</string>
+
+    <!-- Begegnungen: Neustart Titel -->
+    <string name="begegnungen_restart_error_title">"ከምብሓድሽ ምጅማር (ምውላዕ) የድሊ"</string>
+
+    <!-- Begegnungen: Neustart Text -->
+    <string name="begegnungen_restart_error_text">"ዘይተሓስበ ጌጋ ኣጓኒፉ። ሞባይል ከምብሓድሽ ጀምርዎ።"</string>
+
+    <!-- Fehler Titel für Hintergrund-Fehler -->
+    <string name="meldungen_background_error_title">"ድሕረባይታ እዋናዊ ንምግባር ኣገልግሎት የለን (ጠፊኡ ኣሎ)።"</string>
+
+    <!-- Text für Hintergrund Fehler -->
+    <string name="meldungen_background_error_text">"ሓድሽ ሓበሬታ ምስዝህሉ: ካብቲ ኣፕ ወጻኢ ውን ንኽትሕበሩ ምእንታን: ነቲ ሴቲንግ ቀይርዎ። "</string>
+
+    <!-- Button Titel für Hintergrundfehler beheben -->
+    <string name="meldungen_background_error_button">"ሴቲንግ ምቕያር "</string>
+
+    <!-- Default message for force update -->
+    <string name="force_update_text">"ምክትታል ክሰርሕ ምእንታን እቲ ሓድሽ ዓይነት ናይ ኣፕ ኣውርድዎ።"</string>
+
+    <!-- Ignorieren Button Titel -->
+    <string name="meldung_in_app_alert_ignore_button">"ሽለል ምባል"</string>
+
+    <!-- Button Titel -->
+    <string name="meldung_in_app_alert_accept_button">"ናብ ሓበሬታ "</string>
+
+    <!-- Meldungen Detail: Button Titel -->
+    <string name="meldungen_detail_call_again">"ከምብሓድሽ ደውሉ"</string>
+
+    <!-- Fehlernachricht für Netzwerkfehler -->
+    <string name="network_error">"ርክብ ኢንተርነትኩም መርምሩ"</string>
+
+    <!-- Unerwarteter Fehler, mit Aufforderung Aktion erneut zu versuchen -->
+    <string name="unexpected_error_with_retry">"ዝይተሓስበ ጌጋ ኣጓኒፉ። ደጊምኩም ፈትኑ።  "</string>
+
+    <!-- VoiceOver: Datum -->
+    <string name="accessibility_date">"ዕለት"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_1nd">"ቀዳማይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_2nd">"ካልኣይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_3nd">"ሳልሳይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_4nd">"ራብዓይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_5nd">"ሓሙሻይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_6nd">"ሻድሻይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_7nd">"ሻብዓይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_8nd">"ሻምናይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_9nd">"ታሽዓይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_10nd">"ዓስራይ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_11nd">"መበል ዓሰርተሓደ"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_12nd">"መበል ዓሰርተኽልተ"</string>
+
+    <!-- Voiceover: Hilfetext bei Codeeingabe -->
+    <string name="accessibility_code_button_disabled_hint">" እቲ ኮድ ብምሉኡ ስለዝይተዋህበ ምጥዋቕ ኣይክኣልን እዩ። "</string>
+
+    <!-- Fehler: Standortinformationen / Bluetooth -->
+    <string name="android_foreground_service_notification_error_location_service">"ኣብ Android ዘለዎም መሳርሒታት Bluetooth ካብ መርከቢ ቦታ ኣገባብ (ሎከይሽን) ይምርኮስ። ስለዚ እቲ ናይ መርከቢ ቦታ ኣገባብ ክውላዕ ኣለዎ፣ ሽሕ'ኳ እቲ ኤፕ ንቦታኹም ክረክብ ዘየድሊ።"</string>
+
+    <!-- Location Services ausgeschaltet Titel -->
+    <string name="android_error_location_services_title">"ሓባሪ ዘለኹሞ ቦታ ጠፊኡ ኣሎ"</string>
+
+    <!-- Location Services ausgeschaltet Button -->
+    <string name="android_error_location_services_button">"ሓባሪ ዘለኹሞ ቦታ ምውላዕ"</string>
+
+    <!-- Information Button in the navigation bar -->
+    <string name="accessibility_info_button">"ሓበሬታ"</string>
+
+    <!-- Synchronisations-Fehler Titel -->
+    <string name="sync_warning_notification_title">"ምውህሃድ ኣፕ"</string>
+
+    <!-- Synchronisations-Fehler Text -->
+    <string name="sync_warning_notification_text">"ዝርዝር ናይ ዝተሓበሩ ብግምት ዝተሰርዑ መለልዪ ቁጽርታት  ንኽመዓራረ ነቲ ኣፕ ክፈትዎ።"</string>
+
+    <!-- Meldungen Detail: Button bei Vollansicht -->
+    <string name="meldung_animation_continue_button">"ቀጽል"</string>
+
+    <!-- Titel Impressum Menu -->
+    <string name="menu_impressum">"ኣዳለውቲ"</string>
+
+    <!-- Begegnungen: FAQ Titel -->
+    <string name="begegnung_detail_faq1_title">"ምርኻብ ማለት እንታይ እዩ፧"</string>
+
+    <!-- Begegnungen: FAQ Text -->
+    <string name="begegnung_detail_faq1_text">"ኣፕ ዘለወን ሞባይላት ንዝተወሰነ ግዜ ጥቓ ንጥቓ ምስዝኾና: እዚ ከም ምርኻብ ይምዝገብ።"</string>
+
+    <!-- Begegnungen: FAQ Titel -->
+    <string name="begegnung_detail_faq2_title">"ውልቃዊ ሰነዳተይ ውሑሳት ድዮም፧"</string>
+
+    <!-- Begegnungen: FAQ Text -->
+    <string name="begegnung_detail_faq2_text">"ኣብ እዋን ርክብ እቶምብግምት ዝተሰርዑ መለልዪ ቁጽርታት ጥራይ እዮም ዝቀያየሩ።  እዚኦም ኣብቲ ሞባይላት ተዓቂቦም ጸኒሖም ድሕሪ 14 መዓልቲ ይስረዙ።"</string>
+
+    <!-- Begegnungen: FAQ Titel -->
+    <string name="begegnungen_detail_faq3_title">"ብሉቱዝ ኩልጊዜ ክፉት ክኸውን ኣለዎ ዶ፧"</string>
+
+    <!-- Begegnungen: FAQ Text -->
+    <string name="begegnungen_detail_faq3_text">"ርክባት ክልለዩ ክኽእሉ ምእንታን ብሉቱዝ ኩልግዜ ክፉት ክኸውን ኣለዎ። ስለዝኾነ ምጥቃም ሓይሊ ባትሪ ብመጠኑ ጥራይ እዩ ይውስኽ።"</string>
+
+    <!-- FAQ Button Titel -->
+    <string name="faq_button_title">"ብዙሕ ግዜ ዝሕተቱ ሕቶታት"</string>
+
+    <!-- Meldungen Keine Meldungen FAQ Titel -->
+    <string name="meldungen_nomeldungen_faq1_title">"ሓበሬታ ክብሃል ከሎ እንታይ ማለት እዩ፧"</string>
+
+    <!-- Meldungen: Keine Meldungen FAQ Text -->
+    <string name="meldungen_nomeldungen_faq1_text">"እቲ ኣፕ ክልኦት ዝተራኸብኩሞም ተጠቀምቲ  ብመርመራ ፖዚቲቭ ከምዝኾኑ ሓቢሮም እንተኾይኖም ቀጻሊ ይምርምር። 
+ተኽእሎ ምልካፍ ብሕማም ምስዝህሉ ብመነግዲ መልእኽቲ ኣብ ዕጹው ስክሪን ሞባይል ክትሕበሩ ኢኹም።  "</string>
+
+    <!-- Meldungen: Keine Meldungen FAQ Titel -->
+    <string name="meldungen_nomeldungen_faq2_titel">"ተኽእሎ ምልካፍ ብሕማም እንታይ ማለት እዩ፧"</string>
+
+    <!-- Meldungen: Keine Meldungen FAQ Text -->
+    <string name="meldungen_nomeldungen_faq2_text">"እቲ ኣፕ ርክብ ምስ ዝተለኸፉ ሰባት ኣጓኒፉ እንተኾይኑ ጥራይ ዘይኮነስ ንውሒ ግዜን  ዓቐን ናይቲ ቅርበትን እዩ ዝምርምር።  ቡቑዕ ተኽእሎ ናይ መልከፍቲ ምስዝህሉ ጥራይ ኢኹም ትሕበሩ።"</string>
+
+    <!-- Meldungen Detail Weisse Box Texte Unten -->
+    <string name="meldungen_detail_explanation_text3">"መስመር ሓበሬታ ስዊስኮቪድ ብዛዕባ  ተኽእሎ ካብ ክፍሊት ነጻ ናይ ዝኾነ መርመራ የማኽረኩም።  "</string>
+
+    <!-- Meldungen: Meldungen FAQ -->
+    <string name="meldungen_meldungen_faq1_title">"ክድውል ኣለኒ ዶ፧"</string>
+
+    <!-- Meldungen: Meldungen FAQ Text -->
+    <string name="meldungen_meldungen_faq1_text">"ሓድሽ ሓበሬታ ኣብ ዘዝመጸሉ እዋን ክትድውሉ ይምከር።  ስቱራት ኢኹም። ናይ መንነት ሰነዳትኩም ኣይምዝገቡን እዮም። እቲ ዝግበር ልዝብ ምኽሪ ብዘይ ክፍሊት እዩ።  ናይ ምድዋል ወጻኢታት ጥራይ እዩ ዝህልው።"</string>
+
+    <!-- Meldungen Detail: Anruf Titel -->
+    <string name="meldungen_detail_call_thankyou_title">"ብምትሕብባርኩም ነመስግን"</string>
+
+    <!-- Meldungen Detail Anruf Danke Subtitel -->
+    <string name="meldungen_detail_call_thankyou_subtitle">"ንኻልኦት ትከላኸሉ"</string>
+
+    <!-- Keine Meldungen Link in weisser Box Titel -->
+    <string name="no_meldungen_box_link">"ብኸምዚ መንገዲ ንነብስና ንከላኸል"</string>
+
+    <!-- Keine Meldungen Weisse Box Link URL -->
+    <string name="no_meldungen_box_url">"https://www.bag-coronavirus.ch"</string>
+
+    <!-- Informieren Detail: FAQ Titel -->
+    <string name="inform_detail_faq1_title">"ኮቪድኮድ እንታይ እዩ፧"</string>
+
+    <!-- Inform Detail: FAQ Text -->
+    <string name="inform_detail_faq1_text">"ውጽኢት መርመርኦም ፖዚቲቭ ዝኾኑ ሰባት ኮቪድኮድ ይውሃቦም። ብኸምዚ መንገዲ እቶም ሕማም ዝተረጋገጸሎም ሰባት ጥራይ በቲ ኣፕ ከምዝምዝገቡ ይረጋገጽ። 
+"</string>
+
+    <!-- Inform Detail: FAQ Titel -->
+    <string name="inform_detail_faq2_title">"እንታይ እዩ ዝስደድ፧ "</string>
+
+    <!-- Inform Detail FAQ Text -->
+    <string name="inform_detail_faq2_text">"እቶምብግምት ዝተሰርዑ መለልዪ ቁጽርታት ጥራይ እዮም ዝስደዱ ። ውልቃቂ ሰነዳት ኣይስደዱን እዮም።  
+ብኸምዚ መንገዲ ካልኦት ተጠቀምቲ ስዊስኮቪድ ተኽእሎ መልከፍቲ ሕማም ከምዘሎ ይፈልጡ።"</string>
+
+    <!-- Telefonnummer der Infoline -->
+    <string name="infoline_tel_number">"+41 58 387 77 78"</string>
+
+    <!-- URL für Häufige Fragen Button -->
+    <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/de/categories/swisscovid-app"</string>
+
+    <!-- Informieren Flow: Titel erster Screen -->
+    <string name="inform_code_intro_title">"ኣገዳሲ ሓበሬታ"</string>
+
+    <!-- Informieren-Flow: Erster Screen Text -->
+    <string name="inform_code_intro_text">"ዝኾነ ሓበሬታ ብዛዕባኹም ዋላኳ እንተዘይተሰደደ: ዝኾነ ሰብ በቲ ዕለት ጌሩ ምርኻብኩም ክዝክሮ ይኽእል እዩ። "</string>
+
+    <!-- Inform-Flow: Erster Screen Button -->
+    <string name="inform_code_intro_button">"ተረዲኡኒ"</string>
+
+    <!-- Symptome: FAQ Titel -->
+    <string name="symptom_faq1_title">"ምልክታት ኮቪድ-19 እንታይ እዩ፧"</string>
+
+    <!-- Symptome: FAQ Text -->
+    <string name="symptom_faq1_text">"እዚኦም ምልክታት ብዙሕ ግዜ ይርኣዩ፦ 
+- ረስኒ፣ ስምዒት ናይ ረስኒ
+- ቃንዛ ጎሮሮ
+- ሰዓል (መብዛሕትኡ ግዜ ደረቕ ሰዓል)
+- ሕጽረት እስትንፋስ
+- ቃንዛ ጨዋዳታት
+- ናይ ምሽታትን ናይ ምስትምቓርን ክእለት ብሃንደበት ምጥፋእ"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ Titel -->
+    <string name="meldungen_positive_tested_faq1_title">"ንምንታይ ምክትታል ተወዲኡ፧"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ Text -->
+    <string name="meldungen_positive_tested_faq1_text">"ድሕሪ ፖዚቲቭ ውጽኢት መርመራ እቲ ምክትታል ኣብ ኣፕ ብቐጥታ ይውዳእ። "</string>
+
+    <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
+    <string name="language_key">"ti"</string>
+
+    <!-- Meldungen Homescreen: Name Hotline -->
+    <string name="exposed_info_contact_hotline_name">"ናይ ሓበሬታ መስመር ስዊስኮቪድ "</string>
+
+    <!-- Meldung Detail: "Noch 1 Tag" Label -->
+    <string name="date_in_one_day">"ገና 1 መዓልቲ"</string>
+
+    <!-- Meldung Detail: Anzeige "Noch x Tage" {COUNT} wird durch Zahl ersetzt -->
+    <string name="date_in_days">"ገና {COUNT} መዓልቲ"</string>
+
+    <!-- Datum: Text vor Datum: am 26.2.2020 / {DATE} wird ersetzt durch Datum -->
+    <string name="date_text_before_date">"ዕለት {DATE}"</string>
+
+    <!-- Accessibility Talk back information for android back button in toolbar -->
+    <string name="android_accessibility_back_button">"ተመለስ"</string>
+
+    <!-- VoiceOver: Hilfetext bei Codeeingabe Button -->
+    <string name="accessibility_code_button_current_code_hint">"ዝኣተወ ኮድ"</string>
+
+    <!-- Accessibility: Codeeingabe einer Ziffer -->
+    <string name="accessibility_code_input_textfield">"ናይ መጽሑፊ ቦታ። ናይ ሕጂ እዋን ቁጽሪ፦"</string>
+
+    <!-- Accessibility: Code Input Textfeld wenn leer -->
+    <string name="accessibility_code_input_textfield_empty">"ናይ መጽሑፊ ቦታ። ባዶ።"</string>
+
+    <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
+    <string name="accessibility_code_input_hint">"ንኽትሰርሖ ብዕጽፊ ምህራም (ታይፕ ምግባር) "</string>
+
+    <!-- Accessibility: FAW Button Titel  -->
+    <string name="accessibility_faq_button_hint">"እዚ ባተን (Button) ነቲ ኣፕ ገዲፉ  መርበብ ሓበሬታ ናይ ሚንስትሪ ጥዕና ስዊዝርላንድ (B. A. G.) ይኸፍት። "</string>
+
+    <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_title">"ኣገልግሎት ምክትታል ከም ዝሰርሕ ግበርዎ (ወልዕዎ)"</string>
+
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
+    <string name="onboarding_gaen_text_ios">"ኣፕ ምጥቃም ንምኽኣል ናይ ኮቪድ-19 መልእኽትታት ናይ ርክባት ከጅመሩ (ከም ዝሰርሑ ክግበሩ) ኣለዎም።"</string>
+
+    <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_button_activate">"ምውላዕ (ከም ዝሰርሕ ምግባር)"</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
+    <string name="onboarding_gaen_info_title_1">"ውልቃዊ ሰነዳት ምክልኻል"</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
+    <string name="onboarding_gaen_info_text_1">"ብግምት ዝተሰርዑ መለልዪ ቁጽርታት ጥራይ  ኢኻ ነንሕድሕድካ ትለዋወጥ። ብዛዕባ ዘለኹሞ ቦታ ወይ መንነትክኩም ኣይኮነን። "</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
+    <string name="onboarding_gaen_info_title_2">"ሃልኪ ባትሪ ቁሩብ ይውስኽ "</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 2 -->
+    <string name="onboarding_gaen_info_text_2">"እቲ ኣፕ ብዝተኻእለ መጠን ኤነርጂ ከምዝቑጠብ ጌሩ እዩ ዝትግበር። ሃልኪ ባትሪ ቁሩብ ጥራይ እዩ ዝውስኽ። "</string>
+
+    <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_button_activated">"ይሰርሕ ኣሎ"</string>
+
+    <!-- Meldung in der App löschen, wenn möglicherweise angesteckt -->
+    <string name="delete_reports_button">"ሓበሬታ ምድምሳስ"</string>
+
+    <!-- Meldung im Löschen Dialog wenn möglicherweise angesteckt -->
+    <string name="delete_reports_dialog">"ሓበሬታ  ናይ ብሓቂ  ክትድምስስዎ ደሊኹም ዶ፧"</string>
+
+    <!-- Code-Eingabe in der App löschen, wenn infiziert -->
+    <string name="delete_infection_button">"ሓበሬታ ምድምሳስ"</string>
+
+    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <string name="delete_infection_dialog">"ሓበሬታ ናይ ብሓቂ  ክትድምስስዎ ደሊኹም ዶ፧"</string>
+    <string name="android_onboarding_battery_permission_title">"ኣገልግሎት ምምሕያሽ ባትሪ (ኣኩ) ሸለል ምባል"</string>
+    <string name="android_onboarding_battery_permission_text">"ርክባት ኩልግዜ ምልላይ ንምኽኣል: ኣገልግሎት ምምሕያሽ ባትሪ (ኣኩ)ናይዚ ኣፕ ዕጹው ክኸውን ኣለዎ።  "</string>
+    <string name="android_onboarding_battery_permission_button">"ምፍቃድ (ሐራይ ምባል)"</string>
+    <string name="android_onboarding_battery_permission_button_deactivated">"ሐራይ"</string>
+    <string name="android_onboarding_battery_permission_info_1_title">"ነዚ ኣፕ ጥራይ"</string>
+    <string name="android_onboarding_battery_permission_info_1_text">"እቲ ኣፕ ንኽሰርሕ ኣብ ድሕረባይታ ውን ከምዝህሉ ክግበር ኣለዎ። ነዚ ዕላማ እቲ ኣገልግሎት ምምሕያሽ ባትሪ (ኣኩ) ንሓደ ሓደ ኣፓት ክጠፍእ ይኽእል እዩ።  "</string>
+    <string name="android_onboarding_battery_permission_info_2_title">"ሃልኪ ባትሪ ቁሩብ ይውስኽ "</string>
+    <string name="android_onboarding_battery_permission_info_2_text">"እቲ ኣፕ ብዝተኻእለ መጠን ኤነርጂ ከምዝቑጠብ ጌሩ እዩ ዝትግበር።  ሃልኪ ባትሪ ቁሩብ ጥራይ እዩ ዝውስኽ። "</string>
+    <string name="android_foreground_service_notification_error_battery_optimization">"ምክትታል ብልክዕ ክሰርሕ ምእንታን:  እቲ ኣፕ ኣብ ድሕረባይታ ውን ከምዝህሉ ክግበር ኣለዎ። ሃልኪ ባትሪ ቁሩብ ጥራይ እዩ ዝውስኽ። "</string>
+
+    <!-- Google Play Services nicht aktuell -->
+    <string name="gaen_not_aviable">"Google Play Services እዋናዊ ኣይኮነንll"</string>
+
+    <!-- Google Play Services nicht aktuell text -->
+    <string name="gaen_not_available_text">"Google Play Services ኣሐድስዎ (እዋናዊ ግበርዎ)።"</string>
+
+    <!-- Tracing wurde vom System deaktiviert, erneut starten -->
+    <string name="gaen_unexpectedly_disabled">"ምክትታል ኣይሰርሕን ኣሎ። ከምብሓድሽ ጀምርዎ። "</string>
+
+    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
+    <string name="tracing_permission_error_title_ios">"መልእኽትታት ርክባት ኮቪድ-19 ኣይሰርሕን ኣሎ (ዕጹው ኣሎ) "</string>
+
+    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
+    <string name="tracing_permission_error_text_ios">"ምክትታል ክሰርሕ ምእንቲ  መልእኽትታት ርክባት ኮቪድ-19 ከምዝሰርሕ ግበርዎ (ወልዕዎ)። "</string>
+
+    <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
+    <string name="user_cancelled_key_sharing_error">"መልእኽቲ ክስደድ ኣይክኣለን። ብግምት ዝተሰርዑ መለልዪ ቁጽርታትኩም ብስዊስኮቪድ ኣፕ ንኽከፋፈል ኣፍቅዱ። "</string>
+
+    <!-- Button um die Google Play Services zu aktualisieren -->
+    <string name="playservices_update">"ምሕዳስ (እዋናዊ ምግባር)"</string>
+
+    <!-- Button um die Google Play Services zu installieren -->
+    <string name="playservices_install">"ምትካል (ምጅማር)"</string>
+
+    <!-- Titel für Infos zu den Google Play Services -->
+    <string name="playservices_title">"Google Play Services"</string>
+
+    <!-- Meldung, dass die Google Play Services benötigt werden -->
+    <string name="playservices_text">"ኣገልግሎት ምክትታል ንኽተጀምር እዋናዊ ዝኾነ  ጉግል ፕለይ ሰርቪስ (Google Play Services) የድሊ። ኣብዚ ሕጂ እዋን ሞባይልኩም እዋናዉ ናይ ምግባር (ኣፕደይተ) ተኽእሎ እንተዘየለ: ጽንሕ ኢልኩም ደጊምኩም ፈትኑ።
+"</string>
+    <string name="android_error_battery_optimization_title">"ምምሕያሽ ናይ ባትሪ (ኣኩ) ምውዳእ ይሰርሕ ኣሎ"</string>
+    <string name="android_error_battery_optimization_button">"ምፍቃድ (ሐራይ ምባል)"</string>
+
+    <!-- Telefonnummer für Hilfe bei App-Problemen -->
+    <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
+
+    <!-- text shown in notification when we get an exception from the GAEN api -->
+    <string name="sync_api_error">"ኣብ እዋን ምውህሃድ ናይ ሓበሬታታት ዝይተሓስበ ጌጋ ኣጓኒፉ።"</string>
+
+    <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
+    <string name="certificate_validation_error">"ውሑስ ዝኾነ መስመር ምስ ሰርቨር ኣይክኣልን እዩ። VPNኩም ወይ Proxyኹም መርምርዎ ወይ ኣጥፍእዎ ወይ Public WLAN ትጥቀሙ እንተለኹም መርምሩ።"</string>
+
+    <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
+    <string name="android_en_start_failure">"መልእኽትታት ኮቪድ-19 ከም ዝሰርሑ ክግበሩ (ክጅመሩ) ኣይከኣሉን።"</string>
+
+    <!-- Certificate pinning Debug screen section title -->
+    <string name="certificate_pinning_title">"Certificate Pinning"</string>
+    <string name="certificate_pinning_button_disable">"ከምዘይሰርሕ ምግባር (ምጥፋእ)"</string>
+    <string name="certificate_pinning_button_enable">"ምሕዳስ (እዋናዊ ምግባር)"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
+    <string name="onboarding_legal_heading">"Preview Version"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Titel -->
+    <string name="onboarding_legal_title">"ምጥቃም ጥራይ ንተሳተፍቲ ናይ ልምምድ እዋን "</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
+    <string name="onboarding_legal_text1">"ኣብዚ እዋን እዚ ምጥቃም ናይዚ ኣፕ ነዞም ዝስዕቡ ብሚንስትሪ ጥዕና ንምልምማድ ኢሎም ዝተዓደሙ ሰባት ጥራይ እዩ ተመዲቡን ተፈቒዱን ዘሎ፦  ኣብ ትምህርቲ: ኣብ ኣገልግሎት ሓገዝን ወይ ንጡፍ ኣገልግሎትን ዝርከቡ ኣባላት ሰራዊት ስዊዘርላንድ: ሰራሕተኛታት ላዕለዋይ ኣብያተ ትምህርቲ: ሰራሕተኛታት ሕክምናን ክሊኒክን: ሰራሕተኛታት ዞባዊ ምምሕዳራትን ሃገራዊ ምምሕዳራትን ከምኡውን ንምምሕያሽ ዓይነት ናይቲ ሲስተም እጃም ከበርክቱ ዝደልዩ ኣባላት ማሕበራት።"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
+    <string name="onboarding_legal_text2">"እቲ ናይ ምልምማድ እዋን ብውጽኢታዊ ዝኾነ ሲስተም ዝትግበር ኮይኑ ትኽክለኛ ሰነዳት ይሕዝ።  ሓኻይም ካንቶን ኣብ እዋን ፖዚቲቭ ውጽኢት መርመራ ናይ ኮቪድ-19: ነቶም ዘይተፈቐደሎም ተጠቀምቲ: ዝኾነ ካብ ኣፕ ንዝስደድ መልእኽቲ ዝምልከት ኮቪድኮድ ክፈጥሩ ኣይፍቀደሎምን እዩ።  ካብቲ ሕጹር ዝኾነ Public Security Tests ወጻኢ ዝኾነ ምጥቃዕ («Penetration Tests») ናይዚ ሲስተም ማለት ምጥቃዕ ናይዚ  ውጽኢታዊ ሲስተም ማለት እዩ። እዚ ድማ ዘይሕጋዊ እዩ።  "</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_title">"ኣባል ናይ ሓደ ኣብዚ ናይ ምልምማድ እዋን ክሳተፍ ዝፍቀደሉ ትካል ወይ ማሕበር ዲኹም፧ "</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_message">"ኣባል ናይዞም ዝስዕቡ ጉጅለ ዲኹም፧ኣብ ትምህርቲ: ኣብ ኣገልግሎት ሓገዝን ወይ ንጡፍ ኣገልግሎትን ዝርከቡ ኣባላት ሰራዊት ስዊዘርላንድ: ሰራሕተኛታት ላዕለዋይ ኣብያተ ትምህርቲ: ሰራሕተኛታት ሕክምናን ክሊኒክን: ሰራሕተኛታት ዞባዊ ምምህዳራትን ሃገራዊ ምምሕዳራትን ከምኡውን ንምምሕያሽ ዓይነት ናይቲ ሲስተም እጃም ከበርክቱ ዝደልዩ ኣባላት ማሕበራት "</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_no">"ኣይፋል"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_yes">"እወ"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
+    <string name="onboarding_legal_blocker_title">"ናይ ምልምማድ እዋን "</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
+    <string name="onboarding_legal_blocker_message">"ኣባል ናይ ሓደ ኣብ እዋን ምልምማድ ተሳታፊ ትካል ወይ ማሕበር  ኣይኮንኩምን።  ድሕሪ እቲ ወግዓዊ ምጅማር ናይቲ ኣፕ እቲ ምስኡ ዝኸይድ ምሕዳስ (ኣፕደይት) ኣስተኻኺልኩም ነቲ ኣፕ ክፈትዎ።"</string>
+    <string name="begegnung_detail_last_sync_title">"መወዳእታ ዝተገበረ ዕዉት ዝኾነ ምውህ ሃድ/ምስንናይ "</string>
+    <string name="synchronizations_view_title">"ሓፈሻዊ መእተዊ/መርኣዩ"</string>
+    <string name="synchronizations_view_info_title">"ምውህሃዳት"</string>
+    <string name="synchronizations_view_info_question">"ምውህሃዳት እንታይ እዮም፧"</string>
+    <string name="synchronizations_view_info_answer">"እቲ ኣፕ ተመርሚም ፖዚቲቭ ዝተረኸቡ ሰባት ንዝዘርግሕዎም ብግምት ዝተሰርዑ መለልዪ ቁጽርታት ቀጻሊ ይምርምር።    "</string>
+    <string name="synchronizations_view_period_title">"ኣብተን ዝሓለፋ 14 መዓልትታት "</string>
+    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
+    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
+    <string name="synchronizations_view_empty_list">"ዝተመዝገበ የለን"</string>
+    <string name="synchronizations_view_sync_via_scheduled">"  • ዝተወጠነ"</string>
+    <string name="synchronizations_view_sync_via_fake_request">"  • ዝተሰነዐ ሕቶ"</string>
+    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • ምስቃል"</string>
+
+    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_before_title">"ቅድሚ ዝርርብ"</string>
+
+    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_main_title">"እዚ ዝስዕብ ሓበሬታ ጽሓፍዎ "</string>
+
+    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_datum">"ዕለት"</string>
+
+    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_number">"ቁጽሪ"</string>
+    <string name="tracing_active_tracking_always_info">"እቲ ኣፕ ዋላ እንተተዓጽወ ስዊስኮቪድ ይስርሕ እዩ።"</string>
+
+    <!-- title in splash screen of onboarding -->
+    <string name="oboarding_splashscreen_title">"ስዊስኮቪድ ንሰነሰለት ለበዳ ሕማም የቋርጾ"</string>
+    <string name="inform_detail_faq3_text">"ዋላኳ  ዝኾነ ሓበሬታ ብዛዕባኹም እንተዘይተሰደደ ዝኾነ ሰብ በቲ ዕለት ጌሩ ምርኻብኩም ክዝክሮ ይኽእል እዩ። "</string>
+    <string name="inform_detail_faq3_title">"ስቱር ድዩ፧"</string>
+
+    <!-- Meldung Detail Weiss Box unten -->
+    <string name="meldungen_detail_explanation_text4">"መጀመርታ ምልክታት ናይ ሕማም ኣብ ዝርአዩሉ እዋን  ናይ ኮሮናቫይረስ ጥዕናዊ ሕቶታት ፈትሹ (Coronavirus-Checክ) ወይ ናብ ሓኪምኩም ደውሉ።"</string>
+
+    <!-- Text beim Bluetooth Control -->
+    <string name="tracing_setting_text_android">" መልእኽትታት ኮቪድ-19 "</string>
+
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
+    <string name="onboarding_gaen_text_android">"ኣፕ ምጥቃም ንኽክኣል መልእኽትታት ናይ ኮቪድ-19 ክኽፈቱ ወይ ከም ዝሰርሑ ክግብሩ ኣለዎም።"</string>
+
+    <!-- Onboarding Disclaimer Screen: AppName Title -->
+    <string name="onboarding_disclaimer_heading">"ስዊዝኮቪድ"</string>
+
+    <!-- Onboarding Disclaimer Screen: Title -->
+    <string name="onboarding_disclaimer_title">"ሓበሬታ ብዛዕባ ኣጠቓቕማ"</string>
+
+    <!-- Onboarding Disclaimer Screen: Info -->
+    <string name="onboarding_disclaimer_info">"መግለጺ ናይ ምክልኻል ውልቃዊ ሰነድን ንምጥቃም ክማልኡ ዘለዎም ነገራትን ኣብዚ ትረኽቡ።"</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Title -->
+    <string name="onboarding_disclaimer_warning_title">"መጠንቀቕታ:-  እዚ ኣፕ ካብ ሕማም ኮቪድ-19 ኣይከላኸለልኩምን እዩ። "</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Text -->
+    <string name="onboarding_disclaimer_warning_body">"እቲ ኣፕ ንምክትታል ምቅርራብን የገልግል።  ከምኡውን ንተጠቀምቲ ኣፕ ካብ ተኽእሎ ምልካፍ ብሕማም ድሕሪ ምስ ብኮቪድ-19 ዝሓመመ ሰብ ምርኻቦም  የጠንቅቖም። ናይ ነጸርታ መሳርሒ ውን ኣይኮነን። ኣብ ነፍስወከፍ ስክሪን ናይ ኣፕ ዝርከቡ መምርሒታት ብግቡእ ኣንብቦብዎም።"</string>
+
+    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
+    <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
+Schwarzenburgstrasse 157
+3097 Liebefeld, Schweiz"</string>
+
+    <!-- Onboarding Disclaimer Screen: App version title -->
+    <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
+
+    <!-- Onboarding Disclaimer Screen: Release version title -->
+    <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
+
+    <!-- onboarding privacy and conditions of use button -->
+    <string name="onboarding_disclaimer_legal_button">"መግለጺ ናይ ምክልኻል ውልቃዊ ሰነድን ንምጥቃም ክማልኡ ዘለዎም ነገራትን"</string>
+
+    <!-- onboarding privacy and conditions of use url -->
+    <string name="onboarding_disclaimer_legal_button_url">"https://www.bag.admin.ch/swisscovid-datenschutzerklaerung-und-nutzungsbedingungen"</string>
+
+    <!-- Google Translation -->
+    <!-- Error shown when loading fails because there is not enough free disk space. -->
+    <string name="loading_error_no_disk_space">"ሞባይልኩም ውሑድ ናይ መዕቆሪ ዓቕሚ ስለ ዘለዎ ሓበሬታታት ክምርመሩ ኣይክእሉን እዮም። ነጻ ናይ መዕቆሪ ቦታ ከምዝህልወኩም ግበሩ።"</string>
+
+    <!-- Onboarding: Akzeptieren Buttton Titel -->
+    <string name="onboarding_accept_button">"ምቕባል "</string>
+
+    <!-- Google Translation -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Titel -->
+    <string name="ratelimit_error_title">"ምሕዳስ (እዋናዊ ምግባር) ኣብዚ ሕጂ እዋን ኣይክኣልን እዩ"</string>
+
+    <!-- Google Translation! -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
+    <string name="ratelimit_error_text">"ሎሚ ድሮ ኣዝዩ ብዙሕ ቃለ መሕተት ተጌሩ ኣሎ። እቲ ኣፕ ጸኒሑ ደጊሙ ክፍትን እዩ።  "</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"ምክትታል ተጀሚሩ (ከም ዝሰርሕ ተጌሩ)"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"ምክትታል ተቛሪጹ (ከም ዘይሰርሕ ተጌሩ)"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Title -->
+    <string name="meldungen_detail_free_test_title">"ነጻ መርመራ ይከኣል'ዩ"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"Infoline SwissCovid ብዛዕባ ኣማራጺ ነጻ መርመራ ኮሮና ይመኽረኩም።"</string>
+
+    <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
+    <string name="activate_tracing_button">"ንትራይሲንግ(Tracing) ምውላዕ"</string>
+
+    <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
+    <string name="tracing_turned_off_detailed_text">"ንትራይሲንግ ወልዕዎ፣ እቲ ኤፕ ዝኾነ ርክብ ክዕቅብ ከምኡ'ውን መልእኽትታት ክቕበል መታን ክኽእል።"</string>
+
+    <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
+    <string name="meldungen_tracing_not_active_warning">"ትራይሲንግ እንተዘይተወሊዑ መልእኽትታት ውን ክኣትዉ ኣይክእሉን።"</string>
+
+    <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_title">"ምልክታ"</string>
+
+    <!-- Data Protection Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_data_protection_statement">"መግለጺ ውዕል ብሑትነት"</string>
+
+    <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_conditions_of_use">"መዘውተሪ ኩነታት"</string>
+
+    <!-- Button title that links to the website with the data protection statement and conditions of use. -->
+    <string name="onboarding_disclaimer_to_online_version_button">"ንኣብ ኦንላይን ዘሎ ክፋል"</string>
+
+    <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_warning">"ትራይሲንግ እንተዘይተወሊዑ መልእኽትታት ውን ክኣትዉ ኣይክእሉን።"</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"ዕጸው"</string>
+</resources>

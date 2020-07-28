@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<resources>
+
+    <!-- App Name -->
+    <string name="app_name">"SwissCovid"</string>
+
+    <!-- App Name (unter Icon auf iOS) -->
+    <string name="CFBundleDisplayName">"SwissCovid"</string>
+
+    <!-- Loading View: Erneut laden -->
+    <string name="loading_view_reload">"Yeniden yükle"</string>
+
+    <!-- Fehler Titel in Loading View -->
+    <string name="loading_view_error_title">"Hata"</string>
+
+    <!-- Alert: Titel wenn die App muss geupdatet werden -->
+    <string name="force_update_title">"Güncelleme gerekli"</string>
+
+    <!-- Informieren: Weiter Button -->
+    <string name="inform_continue_button">"Devam"</string>
+
+    <!-- Informieren: Senden Button -->
+    <string name="inform_send_button_title">"Gönder"</string>
+
+    <!-- Informieren: Danke -->
+    <string name="inform_send_thankyou">"Teşekkür ederiz"</string>
+
+    <!-- Informieren: Danke Text -->
+    <string name="inform_send_thankyou_text">"Uygulamanızın rastgele belirlenmiş ID'leri gönderilmiştir. Bu şekilde enfeksiyon zincirlerini kırmaya yardımcı olursunuz."</string>
+
+    <!-- Informieren: Button Titel -->
+    <string name="inform_fertig_button_title">"Kapat"</string>
+
+    <!-- Titel auf Homescreen für Begegnungen -->
+    <string name="handshakes_title_homescreen">"Temaslar"</string>
+
+    <!-- Abbrechen -->
+    <string name="cancel">"İptal et"</string>
+
+    <!-- Titel für Push-Nachrichten, wenn erkannt wird, dass ein Nutzer exposed war -->
+    <string name="push_exposed_title">"Yeni mesaj"</string>
+
+    <!-- Titel für Push-Nachrichten, wenn erkannt wird, dass ein Nutzer exposed war -->
+    <string name="push_exposed_text">"Mesajı okumak için uygulamayı açın."</string>
+
+    <!-- Okay Button Titel -->
+    <string name="android_button_ok">"OK"</string>
+
+    <!-- Onboarding: Weiter Button Titel -->
+    <string name="onboarding_continue_button">"Devam"</string>
+
+    <!-- Onboarding: Fertig Button -->
+    <string name="onboarding_finish_button">"Tamamlandı"</string>
+
+    <!-- Unerwarteter Fehler -->
+    <string name="unexpected_error_title">"Beklenmeyen bir hata oluştu."</string>
+
+    <!-- Bluetooth Fehlermeldung -->
+    <string name="bluetooth_turned_off">"Uygulama, Bluetooth kapalı olduğundan çalışmıyor."</string>
+
+    <!-- Bluetooth Permission Fehler -->
+    <string name="bluetooth_permission_turned_off">"Uygulama, Bluetooth kullanma izini verilmediği için çalışmıyor."</string>
+
+    <!-- Permission Text für Bluetooth -->
+    <string name="NSBluetoothPeripheralUsageDescription">"Temaslar arka planda Bluetooth yoluyla, asgari pil kullanımı ile tespit edilmektedir."</string>
+
+    <!-- Permission Text für Bluetooth -->
+    <string name="NSBluetoothAlwaysUsageDescription">"Temaslar arka planda Bluetooth yoluyla, asgari pil kullanımı ile tespit edilmektedir."</string>
+
+    <!-- Inform: Titel der Code abschicken Seite -->
+    <string name="inform_code_title">"Kovid kodunu girin"</string>
+
+    <!-- Inform: Code eingeben Subtext -->
+    <string name="inform_code_text">"Size gönderilen Kovid kodunu girin."</string>
+
+    <!-- Inform: Code eingeben kein Code Button Text -->
+    <string name="inform_code_no_code">"Yardıma mı ihtiyacınız var?"</string>
+
+    <!-- Titel des Bluetooth Control -->
+    <string name="tracing_setting_title">"Takip"</string>
+
+    <!-- Text beim Bluetooth Control -->
+    <string name="tracing_setting_text_ios">"KOVİD-19 Temas Mesajları"</string>
+
+    <!-- Bluetooth Control: Tracking deaktiviert -->
+    <string name="bluetooth_setting_tracking_inactive">"Takip devre dışı bırakıldı"</string>
+
+    <!-- Titel auf Homescreen -->
+    <string name="reports_title_homescreen">"Bildirimler"</string>
+
+    <!-- Keine Meldungen Titel -->
+    <string name="meldungen_no_meldungen_title">"Yeni bildirim yok"</string>
+
+    <!-- Push deaktiviert Titel -->
+    <string name="push_deactivated_title">"Mesajlar devre dışı bırakıldı"</string>
+
+    <!-- Push deaktiviert Text -->
+    <string name="push_deactivated_text">"Bildirimleri doğrudan alabilmek için ayarları değiştirin."</string>
+
+    <!-- Titel im Meldung Detail -->
+    <string name="meldungen_meldung_title">"Olası enfeksiyon"</string>
+
+    <!-- Text im Meldung Detail -->
+    <string name="meldungen_meldung_text">"Enfeksiyon olasılığı mevcuttur."</string>
+
+    <!-- Titel ob Tracing aktiv -->
+    <string name="tracing_active_title">"Uygulama etkindir"</string>
+
+    <!-- Text bei Tracing aktiv -->
+    <string name="tracing_active_text">"Temaslar anonim olarak kaydedilmektedir"</string>
+
+    <!-- Android: Fehler Text bei Tracing -->
+    <string name="android_tracing_error_title">"Takip etkin değildir"</string>
+
+    <!-- Fehlertitel mit Foreground Service Notification -->
+    <string name="android_foreground_service_notification_errors">"Uygulama şu anda doğru çalışamıyor:"</string>
+
+    <!-- Titel der Nachricht, die auf Beta-Status hinweist -->
+    <string name="preview_warning_title">"Önizleme Sürümü"</string>
+
+    <!-- Text der Nachricht, die auf Beta-Status hinweist -->
+    <string name="preview_warning_text">"Uygulama DP-3T uygulamasını göstermek için önizleme sağlamaktadır. Verimli olarak kullanılabilecek bir KOVİD-19 takip sistemi değildir."</string>
+
+    <!-- Debug: Label auf dem Button, der zum Debug-Screen führt -->
+    <string name="debug_settings_title">"Debug ayarları"</string>
+
+    <!-- Debug: Titel für die Debug-Einstellungen zur Status-Überschreibung -->
+    <string name="debug_state_setting_title">"Uygulama durumunu değiştir"</string>
+
+    <!-- Debug: Erklärungstext für die Debug-Einstellungen zur Status-Überschreibung -->
+    <string name="debug_state_setting_text">"Bu ayar, uygulamanın görsel durumunu değiştirmektedir. Takip fonksiyonu bundan etkilenmemektedir."</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Keine -->
+    <string name="debug_state_setting_option_none">"Değişiklik yapılmamıştır"</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Gesund -->
+    <string name="debug_state_setting_option_ok">"Sağlıklı"</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Einem positiven Kontakt ausgesetzt -->
+    <string name="debug_state_setting_option_exposed">"Pozitif test edilmiş temas"</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Selbst positiv getestet -->
+    <string name="debug_state_setting_option_infected">"Pozitif test edildiniz"</string>
+
+    <!-- Debug: Titel für die Debug-Info zum Tracing-Status -->
+    <string name="debug_sdk_state_title">"SDK statüsü"</string>
+
+    <!-- Debug: Erklärungstext für die Debug-Info zum Tracing-Status -->
+    <string name="debug_sdk_state_text">"DP-3T SDK'nın güncel durumu."</string>
+
+    <!-- Debug: Bezeichnung für den letzen sync-Zeitpunkt -->
+    <string name="debug_sdk_state_last_synced">"Son güncelleme:"</string>
+
+    <!-- Debug: Bezeichnung für den Fall, bei dem der User selber als positiv getestet gemeldet wurde -->
+    <string name="debug_sdk_state_self_exposed">"Kendiniz bildirdiniz:"</string>
+
+    <!-- Debug: Bezeichnung für den Fall, bei dem ein Kontakt als positiv getestet gemeldet wurde -->
+    <string name="debug_sdk_state_contact_exposed">"Temas bildirdiniz:"</string>
+
+    <!-- Debug-Status-Bezeichnung für boleschen Wert 'true' -->
+    <string name="debug_sdk_state_boolean_true">"evet"</string>
+
+    <!-- Debug-Status-Bezeichnung für boleschen Wert 'false' -->
+    <string name="debug_sdk_state_boolean_false">"hayır"</string>
+
+    <!-- Debug: Button-Text für das Zurücksetzen des lokalen SDK Zustandes -->
+    <string name="debug_sdk_button_reset">"SDK'yı sıfırla"</string>
+
+    <!-- Tab-Titel -->
+    <string name="tab_tracing_title">"Takip"</string>
+
+    <!-- Titel auf Homescreen für Was tun Section -->
+    <string name="whattodo_title_symptoms">"Hastalık semptomları"</string>
+
+    <!-- Subtitel auf Homescreen für Was Tun Section -->
+    <string name="whattodo_subtitle_symptoms">"Bu durumlarda ne yapmalıyım?"</string>
+
+    <!-- Titel auf Homescreen bei Was tun Section -->
+    <string name="whattodo_title_positivetest">"Pozitif test sonucu aldığımda."</string>
+
+    <!-- Subtitel auf Homescreen bei Was tun Section -->
+    <string name="whattodo_subtitle_positivetest">"Bir ... olduğunda ne yapmalı?"</string>
+
+    <!-- Informieren Detail: Subtitel -->
+    <string name="inform_detail_subtitle">"Bir ... olduğunda ne yapmalı?"</string>
+
+    <!-- Informieren Detail: Titel -->
+    <string name="inform_detail_title">"pozitif bir test sonuc aldığımda?"</string>
+
+    <!-- Inform Detail: Weisse Box Subtitel -->
+    <string name="inform_detail_box_subtitle">"Kovid kodu ile..."</string>
+
+    <!-- Inform Detai Weisse Box Titel -->
+    <string name="inform_detail_box_title">"Enfeksiyon zincirini kır"</string>
+
+    <!-- Inform Detail Weisse Box Button -->
+    <string name="inform_detail_box_button">"Kovid kodu gir"</string>
+
+    <!-- Informieren Detail Weisse Box Text -->
+    <string name="inform_detail_box_text">"Kovid kodunu girerek, uygulamaya Korona virüsüne ilişkin pozitif test edildiğinizi bildirirsiniz."</string>
+
+    <!-- Symptome Detail Subtitel -->
+    <string name="symptom_detail_subtitle">"Bu durumlarda ne yapmalıyım?"</string>
+
+    <!-- Symptom Detail Titel -->
+    <string name="symptom_detail_title">"Kendimi hasta hissettiğimde."</string>
+
+    <!-- Symptom Detail Weisse Box Subtitel -->
+    <string name="symptom_detail_box_subtitle">"KOVID-19 semptomlarında…"</string>
+
+    <!-- Symptom Detail Weisse Box Titel -->
+    <string name="symptom_detail_box_title">"Test yaptırın"</string>
+
+    <!-- Symptom Detail Weisse Box Button -->
+    <string name="symptom_detail_box_button">"Daha fazla bilgi alın"</string>
+
+    <!-- Symptom Detail Weisse Box Text -->
+    <string name="symptom_detail_box_text">"BAG, tüm KOVİD-19 semptomları gösteren kişilerin test edilmesini öndermektedir. Lütfen bir doktor ya da sağlık kuruluşu ile iletişime geçin."</string>
+
+    <!-- Informieren Titel in NavigationBar/Toolbar -->
+    <string name="inform_detail_navigation_title">"Pozitif test edilmiş"</string>
+
+    <!-- Symptome Detail: NavigationBar/Toolbar Titel -->
+    <string name="symptom_detail_navigation_title">"Semptomlar"</string>
+    <string name="tracing_turned_off_title">"Takip devre dışı bırakıldı"</string>
+    <string name="tracing_turned_off_text">"Uygulamanın çalışabilmesi için takibi etkinleştirin."</string>
+    <string name="bluetooth_turned_off_title">"Bluetooth'u kapat"</string>
+    <string name="bluetooth_turned_off_text">"Takibin çalışabilmesi için cep telefonunuzun Bluetooth özelliğini etkinleştirin."</string>
+    <string name="bluetooth_turn_on_button_title">"Bluetooth'u ektinleştirin"</string>
+    <string name="bluetooth_permission_error_title">"Bluetooth kullanımı rededildi"</string>
+    <string name="bluetooth_permission_error_text">"Takibin çalışabilmesi için Bluetooth kullanımına izin verin."</string>
+
+    <!-- URL zum Corona Check -->
+    <string name="symptom_detail_corona_check_url">"https://check.bag-coronavirus.ch/screening"</string>
+    <string name="push_open_settings_button">"Ayarları değiştirin"</string>
+
+    <!-- Meldungen Detail: Subtitel wenn keine Meldungen -->
+    <string name="meldungen_no_meldungen_subtitle">"Olası bir enfeksiyon bildirilmemiştir"</string>
+
+    <!-- Keine Meldungen Weisse Box Titel -->
+    <string name="no_meldungen_box_title">"Kendinizi koruyun"</string>
+
+    <!-- Keine Meldungen Weisse Box Subtitel -->
+    <string name="no_meldungen_box_subtitle">"Ne yapmalıyım?"</string>
+
+    <!-- Keine Meldungen Weisse Box Text -->
+    <string name="no_meldungen_box_text">"BAG'nin geçerli önerilerine uyun."</string>
+
+    <!-- Meldung Detail: Positiv Getestet Titel -->
+    <string name="meldung_detail_positive_tested_title">"Testiniz pozitif"</string>
+
+    <!-- Meldung Detail: Positiv Getestet Subtitel -->
+    <string name="meldung_detail_positive_tested_subtitle">"Yeni Korona virüsü testiniz pozitiftir."</string>
+
+    <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
+    <string name="meldung_detail_positive_test_box_subtitle">"Ne yapmalıyım?"</string>
+
+    <!-- Meldung Detail Positiv Getestet Weisse Box Titel -->
+    <string name="meldung_detail_positive_test_box_title">"İzolasyon"</string>
+
+    <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
+    <string name="meldung_detail_positive_test_box_text">"İzolasyona ilişkin size bildirilen talimatlara uyun"</string>
+    <string name="tracing_ended_title">"Takip sonlandırıldı"</string>
+    <string name="tracing_ended_text">"Temaslarınız artık kaydedilmiyor."</string>
+    <string name="exposed_info_contact_hotline">"... ile iletişime girin"</string>
+    <string name="meldung_homescreen_positive_info_line1">"...'lere/lara uyun"</string>
+    <string name="meldung_homescreen_positive_info_line2">"Kendini İzole Etme Talimatları"</string>
+
+    <!-- Meldung Detail Exposed Neue Meldung -->
+    <string name="meldung_detail_exposed_new_meldung">"Yeni bildirim"</string>
+
+    <!-- Meldung Detail Exposed Titel -->
+    <string name="meldung_detail_exposed_title">"Enfeksiyon riski"</string>
+    <string name="meldung_homescreen_positiv_title">"Testiniz pozitif"</string>
+
+    <!-- Meldung Detail Exposed Subtitel -->
+    <string name="meldung_detail_exposed_subtitle">"Enfeksiyon riski bulunmaktadır."</string>
+    <string name="meldung_homescreen_positiv_text">"Yeni Korona virüsü testiniz pozitiftir."</string>
+
+    <!-- Debug Screen: Onboarding Reset Button -->
+    <string name="reset_onboarding">"Kaydı geri al"</string>
+
+    <!-- Heute -->
+    <string name="date_today">"Bugün"</string>
+
+    <!-- Meldung Detail: Vor wievielen Tagen {COUNT} wird durch Zahl ersetzt -->
+    <string name="date_days_ago">"{COUNT} gün önce"</string>
+
+    <!-- Meldungen Detail: Weisse Box Titel -->
+    <string name="meldungen_detail_call">"Bizi arayın"</string>
+
+    <!-- Meldungen Detail Text Weisse Box -->
+    <string name="meldungen_detail_call_text">"SwissCovid Bilgi Hattı"</string>
+
+    <!-- Meldungen Detail Weisse Box Button -->
+    <string name="meldungen_detail_call_button">"Şimdi arayın"</string>
+
+    <!-- Meldungen Detail Weisse Box Titel der Erklärungen -->
+    <string name="meldungen_detail_explanation_title">"Dikkat!"</string>
+
+    <!-- Meldungen Detail Weisse Box Erklärungstext 1 -->
+    <string name="meldungen_detail_explanation_text1">"Farkında olmadan bulaşıcı olabilirsiniz."</string>
+
+    <!-- Meldungen Detail: Weisse Box Erklärtext 2 -->
+    <string name="meldungen_detail_explanation_text2">"Lütfen ailenizi, arkadaşlarınızı ve çevrenizdekileri koruyun. Olası bir enfeksiyon halinde 10 gün boyunca temastan kaçının."</string>
+
+    <!-- Meldungen Detail: Weisse Box Text -->
+    <string name="meldungen_detail_guard_text">"Sorularınız için: SwissCovid Bilgi Hattı +41 58 387 77 78"</string>
+
+    <!-- Meldungen Detail Button Weisse Box -->
+    <string name="meldungen_detail_call_again_button">"Yeniden ara"</string>
+
+    <!-- Meldungen Detail: Weisse Box Anruf Zeitpunkt -->
+    <string name="meldungen_detail_call_last_call">"Son arama: {DATE}"</string>
+
+    <!-- Subtitel im Onboarding erste Seite -->
+    <string name="app_subtitle">"Alt Başlık"</string>
+
+    <!-- Onboarding: Titel oben -->
+    <string name="onboarding_prinzip_heading">"Hedef"</string>
+
+    <!-- Onboarding: Titel -->
+    <string name="onboarding_prinzip_title">"Virüsün bir adım önünde"</string>
+
+    <!-- Onboarding Prinzip Text -->
+    <string name="onboarding_prinzip_text1">"SwissCovid uygulaması ile yeni Korona virüsünün yayılımını sınırlandırmaya yardımcı olabilirsiniz."</string>
+
+    <!-- Onboarding Prinzip Text -->
+    <string name="onboarding_prinzip_text2">"Korona virüsü ile potansiyel temaslarda uygulama sizi bilgilendirir."</string>
+
+    <!-- Onboarding Privacy: Titel oben -->
+    <string name="onboarding_privacy_heading">"Privacy by Design"</string>
+
+    <!-- Onboarding Privacy: Titel -->
+    <string name="onboarding_privacy_title">"Özel hayatın korunması"</string>
+
+    <!-- Onboarding Privacy: Text -->
+    <string name="onboarding_privacy_text1">"Cep telefonları arasında yalnızca rastgele ID'ler paylaşılır. Uygulama konumunuza ilişkin ya da şahsi bilgilerinizi toplamaz."</string>
+
+    <!-- Onboarding Privacy: Text -->
+    <string name="onboarding_privacy_text2">"Rastgele ID'ler telefonunuza kaydedilir ve 14 gün sonra silinir."</string>
+
+    <!-- Onboarding Begegnungen: Titel oben -->
+    <string name="onboarding_begegnungen_heading">"Uygulama nasıl çalışır?"</string>
+
+    <!-- Onboarding Begegnungen: Titel -->
+    <string name="onboarding_begegnungen_title">"Bluetooth sayesinde temasların tespit edilmesi"</string>
+
+    <!-- Onboarding Begegnungen: Text -->
+    <string name="onboarding_begegnungen_text1">"Uygulama otomatik olarak iki kullanıcının belirli bir süre boyunca birbirine yakın olduğunu tespit etmektedir."</string>
+
+    <!-- Onboarding Begegnungen: Text -->
+    <string name="onboarding_begegnungen_text2">"Bunun için GPS, mobil, wifi ya da diğer korum bilgileri değil, yalnızca Bluetooth Low Energy (BLE) kullanılmaktadır. "</string>
+
+    <!-- Onboarding Meldung: Text oben -->
+    <string name="onboarding_meldung_heading">"Uygulama ne yapar?"</string>
+
+    <!-- Onboarding Meldung: Titel -->
+    <string name="onboarding_meldung_title">"Enfeksiyon riskinde dair bildirim"</string>
+
+    <!-- Onboarding Meldung: Text -->
+    <string name="onboarding_meldung_text1">"Uygulama, potansiyel olarak yeni Korona virüsü ile temasınız olduğunda sizi uyarır."</string>
+
+    <!-- Onboarding Meldung: Text -->
+    <string name="onboarding_meldung_text2">"Doğru davranışlarla enfeksiyon zincirlerini kırabilir ve diğer insanları koruyabilirsiniz."</string>
+
+    <!-- Onboarding Bluetooth: Titel -->
+    <string name="onboarding_bluetooth_title">"Bluetooth'a izin ver"</string>
+
+    <!-- Onboarding Bluetooth: Text -->
+    <string name="onboarding_bluetooth_text">"Uygulamayı kullanabilmek için Bluetooth'u açmanız gerekir."</string>
+
+    <!-- Onboarding Bluetooth: Button -->
+    <string name="onboarding_bluetooth_button">"Bluetooth'u aç"</string>
+
+    <!-- Onboarding: Untetitel unten -->
+    <string name="onboarding_good_to_know">"Bilmek iyi"</string>
+
+    <!-- Onboarding Bluetooth: Titel unten -->
+    <string name="onboarding_bluetooth_gtk_title1">"Anonim durumdasınız."</string>
+
+    <!-- Onboarding Bluetooth: Text unten -->
+    <string name="onboarding_bluetooth_gtk_text1">"Bluetooth ile kişisel verileriniz görüntülenemez."</string>
+
+    <!-- Onboarding Bluetooth: Titel unten -->
+    <string name="onboarding_bluetooth_gtk_title2">"Daha Uzun Pil Kullanımı"</string>
+
+    <!-- Onboarding Bluetooth: Text unten -->
+    <string name="onboarding_bluetooth_gtk_text2">"Uygulama kısıtlı olarak pil ömrünü uzatır. Pil kullanımı az miktarda artar."</string>
+
+    <!-- Onboarding Mitteilungen: Titel -->
+    <string name="onboarding_push_title">"Mesajlara izin ver"</string>
+
+    <!-- Onboarding Mitteilungen: Text -->
+    <string name="onboarding_push_text">"Uygulamanın sizi bilgilendirebilmesi için mesajlara izin vermeniz gerekmektedir."</string>
+
+    <!-- Onboarding Mitteilungen: Button -->
+    <string name="onboarding_push_button">"Mesajlara izin ver"</string>
+
+    <!-- Onboarding Mitteilungen: Titel Unten -->
+    <string name="onboarding_push_gtk_title1">"Hemen bilgilendiril"</string>
+
+    <!-- Onboarding Mitteilungen: Text unten -->
+    <string name="onboarding_push_gtk_text1">"Enfeksiyon riskinde kilit ekranında bir mesaj ile bilgilendirileceksiniz."</string>
+
+    <!-- Code senden: Abschluss Gute Besserung -->
+    <string name="inform_send_getwell_title">"Geçmiş olsun"</string>
+
+    <!-- Code senden: Abschluss Gute Besserung -->
+    <string name="inform_send_getwell_text">"Çabuk iyileşin. İzolasyona ilişkin size iletilmiş talimatlara uyun."</string>
+
+    <!-- Titel auf dem letzen Onboarding Screen -->
+    <string name="onboarding_go_title">"Uygulama kuruldu"</string>
+
+    <!-- Text auf dem letzten Onboarding Screen -->
+    <string name="onboarding_go_text">"Enfeksiyon zincirlerini kırmaya yardımcı olduğunuz için teşekkür ederiz."</string>
+
+    <!-- Button-Label auf dem letzten Onboarding screen -->
+    <string name="onboarding_go_button">"Başlat"</string>
+
+    <!-- Homescreen: Titel bei Fehler mit Daten -->
+    <string name="homescreen_meldung_data_outdated_title">"Güncel veri yoktur"</string>
+
+    <!-- Homescreen: Text bei Fehler mit Daten -->
+    <string name="homescreen_meldung_data_outdated_text">"Bir süredir bildirimler senkronize edilememiştir. Internet bağlantınızı kontrol edin."</string>
+
+    <!-- Homescreen: Button Titel -->
+    <string name="homescreen_meldung_data_outdated_retry_button">"Yeniden dene"</string>
+
+    <!-- Titel Fehlermeldung für ungültigen Code -->
+    <string name="inform_code_invalid_title">"Geçersiz kod"</string>
+
+    <!-- Fehlermeldung Subtitle ungültiger Code -->
+    <string name="inform_code_invalid_subtitle">"Problem durumunda: Lütfen Kovid kodunu aldığınız kurumu arayın."</string>
+
+    <!-- Datum: Vor 1 Tag -->
+    <string name="date_one_day_ago">"Bir gün önce"</string>
+
+    <!-- Meldungen Detail: Titel -->
+    <string name="meldung_detail_new_contact_title">"Yeni şüphe"</string>
+
+    <!-- Meldungen Detail: Text -->
+    <string name="meldung_detail_new_contact_subtitle">"Bir enfeksiyon şüphesi vardır."</string>
+
+    <!-- Fehler mit Uhrzeit Titel -->
+    <string name="time_inconsistency_title">"Saat hatası"</string>
+
+    <!-- Fehler mit Uhrzeit Text -->
+    <string name="time_inconsistency_text">"İzlemenin çalışabilmesi için saatin doğru ayarlanmış olması gerekir."</string>
+
+    <!-- Begegnungen: Neustart Titel -->
+    <string name="begegnungen_restart_error_title">"Yeniden başlatma gereklidir"</string>
+
+    <!-- Begegnungen: Neustart Text -->
+    <string name="begegnungen_restart_error_text">"Beklenmeyen bir hata oluştu. Lütfen cep telefonunuzu kapatıp açın."</string>
+
+    <!-- Fehler Titel für Hintergrund-Fehler -->
+    <string name="meldungen_background_error_title">"Arka plan güncellemesi kapatıldı"</string>
+
+    <!-- Text für Hintergrund Fehler -->
+    <string name="meldungen_background_error_text">"Uygulama açık olmadığında da bildirim alabilmek için lütfen ayarları değiştirin."</string>
+
+    <!-- Button Titel für Hintergrundfehler beheben -->
+    <string name="meldungen_background_error_button">"Ayarları değiştirin"</string>
+
+    <!-- Default message for force update -->
+    <string name="force_update_text">"İzlemenin çalışması için uygulamanın yeni sürümünü yükleyin."</string>
+
+    <!-- Ignorieren Button Titel -->
+    <string name="meldung_in_app_alert_ignore_button">"Yoksay"</string>
+
+    <!-- Button Titel -->
+    <string name="meldung_in_app_alert_accept_button">"Bilgiler için"</string>
+
+    <!-- Meldungen Detail: Button Titel -->
+    <string name="meldungen_detail_call_again">"Yeniden arayın"</string>
+
+    <!-- Fehlernachricht für Netzwerkfehler -->
+    <string name="network_error">"Lütfen internet bağlantınızı kontrol edin."</string>
+
+    <!-- Unerwarteter Fehler, mit Aufforderung Aktion erneut zu versuchen -->
+    <string name="unexpected_error_with_retry">"Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin."</string>
+
+    <!-- VoiceOver: Datum -->
+    <string name="accessibility_date">"Tarih"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_1nd">"Birinci"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_2nd">"İkinci"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_3nd">"Üçüncü"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_4nd">"Dördüncü"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_5nd">"Beşinci"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_6nd">"Altıncı"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_7nd">"Yedinci"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_8nd">"Sekizinci"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_9nd">"Dokuzuncu"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_10nd">"Onuncu"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_11nd">"Onbirinci"</string>
+
+    <!-- Voiceover Codeeingabe: Nummerierte Textfelder -->
+    <string name="accessibility_12nd">"Onikinci"</string>
+
+    <!-- Voiceover: Hilfetext bei Codeeingabe -->
+    <string name="accessibility_code_button_disabled_hint">"Kodun tamamı girilmediğinden etkin değildir."</string>
+
+    <!-- Fehler: Standortinformationen / Bluetooth -->
+    <string name="android_foreground_service_notification_error_location_service">"Android cihazlarda bluetooth, konum paylaşımına bağlıdır. Bu nedenle, uygulama konumunuza asla erişmese dahi, konum özelliği etkinleştirilmelidir."</string>
+
+    <!-- Location Services ausgeschaltet Titel -->
+    <string name="android_error_location_services_title">"Konumu kapat"</string>
+
+    <!-- Location Services ausgeschaltet Button -->
+    <string name="android_error_location_services_button">"Konumu aç"</string>
+
+    <!-- Information Button in the navigation bar -->
+    <string name="accessibility_info_button">"Bilgiler"</string>
+
+    <!-- Synchronisations-Fehler Titel -->
+    <string name="sync_warning_notification_title">"Uygulamayı senkronize et"</string>
+
+    <!-- Synchronisations-Fehler Text -->
+    <string name="sync_warning_notification_text">"Rastgele bildirilen ID'lerin listesinin eşitlenmesi için uygulamayı açın."</string>
+
+    <!-- Meldungen Detail: Button bei Vollansicht -->
+    <string name="meldung_animation_continue_button">"Devam"</string>
+
+    <!-- Titel Impressum Menu -->
+    <string name="menu_impressum">"Künye"</string>
+
+    <!-- Begegnungen: FAQ Titel -->
+    <string name="begegnung_detail_faq1_title">"Temas ne demektir?"</string>
+
+    <!-- Begegnungen: FAQ Text -->
+    <string name="begegnung_detail_faq1_text">"Bu uygulamanın yüklü olduğu cep telefonları belirli bir süre boyunca birbirine yakın olduklarında, bu cihazda temaz olarak kaydedilmektedir."</string>
+
+    <!-- Begegnungen: FAQ Titel -->
+    <string name="begegnung_detail_faq2_title">"Verilerim güvende mi?"</string>
+
+    <!-- Begegnungen: FAQ Text -->
+    <string name="begegnung_detail_faq2_text">"Bir temasta yalnızca rastgele ID'ler paylaşılmaktadır.
+
+Bunlar cep telefonunda kaydedilmekte ve 14 gün sonra silinmektedir."</string>
+
+    <!-- Begegnungen: FAQ Titel -->
+    <string name="begegnungen_detail_faq3_title">"Bluetooth her zaman aktif mi olmalıdır?"</string>
+
+    <!-- Begegnungen: FAQ Text -->
+    <string name="begegnungen_detail_faq3_text">"Temasın tespit edilebilmesi için Bluetooth'un her zaman aktif olması gerekir. Pil kullanımı yalnızca az ölçüde artmaktadır."</string>
+
+    <!-- FAQ Button Titel -->
+    <string name="faq_button_title">"Sıkça Sorulan Sorular"</string>
+
+    <!-- Meldungen Keine Meldungen FAQ Titel -->
+    <string name="meldungen_nomeldungen_faq1_title">"Bildirimler nedir?"</string>
+
+    <!-- Meldungen: Keine Meldungen FAQ Text -->
+    <string name="meldungen_nomeldungen_faq1_text">"Uygulama düzenli olarak temas ettiğiniz kişilerin pozitif bir test sonucu bildirip bildirmediğini kontrol eder.
+Olası bir enfeksiyon riskinde kilit ekranında bir mesaj ile bilgilendirileceksiniz."</string>
+
+    <!-- Meldungen: Keine Meldungen FAQ Titel -->
+    <string name="meldungen_nomeldungen_faq2_titel">"Enfeksiyon riski ne anlama gelmektedir?"</string>
+
+    <!-- Meldungen: Keine Meldungen FAQ Text -->
+    <string name="meldungen_nomeldungen_faq2_text">"Uygulama yalnızca enfekte kişiler temaz olup olmadığını değil, temasların ne kadar sürdüğünü ve ne kadar yakın olduklarını da takip eder.
+
+Yalnızca bulaşma riski yeterince büyük ise bilgilendirilirsiniz."</string>
+
+    <!-- Meldungen Detail Weisse Box Texte Unten -->
+    <string name="meldungen_detail_explanation_text3">"SwissCovid Bilgi Hattı sizi ücretsiz testler konusunda bilgilendirir."</string>
+
+    <!-- Meldungen: Meldungen FAQ -->
+    <string name="meldungen_meldungen_faq1_title">"Aramam mı gerekiyor?"</string>
+
+    <!-- Meldungen: Meldungen FAQ Text -->
+    <string name="meldungen_meldungen_faq1_text">"Her yeni bildirimde aramanız önerilmektedir. Aramalarınız anonimdir. Kişisel bilgiler toplanmamaktadır."</string>
+
+    <!-- Meldungen Detail: Anruf Titel -->
+    <string name="meldungen_detail_call_thankyou_title">"Katıldığınız için teşekkür ederiz"</string>
+
+    <!-- Meldungen Detail Anruf Danke Subtitel -->
+    <string name="meldungen_detail_call_thankyou_subtitle">"Diğerlerini korursunuz"</string>
+
+    <!-- Keine Meldungen Link in weisser Box Titel -->
+    <string name="no_meldungen_box_link">"Kendimizi bu şekilde koruruz"</string>
+
+    <!-- Keine Meldungen Weisse Box Link URL -->
+    <string name="no_meldungen_box_url">"https://www.bag-coronavirus.ch"</string>
+
+    <!-- Informieren Detail: FAQ Titel -->
+    <string name="inform_detail_faq1_title">"Bir Kovid kodu nedir?"</string>
+
+    <!-- Inform Detail: FAQ Text -->
+    <string name="inform_detail_faq1_text">"Korona virüsü testi pozitif olan kişilere Kovid kodu verilir.
+
+Bu şekilde yalnızca onaylanmış vakaların uygulama üzerinden bildirilmesi garantilenir."</string>
+
+    <!-- Inform Detail: FAQ Titel -->
+    <string name="inform_detail_faq2_title">"Neler iletilir?"</string>
+
+    <!-- Inform Detail FAQ Text -->
+    <string name="inform_detail_faq2_text">"Şahsi bilgileriniz değil, uygulamanızın yalnızca rastgele ID'leri iletilir. 
+Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşma riski olabileceğini öğenir."</string>
+
+    <!-- Telefonnummer der Infoline -->
+    <string name="infoline_tel_number">"+41 58 387 77 78"</string>
+
+    <!-- URL für Häufige Fragen Button -->
+    <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/de/categories/swisscovid-app"</string>
+
+    <!-- Informieren Flow: Titel erster Screen -->
+    <string name="inform_code_intro_title">"Önemli Bilgiler"</string>
+
+    <!-- Informieren-Flow: Erster Screen Text -->
+    <string name="inform_code_intro_text">"Kişisel bilgileriniz iletilmese dahi, bazı kişiler tarihler temelinde sizinle olan teması hatırlayabilirler."</string>
+
+    <!-- Inform-Flow: Erster Screen Button -->
+    <string name="inform_code_intro_button">"Anlaşıldı"</string>
+
+    <!-- Symptome: FAQ Titel -->
+    <string name="symptom_faq1_title">"KOVİD-19 semptomları nedir?"</string>
+
+    <!-- Symptome: FAQ Text -->
+    <string name="symptom_faq1_text">"Bu semptomlar sıklıkla ortaya çıkmaktadır:
+
+- Ateş, ateşlenme
+- Boğaz ağrısı
+- Öksürme (genelde kuru)
+- Nefes darlığı
+- Kas ağrıları
+- Koku ve tad alma yetisinin aniden kaybolması"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ Titel -->
+    <string name="meldungen_positive_tested_faq1_title">"Takip neden sonlandırıldı?"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ Text -->
+    <string name="meldungen_positive_tested_faq1_text">"Pozitif bir test sonrasında takip otomatik olarak sonlandırılır."</string>
+
+    <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
+    <string name="language_key">"tr"</string>
+
+    <!-- Meldungen Homescreen: Name Hotline -->
+    <string name="exposed_info_contact_hotline_name">"SwissCovid Bilgi Hattı"</string>
+
+    <!-- Meldung Detail: "Noch 1 Tag" Label -->
+    <string name="date_in_one_day">"Bir gün daha"</string>
+
+    <!-- Meldung Detail: Anzeige "Noch x Tage" {COUNT} wird durch Zahl ersetzt -->
+    <string name="date_in_days">"{COUNT} gün daha"</string>
+
+    <!-- Datum: Text vor Datum: am 26.2.2020 / {DATE} wird ersetzt durch Datum -->
+    <string name="date_text_before_date">"{DATE} tarihinde"</string>
+
+    <!-- Accessibility Talk back information for android back button in toolbar -->
+    <string name="android_accessibility_back_button">"Geri"</string>
+
+    <!-- VoiceOver: Hilfetext bei Codeeingabe Button -->
+    <string name="accessibility_code_button_current_code_hint">"Girilen kod:"</string>
+
+    <!-- Accessibility: Codeeingabe einer Ziffer -->
+    <string name="accessibility_code_input_textfield">"Güncel sayı metin alanı:"</string>
+
+    <!-- Accessibility: Code Input Textfeld wenn leer -->
+    <string name="accessibility_code_input_textfield_empty">"Metin alanı boş"</string>
+
+    <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
+    <string name="accessibility_code_input_hint">"Düzenlemek için lütfen iki defa tıklayın"</string>
+
+    <!-- Accessibility: FAW Button Titel  -->
+    <string name="accessibility_faq_button_hint">"Bu bağlantı sizi uygulamadan çıkararak B.A.G. web sayfasına ulaştırır."</string>
+
+    <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_title">"Takibi etkinleştir"</string>
+
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
+    <string name="onboarding_gaen_text_ios">"Uygulamayı kullanabilmek için KOVİD-19 temas bildirimlerini etkinleştirmiş olmalısınız."</string>
+
+    <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_button_activate">"Etkinleştir"</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 1 -->
+    <string name="onboarding_gaen_info_title_1">"Veri gizliliği"</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 1 -->
+    <string name="onboarding_gaen_info_text_1">"Yalnızca rastgele ID'ler paylaşılmaktadır. Konumunuza ilişkin ya da kişisel bilgileriniz paylaşımamaktadır."</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Titel 2 -->
+    <string name="onboarding_gaen_info_title_2">"Pil kullanımı az ölçüde artmaktadır"</string>
+
+    <!-- Onboarding Page für die Permission der Exposure-Library: Info Text 2 -->
+    <string name="onboarding_gaen_info_text_2">"Uygulama en az pil kullanımını gerektirecek şekilde tasarlanmıştır. Pil kullanımı yalnızca çok az artmaktadır."</string>
+
+    <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
+    <string name="onboarding_gaen_button_activated">"Etkinleştirildi"</string>
+
+    <!-- Meldung in der App löschen, wenn möglicherweise angesteckt -->
+    <string name="delete_reports_button">"Bildirimi sil"</string>
+
+    <!-- Meldung im Löschen Dialog wenn möglicherweise angesteckt -->
+    <string name="delete_reports_dialog">"Bildirimi gerçekten silmek mi istiyorsunuz?"</string>
+
+    <!-- Code-Eingabe in der App löschen, wenn infiziert -->
+    <string name="delete_infection_button">"Bildirimi sil"</string>
+
+    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <string name="delete_infection_dialog">"Bildirimi gerçekten silmek mi istiyorsunuz?"</string>
+    <string name="android_onboarding_battery_permission_title">"Pil optimizasyonunu yoksay"</string>
+    <string name="android_onboarding_battery_permission_text">"Temasların her zaman takip edebilebilmesi için pil optimizasyonunun bu uygulama için devre dışı bırakılması gerekmektedir."</string>
+    <string name="android_onboarding_battery_permission_button">"İzin ver"</string>
+    <string name="android_onboarding_battery_permission_button_deactivated">"OK"</string>
+    <string name="android_onboarding_battery_permission_info_1_title">"Yalnızca bu uygulama için"</string>
+    <string name="android_onboarding_battery_permission_info_1_text">"Uygulamanın çalışabilmesi için arka planda yürütülmesi gerekmektedir. Bu amaçla pil optimizasyonu belirli uygulamalar için devre dışı bırakılabilmektedir."</string>
+    <string name="android_onboarding_battery_permission_info_2_title">"Pil kullanımı az ölçüde artmaktadır"</string>
+    <string name="android_onboarding_battery_permission_info_2_text">"Uygulama en az pil kullanımını gerektirecek şekilde tasarlanmıştır. Pil kullanımı yalnızca çok az artmaktadır."</string>
+    <string name="android_foreground_service_notification_error_battery_optimization">"Takibin doğru yapılabilmesi için uygulamanın arka planda yürütülmesi gerekmektedir. Pil kullanımı yalnızca az ölçüde artmaktadır."</string>
+
+    <!-- Google Play Services nicht aktuell -->
+    <string name="gaen_not_aviable">"Google Play Hizmetleri güncel değildir"</string>
+
+    <!-- Google Play Services nicht aktuell text -->
+    <string name="gaen_not_available_text">"Lütfen Google Play Hizmetlerini güncelleyin."</string>
+
+    <!-- Tracing wurde vom System deaktiviert, erneut starten -->
+    <string name="gaen_unexpectedly_disabled">"Takip devre dışı bırakıldı. Lütfen yeniden etkinleştirin."</string>
+
+    <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
+    <string name="tracing_permission_error_title_ios">"KOVİD-19 temas mesajları devre dışı bırakıldı"</string>
+
+    <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
+    <string name="tracing_permission_error_text_ios">"Takibin çalışabilmesi için KOVİD-19 iletişim mesajlarının etkinleştirilmesi gerekmektedir."</string>
+
+    <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
+    <string name="user_cancelled_key_sharing_error">"Mesaj iletilemedi. Lütfen rastgele ID'lerinizin SwissCovid uygulaması ile paylaşılmasına izin verin."</string>
+
+    <!-- Button um die Google Play Services zu aktualisieren -->
+    <string name="playservices_update">"Güncelle"</string>
+
+    <!-- Button um die Google Play Services zu installieren -->
+    <string name="playservices_install">"Kur"</string>
+
+    <!-- Titel für Infos zu den Google Play Services -->
+    <string name="playservices_title">"Google Play Services"</string>
+
+    <!-- Meldung, dass die Google Play Services benötigt werden -->
+    <string name="playservices_text">"Takibi etkinleştirmek için Google Play Hizmetlerinin güncel sürümüne ihtiyacınız var. 
+
+Şu anda bir güncelleme sunulmuyorsa, lütfen daha sonra yeniden deneyin."</string>
+    <string name="android_error_battery_optimization_title">"Pil kullanımının optimizasyonu etkin"</string>
+    <string name="android_error_battery_optimization_button">"İzin ver"</string>
+
+    <!-- Telefonnummer für Hilfe bei App-Problemen -->
+    <string name="app_hotline_tel_number">"+41 58 466 07 99"</string>
+
+    <!-- text shown in notification when we get an exception from the GAEN api -->
+    <string name="sync_api_error">"Bildirim senkronizasyonunda bir hata oluştu."</string>
+
+    <!-- Fehler, der bei ungültigen Zertifikat angezeigt wird. Kann z.B. passieren, wenn man in einem public wlan ist -->
+    <string name="certificate_validation_error">"Sunucuya günvenli bağlantı sağlanamamaktadır. Lütfen kontrol edin, VPN ya da proxynizi devre dışı bırakın veya halka açık bir wifi bağlantısı kullanmadığınıza emin olun."</string>
+
+    <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
+    <string name="android_en_start_failure">"KOVİD-19 bildirimleri etkinleştirilemedi."</string>
+
+    <!-- Certificate pinning Debug screen section title -->
+    <string name="certificate_pinning_title">"Sertifika sabitleme"</string>
+    <string name="certificate_pinning_button_disable">"Devre dışı bırak"</string>
+    <string name="certificate_pinning_button_enable">"Etkinleştir"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
+    <string name="onboarding_legal_heading">"Önizleme Sürümü"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Titel -->
+    <string name="onboarding_legal_title">"Pilot aşamada katılımcılar için kullanım"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
+    <string name="onboarding_legal_text1">"„Bu uygulama şu anda yalnızca BAG tarafından pilot kullanım için davet edilen aşağıdaki grupların kullanımına açıktır: Eğitim, yardım ve aktif hizmette olan İsviçre Ordusu üyeleri, üniversite çalışanları, hastane ve klinik çalışanları, kanton idareleri ve federal idare çalışanları, sistemin kalitesinin iyileştirilmesine katkıda bulunmak isteyen dernek üyeleri.“"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
+    <string name="onboarding_legal_text2">"Pilot aşama, üretken sistemlerle gerçekleştirilir ve gerçek verileri içerir. Kanton doktorları, pozitif bir KOVİD-19 testi durumunda yetkisiz uygulama kullanıcılarına bildirim için bir Kovid kodu veremezler. Tanımlanmış Kamu Güvenliği Testi‘nin dışındaki sisteme yapılan saldırılar (\"Penetrasyon testleri\"), üretken sisteme yapılan saldırılardır ve bu nedenle yasa dışıdır."</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_title">"Pilot aşamaya katılmasına izin verilen bir organizasyonun üyesi misiniz?"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_message">"Aşağıdakilerin üyesi misiniz: Eğitim, yardım ve aktif hizmette olan İsviçre Ordusu üyeleri, üniversite çalışanları, hastane ve klinik çalışanları, kanton idareleri ve federal idare çalışanları, sistemin kalitesinin iyileştirilmesine katkıda bulunmak isteyen dernek üyeleri?"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_no">"Hayır"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
+    <string name="onboarding_legal_alert_yes">"Evet"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
+    <string name="onboarding_legal_blocker_title">"Pilot aşama"</string>
+
+    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
+    <string name="onboarding_legal_blocker_message">"Pilot aşamasına katılan organizasyonlardan birine üye değilsiniz. Lütfen resmi başlangıçtan sonra güncellemeyi yükleyin ve uygulamayı yeniden başlatın."</string>
+    <string name="begegnung_detail_last_sync_title">"Son senktronizasyon"</string>
+    <string name="synchronizations_view_title">"Genel Bakış"</string>
+    <string name="synchronizations_view_info_title">"Senkronizasyonlar"</string>
+    <string name="synchronizations_view_info_question">"Senkronizasyonlar nedir?"</string>
+    <string name="synchronizations_view_info_answer">"Uygulama düzenli olarak pozitif test edilmiş kişilerin yayınladığı rastgele ID'leri kontrol eder."</string>
+    <string name="synchronizations_view_period_title">"Son 14 gün içerisinde"</string>
+    <string name="synchronizations_view_sync_via_open">"  • Aç"</string>
+    <string name="synchronizations_view_sync_via_background">"  • Senkronize et"</string>
+    <string name="synchronizations_view_empty_list">"Giriş yoktur"</string>
+    <string name="synchronizations_view_sync_via_scheduled">"  • Planlandı"</string>
+    <string name="synchronizations_view_sync_via_fake_request">"  • Hatalı talep"</string>
+    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Yükle"</string>
+
+    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_before_title">"Görüşmeden önce"</string>
+
+    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_main_title">"Lütfen şu bilgileri not edin"</string>
+
+    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_datum">"Tarih"</string>
+
+    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
+    <string name="pre_call_dialog_box_number">"Numara"</string>
+    <string name="tracing_active_tracking_always_info">"SwissCovid uygulama kapatıldığında da aktiftir."</string>
+
+    <!-- title in splash screen of onboarding -->
+    <string name="oboarding_splashscreen_title">"SwissCovid enfeksiyon zincirlerini kırar."</string>
+    <string name="inform_detail_faq3_text">"Kişisel bilgileriniz iletilmese dahi, bazı kişiler tarihler temelinde sizinle olan teması hatırlayabilirler."</string>
+    <string name="inform_detail_faq3_title">"Bilgilerim anonim mi?"</string>
+
+    <!-- Meldung Detail Weiss Box unten -->
+    <string name="meldungen_detail_explanation_text4">"İlk semptomlarda lütfen Korona virüsü kontrolünü yapın ve doktorunuzu arayın."</string>
+
+    <!-- Text beim Bluetooth Control -->
+    <string name="tracing_setting_text_android">"KOVİD-19 Bildirimleri"</string>
+
+    <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
+    <string name="onboarding_gaen_text_android">"Uygulamanın kullanılabilmesi için KOVİD-19 bildirimlerinin etkinleştirilmiş olması gerekmektedir."</string>
+
+    <!-- Onboarding Disclaimer Screen: AppName Title -->
+    <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
+
+    <!-- Onboarding Disclaimer Screen: Title -->
+    <string name="onboarding_disclaimer_title">"Kullanıma ilişkin bilgiler"</string>
+
+    <!-- Onboarding Disclaimer Screen: Info -->
+    <string name="onboarding_disclaimer_info">"Veri gizliliği ve kullanım koşullarını burada bulabilirsiniz."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Title -->
+    <string name="onboarding_disclaimer_warning_title">"Uyarı: Bu uygulama sizi KOVİD-19 enfeksiyonundan korumaz."</string>
+
+    <!-- Onboarding Disclaimer Screen: Warning Text -->
+    <string name="onboarding_disclaimer_warning_body">"Uygulama, yakınlığı izlemek ve kullanıcıları KOVİD-19 ile enfekte olmuş bir kişiyle karşılaştıktan sonra olası bir enfeksiyona karşı uyarmak için kullanılır. Aynı zamanda bir teşhis aracı değildir. Lütfen uygulama ekranında bulunan talimatları dikkatlice okuyun."</string>
+
+    <!-- Onboarding Disclaimer Screen: Manufacturer Info -->
+    <string name="onboarding_disclaimer_manufacturer">"Bundesamt für Gesundheit BAG
+Schwarzenburgstrasse 157
+3097 Liebefeld, İzviçre"</string>
+
+    <!-- Onboarding Disclaimer Screen: App version title -->
+    <string name="onboarding_disclaimer_app_version">"SwissCovid App Version"</string>
+
+    <!-- Onboarding Disclaimer Screen: Release version title -->
+    <string name="onboarding_disclaimer_release_version">"Release Date:"</string>
+
+    <!-- onboarding privacy and conditions of use button -->
+    <string name="onboarding_disclaimer_legal_button">"Veri Gizliliği &amp; Kullanım Koşulları"</string>
+
+    <!-- onboarding privacy and conditions of use url -->
+    <string name="onboarding_disclaimer_legal_button_url">"https://www.bag.admin.ch/swisscovid-datenschutzerklaerung-und-nutzungsbedingungen"</string>
+
+    <!-- Google Translation -->
+    <!-- Error shown when loading fails because there is not enough free disk space. -->
+    <string name="loading_error_no_disk_space">"Cep telefonunuzda yeterli alan olmadığından mesajlar kontrol edilemiyor. Lütfen cihazınızda yer açın."</string>
+
+    <!-- Onboarding: Akzeptieren Buttton Titel -->
+    <string name="onboarding_accept_button">"Kabul et"</string>
+
+    <!-- Google Translation -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Titel -->
+    <string name="ratelimit_error_title">"Güncelleme yapılamıyor."</string>
+
+    <!-- Google Translation! -->
+    <!-- Meldungen: Fehler Meldung Rate-Limit (error 13) Text -->
+    <string name="ratelimit_error_text">"Bugün içerisindeki sorgulama miktarı aşıldı. Uygulama daha sonra tekrar deneyecek."</string>
+
+    <!-- Info to the user that tracing has been switched on -->
+    <string name="accessibility_tracing_has_been_activated">"Takip etkinleştirilmiştir"</string>
+
+    <!-- Info to the user that tracing has been switched off -->
+    <string name="accessibility_tracing_has_been_deactivated">"Takip devre dışı bırakılmıştır"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Title -->
+    <string name="meldungen_detail_free_test_title">"Ücretsiz test olma"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"SwissCovid Danışma Hattı size ücretsiz korona testleri konusunda bilgi vermektedir."</string>
+
+    <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
+    <string name="activate_tracing_button">"Takibi etkinleştir"</string>
+
+    <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
+    <string name="tracing_turned_off_detailed_text">"Uygulamanın temasları kaydedebilmesi ve bildirimleri alabilmesi için takibi etkinleştirin."</string>
+
+    <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
+    <string name="meldungen_tracing_not_active_warning">"Takip devre dışı bırkıldığında bildirimler de alınamaz."</string>
+
+    <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_title">"Not"</string>
+
+    <!-- Data Protection Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_data_protection_statement">"Gizlilik Politikası"</string>
+
+    <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_conditions_of_use">"Kullanım Şartları"</string>
+
+    <!-- Button title that links to the website with the data protection statement and conditions of use. -->
+    <string name="onboarding_disclaimer_to_online_version_button">"Çevrimiçi Sürüm"</string>
+
+    <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_warning">"Takip devre dışı bırakıldığında bildirimler de alınamaz."</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"Kapat"</string>
+</resources>

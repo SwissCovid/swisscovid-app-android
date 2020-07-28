@@ -11,6 +11,7 @@ package ch.admin.bag.dp3t.main;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -26,6 +27,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
@@ -34,6 +36,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
@@ -42,14 +45,11 @@ import ch.admin.bag.dp3t.debug.DebugFragment;
 import ch.admin.bag.dp3t.html.HtmlFragment;
 import ch.admin.bag.dp3t.main.model.NotificationState;
 import ch.admin.bag.dp3t.main.model.NotificationStateError;
+import ch.admin.bag.dp3t.main.model.TracingState;
 import ch.admin.bag.dp3t.main.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.AssetUtil;
-import ch.admin.bag.dp3t.util.NotificationErrorStateHelper;
-import ch.admin.bag.dp3t.util.NotificationStateHelper;
-import ch.admin.bag.dp3t.util.NotificationUtil;
-import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
+import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
 import ch.admin.bag.dp3t.whattodo.WtdSymptomsFragment;
@@ -58,6 +58,7 @@ import static android.view.View.VISIBLE;
 
 public class HomeFragment extends Fragment {
 
+	private static final String TAG = "HomeFragment";
 	private TracingViewModel tracingViewModel;
 	private HeaderView headerView;
 	private ScrollView scrollView;
@@ -202,6 +203,15 @@ public class HomeFragment extends Fragment {
 			} else {
 				linkGroup.setVisibility(View.GONE);
 			}
+
+			boolean isDismissible = secureStorage.getInfoboxDismissible();
+			View dismissButton = infobox.findViewById(R.id.dismiss_button);
+			if (isDismissible) {
+				dismissButton.setVisibility(VISIBLE);
+				dismissButton.setOnClickListener(v -> {
+					secureStorage.setHasInfobox(false);
+				});
+			} else dismissButton.setVisibility(View.GONE);
 		});
 	}
 
@@ -269,19 +279,24 @@ public class HomeFragment extends Fragment {
 			}
 
 			TracingStatus.ErrorState errorState = tracingStatusInterface.getReportErrorState();
-			if (errorState != null) {
+			if (tracingStatusInterface.getTracingState().equals(TracingState.NOT_ACTIVE) &&
+					!tracingStatusInterface.isReportedAsInfected()) {
+				NotificationErrorStateHelper
+						.updateNotificationErrorView(reportErrorView, NotificationStateError.TRACING_DEACTIVATED);
+				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+					enableTracing();
+				});
+			} else if (errorState != null) {
 				TracingErrorStateHelper
 						.updateErrorView(reportErrorView, errorState);
 				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+					loadingView.setVisibility(VISIBLE);
 					loadingView.animate()
 							.alpha(1f)
 							.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
 							.setListener(new AnimatorListenerAdapter() {
 								@Override
-								public void onAnimationEnd(Animator animation) {
-									loadingView.setVisibility(VISIBLE);
-									tracingViewModel.sync();
-								}
+								public void onAnimationEnd(Animator animation) { tracingViewModel.sync(); }
 							});
 				});
 			} else if (!isNotificationChannelEnabled(getContext(), NotificationUtil.NOTIFICATION_CHANNEL_ID)) {
@@ -384,6 +399,28 @@ public class HomeFragment extends Fragment {
 
 	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
 		return Math.min(scrollY, scrollRange) / (float) scrollRange;
+	}
+
+	private void enableTracing() {
+		Activity activity = getActivity();
+		if (activity == null) {
+			return;
+		}
+
+		tracingViewModel.enableTracing(activity,
+				() -> { },
+				(e) -> {
+					String message = ENExceptionHelper.getErrorMessage(e, activity);
+					Logger.e(TAG, message);
+					new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
+							.setTitle(R.string.android_en_start_failure)
+							.setMessage(message)
+							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
+							.show();
+				},
+				() -> {
+					// cancelled
+				});
 	}
 
 }

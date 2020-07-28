@@ -91,13 +91,18 @@ public class ConfigWorker extends Worker {
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		secureStorage.setDoForceUpdate(config.getDoForceUpdate());
 
-		if (config.getInfoBox() != null) {
-			InfoBoxModel info = config.getInfoBox(context.getString(R.string.language_key));
-			secureStorage.setInfoboxTitle(info.getTitle());
-			secureStorage.setInfoboxText(info.getMsg());
-			secureStorage.setInfoboxLinkTitle(info.getUrlTitle());
-			secureStorage.setInfoboxLinkUrl(info.getUrl());
-			secureStorage.setHasInfobox(true);
+		InfoBoxModel info = config.getInfoBox(context.getString(R.string.language_key));
+		if (info != null) {
+			if (info.getInfoId() == null || !info.getInfoId().equals(secureStorage.getInfoboxId())) {
+				//Only update the infobox if it has a new ID.
+				secureStorage.setInfoboxTitle(info.getTitle());
+				secureStorage.setInfoboxText(info.getMsg());
+				secureStorage.setInfoboxLinkTitle(info.getUrlTitle());
+				secureStorage.setInfoboxLinkUrl(info.getUrl());
+				secureStorage.setInfoboxId(info.getInfoId());
+				secureStorage.setInfoboxDismissible(info.getDismissible());
+				secureStorage.setHasInfobox(true);
+			}
 		} else {
 			secureStorage.setHasInfobox(false);
 		}

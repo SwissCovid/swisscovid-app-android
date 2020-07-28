@@ -8,6 +8,7 @@
   ~ SPDX-License-Identifier: MPL-2.0
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/grey_light"
@@ -74,14 +75,71 @@
 
 				</LinearLayout>
 
-				<LinearLayout
-					android:id="@+id/onboarding_disclaimer_conditions_button"
+			</LinearLayout>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/separator_height"
+				android:background="@color/grey_medium" />
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/data_protection_header_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/bg_ripple_white"
+				android:clickable="true"
+				android:focusable="true"
+				android:orientation="horizontal"
+				android:paddingStart="@dimen/spacing_larger"
+				android:paddingTop="@dimen/spacing_large"
+				android:paddingEnd="@dimen/spacing_larger"
+				android:paddingBottom="@dimen/spacing_large">
+
+				<TextView
+					android:id="@+id/data_protection_title_textview"
+					style="@style/NextStep.Text.Bold.Blue"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="@dimen/spacing_medium"
+					android:text="@string/onboarding_disclaimer_data_protection_statement"
+					app:layout_constraintEnd_toStartOf="@+id/data_protection_chevron_imageview"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<ImageView
+					android:id="@+id/data_protection_chevron_imageview"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_gravity="left"
+					android:src="@drawable/ic_chevron_down"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<LinearLayout
+				android:id="@+id/onboarding_disclaimer_data_protection_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:visibility="gone">
+
+				<TextView
+					android:id="@+id/data_protection_textview"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="@dimen/spacing_larger"
+					android:paddingRight="@dimen/spacing_larger"
+					android:paddingBottom="@dimen/spacing_large" />
+
+				<LinearLayout
+					android:id="@+id/onboarding_disclaimer_data_protection_to_online_version_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
 					android:layout_marginStart="@dimen/spacing_larger"
 					android:layout_marginTop="@dimen/spacing_large"
-					android:layout_marginBottom="@dimen/spacing_huge"
+					android:layout_marginEnd="@dimen/spacing_larger"
+					android:layout_marginBottom="@dimen/spacing_large"
 					android:background="@drawable/ripple_button"
 					android:orientation="horizontal"
 					android:paddingStart="@dimen/spacing_medium"
@@ -100,11 +158,102 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginLeft="@dimen/spacing_small"
-						android:text="@string/onboarding_disclaimer_legal_button" />
+						android:text="@string/onboarding_disclaimer_to_online_version_button" />
+
+				</LinearLayout>
+			</LinearLayout>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/separator_height"
+				android:background="@color/grey_medium" />
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/conditions_of_use_header_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/bg_ripple_white"
+				android:clickable="true"
+				android:focusable="true"
+				android:orientation="horizontal"
+				android:paddingStart="@dimen/spacing_larger"
+				android:paddingTop="@dimen/spacing_large"
+				android:paddingEnd="@dimen/spacing_larger"
+				android:paddingBottom="@dimen/spacing_large">
+
+				<TextView
+					android:id="@+id/conditions_of_use_title_textview"
+					style="@style/NextStep.Text.Bold.Blue"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="@dimen/spacing_medium"
+					android:text="@string/onboarding_disclaimer_conditions_of_use"
+					app:layout_constraintEnd_toStartOf="@+id/terms_of_use_chevron_imageview"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<ImageView
+					android:id="@+id/terms_of_use_chevron_imageview"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_chevron_down"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<LinearLayout
+				android:id="@+id/onboarding_disclaimer_terms_of_use_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:visibility="gone">
+
+				<TextView
+					android:id="@+id/terms_of_use_textview"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="@dimen/spacing_larger"
+					android:paddingRight="@dimen/spacing_larger"
+					android:paddingBottom="@dimen/spacing_large" />
+
+				<LinearLayout
+					android:id="@+id/onboarding_disclaimer_terms_of_use_to_online_version_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginStart="@dimen/spacing_larger"
+					android:layout_marginTop="@dimen/spacing_large"
+					android:layout_marginEnd="@dimen/spacing_larger"
+					android:layout_marginBottom="@dimen/spacing_large"
+					android:background="@drawable/ripple_button"
+					android:orientation="horizontal"
+					android:paddingStart="@dimen/spacing_medium"
+					android:paddingTop="@dimen/spacing_small"
+					android:paddingEnd="@dimen/spacing_medium"
+					android:paddingBottom="@dimen/spacing_small">
+
+					<ImageView
+						android:layout_width="@dimen/icon_size"
+						android:layout_height="@dimen/icon_size"
+						android:src="@drawable/ic_launch"
+						android:tint="@color/blue_main" />
+
+					<TextView
+						style="@style/NextStep.Text.Bold.Blue"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/spacing_small"
+						android:text="@string/onboarding_disclaimer_to_online_version_button" />
 
 				</LinearLayout>
 
 			</LinearLayout>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/separator_height"
+				android:background="@color/grey_medium" />
 
 			<LinearLayout
 				android:layout_width="match_parent"
@@ -185,15 +334,24 @@
 		</LinearLayout>
 	</ScrollView>
 
-	<Button
-		android:id="@+id/onboarding_continue_button"
-		style="@style/NextStep.Button.Transparent.Blue"
+	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="@dimen/onboarding_continue_button_height"
+		android:layout_height="wrap_content"
 		android:layout_gravity="bottom"
 		android:background="@color/white"
-		android:elevation="@dimen/card_elevation"
-		android:foreground="?android:selectableItemBackground"
-		android:text="@string/onboarding_accept_button" />
+		android:elevation="@dimen/onboarding_button_container_elevation"
+		android:gravity="center"
+		android:orientation="vertical"
+		android:outlineProvider="bounds"
+		android:padding="@dimen/spacing_medium">
+
+		<Button
+			android:id="@+id/onboarding_continue_button"
+			style="@style/NextStep.Button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/onboarding_accept_button" />
+
+	</LinearLayout>
 
 </LinearLayout>

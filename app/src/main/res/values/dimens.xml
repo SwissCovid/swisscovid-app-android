@@ -35,6 +35,7 @@
 	<dimen name="info_button_size">48dp</dimen>
 	<dimen name="home_appbar_height">240dp</dimen>
 	<dimen name="button_elevation">0dp</dimen>
+	<dimen name="onboarding_button_container_elevation">9dp</dimen>
 	<dimen name="card_border_radius">2dp</dimen>
 	<dimen name="card_elevation">3dp</dimen>
 	<dimen name="card_what_to_do_ill_margin">32dp</dimen>
@@ -64,4 +65,5 @@
 	<dimen name="chained_edit_text_min_width">20dp</dimen>
 	<dimen name="card_loading_view_size">32dp</dimen>
 	<dimen name="padding_start_icon_button">44dp</dimen>
+	<dimen name="separator_height">1dp</dimen>
 </resources>

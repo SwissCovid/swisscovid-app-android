@@ -545,7 +545,7 @@ Siga as instruções que recebeu relativamente ao isolamento."</string>
     <string name="accessibility_code_button_disabled_hint">"Não é possivel imprimir porque o código inserido não está completo."</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
-    <string name="android_foreground_service_notification_error_location_service">"Ative o acesso à localização para que a app possa usar o Bluetooth. A app nunca reconhece sozinha a sua localização."</string>
+    <string name="android_foreground_service_notification_error_location_service">"Nos dispositivos android, o Bluetooth requer o acesso à localização. É por isso que deve ativar a função de localização, mesmo quando a app não está a registar as suas coordenadas."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
     <string name="android_error_location_services_title">"Localização desativada"</string>
@@ -654,7 +654,7 @@ Desta forma, outros utilizadores da app SwissCovid ficam a saber que existe a po
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
 
     <!-- URL für Häufige Fragen Button -->
-    <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html"</string>
+    <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/de/categories/swisscovid-app"</string>
 
     <!-- Informieren Flow: Titel erster Screen -->
     <string name="inform_code_intro_title">"Aviso importante"</string>
@@ -940,4 +940,37 @@ Schwarzenburgstrasse 157
 
     <!-- Info to the user that tracing has been switched off -->
     <string name="accessibility_tracing_has_been_deactivated">"Foi desativado o rastreamento"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Title -->
+    <string name="meldungen_detail_free_test_title">"Possibilidade de teste gratuito"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"A linha informativa SwissCovid aconselha-o sobre um possível teste gratuito ao coronavírus."</string>
+
+    <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
+    <string name="activate_tracing_button">"Ativar o rastreamento"</string>
+
+    <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
+    <string name="tracing_turned_off_detailed_text">"Ative o rastreamento para que a app possa armazenar contactos e receber notificações."</string>
+
+    <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
+    <string name="meldungen_tracing_not_active_warning">"Se o rastreamento estiver desativado, a app também não pode receber notificações."</string>
+
+    <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_title">"Aviso"</string>
+
+    <!-- Data Protection Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_data_protection_statement">"Política de privacidade"</string>
+
+    <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_conditions_of_use">"Termos de utilização"</string>
+
+    <!-- Button title that links to the website with the data protection statement and conditions of use. -->
+    <string name="onboarding_disclaimer_to_online_version_button">"Ir para a versão em linha"</string>
+
+    <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_warning">"Se o rastreamento estiver desativado, a app também não pode receber notificações."</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"Fechar"</string>
 </resources>

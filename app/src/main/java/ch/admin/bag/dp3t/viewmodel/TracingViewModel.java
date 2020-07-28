@@ -29,6 +29,7 @@ import java.util.List;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
+import org.dpppt.android.sdk.internal.BroadcastHelper;
 import org.dpppt.android.sdk.internal.history.HistoryEntry;
 
 import ch.admin.bag.dp3t.MainApplication;
@@ -129,7 +130,13 @@ public class TracingViewModel extends AndroidViewModel {
 
 	public void enableTracing(Activity activity, Runnable successCallback, Consumer<Exception> errorCallback,
 			Runnable cancelledCallback) {
-		DP3T.start(activity, successCallback, errorCallback, cancelledCallback);
+		DP3T.start(activity,
+				() -> {
+					sync();
+					successCallback.run();
+				},
+				errorCallback,
+				cancelledCallback);
 	}
 
 	public void disableTracing() {
@@ -142,6 +149,8 @@ public class TracingViewModel extends AndroidViewModel {
 
 	public void sync() {
 		if (!DP3T.isTracingEnabled(getApplication())) {
+			//This broadcast prevents the HomeFragment from entering an endless loading state
+			BroadcastHelper.sendUpdateAndErrorBroadcast(getApplication());
 			return;
 		}
 

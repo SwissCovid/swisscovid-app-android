@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.main.model;
 
 import androidx.annotation.DrawableRes;
@@ -16,40 +15,53 @@ import androidx.annotation.StringRes;
 import ch.admin.bag.dp3t.R;
 
 public enum NotificationStateError {
-	NOTIFICATION_STATE_ERROR;
+	NOTIFICATION_STATE_ERROR,
+	TRACING_DEACTIVATED;
 
 
-	@StringRes public static int getTitle(NotificationStateError notificationStateError) {
+	@StringRes
+	public static int getTitle(NotificationStateError notificationStateError) {
 		switch (notificationStateError) {
 			case NOTIFICATION_STATE_ERROR:
 				return R.string.meldungen_background_error_title;
+			case TRACING_DEACTIVATED:
+				return R.string.meldungen_tracing_turned_off_title;
 			default:
 				return -1;
 		}
 	}
 
-	@StringRes public static int getText(NotificationStateError notificationStateError) {
+	@StringRes
+	public static int getText(NotificationStateError notificationStateError) {
 		switch (notificationStateError) {
 			case NOTIFICATION_STATE_ERROR:
 				return R.string.meldungen_background_error_text;
+			case TRACING_DEACTIVATED:
+				return R.string.meldungen_tracing_turned_off_warning;
 			default:
 				return -1;
 		}
 	}
 
-	@DrawableRes public static int getIcon(NotificationStateError notificationStateError) {
+	@DrawableRes
+	public static int getIcon(NotificationStateError notificationStateError) {
 		switch (notificationStateError) {
 			case NOTIFICATION_STATE_ERROR:
 				return R.drawable.ic_refresh;
+			case TRACING_DEACTIVATED:
+				return R.drawable.ic_warning_red;
 			default:
 				return -1;
 		}
 	}
 
-	@StringRes public static int getButtonText(NotificationStateError notificationStateError) {
+	@StringRes
+	public static int getButtonText(NotificationStateError notificationStateError) {
 		switch (notificationStateError) {
 			case NOTIFICATION_STATE_ERROR:
 				return R.string.meldungen_background_error_button;
+			case TRACING_DEACTIVATED:
+				return R.string.activate_tracing_button;
 			default:
 				return -1;
 		}

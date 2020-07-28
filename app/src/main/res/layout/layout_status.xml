@@ -44,13 +44,14 @@
 	<TextView
 		android:id="@+id/status_title"
 		style="@style/NextStep.Text.Status"
-		android:layout_width="wrap_content"
+		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="2dp"
 		android:paddingTop="10dp"
 		android:paddingEnd="15dp"
 		app:layout_constraintBottom_toTopOf="@id/status_text"
 		app:layout_constraintStart_toEndOf="@+id/status_icon"
+		app:layout_constraintEnd_toStartOf="@id/status_illustration"
 		tools:text="Status" />
 
 	<TextView

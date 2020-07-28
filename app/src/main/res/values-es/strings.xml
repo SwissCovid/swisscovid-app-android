@@ -541,7 +541,7 @@ Siga las instrucciones de aislamiento recibidas."</string>
     <string name="accessibility_code_button_disabled_hint">"No es posible presionar, código incompleto"</string>
 
     <!-- Fehler: Standortinformationen / Bluetooth -->
-    <string name="android_foreground_service_notification_error_location_service">"Active las informaciones sobre la geolocalización para que la aplicación pueda usar Bluetooth. La aplicación no conoce su posición en ningún momento."</string>
+    <string name="android_foreground_service_notification_error_location_service">"En los dispositivos Android, Bluetooth está asociado a la autorización de la geolocalización. Por ello, la geolocalización debe estar activada, aún cuando la aplicación no tiene en ningún momento acceso a su posición."</string>
 
     <!-- Location Services ausgeschaltet Titel -->
     <string name="android_error_location_services_title">"Geolocalización desactivada"</string>
@@ -644,7 +644,7 @@ De esta forma, se informa a otros usuarios de la aplicación SwissCovid de que e
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
 
     <!-- URL für Häufige Fragen Button -->
-    <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html"</string>
+    <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/de/categories/swisscovid-app"</string>
 
     <!-- Informieren Flow: Titel erster Screen -->
     <string name="inform_code_intro_title">"Aviso importante"</string>
@@ -930,4 +930,37 @@ Schwarzenburgstrasse 157
 
     <!-- Info to the user that tracing has been switched off -->
     <string name="accessibility_tracing_has_been_deactivated">"Se ha desactivado el rastreo"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Title -->
+    <string name="meldungen_detail_free_test_title">"Posibilidad de hacer un test gratuito"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"La Infoline SwissCovid le asesora sobre la posibilidad de hacerse gratuitamente el test del coronavirus."</string>
+
+    <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
+    <string name="activate_tracing_button">"Activar el rastreo"</string>
+
+    <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
+    <string name="tracing_turned_off_detailed_text">"Active el rastreo para permitir que la app guarde los contactos y reciba notificaciones."</string>
+
+    <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
+    <string name="meldungen_tracing_not_active_warning">"No es posible recibir notificaciones si el rastreo está desactivado."</string>
+
+    <!-- Warning title for Meldungen-Card when Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_title">"Observación"</string>
+
+    <!-- Data Protection Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_data_protection_statement">"Política de privacidad"</string>
+
+    <!-- Conditions of Use Header String in Onboarding Disclaimer View. -->
+    <string name="onboarding_disclaimer_conditions_of_use">"Condiciones de uso"</string>
+
+    <!-- Button title that links to the website with the data protection statement and conditions of use. -->
+    <string name="onboarding_disclaimer_to_online_version_button">"Ir a versión en línea"</string>
+
+    <!-- Hint that is displayed to the user under the Meldungen-Card when the Tracing is turned off. -->
+    <string name="meldungen_tracing_turned_off_warning">"No es posible recibir notificaciones si el rastreo está desactivado."</string>
+
+    <!-- Homescreen infobox close button accessibility handler -->
+    <string name="infobox_close_button_accessibility">"Cerrar"</string>
 </resources>
