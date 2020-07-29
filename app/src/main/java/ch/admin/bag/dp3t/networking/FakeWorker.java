@@ -39,13 +39,20 @@ public class FakeWorker extends Worker {
 	private static final long FACTOR_HOUR_MILLIS = 60 * 60 * 1000L;
 	private static final long FACTOR_DAY_MILLIS = 24 * FACTOR_HOUR_MILLIS;
 	private static final long MAX_DELAY_HOURS = 48;
-	private static final float SAMPLING_RATE = BuildConfig.FLAVOR.equals("dev") ? 1.0f : 0.2f;
+	public static final float SAMPLING_RATE = BuildConfig.FLAVOR.equals("dev") ? 1.0f : 0.2f;
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
+
+	public static Clock clock = new ClockImpl();
+
+	public static void safeStartFakeWorker(Context context, Clock customClock) {
+		clock = customClock;
+		safeStartFakeWorker(context);
+	}
 
 	public static void safeStartFakeWorker(Context context) {
 		long t_dummy = SecureStorage.getInstance(context).getTDummy();
 		if (t_dummy == -1) {
-			t_dummy = System.currentTimeMillis() + syncInterval();
+			t_dummy = clock.currentTimeMillis() + clock.syncInterval();
 			SecureStorage.getInstance(context).setTDummy(t_dummy);
 		}
 		startFakeWorker(context, ExistingWorkPolicy.KEEP, t_dummy);
@@ -53,7 +60,7 @@ public class FakeWorker extends Worker {
 
 	private static void startFakeWorker(Context context, ExistingWorkPolicy policy, long t_dummy) {
 
-		long now = System.currentTimeMillis();
+		long now = clock.currentTimeMillis();
 		long executionDelay = Math.max(0L, t_dummy - now);
 		double executionDelayDays = (double) executionDelay / FACTOR_DAY_MILLIS;
 
@@ -80,7 +87,7 @@ public class FakeWorker extends Worker {
 	@NonNull
 	@Override
 	public ListenableWorker.Result doWork() {
-		long now = System.currentTimeMillis();
+		long now = clock.currentTimeMillis();
 		long t_dummy = getInputData().getLong(KEY_T_DUMMY, now);
 		while (t_dummy < now) {
 			Logger.d(TAG, "start");
@@ -97,7 +104,7 @@ public class FakeWorker extends Worker {
 			} else {
 				Logger.d(TAG, "outdated request is dropped.");
 			}
-			t_dummy += syncInterval();
+			t_dummy += clock.syncInterval();
 			SecureStorage.getInstance(getApplicationContext()).setTDummy(t_dummy);
 		}
 
@@ -136,9 +143,24 @@ public class FakeWorker extends Worker {
 		return "Bearer " + accessToken;
 	}
 
-	private static long syncInterval() {
-		double newDelayDays = ExponentialDistribution.sampleFromStandard() / SAMPLING_RATE;
-		return (long) (newDelayDays * FACTOR_DAY_MILLIS);
+	public interface Clock {
+		long syncInterval();
+
+		long currentTimeMillis();
+
+	}
+
+
+	public static class ClockImpl implements Clock {
+		public long syncInterval() {
+			double newDelayDays = ExponentialDistribution.sampleFromStandard() / SAMPLING_RATE;
+			return (long) (newDelayDays * FACTOR_DAY_MILLIS);
+		}
+
+		public long currentTimeMillis() {
+			return System.currentTimeMillis();
+		}
+
 	}
 
 }
