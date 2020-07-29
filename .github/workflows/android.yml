@@ -42,7 +42,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: ./gradlew connectedProdDebugAndroidTest
+          script: ./gradlew connectedDevDebugAndroidTest
 
   sonar:
     name: "Sonar Analysis"
