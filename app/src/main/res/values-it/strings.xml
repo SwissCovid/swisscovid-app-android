@@ -242,9 +242,6 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="bluetooth_turn_on_button_title">"Attiva Bluetooth"</string>
     <string name="bluetooth_permission_error_title">"Uso di Bluetooth negato"</string>
     <string name="bluetooth_permission_error_text">"Consenti l'uso di Bluetooth sul tuo dispositivo per far funzionare il tracciamento."</string>
-
-    <!-- URL zum Corona Check -->
-    <string name="symptom_detail_corona_check_url">"https://ufsp-coronavirus.ch/check/"</string>
     <string name="push_open_settings_button">"Modifica impostazioni"</string>
 
     <!-- Meldungen Detail: Subtitel wenn keine Meldungen -->
@@ -815,67 +812,13 @@ Se al momento non è disponibile alcun aggiornamento sul tuo dispositivo, riprov
 
     <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
     <string name="android_en_start_failure">"Impossibile attivare le segnalazioni COVID-19."</string>
-
-    <!-- Certificate pinning Debug screen section title -->
-    <string name="certificate_pinning_title">"Certificate Pinning"</string>
-
-    <!-- Fuzzy -->
-    <string name="certificate_pinning_button_disable">"Disattivare"</string>
-    <string name="certificate_pinning_button_enable">"Attivare"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
-    <string name="onboarding_legal_heading">"Version preview"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel -->
-    <string name="onboarding_legal_title">"Da utilizzare solo dai partecipanti della fase pilota"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
-    <string name="onboarding_legal_text1">"L'utilizzo di questa app è attualmente previsto e autorizzato solo per i seguenti gruppi, che sono stati invitati dall'UFSP a partecipare al pilota: membri dell'Esercito svizzero in formazione, assistenza e servizio attivo, personale delle università, personale di ospedali e cliniche, personale delle amministrazioni cantonali e dell'Amministrazione federale, membri di associazioni che desiderano contribuire a migliorare la qualità del sistema."</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
-    <string name="onboarding_legal_text2">"La fase pilota viene effettuata con sistemi produttivi e contiene dati reali. In caso di test COVID-19 positivo, i medici cantonali non sono autorizzati a generare un codice Covid per la notifica dall'app per gli utenti non autorizzati. Gli attacchi (\"penetration test\") al sistema al di fuori del test di sicurezza pubblica delimitato sono attacchi al sistema produttivo e sono pertanto illegali."</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_title">"Fai parte di un'organizzazione che può partecipare alla fase pilota?"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_message">"Appartenete a uno dei seguenti gruppi: membri dell'Esercito svizzero in formazione, assistenza e servizio attivo, collaboratori di università, collaboratori di ospedali e cliniche, collaboratori delle amministrazioni cantonali e dell'amministrazione federale, membri di associazioni che desiderano contribuire al miglioramento della qualità del sistema?"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_no">"No"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_yes">"Sì"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
-    <string name="onboarding_legal_blocker_title">"Fase pilota"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
-    <string name="onboarding_legal_blocker_message">"Non fate parte di un'organizzazione che partecipa alla fase pilota. Si prega di installare l'aggiornamento appropriato dopo il lancio ufficiale dell'applicazione e di riaprire l'applicazione."</string>
     <string name="begegnung_detail_last_sync_title">"Ultima sincronizzazione effettuata"</string>
     <string name="synchronizations_view_title">"Panoramica"</string>
     <string name="synchronizations_view_info_title">"Sincronizzazioni"</string>
     <string name="synchronizations_view_info_question">"Cosa sono le sincronizzazioni?"</string>
     <string name="synchronizations_view_info_answer">"L'app verifica regolarmente gli ID casuali pubblicati dagli utenti risultati positivi al test."</string>
     <string name="synchronizations_view_period_title">"Negli ultimi 14 giorni"</string>
-    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
-    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
     <string name="synchronizations_view_empty_list">"Nessuna voce"</string>
-    <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
-    <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
-    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
-
-    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_before_title">"Prima della chiamata"</string>
-
-    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_main_title">"Annotare le seguenti indicazioni"</string>
-
-    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_datum">"Data"</string>
-
-    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_number">"Numero"</string>
     <string name="tracing_active_tracking_always_info">"SwissCovid resta attiva anche quando l'app viene chiusa."</string>
 
     <!-- title in splash screen of onboarding -->
