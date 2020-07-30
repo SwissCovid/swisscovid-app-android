@@ -66,6 +66,7 @@ public class HomeFragment extends Fragment {
 	private View infobox;
 	private View tracingCard;
 	private View cardNotifications;
+	private View cardTravel;
 	private View reportStatusBubble;
 	private View reportStatusView;
 	private View reportErrorView;
@@ -76,6 +77,8 @@ public class HomeFragment extends Fragment {
 	private View loadingView;
 
 	private SecureStorage secureStorage;
+
+	private boolean SHOW_TRAVEL_CARD = true;
 
 	public HomeFragment() {
 		super(R.layout.fragment_home);
@@ -124,6 +127,7 @@ public class HomeFragment extends Fragment {
 		infobox = view.findViewById(R.id.card_infobox);
 		tracingCard = view.findViewById(R.id.card_tracing);
 		cardNotifications = view.findViewById(R.id.card_notifications);
+		cardTravel = view.findViewById(R.id.card_travel);
 		reportStatusBubble = view.findViewById(R.id.report_status_bubble);
 		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
 		reportErrorView = reportStatusBubble.findViewById(R.id.report_errors);
@@ -139,6 +143,7 @@ public class HomeFragment extends Fragment {
 		setupInfobox();
 		setupTracingView();
 		setupNotification();
+		setupTravelView();
 		setupWhatToDo();
 		setupDebugButton();
 		setupNonProductionHint();
@@ -225,6 +230,7 @@ public class HomeFragment extends Fragment {
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				cardSymptomsFrame.setVisibility(View.GONE);
 				cardTestFrame.setVisibility(View.GONE);
+				cardTravel.setVisibility(View.GONE);
 				tracingCard.findViewById(R.id.contacs_chevron).setVisibility(View.GONE);
 				tracingCard.setOnClickListener(null);
 				tracingCard.setForeground(null);
@@ -309,6 +315,14 @@ public class HomeFragment extends Fragment {
 				//hide errorview
 				TracingErrorStateHelper.updateErrorView(reportErrorView, null);
 			}
+		});
+	}
+
+	private void setupTravelView() {
+		if (!SHOW_TRAVEL_CARD) cardTravel.setVisibility(View.GONE);
+
+		cardTravel.setOnClickListener(v -> {
+
 		});
 	}
 
