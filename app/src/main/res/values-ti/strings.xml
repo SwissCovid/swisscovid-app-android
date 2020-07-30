@@ -239,9 +239,6 @@
     <string name="bluetooth_turn_on_button_title">"ብሉቱዝ ክፈትዎ"</string>
     <string name="bluetooth_permission_error_title">"ምጥቃም ብሉቱዝ ተነጺጉ"</string>
     <string name="bluetooth_permission_error_text">"ኣገልግሎት ምክትታል ክስርሕ ምእንታን ብሉቱዝ ምጥቃም ኣፍቅዱ።  "</string>
-
-    <!-- URL zum Corona Check -->
-    <string name="symptom_detail_corona_check_url">"https://check.bag-coronavirus.ch/screening"</string>
     <string name="push_open_settings_button">"ሴቲንግ ምቕያር "</string>
 
     <!-- Meldungen Detail: Subtitel wenn keine Meldungen -->
@@ -781,65 +778,13 @@
 
     <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
     <string name="android_en_start_failure">"መልእኽትታት ኮቪድ-19 ከም ዝሰርሑ ክግበሩ (ክጅመሩ) ኣይከኣሉን።"</string>
-
-    <!-- Certificate pinning Debug screen section title -->
-    <string name="certificate_pinning_title">"Certificate Pinning"</string>
-    <string name="certificate_pinning_button_disable">"ከምዘይሰርሕ ምግባር (ምጥፋእ)"</string>
-    <string name="certificate_pinning_button_enable">"ምሕዳስ (እዋናዊ ምግባር)"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
-    <string name="onboarding_legal_heading">"Preview Version"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel -->
-    <string name="onboarding_legal_title">"ምጥቃም ጥራይ ንተሳተፍቲ ናይ ልምምድ እዋን "</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
-    <string name="onboarding_legal_text1">"ኣብዚ እዋን እዚ ምጥቃም ናይዚ ኣፕ ነዞም ዝስዕቡ ብሚንስትሪ ጥዕና ንምልምማድ ኢሎም ዝተዓደሙ ሰባት ጥራይ እዩ ተመዲቡን ተፈቒዱን ዘሎ፦  ኣብ ትምህርቲ: ኣብ ኣገልግሎት ሓገዝን ወይ ንጡፍ ኣገልግሎትን ዝርከቡ ኣባላት ሰራዊት ስዊዘርላንድ: ሰራሕተኛታት ላዕለዋይ ኣብያተ ትምህርቲ: ሰራሕተኛታት ሕክምናን ክሊኒክን: ሰራሕተኛታት ዞባዊ ምምሕዳራትን ሃገራዊ ምምሕዳራትን ከምኡውን ንምምሕያሽ ዓይነት ናይቲ ሲስተም እጃም ከበርክቱ ዝደልዩ ኣባላት ማሕበራት።"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
-    <string name="onboarding_legal_text2">"እቲ ናይ ምልምማድ እዋን ብውጽኢታዊ ዝኾነ ሲስተም ዝትግበር ኮይኑ ትኽክለኛ ሰነዳት ይሕዝ።  ሓኻይም ካንቶን ኣብ እዋን ፖዚቲቭ ውጽኢት መርመራ ናይ ኮቪድ-19: ነቶም ዘይተፈቐደሎም ተጠቀምቲ: ዝኾነ ካብ ኣፕ ንዝስደድ መልእኽቲ ዝምልከት ኮቪድኮድ ክፈጥሩ ኣይፍቀደሎምን እዩ።  ካብቲ ሕጹር ዝኾነ Public Security Tests ወጻኢ ዝኾነ ምጥቃዕ («Penetration Tests») ናይዚ ሲስተም ማለት ምጥቃዕ ናይዚ  ውጽኢታዊ ሲስተም ማለት እዩ። እዚ ድማ ዘይሕጋዊ እዩ።  "</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_title">"ኣባል ናይ ሓደ ኣብዚ ናይ ምልምማድ እዋን ክሳተፍ ዝፍቀደሉ ትካል ወይ ማሕበር ዲኹም፧ "</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_message">"ኣባል ናይዞም ዝስዕቡ ጉጅለ ዲኹም፧ኣብ ትምህርቲ: ኣብ ኣገልግሎት ሓገዝን ወይ ንጡፍ ኣገልግሎትን ዝርከቡ ኣባላት ሰራዊት ስዊዘርላንድ: ሰራሕተኛታት ላዕለዋይ ኣብያተ ትምህርቲ: ሰራሕተኛታት ሕክምናን ክሊኒክን: ሰራሕተኛታት ዞባዊ ምምህዳራትን ሃገራዊ ምምሕዳራትን ከምኡውን ንምምሕያሽ ዓይነት ናይቲ ሲስተም እጃም ከበርክቱ ዝደልዩ ኣባላት ማሕበራት "</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_no">"ኣይፋል"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_yes">"እወ"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
-    <string name="onboarding_legal_blocker_title">"ናይ ምልምማድ እዋን "</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
-    <string name="onboarding_legal_blocker_message">"ኣባል ናይ ሓደ ኣብ እዋን ምልምማድ ተሳታፊ ትካል ወይ ማሕበር  ኣይኮንኩምን።  ድሕሪ እቲ ወግዓዊ ምጅማር ናይቲ ኣፕ እቲ ምስኡ ዝኸይድ ምሕዳስ (ኣፕደይት) ኣስተኻኺልኩም ነቲ ኣፕ ክፈትዎ።"</string>
     <string name="begegnung_detail_last_sync_title">"መወዳእታ ዝተገበረ ዕዉት ዝኾነ ምውህ ሃድ/ምስንናይ "</string>
     <string name="synchronizations_view_title">"ሓፈሻዊ መእተዊ/መርኣዩ"</string>
     <string name="synchronizations_view_info_title">"ምውህሃዳት"</string>
     <string name="synchronizations_view_info_question">"ምውህሃዳት እንታይ እዮም፧"</string>
     <string name="synchronizations_view_info_answer">"እቲ ኣፕ ተመርሚም ፖዚቲቭ ዝተረኸቡ ሰባት ንዝዘርግሕዎም ብግምት ዝተሰርዑ መለልዪ ቁጽርታት ቀጻሊ ይምርምር።    "</string>
     <string name="synchronizations_view_period_title">"ኣብተን ዝሓለፋ 14 መዓልትታት "</string>
-    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
-    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
     <string name="synchronizations_view_empty_list">"ዝተመዝገበ የለን"</string>
-    <string name="synchronizations_view_sync_via_scheduled">"  • ዝተወጠነ"</string>
-    <string name="synchronizations_view_sync_via_fake_request">"  • ዝተሰነዐ ሕቶ"</string>
-    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • ምስቃል"</string>
-
-    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_before_title">"ቅድሚ ዝርርብ"</string>
-
-    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_main_title">"እዚ ዝስዕብ ሓበሬታ ጽሓፍዎ "</string>
-
-    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_datum">"ዕለት"</string>
-
-    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_number">"ቁጽሪ"</string>
     <string name="tracing_active_tracking_always_info">"እቲ ኣፕ ዋላ እንተተዓጽወ ስዊስኮቪድ ይስርሕ እዩ።"</string>
 
     <!-- title in splash screen of onboarding -->

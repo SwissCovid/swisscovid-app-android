@@ -239,9 +239,6 @@
     <string name="bluetooth_turn_on_button_title">"Bluetooth'u ektinleştirin"</string>
     <string name="bluetooth_permission_error_title">"Bluetooth kullanımı rededildi"</string>
     <string name="bluetooth_permission_error_text">"Takibin çalışabilmesi için Bluetooth kullanımına izin verin."</string>
-
-    <!-- URL zum Corona Check -->
-    <string name="symptom_detail_corona_check_url">"https://check.bag-coronavirus.ch/screening"</string>
     <string name="push_open_settings_button">"Ayarları değiştirin"</string>
 
     <!-- Meldungen Detail: Subtitel wenn keine Meldungen -->
@@ -788,65 +785,13 @@ Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşm
 
     <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
     <string name="android_en_start_failure">"KOVİD-19 bildirimleri etkinleştirilemedi."</string>
-
-    <!-- Certificate pinning Debug screen section title -->
-    <string name="certificate_pinning_title">"Sertifika sabitleme"</string>
-    <string name="certificate_pinning_button_disable">"Devre dışı bırak"</string>
-    <string name="certificate_pinning_button_enable">"Etkinleştir"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
-    <string name="onboarding_legal_heading">"Önizleme Sürümü"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel -->
-    <string name="onboarding_legal_title">"Pilot aşamada katılımcılar için kullanım"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
-    <string name="onboarding_legal_text1">"„Bu uygulama şu anda yalnızca BAG tarafından pilot kullanım için davet edilen aşağıdaki grupların kullanımına açıktır: Eğitim, yardım ve aktif hizmette olan İsviçre Ordusu üyeleri, üniversite çalışanları, hastane ve klinik çalışanları, kanton idareleri ve federal idare çalışanları, sistemin kalitesinin iyileştirilmesine katkıda bulunmak isteyen dernek üyeleri.“"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
-    <string name="onboarding_legal_text2">"Pilot aşama, üretken sistemlerle gerçekleştirilir ve gerçek verileri içerir. Kanton doktorları, pozitif bir KOVİD-19 testi durumunda yetkisiz uygulama kullanıcılarına bildirim için bir Kovid kodu veremezler. Tanımlanmış Kamu Güvenliği Testi‘nin dışındaki sisteme yapılan saldırılar (\"Penetrasyon testleri\"), üretken sisteme yapılan saldırılardır ve bu nedenle yasa dışıdır."</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_title">"Pilot aşamaya katılmasına izin verilen bir organizasyonun üyesi misiniz?"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_message">"Aşağıdakilerin üyesi misiniz: Eğitim, yardım ve aktif hizmette olan İsviçre Ordusu üyeleri, üniversite çalışanları, hastane ve klinik çalışanları, kanton idareleri ve federal idare çalışanları, sistemin kalitesinin iyileştirilmesine katkıda bulunmak isteyen dernek üyeleri?"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_no">"Hayır"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_yes">"Evet"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
-    <string name="onboarding_legal_blocker_title">"Pilot aşama"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
-    <string name="onboarding_legal_blocker_message">"Pilot aşamasına katılan organizasyonlardan birine üye değilsiniz. Lütfen resmi başlangıçtan sonra güncellemeyi yükleyin ve uygulamayı yeniden başlatın."</string>
     <string name="begegnung_detail_last_sync_title">"Son senktronizasyon"</string>
     <string name="synchronizations_view_title">"Genel Bakış"</string>
     <string name="synchronizations_view_info_title">"Senkronizasyonlar"</string>
     <string name="synchronizations_view_info_question">"Senkronizasyonlar nedir?"</string>
     <string name="synchronizations_view_info_answer">"Uygulama düzenli olarak pozitif test edilmiş kişilerin yayınladığı rastgele ID'leri kontrol eder."</string>
     <string name="synchronizations_view_period_title">"Son 14 gün içerisinde"</string>
-    <string name="synchronizations_view_sync_via_open">"  • Aç"</string>
-    <string name="synchronizations_view_sync_via_background">"  • Senkronize et"</string>
     <string name="synchronizations_view_empty_list">"Giriş yoktur"</string>
-    <string name="synchronizations_view_sync_via_scheduled">"  • Planlandı"</string>
-    <string name="synchronizations_view_sync_via_fake_request">"  • Hatalı talep"</string>
-    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Yükle"</string>
-
-    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_before_title">"Görüşmeden önce"</string>
-
-    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_main_title">"Lütfen şu bilgileri not edin"</string>
-
-    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_datum">"Tarih"</string>
-
-    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_number">"Numara"</string>
     <string name="tracing_active_tracking_always_info">"SwissCovid uygulama kapatıldığında da aktiftir."</string>
 
     <!-- title in splash screen of onboarding -->
