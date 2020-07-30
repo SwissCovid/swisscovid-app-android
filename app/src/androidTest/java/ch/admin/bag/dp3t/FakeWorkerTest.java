@@ -78,7 +78,7 @@ public class FakeWorkerTest {
 
 		FakeWorker.safeStartFakeWorker(context);
 		// TDummy is initialized to a time in the future.
-		assert (SecureStorage.getInstance(context).getTDummy() > System.currentTimeMillis());
+		assertTrue (SecureStorage.getInstance(context).getTDummy() > System.currentTimeMillis());
 	}
 
 	@Test
@@ -199,8 +199,8 @@ public class FakeWorkerTest {
 		double max = 1.1 / FakeWorker.SAMPLING_RATE;
 		double min = 0.9 / FakeWorker.SAMPLING_RATE;
 
-		assert (averageIntervalDays < max);
-		assert (averageIntervalDays > min);
+		assertTrue (averageIntervalDays < max);
+		assertTrue (averageIntervalDays > min);
 	}
 
 	@Test
