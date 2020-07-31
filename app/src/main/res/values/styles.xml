@@ -21,7 +21,6 @@
 		<item name="toolbarNavigationButtonStyle">@style/NextStep.Toolbar.Button.Navigation</item>
 	</style>
 
-
 	<style name="NextStep.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
 		<item name="background">@color/navigation_background</item>
 		<item name="itemIconTint">@color/selector_bottom_navigation_item</item>
@@ -37,6 +36,11 @@
 
 	<style name="NextStep.Text.Small">
 		<item name="android:textSize">@dimen/text_size_small</item>
+	</style>
+
+	<style name="NextStep.Text.Smaller">
+		<item name="android:textColor">@color/status_travel</item>
+		<item name="android:textSize">@dimen/text_size_smaller</item>
 	</style>
 
 	<style name="NextStep.Text.Small.Bold">
@@ -155,6 +159,7 @@
 
 	<style name="NextStep.Button.AllCaps">
 		<item name="textAllCaps">true</item>
+		<item name="android:textAllCaps">true</item>
 	</style>
 
 	<style name="NextStep.Button.Purple">

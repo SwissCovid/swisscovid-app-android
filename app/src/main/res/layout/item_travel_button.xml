@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/grey_light"
+	android:gravity="center"
+	android:paddingTop="@dimen/spacing_very_large"
+	android:paddingBottom="@dimen/travel_button_bottom_margin">
+
+	<Button
+		android:id="@+id/travel_add_countries_button"
+		style="@style/NextStep.Button.AllCaps"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/travel_screen_add_countries_button" />
+
+</LinearLayout>

@@ -49,6 +49,7 @@ import ch.admin.bag.dp3t.main.model.TracingState;
 import ch.admin.bag.dp3t.main.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.travel.TravelFragment;
 import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
@@ -322,7 +323,11 @@ public class HomeFragment extends Fragment {
 		if (!SHOW_TRAVEL_CARD) cardTravel.setVisibility(View.GONE);
 
 		cardTravel.setOnClickListener(v -> {
-
+			getParentFragmentManager().beginTransaction()
+					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+					.replace(R.id.main_fragment_container, TravelFragment.newInstance())
+					.addToBackStack(TravelFragment.class.getCanonicalName())
+					.commit();
 		});
 	}
 

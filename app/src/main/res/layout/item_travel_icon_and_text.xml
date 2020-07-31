@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	android:paddingHorizontal="@dimen/spacing_large"
+	android:paddingTop="@dimen/spacing_medium"
+	android:paddingBottom="@dimen/spacing_huge">
+
+	<ImageView
+		android:id="@+id/travel_item_icon"
+		android:layout_width="@dimen/icon_size"
+		android:layout_height="@dimen/icon_size"
+		android:layout_marginRight="@dimen/spacing_medium_large"
+		android:src="@drawable/ic_travel" />
+
+	<TextView
+		android:id="@+id/travel_item_text"
+		style="@style/NextStep.Text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/travel_screen_introduction" />
+
+</LinearLayout>
