@@ -32,4 +32,9 @@ public class ItemIconAndText extends TravelRecyclerItem {
 				backgroundColorId == that.backgroundColorId;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(textResourceId, iconResourceId, iconColorId, backgroundColorId);
+	}
+
 }

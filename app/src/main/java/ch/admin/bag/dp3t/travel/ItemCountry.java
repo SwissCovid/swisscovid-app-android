@@ -41,4 +41,9 @@ public class ItemCountry extends TravelRecyclerItem {
 				Objects.equals(checkedChangeListener, that.checkedChangeListener);
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(countryName, flagResId);
+	}
+
 }

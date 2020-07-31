@@ -42,6 +42,7 @@ public class TravelFragment extends Fragment {
 		secureStorage.getCountriesLiveData().observe(getViewLifecycleOwner(), countries -> {
 
 			ArrayList<TravelRecyclerItem> items = new ArrayList<>();
+			items.add(new ItemSpace(R.dimen.spacing_larger, R.color.white));
 			items.add(new ItemIconAndText(R.string.travel_screen_introduction, R.drawable.ic_travel, R.color.blue_main,
 					R.color.white));
 
@@ -71,8 +72,11 @@ public class TravelFragment extends Fragment {
 			}
 
 			items.add(new ItemButton(R.string.travel_screen_add_countries_button, (v) -> {
-				//TODO: Open Add Countries Fragment (PP-676)
-
+				getParentFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.main_fragment_container, TravelAddCountriesFragment.newInstance())
+						.addToBackStack(TravelAddCountriesFragment.class.getCanonicalName())
+						.commit();
 			}));
 			items.add(new ItemHeader(R.string.travel_screen_explanation_title_1));
 			items.add(new ItemIconAndText(R.string.travel_screen_explanation_text_1, R.drawable.ic_begegnungen, R.color.blue_main,

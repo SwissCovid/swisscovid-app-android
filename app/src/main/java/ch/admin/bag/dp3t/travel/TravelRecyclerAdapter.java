@@ -1,12 +1,12 @@
 package ch.admin.bag.dp3t.travel;
 
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -52,6 +52,18 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 				return new CountryViewHolder(
 						(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_travel_country_and_toggle, parent,
 								false)));
+			case ALL_CAPS_HEADER:
+				return new AllCapsHeaderViewHolder(
+						(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_travel_text_header_all_caps, parent,
+								false)));
+			case EDITABLE_COUNTRY:
+				return new EditableCountryViewHolder(
+						(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_travel_editable_country, parent,
+								false)));
+			case SPACE:
+				return new SpaceViewHolder(
+						(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_travel_space, parent,
+								false)));
 			default:
 				return null;
 		}
@@ -74,6 +86,16 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 				break;
 			case COUNTRY:
 				((CountryViewHolder) holder).bind((ItemCountry) item);
+				break;
+			case ALL_CAPS_HEADER:
+				((AllCapsHeaderViewHolder) holder).bind((ItemAllCapsHeader) item);
+				break;
+			case EDITABLE_COUNTRY:
+				((EditableCountryViewHolder) holder).bind((ItemEditableCountry) item);
+				break;
+			case SPACE:
+				((SpaceViewHolder) holder).bind((ItemSpace) item);
+				break;
 		}
 	}
 
@@ -90,6 +112,46 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 		this.items.clear();
 		this.items.addAll(items);
 	}
+
+	public class SpaceViewHolder extends RecyclerView.ViewHolder {
+
+		public SpaceViewHolder(View itemView) {super(itemView);}
+
+		public void bind(ItemSpace item) {
+			itemView.setBackgroundColor(ContextCompat.getColor(itemView.getContext(), item.backgroundColorResId));
+			int height = itemView.getContext().getResources().getDimensionPixelSize(item.height);
+			itemView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
+		}
+
+	}
+
+
+	public class EditableCountryViewHolder extends RecyclerView.ViewHolder {
+		TextView countryTextView;
+		ImageView flagImageView;
+		ImageView addRemoveImageView;
+		ImageView dragAndDropIconView;
+
+
+		public EditableCountryViewHolder(@NonNull View itemView) {
+			super(itemView);
+			this.countryTextView = itemView.findViewById(R.id.travel_country_item_name);
+			this.addRemoveImageView = itemView.findViewById(R.id.travel_country_add_remove_button);
+			this.flagImageView = itemView.findViewById(R.id.travel_country_item_flag);
+			this.dragAndDropIconView = itemView.findViewById(R.id.drag_and_drop_icon);
+		}
+
+		public void bind(ItemEditableCountry item) {
+			addRemoveImageView.setOnClickListener(item.onAddRemoveClickedListener);
+			countryTextView.setText(item.countryName);
+			flagImageView.setImageResource(item.flagResId);
+			addRemoveImageView.setImageResource(item.addRemoveIconResId);
+			if (item.showDragAndDropIcon) dragAndDropIconView.setVisibility(View.VISIBLE);
+			else dragAndDropIconView.setVisibility(View.GONE);
+		}
+
+	}
+
 
 	public class CountryViewHolder extends RecyclerView.ViewHolder {
 		TextView countryTextView;
@@ -148,6 +210,21 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 		}
 
 		public void bind(ItemHeader item) {
+			headerTextView.setText(item.headerTextResId);
+		}
+
+	}
+
+
+	public class AllCapsHeaderViewHolder extends RecyclerView.ViewHolder {
+		TextView headerTextView;
+
+		public AllCapsHeaderViewHolder(@NonNull View itemView) {
+			super(itemView);
+			this.headerTextView = itemView.findViewById(R.id.travel_item_header);
+		}
+
+		public void bind(ItemAllCapsHeader item) {
 			headerTextView.setText(item.headerTextResId);
 		}
 

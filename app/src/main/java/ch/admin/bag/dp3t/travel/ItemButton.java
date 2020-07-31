@@ -28,4 +28,9 @@ public class ItemButton extends TravelRecyclerItem {
 				Objects.equals(onClickListener, that.onClickListener);
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(buttonTitleStringId);
+	}
+
 }

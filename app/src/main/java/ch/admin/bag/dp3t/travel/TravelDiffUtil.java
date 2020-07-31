@@ -27,7 +27,7 @@ public class TravelDiffUtil extends DiffUtil.Callback {
 
 	@Override
 	public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-		return oldData.get(oldItemPosition).getViewType().ordinal() == newData.get(newItemPosition).getViewType().ordinal();
+		return oldData.get(oldItemPosition).hashCode() == newData.get(newItemPosition).hashCode();
 	}
 
 	@Override
