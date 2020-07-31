@@ -21,6 +21,8 @@ import androidx.core.app.NotificationCompat;
 import androidx.work.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.DP3T;
@@ -31,8 +33,10 @@ import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
+import ch.admin.bag.dp3t.networking.models.CountryModel;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.travel.Country;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 
 public class ConfigWorker extends Worker {
@@ -118,6 +122,25 @@ public class ConfigWorker extends Worker {
 		} else {
 			cancelNotification(context);
 		}
+
+		List<Country> currentCountries = secureStorage.getCountries();
+		List<Country> updatedCountries = new ArrayList<>();
+
+		for (CountryModel countryModel : config.getCountryModels()) {
+			//Check if we already have this country in our current country list and if so copy it to the updatedCountries List.
+			boolean isAlreadyPresent = false;
+			for (Country currentCountry : currentCountries) {
+				if (currentCountry.getIsoCode().equalsIgnoreCase(countryModel.getIsoCountryCode())) {
+					updatedCountries.add(currentCountry);
+					isAlreadyPresent = true;
+					break;
+				}
+			}
+			if (!isAlreadyPresent) {
+				updatedCountries.add(new Country(countryModel.getIsoCountryCode(), false, false, -1));
+			}
+		}
+		secureStorage.setCountries(updatedCountries);
 	}
 
 	private static void showNotification(Context context) {

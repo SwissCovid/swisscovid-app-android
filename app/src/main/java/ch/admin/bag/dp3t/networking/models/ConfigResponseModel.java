@@ -9,11 +9,14 @@
  */
 package ch.admin.bag.dp3t.networking.models;
 
+import java.util.List;
+
 public class ConfigResponseModel {
 
 	private boolean forceUpdate;
 	private InfoBoxModelCollection infoBox;
 	private SdkConfigModel androidGaenSdkConfig;
+	private List<CountryModel> supportedCountries;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -31,5 +34,7 @@ public class ConfigResponseModel {
 	public SdkConfigModel getSdkConfig() {
 		return androidGaenSdkConfig;
 	}
+
+	public List<CountryModel> getCountryModels() { return supportedCountries; }
 
 }

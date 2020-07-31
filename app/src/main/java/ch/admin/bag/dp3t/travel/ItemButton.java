@@ -2,6 +2,8 @@ package ch.admin.bag.dp3t.travel;
 
 import android.view.View;
 
+import java.util.Objects;
+
 public class ItemButton extends TravelRecyclerItem {
 
 	int buttonTitleStringId;
@@ -15,6 +17,15 @@ public class ItemButton extends TravelRecyclerItem {
 	@Override
 	ViewType getViewType() {
 		return ViewType.BUTTON;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		ItemButton that = (ItemButton) o;
+		return buttonTitleStringId == that.buttonTitleStringId &&
+				Objects.equals(onClickListener, that.onClickListener);
 	}
 
 }

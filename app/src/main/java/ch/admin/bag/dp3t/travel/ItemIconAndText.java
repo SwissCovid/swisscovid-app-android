@@ -1,5 +1,7 @@
 package ch.admin.bag.dp3t.travel;
 
+import java.util.Objects;
+
 public class ItemIconAndText extends TravelRecyclerItem {
 
 	int textResourceId;
@@ -17,6 +19,17 @@ public class ItemIconAndText extends TravelRecyclerItem {
 	@Override
 	ViewType getViewType() {
 		return ViewType.ICON_AND_TEXT;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		ItemIconAndText that = (ItemIconAndText) o;
+		return textResourceId == that.textResourceId &&
+				iconResourceId == that.iconResourceId &&
+				iconColorId == that.iconColorId &&
+				backgroundColorId == that.backgroundColorId;
 	}
 
 }

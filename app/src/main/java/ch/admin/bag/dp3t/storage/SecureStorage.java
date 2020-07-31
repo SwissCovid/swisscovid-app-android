@@ -19,6 +19,12 @@ import androidx.security.crypto.MasterKeys;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import ch.admin.bag.dp3t.travel.Country;
 
 public class SecureStorage {
 
@@ -46,6 +52,8 @@ public class SecureStorage {
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION = "last_config_load_success_app_version";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_SDK_INT = "last_config_load_success_sdk_int";
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
+	private static final String KEY_SUPPORTED_COUNTRIES = "KEY_SUPPORTED_COUNTRIES";
+
 
 	private static SecureStorage instance;
 
@@ -53,6 +61,7 @@ public class SecureStorage {
 
 	private final MutableLiveData<Boolean> forceUpdateLiveData;
 	private final MutableLiveData<Boolean> hasInfoboxLiveData;
+	private final MutableLiveData<List<Country>> countriesLiveData;
 
 	private SecureStorage(@NonNull Context context) {
 		try {
@@ -67,6 +76,7 @@ public class SecureStorage {
 
 		forceUpdateLiveData = new MutableLiveData<>(getDoForceUpdate());
 		hasInfoboxLiveData = new MutableLiveData<>(getHasInfobox());
+		countriesLiveData = new MutableLiveData<>(getCountries());
 	}
 
 	public static SecureStorage getInstance(Context context) {
@@ -83,6 +93,11 @@ public class SecureStorage {
 	public LiveData<Boolean> getInfoBoxLiveData() {
 		return hasInfoboxLiveData;
 	}
+
+	public LiveData<List<Country>> getCountriesLiveData() {
+		return countriesLiveData;
+	}
+
 
 	public long getInfectedDate() {
 		return prefs.getLong(KEY_INFECTED_DATE, 0);
@@ -263,6 +278,25 @@ public class SecureStorage {
 
 	public void setTDummy(long time) {
 		prefs.edit().putLong(KEY_T_DUMMY, time).apply();
+	}
+
+	public void setCountries(List<Country> countries) {
+		prefs.edit().putString(KEY_SUPPORTED_COUNTRIES, new Gson().toJson(countries)).apply();
+		this.countriesLiveData.postValue(countries);
+	}
+
+	public List<Country> getCountries() {
+		String countriesGsonString = prefs.getString(KEY_SUPPORTED_COUNTRIES, "[]");
+		List<Country> countries = new Gson().fromJson(countriesGsonString, new TypeToken<List<Country>>() { }.getType());
+
+		//TODO: Remove Hardcoded countries! (PP-602)
+		if (countries.isEmpty()) {
+			countries.add(new Country("DE", true, false, -1));
+			countries.add(new Country("AT", true, true, -1));
+			countries.add(new Country("IT", true, false, -1));
+		}
+
+		return countries;
 	}
 
 }

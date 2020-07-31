@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import ch.admin.bag.dp3t.R;
@@ -83,7 +84,9 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
 	public void setData(List<TravelRecyclerItem> items) {
 
-		//TODO: Add DiffUtil (PP-602)
+		DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new TravelDiffUtil(this.items, items), true);
+		diffResult.dispatchUpdatesTo(this);
+
 		this.items.clear();
 		this.items.addAll(items);
 	}
@@ -105,10 +108,10 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 		}
 
 		public void bind(ItemCountry item) {
+			isActiveSwitch.setOnCheckedChangeListener(item.checkedChangeListener);
 			countryTextView.setText(item.countryName);
 			isActiveSwitch.setChecked(item.isActive);
 			flagImageView.setImageResource(item.flagResId);
-			isActiveSwitch.setOnCheckedChangeListener(item.checkedChangeListener);
 			if (item.showTopSeparator) topSeparator.setVisibility(View.VISIBLE);
 			else topSeparator.setVisibility(View.GONE);
 			if (item.statusText != null && !item.statusText.equals("")) {
