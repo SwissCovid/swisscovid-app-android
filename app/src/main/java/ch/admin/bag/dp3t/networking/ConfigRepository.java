@@ -70,6 +70,7 @@ public class ConfigRepository {
 		Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion, buildNumber).execute();
 		if (configResponse.isSuccessful()) {
 			secureStorage.setLastConfigLoadSuccess(System.currentTimeMillis());
+			secureStorage.setLastConfigLoadSuccessAppVersion(BuildConfig.VERSION_CODE);
 			return configResponse.body();
 		} else {
 			throw new ResponseError(configResponse.raw());
