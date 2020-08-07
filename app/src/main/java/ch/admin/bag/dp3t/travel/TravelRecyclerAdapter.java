@@ -1,7 +1,9 @@
 package ch.admin.bag.dp3t.travel;
 
+import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -141,13 +143,21 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 			this.dragAndDropIconView = itemView.findViewById(R.id.drag_and_drop_icon);
 		}
 
+		@SuppressLint("ClickableViewAccessibility")
 		public void bind(ItemEditableCountry item) {
 			addRemoveImageView.setOnClickListener(item.onAddRemoveClickedListener);
 			countryTextView.setText(item.countryName);
 			flagImageView.setImageResource(item.flagResId);
 			addRemoveImageView.setImageResource(item.addRemoveIconResId);
-			if (item.showDragAndDropIcon) dragAndDropIconView.setVisibility(View.VISIBLE);
-			else dragAndDropIconView.setVisibility(View.GONE);
+			if (item.showDragAndDropIcon) {
+				dragAndDropIconView.setVisibility(View.VISIBLE);
+				dragAndDropIconView.setOnTouchListener((v, event) -> {
+					if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+						item.startDragListener.startDrag(this);
+					}
+					return true;
+				});
+			} else dragAndDropIconView.setVisibility(View.GONE);
 		}
 
 	}

@@ -25,6 +25,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import ch.admin.bag.dp3t.travel.Country;
+import ch.admin.bag.dp3t.travel.CountryListUtils;
 
 public class SecureStorage {
 
@@ -280,9 +281,10 @@ public class SecureStorage {
 		prefs.edit().putLong(KEY_T_DUMMY, time).apply();
 	}
 
-	public void setCountries(List<Country> countries) {
+	public void setCountries(List<Country> countries, Context context) {
+		countries = CountryListUtils.sortCountriesList(countries, context);
 		prefs.edit().putString(KEY_SUPPORTED_COUNTRIES, new Gson().toJson(countries)).apply();
-		this.countriesLiveData.postValue(countries);
+		this.countriesLiveData.setValue(countries);
 	}
 
 	public List<Country> getCountries() {

@@ -16,10 +16,11 @@
 
 		<ImageView
 			android:id="@+id/travel_country_add_remove_button"
-			android:layout_width="@dimen/icon_size"
-			android:layout_height="wrap_content"
-			android:layout_marginEnd="@dimen/spacing_small"
-			android:adjustViewBounds="true" />
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:adjustViewBounds="true"
+			android:paddingEnd="@dimen/spacing_small"
+			android:src="@drawable/ic_add" />
 
 		<ImageView
 			android:id="@+id/travel_country_item_flag"
@@ -40,8 +41,9 @@
 
 		<ImageView
 			android:id="@+id/drag_and_drop_icon"
-			android:layout_width="@dimen/icon_size"
-			android:layout_height="@dimen/icon_size"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:paddingStart="@dimen/spacing_small"
 			android:src="@drawable/ic_drag_and_drop" />
 
 	</LinearLayout>

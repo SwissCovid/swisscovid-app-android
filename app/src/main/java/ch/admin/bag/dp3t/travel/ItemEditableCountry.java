@@ -1,7 +1,8 @@
 package ch.admin.bag.dp3t.travel;
 
 import android.view.View;
-import android.widget.CompoundButton;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Objects;
 
@@ -12,14 +13,17 @@ public class ItemEditableCountry extends TravelRecyclerItem {
 	int addRemoveIconResId;
 	boolean showDragAndDropIcon;
 	View.OnClickListener onAddRemoveClickedListener;
+	StartDragListener startDragListener;
+
 
 	public ItemEditableCountry(String countryName, int flagResId, int addRemoveIconResId, boolean showDragAndDropIcon,
-			View.OnClickListener onAddRemoveClickedListener) {
+			View.OnClickListener onAddRemoveClickedListener, StartDragListener startDragListener) {
 		this.countryName = countryName;
 		this.flagResId = flagResId;
 		this.addRemoveIconResId = addRemoveIconResId;
 		this.showDragAndDropIcon = showDragAndDropIcon;
 		this.onAddRemoveClickedListener = onAddRemoveClickedListener;
+		this.startDragListener = startDragListener;
 	}
 
 	@Override
@@ -42,6 +46,11 @@ public class ItemEditableCountry extends TravelRecyclerItem {
 	@Override
 	public int hashCode() {
 		return Objects.hash(countryName, flagResId);
+	}
+
+	interface StartDragListener {
+		void startDrag(RecyclerView.ViewHolder viewHolder);
+
 	}
 
 }

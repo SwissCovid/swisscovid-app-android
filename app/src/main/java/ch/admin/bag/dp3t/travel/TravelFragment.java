@@ -46,8 +46,6 @@ public class TravelFragment extends Fragment {
 			items.add(new ItemIconAndText(R.string.travel_screen_introduction, R.drawable.ic_travel, R.color.blue_main,
 					R.color.white));
 
-			Collections.sort(countries, (c1, c2) -> c1.getCountryName(getContext()).compareTo(c2.getCountryName(getContext())));
-
 			boolean addTopSeparator = true;
 			for (Country country : countries) {
 				if (country.isFavourite()) {
@@ -64,7 +62,7 @@ public class TravelFragment extends Fragment {
 										country.setActive(isChecked);
 										if (!isChecked) country.setDeactivationTimestamp(System.currentTimeMillis());
 										else country.setDeactivationTimestamp(-1);
-										secureStorage.setCountries(countries);
+										secureStorage.setCountries(countries, getContext());
 									}));
 
 					addTopSeparator = false;
