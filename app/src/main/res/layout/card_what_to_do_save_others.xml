@@ -146,12 +146,25 @@
 
 						<include layout="@layout/view_text_bullet" />
 
-						<TextView
-							style="@style/NextStep.Text"
+						<LinearLayout
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
-							android:text="@string/meldungen_detail_explanation_text2" />
+							android:orientation="vertical">
 
+							<TextView
+								style="@style/NextStep.Text"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:text="@string/meldungen_detail_explanation_text2" />
+
+							<TextView
+								android:id="@+id/x_days_left_textview"
+								style="@style/NextStep.Text.Bold"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:text="@string/date_in_one_day" />
+
+						</LinearLayout>
 					</LinearLayout>
 
 					<LinearLayout
