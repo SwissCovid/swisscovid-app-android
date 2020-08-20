@@ -658,12 +658,12 @@ De esta forma, se informa a otros usuarios de la aplicación SwissCovid de que e
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Los síntomas siguientes aparecen con frecuencia:
 
-- fiebre, sensación febril
-- dolor de garganta
-- tos (casi siempre seca)
-- dificultad respiratoria
-- dolores musculares
-- pérdida repentina del sentido del gusto y/o del olfato"</string>
+– fiebre, sensación febril
+– dolor de garganta
+– tos (casi siempre seca)
+– dificultad respiratoria
+– dolores musculares
+– pérdida repentina del sentido del gusto y/o del olfato"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"¿Por qué ha finalizado el rastreo?"</string>
@@ -701,7 +701,8 @@ De esta forma, se informa a otros usuarios de la aplicación SwissCovid de que e
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"Pulsar dos veces para editar"</string>
 
-    <!-- Accessibility: FAW Button Titel  -->
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine Website des BAG geöffnet wird -->
+    <!-- Fuzzy -->
     <string name="accessibility_faq_button_hint">"Este button abandona la aplicación y abre la página web de la O.F.S.P."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -814,7 +815,7 @@ cadenas de contagio."</string>
     <string name="inform_detail_faq3_title">"¿Permanezco en el anonimato?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"En cuanto aparezcan los primeros síntomas, haga la autoevaluación del coronavirus o llame a su médico."</string>
+    <string name="meldungen_detail_explanation_text4">"Llame a un médico o a un centro sanitario."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"Notificaciones de exposición a la COVID-19"</string>

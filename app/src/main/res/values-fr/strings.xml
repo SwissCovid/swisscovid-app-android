@@ -664,12 +664,12 @@ Ainsi, d'autres utilisateurs de l'application SwissCovid apprennent qu'ils ont p
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Ces symptômes sont fréquents :
 
-- Fièvre, sensation de fièvre
-- Mal de gorge
-- Toux (généralement sèche)
-- Difficultés respiratoires
-- Douleurs musculaires
-- Perte soudaine de l’odorat et/ou du goût"</string>
+– Fièvre, sensation de fièvre
+– Mal de gorge
+– Toux (généralement sèche)
+– Difficultés respiratoires
+– Douleurs musculaires
+– Perte soudaine de l’odorat et/ou du goût"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Pourquoi le traçage de proximité est-il interrompu ?"</string>
@@ -708,7 +708,8 @@ Ainsi, d'autres utilisateurs de l'application SwissCovid apprennent qu'ils ont p
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"Double tapotement pour éditer"</string>
 
-    <!-- Accessibility: FAW Button Titel  -->
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine Website des BAG geöffnet wird -->
+    <!-- Fuzzy -->
     <string name="accessibility_faq_button_hint">"Ce bouton permet de quitter l'application et d'ouvrir le site de l'O.F.S.P."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -823,7 +824,7 @@ de transmission."</string>
     <string name="inform_detail_faq3_title">"Est-ce que je reste anonyme ?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"Faites une auto-évaluation ou appelez votre médecin dès les premiers symptômes."</string>
+    <string name="meldungen_detail_explanation_text4">"Appelez un médecin ou une institution de santé."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"Notifications d'exposition au COVID 19"</string>

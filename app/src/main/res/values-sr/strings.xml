@@ -666,12 +666,12 @@ Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Ovi simptomi se često javljaju:
 
-- temperatura, osećaj groznice
-- bolovi u grlu
-- kašalj (najčešće suv)
-- kratak dah
-- bolovi u mišićima
-- iznenadni gubitak čula mirisa i/ili ukusa"</string>
+– temperatura, osećaj groznice
+– bolovi u grlu
+– kašalj (najčešće suv)
+– kratak dah
+– bolovi u mišićima
+– iznenadni gubitak čula mirisa i/ili ukusa"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Zašto je praćenje završeno?"</string>
@@ -709,7 +709,8 @@ Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"Kliknite dvaput za obradu"</string>
 
-    <!-- Accessibility: FAW Button Titel  -->
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine Website des BAG geöffnet wird -->
+    <!-- Fuzzy -->
     <string name="accessibility_faq_button_hint">"Ovo dugme napušta aplikaciju i otvara web stranicu Saveznog Ministarstva za zdravlje."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -819,7 +820,7 @@ prekida lanac
     <string name="inform_detail_faq3_title">"Da li ostajem anoniman?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"U slučaju pojave prvih simptoma obavite proveru na virus korona ili se obratite svom lekaru."</string>
+    <string name="meldungen_detail_explanation_text4">"Pozovite lekara ili zdravstvenu ustanovu."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"Obavijesti o izloženosti bolesti COVID-19"</string>

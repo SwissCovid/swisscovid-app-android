@@ -665,12 +665,12 @@ Other SwissCovid apps can then check if it is possible that they have been infec
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"These are the most common symptoms of COVID-19:
 
-- Fever, feverish feeling 
-- Sore throat
-- Cough (mostly dry)
-- Shortness of breath
-- Body aches
-- Sudden loss of the sense of taste and/or smell"</string>
+– Fever, feverish feeling 
+– Sore throat
+– Cough (mostly dry)
+– Shortness of breath
+– Body aches
+– Sudden loss of the sense of taste and/or smell"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Why has proximity tracing ended?"</string>
@@ -708,7 +708,8 @@ Other SwissCovid apps can then check if it is possible that they have been infec
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"Double-tap to edit"</string>
 
-    <!-- Accessibility: FAW Button Titel  -->
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine Website des BAG geöffnet wird -->
+    <!-- Fuzzy -->
     <string name="accessibility_faq_button_hint">"This button exits the app and opens the F.O.P.H. website."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -821,7 +822,7 @@ chains of infection."</string>
     <string name="inform_detail_faq3_title">"Does anyone find out who I am?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"If you develop any symptoms, do the coronavirus check or call your doctor."</string>
+    <string name="meldungen_detail_explanation_text4">"Call your doctor or your healthcare facility to schedule an appointment."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"COVID-19 Exposure Notifications"</string>

@@ -649,12 +649,12 @@ Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşm
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Bu semptomlar sıklıkla ortaya çıkmaktadır:
 
-- Ateş, ateşlenme
-- Boğaz ağrısı
-- Öksürme (genelde kuru)
-- Nefes darlığı
-- Kas ağrıları
-- Koku ve tad alma yetisinin aniden kaybolması"</string>
+– Ateş, ateşlenme
+– Boğaz ağrısı
+– Öksürme (genelde kuru)
+– Nefes darlığı
+– Kas ağrıları
+– Koku ve tad alma yetisinin aniden kaybolması"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Takip neden sonlandırıldı?"</string>
@@ -692,7 +692,8 @@ Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşm
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"Düzenlemek için lütfen iki defa tıklayın"</string>
 
-    <!-- Accessibility: FAW Button Titel  -->
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine Website des BAG geöffnet wird -->
+    <!-- Fuzzy -->
     <string name="accessibility_faq_button_hint">"Bu bağlantı sizi uygulamadan çıkararak B.A.G. web sayfasına ulaştırır."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -800,7 +801,7 @@ Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşm
     <string name="inform_detail_faq3_title">"Bilgilerim anonim mi?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"İlk semptomlarda lütfen Korona virüsü kontrolünü yapın ve doktorunuzu arayın."</string>
+    <string name="meldungen_detail_explanation_text4">"Lütfen bir doktor ya da sağlık kuruluşu ile iletişime geçin."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"KOVİD-19 Bildirimleri"</string>

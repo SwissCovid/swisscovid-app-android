@@ -643,12 +643,12 @@
 
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"እዚኦም ምልክታት ብዙሕ ግዜ ይርኣዩ፦ 
-- ረስኒ፣ ስምዒት ናይ ረስኒ
-- ቃንዛ ጎሮሮ
-- ሰዓል (መብዛሕትኡ ግዜ ደረቕ ሰዓል)
-- ሕጽረት እስትንፋስ
-- ቃንዛ ጨዋዳታት
-- ናይ ምሽታትን ናይ ምስትምቓርን ክእለት ብሃንደበት ምጥፋእ"</string>
+– ረስኒ፣ ስምዒት ናይ ረስኒ
+– ቃንዛ ጎሮሮ
+– ሰዓል (መብዛሕትኡ ግዜ ደረቕ ሰዓል)
+– ሕጽረት እስትንፋስ
+– ቃንዛ ጨዋዳታት
+– ናይ ምሽታትን ናይ ምስትምቓርን ክእለት ብሃንደበት ምጥፋእ"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"ንምንታይ ምክትታል ተወዲኡ፧"</string>
@@ -686,7 +686,8 @@
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"ንኽትሰርሖ ብዕጽፊ ምህራም (ታይፕ ምግባር) "</string>
 
-    <!-- Accessibility: FAW Button Titel  -->
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine Website des BAG geöffnet wird -->
+    <!-- Fuzzy -->
     <string name="accessibility_faq_button_hint">"እዚ ባተን (Button) ነቲ ኣፕ ገዲፉ  መርበብ ሓበሬታ ናይ ሚንስትሪ ጥዕና ስዊዝርላንድ (B. A. G.) ይኸፍት። "</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -793,7 +794,7 @@
     <string name="inform_detail_faq3_title">"ስቱር ድዩ፧"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"መጀመርታ ምልክታት ናይ ሕማም ኣብ ዝርአዩሉ እዋን  ናይ ኮሮናቫይረስ ጥዕናዊ ሕቶታት ፈትሹ (Coronavirus-Checክ) ወይ ናብ ሓኪምኩም ደውሉ።"</string>
+    <string name="meldungen_detail_explanation_text4">"ንሓኪም ወይ ንትካል ሕክምና ደውሉ።"</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">" መልእኽትታት ኮቪድ-19 "</string>

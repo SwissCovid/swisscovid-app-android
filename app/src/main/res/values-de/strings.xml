@@ -679,12 +679,12 @@ Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteck
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Diese Symptome treten häufig auf:
 
-- Fieber, Fiebergefühl
-- Halsschmerzen
-- Husten (meist trocken)
-- Kurzatmigkeit
-- Muskelschmerzen
-- Plötzlicher Verlust des Geruchs- und oder Geschmackssinns"</string>
+– Fieber, Fiebergefühl
+– Halsschmerzen
+– Husten (meist trocken)
+– Kurzatmigkeit
+– Muskelschmerzen
+– Plötzlicher Verlust des Geruchs- und oder Geschmackssinns"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Warum ist das Tracing beendet?"</string>
@@ -725,7 +725,8 @@ Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteck
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"Doppeltippen zum bearbeiten"</string>
 
-    <!-- Accessibility: FAW Button Titel  -->
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine Website des BAG geöffnet wird -->
+    <!-- Fuzzy -->
     <string name="accessibility_faq_button_hint">"Dieser Button verlässt die App und öffnet die Website vom B. A. G."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -845,7 +846,7 @@ Infektionsketten."</string>
 
     <!-- Meldung Detail Weiss Box unten -->
     <!-- Fuzzy -->
-    <string name="meldungen_detail_explanation_text4">"Bei ersten Symptomen machen Sie bitte den Coronavirus-Check oder rufen Sie Ihre Ärztin / Ihren Arzt an."</string>
+    <string name="meldungen_detail_explanation_text4">"Rufen Sie eine Ärztin bzw. einen Arzt oder eine Gesundheitseinrichtung an."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"COVID-19-Benachrichtigungen"</string>
