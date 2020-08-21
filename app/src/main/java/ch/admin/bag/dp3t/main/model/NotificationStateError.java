@@ -35,7 +35,7 @@ public enum NotificationStateError {
 	public static int getText(NotificationStateError notificationStateError) {
 		switch (notificationStateError) {
 			case NOTIFICATION_STATE_ERROR:
-				return R.string.meldungen_background_error_text;
+				return R.string.meldungen_background_error_text_android;
 			case TRACING_DEACTIVATED:
 				return R.string.meldungen_tracing_turned_off_warning;
 			default:
