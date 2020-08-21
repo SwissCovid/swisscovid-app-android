@@ -73,8 +73,7 @@ public class ReportsFragment extends Fragment {
 	private TextView callHotlineLastText1;
 	private TextView callHotlineLastText2;
 
-	private TextView xDaysLeftTextview1;
-	private TextView xDaysLeftTextview2;
+	private TextView xDaysLeftTextview;
 
 
 	private boolean hotlineJustCalled = false;
@@ -108,8 +107,7 @@ public class ReportsFragment extends Fragment {
 
 		callHotlineLastText1 = hotlineView.findViewById(R.id.card_encounters_last_call);
 		callHotlineLastText2 = saveOthersView.findViewById(R.id.card_encounters_last_call);
-		xDaysLeftTextview1 = hotlineView.findViewById(R.id.x_days_left_textview);
-		xDaysLeftTextview2 = saveOthersView.findViewById(R.id.x_days_left_textview);
+		xDaysLeftTextview = saveOthersView.findViewById(R.id.x_days_left_textview);
 
 		Button callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
 		Button callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
@@ -181,14 +179,11 @@ public class ReportsFragment extends Fragment {
 
 				int daysLeft = DAYS_TO_STAY_IN_QUARANTINE - (int) tracingStatusInterface.getDaysSinceExposure();
 				if (daysLeft > DAYS_TO_STAY_IN_QUARANTINE || daysLeft <= 0) {
-					xDaysLeftTextview1.setVisibility(View.GONE);
-					xDaysLeftTextview2.setVisibility(View.GONE);
+					xDaysLeftTextview.setVisibility(View.GONE);
 				} else if (daysLeft == 1) {
-					xDaysLeftTextview1.setText(R.string.date_in_one_day);
-					xDaysLeftTextview2.setText(R.string.date_in_one_day);
+					xDaysLeftTextview.setText(R.string.date_in_one_day);
 				} else {
-					xDaysLeftTextview1.setText(getString(R.string.date_in_days).replace("{COUNT}", String.valueOf(daysLeft)));
-					xDaysLeftTextview2.setText(getString(R.string.date_in_days).replace("{COUNT}", String.valueOf(daysLeft)));
+					xDaysLeftTextview.setText(getString(R.string.date_in_days).replace("{COUNT}", String.valueOf(daysLeft)));
 				}
 
 				hotlineView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
