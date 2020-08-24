@@ -473,7 +473,7 @@ Halten Sie sich an die erhaltenen Anweisungen zur Isolation."</string>
     <string name="meldungen_background_error_title">"Hintergrundaktualisierung ausgeschaltet"</string>
 
     <!-- Text für Hintergrund Fehler -->
-    <string name="meldungen_background_error_text"></string>
+    <string name="meldungen_background_error_text">"Gehen Sie zu \"Einstellungen &gt; Allgemein &gt; Hintergrundaktualisierung\" und stellen Sie sicher, dass \"WLAN &amp; Mobile Daten\" ausgewählt ist. Background App Refresh kann dann für jede App einzeln aktiviert werden."</string>
 
     <!-- Button Titel für Hintergrundfehler beheben -->
     <string name="meldungen_background_error_button">"Einstellungen ändern"</string>
@@ -638,7 +638,10 @@ Das Beratungsgespräch ist kostenlos; es fallen nur die Telefongebühren an."</s
     <!-- Inform Detail: FAQ Text -->
     <string name="inform_detail_faq1_text">"Positiv auf das neue Coronavirus getestete Personen erhalten einen Covidcode.
 
-Damit wird sichergestellt, dass nur bestätigte Fälle über die App gemeldet werden."</string>
+Damit wird sichergestellt, dass nur bestätigte Fälle über die App gemeldet werden.
+
+Sie wurden positiv getestet und haben nach 2h noch keinen Covidcode erhalten?
+Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Was wird gesendet?"</string>
@@ -988,8 +991,11 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <string name="accessibility_faq_button_hint_non_bag">"Dieser Button verlässt die App und öffnet eine Website."</string>
 
     <!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
-    <string name="begegnung_detail_no_last_sync_accessibility"></string>
+    <string name="begegnung_detail_no_last_sync_accessibility">"Keine bisherigen Synchronisationen"</string>
 
     <!-- Text für Hintergrundfehler auf Android -->
     <string name="meldungen_background_error_text_android">"Ändern Sie die Einstellungen, um bei einer neuen Meldung auch ausserhalb der App informiert zu werden."</string>
+
+    <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
+    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
 </resources>
