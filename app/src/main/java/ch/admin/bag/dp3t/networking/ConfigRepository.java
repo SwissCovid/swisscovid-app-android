@@ -71,6 +71,7 @@ public class ConfigRepository {
 		if (configResponse.isSuccessful()) {
 			secureStorage.setLastConfigLoadSuccess(System.currentTimeMillis());
 			secureStorage.setLastConfigLoadSuccessAppVersion(BuildConfig.VERSION_CODE);
+			secureStorage.setLastConfigLoadSuccessSdkInt(Build.VERSION.SDK_INT);
 			return configResponse.body();
 		} else {
 			throw new ResponseError(configResponse.raw());

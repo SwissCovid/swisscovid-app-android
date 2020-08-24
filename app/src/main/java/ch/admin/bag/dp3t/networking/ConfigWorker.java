@@ -46,7 +46,8 @@ public class ConfigWorker extends Worker {
 	public static void scheduleConfigWorkerIfOutdated(Context context) {
 		if (SecureStorage.getInstance(context).getLastConfigLoadSuccess() <
 				System.currentTimeMillis() - MAX_AGE_OF_CONFIG_FOR_RELOAD_AT_APP_START ||
-				SecureStorage.getInstance(context).getLastConfigLoadSuccessAppVersion() != BuildConfig.VERSION_CODE) {
+				SecureStorage.getInstance(context).getLastConfigLoadSuccessAppVersion() != BuildConfig.VERSION_CODE ||
+				SecureStorage.getInstance(context).getLastConfigLoadSuccessSdkInt() != Build.VERSION.SDK_INT) {
 			Constraints constraints = new Constraints.Builder()
 					.setRequiredNetworkType(NetworkType.CONNECTED)
 					.build();
