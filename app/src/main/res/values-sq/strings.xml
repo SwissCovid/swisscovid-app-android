@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
-  ~
-  ~ This Source Code Form is subject to the terms of the Mozilla Public
-  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
-  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
-  ~
-  ~ SPDX-License-Identifier: MPL-2.0
-  -->
-
 <resources>
 
     <!-- App Name -->
@@ -475,7 +465,7 @@ Respektoni udhëzimet e caktuara për izolimin."</string>
     <string name="meldungen_background_error_title">"Përditësimi në sfond i fikur"</string>
 
     <!-- Text für Hintergrund Fehler -->
-    <string name="meldungen_background_error_text">"Ndryshoni cilësimet, për t'u informuar për një mesazh të ri edhe jashtë aplikacionit."</string>
+    <string name="meldungen_background_error_text"></string>
 
     <!-- Button Titel für Hintergrundfehler beheben -->
     <string name="meldungen_background_error_button">"Ndrysho cilësimet"</string>
@@ -667,12 +657,12 @@ Në këtë mënyrë mësoni përdoruesit e tjerë të alikacionit SwissCovid, t�
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Simptomat më të shpeshta janë:
 
-- Temperaturë, ndjesi ethesh
-- Dhimbje fyti
-- Kollë (zakonisht e thatë)
-- Vështirësi në frymëmarrje
-- Dhimbje muskujsh
-- Humbje e papritur e shqisës së nuhatjes dhe/ose të shijuarit"</string>
+– Temperaturë, ndjesi ethesh
+– Dhimbje fyti
+– Kollë (zakonisht e thatë)
+– Vështirësi në frymëmarrje
+– Dhimbje muskujsh
+– Humbje e papritur e shqisës së nuhatjes dhe/ose të shijuarit"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Përse ka përfunduar gjurmimi?"</string>
@@ -710,7 +700,8 @@ Në këtë mënyrë mësoni përdoruesit e tjerë të alikacionit SwissCovid, t�
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"Prekni dy herë për ta modifikuar"</string>
 
-    <!-- Accessibility: FAW Button Titel  -->
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine Website des BAG geöffnet wird -->
+    <!-- Fuzzy -->
     <string name="accessibility_faq_button_hint">"Ky buton lë aplikacionin dhe hap faqen e internetit të B.A.G."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -824,7 +815,7 @@ e infeksionit."</string>
     <string name="inform_detail_faq3_title">"A mbetem unë anonim?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"Në rastin e simptomave të para bëni kontrollin e koronavirusit ose telefononi mjeken ose mjekun tuaj."</string>
+    <string name="meldungen_detail_explanation_text4">"Telefononi një mjeke apo një mjek ose një institucion shëndetësor."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"Njoftime rreth ekspozimit ndaj COVID-19"</string>
@@ -917,4 +908,63 @@ Schwarzenburgstrasse 157
 
     <!-- Homescreen infobox close button accessibility handler -->
     <string name="infobox_close_button_accessibility">"Mbyll"</string>
+
+    <!-- Title for the Home View Travel Card. -->
+    <string name="travel_title">"Reisen"</string>
+
+    <!-- Info text that is displayed on the Home Travel Card. -->
+    <string name="travel_home_description">"Sie können das Tracing für kompatible Länder aktivieren."</string>
+
+    <!-- Introductory Text that is displayed at the top of the travel settings screen. -->
+    <string name="travel_screen_introduction">"Unterwegs im Ausland? Während Reisen können Sie das Tracing für folgende Länder aktivieren:"</string>
+
+    <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_1">"Was bedeutet das?"</string>
+
+    <!-- First text for the travel feature explanation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_1">"Während Sie das Tracing für ein anderes Land aktiviert haben, überprüft Ihre App auch die in diesem Land veröffentlichten zufälligen IDs.
+
+So können Sie auch bei einer möglichen Ansteckung im Ausland gewarnt werden."</string>
+
+    <!-- Second title for the travel feature explanation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_2">"Und nach der Rückkehr?"</string>
+
+    <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_2">"Sobald Sie zurück sind, können Sie das Land wieder deaktivieren. Meldungen aus dem entsprechenden Land werden noch für 10 Tage empfangen. 
+
+So ist sichergestellt, dass Sie bei einer möglichen Ansteckung im Ausland auch nach Ihrer Rückkehr gewarnt werden."</string>
+
+    <!-- Button title for the Add Countries Button in the travel screen. -->
+    <string name="travel_screen_add_countries_button">"Länder hinzufügen"</string>
+
+    <!-- Text that is displayed under a country name that indicates until what date the user will still receive notifications from this country. -->
+    <string name="travel_screen_notifications_activated_until">"Meldungen noch bis {DATE}"</string>
+
+    <!-- List Header for the favourites in the "Add countries" Screen of the Travel feature. -->
+    <string name="travel_screen_favourites">"Favoriten"</string>
+
+    <!-- List header for other countries in the "add countries" screen of the travel feature. -->
+    <string name="travel_screen_other_countries">"Weitere Länder"</string>
+
+    <!-- Title for the explanation at the bottom of the "add countries" screen of the travel feature. -->
+    <string name="travel_screen_add_countries_explanation_title">"Was ist mit den anderen Ländern?"</string>
+
+    <!-- Text for the explanation at the bottom of the "add countries" screen of the travel feature. -->
+    <string name="travel_screen_add_countries_explanation_text">"Damit Ihre App auf die Daten aus anderen Ländern zugreifen kann, braucht es bilaterale Abkommen.
+
+Wir sind bemüht, die Liste der kompatiblen Länder so schnell wie möglich zu ergänzen."</string>
+
+    <!-- Information text that asks the user about informing other countries when he enters a covid code into the app. -->
+    <string name="travel_report_code_info">"Waren Sie in den letzten 14 Tagen in einem der aufgeführten Länder?
+
+Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</string>
+
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
+    <string name="accessibility_faq_button_hint_non_bag">"Dieser Button verlässt die App und öffnet eine Website."</string>
+
+    <!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
+    <string name="begegnung_detail_no_last_sync_accessibility"></string>
+
+    <!-- Text für Hintergrundfehler auf Android -->
+    <string name="meldungen_background_error_text_android">"Ndryshoni cilësimet, për t'u informuar për një mesazh të ri edhe jashtë aplikacionit."</string>
 </resources>
