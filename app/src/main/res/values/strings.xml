@@ -967,4 +967,16 @@ Wir sind bemüht, die Liste der kompatiblen Länder so schnell wie möglich zu e
 
 Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</string>
 
+	<!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
+	<string name="accessibility_faq_button_hint_non_bag"></string>
+
+	<!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
+	<string name="begegnung_detail_no_last_sync_accessibility"></string>
+
+	<!-- Text für Hintergrundfehler auf Android -->
+	<string name="meldungen_background_error_text_android">"Change the settings to receive notification outside the app as well in the event of a report."</string>
+
+	<!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
+	<string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+
 </resources>

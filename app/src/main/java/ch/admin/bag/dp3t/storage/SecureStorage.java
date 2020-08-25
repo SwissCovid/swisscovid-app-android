@@ -294,10 +294,10 @@ public class SecureStorage {
 		//TODO: Remove Hardcoded countries! (PP-602)
 		if (countries.isEmpty()) {
 			countries.add(new Country("DE", true, false, -1));
-			countries.add(new Country("AT", true, true, -1));
+			countries.add(new Country("AT", true, false, -1));
 			countries.add(new Country("IT", true, false, -1));
 		}
-
+		
 		return countries;
 	}
 
