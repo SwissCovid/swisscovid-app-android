@@ -53,7 +53,7 @@ public class TravelFragment extends Fragment {
 					items.add(
 							new ItemCountry(
 									country.getCountryName(getContext()),
-									country.getFlagResId(),
+									country.getFlagResId(getContext()),
 									country.isActive(),
 									addTopSeparator,
 									country.getStatusText(getContext(), DAYS_TO_KEEP_NOTIFICATIONS_ACTIVE),

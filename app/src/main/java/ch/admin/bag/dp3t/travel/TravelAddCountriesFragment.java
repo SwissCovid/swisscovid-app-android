@@ -66,7 +66,7 @@ public class TravelAddCountriesFragment extends Fragment {
 			if (country.isFavourite()) {
 				items.add(new ItemEditableCountry(
 						country.getCountryName(getContext()),
-						country.getFlagResId(),
+						country.getFlagResId(getContext()),
 						R.drawable.ic_remove,
 						true,
 						v -> {
@@ -86,7 +86,7 @@ public class TravelAddCountriesFragment extends Fragment {
 			if (!country.isFavourite()) {
 				items.add(new ItemEditableCountry(
 						country.getCountryName(getContext()),
-						country.getFlagResId(),
+						country.getFlagResId(getContext()),
 						R.drawable.ic_add,
 						false,
 						v -> {

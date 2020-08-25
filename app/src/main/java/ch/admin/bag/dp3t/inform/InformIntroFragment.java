@@ -17,8 +17,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.travel.TravelFragment;
 
 public class InformIntroFragment extends Fragment {
+
+	private boolean SHOW_TRAVEL_FEATURE = true;
 
 	public static InformIntroFragment newInstance() {
 		return new InformIntroFragment();
@@ -37,14 +40,25 @@ public class InformIntroFragment extends Fragment {
 		((InformActivity) requireActivity()).allowBackButton(true);
 
 		Button continueButton = view.findViewById(R.id.inform_intro_button_continue);
-		continueButton.setOnClickListener(v -> {
-			getParentFragmentManager()
-					.beginTransaction()
-					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-					.replace(R.id.inform_fragment_container, InformFragment.newInstance())
-					.addToBackStack(InformFragment.class.getCanonicalName())
-					.commit();
-		});
+		if (SHOW_TRAVEL_FEATURE) {
+			continueButton.setOnClickListener(v -> {
+				getParentFragmentManager()
+						.beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.inform_fragment_container, InformTravelFragment.newInstance())
+						.addToBackStack(InformTravelFragment.class.getCanonicalName())
+						.commit();
+			});
+		} else {
+			continueButton.setOnClickListener(v -> {
+				getParentFragmentManager()
+						.beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.inform_fragment_container, InformFragment.newInstance())
+						.addToBackStack(InformFragment.class.getCanonicalName())
+						.commit();
+			});
+		}
 	}
 
 }

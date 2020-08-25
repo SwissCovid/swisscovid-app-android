@@ -4,40 +4,40 @@ import android.widget.CompoundButton;
 
 import java.util.Objects;
 
-public class ItemCountry extends TravelRecyclerItem {
+public class ItemCountryWithCheckbox extends TravelRecyclerItem {
 
 	String countryName;
 	int flagResId;
 	boolean isChecked;
 	boolean showTopSeparator;
-	String statusText;
 	CompoundButton.OnCheckedChangeListener checkedChangeListener;
+	boolean showCheckBox;
 
-	public ItemCountry(String countryName, int flagResId, boolean isChecked, boolean showTopSeparator, String statusText,
-			CompoundButton.OnCheckedChangeListener checkedChangeListener) {
+	public ItemCountryWithCheckbox(String countryName, int flagResId, boolean isChecked, boolean showTopSeparator,
+			CompoundButton.OnCheckedChangeListener checkedChangeListener, boolean showCheckBox) {
 		this.countryName = countryName;
 		this.flagResId = flagResId;
 		this.isChecked = isChecked;
 		this.showTopSeparator = showTopSeparator;
-		this.statusText = statusText;
 		this.checkedChangeListener = checkedChangeListener;
+		this.showCheckBox = showCheckBox;
 	}
 
 	@Override
 	ViewType getViewType() {
-		return ViewType.COUNTRY;
+		return ViewType.COUNTRY_WITH_CHECKBOX;
 	}
 
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		ItemCountry that = (ItemCountry) o;
+		ItemCountryWithCheckbox that = (ItemCountryWithCheckbox) o;
 		return flagResId == that.flagResId &&
 				isChecked == that.isChecked &&
 				showTopSeparator == that.showTopSeparator &&
+				showCheckBox == that.showCheckBox &&
 				Objects.equals(countryName, that.countryName) &&
-				Objects.equals(statusText, that.statusText) &&
 				Objects.equals(checkedChangeListener, that.checkedChangeListener);
 	}
 

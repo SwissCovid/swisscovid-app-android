@@ -58,9 +58,8 @@ public class Country {
 		return (new Locale("", getIsoCode())).getDisplayCountry(new Locale(context.getString(R.string.language_key)));
 	}
 
-	public int getFlagResId() {
-		//TODO: Add Flag resources (PP-602)
-		return -1;
+	public int getFlagResId(Context context) {
+		return context.getResources().getIdentifier("flag_" + isoCode.toLowerCase(), "drawable", context.getPackageName());
 	}
 
 	public String getStatusText(Context context, int daysToKeepNotificationsActive) {

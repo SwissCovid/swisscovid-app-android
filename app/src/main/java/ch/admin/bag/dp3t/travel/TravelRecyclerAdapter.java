@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -66,6 +67,12 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 				return new SpaceViewHolder(
 						(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_travel_space, parent,
 								false)));
+
+			case COUNTRY_WITH_CHECKBOX:
+				return new CountryWithCheckboxViewHolder(
+						(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_travel_country_and_checkbox, parent,
+								false)));
+
 			default:
 				return null;
 		}
@@ -98,6 +105,9 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 			case SPACE:
 				((SpaceViewHolder) holder).bind((ItemSpace) item);
 				break;
+			case COUNTRY_WITH_CHECKBOX:
+				((CountryWithCheckboxViewHolder) holder).bind((ItemCountryWithCheckbox) item);
+				break;
 		}
 	}
 
@@ -114,6 +124,52 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 		this.items.clear();
 		this.items.addAll(items);
 	}
+
+	public class CountryWithCheckboxViewHolder extends RecyclerView.ViewHolder {
+		TextView countryTextView;
+		ImageView checkBox;
+		ImageView flagImageView;
+		View topSeparator;
+
+
+		public CountryWithCheckboxViewHolder(@NonNull View itemView) {
+			super(itemView);
+			this.countryTextView = itemView.findViewById(R.id.travel_country_item_name);
+			this.checkBox = itemView.findViewById(R.id.travel_country_item_checkbox);
+			this.flagImageView = itemView.findViewById(R.id.travel_country_item_flag);
+			this.topSeparator = itemView.findViewById(R.id.separator_top);
+		}
+
+		public void bind(ItemCountryWithCheckbox item) {
+			countryTextView.setText(item.countryName);
+			flagImageView.setImageResource(item.flagResId);
+			if (item.showTopSeparator) topSeparator.setVisibility(View.VISIBLE);
+			else topSeparator.setVisibility(View.GONE);
+			if (item.showCheckBox) checkBox.setVisibility(View.VISIBLE);
+			else checkBox.setVisibility(View.GONE);
+			setChecked(item.isChecked);
+
+			itemView.setOnClickListener(v -> {
+				item.isChecked = !item.isChecked;
+				setChecked(item.isChecked);
+				item.checkedChangeListener.onCheckedChanged(null, item.isChecked);
+			});
+		}
+
+		private void setChecked(boolean checked) {
+			if (checked) {
+				countryTextView.setAlpha(1f);
+				flagImageView.setAlpha(1f);
+				checkBox.setImageResource(R.drawable.ic_check_checked);
+			} else {
+				countryTextView.setAlpha(0.5f);
+				flagImageView.setAlpha(0.5f);
+				checkBox.setImageResource(R.drawable.ic_check_unchecked);
+			}
+		}
+
+	}
+
 
 	public class SpaceViewHolder extends RecyclerView.ViewHolder {
 
@@ -182,7 +238,7 @@ public class TravelRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 		public void bind(ItemCountry item) {
 			isActiveSwitch.setOnCheckedChangeListener(item.checkedChangeListener);
 			countryTextView.setText(item.countryName);
-			isActiveSwitch.setChecked(item.isActive);
+			isActiveSwitch.setChecked(item.isChecked);
 			flagImageView.setImageResource(item.flagResId);
 			if (item.showTopSeparator) topSeparator.setVisibility(View.VISIBLE);
 			else topSeparator.setVisibility(View.GONE);
