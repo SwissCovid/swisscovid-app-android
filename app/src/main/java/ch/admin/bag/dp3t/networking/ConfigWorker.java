@@ -44,10 +44,10 @@ public class ConfigWorker extends Worker {
 	private static final String WORK_TAG = "ch.admin.bag.dp3t.ConfigWorker";
 
 	public static void scheduleConfigWorkerIfOutdated(Context context) {
-		if (SecureStorage.getInstance(context).getLastConfigLoadSuccess() <
-				System.currentTimeMillis() - MAX_AGE_OF_CONFIG_FOR_RELOAD_AT_APP_START ||
-				SecureStorage.getInstance(context).getLastConfigLoadSuccessAppVersion() != BuildConfig.VERSION_CODE ||
-				SecureStorage.getInstance(context).getLastConfigLoadSuccessSdkInt() != Build.VERSION.SDK_INT) {
+		SecureStorage secureStorage = SecureStorage.getInstance(context);
+		if (secureStorage.getLastConfigLoadSuccess() < System.currentTimeMillis() - MAX_AGE_OF_CONFIG_FOR_RELOAD_AT_APP_START ||
+				secureStorage.getLastConfigLoadSuccessAppVersion() != BuildConfig.VERSION_CODE ||
+				secureStorage.getLastConfigLoadSuccessSdkInt() != Build.VERSION.SDK_INT) {
 			Constraints constraints = new Constraints.Builder()
 					.setRequiredNetworkType(NetworkType.CONNECTED)
 					.build();
