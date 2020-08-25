@@ -27,6 +27,7 @@ import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.SignatureException;
 import org.dpppt.android.sdk.internal.logger.Logger;
 
+import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
@@ -43,8 +44,10 @@ public class ConfigWorker extends Worker {
 	private static final String WORK_TAG = "ch.admin.bag.dp3t.ConfigWorker";
 
 	public static void scheduleConfigWorkerIfOutdated(Context context) {
-		if (SecureStorage.getInstance(context).getLastConfigLoadSuccess() <
-				System.currentTimeMillis() - MAX_AGE_OF_CONFIG_FOR_RELOAD_AT_APP_START) {
+		SecureStorage secureStorage = SecureStorage.getInstance(context);
+		if (secureStorage.getLastConfigLoadSuccess() < System.currentTimeMillis() - MAX_AGE_OF_CONFIG_FOR_RELOAD_AT_APP_START ||
+				secureStorage.getLastConfigLoadSuccessAppVersion() != BuildConfig.VERSION_CODE ||
+				secureStorage.getLastConfigLoadSuccessSdkInt() != Build.VERSION.SDK_INT) {
 			Constraints constraints = new Constraints.Builder()
 					.setRequiredNetworkType(NetworkType.CONNECTED)
 					.build();
@@ -55,7 +58,7 @@ public class ConfigWorker extends Worker {
 							.build();
 
 			WorkManager workManager = WorkManager.getInstance(context);
-			workManager.enqueueUniquePeriodicWork(WORK_TAG, ExistingPeriodicWorkPolicy.KEEP, periodicWorkRequest);
+			workManager.enqueueUniquePeriodicWork(WORK_TAG, ExistingPeriodicWorkPolicy.REPLACE, periodicWorkRequest);
 		}
 	}
 
