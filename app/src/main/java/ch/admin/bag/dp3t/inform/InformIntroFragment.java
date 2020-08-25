@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.travel.TravelFragment;
 
 public class InformIntroFragment extends Fragment {
 

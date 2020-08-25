@@ -17,6 +17,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import java.util.Date;
@@ -70,6 +71,8 @@ public class InformFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
+		Toolbar toolbar = view.findViewById(R.id.inform_toolbar);
+		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 		((InformActivity) requireActivity()).allowBackButton(true);
 		buttonSend = view.findViewById(R.id.trigger_fragment_button_trigger);
 		authCodeInput = view.findViewById(R.id.trigger_fragment_input);

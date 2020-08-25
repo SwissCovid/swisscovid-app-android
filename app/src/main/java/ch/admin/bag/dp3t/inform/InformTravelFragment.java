@@ -52,7 +52,7 @@ public class InformTravelFragment extends Fragment {
 		Button cancelButton = view.findViewById(R.id.inform_travel_cancel_button);
 		cancelButton.setOnClickListener(v -> getActivity().finish());
 
-		Button continueButton = view.findViewById(R.id.inform_intro_button_continue);
+		Button continueButton = view.findViewById(R.id.inform_travel_button_continue);
 		continueButton.setOnClickListener(v -> {
 			getParentFragmentManager()
 					.beginTransaction()

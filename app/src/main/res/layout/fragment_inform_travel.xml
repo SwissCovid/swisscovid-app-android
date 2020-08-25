@@ -44,7 +44,7 @@
 		android:layout_weight="1"/>
 
 	<LinearLayout
-		android:id="@+id/inform_intro_button_continue_container"
+		android:id="@+id/inform_travel_button_continue_container"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:background="@color/white"
@@ -57,7 +57,7 @@
 		app:layout_constraintStart_toStartOf="parent">
 
 		<Button
-			android:id="@+id/inform_intro_button_continue"
+			android:id="@+id/inform_travel_button_continue"
 			style="@style/NextStep.Button.Purple"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
