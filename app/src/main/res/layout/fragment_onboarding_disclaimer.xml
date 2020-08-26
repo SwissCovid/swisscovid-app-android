@@ -39,7 +39,6 @@
 					style="@style/NextStep.Text.Blue"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginBottom="@dimen/spacing_very_large"
 					android:gravity="center_horizontal"
 					android:text="@string/onboarding_disclaimer_heading" />
 
@@ -48,14 +47,13 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_medium"
-					android:layout_marginBottom="@dimen/spacing_large"
 					android:gravity="center_horizontal"
 					android:text="@string/onboarding_disclaimer_title" />
 
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_huge"
+					android:layout_marginTop="@dimen/spacing_very_large"
 					android:orientation="horizontal">
 
 					<ImageView
