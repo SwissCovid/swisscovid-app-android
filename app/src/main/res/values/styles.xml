@@ -14,7 +14,7 @@
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
-		<item name="android:fontFamily">@font/inter</item>
+		<item name="android:fontFamily">@font/inter_light</item>
 		<item name="android:windowLightStatusBar">true</item>
 		<item name="android:statusBarColor">@color/white</item>
 		<item name="toolbarStyle">@style/NextStep.Toolbar</item>
@@ -32,7 +32,7 @@
 		<item name="android:textSize">@dimen/text_size_normal</item>
 		<item name="android:textColor">@color/dark_main</item>
 		<item name="android:lineSpacingMultiplier">1.1</item>
-		<item name="android:fontFamily">@font/inter</item>
+		<item name="android:fontFamily">@font/inter_light</item>
 	</style>
 
 	<style name="NextStep.Text.Small">
@@ -40,7 +40,7 @@
 	</style>
 
 	<style name="NextStep.Text.Small.Bold">
-		<item name="android:textStyle">bold</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 	</style>
 
 	<style name="NextStep.Text.Small.Light">
@@ -56,7 +56,7 @@
 	</style>
 
 	<style name="NextStep.Text.Bold">
-		<item name="android:textStyle">bold</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 	</style>
 
 	<style name="NextStep.Text.Bold.Red">
@@ -82,37 +82,37 @@
 
 	<style name="NextStep.Text.Title">
 		<item name="android:textSize">@dimen/text_size_title</item>
-		<item name="android:textStyle">bold</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 	</style>
 
 	<style name="NextStep.Text.SubTitle">
 		<item name="android:textSize">@dimen/text_size_normal</item>
-		<item name="android:textStyle">bold</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textColor">@color/green_main</item>
 	</style>
 
 	<style name="NextStep.Text.MainTitle">
 		<item name="android:textSize">@dimen/text_size_title</item>
-		<item name="android:textStyle">bold</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textColor">@color/purple_main</item>
 		<item name="android:gravity">center_horizontal</item>
 	</style>
 
 	<style name="NextStep.Text.SplashTitle">
 		<item name="android:textSize">@dimen/text_size_splash_title</item>
-		<item name="android:textStyle">bold</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textColor">@color/white</item>
 	</style>
 
 	<style name="NextStep.Text.Status">
-		<item name="android:textStyle">bold</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:letterSpacing">0.1</item>
 		<item name="android:textAllCaps">true</item>
 	</style>
 
 	<style name="NextStep.Text.Input">
 		<item name="android:textSize">@dimen/text_size_input</item>
-		<item name="android:textStyle">bold</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textAllCaps">true</item>
 		<item name="android:gravity">center</item>
 		<item name="android:focusable">false</item>
@@ -123,8 +123,7 @@
 		<item name="android:padding">@dimen/spacing_medium</item>
 		<item name="android:textSize">@dimen/text_size_button</item>
 		<item name="android:textColor">@color/purple_main</item>
-		<item name="android:fontFamily">@font/inter</item>
-		<item name="android:textStyle">bold</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textAllCaps">false</item>
 		<item name="android:background">?selectableItemBackground</item>
 	</style>
@@ -141,8 +140,7 @@
 	<style name="NextStep.Button" parent="Widget.MaterialComponents.Button">
 		<item name="android:textColor">@color/white</item>
 		<item name="android:textAllCaps">false</item>
-		<item name="android:textStyle">bold</item>
-		<item name="android:fontFamily">@font/inter</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textSize">@dimen/text_size_button</item>
 		<item name="android:background">@drawable/bg_button_default</item>
 		<item name="android:stateListAnimator">@null</item>
