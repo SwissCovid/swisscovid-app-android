@@ -50,28 +50,14 @@
 					android:gravity="center_horizontal"
 					android:text="@string/onboarding_disclaimer_title" />
 
-				<LinearLayout
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_marginTop="@dimen/spacing_very_large"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_very_large"
-					android:orientation="horizontal">
-
-					<ImageView
-						android:layout_width="@dimen/icon_size"
-						android:layout_height="@dimen/icon_size"
-						android:layout_marginRight="@dimen/spacing_medium_large"
-						android:src="@drawable/ic_info"
-						android:tint="@color/blue_main" />
-
-					<TextView
-						style="@style/NextStep.Text"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:breakStrategy="high_quality"
-						android:hyphenationFrequency="full"
-						android:text="@string/onboarding_disclaimer_info" />
-
-				</LinearLayout>
+					android:breakStrategy="high_quality"
+					android:hyphenationFrequency="full"
+					android:text="@string/onboarding_disclaimer_info" />
 
 			</LinearLayout>
 
