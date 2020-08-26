@@ -43,12 +43,11 @@ public class AssetUtil {
 	}
 
 
-
 	public static String getTermsOfUse(Context context) {
 		String htmlString = loadHtml(context, getFolderNameDisclaimer(context) + FILE_NAME_TERMS_OF_USE);
 		if (htmlString == null)
 			htmlString = loadHtml(context, getDefaultLanguageFolderNameDisclaimer(context) + FILE_NAME_TERMS_OF_USE);
-		return htmlString;
+		return replaceUlTags(htmlString);
 	}
 
 	public static String getDataProtection(Context context) {
@@ -56,9 +55,14 @@ public class AssetUtil {
 		if (htmlString == null)
 			htmlString = loadHtml(context, getDefaultLanguageFolderNameDisclaimer(context) + FILE_NAME_DATA_PROTECTION_STATEMENT);
 		if (htmlString == null) htmlString = "";
-		return htmlString;
+		return replaceUlTags(htmlString);
 	}
-	
+
+	private static String replaceUlTags(String htmlString) {
+		return htmlString.replace("<ul>", "<myul>").replace("</ul>", "</myul>").replace("<li>", "<myli>")
+				.replace("</li>", "</myli>");
+	}
+
 	private static String getFolderNameImpressum(Context context) {
 		return FOLDER_NAME_IMPRESSUM + context.getString(R.string.language_key) + "/";
 	}
