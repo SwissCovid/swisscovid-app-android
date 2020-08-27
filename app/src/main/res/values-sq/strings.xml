@@ -465,7 +465,7 @@ Respektoni udhëzimet e caktuara për izolimin."</string>
     <string name="meldungen_background_error_title">"Përditësimi në sfond i fikur"</string>
 
     <!-- Text für Hintergrund Fehler -->
-    <string name="meldungen_background_error_text">"Go to \"Settings &gt; General &gt; Background App Refresh\" and make sure \"Wi-Fi &amp; Mobile Data\" is selected. Background App Refresh can then be disabled for each app individually."</string>
+    <string name="meldungen_background_error_text">"Shkoni tek \"Einstellungen (Cilësimet) &gt; Allgemein (Të përgjithshme) &gt; Hintergrundaktualizierung (Përditësimi në sfond)\" dhe sigurohuni që është zgjedhur \"WLAN &amp; Mobile Daten (WLAN dhe të dhënat celulare)\". Më pas \"Background App Refresh\" mund të aktivizohet individualisht për çdo aplikacion."</string>
 
     <!-- Button Titel für Hintergrundfehler beheben -->
     <string name="meldungen_background_error_button">"Ndrysho cilësimet"</string>
@@ -624,9 +624,13 @@ Biseda e konsultës është falas, aplikohen vetëm tarifat e telefonit."</strin
     <string name="inform_detail_faq1_title">"Çfarë është një kod Covid?"</string>
 
     <!-- Inform Detail: FAQ Text -->
+    <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"Personat që kanë rezultuar pozitivë me koronavirusin e ri marrin një kod Covid.
 
-Në këtë mënyrë sigurohet që nga aplikacioni të sinjalizohen vetëm rastet e konfirmuara."</string>
+Në këtë mënyrë sigurohet që nga aplikacioni të sinjalizohen vetëm rastet e konfirmuara.
+
+Keni dalë pozitiv dhe pas 2 orësh nuk keni marrë ende asnjë kod Covid?
+Atëherë kontaktoni \"Infoline Coronavirus\":"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Çfarë dërgohet?"</string>
@@ -952,14 +956,23 @@ Schwarzenburgstrasse 157
     <string name="travel_report_code_info"></string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
-    <string name="accessibility_faq_button_hint_non_bag"></string>
+    <string name="accessibility_faq_button_hint_non_bag">"Ky buton ju largon nga aplikacioni dhe hap një faqe interneti."</string>
 
     <!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
-    <string name="begegnung_detail_no_last_sync_accessibility"></string>
+    <string name="begegnung_detail_no_last_sync_accessibility">"Nuk ka sinkronizime të deritanishme"</string>
 
     <!-- Text für Hintergrundfehler auf Android -->
     <string name="meldungen_background_error_text_android">"Ndryshoni cilësimet, për t'u informuar për një mesazh të ri edhe jashtë aplikacionit."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+
+    <!-- Text beim Bluetooth Control iOS 13.5 -->
+    <string name="tracing_setting_text_ios_13_5"></string>
+
+    <!-- Text beim Bluetooth Control iOS 13.6 -->
+    <string name="tracing_setting_text_ios_13_6"></string>
+
+    <!-- Text beim Bluetooth Control iOS 14 -->
+    <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
 </resources>

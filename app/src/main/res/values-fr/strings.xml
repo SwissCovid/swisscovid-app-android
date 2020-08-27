@@ -460,7 +460,8 @@ Respectez les consignes reçues sur l'isolement."</string>
     <string name="meldungen_background_error_title">"Actualisation de l'arrière-plan désactivée"</string>
 
     <!-- Text für Hintergrund Fehler -->
-    <string name="meldungen_background_error_text">"Go to \"Settings &gt; General &gt; Background App Refresh\" and make sure \"Wi-Fi &amp; Mobile Data\" is selected. Background App Refresh can then be disabled for each app individually."</string>
+    <string name="meldungen_background_error_text">"Allez sous «Réglages &gt; Général &gt;
+Actualiser en arrière-plan» et sélectionnez «Wi-Fi &amp; données cellulaires». L'actualisation en arrière-plan peut être activée individuellement pour chaque application.  "</string>
 
     <!-- Button Titel für Hintergrundfehler beheben -->
     <string name="meldungen_background_error_button">"Modifier les paramètres"</string>
@@ -621,9 +622,13 @@ La consultation est gratuite ; seuls les frais d'appel sont à votre charge."</s
     <string name="inform_detail_faq1_title">"Qu'est-ce qu'un code COVID ?"</string>
 
     <!-- Inform Detail: FAQ Text -->
+    <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"Un code COVID est attribué aux personnes testées positives au nouveau coronavirus.
 
-Cela permet d'assurer que seuls les cas confirmés sont signalés via l'application."</string>
+Cela permet d'assurer que seuls les cas confirmés sont signalés via l'application.
+
+Vous n'avez toujours pas reçu de code COVID 2h après avoir été testé positif?
+Veuillez contacter l'infoline coronavirus:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Qu'est-ce qui est envoyé ?"</string>
@@ -951,14 +956,24 @@ Schwarzenburgstrasse 157
     <string name="travel_report_code_info"></string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
-    <string name="accessibility_faq_button_hint_non_bag"></string>
+    <string name="accessibility_faq_button_hint_non_bag">"Ce bouton permet de quitter l'application et
+d'ouvrir un site internet."</string>
 
     <!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
-    <string name="begegnung_detail_no_last_sync_accessibility"></string>
+    <string name="begegnung_detail_no_last_sync_accessibility">"Les synchronisations n'ont pas été effectuées."</string>
 
     <!-- Text für Hintergrundfehler auf Android -->
     <string name="meldungen_background_error_text_android">"Veuillez modifier les paramètres pour pouvoir recevoir les nouvelles notifications même en dehors de l'application."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+
+    <!-- Text beim Bluetooth Control iOS 13.5 -->
+    <string name="tracing_setting_text_ios_13_5"></string>
+
+    <!-- Text beim Bluetooth Control iOS 13.6 -->
+    <string name="tracing_setting_text_ios_13_6"></string>
+
+    <!-- Text beim Bluetooth Control iOS 14 -->
+    <string name="tracing_setting_text_ios_14_0">"Notifications d’exposition"</string>
 </resources>

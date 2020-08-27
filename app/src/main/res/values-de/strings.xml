@@ -636,6 +636,7 @@ Das Beratungsgespräch ist kostenlos; es fallen nur die Telefongebühren an."</s
     <string name="inform_detail_faq1_title">"Was ist ein Covidcode?"</string>
 
     <!-- Inform Detail: FAQ Text -->
+    <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"Positiv auf das neue Coronavirus getestete Personen erhalten einen Covidcode.
 
 Damit wird sichergestellt, dass nur bestätigte Fälle über die App gemeldet werden.
@@ -677,7 +678,7 @@ Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteck
 – Husten (meist trocken)
 – Kurzatmigkeit
 – Muskelschmerzen
-– Plötzlicher Verlust des Geruchs- und oder Geschmackssinns"</string>
+– Plötzlicher Verlust des Geruchs- und/oder Geschmackssinns"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Warum ist das Tracing beendet?"</string>
@@ -727,7 +728,7 @@ Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteck
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
     <!-- Fuzzy -->
-    <string name="onboarding_gaen_text_ios">"Um die App nutzen zu können, müssen COVID-19-Kontaktmitteilungen aktiviert werden."</string>
+    <string name="onboarding_gaen_text_ios">"Um die App nutzen zu können, müssen {TRACING_SETTING_TEXT} aktiviert werden."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktivieren"</string>
@@ -783,11 +784,11 @@ Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteck
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
     <!-- Fuzzy -->
-    <string name="tracing_permission_error_title_ios">"COVID-19-Kontaktmitteilungen deaktiviert"</string>
+    <string name="tracing_permission_error_title_ios">"{TRACING_SETTING_TEXT} deaktiviert"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
     <!-- Fuzzy -->
-    <string name="tracing_permission_error_text_ios">"Aktivieren Sie COVID-19-Kontaktmitteilungen, damit das Tracing funktioniert."</string>
+    <string name="tracing_permission_error_text_ios">"Aktivieren Sie {TRACING_SETTING_TEXT}, damit das Tracing funktioniert."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Die Meldung konnte nicht gesendet werden. Bitte erlauben Sie das Teilen Ihrer zufälligen IDs mit der SwissCovid App."</string>
@@ -998,4 +999,14 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+
+    <!-- Text beim Bluetooth Control iOS 13.5 -->
+    <string name="tracing_setting_text_ios_13_5">"COVID-19-Kontaktmitteilungen"</string>
+
+    <!-- Text beim Bluetooth Control iOS 13.6 -->
+    <string name="tracing_setting_text_ios_13_6">"COVID-19-Begegnungsmitteilungen"</string>
+
+    <!-- Text beim Bluetooth Control iOS 14 -->
+    <!-- Fuzzy -->
+    <string name="tracing_setting_text_ios_14_0">"Begegnungsmitteilungen"</string>
 </resources>

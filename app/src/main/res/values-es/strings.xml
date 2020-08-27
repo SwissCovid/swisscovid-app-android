@@ -462,7 +462,7 @@ Siga las instrucciones de aislamiento recibidas."</string>
     <string name="meldungen_background_error_title">"Actualización de fondo desactivada"</string>
 
     <!-- Text für Hintergrund Fehler -->
-    <string name="meldungen_background_error_text">"Go to \"Settings &gt; General &gt; Background App Refresh\" and make sure \"Wi-Fi &amp; Mobile Data\" is selected. Background App Refresh can then be disabled for each app individually."</string>
+    <string name="meldungen_background_error_text">"Vaya a \"Ajustes &gt; General &gt; Actualización en segundo plano\" y asegúrese de que \"Wi-Fi y datos móviles\" esté seleccionado. La actualización de las aplicaciones en segundo plano puede activarse individualmente para cada aplicación."</string>
 
     <!-- Button Titel für Hintergrundfehler beheben -->
     <string name="meldungen_background_error_button">"Cambiar ajustes"</string>
@@ -617,7 +617,13 @@ La consulta es gratuita; solo se incurre en los gastos telefónicos."</string>
     <string name="inform_detail_faq1_title">"¿Qué es el código Covid?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <string name="inform_detail_faq1_text">"Las personas que han dado positivo en el test del nuevo coronavirus reciben un código Covid. Así se garantiza que la aplicación solo informe de los casos confirmados."</string>
+    <!-- Fuzzy -->
+    <string name="inform_detail_faq1_text">"Las personas que han dado positivo en el test del nuevo coronavirus reciben un código Covid. 
+
+Así se garantiza que la aplicación solo informe de los casos confirmados.
+
+¿Ha dado usted positivo en el test y no ha recibido el código Covid después de dos horas?
+En este caso, póngase en contacto con la Infoline Coronavirus:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"¿Qué es lo que se envía?"</string>
@@ -942,14 +948,23 @@ Schwarzenburgstrasse 157
     <string name="travel_report_code_info"></string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
-    <string name="accessibility_faq_button_hint_non_bag"></string>
+    <string name="accessibility_faq_button_hint_non_bag">"Este botón sale de la aplicación y abre una página web."</string>
 
     <!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
-    <string name="begegnung_detail_no_last_sync_accessibility"></string>
+    <string name="begegnung_detail_no_last_sync_accessibility">"No hay sincronizaciones previas."</string>
 
     <!-- Text für Hintergrundfehler auf Android -->
     <string name="meldungen_background_error_text_android">"Cambie los ajustes para recibir las notificaciones más actuales también fuera de la aplicación."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+
+    <!-- Text beim Bluetooth Control iOS 13.5 -->
+    <string name="tracing_setting_text_ios_13_5"></string>
+
+    <!-- Text beim Bluetooth Control iOS 13.6 -->
+    <string name="tracing_setting_text_ios_13_6"></string>
+
+    <!-- Text beim Bluetooth Control iOS 14 -->
+    <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
 </resources>

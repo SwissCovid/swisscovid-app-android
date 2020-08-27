@@ -464,7 +464,7 @@ Pridržavajte se dobijenih uputstava o izolaciji."</string>
     <string name="meldungen_background_error_title">"Ažuriranje pozadine isključeno"</string>
 
     <!-- Text für Hintergrund Fehler -->
-    <string name="meldungen_background_error_text">"Go to \"Settings &gt; General &gt; Background App Refresh\" and make sure \"Wi-Fi &amp; Mobile Data\" is selected. Background App Refresh can then be disabled for each app individually."</string>
+    <string name="meldungen_background_error_text">"Otvorite stavke Postavke &gt; Opšte &gt; Ažuriranje u pozadini i uverite se da je izabrana opcija „WLAN i mobilni podaci“. Osvežavanje aplikacije u pozadini može posebno da se aktivira za svaku aplikaciju."</string>
 
     <!-- Button Titel für Hintergrundfehler beheben -->
     <string name="meldungen_background_error_button">"Promeni podešavanja"</string>
@@ -623,9 +623,13 @@ Savetovanje je besplatno; plaćaju se samo troškovi poziva."</string>
     <string name="inform_detail_faq1_title">"Šta je Covid šifra?"</string>
 
     <!-- Inform Detail: FAQ Text -->
+    <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"Ljudi koji su testirani pozitivno na novi virus korona dobijaju Covid šifru.
 
-Time se osigurava da se putem aplikacije prijavljuju samo potvrđeni slučajevi."</string>
+Time se osigurava da se putem aplikacije prijavljuju samo potvrđeni slučajevi.
+
+Rezultat testa je pozitivan, ali niste dobili Covid šifru ni nakon 2 sata?
+U tom slučaju, obratite se info liniji za virus korona."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Šta se šalje?"</string>
@@ -947,14 +951,23 @@ Schwarzenburgstrasse 157
     <string name="travel_report_code_info"></string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
-    <string name="accessibility_faq_button_hint_non_bag"></string>
+    <string name="accessibility_faq_button_hint_non_bag">"Ovo dugme napušta aplikaciju i otvara veb stranicu."</string>
 
     <!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
-    <string name="begegnung_detail_no_last_sync_accessibility"></string>
+    <string name="begegnung_detail_no_last_sync_accessibility">"Nema prethodnih sinhronizacija"</string>
 
     <!-- Text für Hintergrundfehler auf Android -->
     <string name="meldungen_background_error_text_android">"Promenite podešavanja da biste dobijali obaveštenja o novoj poruci takođe i izvan aplikacije."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+
+    <!-- Text beim Bluetooth Control iOS 13.5 -->
+    <string name="tracing_setting_text_ios_13_5"></string>
+
+    <!-- Text beim Bluetooth Control iOS 13.6 -->
+    <string name="tracing_setting_text_ios_13_6"></string>
+
+    <!-- Text beim Bluetooth Control iOS 14 -->
+    <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
 </resources>
