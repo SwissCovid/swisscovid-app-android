@@ -455,7 +455,7 @@
     <string name="meldungen_background_error_title">"ድሕረባይታ እዋናዊ ንምግባር ኣገልግሎት የለን (ጠፊኡ ኣሎ)።"</string>
 
     <!-- Text für Hintergrund Fehler -->
-    <string name="meldungen_background_error_text">"Go to \"Settings &gt; General &gt; Background App Refresh\" and make sure \"Wi-Fi &amp; Mobile Data\" is selected. Background App Refresh can then be disabled for each app individually."</string>
+    <string name="meldungen_background_error_text">"ናብ \"ምስትኽኻል/Einstellungen &gt; ሓፈሻዊ/Allgemein &gt; ኣብ ድሓር ምሕዳስ/Hintergrundaktual.\" ምስ ኣተኹም እቲ \"WLAN &amp; Mobile Daten\" ዝብል ከምተመርጸ ኣረጋግጹ ኢኹም። ሽዑ Background App Refresh ንነፍስወከፍ ኤፕ ክውላዕ ይከኣል።"</string>
 
     <!-- Button Titel für Hintergrundfehler beheben -->
     <string name="meldungen_background_error_button">"ሴቲንግ ምቕያር "</string>
@@ -603,8 +603,11 @@
     <string name="inform_detail_faq1_title">"ኮቪድኮድ እንታይ እዩ፧"</string>
 
     <!-- Inform Detail: FAQ Text -->
+    <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"ውጽኢት መርመርኦም ፖዚቲቭ ዝኾኑ ሰባት ኮቪድኮድ ይውሃቦም። ብኸምዚ መንገዲ እቶም ሕማም ዝተረጋገጸሎም ሰባት ጥራይ በቲ ኣፕ ከምዝምዝገቡ ይረጋገጽ። 
-"</string>
+
+ኣወንታ/ፖሲቲቭ ተመርሚርኩም ድሕሪ 2 ሰዓት ገና ናይ ኮቪድ ኮድ ኣይተወሃብኩም፧
+ሽዑ እቲ ኢንፎላይን ኮሮናቫይረስ ርኸቡ ኢኹም፥"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"እንታይ እዩ ዝስደድ፧ "</string>
@@ -921,14 +924,23 @@ Schwarzenburgstrasse 157
     <string name="travel_report_code_info"></string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
-    <string name="accessibility_faq_button_hint_non_bag"></string>
+    <string name="accessibility_faq_button_hint_non_bag">"እዚ መጠውቒ/Button ካብቲ ኤፕ ይወጽእን ሓድሽ ወብሳይት ይኸፍትን።"</string>
 
     <!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
-    <string name="begegnung_detail_no_last_sync_accessibility"></string>
+    <string name="begegnung_detail_no_last_sync_accessibility">"ክሳብ ሕጂ ሲንክሮናይሰሽን የለን"</string>
 
     <!-- Text für Hintergrundfehler auf Android -->
     <string name="meldungen_background_error_text_android">"ሓድሽ ሓበሬታ ምስዝህሉ: ካብቲ ኣፕ ወጻኢ ውን ንኽትሕበሩ ምእንታን: ነቲ ሴቲንግ ቀይርዎ።"</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+
+    <!-- Text beim Bluetooth Control iOS 13.5 -->
+    <string name="tracing_setting_text_ios_13_5"></string>
+
+    <!-- Text beim Bluetooth Control iOS 13.6 -->
+    <string name="tracing_setting_text_ios_13_6"></string>
+
+    <!-- Text beim Bluetooth Control iOS 14 -->
+    <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
 </resources>

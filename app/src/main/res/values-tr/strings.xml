@@ -455,7 +455,7 @@
     <string name="meldungen_background_error_title">"Arka plan güncellemesi kapatıldı"</string>
 
     <!-- Text für Hintergrund Fehler -->
-    <string name="meldungen_background_error_text">"Go to \"Settings &gt; General &gt; Background App Refresh\" and make sure \"Wi-Fi &amp; Mobile Data\" is selected. Background App Refresh can then be disabled for each app individually."</string>
+    <string name="meldungen_background_error_text">"\"Ayarlar &gt; Genel &gt; Arka Planda Uygulama\" ye gidin ve \"WLAN &amp; Mobil veri\" nin seçili olduğundan emin olun. Arka Planda Uygulama Yenileme, daha sonra her uygulama için ayrı ayrı etkinleştirilebilir."</string>
 
     <!-- Button Titel für Hintergrundfehler beheben -->
     <string name="meldungen_background_error_button">"Ayarları değiştirin"</string>
@@ -607,9 +607,13 @@ Yalnızca bulaşma riski yeterince büyük ise bilgilendirilirsiniz."</string>
     <string name="inform_detail_faq1_title">"Bir Kovid kodu nedir?"</string>
 
     <!-- Inform Detail: FAQ Text -->
+    <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"Korona virüsü testi pozitif olan kişilere Kovid kodu verilir.
 
-Bu şekilde yalnızca onaylanmış vakaların uygulama üzerinden bildirilmesi garantilenir."</string>
+Bu şekilde yalnızca onaylanmış vakaların uygulama üzerinden bildirilmesi garantilenir.
+
+Test sonucunuz pozitif çıktı ve 2 saat içerisinde henüz Covid kodunu almadınız mı?
+Bu durumda, Corona Virüs Bilgi Hattı (Infoline) ile iletişime geçiniz:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Neler iletilir?"</string>
@@ -928,14 +932,23 @@ Schwarzenburgstrasse 157
     <string name="travel_report_code_info"></string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
-    <string name="accessibility_faq_button_hint_non_bag"></string>
+    <string name="accessibility_faq_button_hint_non_bag">"Bu buton, uygulamadan çıkarak bir web sayfası açar."</string>
 
     <!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
-    <string name="begegnung_detail_no_last_sync_accessibility"></string>
+    <string name="begegnung_detail_no_last_sync_accessibility">"Şu ana kadar yapılmış senkronizasyon bulunmuyor"</string>
 
     <!-- Text für Hintergrundfehler auf Android -->
     <string name="meldungen_background_error_text_android">"Uygulama açık olmadığında da bildirim alabilmek için lütfen ayarları değiştirin."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+
+    <!-- Text beim Bluetooth Control iOS 13.5 -->
+    <string name="tracing_setting_text_ios_13_5"></string>
+
+    <!-- Text beim Bluetooth Control iOS 13.6 -->
+    <string name="tracing_setting_text_ios_13_6"></string>
+
+    <!-- Text beim Bluetooth Control iOS 14 -->
+    <string name="tracing_setting_text_ios_14_0">"Maruz Kalma Bildirimleri"</string>
 </resources>
