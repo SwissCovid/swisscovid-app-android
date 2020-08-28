@@ -32,7 +32,8 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/spacing_larger"
 			android:gravity="center_horizontal"
-			android:orientation="vertical">
+			android:orientation="vertical"
+			android:paddingBottom="@dimen/spacing_larger">
 
 			<TextView
 				style="@style/NextStep.Text"

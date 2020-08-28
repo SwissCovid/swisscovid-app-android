@@ -40,8 +40,8 @@ android {
 		applicationId "ch.admin.bag.dp3t"
 		minSdkVersion 23
 		targetSdkVersion 29
-		versionCode 10080
-		versionName "1.0.8"
+		versionCode 10090
+		versionName "1.0.9"
 		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr", "rm", "tr", "ti"
 
 		buildConfigField "long", "BUILD_TIME", readPropertyWithDefault('buildTimestamp', System.currentTimeMillis()) + 'L'
@@ -138,7 +138,7 @@ sonarqube {
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
-	def dp3t_sdk_version = '1.0.3'
+	def dp3t_sdk_version = '1.0.4'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
 	teschtImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
@@ -167,4 +167,7 @@ dependencies {
 	androidTestImplementation 'androidx.test:core:1.2.0'
 	androidTestImplementation 'androidx.test:rules:1.2.0'
 	androidTestImplementation 'androidx.work:work-testing:2.3.4'
+	androidTestImplementation 'com.squareup.okhttp3:mockwebserver:3.14.7'
+	androidTestImplementation "androidx.work:work-testing:2.3.4"
+
 }

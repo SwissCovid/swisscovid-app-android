@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
-  ~
-  ~ This Source Code Form is subject to the terms of the Mozilla Public
-  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
-  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
-  ~
-  ~ SPDX-License-Identifier: MPL-2.0
-  -->
-
 <resources>
 
     <!-- App Name -->
@@ -242,9 +232,6 @@ Così contribuisci a fermare le catene di infezione."</string>
     <string name="bluetooth_turn_on_button_title">"Attiva Bluetooth"</string>
     <string name="bluetooth_permission_error_title">"Uso di Bluetooth negato"</string>
     <string name="bluetooth_permission_error_text">"Consenti l'uso di Bluetooth sul tuo dispositivo per far funzionare il tracciamento."</string>
-
-    <!-- URL zum Corona Check -->
-    <string name="symptom_detail_corona_check_url">"https://ufsp-coronavirus.ch/check/"</string>
     <string name="push_open_settings_button">"Modifica impostazioni"</string>
 
     <!-- Meldungen Detail: Subtitel wenn keine Meldungen -->
@@ -477,7 +464,7 @@ Segui le istruzioni sull'isolamento che hai ricevuto."</string>
     <string name="meldungen_background_error_title">"Aggiornamento in background disattivato"</string>
 
     <!-- Text für Hintergrund Fehler -->
-    <string name="meldungen_background_error_text">"Modifica le impostazioni per essere informato anche al di fuori dell'app in caso di nuova segnalazione."</string>
+    <string name="meldungen_background_error_text">"Vai su «Impostazioni &gt; Generali &gt; Aggiorna app in background» e assicurati che sia selezionata l’opzione «WLAN &amp; Dati cellulari».  L’aggiornamento in background può quindi essere attivato singolarmente per ogni app. "</string>
 
     <!-- Button Titel für Hintergrundfehler beheben -->
     <string name="meldungen_background_error_button">"Modifica impostazioni"</string>
@@ -640,9 +627,12 @@ Il colloquio di consulenza è gratuito; paghi soltanto il costo della telefonata
     <string name="inform_detail_faq1_title">"Cos'è un codice Covid?"</string>
 
     <!-- Inform Detail: FAQ Text -->
+    <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"Le persone che sono risultate positive al test del nuovo coronavirus ricevono un codice Covid.
 
-In questo modo si garantisce che l'app segnali soltanto i casi confermati."</string>
+In questo modo si garantisce che l'app segnali soltanto i casi confermati.
+
+Sei risultato positivo al test e dopo due ore non hai ancora ricevuto un codice Covid? Allora contatta la Infoline Coronavirus"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Che cosa viene inviato?"</string>
@@ -673,12 +663,12 @@ Grazie a questi ID, gli altri utenti dell'app SwissCovid vengono a sapere che vi
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Questi sono i sintomi più frequenti:
 
-- febbre, sensazione di febbre
-- mal di gola
-- tosse (perlopiù secca)
-- affanno
-- dolori muscolari
-- perdita improvvisa dell'olfatto e/o del gusto"</string>
+– febbre, sensazione di febbre
+– mal di gola
+– tosse (perlopiù secca)
+– affanno
+– dolori muscolari
+– perdita improvvisa dell'olfatto e/o del gusto"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Perché il tracciamento è terminato?"</string>
@@ -717,7 +707,8 @@ Grazie a questi ID, gli altri utenti dell'app SwissCovid vengono a sapere che vi
     <!-- Accessibility: Hint zum doppelklicken wenn einzelnes Codefeld angeklickt -->
     <string name="accessibility_code_input_hint">"Doppio tocco per modificare"</string>
 
-    <!-- Accessibility: FAW Button Titel  -->
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine Website des BAG geöffnet wird -->
+    <!-- Fuzzy -->
     <string name="accessibility_faq_button_hint">"Questo pulsante abbandona l'app e apre il sito web dell'U.F.S.P."</string>
 
     <!-- Titel auf der Onboarding Page für die Permission der Exposure-Library -->
@@ -815,67 +806,13 @@ Se al momento non è disponibile alcun aggiornamento sul tuo dispositivo, riprov
 
     <!-- Fehler-Titel wenn die Exposure Notifications nicht gestartet werden konnten. -->
     <string name="android_en_start_failure">"Impossibile attivare le segnalazioni COVID-19."</string>
-
-    <!-- Certificate pinning Debug screen section title -->
-    <string name="certificate_pinning_title">"Certificate Pinning"</string>
-
-    <!-- Fuzzy -->
-    <string name="certificate_pinning_button_disable">"Disattivare"</string>
-    <string name="certificate_pinning_button_enable">"Attivare"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Überschrift -->
-    <string name="onboarding_legal_heading">"Version preview"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel -->
-    <string name="onboarding_legal_title">"Da utilizzare solo dai partecipanti della fase pilota"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Erster Abschnitt -->
-    <string name="onboarding_legal_text1">"L'utilizzo di questa app è attualmente previsto e autorizzato solo per i seguenti gruppi, che sono stati invitati dall'UFSP a partecipare al pilota: membri dell'Esercito svizzero in formazione, assistenza e servizio attivo, personale delle università, personale di ospedali e cliniche, personale delle amministrazioni cantonali e dell'Amministrazione federale, membri di associazioni che desiderano contribuire a migliorare la qualità del sistema."</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Zweiter Abschnitt -->
-    <string name="onboarding_legal_text2">"La fase pilota viene effettuata con sistemi produttivi e contiene dati reali. In caso di test COVID-19 positivo, i medici cantonali non sono autorizzati a generare un codice Covid per la notifica dall'app per gli utenti non autorizzati. Gli attacchi (\"penetration test\") al sistema al di fuori del test di sicurezza pubblica delimitato sono attacchi al sistema produttivo e sono pertanto illegali."</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Titel von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_title">"Fai parte di un'organizzazione che può partecipare alla fase pilota?"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Text von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_message">"Appartenete a uno dei seguenti gruppi: membri dell'Esercito svizzero in formazione, assistenza e servizio attivo, collaboratori di università, collaboratori di ospedali e cliniche, collaboratori delle amministrazioni cantonali e dell'amministrazione federale, membri di associazioni che desiderano contribuire al miglioramento della qualità del sistema?"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: NEIN von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_no">"No"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: JA von Popup in dem Nutzer Pilot bestätigen muss -->
-    <string name="onboarding_legal_alert_yes">"Sì"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Titel -->
-    <string name="onboarding_legal_blocker_title">"Fase pilota"</string>
-
-    <!-- Erster Onboarding-Screen für Pilot: Blockierendes Popup für Nutzer die nicht im Pilot sind, Text -->
-    <string name="onboarding_legal_blocker_message">"Non fate parte di un'organizzazione che partecipa alla fase pilota. Si prega di installare l'aggiornamento appropriato dopo il lancio ufficiale dell'applicazione e di riaprire l'applicazione."</string>
     <string name="begegnung_detail_last_sync_title">"Ultima sincronizzazione effettuata"</string>
     <string name="synchronizations_view_title">"Panoramica"</string>
     <string name="synchronizations_view_info_title">"Sincronizzazioni"</string>
     <string name="synchronizations_view_info_question">"Cosa sono le sincronizzazioni?"</string>
     <string name="synchronizations_view_info_answer">"L'app verifica regolarmente gli ID casuali pubblicati dagli utenti risultati positivi al test."</string>
     <string name="synchronizations_view_period_title">"Negli ultimi 14 giorni"</string>
-    <string name="synchronizations_view_sync_via_open">"  • Open"</string>
-    <string name="synchronizations_view_sync_via_background">"  • Sync"</string>
     <string name="synchronizations_view_empty_list">"Nessuna voce"</string>
-    <string name="synchronizations_view_sync_via_scheduled">"  • Scheduled"</string>
-    <string name="synchronizations_view_sync_via_fake_request">"  • Fake Report"</string>
-    <string name="synchronizations_view_sync_via_next_day_key_upload">"  • Pending Upload"</string>
-
-    <!-- Kleinerer Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_before_title">"Prima della chiamata"</string>
-
-    <!-- Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_main_title">"Annotare le seguenti indicazioni"</string>
-
-    <!-- Datums-Label im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_datum">"Data"</string>
-
-    <!-- Code-Label Titel im Dialog mit dem Code, der vor dem Anrufen angezeigt wird, wenn ein Kontakt positiv ist. -->
-    <string name="pre_call_dialog_box_number">"Numero"</string>
     <string name="tracing_active_tracking_always_info">"SwissCovid resta attiva anche quando l'app viene chiusa."</string>
 
     <!-- title in splash screen of onboarding -->
@@ -886,7 +823,7 @@ catene di infezione"</string>
     <string name="inform_detail_faq3_title">"Resto anonimo?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"Ai primi sintomi, fai l'autovalutazione del coronavirus o telefona al tuo medico."</string>
+    <string name="meldungen_detail_explanation_text4">"Telefona a un medico o a un'istituzione sanitaria."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"Notifiche di esposizione al COVID-19"</string>
@@ -979,4 +916,67 @@ Schwarzenburgstrasse 157
 
     <!-- Homescreen infobox close button accessibility handler -->
     <string name="infobox_close_button_accessibility">"Chiudi"</string>
+
+    <!-- Title for the Home View Travel Card. -->
+    <string name="travel_title"></string>
+
+    <!-- Info text that is displayed on the Home Travel Card. -->
+    <string name="travel_home_description"></string>
+
+    <!-- Introductory Text that is displayed at the top of the travel settings screen. -->
+    <string name="travel_screen_introduction"></string>
+
+    <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_1"></string>
+
+    <!-- First text for the travel feature explanation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_1"></string>
+
+    <!-- Second title for the travel feature explanation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_2"></string>
+
+    <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_2"></string>
+
+    <!-- Button title for the Add Countries Button in the travel screen. -->
+    <string name="travel_screen_add_countries_button"></string>
+
+    <!-- Text that is displayed under a country name that indicates until what date the user will still receive notifications from this country. -->
+    <string name="travel_screen_notifications_activated_until"></string>
+
+    <!-- List Header for the favourites in the "Add countries" Screen of the Travel feature. -->
+    <string name="travel_screen_favourites"></string>
+
+    <!-- List header for other countries in the "add countries" screen of the travel feature. -->
+    <string name="travel_screen_other_countries"></string>
+
+    <!-- Title for the explanation at the bottom of the "add countries" screen of the travel feature. -->
+    <string name="travel_screen_add_countries_explanation_title"></string>
+
+    <!-- Text for the explanation at the bottom of the "add countries" screen of the travel feature. -->
+    <string name="travel_screen_add_countries_explanation_text"></string>
+
+    <!-- Information text that asks the user about informing other countries when he enters a covid code into the app. -->
+    <string name="travel_report_code_info"></string>
+
+    <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
+    <string name="accessibility_faq_button_hint_non_bag">"Questo pulsante permette di lasciare l'app e di aprire un sito Internet."</string>
+
+    <!-- voice over string der vorgelesen wird wenn noch kein sync stattgefunden hat -->
+    <string name="begegnung_detail_no_last_sync_accessibility">"La sincronizzazione non è ancora stata effettuata."</string>
+
+    <!-- Text für Hintergrundfehler auf Android -->
+    <string name="meldungen_background_error_text_android">"Modifica le impostazioni per essere informato anche al di fuori dell'app in caso di nuova segnalazione."</string>
+
+    <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
+    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+
+    <!-- Text beim Bluetooth Control iOS 13.5 -->
+    <string name="tracing_setting_text_ios_13_5"></string>
+
+    <!-- Text beim Bluetooth Control iOS 13.6 -->
+    <string name="tracing_setting_text_ios_13_6"></string>
+
+    <!-- Text beim Bluetooth Control iOS 14 -->
+    <string name="tracing_setting_text_ios_14_0">"Notifiche di esposizione"</string>
 </resources>

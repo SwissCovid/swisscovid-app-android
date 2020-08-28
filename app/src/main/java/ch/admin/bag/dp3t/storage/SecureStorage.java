@@ -43,6 +43,8 @@ public class SecureStorage {
 	private static final String KEY_CONFIG_INFOBOX_IS_DISMISSIBLE = "ghettobox_is_dismissible";
 	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS = "last_config_load_success";
+	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION = "last_config_load_success_app_version";
+	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_SDK_INT = "last_config_load_success_sdk_int";
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 
 	private static SecureStorage instance;
@@ -239,6 +241,22 @@ public class SecureStorage {
 
 	public void setLastConfigLoadSuccess(long time) {
 		prefs.edit().putLong(KEY_LAST_CONFIG_LOAD_SUCCESS, time).apply();
+	}
+
+	public int getLastConfigLoadSuccessAppVersion() {
+		return prefs.getInt(KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION, 0);
+	}
+
+	public void setLastConfigLoadSuccessAppVersion(int appVersion) {
+		prefs.edit().putInt(KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION, appVersion).apply();
+	}
+
+	public int getLastConfigLoadSuccessSdkInt() {
+		return prefs.getInt(KEY_LAST_CONFIG_LOAD_SUCCESS_SDK_INT, 0);
+	}
+
+	public void setLastConfigLoadSuccessSdkInt(int sdkInt) {
+		prefs.edit().putInt(KEY_LAST_CONFIG_LOAD_SUCCESS_SDK_INT, sdkInt).apply();
 	}
 
 	public long getTDummy() { return prefs.getLong(KEY_T_DUMMY, -1); }
