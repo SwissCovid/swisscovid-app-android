@@ -28,6 +28,7 @@ import java.util.TimeZone;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.util.AssetUtil;
+import ch.admin.bag.dp3t.util.UlTagHandler;
 
 public class OnboardingDisclaimerFragment extends Fragment {
 
@@ -52,8 +53,8 @@ public class OnboardingDisclaimerFragment extends Fragment {
 
 		TextView termsOfUseTextview = view.findViewById(R.id.terms_of_use_textview);
 		TextView dataProtectionTextView = view.findViewById(R.id.data_protection_textview);
-		termsOfUseTextview.setText(Html.fromHtml(AssetUtil.getTermsOfUse(getContext())));
-		dataProtectionTextView.setText(Html.fromHtml(AssetUtil.getDataProtection(getContext())));
+		termsOfUseTextview.setText(Html.fromHtml(AssetUtil.getTermsOfUse(getContext()), null, new UlTagHandler()));
+		dataProtectionTextView.setText(Html.fromHtml(AssetUtil.getDataProtection(getContext()), null, new UlTagHandler()));
 
 		ImageView termsOfUseChevron = view.findViewById(R.id.terms_of_use_chevron_imageview);
 		ImageView dataProtectionChevron = view.findViewById(R.id.data_protection_chevron_imageview);
@@ -105,4 +106,5 @@ public class OnboardingDisclaimerFragment extends Fragment {
 				new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.onboarding_disclaimer_legal_button_url)));
 		startActivity(browserIntent);
 	}
+
 }
