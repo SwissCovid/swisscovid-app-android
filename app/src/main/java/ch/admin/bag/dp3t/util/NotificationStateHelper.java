@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
-import ch.admin.bag.dp3t.main.model.NotificationState;
+import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.R;
 
 public class NotificationStateHelper {

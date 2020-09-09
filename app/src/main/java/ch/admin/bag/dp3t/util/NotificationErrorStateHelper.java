@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import ch.admin.bag.dp3t.main.model.NotificationStateError;
+import ch.admin.bag.dp3t.home.model.NotificationStateError;
 import ch.admin.bag.dp3t.R;
 
 public class NotificationErrorStateHelper {

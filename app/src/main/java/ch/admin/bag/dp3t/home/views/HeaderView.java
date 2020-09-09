@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-package ch.admin.bag.dp3t.main.views;
+package ch.admin.bag.dp3t.home.views;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -33,9 +33,9 @@ import java.util.Random;
 import org.dpppt.android.sdk.TracingStatus;
 
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.main.model.NotificationState;
-import ch.admin.bag.dp3t.main.model.TracingState;
-import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
+import ch.admin.bag.dp3t.home.model.NotificationState;
+import ch.admin.bag.dp3t.home.model.TracingState;
+import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 
 public class HeaderView extends ConstraintLayout {

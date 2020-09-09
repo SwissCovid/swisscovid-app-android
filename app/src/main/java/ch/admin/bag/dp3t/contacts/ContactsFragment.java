@@ -31,8 +31,8 @@ import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.main.TracingBoxFragment;
-import ch.admin.bag.dp3t.main.views.HeaderView;
+import ch.admin.bag.dp3t.home.TracingBoxFragment;
+import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.ENExceptionHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;

@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-package ch.admin.bag.dp3t.main;
+package ch.admin.bag.dp3t.home;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -43,10 +43,10 @@ import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.debug.DebugFragment;
 import ch.admin.bag.dp3t.html.HtmlFragment;
-import ch.admin.bag.dp3t.main.model.NotificationState;
-import ch.admin.bag.dp3t.main.model.NotificationStateError;
-import ch.admin.bag.dp3t.main.model.TracingState;
-import ch.admin.bag.dp3t.main.views.HeaderView;
+import ch.admin.bag.dp3t.home.model.NotificationState;
+import ch.admin.bag.dp3t.home.model.NotificationStateError;
+import ch.admin.bag.dp3t.home.model.TracingState;
+import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.*;

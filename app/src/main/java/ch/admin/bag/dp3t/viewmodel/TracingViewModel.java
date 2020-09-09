@@ -34,7 +34,7 @@ import org.dpppt.android.sdk.internal.history.HistoryEntry;
 
 import ch.admin.bag.dp3t.MainApplication;
 import ch.admin.bag.dp3t.debug.TracingStatusWrapper;
-import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
+import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 
 public class TracingViewModel extends AndroidViewModel {

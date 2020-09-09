@@ -42,7 +42,7 @@
 		android:layout_height="match_parent"
 		android:background="@color/grey_light">
 
-		<ch.admin.bag.dp3t.main.views.HeaderView
+		<ch.admin.bag.dp3t.home.views.HeaderView
 			android:id="@+id/home_header_view"
 			android:layout_width="match_parent"
 			android:layout_height="@dimen/header_height" />

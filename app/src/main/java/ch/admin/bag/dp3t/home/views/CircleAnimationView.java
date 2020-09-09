@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-package ch.admin.bag.dp3t.main.views;
+package ch.admin.bag.dp3t.home.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
