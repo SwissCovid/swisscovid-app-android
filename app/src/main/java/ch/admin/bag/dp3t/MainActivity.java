@@ -21,7 +21,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.sdk.DP3T;
 
-import ch.admin.bag.dp3t.home.HomeFragment;
 import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
@@ -81,7 +80,7 @@ public class MainActivity extends FragmentActivity {
 		if (savedInstanceState == null) {
 			boolean onboardingCompleted = secureStorage.getOnboardingCompleted();
 			if (onboardingCompleted) {
-				showHomeFragment();
+				showMainFragment();
 			} else {
 				startActivityForResult(new Intent(this, OnboardingActivity.class), REQ_ONBOARDING);
 			}
@@ -133,17 +132,17 @@ public class MainActivity extends FragmentActivity {
 		}
 	}
 
-	private void showHomeFragment() {
+	private void showMainFragment() {
 		getSupportFragmentManager()
 				.beginTransaction()
-				.add(R.id.main_fragment_container, HomeFragment.newInstance())
+				.add(R.id.root_fragment_container, MainFragment.newInstance())
 				.commit();
 	}
 
 	private void gotoReportsFragment() {
 		getSupportFragmentManager()
 				.beginTransaction()
-				.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
+				.replace(R.id.root_fragment_container, ReportsFragment.newInstance())
 				.addToBackStack(ReportsFragment.class.getCanonicalName())
 				.commit();
 	}
@@ -155,7 +154,7 @@ public class MainActivity extends FragmentActivity {
 		if (requestCode == REQ_ONBOARDING) {
 			if (resultCode == RESULT_OK) {
 				secureStorage.setOnboardingCompleted(true);
-				showHomeFragment();
+				showMainFragment();
 			} else {
 				finish();
 			}

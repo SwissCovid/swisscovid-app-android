@@ -21,11 +21,11 @@
 		<item name="toolbarNavigationButtonStyle">@style/NextStep.Toolbar.Button.Navigation</item>
 	</style>
 
-
 	<style name="NextStep.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
-		<item name="background">@color/navigation_background</item>
+		<item name="background">@color/bottom_navigation_background</item>
 		<item name="itemIconTint">@color/selector_bottom_navigation_item</item>
 		<item name="itemTextColor">@color/selector_bottom_navigation_item</item>
+		<item name="itemRippleColor">?android:attr/colorControlHighlight</item>
 	</style>
 
 	<style name="NextStep.Text" parent="TextAppearance.AppCompat">

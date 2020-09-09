@@ -127,7 +127,7 @@ public class ContactsFragment extends Fragment {
 			historyCard.setOnClickListener(v -> {
 				getParentFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, HistoryFragment.newInstance())
+						.replace(R.id.root_fragment_container, HistoryFragment.newInstance())
 						.addToBackStack(HistoryFragment.class.getCanonicalName())
 						.commit();
 			});

@@ -97,7 +97,7 @@ public class HtmlFragment extends Fragment {
 									AssetUtil.loadImpressumHtmlFile(getContext(), strippedUrl));
 					getParentFragmentManager().beginTransaction()
 							.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-							.replace(R.id.main_fragment_container, htmlFragment)
+							.replace(R.id.root_fragment_container, htmlFragment)
 							.addToBackStack(HtmlFragment.class.getCanonicalName())
 							.commit();
 					return true;

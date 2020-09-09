@@ -28,12 +28,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.logger.Logger;
@@ -41,15 +38,17 @@ import org.dpppt.android.sdk.internal.logger.Logger;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
-import ch.admin.bag.dp3t.debug.DebugFragment;
-import ch.admin.bag.dp3t.html.HtmlFragment;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
 import ch.admin.bag.dp3t.home.model.TracingState;
 import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.*;
+import ch.admin.bag.dp3t.util.ENExceptionHelper;
+import ch.admin.bag.dp3t.util.NotificationErrorStateHelper;
+import ch.admin.bag.dp3t.util.NotificationStateHelper;
+import ch.admin.bag.dp3t.util.NotificationUtil;
+import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
 import ch.admin.bag.dp3t.whattodo.WtdSymptomsFragment;
@@ -82,10 +81,7 @@ public class HomeFragment extends Fragment {
 	}
 
 	public static HomeFragment newInstance() {
-		Bundle args = new Bundle();
-		HomeFragment fragment = new HomeFragment();
-		fragment.setArguments(args);
-		return fragment;
+		return new HomeFragment();
 	}
 
 	@Override
@@ -104,23 +100,6 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-		Toolbar toolbar = view.findViewById(R.id.home_toolbar);
-		toolbar.inflateMenu(R.menu.homescreen_menu);
-		toolbar.setOnMenuItemClickListener(item -> {
-			if (item.getItemId() == R.id.homescreen_menu_impressum) {
-				HtmlFragment htmlFragment =
-						HtmlFragment.newInstance(R.string.menu_impressum, AssetUtil.getImpressumBaseUrl(getContext()),
-								AssetUtil.getImpressumHtml(getContext()));
-				getParentFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, htmlFragment)
-						.addToBackStack(HtmlFragment.class.getCanonicalName())
-						.commit();
-				return true;
-			}
-			return false;
-		});
-
 		infobox = view.findViewById(R.id.card_infobox);
 		tracingCard = view.findViewById(R.id.card_tracing);
 		cardNotifications = view.findViewById(R.id.card_notifications);
@@ -140,7 +119,6 @@ public class HomeFragment extends Fragment {
 		setupTracingView();
 		setupNotification();
 		setupWhatToDo();
-		setupDebugButton();
 		setupNonProductionHint();
 		setupScrollBehavior();
 	}
@@ -232,24 +210,23 @@ public class HomeFragment extends Fragment {
 				cardSymptomsFrame.setVisibility(VISIBLE);
 				cardTestFrame.setVisibility(VISIBLE);
 				tracingCard.findViewById(R.id.contacs_chevron).setVisibility(VISIBLE);
-				tracingCard.setOnClickListener(v -> showContactsFragment());
+				tracingCard.setOnClickListener(v ->
+						getParentFragmentManager().beginTransaction()
+								.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter,
+										R.anim.slide_pop_exit)
+								.replace(R.id.root_fragment_container, ContactsFragment.newInstance())
+								.addToBackStack(ContactsFragment.class.getCanonicalName())
+								.commit()
+				);
 			}
 		});
-	}
-
-	private void showContactsFragment() {
-		getParentFragmentManager().beginTransaction()
-				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.main_fragment_container, ContactsFragment.newInstance())
-				.addToBackStack(ContactsFragment.class.getCanonicalName())
-				.commit();
 	}
 
 	private void setupNotification() {
 		cardNotifications.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
+						.replace(R.id.root_fragment_container, ReportsFragment.newInstance())
 						.addToBackStack(ReportsFragment.class.getCanonicalName())
 						.commit());
 
@@ -347,30 +324,15 @@ public class HomeFragment extends Fragment {
 		cardSymptoms.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
+						.replace(R.id.root_fragment_container, WtdSymptomsFragment.newInstance())
 						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
 						.commit());
 		cardTest.setOnClickListener(
 				v -> getParentFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
+						.replace(R.id.root_fragment_container, WtdPositiveTestFragment.newInstance())
 						.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
 						.commit());
-	}
-
-	private void setupDebugButton() {
-		if (!DebugFragment.EXISTS)
-			return;
-
-		AtomicLong lastClick = new AtomicLong(0);
-		requireView().findViewById(R.id.schwiizerchruez).setOnClickListener(v -> {
-			if (lastClick.get() > System.currentTimeMillis() - 1000L) {
-				lastClick.set(0);
-				DebugFragment.startDebugFragment(getParentFragmentManager());
-			} else {
-				lastClick.set(System.currentTimeMillis());
-			}
-		});
 	}
 
 	private void setupNonProductionHint() {

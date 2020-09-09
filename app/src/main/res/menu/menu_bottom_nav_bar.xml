@@ -7,8 +7,13 @@
   ~
   ~ SPDX-License-Identifier: MPL-2.0
   -->
-
-<androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/root_fragment_container"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:id="@+id/bottom_nav_home"
+		android:icon="@drawable/ic_begegnungen"
+		android:title="Home" />
+	<item
+		android:id="@+id/bottom_nav_stats"
+		android:icon="@drawable/ic_begegnungen"
+		android:title="Zahlen" />
+</menu>

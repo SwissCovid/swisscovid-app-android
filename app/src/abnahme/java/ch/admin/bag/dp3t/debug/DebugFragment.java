@@ -30,7 +30,7 @@ public class DebugFragment extends Fragment {
 	public static void startDebugFragment(FragmentManager parentFragmentManager) {
 		parentFragmentManager.beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.main_fragment_container, DebugFragment.newInstance())
+				.replace(R.id.root_fragment_container, DebugFragment.newInstance())
 				.addToBackStack(DebugFragment.class.getCanonicalName())
 				.commit();
 	}

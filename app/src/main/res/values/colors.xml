@@ -13,7 +13,6 @@
 	<color name="colorPrimary">@color/red_main</color>
 	<color name="colorPrimaryDark">@color/dark_main</color>
 	<color name="colorAccent">@color/red_main</color>
-	<color name="colorControlHighlight">#FFCC00</color>
 
 	<color name="dark_main">#4A4969</color>
 	<color name="purple_main">#8D6A9F</color>
@@ -26,6 +25,10 @@
 	<color name="navigation_deselected">@color/grey_dark</color>
 	<color name="navigation_background">@color/white</color>
 	<color name="navigation_icon_toolbar">@color/anthracite</color>
+
+	<color name="bottom_navigation_selected">@color/blue_main</color>
+	<color name="bottom_navigation_deselected">@color/grey_dark</color>
+	<color name="bottom_navigation_background">@color/white</color>
 
 	<color name="anthracite">#535263</color>
 	<color name="anthracite_lighter">#888798</color>

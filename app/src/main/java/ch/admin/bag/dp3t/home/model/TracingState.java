@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-package ch.admin.bag.dp3t.main.model;
+package ch.admin.bag.dp3t.home.model;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
