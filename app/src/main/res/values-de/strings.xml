@@ -1009,4 +1009,18 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <!-- Text beim Bluetooth Control iOS 14 -->
     <!-- Fuzzy -->
     <string name="tracing_setting_text_ios_14_0">"Begegnungsmitteilungen"</string>
+    <string name="bottom_nav_tab_home">"Home"</string>
+    <string name="bottom_nav_tab_stats">"Zahlen"</string>
+    <string name="stats_title">"haben SwissCovid bereits aktiviert"</string>
+    <string name="stats_legend_new_infections">"Gemeldete Neuinfektionen"</string>
+    <string name="stats_legend_new_infections_average">"7-Tage-Schnitt"</string>
+    <string name="stats_legend_entered_covidcodes">"Eingegebene Covidcodes"</string>
+    <string name="share_app_supertitle">"Gemeinsam..."</string>
+    <string name="share_app_title">"Eine zweite Welle verhindern"</string>
+    <string name="share_app_button">"App teilen"</string>
+
+    <!-- Fuzzy -->
+    <string name="share_app_body">"Wenn möglichst viele die SwissCovid App aktivieren, können wir Infektionsketten frühzeitig unterbrechen."</string>
+    <string name="share_app_message">"Hallo, lad Dir doch auch SwissCovid herunter.
+https://bag-coronavirus.ch/swisscovid-app/#download"</string>
 </resources>

@@ -975,4 +975,15 @@ Schwarzenburgstrasse 157
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
+    <string name="bottom_nav_tab_home"></string>
+    <string name="bottom_nav_tab_stats"></string>
+    <string name="stats_title"></string>
+    <string name="stats_legend_new_infections"></string>
+    <string name="stats_legend_new_infections_average"></string>
+    <string name="stats_legend_entered_covidcodes"></string>
+    <string name="share_app_supertitle"></string>
+    <string name="share_app_title"></string>
+    <string name="share_app_button"></string>
+    <string name="share_app_body"></string>
+    <string name="share_app_message"></string>
 </resources>
