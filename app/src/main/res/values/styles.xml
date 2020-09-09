@@ -16,6 +16,7 @@
 		<item name="colorAccent">@color/colorAccent</item>
 		<item name="android:fontFamily">@font/inter_light</item>
 		<item name="android:windowLightStatusBar">true</item>
+		<item name="android:windowBackground">@color/grey_light</item>
 		<item name="android:statusBarColor">@color/white</item>
 		<item name="toolbarStyle">@style/NextStep.Toolbar</item>
 		<item name="toolbarNavigationButtonStyle">@style/NextStep.Toolbar.Button.Navigation</item>
@@ -35,6 +36,18 @@
 		<item name="android:fontFamily">@font/inter_light</item>
 	</style>
 
+	<style name="NextStep.Text.Red">
+		<item name="android:textColor">@color/red_main</item>
+	</style>
+
+	<style name="NextStep.Text.Green">
+		<item name="android:textColor">@color/green_main</item>
+	</style>
+
+	<style name="NextStep.Text.Blue">
+		<item name="android:textColor">@color/blue_main</item>
+	</style>
+
 	<style name="NextStep.Text.Small">
 		<item name="android:textSize">@dimen/text_size_small</item>
 	</style>
@@ -47,11 +60,11 @@
 		<item name="android:textColor">@color/anthracite_lighter</item>
 	</style>
 
-	<style name="NextStep.Text.Red">
-		<item name="android:textColor">@color/red_main</item>
+	<style name="NextStep.Text.Small.Purple">
+		<item name="android:textColor">@color/purple_main</item>
 	</style>
 
-	<style name="NextStep.Text.Blue">
+	<style name="NextStep.Text.Small.Blue">
 		<item name="android:textColor">@color/blue_main</item>
 	</style>
 
@@ -85,17 +98,19 @@
 		<item name="android:fontFamily">@font/inter_bold</item>
 	</style>
 
+	<style name="NextStep.Text.Title.Dark">
+		<item name="android:textColor">@color/dark_main</item>
+		<item name="android:gravity">center_horizontal</item>
+	</style>
+
+	<style name="NextStep.Text.Title.Dark.Mega">
+		<item name="android:textSize">@dimen/text_size_title_mega</item>
+	</style>
+
 	<style name="NextStep.Text.SubTitle">
 		<item name="android:textSize">@dimen/text_size_normal</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textColor">@color/green_main</item>
-	</style>
-
-	<style name="NextStep.Text.MainTitle">
-		<item name="android:textSize">@dimen/text_size_title</item>
-		<item name="android:fontFamily">@font/inter_bold</item>
-		<item name="android:textColor">@color/purple_main</item>
-		<item name="android:gravity">center_horizontal</item>
 	</style>
 
 	<style name="NextStep.Text.SplashTitle">

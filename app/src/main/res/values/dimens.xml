@@ -28,6 +28,7 @@
 
 	<dimen name="text_size_splash_title">28sp</dimen>
 	<dimen name="text_size_title">22sp</dimen>
+	<dimen name="text_size_title_mega">40sp</dimen>
 	<dimen name="text_size_normal">16sp</dimen>
 	<dimen name="text_size_small">14sp</dimen>
 	<dimen name="text_size_button">16sp</dimen>
@@ -76,4 +77,5 @@
 	<dimen name="card_loading_view_size">32dp</dimen>
 	<dimen name="padding_start_icon_button">44dp</dimen>
 	<dimen name="separator_height">1dp</dimen>
+	<dimen name="legend_icon_size">13dp</dimen>
 </resources>

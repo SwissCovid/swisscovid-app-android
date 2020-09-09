@@ -44,11 +44,7 @@ import ch.admin.bag.dp3t.home.model.TracingState;
 import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.ENExceptionHelper;
-import ch.admin.bag.dp3t.util.NotificationErrorStateHelper;
-import ch.admin.bag.dp3t.util.NotificationStateHelper;
-import ch.admin.bag.dp3t.util.NotificationUtil;
-import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
+import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
 import ch.admin.bag.dp3t.whattodo.WtdSymptomsFragment;
@@ -347,20 +343,17 @@ public class HomeFragment extends Fragment {
 	private void setupScrollBehavior() {
 		int scrollRangePx = getResources().getDimensionPixelSize(R.dimen.top_item_padding);
 		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
+
 		scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-			float progress = computeScrollAnimProgress(scrollY, scrollRangePx);
+			float progress = UiUtils.computeScrollAnimProgress(scrollY, scrollRangePx);
 			headerView.setAlpha(1 - progress);
 			headerView.setTranslationY(progress * translationRangePx);
 		});
 		scrollView.post(() -> {
-			float progress = computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
+			float progress = UiUtils.computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
 			headerView.setAlpha(1 - progress);
 			headerView.setTranslationY(progress * translationRangePx);
 		});
-	}
-
-	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
-		return Math.min(scrollY, scrollRange) / (float) scrollRange;
 	}
 
 	private void enableTracing() {

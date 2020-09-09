@@ -55,6 +55,11 @@
 	<color name="header_bg_off">#B24A4969</color>
 	<color name="header_bg_on">#B25094bf</color>
 	<color name="header_bg_exposed">#B28D6A9F</color>
+	<color name="header_bg_stats">#B25094bf</color>
+	
+	<color name="stats_new_infections">#548D6A9F</color>
+	<color name="stats_new_infections_avg">@color/purple_main</color>
+	<color name="stats_entered_covidcodes">@color/blue_main</color>
 
 	<color name="bag_blue">#07A0E2</color>
 
