@@ -123,7 +123,7 @@ public class ContactsFragment extends Fragment {
 		View historyCard = view.findViewById(R.id.contacts_card_history);
 		if (BuildConfig.IS_FLAVOR_PROD || BuildConfig.IS_FLAVOR_ABNAHME) {
 			historyCard.findViewById(R.id.card_history_chevron).setVisibility(View.GONE);
-		}else {
+		} else {
 			historyCard.setOnClickListener(v -> {
 				getParentFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
