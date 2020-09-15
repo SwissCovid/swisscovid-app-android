@@ -14,6 +14,6 @@
 		android:title="@string/bottom_nav_tab_home" />
 	<item
 		android:id="@+id/bottom_nav_stats"
-		android:icon="@drawable/ic_begegnungen"
+		android:icon="@drawable/ic_stats"
 		android:title="@string/bottom_nav_tab_stats" />
 </menu>

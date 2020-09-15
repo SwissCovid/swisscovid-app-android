@@ -18,7 +18,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/header_height"
 		android:foreground="@color/header_bg_stats"
-		android:src="@drawable/header_basel"
+		android:src="@drawable/header_stats"
 		android:scaleType="centerCrop"
 		app:layout_constraintTop_toTopOf="parent" />
 
