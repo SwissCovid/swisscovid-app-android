@@ -1021,6 +1021,16 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
 
     <!-- Fuzzy -->
     <string name="share_app_body">"Wenn möglichst viele die SwissCovid App aktivieren, können wir Infektionsketten frühzeitig unterbrechen."</string>
-    <string name="share_app_message">"Hallo, lad Dir doch auch SwissCovid herunter.
-https://bag-coronavirus.ch/swisscovid-app/#download"</string>
+
+    <!-- Text der geteilt wird -->
+    <string name="share_app_message">"Hallo, lad Dir doch auch SwissCovid herunter."</string>
+
+    <!-- Gibt Quelle der Statistik an -->
+    <string name="stats_source">"Quelle: BIT / BFS"</string>
+
+    <!-- URL die geteilt wird -->
+    <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
+    <string name="stats_counter">"{COUNT} Mio."</string>
 </resources>

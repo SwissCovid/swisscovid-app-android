@@ -980,5 +980,16 @@ Schwarzenburgstrasse 157
     <string name="share_app_title"></string>
     <string name="share_app_button"></string>
     <string name="share_app_body"></string>
+
+    <!-- Text der geteilt wird -->
     <string name="share_app_message"></string>
+
+    <!-- Gibt Quelle der Statistik an -->
+    <string name="stats_source"></string>
+
+    <!-- URL die geteilt wird -->
+    <string name="share_app_url"></string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
+    <string name="stats_counter">"{COUNT} Mill."</string>
 </resources>
