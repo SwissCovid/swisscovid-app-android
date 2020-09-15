@@ -35,7 +35,7 @@
 		tools:src="@drawable/bg_header_icon_on" />
 
 	<!-- No margins since its centre is set programmatically -->
-	<ch.admin.bag.dp3t.main.views.CircleAnimationView
+	<ch.admin.bag.dp3t.home.views.CircleAnimationView
 		android:id="@+id/main_header_anim_view"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"

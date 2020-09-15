@@ -52,6 +52,7 @@
 	<dimen name="top_item_padding">115dp</dimen>
 	<dimen name="top_item_padding_reports">185dp</dimen>
 	<dimen name="top_item_padding_reports_width_indicator">205dp</dimen>
+	<dimen name="top_item_padding_stats">88dp</dimen>
 
 	<dimen name="header_height">150dp</dimen>
 	<dimen name="header_height_reports">210dp</dimen>
