@@ -1,8 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	xmlns:tools="http://schemas.android.com/tools">
 
 	<ImageView
 		android:id="@+id/header_view"
@@ -54,11 +63,12 @@
 					android:padding="@dimen/spacing_medium_large">
 
 					<TextView
+						android:id="@+id/stats_total_active_users"
 						style="@style/NextStep.Text.Title.Dark.Mega"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center"
-						android:text="42.42 Mio." />
+						tools:text="42.42 Mio." />
 
 					<TextView
 						style="@style/NextStep.Text.Green"
@@ -153,8 +163,8 @@
 				style="@style/NextStep.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginStart="@dimen/spacing_larger"
-				android:layout_marginEnd="@dimen/spacing_larger"
+				android:layout_marginStart="@dimen/spacing_huge"
+				android:layout_marginEnd="@dimen/spacing_huge"
 				android:paddingTop="@dimen/spacing_medium_large"
 				android:paddingBottom="@dimen/spacing_very_large"
 				android:text="@string/share_app_body"

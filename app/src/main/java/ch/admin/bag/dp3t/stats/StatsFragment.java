@@ -6,17 +6,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
 import ch.admin.bag.dp3t.util.UiUtils;
+import ch.admin.bag.dp3t.viewmodel.StatsViewModel;
 
 public class StatsFragment extends Fragment {
 
+	private StatsViewModel statsViewModel;
+
 	private ScrollView scrollView;
 	private ImageView headerView;
+	private TextView totalActiveusers;
 	private Button shareAppButton;
 
 	public static StatsFragment newInstance() {
@@ -30,6 +37,7 @@ public class StatsFragment extends Fragment {
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		statsViewModel = new ViewModelProvider(requireActivity()).get(StatsViewModel.class);
 	}
 
 	@Override
@@ -38,10 +46,14 @@ public class StatsFragment extends Fragment {
 
 		scrollView = view.findViewById(R.id.stats_scroll_view);
 		headerView = view.findViewById(R.id.header_view);
+		totalActiveusers = view.findViewById(R.id.stats_total_active_users);
 		shareAppButton = view.findViewById(R.id.share_app_button);
 
 		setupScrollBehavior();
 		setupShareAppButton();
+
+		statsViewModel.getStatsLiveData().observe(getViewLifecycleOwner(), this::displayStats);
+		statsViewModel.loadStats();
 	}
 
 	private void setupScrollBehavior() {
@@ -62,7 +74,8 @@ public class StatsFragment extends Fragment {
 
 	private void setupShareAppButton() {
 		shareAppButton.setOnClickListener(v -> {
-			String message = v.getContext().getResources().getString(R.string.share_app_message);
+			String message = v.getContext().getResources().getString(R.string.share_app_message) + "\n" +
+					v.getContext().getResources().getString(R.string.share_app_url);
 
 			Intent intent = new Intent();
 			intent.setAction(Intent.ACTION_SEND);
@@ -72,6 +85,16 @@ public class StatsFragment extends Fragment {
 			Intent shareIntent = Intent.createChooser(intent, null);
 			startActivity(shareIntent);
 		});
+	}
+
+	private void displayStats(StatsResponseModel stats) {
+		if (stats == null) {
+			// TODO(PP-753) Decide what to show, whether to show cached version or some placeholder
+			return;
+		}
+		String text = totalActiveusers.getContext().getResources().getString(R.string.stats_counter);
+		text = text.replace("{COUNT}", stats.getTotalActiveUsersInMillions());
+		totalActiveusers.setText(text);
 	}
 
 }
