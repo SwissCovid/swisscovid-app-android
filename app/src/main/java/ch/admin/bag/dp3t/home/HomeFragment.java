@@ -206,25 +206,29 @@ public class HomeFragment extends Fragment {
 				cardSymptomsFrame.setVisibility(VISIBLE);
 				cardTestFrame.setVisibility(VISIBLE);
 				tracingCard.findViewById(R.id.contacs_chevron).setVisibility(VISIBLE);
-				tracingCard.setOnClickListener(v ->
-						getParentFragmentManager().beginTransaction()
-								.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter,
-										R.anim.slide_pop_exit)
-								.replace(R.id.root_fragment_container, ContactsFragment.newInstance())
-								.addToBackStack(ContactsFragment.class.getCanonicalName())
-								.commit()
-				);
+				tracingCard.setOnClickListener(v -> showContactsFragment());
 			}
 		});
 	}
 
+	private void showContactsFragment() {
+		getParentFragmentManager().beginTransaction()
+				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+				.replace(R.id.root_fragment_container, ContactsFragment.newInstance())
+				.addToBackStack(ContactsFragment.class.getCanonicalName())
+				.commit();
+	}
+
+	private void showReportsFragment() {
+		getParentFragmentManager().beginTransaction()
+				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+				.replace(R.id.root_fragment_container, ReportsFragment.newInstance())
+				.addToBackStack(ReportsFragment.class.getCanonicalName())
+				.commit();
+	}
+
 	private void setupNotification() {
-		cardNotifications.setOnClickListener(
-				v -> getParentFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.root_fragment_container, ReportsFragment.newInstance())
-						.addToBackStack(ReportsFragment.class.getCanonicalName())
-						.commit());
+		cardNotifications.setOnClickListener(v -> showReportsFragment());
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			//update status view

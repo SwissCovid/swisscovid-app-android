@@ -34,11 +34,6 @@ public class MainFragment extends Fragment {
 	}
 
 	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
-
-	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
@@ -106,7 +101,4 @@ public class MainFragment extends Fragment {
 		});
 	}
 
-//	public void showBehaviour() {
-//		navigationView.setSelectedItemId(R.id.action_verhalten);
-//	}
 }
