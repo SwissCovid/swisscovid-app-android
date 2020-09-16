@@ -10,7 +10,10 @@
 package ch.admin.bag.dp3t.networking.models;
 
 import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.List;
+
+import ch.admin.bag.dp3t.util.DateUtils;
 
 public class StatsResponseModel {
 
@@ -20,8 +23,16 @@ public class StatsResponseModel {
 	private int totalActiveUsers;
 	private List<HistoryDataPointModel> history;
 
-	public String getLastUpdated() {
+	public String getLastUpdatedRaw() {
 		return lastUpdated;
+	}
+
+	public Date getLastUpdatedParsed() {
+		return DateUtils.getParsedDateStats(lastUpdated);
+	}
+
+	public String getLastUpdatedFormatted() {
+		return DateUtils.getFormattedDateStats(getLastUpdatedParsed());
 	}
 
 	public int getTotalActiveUsers() {

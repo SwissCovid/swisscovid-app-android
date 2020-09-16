@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
-import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.UiUtils;
 import ch.admin.bag.dp3t.util.UrlUtil;
 
@@ -160,7 +159,7 @@ public class StatsFragment extends Fragment {
 				text = text.replace("{COUNT}", stats.getTotalActiveUsersInMillions());
 				totalActiveusers.setText(text);
 
-				String lastUpdatedDate = DateUtils.getFormattedLastUpdatedDate(stats.getLastUpdated());
+				String lastUpdatedDate = stats.getLastUpdatedFormatted();
 				if (lastUpdatedDate == null) {
 					lastUpdated.setVisibility(View.INVISIBLE);
 				} else {
@@ -170,7 +169,7 @@ public class StatsFragment extends Fragment {
 					lastUpdated.setText(text2);
 				}
 
-				// TODO draw diagram
+				diagramView.setHistory(stats.getHistory());
 		}
 	}
 

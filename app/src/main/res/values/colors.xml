@@ -58,12 +58,13 @@
 	<color name="header_bg_exposed">#B28D6A9F</color>
 	<color name="header_bg_stats">#B25094bf</color>
 
-	<color name="stats_new_infections">#548D6A9F</color>
-	<color name="stats_new_infections_avg">@color/purple_main</color>
-	<color name="stats_entered_covidcodes">@color/blue_main</color>
+	<color name="stats_diagram_new_infections">#548D6A9F</color>
+	<color name="stats_diagram_new_infections_avg">@color/purple_main</color>
+	<color name="stats_diagram_entered_covidcodes">@color/blue_main</color>
 	<color name="stats_diagram_background">@color/grey_light</color>
 	<color name="stats_diagram_y_axis">@color/black_10</color>
 	<color name="stats_diagram_x_axis">@color/grey_dark</color>
+	<color name="stats_diagram_labels">@color/dark_main</color>
 
 	<color name="bag_blue">#07A0E2</color>
 

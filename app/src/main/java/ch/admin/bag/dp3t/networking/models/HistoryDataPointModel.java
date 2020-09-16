@@ -9,6 +9,10 @@
  */
 package ch.admin.bag.dp3t.networking.models;
 
+import java.util.Date;
+
+import ch.admin.bag.dp3t.util.DateUtils;
+
 public class HistoryDataPointModel {
 
 	private String date;
@@ -16,8 +20,16 @@ public class HistoryDataPointModel {
 	private int newInfectionsSevenDayAverage;
 	private int covidcodesEntered;
 
-	public String getDate() {
+	public String getDateRaw() {
 		return date;
+	}
+
+	public Date getDateParsed() {
+		return DateUtils.getParsedDateStats(date);
+	}
+
+	public String getDateFormatted() {
+		return DateUtils.getFormattedDateStats(getDateParsed());
 	}
 
 	public int getNewInfections() {

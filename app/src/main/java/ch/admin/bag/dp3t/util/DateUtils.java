@@ -9,12 +9,11 @@
  */
 package ch.admin.bag.dp3t.util;
 
-import android.annotation.SuppressLint;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.models.DayDate;
@@ -23,8 +22,8 @@ public class DateUtils {
 
 	private static final DateFormat DATE_TIME_FORMAT = SimpleDateFormat.getDateTimeInstance();
 	private static final DateFormat DATE_FORMAT = SimpleDateFormat.getDateInstance();
-	@SuppressLint("SimpleDateFormat")
-	private static final DateFormat DATE_LAST_UPDATED_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+	private static final DateFormat DATE_PARSE_STATS = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+	private static final DateFormat DATE_FORMAT_STATS = SimpleDateFormat.getDateInstance(DateFormat.SHORT);
 
 	public static int getDaysDiff(long date) {
 		try {
@@ -52,16 +51,22 @@ public class DateUtils {
 		return DATE_FORMAT.format(new Date(date));
 	}
 
-	public static String getFormattedLastUpdatedDate(String date) {
+	public static Date getParsedDateStats(String date) {
+		if (date == null) {
+			return null;
+		}
 		try {
-			Date parsedDate = DATE_LAST_UPDATED_FORMAT.parse(date);
-			if (parsedDate != null) {
-				return DATE_FORMAT.format(parsedDate);
-			} else {
-				return null;
-			}
+			return DATE_PARSE_STATS.parse(date);
 		} catch (ParseException e) {
 			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public static String getFormattedDateStats(Date parsedDate) {
+		if (parsedDate != null) {
+			return DATE_FORMAT_STATS.format(parsedDate);
+		} else {
 			return null;
 		}
 	}

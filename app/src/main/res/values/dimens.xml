@@ -79,8 +79,14 @@
 	<dimen name="padding_start_icon_button">44dp</dimen>
 	<dimen name="separator_height">1dp</dimen>
 	<dimen name="legend_icon_size">13dp</dimen>
+
 	<dimen name="stats_diagram_height">200dp</dimen>
+	<dimen name="stats_diagram_height_minus_margins">175dp</dimen>
+	<dimen name="stats_diagram_new_infections_avg_stroke_width">2dp</dimen>
+	<dimen name="stats_diagram_padding_top">15dp</dimen>
+	<dimen name="stats_diagram_padding_bottom">10dp</dimen>
 	<dimen name="stats_checkmark_size">46dp</dimen>
 	<dimen name="stats_checkmark_size_half">23dp</dimen>
+
 	<dimen name="divider_height">1dp</dimen>
 </resources>

@@ -98,7 +98,9 @@
 						<ch.admin.bag.dp3t.stats.DiagramView
 							android:id="@+id/diagram_view"
 							android:layout_width="match_parent"
-							android:layout_height="match_parent" />
+							android:layout_height="@dimen/stats_diagram_height_minus_margins"
+							android:layout_marginTop="@dimen/stats_diagram_padding_top"
+							android:layout_marginBottom="@dimen/stats_diagram_padding_bottom" />
 
 						<LinearLayout
 							android:id="@+id/error_view"
