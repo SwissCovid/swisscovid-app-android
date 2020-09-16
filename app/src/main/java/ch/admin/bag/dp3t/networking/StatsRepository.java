@@ -21,6 +21,7 @@ import org.dpppt.android.sdk.backend.UserAgentInterceptor;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
+import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -36,6 +37,10 @@ public class StatsRepository {
 		// TODO(PP-753) Add JWT check
 		//PublicKey publicKey = SignatureUtil.getPublicKeyFromCertificateBase64OrThrow(BuildConfig.CONFIG_CERTIFICATE);
 		//okHttpBuilder.addInterceptor(new SignatureVerificationInterceptor(publicKey));
+
+		int cacheSize = 5 * 1024 * 1024; // 5 MB
+		Cache cache = new Cache(context.getCacheDir(), cacheSize);
+		okHttpBuilder.cache(cache);
 
 		okHttpBuilder.certificatePinner(CertificatePinning.getCertificatePinner());
 		okHttpBuilder.addInterceptor(new UserAgentInterceptor(DP3T.getUserAgent()));
