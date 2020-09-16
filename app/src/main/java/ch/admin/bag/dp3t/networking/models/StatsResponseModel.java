@@ -16,8 +16,13 @@ public class StatsResponseModel {
 
 	private static double ONE_MILLION = 1000000;
 
+	private String lastUpdated;
 	private int totalActiveUsers;
 	private List<HistoryDataPointModel> history;
+
+	public String getLastUpdated() {
+		return lastUpdated;
+	}
 
 	public int getTotalActiveUsers() {
 		return totalActiveUsers;

@@ -42,6 +42,7 @@
 	<color name="white_10">#19FFFFFF</color>
 	<color name="white_20">#33FFFFFF</color>
 	<color name="white_45">#75FFFFFF</color>
+	<color name="black_10">#1A000000</color>
 
 	<color name="status_blue">@color/blue_main</color>
 	<color name="status_blue_bg">#EFF5F9</color>
@@ -56,13 +57,17 @@
 	<color name="header_bg_on">#B25094bf</color>
 	<color name="header_bg_exposed">#B28D6A9F</color>
 	<color name="header_bg_stats">#B25094bf</color>
-	
+
 	<color name="stats_new_infections">#548D6A9F</color>
 	<color name="stats_new_infections_avg">@color/purple_main</color>
 	<color name="stats_entered_covidcodes">@color/blue_main</color>
+	<color name="stats_diagram_background">@color/grey_light</color>
+	<color name="stats_diagram_y_axis">@color/black_10</color>
+	<color name="stats_diagram_x_axis">@color/grey_dark</color>
 
 	<color name="bag_blue">#07A0E2</color>
 
 	<color name="dark_main_transparent">#754A4969</color>
 	<color name="transparent">#0000</color>
+	<color name="divider">@color/grey_medium</color>
 </resources>

@@ -33,34 +33,43 @@
 			android:paddingTop="@dimen/top_item_padding_stats"
 			android:paddingBottom="@dimen/spacing_very_large">
 
-			<ImageView
+			<androidx.constraintlayout.widget.Guideline
+				android:id="@+id/checkmark_guideline"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				app:layout_constraintGuide_begin="@dimen/stats_checkmark_size_half" />
+
+			<ImageView
+				android:layout_width="@dimen/stats_checkmark_size"
+				android:layout_height="@dimen/stats_checkmark_size"
 				android:background="@drawable/bg_circle_white"
 				android:padding="@dimen/spacing_small"
 				android:src="@drawable/ic_shield_checkmark"
 				android:elevation="6dp"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintTop_toTopOf="@id/diagram_box"
-				app:layout_constraintBottom_toTopOf="@id/diagram_box" />
+				app:layout_constraintTop_toTopOf="@id/checkmark_guideline"
+				app:layout_constraintBottom_toBottomOf="@id/checkmark_guideline" />
 
 			<androidx.cardview.widget.CardView
 				style="@style/NextStep.Card"
-				android:id="@+id/diagram_box"
+				android:id="@+id/stats_card"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:background="@color/white"
 				android:layout_marginStart="@dimen/spacing_medium_large"
 				android:layout_marginEnd="@dimen/spacing_medium_large"
-				android:layout_marginBottom="@dimen/spacing_very_large"
-				app:layout_constraintBottom_toTopOf="@id/share_app_supertitle">
+				app:layout_constraintTop_toTopOf="@id/checkmark_guideline">
 
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="match_parent"
 					android:orientation="vertical"
-					android:padding="@dimen/spacing_medium_large">
+					android:paddingStart="@dimen/spacing_small"
+					android:paddingTop="@dimen/spacing_medium_large"
+					android:paddingEnd="@dimen/spacing_small"
+					android:paddingBottom="@dimen/spacing_small">
 
 					<TextView
 						android:id="@+id/stats_total_active_users"
@@ -71,20 +80,80 @@
 						tools:text="42.42 Mio." />
 
 					<TextView
+						android:id="@+id/stats_total_active_users_text"
 						style="@style/NextStep.Text.Green"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center"
 						android:text="@string/stats_title" />
 
-					<!-- TODO(goebel) Add DiagramView -->
-					<View
-						android:id="@+id/diagram"
+					<FrameLayout
 						android:layout_width="match_parent"
-						android:layout_height="250dp"
+						android:layout_height="wrap_content"
+						android:minHeight="@dimen/stats_diagram_height"
 						android:layout_marginTop="@dimen/spacing_small"
 						android:layout_marginBottom="@dimen/spacing_small"
-						android:background="@color/green_main" />
+						android:background="@color/stats_diagram_background">
+
+						<ch.admin.bag.dp3t.stats.DiagramView
+							android:id="@+id/diagram_view"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent" />
+
+						<LinearLayout
+							android:id="@+id/error_view"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:layout_marginTop="@dimen/spacing_small"
+							android:layout_marginBottom="@dimen/spacing_small"
+							android:paddingStart="@dimen/spacing_large"
+							android:paddingEnd="@dimen/spacing_large"
+							android:orientation="vertical"
+							android:gravity="center_horizontal"
+							android:background="@color/stats_diagram_background">
+
+							<ImageView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="@dimen/spacing_large"
+								android:src="@drawable/ic_info"
+								android:tint="@color/dark_main" />
+
+							<TextView
+								style="@style/NextStep.Text.Title.Dark"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="@dimen/spacing_small"
+								android:gravity="center"
+								android:text="@string/loading_view_error_title" />
+
+							<TextView
+								style="@style/NextStep.Text.Dark"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="@dimen/spacing_very_small"
+								android:gravity="center"
+								android:text="@string/stats_loading_error_text" />
+
+							<TextView
+								style="@style/NextStep.Text.Bold"
+								android:id="@+id/button_retry"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="@dimen/spacing_very_small"
+								android:padding="@dimen/spacing_small"
+								android:background="?selectableItemBackground"
+								android:gravity="center"
+								android:text="@string/loading_view_reload" />
+						</LinearLayout>
+
+						<ProgressBar
+							android:id="@+id/progress_view"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center"
+							android:indeterminateTint="@color/blue_main" />
+					</FrameLayout>
 
 					<TextView
 						style="@style/NextStep.Text.Small.Purple"
@@ -98,31 +167,63 @@
 						style="@style/NextStep.Text.Small.Purple"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="@string/stats_legend_new_infections_average"
+						android:drawableStart="@drawable/legend_new_infections_avg"
 						android:drawablePadding="@dimen/spacing_small"
-						android:drawableStart="@drawable/legend_new_infections_avg" />
+						android:text="@string/stats_legend_new_infections_average" />
 
 					<TextView
 						style="@style/NextStep.Text.Small.Blue"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="@string/stats_legend_entered_covidcodes"
+						android:drawableStart="@drawable/legend_entered_covidcodes"
 						android:drawablePadding="@dimen/spacing_small"
-						android:drawableStart="@drawable/legend_entered_covidcodes" />
+						android:text="@string/stats_legend_entered_covidcodes" />
+
+					<TextView
+						android:id="@+id/last_updated"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/spacing_medium_large"
+						android:gravity="end"
+						android:text="@string/stats_source_day" />
 				</LinearLayout>
 			</androidx.cardview.widget.CardView>
+
+			<TextView
+				android:id="@+id/stats_more"
+				style="@style/NextStep.Text.Bold.Blue"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="?selectableItemBackground"
+				android:drawableStart="@drawable/ic_launch_blue"
+				android:drawablePadding="@dimen/spacing_medium"
+				android:layout_marginStart="@dimen/spacing_medium_large"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				android:padding="@dimen/spacing_small"
+				android:text="@string/stats_more_statistics_button"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/stats_card" />
+
+			<View
+				android:id="@+id/divider"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/divider_height"
+				android:background="@color/divider"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				android:layout_marginStart="@dimen/spacing_medium_large"
+				android:layout_marginEnd="@dimen/spacing_medium_large"
+				app:layout_constraintTop_toBottomOf="@id/stats_more" />
 
 			<TextView
 				style="@style/NextStep.Text.Blue"
 				android:id="@+id/share_app_supertitle"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginStart="@dimen/spacing_very_large"
-				android:layout_marginEnd="@dimen/spacing_very_large"
+				android:layout_marginTop="@dimen/spacing_larger"
 				android:text="@string/share_app_supertitle"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintBottom_toTopOf="@id/share_app_title" />
+				app:layout_constraintTop_toBottomOf="@id/divider" />
 
 			<TextView
 				style="@style/NextStep.Text.Title.Dark"
@@ -135,7 +236,7 @@
 				android:text="@string/share_app_title"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintBottom_toTopOf="@id/share_app_image" />
+				app:layout_constraintTop_toBottomOf="@id/share_app_supertitle" />
 
 			<ImageView
 				android:id="@+id/share_app_image"
@@ -145,7 +246,7 @@
 				android:layout_marginStart="@dimen/spacing_larger"
 				android:layout_marginEnd="@dimen/spacing_larger"
 				android:layout_marginBottom="@dimen/spacing_medium_large"
-				app:layout_constraintBottom_toTopOf="@+id/share_app_button" />
+				app:layout_constraintTop_toBottomOf="@id/share_app_title" />
 
 			<Button
 				android:id="@+id/share_app_button"
@@ -156,7 +257,7 @@
 				android:layout_marginEnd="@dimen/spacing_larger"
 				android:text="@string/share_app_button"
 				android:textAllCaps="true"
-				app:layout_constraintBottom_toTopOf="@id/share_app_text" />
+				app:layout_constraintTop_toBottomOf="@id/share_app_image" />
 
 			<TextView
 				android:id="@+id/share_app_text"
@@ -168,7 +269,7 @@
 				android:paddingTop="@dimen/spacing_medium_large"
 				android:paddingBottom="@dimen/spacing_very_large"
 				android:text="@string/share_app_body"
-				app:layout_constraintBottom_toBottomOf="parent" />
+				app:layout_constraintTop_toBottomOf="@id/share_app_button" />
 
 		</androidx.constraintlayout.widget.ConstraintLayout>
 	</ScrollView>

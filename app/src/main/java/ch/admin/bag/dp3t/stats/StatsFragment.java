@@ -1,6 +1,7 @@
 package ch.admin.bag.dp3t.stats;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +15,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
+import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.UiUtils;
-import ch.admin.bag.dp3t.viewmodel.StatsViewModel;
+import ch.admin.bag.dp3t.util.UrlUtil;
 
 public class StatsFragment extends Fragment {
 
@@ -23,7 +25,18 @@ public class StatsFragment extends Fragment {
 
 	private ScrollView scrollView;
 	private ImageView headerView;
+
 	private TextView totalActiveusers;
+	private TextView totalActiveusersText;
+
+	private DiagramView diagramView;
+	private TextView lastUpdated;
+	private View errorView;
+	private TextView errorRetryButton;
+	private View progressView;
+
+	private TextView moreStatsButton;
+
 	private Button shareAppButton;
 
 	public static StatsFragment newInstance() {
@@ -46,10 +59,22 @@ public class StatsFragment extends Fragment {
 
 		scrollView = view.findViewById(R.id.stats_scroll_view);
 		headerView = view.findViewById(R.id.header_view);
+
 		totalActiveusers = view.findViewById(R.id.stats_total_active_users);
+		totalActiveusersText = view.findViewById(R.id.stats_total_active_users_text);
+
+		diagramView = view.findViewById(R.id.diagram_view);
+		lastUpdated = view.findViewById(R.id.last_updated);
+		errorView = view.findViewById(R.id.error_view);
+		errorRetryButton = view.findViewById(R.id.button_retry);
+		progressView = view.findViewById(R.id.progress_view);
+
+		moreStatsButton = view.findViewById(R.id.stats_more);
+
 		shareAppButton = view.findViewById(R.id.share_app_button);
 
 		setupScrollBehavior();
+		setupMoreStatsButton();
 		setupShareAppButton();
 
 		statsViewModel.getStatsLiveData().observe(getViewLifecycleOwner(), this::displayStats);
@@ -72,6 +97,13 @@ public class StatsFragment extends Fragment {
 		});
 	}
 
+	private void setupMoreStatsButton() {
+		moreStatsButton.setOnClickListener(v -> {
+			String url = v.getContext().getResources().getString(R.string.stats_more_statistics_url);
+			UrlUtil.openUrl(v.getContext(), url);
+		});
+	}
+
 	private void setupShareAppButton() {
 		shareAppButton.setOnClickListener(v -> {
 			String message = v.getContext().getResources().getString(R.string.share_app_message) + "\n" +
@@ -87,14 +119,59 @@ public class StatsFragment extends Fragment {
 		});
 	}
 
-	private void displayStats(StatsResponseModel stats) {
-		if (stats == null) {
-			// TODO(PP-753) Decide what to show, whether to show cached version or some placeholder
-			return;
+	private void displayStats(StatsOutcome outcome) {
+		switch (outcome.getOutcome()) {
+			case LOADING:
+				totalActiveusers.setVisibility(View.INVISIBLE);
+				totalActiveusersText.setVisibility(View.INVISIBLE);
+
+				diagramView.setVisibility(View.GONE);
+				lastUpdated.setVisibility(View.INVISIBLE);
+				errorView.setVisibility(View.GONE);
+				errorRetryButton.setVisibility(View.GONE);
+				progressView.setVisibility(View.VISIBLE);
+				break;
+			case ERROR:
+				totalActiveusers.setVisibility(View.INVISIBLE);
+				totalActiveusersText.setVisibility(View.INVISIBLE);
+
+				diagramView.setVisibility(View.GONE);
+				lastUpdated.setVisibility(View.INVISIBLE);
+				errorView.setVisibility(View.VISIBLE);
+				errorRetryButton.setVisibility(View.VISIBLE);
+				progressView.setVisibility(View.GONE);
+
+				errorRetryButton.setPaintFlags(errorRetryButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+				errorRetryButton.setOnClickListener(v -> statsViewModel.loadStats());
+				break;
+			case RESULT:
+				StatsResponseModel stats = outcome.getStatsResponseModel();
+
+				totalActiveusers.setVisibility(View.VISIBLE);
+				totalActiveusersText.setVisibility(View.VISIBLE);
+
+				diagramView.setVisibility(View.VISIBLE);
+				// lastUpdated.visibility is set below
+				errorView.setVisibility(View.GONE);
+				errorRetryButton.setVisibility(View.GONE);
+				progressView.setVisibility(View.GONE);
+
+				String text = totalActiveusers.getContext().getResources().getString(R.string.stats_counter);
+				text = text.replace("{COUNT}", stats.getTotalActiveUsersInMillions());
+				totalActiveusers.setText(text);
+
+				String lastUpdatedDate = DateUtils.getFormattedLastUpdatedDate(stats.getLastUpdated());
+				if (lastUpdatedDate == null) {
+					lastUpdated.setVisibility(View.INVISIBLE);
+				} else {
+					lastUpdated.setVisibility(View.VISIBLE);
+					String text2 = lastUpdated.getContext().getResources().getString(R.string.stats_source_day);
+					text2 = text2.replace("{DAY}", lastUpdatedDate);
+					lastUpdated.setText(text2);
+				}
+
+				// TODO draw diagram
 		}
-		String text = totalActiveusers.getContext().getResources().getString(R.string.stats_counter);
-		text = text.replace("{COUNT}", stats.getTotalActiveUsersInMillions());
-		totalActiveusers.setText(text);
 	}
 
 }

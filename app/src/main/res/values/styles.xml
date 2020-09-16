@@ -48,6 +48,10 @@
 		<item name="android:textColor">@color/blue_main</item>
 	</style>
 
+	<style name="NextStep.Text.Dark">
+		<item name="android:textColor">@color/dark_main</item>
+	</style>
+
 	<style name="NextStep.Text.Small">
 		<item name="android:textSize">@dimen/text_size_small</item>
 	</style>
@@ -91,6 +95,10 @@
 
 	<style name="NextStep.Text.Bold.Green">
 		<item name="android:textColor">@color/green_main</item>
+	</style>
+
+	<style name="NextStep.Text.Bold.Dark">
+		<item name="android:textColor">@color/dark_main</item>
 	</style>
 
 	<style name="NextStep.Text.Title">

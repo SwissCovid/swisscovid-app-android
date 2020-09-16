@@ -9,7 +9,10 @@
  */
 package ch.admin.bag.dp3t.util;
 
+import android.annotation.SuppressLint;
+
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -20,9 +23,10 @@ public class DateUtils {
 
 	private static final DateFormat DATE_TIME_FORMAT = SimpleDateFormat.getDateTimeInstance();
 	private static final DateFormat DATE_FORMAT = SimpleDateFormat.getDateInstance();
+	@SuppressLint("SimpleDateFormat")
+	private static final DateFormat DATE_LAST_UPDATED_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
 	public static int getDaysDiff(long date) {
-
 		try {
 			return (int) TimeUnit.DAYS.convert(System.currentTimeMillis() - date, TimeUnit.MILLISECONDS);
 		} catch (Exception e) {
@@ -46,6 +50,20 @@ public class DateUtils {
 
 	public static String getFormattedDate(long date) {
 		return DATE_FORMAT.format(new Date(date));
+	}
+
+	public static String getFormattedLastUpdatedDate(String date) {
+		try {
+			Date parsedDate = DATE_LAST_UPDATED_FORMAT.parse(date);
+			if (parsedDate != null) {
+				return DATE_FORMAT.format(parsedDate);
+			} else {
+				return null;
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-package ch.admin.bag.dp3t.viewmodel;
+package ch.admin.bag.dp3t.stats;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -22,12 +22,14 @@ import org.dpppt.android.sdk.backend.SignatureException;
 import ch.admin.bag.dp3t.networking.StatsRepository;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
+import ch.admin.bag.dp3t.stats.StatsOutcome;
+import ch.admin.bag.dp3t.util.Outcome;
 
 public class StatsViewModel extends AndroidViewModel {
 
 	private StatsRepository statsRepository;
 
-	private final MutableLiveData<StatsResponseModel> statsLiveData = new MutableLiveData<>();
+	private final MutableLiveData<StatsOutcome> statsLiveData = new MutableLiveData<StatsOutcome>(new StatsOutcome());
 
 	public StatsViewModel(@NonNull Application application) {
 		super(application);
@@ -35,17 +37,24 @@ public class StatsViewModel extends AndroidViewModel {
 		statsRepository = new StatsRepository(application);
 	}
 
-	public LiveData<StatsResponseModel> getStatsLiveData() {
+	public LiveData<StatsOutcome> getStatsLiveData() {
 		return statsLiveData;
 	}
 
 	public void loadStats() {
 		new Thread(() -> {
+			StatsOutcome outcome = new StatsOutcome();
 			try {
+				outcome.setOutcome(Outcome.LOADING);
+				statsLiveData.postValue(outcome);
+
 				StatsResponseModel model = statsRepository.getStats();
-				statsLiveData.postValue(model);
+				outcome.setStatsResponseModel(model);
+				outcome.setOutcome(Outcome.RESULT);
+				statsLiveData.postValue(outcome);
 			} catch (IOException | ResponseError | SignatureException e) {
-				statsLiveData.postValue(null);
+				outcome.setOutcome(Outcome.ERROR);
+				statsLiveData.postValue(outcome);
 			}
 		}).start();
 	}
