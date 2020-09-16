@@ -1009,9 +1009,9 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <!-- Text beim Bluetooth Control iOS 14 -->
     <!-- Fuzzy -->
     <string name="tracing_setting_text_ios_14_0">"Begegnungsmitteilungen"</string>
-    <string name="bottom_nav_tab_home">"Home"</string>
+    <string name="bottom_nav_tab_home">"SwissCovid"</string>
     <string name="bottom_nav_tab_stats">"Zahlen"</string>
-    <string name="stats_title">"haben SwissCovid bereits aktiviert"</string>
+    <string name="stats_title">"nutzen bereits SwissCovid"</string>
     <string name="stats_legend_new_infections">"Gemeldete Neuinfektionen"</string>
     <string name="stats_legend_new_infections_average">"7-Tage-Schnitt"</string>
     <string name="stats_legend_entered_covidcodes">"Eingegebene Covidcodes"</string>
@@ -1023,14 +1023,23 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <string name="share_app_body">"Wenn möglichst viele die SwissCovid App aktivieren, können wir Infektionsketten frühzeitig unterbrechen."</string>
 
     <!-- Text der geteilt wird -->
-    <string name="share_app_message">"Hallo, lad Dir doch auch SwissCovid herunter."</string>
-
-    <!-- Gibt Quelle der Statistik an -->
-    <string name="stats_source">"Quelle: BIT / BFS"</string>
+    <string name="share_app_message">"Wenn möglichst viele die SwissCovid App aktivieren, können wir Infektionsketten frühzeitig unterbrechen."</string>
 
     <!-- URL die geteilt wird -->
     <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
 
     <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
     <string name="stats_counter">"{COUNT} Mio."</string>
+
+    <!-- Statistik Tag der Daten "{DAY}" wird mit dem Aktualisierungsdatum ersetzt z.B. "14.9." -->
+    <string name="stats_source_day">"Stand der Daten {DAY}"</string>
+
+    <!-- Links zu weiteren Statistiken -->
+    <string name="stats_more_statistics_button">"Weitere Statistiken"</string>
+
+    <!-- URL zu weiteren statistiken -->
+    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/de/home/innovative-methoden/swisscovid-app-monitoring.html"</string>
+
+    <!-- Body of the error message shown when the statistics data cannot be loaded -->
+    <string name="stats_loading_error_text">"Die Daten können im Moment nicht geladen werden"</string>
 </resources>

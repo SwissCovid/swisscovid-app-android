@@ -984,12 +984,21 @@ Schwarzenburgstrasse 157
     <!-- Text der geteilt wird -->
     <string name="share_app_message"></string>
 
-    <!-- Gibt Quelle der Statistik an -->
-    <string name="stats_source"></string>
-
     <!-- URL die geteilt wird -->
     <string name="share_app_url"></string>
 
     <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
     <string name="stats_counter">"{COUNT} Mill."</string>
+
+    <!-- Statistik Tag der Daten "{DAY}" wird mit dem Aktualisierungsdatum ersetzt z.B. "14.9." -->
+    <string name="stats_source_day"></string>
+
+    <!-- Links zu weiteren Statistiken -->
+    <string name="stats_more_statistics_button"></string>
+
+    <!-- URL zu weiteren statistiken -->
+    <string name="stats_more_statistics_url"></string>
+
+    <!-- Body of the error message shown when the statistics data cannot be loaded -->
+    <string name="stats_loading_error_text"></string>
 </resources>
