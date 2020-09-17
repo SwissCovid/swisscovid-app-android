@@ -22,8 +22,6 @@ public class DateUtils {
 
 	private static final DateFormat DATE_TIME_FORMAT = SimpleDateFormat.getDateTimeInstance();
 	private static final DateFormat DATE_FORMAT = SimpleDateFormat.getDateInstance();
-	private static final DateFormat DATE_PARSE_STATS = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-	private static final DateFormat DATE_FORMAT_STATS = SimpleDateFormat.getDateInstance(DateFormat.SHORT);
 
 	public static int getDaysDiff(long date) {
 		try {
@@ -56,6 +54,9 @@ public class DateUtils {
 			return null;
 		}
 		try {
+			// Needs to be inlined (rather than static) because SimpleDateFormat is not thread-safe
+			final DateFormat DATE_PARSE_STATS = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
 			return DATE_PARSE_STATS.parse(date);
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -64,6 +65,10 @@ public class DateUtils {
 	}
 
 	public static String getFormattedDateStats(Date parsedDate) {
+		// Fix the date format, rather than localising it.
+		// This is an easy workaround for removing the year from the formatted date.
+		final DateFormat DATE_FORMAT_STATS = new SimpleDateFormat("dd.MM", Locale.ENGLISH);
+
 		if (parsedDate != null) {
 			return DATE_FORMAT_STATS.format(parsedDate);
 		} else {
