@@ -67,7 +67,7 @@ public class DateUtils {
 	public static String getFormattedDateStats(Date parsedDate) {
 		// Fix the date format, rather than localising it.
 		// This is an easy workaround for removing the year from the formatted date.
-		final DateFormat DATE_FORMAT_STATS = new SimpleDateFormat("dd.MM", Locale.ENGLISH);
+		final DateFormat DATE_FORMAT_STATS = new SimpleDateFormat("dd.MM.", Locale.ENGLISH);
 
 		if (parsedDate != null) {
 			return DATE_FORMAT_STATS.format(parsedDate);
