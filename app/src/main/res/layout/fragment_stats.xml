@@ -7,273 +7,280 @@
   ~
   ~ SPDX-License-Identifier: MPL-2.0
   -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:tools="http://schemas.android.com/tools">
+	android:orientation="vertical">
 
-	<ImageView
-		android:id="@+id/header_view"
-		android:layout_width="match_parent"
-		android:layout_height="@dimen/header_height"
-		android:foreground="@color/header_bg_stats"
-		android:src="@drawable/header_stats"
-		android:scaleType="centerCrop"
-		app:layout_constraintTop_toTopOf="parent" />
+	<include layout="@layout/layout_toolbar_main" />
 
-	<ScrollView
-		android:id="@+id/stats_scroll_view"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+	<FrameLayout android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		xmlns:tools="http://schemas.android.com/tools">
 
-		<androidx.constraintlayout.widget.ConstraintLayout
+		<ImageView
+			android:id="@+id/header_view"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:paddingTop="@dimen/top_item_padding_stats"
-			android:paddingBottom="@dimen/spacing_very_large">
+			android:layout_height="@dimen/header_height"
+			android:foreground="@color/header_bg_stats"
+			android:src="@drawable/header_stats"
+			android:scaleType="centerCrop"
+			app:layout_constraintTop_toTopOf="parent" />
 
-			<androidx.constraintlayout.widget.Guideline
-				android:id="@+id/checkmark_guideline"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:orientation="horizontal"
-				app:layout_constraintGuide_begin="@dimen/stats_checkmark_size_half" />
+		<ScrollView
+			android:id="@+id/stats_scroll_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 
-			<ImageView
-				android:layout_width="@dimen/stats_checkmark_size"
-				android:layout_height="@dimen/stats_checkmark_size"
-				android:background="@drawable/bg_circle_white"
-				android:padding="@dimen/spacing_small"
-				android:src="@drawable/ic_shield_checkmark"
-				android:elevation="6dp"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintTop_toTopOf="@id/checkmark_guideline"
-				app:layout_constraintBottom_toBottomOf="@id/checkmark_guideline" />
-
-			<androidx.cardview.widget.CardView
-				style="@style/NextStep.Card"
-				android:id="@+id/stats_card"
+			<androidx.constraintlayout.widget.ConstraintLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:background="@color/white"
-				android:layout_marginStart="@dimen/spacing_medium_large"
-				android:layout_marginEnd="@dimen/spacing_medium_large"
-				app:layout_constraintTop_toTopOf="@id/checkmark_guideline">
+				android:paddingTop="@dimen/top_item_padding_stats"
+				android:paddingBottom="@dimen/spacing_very_large">
 
-				<LinearLayout
+				<androidx.constraintlayout.widget.Guideline
+					android:id="@+id/checkmark_guideline"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					app:layout_constraintGuide_begin="@dimen/stats_checkmark_size_half" />
+
+				<ImageView
+					android:layout_width="@dimen/stats_checkmark_size"
+					android:layout_height="@dimen/stats_checkmark_size"
+					android:background="@drawable/bg_circle_white"
+					android:padding="@dimen/spacing_small"
+					android:src="@drawable/ic_shield_checkmark"
+					android:elevation="6dp"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="@id/checkmark_guideline"
+					app:layout_constraintBottom_toBottomOf="@id/checkmark_guideline" />
+
+				<androidx.cardview.widget.CardView
+					style="@style/NextStep.Card"
+					android:id="@+id/stats_card"
 					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:orientation="vertical"
-					android:paddingStart="@dimen/spacing_small"
-					android:paddingTop="@dimen/spacing_medium_large"
-					android:paddingEnd="@dimen/spacing_small"
-					android:paddingBottom="@dimen/spacing_small">
+					android:layout_height="wrap_content"
+					android:background="@color/white"
+					android:layout_marginStart="@dimen/spacing_medium_large"
+					android:layout_marginEnd="@dimen/spacing_medium_large"
+					app:layout_constraintTop_toTopOf="@id/checkmark_guideline">
 
-					<TextView
-						android:id="@+id/stats_total_active_users"
-						style="@style/NextStep.Text.Title.Dark.Mega"
+					<LinearLayout
 						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:gravity="center"
-						tools:text="42.42 Mio." />
+						android:layout_height="match_parent"
+						android:orientation="vertical"
+						android:paddingStart="@dimen/spacing_small"
+						android:paddingTop="@dimen/spacing_medium_large"
+						android:paddingEnd="@dimen/spacing_small"
+						android:paddingBottom="@dimen/spacing_small">
 
-					<TextView
-						android:id="@+id/stats_total_active_users_text"
-						style="@style/NextStep.Text.Green"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:gravity="center"
-						android:text="@string/stats_title" />
-
-					<FrameLayout
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:minHeight="@dimen/stats_diagram_height"
-						android:layout_marginTop="@dimen/spacing_small"
-						android:layout_marginBottom="@dimen/spacing_small"
-						android:background="@color/stats_diagram_background">
-
-						<ch.admin.bag.dp3t.stats.DiagramView
-							android:id="@+id/diagram_view"
+						<TextView
+							android:id="@+id/stats_total_active_users"
+							style="@style/NextStep.Text.Title.Dark.Mega"
 							android:layout_width="match_parent"
-							android:layout_height="@dimen/stats_diagram_height_minus_margins"
-							android:layout_marginTop="@dimen/stats_diagram_padding_top"
-							android:layout_marginBottom="@dimen/stats_diagram_padding_bottom" />
+							android:layout_height="wrap_content"
+							android:gravity="center"
+							tools:text="42.42 Mio." />
 
-						<LinearLayout
-							android:id="@+id/error_view"
+						<TextView
+							android:id="@+id/stats_total_active_users_text"
+							style="@style/NextStep.Text.Green"
 							android:layout_width="match_parent"
-							android:layout_height="match_parent"
+							android:layout_height="wrap_content"
+							android:gravity="center"
+							android:text="@string/stats_title" />
+
+						<FrameLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:minHeight="@dimen/stats_diagram_height"
 							android:layout_marginTop="@dimen/spacing_small"
 							android:layout_marginBottom="@dimen/spacing_small"
-							android:paddingStart="@dimen/spacing_large"
-							android:paddingEnd="@dimen/spacing_large"
-							android:orientation="vertical"
-							android:gravity="center_horizontal"
 							android:background="@color/stats_diagram_background">
 
-							<ImageView
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:layout_marginTop="@dimen/spacing_large"
-								android:src="@drawable/ic_info"
-								android:tint="@color/dark_main" />
+							<ch.admin.bag.dp3t.stats.DiagramView
+								android:id="@+id/diagram_view"
+								android:layout_width="match_parent"
+								android:layout_height="@dimen/stats_diagram_height_minus_margins"
+								android:layout_marginTop="@dimen/stats_diagram_padding_top"
+								android:layout_marginBottom="@dimen/stats_diagram_padding_bottom" />
 
-							<TextView
-								style="@style/NextStep.Text.Title.Dark"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
+							<LinearLayout
+								android:id="@+id/error_view"
+								android:layout_width="match_parent"
+								android:layout_height="match_parent"
 								android:layout_marginTop="@dimen/spacing_small"
-								android:gravity="center"
-								android:text="@string/loading_view_error_title" />
+								android:layout_marginBottom="@dimen/spacing_small"
+								android:paddingStart="@dimen/spacing_large"
+								android:paddingEnd="@dimen/spacing_large"
+								android:orientation="vertical"
+								android:gravity="center_horizontal"
+								android:background="@color/stats_diagram_background">
 
-							<TextView
-								style="@style/NextStep.Text.Dark"
+								<ImageView
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_marginTop="@dimen/spacing_large"
+									android:src="@drawable/ic_info"
+									android:tint="@color/dark_main" />
+
+								<TextView
+									style="@style/NextStep.Text.Title.Dark"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_marginTop="@dimen/spacing_small"
+									android:gravity="center"
+									android:text="@string/loading_view_error_title" />
+
+								<TextView
+									style="@style/NextStep.Text.Dark"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_marginTop="@dimen/spacing_very_small"
+									android:gravity="center"
+									android:text="@string/stats_loading_error_text" />
+
+								<TextView
+									style="@style/NextStep.Text.Bold"
+									android:id="@+id/button_retry"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_marginTop="@dimen/spacing_very_small"
+									android:padding="@dimen/spacing_small"
+									android:background="?selectableItemBackground"
+									android:gravity="center"
+									android:text="@string/loading_view_reload" />
+							</LinearLayout>
+
+							<ProgressBar
+								android:id="@+id/progress_view"
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
-								android:layout_marginTop="@dimen/spacing_very_small"
-								android:gravity="center"
-								android:text="@string/stats_loading_error_text" />
+								android:layout_gravity="center"
+								android:indeterminateTint="@color/blue_main" />
+						</FrameLayout>
 
-							<TextView
-								style="@style/NextStep.Text.Bold"
-								android:id="@+id/button_retry"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:layout_marginTop="@dimen/spacing_very_small"
-								android:padding="@dimen/spacing_small"
-								android:background="?selectableItemBackground"
-								android:gravity="center"
-								android:text="@string/loading_view_reload" />
-						</LinearLayout>
-
-						<ProgressBar
-							android:id="@+id/progress_view"
+						<TextView
+							style="@style/NextStep.Text.Small.Purple"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:layout_gravity="center"
-							android:indeterminateTint="@color/blue_main" />
-					</FrameLayout>
+							android:drawableStart="@drawable/legend_new_infections"
+							android:drawablePadding="@dimen/spacing_small"
+							android:text="@string/stats_legend_new_infections" />
 
-					<TextView
-						style="@style/NextStep.Text.Small.Purple"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:drawableStart="@drawable/legend_new_infections"
-						android:drawablePadding="@dimen/spacing_small"
-						android:text="@string/stats_legend_new_infections" />
+						<TextView
+							style="@style/NextStep.Text.Small.Purple"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:drawableStart="@drawable/legend_new_infections_avg"
+							android:drawablePadding="@dimen/spacing_small"
+							android:text="@string/stats_legend_new_infections_average" />
 
-					<TextView
-						style="@style/NextStep.Text.Small.Purple"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:drawableStart="@drawable/legend_new_infections_avg"
-						android:drawablePadding="@dimen/spacing_small"
-						android:text="@string/stats_legend_new_infections_average" />
+						<TextView
+							style="@style/NextStep.Text.Small.Blue"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:drawableStart="@drawable/legend_entered_covidcodes"
+							android:drawablePadding="@dimen/spacing_small"
+							android:text="@string/stats_legend_entered_covidcodes" />
 
-					<TextView
-						style="@style/NextStep.Text.Small.Blue"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:drawableStart="@drawable/legend_entered_covidcodes"
-						android:drawablePadding="@dimen/spacing_small"
-						android:text="@string/stats_legend_entered_covidcodes" />
+						<TextView
+							android:id="@+id/last_updated"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="@dimen/spacing_medium_large"
+							android:gravity="end"
+							android:text="@string/stats_source_day" />
+					</LinearLayout>
+				</androidx.cardview.widget.CardView>
 
-					<TextView
-						android:id="@+id/last_updated"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginTop="@dimen/spacing_medium_large"
-						android:gravity="end"
-						android:text="@string/stats_source_day" />
-				</LinearLayout>
-			</androidx.cardview.widget.CardView>
+				<TextView
+					android:id="@+id/stats_more"
+					style="@style/NextStep.Text.Bold.Blue"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:background="?selectableItemBackground"
+					android:drawableStart="@drawable/ic_launch_blue"
+					android:drawablePadding="@dimen/spacing_medium"
+					android:layout_marginStart="@dimen/spacing_medium_large"
+					android:layout_marginTop="@dimen/spacing_very_small"
+					android:padding="@dimen/spacing_small"
+					android:text="@string/stats_more_statistics_button"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/stats_card" />
 
-			<TextView
-				android:id="@+id/stats_more"
-				style="@style/NextStep.Text.Bold.Blue"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:background="?selectableItemBackground"
-				android:drawableStart="@drawable/ic_launch_blue"
-				android:drawablePadding="@dimen/spacing_medium"
-				android:layout_marginStart="@dimen/spacing_medium_large"
-				android:layout_marginTop="@dimen/spacing_very_small"
-				android:padding="@dimen/spacing_small"
-				android:text="@string/stats_more_statistics_button"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/stats_card" />
+				<View
+					android:id="@+id/divider"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/divider_height"
+					android:background="@color/divider"
+					android:layout_marginTop="@dimen/spacing_very_small"
+					android:layout_marginStart="@dimen/spacing_medium_large"
+					android:layout_marginEnd="@dimen/spacing_medium_large"
+					app:layout_constraintTop_toBottomOf="@id/stats_more" />
 
-			<View
-				android:id="@+id/divider"
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/divider_height"
-				android:background="@color/divider"
-				android:layout_marginTop="@dimen/spacing_very_small"
-				android:layout_marginStart="@dimen/spacing_medium_large"
-				android:layout_marginEnd="@dimen/spacing_medium_large"
-				app:layout_constraintTop_toBottomOf="@id/stats_more" />
+				<TextView
+					style="@style/NextStep.Text.Blue"
+					android:id="@+id/share_app_supertitle"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_larger"
+					android:text="@string/share_app_supertitle"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/divider" />
 
-			<TextView
-				style="@style/NextStep.Text.Blue"
-				android:id="@+id/share_app_supertitle"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_larger"
-				android:text="@string/share_app_supertitle"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/divider" />
+				<TextView
+					style="@style/NextStep.Text.Title.Dark"
+					android:id="@+id/share_app_title"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingTop="@dimen/spacing_very_small"
+					android:layout_marginStart="@dimen/spacing_very_large"
+					android:layout_marginEnd="@dimen/spacing_very_large"
+					android:text="@string/share_app_title"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/share_app_supertitle" />
 
-			<TextView
-				style="@style/NextStep.Text.Title.Dark"
-				android:id="@+id/share_app_title"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:paddingTop="@dimen/spacing_very_small"
-				android:layout_marginStart="@dimen/spacing_very_large"
-				android:layout_marginEnd="@dimen/spacing_very_large"
-				android:text="@string/share_app_title"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/share_app_supertitle" />
+				<ImageView
+					android:id="@+id/share_app_image"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:src="@drawable/stats_share_app"
+					android:layout_marginStart="@dimen/spacing_larger"
+					android:layout_marginEnd="@dimen/spacing_larger"
+					android:layout_marginBottom="@dimen/spacing_medium_large"
+					app:layout_constraintTop_toBottomOf="@id/share_app_title" />
 
-			<ImageView
-				android:id="@+id/share_app_image"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:src="@drawable/stats_share_app"
-				android:layout_marginStart="@dimen/spacing_larger"
-				android:layout_marginEnd="@dimen/spacing_larger"
-				android:layout_marginBottom="@dimen/spacing_medium_large"
-				app:layout_constraintTop_toBottomOf="@id/share_app_title" />
+				<Button
+					android:id="@+id/share_app_button"
+					style="@style/NextStep.Button.Blue"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="@dimen/spacing_larger"
+					android:layout_marginEnd="@dimen/spacing_larger"
+					android:text="@string/share_app_button"
+					android:textAllCaps="true"
+					app:layout_constraintTop_toBottomOf="@id/share_app_image" />
 
-			<Button
-				android:id="@+id/share_app_button"
-				style="@style/NextStep.Button.Blue"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="@dimen/spacing_larger"
-				android:layout_marginEnd="@dimen/spacing_larger"
-				android:text="@string/share_app_button"
-				android:textAllCaps="true"
-				app:layout_constraintTop_toBottomOf="@id/share_app_image" />
+				<TextView
+					android:id="@+id/share_app_text"
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="@dimen/spacing_huge"
+					android:layout_marginEnd="@dimen/spacing_huge"
+					android:paddingTop="@dimen/spacing_medium_large"
+					android:paddingBottom="@dimen/spacing_very_large"
+					android:text="@string/share_app_body"
+					app:layout_constraintTop_toBottomOf="@id/share_app_button" />
 
-			<TextView
-				android:id="@+id/share_app_text"
-				style="@style/NextStep.Text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="@dimen/spacing_huge"
-				android:layout_marginEnd="@dimen/spacing_huge"
-				android:paddingTop="@dimen/spacing_medium_large"
-				android:paddingBottom="@dimen/spacing_very_large"
-				android:text="@string/share_app_body"
-				app:layout_constraintTop_toBottomOf="@id/share_app_button" />
+			</androidx.constraintlayout.widget.ConstraintLayout>
+		</ScrollView>
 
-		</androidx.constraintlayout.widget.ConstraintLayout>
-	</ScrollView>
-
-</FrameLayout>
+	</FrameLayout>
+</LinearLayout>

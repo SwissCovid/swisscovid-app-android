@@ -10,11 +10,13 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
+import ch.admin.bag.dp3t.util.ToolbarUtil;
 import ch.admin.bag.dp3t.util.UiUtils;
 import ch.admin.bag.dp3t.util.UrlUtil;
 
@@ -22,6 +24,7 @@ public class StatsFragment extends Fragment {
 
 	private StatsViewModel statsViewModel;
 
+	Toolbar toolbar;
 	private ScrollView scrollView;
 	private ImageView headerView;
 
@@ -56,6 +59,7 @@ public class StatsFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
+		toolbar = view.findViewById(R.id.home_toolbar);
 		scrollView = view.findViewById(R.id.stats_scroll_view);
 		headerView = view.findViewById(R.id.header_view);
 
@@ -72,6 +76,7 @@ public class StatsFragment extends Fragment {
 
 		shareAppButton = view.findViewById(R.id.share_app_button);
 
+		ToolbarUtil.setupToolbar(getContext(), toolbar, getParentFragmentManager());
 		setupScrollBehavior();
 		setupMoreStatsButton();
 		setupShareAppButton();

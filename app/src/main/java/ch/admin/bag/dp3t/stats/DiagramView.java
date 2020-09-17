@@ -130,7 +130,7 @@ public class DiagramView extends View {
 		// Throughout the drawing functions, we often use float (rather than int)
 		// to avoid having to explicitly cast to float in all the calculations
 
-		if (history.isEmpty()) {
+		if (history == null || history.isEmpty()) {
 			return;
 		}
 
