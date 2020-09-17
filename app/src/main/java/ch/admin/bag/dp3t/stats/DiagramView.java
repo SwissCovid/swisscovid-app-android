@@ -26,8 +26,8 @@ public class DiagramView extends View {
 
 	private static int STROKE_WIDTH_Y_AXIS = 1;
 	private static int NUM_Y_AXIS_LABELS = 4;
-	private static int WIDTH_Y_AXIS_DASH_ON = 5;
-	private static int WIDTH_Y_AXIS_DASH_OFF = 5;
+	private static int WIDTH_Y_AXIS_DASH_ON = 2;
+	private static int WIDTH_Y_AXIS_DASH_OFF = 2;
 
 	private static int STROKE_WIDTH_AVG_LINE = 2;
 	private static int WIDTH_BAR = 10;
