@@ -111,8 +111,8 @@ public class DiagramYAxisView extends View {
 		double tempStepSize = maxYValue / 4.0;
 		double mag = Math.floor(Math.log10(tempStepSize));
 		double magPow = Math.pow(10, mag);
-		double magMsd = tempStepSize / magPow + 0.5;
-		int stepSize = (int) Math.max(0, (int) magMsd * magPow);
+		int magMsd = (int) (tempStepSize / magPow + 0.5);
+		int stepSize = (int) (magMsd * magPow);
 
 		int numLabels = (int) Math.ceil((double) maxYValue / stepSize);
 		assert (numLabels > 0);
