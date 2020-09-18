@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ *
+ * SPDX-License-Identifier: MPL-2.0
+ */
 package ch.admin.bag.dp3t.stats;
 
 import android.content.Context;
@@ -19,13 +28,12 @@ import ch.admin.bag.dp3t.networking.models.HistoryDataPointModel;
 @SuppressWarnings("FieldCanBeLocal")
 public class DiagramView extends View {
 
-	private static int OFFSET_BOTTOM_X_AXIS = 28;
+	public static int OFFSET_BOTTOM_X_AXIS = 28;
 	private static int STROKE_WIDTH_X_AXIS = 1;
 	private static int HEIGHT_X_AXIS_DATE_MARKER = 10;
 	private static int PADDING_X_AXIS_DATE_MARKER_LABEL = 5;
 
 	private static int STROKE_WIDTH_Y_AXIS = 1;
-	private static int NUM_Y_AXIS_LABELS = 4;
 	private static int WIDTH_Y_AXIS_DASH_ON = 2;
 	private static int WIDTH_Y_AXIS_DASH_OFF = 2;
 
@@ -126,7 +134,6 @@ public class DiagramView extends View {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-		super.onDraw(canvas);
 		// Throughout the drawing functions, we often use float (rather than int)
 		// to avoid having to explicitly cast to float in all the calculations
 
@@ -207,7 +214,7 @@ public class DiagramView extends View {
 	private void drawYAxis(Canvas canvas) {
 		float bottom = getHeight() - OFFSET_BOTTOM_X_AXIS * dp;
 
-		for (int yLabel : getYAxisLabelValues(maxYValue)) {
+		for (int yLabel : DiagramYAxisView.getYAxisLabelValues(maxYValue)) {
 			// Don't draw a horizontal line for this axis label
 			if (yLabel != 0) {
 				float yAxisHeight = bottom - bottom * (yLabel / (float) maxYValue);
@@ -220,7 +227,7 @@ public class DiagramView extends View {
 		}
 	}
 
-	private static int findMaxYValue(List<HistoryDataPointModel> hist) {
+	public static int findMaxYValue(List<HistoryDataPointModel> hist) {
 		int max = Integer.MIN_VALUE;
 		for (HistoryDataPointModel point : hist) {
 			if (point.getNewInfections() > max) {
@@ -234,27 +241,6 @@ public class DiagramView extends View {
 			}
 		}
 		return max;
-	}
-
-	/**
-	 * For the counts/numbers/values of the data points in [history],
-	 * get the appropriate values that the y-axis should display.
-	 * <p>
-	 * This is always 0 plus three evenly spaced, nice round values.
-	 */
-	private static int[] getYAxisLabelValues(int maxYValue) {
-		double tempStepSize = maxYValue / (double) NUM_Y_AXIS_LABELS;
-		double mag = Math.floor(Math.log10(tempStepSize));
-		double magPow = Math.pow(10, mag);
-		double magMsd = tempStepSize / magPow + 0.5;
-		int stepSize = (int) Math.max(0, (int) magMsd * magPow);
-
-		int[] values = new int[NUM_Y_AXIS_LABELS];
-		values[0] = 0;
-		for (int i = 1; i < NUM_Y_AXIS_LABELS; i++) {
-			values[i] = values[i - 1] + stepSize;
-		}
-		return values;
 	}
 
 }

@@ -93,75 +93,7 @@
 							android:gravity="center"
 							android:text="@string/stats_title" />
 
-						<FrameLayout
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:minHeight="@dimen/stats_diagram_height"
-							android:layout_marginTop="@dimen/spacing_small"
-							android:layout_marginBottom="@dimen/spacing_small"
-							android:background="@color/stats_diagram_background">
-
-							<ch.admin.bag.dp3t.stats.DiagramView
-								android:id="@+id/diagram_view"
-								android:layout_width="match_parent"
-								android:layout_height="@dimen/stats_diagram_height_minus_margins"
-								android:layout_marginTop="@dimen/stats_diagram_padding_top"
-								android:layout_marginBottom="@dimen/stats_diagram_padding_bottom" />
-
-							<LinearLayout
-								android:id="@+id/error_view"
-								android:layout_width="match_parent"
-								android:layout_height="match_parent"
-								android:layout_marginTop="@dimen/spacing_small"
-								android:layout_marginBottom="@dimen/spacing_small"
-								android:paddingStart="@dimen/spacing_large"
-								android:paddingEnd="@dimen/spacing_large"
-								android:orientation="vertical"
-								android:gravity="center_horizontal"
-								android:background="@color/stats_diagram_background">
-
-								<ImageView
-									android:layout_width="wrap_content"
-									android:layout_height="wrap_content"
-									android:layout_marginTop="@dimen/spacing_large"
-									android:src="@drawable/ic_info"
-									android:tint="@color/dark_main" />
-
-								<TextView
-									style="@style/NextStep.Text.Title.Dark"
-									android:layout_width="wrap_content"
-									android:layout_height="wrap_content"
-									android:layout_marginTop="@dimen/spacing_small"
-									android:gravity="center"
-									android:text="@string/loading_view_error_title" />
-
-								<TextView
-									style="@style/NextStep.Text.Dark"
-									android:layout_width="wrap_content"
-									android:layout_height="wrap_content"
-									android:layout_marginTop="@dimen/spacing_very_small"
-									android:gravity="center"
-									android:text="@string/stats_loading_error_text" />
-
-								<TextView
-									style="@style/NextStep.Text.Bold"
-									android:id="@+id/button_retry"
-									android:layout_width="wrap_content"
-									android:layout_height="wrap_content"
-									android:layout_marginTop="@dimen/spacing_very_small"
-									android:padding="@dimen/spacing_small"
-									android:background="?selectableItemBackground"
-									android:gravity="center"
-									android:text="@string/loading_view_reload" />
-							</LinearLayout>
-
-							<ProgressBar
-								android:id="@+id/progress_view"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:layout_gravity="center"
-								android:indeterminateTint="@color/blue_main" />
-						</FrameLayout>
+						<include layout="@layout/layout_stats_diagram" />
 
 						<TextView
 							style="@style/NextStep.Text.Small.Purple"

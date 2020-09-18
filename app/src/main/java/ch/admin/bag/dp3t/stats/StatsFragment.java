@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ *
+ * SPDX-License-Identifier: MPL-2.0
+ */
 package ch.admin.bag.dp3t.stats;
 
 import android.content.Intent;
@@ -14,7 +23,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.List;
+
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.networking.models.HistoryDataPointModel;
 import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
 import ch.admin.bag.dp3t.util.ToolbarUtil;
 import ch.admin.bag.dp3t.util.UiUtils;
@@ -32,6 +44,8 @@ public class StatsFragment extends Fragment {
 	private TextView totalActiveusersText;
 
 	private DiagramView diagramView;
+	private DiagramYAxisView diagramYAxisView;
+
 	private TextView lastUpdated;
 	private View errorView;
 	private TextView errorRetryButton;
@@ -67,6 +81,8 @@ public class StatsFragment extends Fragment {
 		totalActiveusersText = view.findViewById(R.id.stats_total_active_users_text);
 
 		diagramView = view.findViewById(R.id.diagram_view);
+		diagramYAxisView = view.findViewById(R.id.diagram_y_axis_view);
+
 		lastUpdated = view.findViewById(R.id.last_updated);
 		errorView = view.findViewById(R.id.error_view);
 		errorRetryButton = view.findViewById(R.id.button_retry);
@@ -130,6 +146,7 @@ public class StatsFragment extends Fragment {
 				totalActiveusersText.setVisibility(View.INVISIBLE);
 
 				diagramView.setVisibility(View.GONE);
+				diagramYAxisView.setVisibility(View.GONE);
 				lastUpdated.setVisibility(View.INVISIBLE);
 				errorView.setVisibility(View.GONE);
 				errorRetryButton.setVisibility(View.GONE);
@@ -140,6 +157,7 @@ public class StatsFragment extends Fragment {
 				totalActiveusersText.setVisibility(View.INVISIBLE);
 
 				diagramView.setVisibility(View.GONE);
+				diagramYAxisView.setVisibility(View.GONE);
 				lastUpdated.setVisibility(View.INVISIBLE);
 				errorView.setVisibility(View.VISIBLE);
 				errorRetryButton.setVisibility(View.VISIBLE);
@@ -155,6 +173,7 @@ public class StatsFragment extends Fragment {
 				totalActiveusersText.setVisibility(View.VISIBLE);
 
 				diagramView.setVisibility(View.VISIBLE);
+				diagramYAxisView.setVisibility(View.VISIBLE);
 				// lastUpdated.visibility is set below
 				errorView.setVisibility(View.GONE);
 				errorRetryButton.setVisibility(View.GONE);
@@ -174,7 +193,9 @@ public class StatsFragment extends Fragment {
 					lastUpdated.setText(text2);
 				}
 
-				diagramView.setHistory(stats.getHistory());
+				List<HistoryDataPointModel> history = stats.getHistory();
+				diagramView.setHistory(history);
+				diagramYAxisView.setMaxYValue(DiagramView.findMaxYValue(history));
 		}
 	}
 
