@@ -19,30 +19,35 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import ch.admin.bag.dp3t.home.HomeFragment;
 import ch.admin.bag.dp3t.stats.StatsFragment;
+import ch.admin.bag.dp3t.util.ToolbarUtil;
 
-public class MainFragment extends Fragment {
+public class TabbarHostFragment extends Fragment {
 
 	private BottomNavigationView bottomNavigationView;
 
-	private int lastSelectedTab = R.id.bottom_nav_home;
+	private int lastSelectedTab = -1;
 
-	public static MainFragment newInstance() {
-		return new MainFragment();
+	public static TabbarHostFragment newInstance() {
+		return new TabbarHostFragment();
 	}
 
-	private MainFragment() {
-		super(R.layout.fragment_main);
+	private TabbarHostFragment() {
+		super(R.layout.fragment_tabbar_host);
 	}
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
+		ToolbarUtil.setupToolbar(getContext(), view.findViewById(R.id.main_toolbar), getActivity().getSupportFragmentManager());
+
 		bottomNavigationView = view.findViewById(R.id.fragment_main_navigation_view);
 
 		setupBottomNavigationView();
 
-		bottomNavigationView.setSelectedItemId(lastSelectedTab);
+		if (lastSelectedTab == -1) {
+			bottomNavigationView.setSelectedItemId(R.id.bottom_nav_home);
+		}
 	}
 
 	private void setupBottomNavigationView() {
@@ -51,12 +56,12 @@ public class MainFragment extends Fragment {
 
 			switch (item.getItemId()) {
 				case R.id.bottom_nav_home:
-					getParentFragmentManager().beginTransaction()
+					getChildFragmentManager().beginTransaction()
 							.replace(R.id.tabs_fragment_container, HomeFragment.newInstance())
 							.commit();
 					break;
 				case R.id.bottom_nav_stats:
-					getParentFragmentManager().beginTransaction()
+					getChildFragmentManager().beginTransaction()
 							.replace(R.id.tabs_fragment_container, StatsFragment.newInstance())
 							.commit();
 					break;

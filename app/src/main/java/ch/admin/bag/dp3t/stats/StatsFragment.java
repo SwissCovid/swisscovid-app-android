@@ -73,7 +73,7 @@ public class StatsFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		toolbar = view.findViewById(R.id.home_toolbar);
+		toolbar = view.findViewById(R.id.main_toolbar);
 		scrollView = view.findViewById(R.id.stats_scroll_view);
 		headerView = view.findViewById(R.id.header_view);
 
@@ -92,7 +92,6 @@ public class StatsFragment extends Fragment {
 
 		shareAppButton = view.findViewById(R.id.share_app_button);
 
-		ToolbarUtil.setupToolbar(getContext(), toolbar, getParentFragmentManager());
 		setupScrollBehavior();
 		setupMoreStatsButton();
 		setupShareAppButton();

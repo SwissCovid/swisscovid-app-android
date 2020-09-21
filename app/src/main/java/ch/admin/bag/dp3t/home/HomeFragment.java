@@ -56,7 +56,6 @@ public class HomeFragment extends Fragment {
 
 	private static final String TAG = "HomeFragment";
 	private TracingViewModel tracingViewModel;
-	private Toolbar toolbar;
 	private HeaderView headerView;
 	private ScrollView scrollView;
 
@@ -98,7 +97,6 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-		toolbar = view.findViewById(R.id.home_toolbar);
 		infobox = view.findViewById(R.id.card_infobox);
 		tracingCard = view.findViewById(R.id.card_tracing);
 		cardNotifications = view.findViewById(R.id.card_notifications);
@@ -113,7 +111,6 @@ public class HomeFragment extends Fragment {
 		cardTestFrame = view.findViewById(R.id.frame_card_test);
 		loadingView = view.findViewById(R.id.loading_view);
 
-		ToolbarUtil.setupToolbar(getContext(), toolbar, getParentFragmentManager());
 		setupHeader();
 		setupInfobox();
 		setupTracingView();
@@ -216,17 +213,17 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void showContactsFragment() {
-		getParentFragmentManager().beginTransaction()
+		getActivity().getSupportFragmentManager().beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.tabs_fragment_container, ContactsFragment.newInstance())
+				.replace(R.id.main_fragment_container, ContactsFragment.newInstance())
 				.addToBackStack(ContactsFragment.class.getCanonicalName())
 				.commit();
 	}
 
 	private void showReportsFragment() {
-		getParentFragmentManager().beginTransaction()
+		getActivity().getSupportFragmentManager().beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.tabs_fragment_container, ReportsFragment.newInstance())
+				.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
 				.addToBackStack(ReportsFragment.class.getCanonicalName())
 				.commit();
 	}
@@ -326,15 +323,15 @@ public class HomeFragment extends Fragment {
 
 	private void setupWhatToDo() {
 		cardSymptoms.setOnClickListener(
-				v -> getParentFragmentManager().beginTransaction()
+				v -> getActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.tabs_fragment_container, WtdSymptomsFragment.newInstance())
+						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
 						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
 						.commit());
 		cardTest.setOnClickListener(
-				v -> getParentFragmentManager().beginTransaction()
+				v -> getActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.tabs_fragment_container, WtdPositiveTestFragment.newInstance())
+						.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
 						.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
 						.commit());
 	}
