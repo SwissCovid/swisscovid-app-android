@@ -13,10 +13,13 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import java.io.IOException;
+import java.security.PublicKey;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.SignatureException;
+import org.dpppt.android.sdk.backend.SignatureVerificationInterceptor;
 import org.dpppt.android.sdk.backend.UserAgentInterceptor;
+import org.dpppt.android.sdk.util.SignatureUtil;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
@@ -34,9 +37,8 @@ public class StatsRepository {
 	public StatsRepository(@NonNull Context context) {
 		OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
 
-		// TODO(PP-753) Add JWT check
-		//PublicKey publicKey = SignatureUtil.getPublicKeyFromCertificateBase64OrThrow(BuildConfig.CONFIG_CERTIFICATE);
-		//okHttpBuilder.addInterceptor(new SignatureVerificationInterceptor(publicKey));
+		PublicKey publicKey = SignatureUtil.getPublicKeyFromCertificateBase64OrThrow(BuildConfig.CONFIG_CERTIFICATE);
+		okHttpBuilder.addInterceptor(new SignatureVerificationInterceptor(publicKey));
 
 		int cacheSize = 5 * 1024 * 1024; // 5 MB
 		Cache cache = new Cache(context.getCacheDir(), cacheSize);
