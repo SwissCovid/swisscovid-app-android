@@ -60,6 +60,10 @@
 		<item name="android:fontFamily">@font/inter_bold</item>
 	</style>
 
+	<style name="NextStep.Text.Small.Bold.Blue">
+		<item name="android:textColor">@color/blue_main</item>
+	</style>
+
 	<style name="NextStep.Text.Small.Light">
 		<item name="android:textColor">@color/anthracite_lighter</item>
 	</style>
