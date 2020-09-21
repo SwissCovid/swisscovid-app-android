@@ -13,15 +13,21 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
+
+import java.util.concurrent.atomic.AtomicLong;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import ch.admin.bag.dp3t.debug.DebugFragment;
 import ch.admin.bag.dp3t.home.HomeFragment;
+import ch.admin.bag.dp3t.html.HtmlFragment;
 import ch.admin.bag.dp3t.stats.StatsFragment;
 import ch.admin.bag.dp3t.stats.StatsViewModel;
-import ch.admin.bag.dp3t.util.ToolbarUtil;
+import ch.admin.bag.dp3t.util.AssetUtil;
 
 public class TabbarHostFragment extends Fragment {
 
@@ -52,11 +58,44 @@ public class TabbarHostFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		ToolbarUtil.setupToolbar(getContext(), view.findViewById(R.id.main_toolbar), getActivity().getSupportFragmentManager());
+		Toolbar toolbar = view.findViewById(R.id.main_toolbar);
+		toolbar.setOnMenuItemClickListener(item -> {
+			if (item.getItemId() == R.id.homescreen_menu_impressum) {
+				HtmlFragment htmlFragment =
+						HtmlFragment.newInstance(R.string.menu_impressum, AssetUtil.getImpressumBaseUrl(getContext()),
+								AssetUtil.getImpressumHtml(getContext()));
+				getActivity().getSupportFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.main_fragment_container, htmlFragment)
+						.addToBackStack(HtmlFragment.class.getCanonicalName())
+						.commit();
+				return true;
+			}
+			return false;
+		});
+
+		View schwiizerchruez = toolbar.findViewById(R.id.schwiizerchruez);
+		setupDebugButton(schwiizerchruez, getActivity().getSupportFragmentManager());
 
 		bottomNavigationView = view.findViewById(R.id.fragment_main_navigation_view);
 
 		setupBottomNavigationView();
+	}
+
+	private static void setupDebugButton(View schwiizerchruez, FragmentManager fragmentManager) {
+		if (!DebugFragment.EXISTS) {
+			return;
+		}
+
+		AtomicLong lastClick = new AtomicLong(0);
+		schwiizerchruez.setOnClickListener(v -> {
+			if (lastClick.get() > System.currentTimeMillis() - 1000L) {
+				lastClick.set(0);
+				DebugFragment.startDebugFragment(fragmentManager);
+			} else {
+				lastClick.set(System.currentTimeMillis());
+			}
+		});
 	}
 
 	@Override
