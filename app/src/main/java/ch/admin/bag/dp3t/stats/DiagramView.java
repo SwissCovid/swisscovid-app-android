@@ -165,9 +165,10 @@ public class DiagramView extends View {
 	private void drawData(Canvas canvas) {
 		newInfectionsAvgPath.reset();
 
+		boolean prevValueMissing = true;
 		for (int i = 0; i < history.size(); i++) {
 			float ni = history.get(i).getNewInfections();
-			float niavg = history.get(i).getNewInfectionsSevenDayAverage();
+			Integer niavg = history.get(i).getNewInfectionsSevenDayAverage();
 			float cc = history.get(i).getCovidcodesEntered();
 
 			float left = i * (WIDTH_BAR + PADDING_BAR) * dp;
@@ -190,11 +191,17 @@ public class DiagramView extends View {
 
 			// Prepare drawing line
 			float avgX = left + WIDTH_BAR * dp / 2;
-			float avgY = bottom - bottom * (niavg / maxYValue);
-			if (i == 0) {
-				newInfectionsAvgPath.moveTo(avgX, avgY);
+			float avgY = 0;
+			if (niavg != null) {
+				avgY = bottom - bottom * (niavg * 1.0f / maxYValue);
+				if (prevValueMissing) {
+					newInfectionsAvgPath.moveTo(avgX, avgY);
+				} else {
+					newInfectionsAvgPath.lineTo(avgX, avgY);
+				}
+				prevValueMissing = false;
 			} else {
-				newInfectionsAvgPath.lineTo(avgX, avgY);
+				prevValueMissing = true;
 			}
 		}
 
@@ -249,7 +256,7 @@ public class DiagramView extends View {
 			if (point.getNewInfections() > max) {
 				max = point.getNewInfections();
 			}
-			if (point.getNewInfectionsSevenDayAverage() > max) {
+			if (point.getNewInfectionsSevenDayAverage() != null && point.getNewInfectionsSevenDayAverage() > max) {
 				max = point.getNewInfectionsSevenDayAverage();
 			}
 			if (point.getCovidcodesEntered() > max) {

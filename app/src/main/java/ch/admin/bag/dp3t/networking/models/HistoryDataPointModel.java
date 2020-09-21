@@ -17,7 +17,7 @@ public class HistoryDataPointModel {
 
 	private String date;
 	private int newInfections;
-	private int newInfectionsSevenDayAverage;
+	private Integer newInfectionsSevenDayAverage;
 	private int covidcodesEntered;
 
 	public String getDateRaw() {
@@ -36,7 +36,7 @@ public class HistoryDataPointModel {
 		return newInfections;
 	}
 
-	public int getNewInfectionsSevenDayAverage() {
+	public Integer getNewInfectionsSevenDayAverage() {
 		return newInfectionsSevenDayAverage;
 	}
 
