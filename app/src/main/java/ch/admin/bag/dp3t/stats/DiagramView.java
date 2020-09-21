@@ -210,7 +210,7 @@ public class DiagramView extends View {
 
 	private void drawXAxis(Canvas canvas) {
 		float xAxisHeight = getHeight() - OFFSET_BOTTOM_X_AXIS * dp;
-		canvas.drawLine(0, xAxisHeight, getWidth(), xAxisHeight, xAxisPaint);
+		canvas.drawLine(0, xAxisHeight, getTotalTheoreticWidth(), xAxisHeight, xAxisPaint);
 
 		for (int i = 0; i < history.size(); i++) {
 			calendar.setTime(history.get(i).getDateParsed());
