@@ -59,7 +59,7 @@ public class StatsFragment extends Fragment {
 		return new StatsFragment();
 	}
 
-	private StatsFragment() {
+	public StatsFragment() {
 		super(R.layout.fragment_stats);
 	}
 

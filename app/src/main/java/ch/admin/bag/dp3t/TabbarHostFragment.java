@@ -31,7 +31,7 @@ public class TabbarHostFragment extends Fragment {
 		return new TabbarHostFragment();
 	}
 
-	private TabbarHostFragment() {
+	public TabbarHostFragment() {
 		super(R.layout.fragment_tabbar_host);
 	}
 
