@@ -14,18 +14,24 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import ch.admin.bag.dp3t.home.HomeFragment;
 import ch.admin.bag.dp3t.stats.StatsFragment;
+import ch.admin.bag.dp3t.stats.StatsViewModel;
 import ch.admin.bag.dp3t.util.ToolbarUtil;
 
 public class TabbarHostFragment extends Fragment {
 
+	private static final long MAX_DURATION_TO_STAY_AWAY_FROM_HOME_TAB = 60 * 60 * 1000L; //1h
+
+	private StatsViewModel statsViewModel;
 	private BottomNavigationView bottomNavigationView;
 
 	private int lastSelectedTab = -1;
+	private long lastTabSwitch = 0;
 
 	public static TabbarHostFragment newInstance() {
 		return new TabbarHostFragment();
@@ -33,6 +39,13 @@ public class TabbarHostFragment extends Fragment {
 
 	public TabbarHostFragment() {
 		super(R.layout.fragment_tabbar_host);
+	}
+
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		statsViewModel = new ViewModelProvider(requireActivity()).get(StatsViewModel.class);
 	}
 
 	@Override
@@ -44,8 +57,13 @@ public class TabbarHostFragment extends Fragment {
 		bottomNavigationView = view.findViewById(R.id.fragment_main_navigation_view);
 
 		setupBottomNavigationView();
+	}
 
-		if (lastSelectedTab == -1) {
+	@Override
+	public void onStart() {
+		super.onStart();
+
+		if (lastSelectedTab == -1 || lastTabSwitch < System.currentTimeMillis() - MAX_DURATION_TO_STAY_AWAY_FROM_HOME_TAB) {
 			bottomNavigationView.setSelectedItemId(R.id.bottom_nav_home);
 		}
 	}
@@ -53,6 +71,7 @@ public class TabbarHostFragment extends Fragment {
 	private void setupBottomNavigationView() {
 		bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
 			lastSelectedTab = item.getItemId();
+			lastTabSwitch = System.currentTimeMillis();
 
 			switch (item.getItemId()) {
 				case R.id.bottom_nav_home:
@@ -64,6 +83,8 @@ public class TabbarHostFragment extends Fragment {
 					getChildFragmentManager().beginTransaction()
 							.replace(R.id.tabs_fragment_container, StatsFragment.newInstance())
 							.commit();
+
+					statsViewModel.loadStats();
 					break;
 			}
 			return true;

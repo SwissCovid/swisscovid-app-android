@@ -28,7 +28,6 @@ import java.util.List;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.models.HistoryDataPointModel;
 import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
-import ch.admin.bag.dp3t.util.ToolbarUtil;
 import ch.admin.bag.dp3t.util.UiUtils;
 import ch.admin.bag.dp3t.util.UrlUtil;
 
@@ -97,7 +96,6 @@ public class StatsFragment extends Fragment {
 		setupShareAppButton();
 
 		statsViewModel.getStatsLiveData().observe(getViewLifecycleOwner(), this::displayStats);
-		statsViewModel.loadStats();
 	}
 
 	private void setupScrollBehavior() {
