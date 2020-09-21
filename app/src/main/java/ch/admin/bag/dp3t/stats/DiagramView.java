@@ -16,6 +16,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import androidx.annotation.Nullable;
 
@@ -46,6 +47,8 @@ public class DiagramView extends View {
 
 	private List<HistoryDataPointModel> history;
 	private int maxYValue;
+
+	private int canvasXTranslation;
 
 	private Paint newInfectionsPaint;
 	private Paint newInfectionsAvgPaint;
@@ -132,6 +135,13 @@ public class DiagramView extends View {
 		invalidate();
 	}
 
+	/**
+	 * Returns the width in DP that the DiagramView would need on an infinite screen.
+	 */
+	public int getTotalTheoreticWidth() {
+		return Math.round(history.size() * WIDTH_BAR * dp + (history.size() - 1) * PADDING_BAR * dp);
+	}
+
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// Throughout the drawing functions, we often use float (rather than int)
@@ -141,9 +151,16 @@ public class DiagramView extends View {
 			return;
 		}
 
+		canvas.translate(-canvasXTranslation, 0);
+
 		drawData(canvas);
 		drawXAxis(canvas);
 		drawYAxis(canvas);
+	}
+
+	public void setScrollX(int x) {
+		canvasXTranslation = x;
+		invalidate();
 	}
 
 	private void drawData(Canvas canvas) {

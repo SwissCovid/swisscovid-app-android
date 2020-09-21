@@ -13,7 +13,9 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -42,7 +44,10 @@ public class StatsFragment extends Fragment {
 	private TextView totalActiveusers;
 	private TextView totalActiveusersText;
 
+	private View diagramBox;
 	private DiagramView diagramView;
+	private HorizontalScrollView diagramScrollView;
+	private View scrollViewWidener;
 	private DiagramYAxisView diagramYAxisView;
 
 	private TextView lastUpdated;
@@ -79,7 +84,10 @@ public class StatsFragment extends Fragment {
 		totalActiveusers = view.findViewById(R.id.stats_total_active_users);
 		totalActiveusersText = view.findViewById(R.id.stats_total_active_users_text);
 
+		diagramBox = view.findViewById(R.id.diagram_box);
 		diagramView = view.findViewById(R.id.diagram_view);
+		diagramScrollView = view.findViewById(R.id.diagram_scroll_view);
+		scrollViewWidener = view.findViewById(R.id.scroll_view_widener);
 		diagramYAxisView = view.findViewById(R.id.diagram_y_axis_view);
 
 		lastUpdated = view.findViewById(R.id.last_updated);
@@ -92,6 +100,7 @@ public class StatsFragment extends Fragment {
 		shareAppButton = view.findViewById(R.id.share_app_button);
 
 		setupScrollBehavior();
+		setupDiagramScrollBehavior();
 		setupMoreStatsButton();
 		setupShareAppButton();
 
@@ -111,6 +120,12 @@ public class StatsFragment extends Fragment {
 			float progress = UiUtils.computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
 			headerView.setAlpha(1 - progress);
 			headerView.setTranslationY(progress * translationRangePx);
+		});
+	}
+
+	private void setupDiagramScrollBehavior() {
+		diagramScrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+			diagramView.setScrollX(scrollX);
 		});
 	}
 
@@ -142,7 +157,7 @@ public class StatsFragment extends Fragment {
 				totalActiveusers.setVisibility(View.INVISIBLE);
 				totalActiveusersText.setVisibility(View.INVISIBLE);
 
-				diagramView.setVisibility(View.GONE);
+				diagramBox.setVisibility(View.GONE);
 				diagramYAxisView.setVisibility(View.GONE);
 				lastUpdated.setVisibility(View.INVISIBLE);
 				errorView.setVisibility(View.GONE);
@@ -153,7 +168,7 @@ public class StatsFragment extends Fragment {
 				totalActiveusers.setVisibility(View.INVISIBLE);
 				totalActiveusersText.setVisibility(View.INVISIBLE);
 
-				diagramView.setVisibility(View.GONE);
+				diagramBox.setVisibility(View.GONE);
 				diagramYAxisView.setVisibility(View.GONE);
 				lastUpdated.setVisibility(View.INVISIBLE);
 				errorView.setVisibility(View.VISIBLE);
@@ -169,7 +184,7 @@ public class StatsFragment extends Fragment {
 				totalActiveusers.setVisibility(View.VISIBLE);
 				totalActiveusersText.setVisibility(View.VISIBLE);
 
-				diagramView.setVisibility(View.VISIBLE);
+				diagramBox.setVisibility(View.VISIBLE);
 				diagramYAxisView.setVisibility(View.VISIBLE);
 				// lastUpdated.visibility is set below
 				errorView.setVisibility(View.GONE);
@@ -193,6 +208,14 @@ public class StatsFragment extends Fragment {
 				List<HistoryDataPointModel> history = stats.getHistory();
 				diagramView.setHistory(history);
 				diagramYAxisView.setMaxYValue(DiagramView.findMaxYValue(history));
+
+				ViewGroup.LayoutParams lp = scrollViewWidener.getLayoutParams();
+				lp.width = diagramView.getTotalTheoreticWidth();
+				scrollViewWidener.setLayoutParams(lp);
+
+				diagramScrollView.post(() -> {
+					diagramScrollView.scrollTo(lp.width, 0);
+				});
 		}
 	}
 
