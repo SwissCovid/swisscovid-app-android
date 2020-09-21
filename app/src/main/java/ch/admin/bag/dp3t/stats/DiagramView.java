@@ -236,7 +236,7 @@ public class DiagramView extends View {
 				float yAxisHeight = bottom - bottom * (yLabel / (float) maxYValue);
 				yAxisPath.reset();
 				yAxisPath.moveTo(0, yAxisHeight);
-				yAxisPath.lineTo(getWidth(), yAxisHeight);
+				yAxisPath.lineTo(getTotalTheoreticWidth(), yAxisHeight);
 				// Use a path for the dashed PathEffect
 				canvas.drawPath(yAxisPath, yAxisPaint);
 			}
