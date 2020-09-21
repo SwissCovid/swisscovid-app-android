@@ -10,8 +10,6 @@
 package ch.admin.bag.dp3t.contacts;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -35,6 +33,7 @@ import ch.admin.bag.dp3t.home.TracingBoxFragment;
 import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.ENExceptionHelper;
+import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ContactsFragment extends Fragment {
@@ -83,8 +82,7 @@ public class ContactsFragment extends Fragment {
 		setupHistoryCard(view);
 
 		view.findViewById(R.id.contacts_faq_button).setOnClickListener(v -> {
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
-			startActivity(browserIntent);
+			UrlUtil.openUrl(getContext(), getString(R.string.faq_button_url));
 		});
 	}
 

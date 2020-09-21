@@ -29,6 +29,7 @@ import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.util.AssetUtil;
 import ch.admin.bag.dp3t.util.UlTagHandler;
+import ch.admin.bag.dp3t.util.UrlUtil;
 
 public class OnboardingDisclaimerFragment extends Fragment {
 
@@ -102,9 +103,7 @@ public class OnboardingDisclaimerFragment extends Fragment {
 	}
 
 	private void openOnlineVersion() {
-		Intent browserIntent =
-				new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.onboarding_disclaimer_legal_button_url)));
-		startActivity(browserIntent);
+		UrlUtil.openUrl(getContext(), getString(R.string.onboarding_disclaimer_legal_button_url));
 	}
 
 }

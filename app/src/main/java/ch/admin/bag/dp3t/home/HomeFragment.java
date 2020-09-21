@@ -171,8 +171,7 @@ public class HomeFragment extends Fragment {
 			if (url != null) {
 				linkView.setText(urlTitle != null ? urlTitle : url);
 				linkGroup.setOnClickListener(v -> {
-					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-					startActivity(browserIntent);
+					UrlUtil.openUrl(getContext(), url);
 				});
 				linkGroup.setVisibility(VISIBLE);
 			} else {

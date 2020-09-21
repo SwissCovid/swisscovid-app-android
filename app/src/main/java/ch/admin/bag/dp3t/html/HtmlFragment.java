@@ -9,9 +9,6 @@
  */
 package ch.admin.bag.dp3t.html;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -21,19 +18,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
-import java.io.*;
-import java.net.URL;
-import java.net.URLConnection;
-
-import ch.admin.bag.dp3t.util.AssetUtil;
 import ch.admin.bag.dp3t.R;
-
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Single;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+import ch.admin.bag.dp3t.util.AssetUtil;
+import ch.admin.bag.dp3t.util.UrlUtil;
 
 public class HtmlFragment extends Fragment {
 
@@ -96,22 +85,14 @@ public class HtmlFragment extends Fragment {
 							HtmlFragment.newInstance(R.string.menu_impressum, baseUrl,
 									AssetUtil.loadImpressumHtmlFile(getContext(), strippedUrl));
 					getParentFragmentManager().beginTransaction()
-							.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+							.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter,
+									R.anim.slide_pop_exit)
 							.replace(R.id.main_fragment_container, htmlFragment)
 							.addToBackStack(HtmlFragment.class.getCanonicalName())
 							.commit();
 					return true;
 				}
-				if (url.toLowerCase().endsWith(".pdf")) {
-					openFileFromUrl(url, "application/pdf");
-				} else if (url.toLowerCase().endsWith(".xlsx")) {
-					openFileFromUrl(url, "text/csv");
-				} else {
-					Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-					if (webIntent.resolveActivity(getContext().getPackageManager()) != null) {
-						startActivity(webIntent);
-					}
-				}
+				UrlUtil.openUrl(getContext(), url);
 				return true;
 			}
 		});
@@ -123,52 +104,6 @@ public class HtmlFragment extends Fragment {
 		} else {
 			web.loadUrl(baseUrl);
 		}
-	}
-
-	private void openFileFromUrl(final String xlsUrl, String fileIntentType) {
-		Activity activity = getActivity();
-		loadingSpinner.setVisibility(View.VISIBLE);
-		Single.fromCallable(() -> {
-			try {
-				String[] splitUrl = xlsUrl.split("/");
-				URL url = new URL(xlsUrl);
-				URLConnection connection = url.openConnection();
-				connection.connect();
-
-				InputStream input = new BufferedInputStream(connection.getInputStream());
-				File dir = new File(activity.getFilesDir(), "/shared");
-				dir.mkdir();
-				File file = new File(dir, splitUrl[splitUrl.length - 1]);
-				OutputStream output = new FileOutputStream(file);
-
-				byte data[] = new byte[1024];
-				int count;
-				while ((count = input.read(data)) != -1) {
-					output.write(data, 0, count);
-				}
-
-				output.flush();
-				output.close();
-				input.close();
-				return file;
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return null;
-		}).subscribeOn(Schedulers.io())
-				.observeOn(AndroidSchedulers.mainThread())
-				.subscribe(file -> {
-					String authority = activity.getApplicationContext().getPackageName() + ".fileprovider";
-					Uri uriToFile = FileProvider.getUriForFile(activity, authority, file);
-
-					Intent shareIntent = new Intent(Intent.ACTION_VIEW);
-					shareIntent.setDataAndType(uriToFile, fileIntentType);
-					shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-					if (shareIntent.resolveActivity(activity.getPackageManager()) != null) {
-						activity.startActivity(shareIntent);
-					}
-					loadingSpinner.setVisibility(View.GONE);
-				});
 	}
 
 }

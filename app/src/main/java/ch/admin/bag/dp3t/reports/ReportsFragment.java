@@ -46,6 +46,7 @@ import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 import ch.admin.bag.dp3t.util.PhoneUtil;
+import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ReportsFragment extends Fragment {
@@ -217,13 +218,11 @@ public class ReportsFragment extends Fragment {
 	}
 
 	private void openLink(@StringRes int stringRes) {
-		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(stringRes)));
-		startActivity(browserIntent);
+		UrlUtil.openUrl(getContext(), getString(stringRes));
 	}
 
 	private void showFaq() {
-		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
-		startActivity(browserIntent);
+		UrlUtil.openUrl(getContext(), getString(R.string.faq_button_url));
 	}
 
 	private void callHotline() {

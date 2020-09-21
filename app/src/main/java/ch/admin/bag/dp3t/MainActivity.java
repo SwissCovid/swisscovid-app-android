@@ -26,6 +26,7 @@ import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class MainActivity extends FragmentActivity {
@@ -63,11 +64,7 @@ public class MainActivity extends FragmentActivity {
 						forceUpdateDialog.getButton(DialogInterface.BUTTON_POSITIVE)
 						.setOnClickListener(v -> {
 							String packageName = getPackageName();
-							Intent intent = new Intent(Intent.ACTION_VIEW);
-							intent.setData(Uri.parse("market://details?id=" + packageName));
-							if (intent.resolveActivity(getPackageManager()) != null) {
-								startActivity(intent);
-							}
+							UrlUtil.openUrl(MainActivity.this, "market://details?id=" + packageName);
 						}));
 				forceUpdateDialog.show();
 			} else if (!forceUpdate && forceUpdateDialog != null) {
