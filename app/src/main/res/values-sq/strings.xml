@@ -975,35 +975,35 @@ Schwarzenburgstrasse 157
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
-    <string name="bottom_nav_tab_home"></string>
-    <string name="bottom_nav_tab_stats"></string>
-    <string name="stats_title"></string>
-    <string name="stats_legend_new_infections"></string>
-    <string name="stats_legend_new_infections_average"></string>
-    <string name="stats_legend_entered_covidcodes"></string>
-    <string name="share_app_supertitle"></string>
-    <string name="share_app_title"></string>
-    <string name="share_app_button"></string>
-    <string name="share_app_body"></string>
+    <string name="bottom_nav_tab_home">"SwissCovid"</string>
+    <string name="bottom_nav_tab_stats">"Shifra"</string>
+    <string name="stats_title">"përdorin tashmë \"SwissCovid\""</string>
+    <string name="stats_legend_new_infections">"Infektimet e reja të raportuara"</string>
+    <string name="stats_legend_new_infections_average">"Mesatarja 7-ditore"</string>
+    <string name="stats_legend_entered_covidcodes">"Kodi i futur i Covid"</string>
+    <string name="share_app_supertitle">"Së bashku..."</string>
+    <string name="share_app_title">"Të parandalojmë një valë të dytë"</string>
+    <string name="share_app_button">"Shpërndaj aplikacionin"</string>
+    <string name="share_app_body">"Kur aplikacionin \"SwissCovid\" e aktivizojnë sa më shumë persona të jetë e mundur, atëherë ne mund ta ndërpresim më herët zinxhirin e infektimit."</string>
 
     <!-- Text der geteilt wird -->
-    <string name="share_app_message"></string>
+    <string name="share_app_message">"Kur aplikacionin \"SwissCovid\" e aktivizojnë sa më shumë persona të jetë e mundur, atëherë ne mund ta ndërpresim më herët zinxhirin e infektimit."</string>
 
     <!-- URL die geteilt wird -->
-    <string name="share_app_url"></string>
+    <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
 
     <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
-    <string name="stats_counter">"{COUNT} Mill."</string>
+    <string name="stats_counter">"{COUNT} Mio."</string>
 
     <!-- Statistik Tag der Daten "{DAY}" wird mit dem Aktualisierungsdatum ersetzt z.B. "14.9." -->
-    <string name="stats_source_day"></string>
+    <string name="stats_source_day">"Versioni i të dhënave {DAY}"</string>
 
     <!-- Links zu weiteren Statistiken -->
-    <string name="stats_more_statistics_button"></string>
+    <string name="stats_more_statistics_button">"Statistika të tjera"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url"></string>
+    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/de/home/innovative-methoden/swisscovid-app-monitoring.html"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
-    <string name="stats_loading_error_text"></string>
+    <string name="stats_loading_error_text">"Momentalisht të dhënat nuk mund të ngarkohen"</string>
 </resources>
