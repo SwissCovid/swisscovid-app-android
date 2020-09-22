@@ -10,14 +10,11 @@
 package ch.admin.bag.dp3t.stats;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.DashPathEffect;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
+import android.graphics.*;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.Calendar;
 import java.util.List;
@@ -115,10 +112,12 @@ public class DiagramView extends View {
 
 		int labelPaintColor = getResources().getColor(R.color.stats_diagram_labels, null);
 		float labelTextSize = context.getResources().getDimension(R.dimen.text_size_small);
+		Typeface labelTypeface = ResourcesCompat.getFont(context, R.font.inter_regular);
 		labelPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		labelPaint.setStyle(Paint.Style.FILL);
 		labelPaint.setColor(labelPaintColor);
 		labelPaint.setTextSize(labelTextSize);
+		labelPaint.setTypeface(labelTypeface);
 		labelPaint.setTextAlign(Paint.Align.LEFT);
 	}
 
@@ -161,31 +160,38 @@ public class DiagramView extends View {
 
 		boolean prevValueMissing = true;
 		for (int i = 0; i < history.size(); i++) {
-			float ni = history.get(i).getNewInfections();
+			Integer ni = history.get(i).getNewInfections();
 			Integer niavg = history.get(i).getNewInfectionsSevenDayAverage();
-			float cc = history.get(i).getCovidcodesEntered();
+			Integer cc = history.get(i).getCovidcodesEntered();
 
 			// Draw bars
 			float left = i * (WIDTH_BAR + PADDING_BAR) * dp;
 			float right = left + WIDTH_BAR * dp;
 
 			float bottom = getHeight() - OFFSET_BOTTOM_X_AXIS * dp;
-			float topCovidcodes = bottom - bottom * (cc / maxYValue);
+			float topCovidcodes = bottom;
 
-			float bottomNewInfections = topCovidcodes;
-			if (cc > 0) {
-				bottomNewInfections -= PADDING_BAR * dp;
+			if (cc != null) {
+				topCovidcodes = bottom - bottom * (cc.floatValue() / maxYValue);
+				canvas.drawRect(left, topCovidcodes, right, bottom, enteredCovidcodesPaint);
 			}
-			float topNewInfections = bottomNewInfections - bottom * (ni / maxYValue);
 
-			canvas.drawRect(left, topCovidcodes, right, bottom, enteredCovidcodesPaint);
-			canvas.drawRect(left, topNewInfections, right, bottomNewInfections, newInfectionsPaint);
+			if (ni != null) {
+				float bottomNewInfections = topCovidcodes;
+				float niToDraw = ni;
+				if (cc != null) {
+					bottomNewInfections -= PADDING_BAR * dp;
+					niToDraw -= cc;
+				}
+				float topNewInfections = bottomNewInfections - bottom * (niToDraw / maxYValue);
+				canvas.drawRect(left, topNewInfections, right, bottomNewInfections, newInfectionsPaint);
+			}
 
 			// Prepare drawing average-new-infections line
 			float avgX = left + WIDTH_BAR * dp / 2;
 			float avgY = 0;
 			if (niavg != null) {
-				avgY = bottom - bottom * (niavg * 1.0f / maxYValue);
+				avgY = bottom - bottom * (niavg * 1F / maxYValue);
 				if (prevValueMissing) {
 					newInfectionsAvgPath.moveTo(avgX, avgY);
 				} else {
@@ -245,13 +251,13 @@ public class DiagramView extends View {
 	public static int findMaxYValue(List<HistoryDataPointModel> hist) {
 		int max = Integer.MIN_VALUE;
 		for (HistoryDataPointModel point : hist) {
-			if (point.getNewInfections() > max) {
+			if (point.getNewInfections() != null && point.getNewInfections() > max) {
 				max = point.getNewInfections();
 			}
 			if (point.getNewInfectionsSevenDayAverage() != null && point.getNewInfectionsSevenDayAverage() > max) {
 				max = point.getNewInfectionsSevenDayAverage();
 			}
-			if (point.getCovidcodesEntered() > max) {
+			if (point.getCovidcodesEntered() != null && point.getCovidcodesEntered() > max) {
 				max = point.getCovidcodesEntered();
 			}
 		}

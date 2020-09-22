@@ -71,6 +71,10 @@
 		<item name="android:textColor">@color/blue_main</item>
 	</style>
 
+	<style name="NextStep.Text.Small.GreyDark">
+		<item name="android:textColor">@color/grey_dark</item>
+	</style>
+
 	<style name="NextStep.Text.Bold">
 		<item name="android:fontFamily">@font/inter_bold</item>
 	</style>
@@ -98,10 +102,6 @@
 
 	<style name="NextStep.Text.Bold.Dark">
 		<item name="android:textColor">@color/dark_main</item>
-	</style>
-
-	<style name="NextStep.Text.Medium">
-		<item name="android:textSize">@dimen/spacing_medium</item>
 	</style>
 
 	<style name="NextStep.Text.Title">
@@ -145,7 +145,8 @@
 		<item name="android:background">@drawable/bg_chained_edit_text</item>
 	</style>
 
-	<style name="NextStep.Text.BottomNavigationViewTextStyle" parent="NextStep.Text.Medium">
+	<style name="NextStep.Text.BottomNavigationViewTextStyle">
+		<item name="android:textSize">@dimen/text_size_bottom_nav</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
 	</style>
 

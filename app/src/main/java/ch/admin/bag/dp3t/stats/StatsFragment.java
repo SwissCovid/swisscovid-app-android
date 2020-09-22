@@ -54,7 +54,7 @@ public class StatsFragment extends Fragment {
 	private TextView errorRetryButton;
 	private View progressView;
 
-	private TextView moreStatsButton;
+	private View moreStatsButton;
 
 	private Button shareAppButton;
 

@@ -13,9 +13,11 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 
 import ch.admin.bag.dp3t.R;
 
@@ -55,10 +57,12 @@ public class DiagramYAxisView extends View {
 
 		int labelPaintColor = getResources().getColor(R.color.stats_diagram_labels, null);
 		float labelTextSize = context.getResources().getDimension(R.dimen.text_size_small);
+		Typeface labelTypeface = ResourcesCompat.getFont(context, R.font.inter_regular);
 		labelPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		labelPaint.setStyle(Paint.Style.FILL);
 		labelPaint.setColor(labelPaintColor);
 		labelPaint.setTextSize(labelTextSize);
+		labelPaint.setTypeface(labelTypeface);
 		labelPaint.setTextAlign(Paint.Align.LEFT);
 	}
 
