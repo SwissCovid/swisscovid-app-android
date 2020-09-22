@@ -84,7 +84,7 @@
 	<dimen name="stats_diagram_height_minus_margins">175dp</dimen>
 	<dimen name="stats_diagram_new_infections_avg_stroke_width">2dp</dimen>
 	<dimen name="stats_diagram_padding_top">15dp</dimen>
-	<dimen name="stats_diagram_padding_bottom">10dp</dimen>
+	<dimen name="stats_diagram_padding_bottom">5dp</dimen>
 	<dimen name="stats_checkmark_size">46dp</dimen>
 	<dimen name="stats_checkmark_size_half">23dp</dimen>
 

@@ -28,7 +28,7 @@ import ch.admin.bag.dp3t.networking.models.HistoryDataPointModel;
 @SuppressWarnings("FieldCanBeLocal")
 public class DiagramView extends View {
 
-	public static int OFFSET_BOTTOM_X_AXIS = 28;
+	public static int OFFSET_BOTTOM_X_AXIS = 33;
 	private static int STROKE_WIDTH_X_AXIS = 1;
 	private static int HEIGHT_X_AXIS_DATE_MARKER = 10;
 	private static int PADDING_X_AXIS_DATE_MARKER_LABEL = 5;
