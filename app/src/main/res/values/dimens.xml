@@ -31,6 +31,7 @@
 	<dimen name="text_size_title_mega">40sp</dimen>
 	<dimen name="text_size_normal">16sp</dimen>
 	<dimen name="text_size_small">14sp</dimen>
+	<dimen name="text_size_bottom_nav">11sp</dimen>
 	<dimen name="text_size_button">16sp</dimen>
 	<dimen name="text_size_input">24sp</dimen>
 
@@ -87,6 +88,7 @@
 	<dimen name="stats_diagram_padding_bottom">5dp</dimen>
 	<dimen name="stats_checkmark_size">46dp</dimen>
 	<dimen name="stats_checkmark_size_half">23dp</dimen>
+	<dimen name="stats_share_app_icon_size">16dp</dimen>
 
 	<dimen name="divider_height">1dp</dimen>
 </resources>
