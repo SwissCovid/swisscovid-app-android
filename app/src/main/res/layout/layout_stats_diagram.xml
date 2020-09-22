@@ -42,15 +42,11 @@
 				android:layout_height="match_parent"
 				android:nestedScrollingEnabled="true">
 
-				<FrameLayout
-					android:layout_width="wrap_content"
-					android:layout_height="match_parent">
-					<!-- Forces the HorizontalScrollView to the width that the DiagramView needs -->
-					<View
-						android:id="@+id/scroll_view_widener"
-						android:layout_width="0dp"
-						android:layout_height="match_parent" />
-				</FrameLayout>
+				<!-- Forces the HorizontalScrollView to the width that the DiagramView needs -->
+				<View
+					android:id="@+id/scroll_view_widener"
+					android:layout_width="0dp"
+					android:layout_height="match_parent" />
 
 			</HorizontalScrollView>
 		</FrameLayout>

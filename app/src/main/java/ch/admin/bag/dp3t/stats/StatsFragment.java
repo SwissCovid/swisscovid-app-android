@@ -13,7 +13,6 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -209,12 +208,12 @@ public class StatsFragment extends Fragment {
 				diagramView.setHistory(history);
 				diagramYAxisView.setMaxYValue(DiagramView.findMaxYValue(history));
 
-				ViewGroup.LayoutParams lp = scrollViewWidener.getLayoutParams();
-				lp.width = diagramView.getTotalTheoreticWidth();
-				scrollViewWidener.setLayoutParams(lp);
+				int requiredWidth = diagramView.getTotalTheoreticWidth();
+				// Setting the width via LayoutParams does NOT work for the direct child of a ScrollView!
+				scrollViewWidener.setMinimumWidth(requiredWidth);
 
 				diagramScrollView.post(() -> {
-					diagramScrollView.scrollTo(lp.width, 0);
+					diagramScrollView.scrollTo(requiredWidth, 0);
 				});
 		}
 	}
