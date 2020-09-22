@@ -10,8 +10,10 @@
 package ch.admin.bag.dp3t.util;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.models.DayDate;
@@ -22,7 +24,6 @@ public class DateUtils {
 	private static final DateFormat DATE_FORMAT = SimpleDateFormat.getDateInstance();
 
 	public static int getDaysDiff(long date) {
-
 		try {
 			return (int) TimeUnit.DAYS.convert(System.currentTimeMillis() - date, TimeUnit.MILLISECONDS);
 		} catch (Exception e) {
@@ -46,6 +47,33 @@ public class DateUtils {
 
 	public static String getFormattedDate(long date) {
 		return DATE_FORMAT.format(new Date(date));
+	}
+
+	public static Date getParsedDateStats(String date) {
+		if (date == null) {
+			return null;
+		}
+		try {
+			// Needs to be inlined (rather than static) because SimpleDateFormat is not thread-safe
+			final DateFormat DATE_PARSE_STATS = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
+			return DATE_PARSE_STATS.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public static String getFormattedDateStats(Date parsedDate) {
+		// Fix the date format, rather than localising it.
+		// This is an easy workaround for removing the year from the formatted date.
+		final DateFormat DATE_FORMAT_STATS = new SimpleDateFormat("dd.MM.", Locale.ENGLISH);
+
+		if (parsedDate != null) {
+			return DATE_FORMAT_STATS.format(parsedDate);
+		} else {
+			return null;
+		}
 	}
 
 }

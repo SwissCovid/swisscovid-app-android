@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-package ch.admin.bag.dp3t.main.model;
+package ch.admin.bag.dp3t.home.model;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
@@ -33,8 +33,8 @@ public enum NotificationState {
 		return -1;
 	}
 
-	@StringRes public static int getText(NotificationState NotificationState) {
-		switch (NotificationState) {
+	@StringRes public static int getText(NotificationState notificationState) {
+		switch (notificationState) {
 			case NO_REPORTS:
 				return R.string.meldungen_no_meldungen_subtitle;
 			case EXPOSED:

@@ -20,4 +20,8 @@ public class UiUtils {
 		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
 	}
 
+	public static float computeScrollAnimProgress(int scrollY, int scrollRange) {
+		return Math.min(scrollY, scrollRange) / (float) scrollRange;
+	}
+
 }

@@ -11,7 +11,6 @@ package ch.admin.bag.dp3t;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,11 +20,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.sdk.DP3T;
 
-import ch.admin.bag.dp3t.main.HomeFragment;
 import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class MainActivity extends FragmentActivity {
@@ -61,14 +60,10 @@ public class MainActivity extends FragmentActivity {
 						.create();
 				forceUpdateDialog.setOnShowListener(dialog ->
 						forceUpdateDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-						.setOnClickListener(v -> {
-							String packageName = getPackageName();
-							Intent intent = new Intent(Intent.ACTION_VIEW);
-							intent.setData(Uri.parse("market://details?id=" + packageName));
-							if (intent.resolveActivity(getPackageManager()) != null) {
-								startActivity(intent);
-							}
-						}));
+								.setOnClickListener(v -> {
+									String packageName = getPackageName();
+									UrlUtil.openUrl(MainActivity.this, "market://details?id=" + packageName);
+								}));
 				forceUpdateDialog.show();
 			} else if (!forceUpdate && forceUpdateDialog != null) {
 				forceUpdateDialog.dismiss();
@@ -136,7 +131,7 @@ public class MainActivity extends FragmentActivity {
 	private void showHomeFragment() {
 		getSupportFragmentManager()
 				.beginTransaction()
-				.add(R.id.main_fragment_container, HomeFragment.newInstance())
+				.add(R.id.main_fragment_container, TabbarHostFragment.newInstance())
 				.commit();
 	}
 

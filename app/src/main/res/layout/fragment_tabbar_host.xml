@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<androidx.appcompat.widget.Toolbar
+		android:id="@+id/main_toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:menu="@menu/menu_main">
+
+		<ImageView
+			android:id="@+id/schwiizerchruez"
+			android:layout_width="wrap_content"
+			android:layout_height="@dimen/icon_size_toolbar"
+			android:layout_gravity="left"
+			android:adjustViewBounds="true"
+			android:scaleType="fitCenter"
+			android:src="@drawable/ic_schweiz_wappen" />
+
+		<TextView
+			style="@style/NextStep.Text.Bold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:text="@string/app_name" />
+
+	</androidx.appcompat.widget.Toolbar>
+
+	<androidx.fragment.app.FragmentContainerView
+		android:id="@+id/tabs_fragment_container"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1" />
+
+	<com.google.android.material.bottomnavigation.BottomNavigationView
+		android:id="@+id/fragment_main_navigation_view"
+		style="@style/NextStep.BottomNavigationView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:labelVisibilityMode="labeled"
+		app:menu="@menu/menu_bottom_nav_bar" />
+
+</LinearLayout>

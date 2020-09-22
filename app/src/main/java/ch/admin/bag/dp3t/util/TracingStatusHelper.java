@@ -19,7 +19,7 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.main.model.TracingState;
+import ch.admin.bag.dp3t.home.model.TracingState;
 
 public class TracingStatusHelper {
 

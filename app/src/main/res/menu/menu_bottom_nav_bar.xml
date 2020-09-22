@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:id="@+id/bottom_nav_home"
+		android:icon="@drawable/ic_begegnungen"
+		android:title="@string/bottom_nav_tab_home" />
+	<item
+		android:id="@+id/bottom_nav_stats"
+		android:icon="@drawable/ic_stats"
+		android:title="@string/bottom_nav_tab_stats" />
+</menu>

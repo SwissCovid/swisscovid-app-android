@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-package ch.admin.bag.dp3t.main;
+package ch.admin.bag.dp3t.home;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -28,7 +28,7 @@ import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.main.model.TracingState;
+import ch.admin.bag.dp3t.home.model.TracingState;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 import ch.admin.bag.dp3t.util.ENExceptionHelper;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
@@ -148,7 +148,7 @@ public class TracingBoxFragment extends Fragment {
 
 		tracingViewModel.enableTracing(activity,
 				() -> { },
-				(e) -> {
+				e -> {
 					String message = ENExceptionHelper.getErrorMessage(e, activity);
 					Logger.e(TAG, message);
 					new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
