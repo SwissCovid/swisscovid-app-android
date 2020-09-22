@@ -52,7 +52,6 @@ public class DiagramView extends View {
 	private Paint newInfectionsPaint;
 	private Paint newInfectionsAvgPaint;
 	private Paint enteredCovidcodesPaint;
-	private Paint barDividerPaint;
 	private Paint xAxisPaint;
 	private Paint yAxisPaint;
 	private Paint labelPaint;
@@ -99,11 +98,6 @@ public class DiagramView extends View {
 		enteredCovidcodesPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		enteredCovidcodesPaint.setStyle(Paint.Style.FILL);
 		enteredCovidcodesPaint.setColor(enteredCovidcodesPaintColor);
-
-		int barDividerPaintColor = getResources().getColor(R.color.stats_diagram_background, null);
-		barDividerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		barDividerPaint.setStyle(Paint.Style.FILL);
-		barDividerPaint.setColor(barDividerPaintColor);
 
 		int xAxisPaintColor = getResources().getColor(R.color.stats_diagram_x_axis, null);
 		xAxisPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -171,25 +165,23 @@ public class DiagramView extends View {
 			Integer niavg = history.get(i).getNewInfectionsSevenDayAverage();
 			float cc = history.get(i).getCovidcodesEntered();
 
+			// Draw bars
 			float left = i * (WIDTH_BAR + PADDING_BAR) * dp;
 			float right = left + WIDTH_BAR * dp;
-			float bottom = getHeight() - OFFSET_BOTTOM_X_AXIS * dp;
 
-			// Draw bars
+			float bottom = getHeight() - OFFSET_BOTTOM_X_AXIS * dp;
 			float topCovidcodes = bottom - bottom * (cc / maxYValue);
-			float topNewInfections = bottom - bottom * (ni / maxYValue);
+
+			float bottomNewInfections = topCovidcodes;
+			if (cc > 0) {
+				bottomNewInfections -= PADDING_BAR * dp;
+			}
+			float topNewInfections = bottomNewInfections - bottom * (ni / maxYValue);
 
 			canvas.drawRect(left, topCovidcodes, right, bottom, enteredCovidcodesPaint);
-			canvas.drawRect(left, topNewInfections, right, bottom, newInfectionsPaint);
+			canvas.drawRect(left, topNewInfections, right, bottomNewInfections, newInfectionsPaint);
 
-			// Rather than offsetting the newInfectionsBar to the top of the covidcodesBar,
-			// we explicitly draw the horizontal divider on top of the covidcodesBar (which is always in the front).
-			// This is safer for the (though rare) case where there are more covidcodes then newInfections.
-			float bottomDivider = topCovidcodes;
-			float topDivider = bottomDivider - PADDING_BAR * dp;
-			canvas.drawRect(left, topDivider, right, bottomDivider, barDividerPaint);
-
-			// Prepare drawing line
+			// Prepare drawing average-new-infections line
 			float avgX = left + WIDTH_BAR * dp / 2;
 			float avgY = 0;
 			if (niavg != null) {
