@@ -974,35 +974,35 @@ Schwarzenburgstrasse 157
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
-    <string name="bottom_nav_tab_home"></string>
-    <string name="bottom_nav_tab_stats"></string>
-    <string name="stats_title"></string>
-    <string name="stats_legend_new_infections"></string>
-    <string name="stats_legend_new_infections_average"></string>
-    <string name="stats_legend_entered_covidcodes"></string>
-    <string name="share_app_supertitle"></string>
-    <string name="share_app_title"></string>
-    <string name="share_app_button"></string>
-    <string name="share_app_body"></string>
+    <string name="bottom_nav_tab_home">"SwissCovid"</string>
+    <string name="bottom_nav_tab_stats">"Stats"</string>
+    <string name="stats_title">"already use SwissCovid"</string>
+    <string name="stats_legend_new_infections">"New infections reported"</string>
+    <string name="stats_legend_new_infections_average">"7-day average"</string>
+    <string name="stats_legend_entered_covidcodes">"Covidcodes entered"</string>
+    <string name="share_app_supertitle">"Working together to…"</string>
+    <string name="share_app_title">"Prevent a second wave"</string>
+    <string name="share_app_button">"Share app"</string>
+    <string name="share_app_body">"If as many people as possible activate the SwissCovid app, we can break infection chains early."</string>
 
     <!-- Text der geteilt wird -->
-    <string name="share_app_message"></string>
+    <string name="share_app_message">"If as many people as possible activate the SwissCovid app, we can break infection chains early."</string>
 
     <!-- URL die geteilt wird -->
-    <string name="share_app_url"></string>
+    <string name="share_app_url">"https://foph-coronavirus.ch/swisscovid-app/#download"</string>
 
     <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
-    <string name="stats_counter">"{COUNT} Mill."</string>
+    <string name="stats_counter">"{COUNT} m"</string>
 
     <!-- Statistik Tag der Daten "{DAY}" wird mit dem Aktualisierungsdatum ersetzt z.B. "14.9." -->
-    <string name="stats_source_day"></string>
+    <string name="stats_source_day">"Stats as of {DAY}"</string>
 
     <!-- Links zu weiteren Statistiken -->
-    <string name="stats_more_statistics_button"></string>
+    <string name="stats_more_statistics_button">"View more statistics"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url"></string>
+    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/en/home/innovative-methods/swisscovid-app-monitoring.html"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
-    <string name="stats_loading_error_text"></string>
+    <string name="stats_loading_error_text">"Currently unable to load stats"</string>
 </resources>

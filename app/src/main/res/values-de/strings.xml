@@ -1020,10 +1020,10 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <string name="share_app_button">"App teilen"</string>
 
     <!-- Fuzzy -->
-    <string name="share_app_body">"Wenn möglichst viele die SwissCovid App aktivieren, können wir Infektionsketten frühzeitig unterbrechen."</string>
+    <string name="share_app_body">"Wenn möglichst viele die SwissCovid App nutzen, können wir Infektionsketten frühzeitig unterbrechen."</string>
 
     <!-- Text der geteilt wird -->
-    <string name="share_app_message">"Wenn möglichst viele die SwissCovid App aktivieren, können wir Infektionsketten frühzeitig unterbrechen."</string>
+    <string name="share_app_message">"Wenn möglichst viele die SwissCovid App nutzen, können wir Infektionsketten frühzeitig unterbrechen."</string>
 
     <!-- URL die geteilt wird -->
     <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
