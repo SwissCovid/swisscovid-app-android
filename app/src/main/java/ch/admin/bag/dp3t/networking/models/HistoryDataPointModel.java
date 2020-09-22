@@ -16,9 +16,9 @@ import ch.admin.bag.dp3t.util.DateUtils;
 public class HistoryDataPointModel {
 
 	private String date;
-	private int newInfections;
+	private Integer newInfections;
 	private Integer newInfectionsSevenDayAverage;
-	private int covidcodesEntered;
+	private Integer covidcodesEntered;
 
 	public String getDateRaw() {
 		return date;
@@ -32,7 +32,7 @@ public class HistoryDataPointModel {
 		return DateUtils.getFormattedDateStats(getDateParsed());
 	}
 
-	public int getNewInfections() {
+	public Integer getNewInfections() {
 		return newInfections;
 	}
 
@@ -40,7 +40,7 @@ public class HistoryDataPointModel {
 		return newInfectionsSevenDayAverage;
 	}
 
-	public int getCovidcodesEntered() {
+	public Integer getCovidcodesEntered() {
 		return covidcodesEntered;
 	}
 
