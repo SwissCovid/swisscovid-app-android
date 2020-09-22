@@ -28,18 +28,18 @@ import ch.admin.bag.dp3t.networking.models.HistoryDataPointModel;
 @SuppressWarnings("FieldCanBeLocal")
 public class DiagramView extends View {
 
-	public static int OFFSET_BOTTOM_X_AXIS = 33;
-	private static int STROKE_WIDTH_X_AXIS = 1;
-	private static int HEIGHT_X_AXIS_DATE_MARKER = 10;
-	private static int PADDING_X_AXIS_DATE_MARKER_LABEL = 5;
+	public static final int OFFSET_BOTTOM_X_AXIS = 33;
+	private static final int STROKE_WIDTH_X_AXIS = 1;
+	private static final int HEIGHT_X_AXIS_DATE_MARKER = 10;
+	private static final int PADDING_X_AXIS_DATE_MARKER_LABEL = 5;
 
-	private static int STROKE_WIDTH_Y_AXIS = 1;
-	private static int WIDTH_Y_AXIS_DASH_ON = 2;
-	private static int WIDTH_Y_AXIS_DASH_OFF = 2;
+	private static final int STROKE_WIDTH_Y_AXIS = 1;
+	private static final int WIDTH_Y_AXIS_DASH_ON = 2;
+	private static final int WIDTH_Y_AXIS_DASH_OFF = 2;
 
-	private static int STROKE_WIDTH_AVG_LINE = 2;
-	private static int WIDTH_BAR = 10;
-	private static int PADDING_BAR = 1;
+	private static final int STROKE_WIDTH_AVG_LINE = 2;
+	private static final int WIDTH_BAR = 10;
+	private static final int PADDING_BAR = 1;
 
 	// All sizes are given in DP and need to be scaled/multiplied by this value
 	private float dp;

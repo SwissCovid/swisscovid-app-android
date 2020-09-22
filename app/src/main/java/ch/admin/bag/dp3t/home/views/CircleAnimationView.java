@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.home.views;
 
 import android.content.Context;
@@ -104,7 +103,9 @@ public class CircleAnimationView extends View {
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
-		if (circles.size() == 0) return;
+		if (circles.isEmpty()) {
+			return;
+		}
 
 		long now = System.currentTimeMillis();
 		int halfW = Math.round(getWidth() * 0.5f);
@@ -130,7 +131,9 @@ public class CircleAnimationView extends View {
 			canvas.drawCircle(centerX, centerY, radius, paintCircle);
 		}
 
-		if (circles.size() > 0) invalidate();
+		if (circles.size() > 0) {
+			invalidate();
+		}
 	}
 
 	public void spawnCircle() {
@@ -150,6 +153,7 @@ public class CircleAnimationView extends View {
 		}
 
 	}
+
 
 	private class CircleRunnable implements Runnable {
 		private boolean run = true;

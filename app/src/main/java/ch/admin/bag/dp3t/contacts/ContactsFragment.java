@@ -81,9 +81,8 @@ public class ContactsFragment extends Fragment {
 		setupTracingView();
 		setupHistoryCard(view);
 
-		view.findViewById(R.id.contacts_faq_button).setOnClickListener(v -> {
-			UrlUtil.openUrl(getContext(), getString(R.string.faq_button_url));
-		});
+		view.findViewById(R.id.contacts_faq_button)
+				.setOnClickListener(v -> UrlUtil.openUrl(v.getContext(), getString(R.string.faq_button_url)));
 	}
 
 	private void setupTracingView() {

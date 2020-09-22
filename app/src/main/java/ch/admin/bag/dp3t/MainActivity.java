@@ -11,7 +11,6 @@ package ch.admin.bag.dp3t;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +20,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.sdk.DP3T;
 
-import ch.admin.bag.dp3t.home.HomeFragment;
 import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
@@ -62,10 +60,10 @@ public class MainActivity extends FragmentActivity {
 						.create();
 				forceUpdateDialog.setOnShowListener(dialog ->
 						forceUpdateDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-						.setOnClickListener(v -> {
-							String packageName = getPackageName();
-							UrlUtil.openUrl(MainActivity.this, "market://details?id=" + packageName);
-						}));
+								.setOnClickListener(v -> {
+									String packageName = getPackageName();
+									UrlUtil.openUrl(MainActivity.this, "market://details?id=" + packageName);
+								}));
 				forceUpdateDialog.show();
 			} else if (!forceUpdate && forceUpdateDialog != null) {
 				forceUpdateDialog.dismiss();

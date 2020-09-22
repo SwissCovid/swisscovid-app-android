@@ -28,7 +28,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -170,9 +169,7 @@ public class HomeFragment extends Fragment {
 			TextView linkView = infobox.findViewById(R.id.infobox_link_text);
 			if (url != null) {
 				linkView.setText(urlTitle != null ? urlTitle : url);
-				linkGroup.setOnClickListener(v -> {
-					UrlUtil.openUrl(getContext(), url);
-				});
+				linkGroup.setOnClickListener(v -> UrlUtil.openUrl(v.getContext(), url));
 				linkGroup.setVisibility(VISIBLE);
 			} else {
 				linkGroup.setVisibility(View.GONE);
@@ -182,9 +179,7 @@ public class HomeFragment extends Fragment {
 			View dismissButton = infobox.findViewById(R.id.dismiss_button);
 			if (isDismissible) {
 				dismissButton.setVisibility(VISIBLE);
-				dismissButton.setOnClickListener(v -> {
-					secureStorage.setHasInfobox(false);
-				});
+				dismissButton.setOnClickListener(v -> secureStorage.setHasInfobox(false));
 			} else dismissButton.setVisibility(View.GONE);
 		});
 	}
@@ -368,7 +363,7 @@ public class HomeFragment extends Fragment {
 
 		tracingViewModel.enableTracing(activity,
 				() -> { },
-				(e) -> {
+				e -> {
 					String message = ENExceptionHelper.getErrorMessage(e, activity);
 					Logger.e(TAG, message);
 					new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)

@@ -22,8 +22,8 @@ import ch.admin.bag.dp3t.R;
 @SuppressWarnings("FieldCanBeLocal")
 public class DiagramYAxisView extends View {
 
-	private static int PADDING_Y_AXIS_LEFT = 5;
-	private static int PADDING_Y_AXIS_RIGHT = 10;
+	private static final int PADDING_Y_AXIS_LEFT = 5;
+	private static final int PADDING_Y_AXIS_RIGHT = 10;
 
 	// All sizes are given in DP and need to be scaled/multiplied by this value
 	private float dp;

@@ -33,8 +33,8 @@ public enum NotificationState {
 		return -1;
 	}
 
-	@StringRes public static int getText(NotificationState NotificationState) {
-		switch (NotificationState) {
+	@StringRes public static int getText(NotificationState notificationState) {
+		switch (notificationState) {
 			case NO_REPORTS:
 				return R.string.meldungen_no_meldungen_subtitle;
 			case EXPOSED:

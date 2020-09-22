@@ -22,14 +22,13 @@ import org.dpppt.android.sdk.backend.SignatureException;
 import ch.admin.bag.dp3t.networking.StatsRepository;
 import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
-import ch.admin.bag.dp3t.stats.StatsOutcome;
 import ch.admin.bag.dp3t.util.Outcome;
 
 public class StatsViewModel extends AndroidViewModel {
 
 	private StatsRepository statsRepository;
 
-	private final MutableLiveData<StatsOutcome> statsLiveData = new MutableLiveData<StatsOutcome>(new StatsOutcome());
+	private final MutableLiveData<StatsOutcome> statsLiveData = new MutableLiveData<>(new StatsOutcome());
 
 	public StatsViewModel(@NonNull Application application) {
 		super(application);

@@ -148,7 +148,7 @@ public class TracingBoxFragment extends Fragment {
 
 		tracingViewModel.enableTracing(activity,
 				() -> { },
-				(e) -> {
+				e -> {
 					String message = ENExceptionHelper.getErrorMessage(e, activity);
 					Logger.e(TAG, message);
 					new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)

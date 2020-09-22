@@ -112,18 +112,19 @@ public class TabbarHostFragment extends Fragment {
 			lastSelectedTab = item.getItemId();
 			lastTabSwitch = System.currentTimeMillis();
 
+			// Use a switch anyway, there may be more tabs in the future
 			switch (item.getItemId()) {
-				case R.id.bottom_nav_home:
-					getChildFragmentManager().beginTransaction()
-							.replace(R.id.tabs_fragment_container, HomeFragment.newInstance())
-							.commit();
-					break;
 				case R.id.bottom_nav_stats:
 					getChildFragmentManager().beginTransaction()
 							.replace(R.id.tabs_fragment_container, StatsFragment.newInstance())
 							.commit();
 
 					statsViewModel.loadStats();
+					break;
+				default:
+					getChildFragmentManager().beginTransaction()
+							.replace(R.id.tabs_fragment_container, HomeFragment.newInstance())
+							.commit();
 					break;
 			}
 			return true;
