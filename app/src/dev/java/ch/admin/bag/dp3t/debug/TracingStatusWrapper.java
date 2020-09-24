@@ -20,8 +20,8 @@ import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
-import ch.admin.bag.dp3t.main.model.DefaultTracingStatusWrapper;
-import ch.admin.bag.dp3t.main.model.NotificationState;
+import ch.admin.bag.dp3t.home.model.DefaultTracingStatusWrapper;
+import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 
 public class TracingStatusWrapper extends DefaultTracingStatusWrapper {

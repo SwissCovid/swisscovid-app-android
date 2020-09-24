@@ -979,4 +979,35 @@ Schwarzenburgstrasse 157
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Notifiche di esposizione"</string>
+    <string name="bottom_nav_tab_home">"SwissCovid"</string>
+    <string name="bottom_nav_tab_stats">"Cifre"</string>
+    <string name="stats_title">"utilizzano già SwissCovid"</string>
+    <string name="stats_legend_new_infections">"Nuove infezioni segnalate"</string>
+    <string name="stats_legend_new_infections_average">"Media su 7 giorni"</string>
+    <string name="stats_legend_entered_covidcodes">"Codici Covid immessi"</string>
+    <string name="share_app_supertitle">"Insieme…"</string>
+    <string name="share_app_title">"possiamo impedire una seconda ondata"</string>
+    <string name="share_app_button">"Condividi l'app"</string>
+    <string name="share_app_body">"Quante più persone attivano l'app SwissCovid, tanto più è possibile interrompere precocemente le catene di infezione."</string>
+
+    <!-- Text der geteilt wird -->
+    <string name="share_app_message">"Quante più persone attivano l'app SwissCovid, tanto più è possibile interrompere precocemente le catene di infezione."</string>
+
+    <!-- URL die geteilt wird -->
+    <string name="share_app_url">"https://ufsp-coronavirus.ch/app-swisscovid/#download"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
+    <string name="stats_counter">"{COUNT} mio."</string>
+
+    <!-- Statistik Tag der Daten "{DAY}" wird mit dem Aktualisierungsdatum ersetzt z.B. "14.9." -->
+    <string name="stats_source_day">"Stato dei dati {DAY}"</string>
+
+    <!-- Links zu weiteren Statistiken -->
+    <string name="stats_more_statistics_button">"Altre statistiche"</string>
+
+    <!-- URL zu weiteren statistiken -->
+    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/en/home/innovative-methods/swisscovid-app-monitoring.html"</string>
+
+    <!-- Body of the error message shown when the statistics data cannot be loaded -->
+    <string name="stats_loading_error_text">"Impossibile caricare i dati in questo momento"</string>
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="rectangle">
+	<solid android:color="@color/stats_diagram_entered_covidcodes" />
+	<size
+		android:width="@dimen/legend_icon_size"
+		android:height="@dimen/legend_icon_size" />
+</shape>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
   ~
   ~ This Source Code Form is subject to the terms of the Mozilla Public
@@ -20,7 +19,7 @@
 		android:id="@+id/main_header_bg_image"
 		android:layout_width="match_parent"
 		android:scaleType="centerCrop"
-		android:layout_height="match_parent"/>
+		android:layout_height="match_parent" />
 
 	<ImageView
 		android:id="@+id/main_header_icon_bg"
@@ -31,18 +30,19 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		android:scaleType="fitCenter"
-		android:layout_marginTop="@dimen/spacing_small"
-		android:layout_marginBottom="@dimen/spacing_larger"
+		android:layout_marginTop="@dimen/spacing_header_top"
+		android:layout_marginBottom="@dimen/spacing_header_bottom"
 		tools:src="@drawable/bg_header_icon_on" />
 
-	<ch.admin.bag.dp3t.main.views.CircleAnimationView
+	<!-- No margins since its centre is set programmatically -->
+	<ch.admin.bag.dp3t.home.views.CircleAnimationView
 		android:id="@+id/main_header_anim_view"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		app:layout_constraintTop_toTopOf="parent"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"/>
+		app:layout_constraintEnd_toEndOf="parent" />
 
 	<ImageView
 		android:id="@+id/main_header_icon"
@@ -53,8 +53,8 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		android:scaleType="fitCenter"
-		android:layout_marginTop="@dimen/spacing_small"
-		android:layout_marginBottom="@dimen/spacing_larger"
+		android:layout_marginTop="@dimen/spacing_header_top"
+		android:layout_marginBottom="@dimen/spacing_header_bottom"
 		tools:src="@drawable/ic_begegnungen" />
 
 </merge>

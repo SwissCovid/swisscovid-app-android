@@ -9,8 +9,6 @@
  */
 package ch.admin.bag.dp3t.onboarding;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -23,11 +21,14 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.util.AssetUtil;
+import ch.admin.bag.dp3t.util.UlTagHandler;
+import ch.admin.bag.dp3t.util.UrlUtil;
 
 public class OnboardingDisclaimerFragment extends Fragment {
 
@@ -43,7 +44,7 @@ public class OnboardingDisclaimerFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
 		sdf.setTimeZone(TimeZone.getTimeZone("Europe/Zurich"));
 		String versionText = getString(R.string.onboarding_disclaimer_app_version) + " " + BuildConfig.VERSION_NAME + "\n" +
 				getString(R.string.onboarding_disclaimer_release_version) + " " + sdf.format(BuildConfig.BUILD_TIME);
@@ -52,8 +53,8 @@ public class OnboardingDisclaimerFragment extends Fragment {
 
 		TextView termsOfUseTextview = view.findViewById(R.id.terms_of_use_textview);
 		TextView dataProtectionTextView = view.findViewById(R.id.data_protection_textview);
-		termsOfUseTextview.setText(Html.fromHtml(AssetUtil.getTermsOfUse(getContext())));
-		dataProtectionTextView.setText(Html.fromHtml(AssetUtil.getDataProtection(getContext())));
+		termsOfUseTextview.setText(Html.fromHtml(AssetUtil.getTermsOfUse(getContext()), null, new UlTagHandler()));
+		dataProtectionTextView.setText(Html.fromHtml(AssetUtil.getDataProtection(getContext()), null, new UlTagHandler()));
 
 		ImageView termsOfUseChevron = view.findViewById(R.id.terms_of_use_chevron_imageview);
 		ImageView dataProtectionChevron = view.findViewById(R.id.data_protection_chevron_imageview);
@@ -101,8 +102,7 @@ public class OnboardingDisclaimerFragment extends Fragment {
 	}
 
 	private void openOnlineVersion() {
-		Intent browserIntent =
-				new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.onboarding_disclaimer_legal_button_url)));
-		startActivity(browserIntent);
+		UrlUtil.openUrl(getContext(), getString(R.string.onboarding_disclaimer_legal_button_url));
 	}
+
 }

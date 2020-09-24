@@ -943,4 +943,35 @@ Schwarzenburgstrasse 157
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
+    <string name="bottom_nav_tab_home">"SwissCovid"</string>
+    <string name="bottom_nav_tab_stats">"ቁጽርታት"</string>
+    <string name="stats_title">"ድሮ ንSwisCovid ይጥቐሙሉ እዮም"</string>
+    <string name="stats_legend_new_infections">"ዝተሓበሩ ሓድሽቲ ልበዳታት"</string>
+    <string name="stats_legend_new_infections_average">"ናይ 7 መዓልቲ ገምጋም"</string>
+    <string name="stats_legend_entered_covidcodes">"ዝተመዝገቡ ናይ ኮቪድ ኮዳት"</string>
+    <string name="share_app_supertitle">"ብሓባር …"</string>
+    <string name="share_app_title">"ካልኣይ ምዝርጋሕ ምውጋድ"</string>
+    <string name="share_app_button">"ነቲ ኤፕ ምኽፋል"</string>
+    <string name="share_app_body">"ብዝተኻእለ መጠን ብዙሓት ንSwissCovid ኤፕ እንድሕር ወሊዖሞ፣ ናይ ልበዳ ሰንሰለታት ብኣጋኡ ከነቋርጾም ንኽእል ኢና።"</string>
+
+    <!-- Text der geteilt wird -->
+    <string name="share_app_message">"ብዝተኻእለ መጠን ብዙሓት ንSwissCovid ኤፕ እንድሕር ወሊዖሞ፣ ናይ ልበዳ ሰንሰለታት ብኣጋኡ ከነቋርጾም ንኽእል ኢና።"</string>
+
+    <!-- URL die geteilt wird -->
+    <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
+    <string name="stats_counter">"{COUNT} ሚልዮን"</string>
+
+    <!-- Statistik Tag der Daten "{DAY}" wird mit dem Aktualisierungsdatum ersetzt z.B. "14.9." -->
+    <string name="stats_source_day">"መርገጽ ዳታ {DAY}"</string>
+
+    <!-- Links zu weiteren Statistiken -->
+    <string name="stats_more_statistics_button">"ቀጻሊ ስታቲስቲክስ"</string>
+
+    <!-- URL zu weiteren statistiken -->
+    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/de/home/innovative-methoden/swisscovid-app-monitoring.html"</string>
+
+    <!-- Body of the error message shown when the statistics data cannot be loaded -->
+    <string name="stats_loading_error_text">"እቲ ዳታ ሕጂ ብገለ ክውሰድ ኣይክኣልን‘ዩ"</string>
 </resources>

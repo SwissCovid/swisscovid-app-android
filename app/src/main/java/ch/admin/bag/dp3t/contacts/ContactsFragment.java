@@ -10,8 +10,6 @@
 package ch.admin.bag.dp3t.contacts;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -31,10 +29,11 @@ import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.main.TracingBoxFragment;
-import ch.admin.bag.dp3t.main.views.HeaderView;
+import ch.admin.bag.dp3t.home.TracingBoxFragment;
+import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.ENExceptionHelper;
+import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ContactsFragment extends Fragment {
@@ -82,10 +81,8 @@ public class ContactsFragment extends Fragment {
 		setupTracingView();
 		setupHistoryCard(view);
 
-		view.findViewById(R.id.contacts_faq_button).setOnClickListener(v -> {
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
-			startActivity(browserIntent);
-		});
+		view.findViewById(R.id.contacts_faq_button)
+				.setOnClickListener(v -> UrlUtil.openUrl(v.getContext(), getString(R.string.faq_button_url)));
 	}
 
 	private void setupTracingView() {
@@ -123,7 +120,7 @@ public class ContactsFragment extends Fragment {
 		View historyCard = view.findViewById(R.id.contacts_card_history);
 		if (BuildConfig.IS_FLAVOR_PROD || BuildConfig.IS_FLAVOR_ABNAHME) {
 			historyCard.findViewById(R.id.card_history_chevron).setVisibility(View.GONE);
-		}else {
+		} else {
 			historyCard.setOnClickListener(v -> {
 				getParentFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)

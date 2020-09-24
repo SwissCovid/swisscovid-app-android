@@ -7,10 +7,9 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-package ch.admin.bag.dp3t.main.views;
+package ch.admin.bag.dp3t.home.views;
 
 import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -19,11 +18,9 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
-import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
@@ -33,9 +30,9 @@ import java.util.Random;
 import org.dpppt.android.sdk.TracingStatus;
 
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.main.model.NotificationState;
-import ch.admin.bag.dp3t.main.model.TracingState;
-import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
+import ch.admin.bag.dp3t.home.model.NotificationState;
+import ch.admin.bag.dp3t.home.model.TracingState;
+import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
 
 public class HeaderView extends ConstraintLayout {
@@ -233,37 +230,6 @@ public class HeaderView extends ConstraintLayout {
 			view.setAlpha(alpha);
 		});
 		return animator;
-	}
-
-	private AnimatorSet createIconSwitchAnimation(ImageView iconView, ImageView iconBg, @DrawableRes int iconRes,
-			@DrawableRes int iconBgRes, long duration) {
-		long halfDur = duration / 2;
-		AnimatorSet animatorSet = new AnimatorSet();
-
-		ValueAnimator disappearIcon = createSizeAnimation(iconView, 1f, 0f, halfDur, ICON_ANIM_DELAY);
-		disappearIcon.setInterpolator(new AccelerateInterpolator());
-		ValueAnimator appearIcon = createAlphaAnimation(iconView, 0f, 1f, halfDur, 0);
-		disappearIcon.addListener(new AnimatorListenerAdapter() {
-			@Override
-			public void onAnimationEnd(Animator animation) {
-				icon.setImageResource(iconRes);
-			}
-		});
-
-		ValueAnimator disappearBg = createSizeAnimation(iconView, 1f, 0f, halfDur, 0);
-		disappearBg.setInterpolator(new AccelerateInterpolator());
-		ValueAnimator appearBg = createSizeAnimation(iconView, 0f, 1f, halfDur, 0);
-		disappearBg.addListener(new AnimatorListenerAdapter() {
-			@Override
-			public void onAnimationEnd(Animator animation) {
-				iconBg.setImageResource(iconBgRes);
-			}
-		});
-
-		animatorSet.playTogether(disappearBg, disappearIcon);
-		animatorSet.play(appearBg).after(disappearBg);
-		animatorSet.play(appearIcon).after(disappearIcon);
-		return animatorSet;
 	}
 
 }

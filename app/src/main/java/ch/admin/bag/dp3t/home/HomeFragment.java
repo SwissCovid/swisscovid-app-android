@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-package ch.admin.bag.dp3t.main;
+package ch.admin.bag.dp3t.home;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -28,12 +28,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.logger.Logger;
@@ -41,12 +38,10 @@ import org.dpppt.android.sdk.internal.logger.Logger;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
-import ch.admin.bag.dp3t.debug.DebugFragment;
-import ch.admin.bag.dp3t.html.HtmlFragment;
-import ch.admin.bag.dp3t.main.model.NotificationState;
-import ch.admin.bag.dp3t.main.model.NotificationStateError;
-import ch.admin.bag.dp3t.main.model.TracingState;
-import ch.admin.bag.dp3t.main.views.HeaderView;
+import ch.admin.bag.dp3t.home.model.NotificationState;
+import ch.admin.bag.dp3t.home.model.NotificationStateError;
+import ch.admin.bag.dp3t.home.model.TracingState;
+import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.*;
@@ -82,10 +77,7 @@ public class HomeFragment extends Fragment {
 	}
 
 	public static HomeFragment newInstance() {
-		Bundle args = new Bundle();
-		HomeFragment fragment = new HomeFragment();
-		fragment.setArguments(args);
-		return fragment;
+		return new HomeFragment();
 	}
 
 	@Override
@@ -104,23 +96,6 @@ public class HomeFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-		Toolbar toolbar = view.findViewById(R.id.home_toolbar);
-		toolbar.inflateMenu(R.menu.homescreen_menu);
-		toolbar.setOnMenuItemClickListener(item -> {
-			if (item.getItemId() == R.id.homescreen_menu_impressum) {
-				HtmlFragment htmlFragment =
-						HtmlFragment.newInstance(R.string.menu_impressum, AssetUtil.getImpressumBaseUrl(getContext()),
-								AssetUtil.getImpressumHtml(getContext()));
-				getParentFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, htmlFragment)
-						.addToBackStack(HtmlFragment.class.getCanonicalName())
-						.commit();
-				return true;
-			}
-			return false;
-		});
-
 		infobox = view.findViewById(R.id.card_infobox);
 		tracingCard = view.findViewById(R.id.card_tracing);
 		cardNotifications = view.findViewById(R.id.card_notifications);
@@ -140,7 +115,6 @@ public class HomeFragment extends Fragment {
 		setupTracingView();
 		setupNotification();
 		setupWhatToDo();
-		setupDebugButton();
 		setupNonProductionHint();
 		setupScrollBehavior();
 	}
@@ -195,10 +169,7 @@ public class HomeFragment extends Fragment {
 			TextView linkView = infobox.findViewById(R.id.infobox_link_text);
 			if (url != null) {
 				linkView.setText(urlTitle != null ? urlTitle : url);
-				linkGroup.setOnClickListener(v -> {
-					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-					startActivity(browserIntent);
-				});
+				linkGroup.setOnClickListener(v -> UrlUtil.openUrl(v.getContext(), url));
 				linkGroup.setVisibility(VISIBLE);
 			} else {
 				linkGroup.setVisibility(View.GONE);
@@ -208,9 +179,7 @@ public class HomeFragment extends Fragment {
 			View dismissButton = infobox.findViewById(R.id.dismiss_button);
 			if (isDismissible) {
 				dismissButton.setVisibility(VISIBLE);
-				dismissButton.setOnClickListener(v -> {
-					secureStorage.setHasInfobox(false);
-				});
+				dismissButton.setOnClickListener(v -> secureStorage.setHasInfobox(false));
 			} else dismissButton.setVisibility(View.GONE);
 		});
 	}
@@ -238,20 +207,23 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void showContactsFragment() {
-		getParentFragmentManager().beginTransaction()
+		getActivity().getSupportFragmentManager().beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 				.replace(R.id.main_fragment_container, ContactsFragment.newInstance())
 				.addToBackStack(ContactsFragment.class.getCanonicalName())
 				.commit();
 	}
 
+	private void showReportsFragment() {
+		getActivity().getSupportFragmentManager().beginTransaction()
+				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+				.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
+				.addToBackStack(ReportsFragment.class.getCanonicalName())
+				.commit();
+	}
+
 	private void setupNotification() {
-		cardNotifications.setOnClickListener(
-				v -> getParentFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
-						.addToBackStack(ReportsFragment.class.getCanonicalName())
-						.commit());
+		cardNotifications.setOnClickListener(v -> showReportsFragment());
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			//update status view
@@ -345,32 +317,17 @@ public class HomeFragment extends Fragment {
 
 	private void setupWhatToDo() {
 		cardSymptoms.setOnClickListener(
-				v -> getParentFragmentManager().beginTransaction()
+				v -> getActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
 						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
 						.commit());
 		cardTest.setOnClickListener(
-				v -> getParentFragmentManager().beginTransaction()
+				v -> getActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
 						.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
 						.commit());
-	}
-
-	private void setupDebugButton() {
-		if (!DebugFragment.EXISTS)
-			return;
-
-		AtomicLong lastClick = new AtomicLong(0);
-		requireView().findViewById(R.id.schwiizerchruez).setOnClickListener(v -> {
-			if (lastClick.get() > System.currentTimeMillis() - 1000L) {
-				lastClick.set(0);
-				DebugFragment.startDebugFragment(getParentFragmentManager());
-			} else {
-				lastClick.set(System.currentTimeMillis());
-			}
-		});
 	}
 
 	private void setupNonProductionHint() {
@@ -385,20 +342,17 @@ public class HomeFragment extends Fragment {
 	private void setupScrollBehavior() {
 		int scrollRangePx = getResources().getDimensionPixelSize(R.dimen.top_item_padding);
 		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
+
 		scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-			float progress = computeScrollAnimProgress(scrollY, scrollRangePx);
+			float progress = UiUtils.computeScrollAnimProgress(scrollY, scrollRangePx);
 			headerView.setAlpha(1 - progress);
 			headerView.setTranslationY(progress * translationRangePx);
 		});
 		scrollView.post(() -> {
-			float progress = computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
+			float progress = UiUtils.computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
 			headerView.setAlpha(1 - progress);
 			headerView.setTranslationY(progress * translationRangePx);
 		});
-	}
-
-	private float computeScrollAnimProgress(int scrollY, int scrollRange) {
-		return Math.min(scrollY, scrollRange) / (float) scrollRange;
 	}
 
 	private void enableTracing() {
@@ -409,7 +363,7 @@ public class HomeFragment extends Fragment {
 
 		tracingViewModel.enableTracing(activity,
 				() -> { },
-				(e) -> {
+				e -> {
 					String message = ENExceptionHelper.getErrorMessage(e, activity);
 					Logger.e(TAG, message);
 					new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)

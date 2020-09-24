@@ -7,9 +7,9 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.util;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -21,24 +21,30 @@ public class PhoneUtil {
 	public static void callHelpline(Context context) {
 		Intent intent = new Intent(Intent.ACTION_DIAL);
 		intent.setData(Uri.parse("tel:" + context.getString(R.string.infoline_tel_number)));
-		if (intent.resolveActivity(context.getPackageManager()) != null) {
+		try {
 			context.startActivity(intent);
+		} catch (ActivityNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 
 	public static void callAppHotline(Context context) {
 		Intent intent = new Intent(Intent.ACTION_DIAL);
 		intent.setData(Uri.parse("tel:" + context.getString(R.string.app_hotline_tel_number)));
-		if (intent.resolveActivity(context.getPackageManager()) != null) {
+		try {
 			context.startActivity(intent);
+		} catch (ActivityNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 
 	public static void callInfolineCoronavirus(Context context) {
 		Intent intent = new Intent(Intent.ACTION_DIAL);
 		intent.setData(Uri.parse("tel:" + context.getString(R.string.infoline_coronavirus_number)));
-		if (intent.resolveActivity(context.getPackageManager()) != null) {
+		try {
 			context.startActivity(intent);
+		} catch (ActivityNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 

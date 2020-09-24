@@ -9,7 +9,12 @@
   ~ SPDX-License-Identifier: MPL-2.0
   -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:color="@color/colorAccent" android:state_enabled="true"/>
-	<item android:color="@android:color/darker_gray" android:state_enabled="false"/>
-</selector>
+<network-security-config>
+	<base-config>
+		<trust-anchors>
+			<certificates src="system" />
+			<!-- Trust user added CAs while debuggable only -->
+			<certificates src="user" />
+		</trust-anchors>
+	</base-config>
+</network-security-config>

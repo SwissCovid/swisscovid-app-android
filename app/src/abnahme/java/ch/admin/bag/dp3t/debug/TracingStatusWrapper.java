@@ -9,7 +9,7 @@
  */
 package ch.admin.bag.dp3t.debug;
 
-import ch.admin.bag.dp3t.main.model.DefaultTracingStatusWrapper;
+import ch.admin.bag.dp3t.home.model.DefaultTracingStatusWrapper;
 
 public class TracingStatusWrapper extends DefaultTracingStatusWrapper {
 	// default implementation

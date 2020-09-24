@@ -12,9 +12,7 @@ package ch.admin.bag.dp3t.reports;
 import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
@@ -41,11 +39,12 @@ import java.util.TimeZone;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.main.model.TracingStatusInterface;
+import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 import ch.admin.bag.dp3t.util.PhoneUtil;
+import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ReportsFragment extends Fragment {
@@ -217,13 +216,11 @@ public class ReportsFragment extends Fragment {
 	}
 
 	private void openLink(@StringRes int stringRes) {
-		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(stringRes)));
-		startActivity(browserIntent);
+		UrlUtil.openUrl(getContext(), getString(stringRes));
 	}
 
 	private void showFaq() {
-		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faq_button_url)));
-		startActivity(browserIntent);
+		UrlUtil.openUrl(getContext(), getString(R.string.faq_button_url));
 	}
 
 	private void callHotline() {

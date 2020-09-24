@@ -13,6 +13,7 @@
 	<dimen name="icon_size_toolbar">24dp</dimen>
 	<dimen name="view_pager_page_indicator_margin">20dp</dimen>
 	<dimen name="floating_action_button_margin">16dp</dimen>
+
 	<dimen name="spacing_tiny_small">2dp</dimen>
 	<dimen name="spacing_very_small">4dp</dimen>
 	<dimen name="spacing_small">9dp</dimen>
@@ -24,12 +25,16 @@
 	<dimen name="spacing_huge">40dp</dimen>
 	<dimen name="spacing_huger">50dp</dimen>
 	<dimen name="spacing_enormous">100dp</dimen>
+
 	<dimen name="text_size_splash_title">28sp</dimen>
 	<dimen name="text_size_title">22sp</dimen>
+	<dimen name="text_size_title_mega">40sp</dimen>
 	<dimen name="text_size_normal">16sp</dimen>
 	<dimen name="text_size_small">14sp</dimen>
+	<dimen name="text_size_bottom_nav">11sp</dimen>
 	<dimen name="text_size_button">16sp</dimen>
 	<dimen name="text_size_input">24sp</dimen>
+
 	<dimen name="chevron_size_title">24dp</dimen>
 	<dimen name="illustration_height">180dp</dimen>
 	<dimen name="info_button_size">48dp</dimen>
@@ -44,15 +49,23 @@
 	<dimen name="icon_size">24dp</dimen>
 	<dimen name="stroke_width_default">2dp</dimen>
 	<dimen name="button_corner_radius">4dp</dimen>
-	<dimen name="top_item_padding">155dp</dimen>
+
+	<dimen name="top_item_padding">115dp</dimen>
 	<dimen name="top_item_padding_reports">185dp</dimen>
 	<dimen name="top_item_padding_reports_width_indicator">205dp</dimen>
-	<dimen name="header_height">180dp</dimen>
+	<dimen name="top_item_padding_stats">88dp</dimen>
+
+	<dimen name="header_height">150dp</dimen>
 	<dimen name="header_height_reports">210dp</dimen>
 	<dimen name="header_height_reports_with_indicator">230dp</dimen>
+
 	<dimen name="header_size_arc">65dp</dimen>
 	<dimen name="header_stroke_width_circle">4dp</dimen>
 	<dimen name="header_size_icon">36dp</dimen>
+
+	<dimen name="spacing_header_top">18dp</dimen>
+	<dimen name="spacing_header_bottom">52dp</dimen>
+
 	<dimen name="message_bubble_corner_radius">5dp</dimen>
 	<dimen name="message_triangle_size">12dp</dimen>
 	<dimen name="chained_edit_text_height">36sp</dimen>
@@ -66,4 +79,16 @@
 	<dimen name="card_loading_view_size">32dp</dimen>
 	<dimen name="padding_start_icon_button">44dp</dimen>
 	<dimen name="separator_height">1dp</dimen>
+	<dimen name="legend_icon_size">13dp</dimen>
+
+	<dimen name="stats_diagram_height">220dp</dimen>
+	<dimen name="stats_diagram_height_minus_margins">195dp</dimen>
+	<dimen name="stats_diagram_new_infections_avg_stroke_width">2dp</dimen>
+	<dimen name="stats_diagram_padding_top">15dp</dimen>
+	<dimen name="stats_diagram_padding_bottom">5dp</dimen>
+	<dimen name="stats_checkmark_size">46dp</dimen>
+	<dimen name="stats_checkmark_size_half">23dp</dimen>
+	<dimen name="stats_share_app_icon_size">16dp</dimen>
+
+	<dimen name="divider_height">1dp</dimen>
 </resources>
