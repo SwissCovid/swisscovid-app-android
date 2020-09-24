@@ -53,6 +53,7 @@
 
 	<style name="NextStep.Text.Small.Bold">
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 	</style>
 
 	<style name="NextStep.Text.Small.Bold.Blue">
@@ -77,6 +78,7 @@
 
 	<style name="NextStep.Text.Bold">
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 	</style>
 
 	<style name="NextStep.Text.Bold.Red">
@@ -107,6 +109,7 @@
 	<style name="NextStep.Text.Title">
 		<item name="android:textSize">@dimen/text_size_title</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 	</style>
 
 	<style name="NextStep.Text.Title.Dark">
@@ -121,17 +124,20 @@
 	<style name="NextStep.Text.SubTitle">
 		<item name="android:textSize">@dimen/text_size_normal</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">@color/green_main</item>
 	</style>
 
 	<style name="NextStep.Text.SplashTitle">
 		<item name="android:textSize">@dimen/text_size_splash_title</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">@color/white</item>
 	</style>
 
 	<style name="NextStep.Text.Status">
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:letterSpacing">0.1</item>
 		<item name="android:textAllCaps">true</item>
 	</style>
@@ -139,6 +145,7 @@
 	<style name="NextStep.Text.Input">
 		<item name="android:textSize">@dimen/text_size_input</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textAllCaps">true</item>
 		<item name="android:gravity">center</item>
 		<item name="android:focusable">false</item>
@@ -148,6 +155,7 @@
 	<style name="NextStep.Text.BottomNavigationViewTextStyle">
 		<item name="android:textSize">@dimen/text_size_bottom_nav</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 	</style>
 
 	<!-- Buttons -->
@@ -156,6 +164,7 @@
 		<item name="android:textColor">@color/white</item>
 		<item name="android:textAllCaps">false</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">@dimen/text_size_button</item>
 		<item name="android:background">@drawable/bg_button_default</item>
 		<item name="android:stateListAnimator">@null</item>
@@ -171,6 +180,7 @@
 		<item name="android:textSize">@dimen/text_size_button</item>
 		<item name="android:textColor">@color/purple_main</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textAllCaps">false</item>
 		<item name="android:background">?selectableItemBackground</item>
 	</style>
