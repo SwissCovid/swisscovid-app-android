@@ -214,6 +214,9 @@ public class StatsFragment extends Fragment {
 
 				diagramScrollView.post(() -> {
 					diagramScrollView.scrollTo(requiredWidth, 0);
+					//make sure scroll position of diagramView gets also updated, also if scrollposition of diagramScrollView is
+					// already at requiredWidth
+					diagramView.setScrollX(diagramScrollView.getScrollX());
 				});
 		}
 	}
