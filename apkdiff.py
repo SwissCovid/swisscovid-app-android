@@ -22,12 +22,14 @@ def compare(first, second):
 	firstZip = ZipFile(first, 'r')
 	secondZip = ZipFile(second, 'r')
 
+	matching=True
+
 	firstList = list(filter(lambda firstInfo: firstInfo.filename not in FILES_TO_IGNORE, firstZip.infolist()))
 	secondList = list(filter(lambda secondInfo: secondInfo.filename not in FILES_TO_IGNORE, secondZip.infolist()))
 
 	if len(firstList) != len(secondList):
 	    print("APKs has different amount of files (%d != %d)" % (len(firstList), len(secondList)))
-	    return False
+	    matching= False
 
 	for firstInfo in firstList:
 		found = False
@@ -39,21 +41,21 @@ def compare(first, second):
 
 				if compareFiles(firstFile, secondFile) != True:
 					print("APK file %s does not match" % firstInfo.filename)
-					return False
+					matching= False
 
 				secondList.remove(secondInfo)
 				break
 
 		if found == False:
 			print("file %s not found in second APK" % firstInfo.filename)
-			return False
+			matching= False
 
 	if len(secondList) != 0:
 		for secondInfo in secondList:
 			print("file %s not found in first APK" % secondInfo.filename)
-		return False
+		matching= False
 
-	return True
+	return matching
 
 if __name__ == '__main__':
 	if len(sys.argv) != 3:
