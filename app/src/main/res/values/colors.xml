@@ -26,8 +26,8 @@
 	<color name="navigation_background">@color/white</color>
 	<color name="navigation_icon_toolbar">@color/anthracite</color>
 
-	<color name="bottom_navigation_selected">@color/blue_main</color>
-	<color name="bottom_navigation_deselected">@color/dark_main</color>
+	<color name="bottom_navigation_selected">@color/dark_main</color>
+	<color name="bottom_navigation_deselected">#9493A6</color>
 	<color name="bottom_navigation_background">@color/white</color>
 
 	<color name="anthracite">#535263</color>
