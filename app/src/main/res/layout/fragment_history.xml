@@ -69,6 +69,29 @@
 				android:text="@string/synchronizations_view_info_answer" />
 
 		</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_small"
+			android:orientation="horizontal">
+
+			<ImageView
+				android:layout_width="@dimen/icon_size"
+				android:layout_height="@dimen/icon_size"
+				android:layout_marginRight="@dimen/spacing_medium_large"
+				android:src="@drawable/ic_handshakes"
+				android:tint="@color/blue_main" />
+
+			<TextView
+				android:id="@+id/history_next_fake_request"
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:breakStrategy="high_quality"
+				android:hyphenationFrequency="full"
+				tools:text="Next fake request: 13.10.2020 15:28" />
+
+		</LinearLayout>
 
 	</LinearLayout>
 

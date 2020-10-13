@@ -7,11 +7,11 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.contacts;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -20,7 +20,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class HistoryFragment extends Fragment {
@@ -51,6 +55,11 @@ public class HistoryFragment extends Fragment {
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
 		setupRecyclerView(view);
+
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.GERMAN);
+		TextView nextFakeRequestView = view.findViewById(R.id.history_next_fake_request);
+		nextFakeRequestView.setText(getString(R.string.synchronizations_view_next_fake_request) +
+				sdf.format(SecureStorage.getInstance(view.getContext()).getTDummy()));
 	}
 
 	private void setupRecyclerView(View view) {
