@@ -10,7 +10,6 @@
 package ch.admin.bag.dp3t.networking;
 
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -23,7 +22,8 @@ public interface ConfigService {
 	Call<ConfigResponseModel> getConfig(
 			@Query("appversion") String appVersion,
 			@Query("osversion") String osVersion,
-			@Query("buildnr") String buildNumber
+			@Query("buildnr") String buildNumber,
+			@Query("enModuleVersion") String enModuleVersion
 	);
 
 }

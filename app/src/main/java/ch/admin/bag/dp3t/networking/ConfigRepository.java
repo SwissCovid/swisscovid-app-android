@@ -62,12 +62,13 @@ public class ConfigRepository {
 		secureStorage = SecureStorage.getInstance(context);
 	}
 
-	public ConfigResponseModel getConfig() throws IOException, ResponseError {
+	public ConfigResponseModel getConfig(Context context) throws IOException, ResponseError {
 		String appVersion = APP_VERSION_PREFIX_ANDROID + BuildConfig.VERSION_NAME;
 		String osVersion = OS_VERSION_PREFIX_ANDROID + Build.VERSION.SDK_INT;
 		String buildNumber = String.valueOf(BuildConfig.BUILD_TIME);
+		String enModuleVersion = String.valueOf(DP3T.getENModuleVersion(context));
 
-		Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion, buildNumber).execute();
+		Response<ConfigResponseModel> configResponse = configService.getConfig(appVersion, osVersion, buildNumber, enModuleVersion).execute();
 		if (configResponse.isSuccessful()) {
 			secureStorage.setLastConfigLoadSuccess(System.currentTimeMillis());
 			secureStorage.setLastConfigLoadSuccessAppVersion(BuildConfig.VERSION_CODE);
