@@ -22,6 +22,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.Arrays;
+
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.internal.storage.ExposureDayStorage;
 import org.dpppt.android.sdk.models.DayDate;
@@ -128,7 +130,7 @@ public class DebugFragment extends Fragment {
 
 		DayDate dayOfExposure = new DayDate();
 		ExposureDay exposureDay = new ExposureDay(-1, dayOfExposure, System.currentTimeMillis());
-		eds.addExposureDay(requireContext(), exposureDay);
+		eds.addExposureDays(requireContext(), Arrays.asList(exposureDay));
 	}
 
 	private void updateRadioGroup(RadioGroup optionsGroup) {
