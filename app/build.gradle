@@ -152,7 +152,7 @@ sonarqube {
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
-	def dp3t_sdk_version = '1.1.0-alpha1-dev-10'
+	def dp3t_sdk_version = '2.0.0-dev-23'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
 	teschtImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
@@ -183,6 +183,5 @@ dependencies {
 	androidTestImplementation 'androidx.test:rules:1.2.0'
 	androidTestImplementation 'androidx.work:work-testing:2.3.4'
 	androidTestImplementation 'com.squareup.okhttp3:mockwebserver:3.14.7'
-	androidTestImplementation "androidx.work:work-testing:2.3.4"
 
 }
