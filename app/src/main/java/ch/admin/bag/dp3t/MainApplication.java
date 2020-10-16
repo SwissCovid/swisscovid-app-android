@@ -148,6 +148,7 @@ public class MainApplication extends Application {
 						.setPriority(NotificationCompat.PRIORITY_MAX)
 						.setSmallIcon(R.drawable.ic_begegnungen)
 						.setContentIntent(pendingIntent)
+						.setOngoing(true)
 						.setAutoCancel(true)
 						.build();
 
