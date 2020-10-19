@@ -76,6 +76,7 @@ public class WtdPositiveTestFragment extends Fragment {
 			((TextView) view.findViewById(R.id.wtd_inform_button)).setText(textModel.getEnterCovidcodeBoxButtonTitle());
 
 			if (textModel.getInfoBox() != null) {
+				view.findViewById(R.id.wtd_inform_infobox).setVisibility(View.VISIBLE);
 				((TextView) view.findViewById(R.id.wtd_inform_infobox_title)).setText(textModel.getInfoBox().getTitle());
 				((TextView) view.findViewById(R.id.wtd_inform_infobox_msg)).setText(textModel.getInfoBox().getMsg());
 
@@ -84,10 +85,12 @@ public class WtdPositiveTestFragment extends Fragment {
 					view.findViewById(R.id.wtd_inform_infobox_link_layout).setOnClickListener(v -> {
 						UrlUtil.openUrl(v.getContext(), textModel.getInfoBox().getUrl());
 					});
-					view.findViewById(R.id.wtd_inform_infobox).setVisibility(View.VISIBLE);
+					view.findViewById(R.id.wtd_inform_infobox_link_layout).setVisibility(View.VISIBLE);
 				} else {
-					view.findViewById(R.id.wtd_inform_infobox).setVisibility(View.GONE);
+					view.findViewById(R.id.wtd_inform_infobox_link_layout).setVisibility(View.GONE);
 				}
+			} else {
+				view.findViewById(R.id.wtd_inform_infobox).setVisibility(View.GONE);
 			}
 
 			LinearLayout faqLayout = view.findViewById(R.id.wtd_inform_faq_layout);
