@@ -19,6 +19,12 @@ import androidx.security.crypto.MasterKeys;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.HashMap;
+
+import com.google.gson.Gson;
+
+import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
+import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
 
 public class SecureStorage {
 
@@ -46,10 +52,13 @@ public class SecureStorage {
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION = "last_config_load_success_app_version";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_SDK_INT = "last_config_load_success_sdk_int";
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
+	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
 
 	private static SecureStorage instance;
 
 	private SharedPreferences prefs;
+
+	private Gson gson = new Gson();
 
 	private final MutableLiveData<Boolean> forceUpdateLiveData;
 	private final MutableLiveData<Boolean> hasInfoboxLiveData;
@@ -263,6 +272,20 @@ public class SecureStorage {
 
 	public void setTDummy(long time) {
 		prefs.edit().putLong(KEY_T_DUMMY, time).apply();
+	}
+
+	public void setWhatToDoPositiveTestTexts(WhatToDoPositiveTestTextsCollection whatToDoPositiveTestTexts) {
+		prefs.edit().putString(KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS, gson.toJson(whatToDoPositiveTestTexts)).apply();
+	}
+
+	public WhatToDoPositiveTestTextsModel getWhatToDoPositiveTestTexts(String language) {
+		HashMap<String, WhatToDoPositiveTestTextsModel> map =
+				gson.fromJson(prefs.getString(KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS, "null"),
+						WhatToDoPositiveTestTextsCollection.class);
+		if (map == null) {
+			return null;
+		}
+		return map.get(language);
 	}
 
 }
