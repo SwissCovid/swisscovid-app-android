@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginBottom="@dimen/spacing_very_large"
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/item_faq_title"
+		style="@style/NextStep.Text.Bold"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="@dimen/spacing_small"
+		tools:text="Question Title?" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<ImageView
+			android:id="@+id/item_faq_icon"
+			android:layout_width="@dimen/icon_size"
+			android:layout_height="@dimen/icon_size"
+			android:layout_marginRight="@dimen/spacing_medium_large"
+			android:tint="@color/purple_main"
+			tools:src="@drawable/ic_verified_user" />
+
+		<TextView
+			android:id="@+id/item_faq_text"
+			style="@style/NextStep.Text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			tools:text="Some longer text to inform the user about how the app works" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/item_faq_link_layout"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/spacing_larger"
+		android:layout_marginTop="@dimen/spacing_very_small"
+		android:background="@drawable/ripple_button"
+		android:orientation="horizontal"
+		android:paddingStart="@dimen/spacing_medium"
+		android:paddingTop="@dimen/spacing_small"
+		android:paddingEnd="@dimen/spacing_medium"
+		android:paddingBottom="@dimen/spacing_small">
+
+		<ImageView
+			android:layout_width="@dimen/icon_size"
+			android:layout_height="@dimen/icon_size"
+			android:src="@drawable/ic_launch"
+			android:tint="@color/purple_main" />
+
+		<TextView
+			android:id="@+id/item_faq_link_text"
+			style="@style/NextStep.Text.Bold.Purple"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/spacing_small"
+			tools:text="+41 12 345 67 89" />
+
+	</LinearLayout>
+
+</LinearLayout>

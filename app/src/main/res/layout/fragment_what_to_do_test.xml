@@ -10,6 +10,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/grey_light"
@@ -67,40 +68,121 @@
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="@dimen/spacing_larger"
 					android:layout_marginTop="@dimen/spacing_medium_large"
-					android:layout_marginEnd="@dimen/spacing_larger"
 					android:layout_marginBottom="@dimen/spacing_very_large"
 					android:orientation="vertical">
 
-					<TextView
-						style="@style/NextStep.Text.Bold.Purple"
+					<LinearLayout
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:text="@string/inform_detail_box_subtitle" />
+						android:layout_marginStart="@dimen/spacing_larger"
+						android:layout_marginEnd="@dimen/spacing_larger"
+						android:orientation="vertical">
 
-					<TextView
-						style="@style/NextStep.Text.Title"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:text="@string/inform_detail_box_title" />
+						<TextView
+							android:id="@+id/wtd_inform_box_supertitle"
+							style="@style/NextStep.Text.Bold.Purple"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/inform_detail_box_subtitle" />
 
-					<TextView
-						style="@style/NextStep.Text"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginTop="@dimen/spacing_medium_large"
-						android:text="@string/inform_detail_box_text" />
+						<TextView
+							android:id="@+id/wtd_inform_box_title"
+							style="@style/NextStep.Text.Title"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/inform_detail_box_title" />
 
-					<Button
-						android:id="@+id/wtd_inform_button"
-						style="@style/NextStep.Button.Purple"
+						<TextView
+							android:id="@+id/wtd_inform_box_text"
+							style="@style/NextStep.Text"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="@dimen/spacing_medium_large"
+							android:text="@string/inform_detail_box_text" />
+
+						<Button
+							android:id="@+id/wtd_inform_button"
+							style="@style/NextStep.Button.Purple"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_horizontal"
+							android:layout_marginTop="@dimen/spacing_very_large"
+							android:text="@string/inform_detail_box_button"
+							android:textAllCaps="true" />
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/wtd_inform_infobox"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_gravity="center_horizontal"
-						android:layout_marginTop="@dimen/spacing_very_large"
-						android:text="@string/inform_detail_box_button"
-						android:textAllCaps="true" />
+						android:layout_marginStart="@dimen/spacing_medium"
+						android:layout_marginEnd="@dimen/spacing_medium"
+						android:layout_marginTop="@dimen/spacing_large"
+						android:background="@color/status_blue_bg"
+						android:orientation="horizontal"
+						android:padding="@dimen/spacing_medium"
+						android:visibility="gone"
+						tools:visibility="visible">
+
+						<ImageView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginEnd="@dimen/spacing_very_small"
+							android:src="@drawable/ic_info"
+							android:tint="@color/dark_main" />
+
+						<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="vertical">
+
+							<TextView
+								android:id="@+id/wtd_inform_infobox_title"
+								style="@style/NextStep.Text.Bold"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:layout_marginBottom="@dimen/spacing_very_small"
+								tools:text="Infobox Title" />
+
+							<TextView
+								android:id="@+id/wtd_inform_infobox_msg"
+								style="@style/NextStep.Text"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								tools:text="Text for the Infobox" />
+
+							<LinearLayout
+								android:id="@+id/wtd_inform_infobox_link_layout"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="@dimen/spacing_very_small"
+								android:background="@drawable/ripple_button"
+								android:orientation="horizontal"
+								android:paddingTop="@dimen/spacing_small"
+								android:paddingEnd="@dimen/spacing_medium"
+								android:paddingBottom="@dimen/spacing_small">
+
+								<ImageView
+									android:layout_width="@dimen/icon_size"
+									android:layout_height="@dimen/icon_size"
+									android:src="@drawable/ic_launch"
+									android:tint="@color/blue_main" />
+
+								<TextView
+									android:id="@+id/wtd_inform_infobox_link_text"
+									style="@style/NextStep.Text.Bold.Blue"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_marginLeft="@dimen/spacing_small"
+									tools:text="+41 12 345 67 89" />
+
+							</LinearLayout>
+
+						</LinearLayout>
+
+					</LinearLayout>
 
 				</LinearLayout>
 
@@ -115,116 +197,124 @@
 				android:layout_marginBottom="@dimen/spacing_very_large"
 				android:orientation="vertical">
 
-				<TextView
-					style="@style/NextStep.Text.Bold"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="@dimen/spacing_small"
-					android:text="@string/inform_detail_faq1_title" />
-
 				<LinearLayout
+					android:id="@+id/wtd_inform_faq_layout"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:orientation="horizontal">
-
-					<ImageView
-						android:layout_width="@dimen/icon_size"
-						android:layout_height="@dimen/icon_size"
-						android:layout_marginRight="@dimen/spacing_medium_large"
-						android:src="@drawable/ic_verified_user"
-						android:tint="@color/purple_main" />
+					android:orientation="vertical">
 
 					<TextView
-						style="@style/NextStep.Text"
+						style="@style/NextStep.Text.Bold"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:text="@string/inform_detail_faq1_text" />
+						android:layout_marginBottom="@dimen/spacing_small"
+						android:text="@string/inform_detail_faq1_title" />
 
-				</LinearLayout>
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
 
-				<LinearLayout
-					android:id="@+id/wtd_inform_call_infoline_coronavirus"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_very_small"
-					android:layout_marginStart="@dimen/spacing_larger"
-					android:paddingStart="@dimen/spacing_medium"
-					android:paddingTop="@dimen/spacing_small"
-					android:paddingEnd="@dimen/spacing_medium"
-					android:paddingBottom="@dimen/spacing_small"
-					android:background="@drawable/ripple_button"
-					android:orientation="horizontal">
+						<ImageView
+							android:layout_width="@dimen/icon_size"
+							android:layout_height="@dimen/icon_size"
+							android:layout_marginRight="@dimen/spacing_medium_large"
+							android:src="@drawable/ic_verified_user"
+							android:tint="@color/purple_main" />
 
-					<ImageView
-						android:layout_width="@dimen/icon_size"
-						android:layout_height="@dimen/icon_size"
-						android:src="@drawable/ic_launch"
-						android:tint="@color/purple_main" />
+						<TextView
+							style="@style/NextStep.Text"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/inform_detail_faq1_text" />
 
-					<TextView
-						style="@style/NextStep.Text.Bold.Purple"
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/wtd_inform_call_infoline_coronavirus"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:layout_marginLeft="@dimen/spacing_small"
-						android:text="@string/infoline_coronavirus_number" />
+						android:layout_marginStart="@dimen/spacing_larger"
+						android:layout_marginTop="@dimen/spacing_very_small"
+						android:background="@drawable/ripple_button"
+						android:orientation="horizontal"
+						android:paddingStart="@dimen/spacing_medium"
+						android:paddingTop="@dimen/spacing_small"
+						android:paddingEnd="@dimen/spacing_medium"
+						android:paddingBottom="@dimen/spacing_small">
 
-				</LinearLayout>
+						<ImageView
+							android:layout_width="@dimen/icon_size"
+							android:layout_height="@dimen/icon_size"
+							android:src="@drawable/ic_launch"
+							android:tint="@color/purple_main" />
 
-				<TextView
-					style="@style/NextStep.Text.Bold"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_very_large"
-					android:layout_marginBottom="@dimen/spacing_small"
-					android:text="@string/inform_detail_faq2_title" />
+						<TextView
+							style="@style/NextStep.Text.Bold.Purple"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginLeft="@dimen/spacing_small"
+							android:text="@string/infoline_coronavirus_number" />
 
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="horizontal"
-					android:paddingBottom="@dimen/spacing_medium">
-
-					<ImageView
-						android:layout_width="@dimen/icon_size"
-						android:layout_height="@dimen/icon_size"
-						android:layout_marginRight="@dimen/spacing_medium_large"
-						android:src="@drawable/ic_key"
-						android:tint="@color/purple_main" />
+					</LinearLayout>
 
 					<TextView
-						style="@style/NextStep.Text"
+						style="@style/NextStep.Text.Bold"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:text="@string/inform_detail_faq2_text" />
+						android:layout_marginTop="@dimen/spacing_very_large"
+						android:layout_marginBottom="@dimen/spacing_small"
+						android:text="@string/inform_detail_faq2_title" />
 
-				</LinearLayout>
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:paddingBottom="@dimen/spacing_medium">
 
-				<TextView
-					style="@style/NextStep.Text.Bold"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_very_large"
-					android:layout_marginBottom="@dimen/spacing_small"
-					android:text="@string/inform_detail_faq3_title" />
+						<ImageView
+							android:layout_width="@dimen/icon_size"
+							android:layout_height="@dimen/icon_size"
+							android:layout_marginRight="@dimen/spacing_medium_large"
+							android:src="@drawable/ic_key"
+							android:tint="@color/purple_main" />
 
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="horizontal"
-					android:paddingBottom="@dimen/spacing_medium">
+						<TextView
+							style="@style/NextStep.Text"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/inform_detail_faq2_text" />
 
-					<ImageView
-						android:layout_width="@dimen/icon_size"
-						android:layout_height="@dimen/icon_size"
-						android:layout_marginRight="@dimen/spacing_medium_large"
-						android:src="@drawable/ic_person"
-						android:tint="@color/purple_main" />
+					</LinearLayout>
 
 					<TextView
-						style="@style/NextStep.Text"
+						style="@style/NextStep.Text.Bold"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:text="@string/inform_detail_faq3_text" />
+						android:layout_marginTop="@dimen/spacing_very_large"
+						android:layout_marginBottom="@dimen/spacing_small"
+						android:text="@string/inform_detail_faq3_title" />
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:paddingBottom="@dimen/spacing_medium">
+
+						<ImageView
+							android:layout_width="@dimen/icon_size"
+							android:layout_height="@dimen/icon_size"
+							android:layout_marginRight="@dimen/spacing_medium_large"
+							android:src="@drawable/ic_person"
+							android:tint="@color/purple_main" />
+
+						<TextView
+							style="@style/NextStep.Text"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/inform_detail_faq3_text" />
+
+					</LinearLayout>
 
 				</LinearLayout>
 
@@ -235,7 +325,7 @@
 					android:layout_height="wrap_content"
 					android:layout_gravity="center_horizontal"
 					android:layout_marginStart="@dimen/spacing_medium"
-					android:layout_marginTop="@dimen/spacing_huger"
+					android:layout_marginTop="@dimen/spacing_large"
 					android:layout_marginEnd="@dimen/spacing_medium"
 					android:layout_marginBottom="@dimen/spacing_huger"
 					android:drawableRight="@drawable/ic_launch_purple"
