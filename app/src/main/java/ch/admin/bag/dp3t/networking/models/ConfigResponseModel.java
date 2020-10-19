@@ -13,6 +13,7 @@ public class ConfigResponseModel {
 
 	private boolean forceUpdate;
 	private InfoBoxModelCollection infoBox;
+	private WhatToDoPositiveTestTextsCollection whatToDoPositiveTestTexts;
 	private SdkConfigModel androidGaenSdkConfig;
 
 	public boolean getDoForceUpdate() {
@@ -30,6 +31,10 @@ public class ConfigResponseModel {
 
 	public SdkConfigModel getSdkConfig() {
 		return androidGaenSdkConfig;
+	}
+
+	public WhatToDoPositiveTestTextsCollection getWhatToDoPositiveTestTexts() {
+		return whatToDoPositiveTestTexts;
 	}
 
 }
