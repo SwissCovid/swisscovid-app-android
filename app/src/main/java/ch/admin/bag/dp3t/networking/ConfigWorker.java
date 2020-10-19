@@ -94,6 +94,8 @@ public class ConfigWorker extends Worker {
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		secureStorage.setDoForceUpdate(config.getDoForceUpdate());
 
+		secureStorage.setWhatToDoPositiveTestTexts(config.getWhatToDoPositiveTestTexts());
+
 		InfoBoxModel info = config.getInfoBox(context.getString(R.string.language_key));
 		if (info != null) {
 			if (info.getInfoId() == null || !info.getInfoId().equals(secureStorage.getInfoboxId())) {

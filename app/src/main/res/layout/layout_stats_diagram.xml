@@ -22,14 +22,14 @@
 		android:id="@+id/diagram_box"
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/stats_diagram_height_minus_margins"
-		android:layout_marginTop="@dimen/stats_diagram_padding_top"
 		android:layout_marginBottom="@dimen/stats_diagram_padding_bottom"
 		android:orientation="horizontal">
 
 		<FrameLayout
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
-			android:layout_weight="1">
+			android:layout_weight="1"
+			android:layout_marginTop="@dimen/stats_diagram_padding_top">
 
 			<ch.admin.bag.dp3t.stats.DiagramView
 				android:id="@+id/diagram_view"
@@ -51,6 +51,8 @@
 			</HorizontalScrollView>
 		</FrameLayout>
 
+		<!-- Top margin is part of drawing. This avoids cases where - when the maximum label -->
+		<!-- is at the very top - the upper half of the label is cut off. -->
 		<ch.admin.bag.dp3t.stats.DiagramYAxisView
 			android:id="@+id/diagram_y_axis_view"
 			android:layout_width="wrap_content"

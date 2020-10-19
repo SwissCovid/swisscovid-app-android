@@ -31,6 +31,7 @@ public class DiagramYAxisView extends View {
 	private float dp;
 
 	private int maxYValue;
+	private float paddingTopDp;
 
 	private Paint labelPaint;
 	Rect textRect = new Rect();
@@ -55,7 +56,9 @@ public class DiagramYAxisView extends View {
 	private void init(Context context) {
 		dp = context.getResources().getDisplayMetrics().density;
 
-		int labelPaintColor = getResources().getColor(R.color.stats_diagram_labels, null);
+		paddingTopDp = context.getResources().getDimension(R.dimen.stats_diagram_padding_top);
+
+		int labelPaintColor = context.getResources().getColor(R.color.stats_diagram_labels, null);
 		float labelTextSize = context.getResources().getDimension(R.dimen.text_size_small);
 		Typeface labelTypeface = ResourcesCompat.getFont(context, R.font.inter_regular);
 		labelPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -89,12 +92,16 @@ public class DiagramYAxisView extends View {
 
 	private void drawYAxisLabels(Canvas canvas) {
 		float xAxisYCoord = getHeight() - DiagramView.OFFSET_BOTTOM_X_AXIS * dp;
+		float diagramHeight = xAxisYCoord - paddingTopDp;
 
 		for (int yLabel : getYAxisLabelValues(maxYValue)) {
 			String label = Integer.toString(yLabel);
 
+			// Note that the origin of the text is the BOTTOM LEFT coordinate (not the top left)!!!
 			labelPaint.getTextBounds(label, 0, label.length(), textRect);
-			float bottom = xAxisYCoord + textRect.height() / 2F - xAxisYCoord * (yLabel / (float) maxYValue);
+			float bottom = xAxisYCoord								// baseline
+					+ textRect.height() / 2F						// center text vertically
+					- (yLabel / (float) maxYValue) * diagramHeight;	// move back up according to the y-label value
 
 			canvas.drawText(label, PADDING_Y_AXIS_LEFT * dp, bottom, labelPaint);
 		}

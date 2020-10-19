@@ -7,10 +7,9 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-package ch.admin.bag.dp3t.debug;
+package ch.admin.bag.dp3t.networking.models;
 
-import ch.admin.bag.dp3t.home.model.DefaultTracingStatusWrapper;
+import java.util.HashMap;
 
-public class TracingStatusWrapper extends DefaultTracingStatusWrapper {
-	// default implementation
+public class WhatToDoPositiveTestTextsCollection extends HashMap<String, WhatToDoPositiveTestTextsModel> {
 }
