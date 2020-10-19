@@ -71,7 +71,7 @@ public class WtdPositiveTestFragment extends Fragment {
 
 		if (textModel != null) {
 			((TextView) view.findViewById(R.id.wtd_inform_box_supertitle)).setText(textModel.getEnterCovidcodeBoxSupertitle());
-			((TextView) view.findViewById(R.id.wtd_inform_box_title)).setText(textModel.getEnterCovidcodeBoxButtonTitle());
+			((TextView) view.findViewById(R.id.wtd_inform_box_title)).setText(textModel.getEnterCovidcodeBoxTitle());
 			((TextView) view.findViewById(R.id.wtd_inform_box_text)).setText(textModel.getEnterCovidcodeBoxText());
 			((TextView) view.findViewById(R.id.wtd_inform_button)).setText(textModel.getEnterCovidcodeBoxButtonTitle());
 
