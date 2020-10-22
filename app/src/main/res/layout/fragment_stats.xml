@@ -73,21 +73,21 @@
 						android:paddingTop="@dimen/spacing_medium_large"
 						android:paddingBottom="@dimen/spacing_small">
 
-					<TextView
-						android:id="@+id/stats_total_active_users"
-						style="@style/NextStep.Text.Title.Dark.Mega"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:gravity="center"
-						tools:text="42.42 Mio." />
+						<TextView
+							android:id="@+id/stats_total_active_users"
+							style="@style/NextStep.Text.Title.Dark.Mega"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:gravity="center"
+							tools:text="42.42 Mio." />
 
-					<TextView
-						android:id="@+id/stats_total_active_users_text"
-						style="@style/NextStep.Text.Blue"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:gravity="center"
-						android:text="@string/stats_title" />
+						<TextView
+							android:id="@+id/stats_total_active_users_text"
+							style="@style/NextStep.Text.Blue"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:gravity="center"
+							android:text="@string/stats_title" />
 
 					</LinearLayout>
 
@@ -111,14 +111,13 @@
 						android:paddingTop="@dimen/spacing_medium_large"
 						android:paddingBottom="@dimen/spacing_small">
 
-
 						<include layout="@layout/layout_stats_diagram" />
 
 						<TextView
 							style="@style/NextStep.Text.Small.Purple"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_tiny_small"
+							android:layout_marginTop="@dimen/spacing_medium"
 							android:drawableStart="@drawable/legend_new_infections"
 							android:drawablePadding="@dimen/spacing_small"
 							android:text="@string/stats_legend_new_infections" />

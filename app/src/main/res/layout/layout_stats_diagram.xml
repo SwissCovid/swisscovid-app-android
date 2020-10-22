@@ -11,8 +11,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:layout_marginTop="@dimen/spacing_small"
-	android:layout_marginBottom="@dimen/spacing_small"
 	android:background="@color/stats_diagram_background"
 	android:minHeight="@dimen/stats_diagram_height">
 
