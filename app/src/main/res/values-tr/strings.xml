@@ -982,4 +982,49 @@ Schwarzenburgstrasse 157
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Veriler şu anda yüklenemiyor."</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} milyon"</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Temas bildirimlerini aktifleştir"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Ayarları aç"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Aşağıdaki tuşu kullanarak sistem ayarlarını açın."</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Seçin:"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Temas bildirimleri"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"Önce fonksiyonu aktive edin..."</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Temas bilgilerini paylaş"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"Henüz belirlemediyseniz, SwissCovid'i geçerli bölge olarak tanımlayabilirsiniz."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Geçerli bölge olarak tanımla"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"Nasıl çalışır"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters."</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
 </resources>

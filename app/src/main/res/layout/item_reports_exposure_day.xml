@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="@dimen/header_reports_exposure_day_height"
+	android:background="@color/white_20"
+	android:orientation="vertical">
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/separator_height"
+		android:layout_gravity="top"
+		android:background="@color/blue_main" />
+
+	<TextView
+		android:id="@+id/exposure_day_textview"
+		style="@style/NextStep.Text.Bold"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="23. Oktober 2020" />
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/separator_height"
+		android:layout_gravity="bottom"
+		android:background="@color/blue_main" />
+</FrameLayout>

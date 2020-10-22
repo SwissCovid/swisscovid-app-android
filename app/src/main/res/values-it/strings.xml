@@ -1010,4 +1010,50 @@ Schwarzenburgstrasse 157
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Impossibile caricare i dati in questo momento"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} milioni"</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Attivare le segnalazioni degli incontri"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Apri impostazioni"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Apri le impostazioni di sistema con il pulsante in basso."</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Seleziona:"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Notifiche di esposizione"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"Attiva prima la funzione…"</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Condividi le informazioni di esposizione
+"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"Se non l'hai ancora fatto, ora puoi definire SwissCovid come regione attiva."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Imposta come zona attiva"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"Ecco come fare"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters."</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
 </resources>
