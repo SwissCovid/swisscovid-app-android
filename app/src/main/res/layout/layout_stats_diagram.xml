@@ -19,7 +19,7 @@
 	<LinearLayout
 		android:id="@+id/diagram_box"
 		android:layout_width="match_parent"
-		android:layout_height="@dimen/stats_diagram_height_minus_margins"
+		android:layout_height="@dimen/stats_diagram_height"
 		android:layout_marginBottom="@dimen/stats_diagram_padding_bottom"
 		android:orientation="horizontal">
 

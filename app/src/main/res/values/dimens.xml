@@ -82,7 +82,6 @@
 	<dimen name="legend_icon_size">13dp</dimen>
 
 	<dimen name="stats_diagram_height">220dp</dimen>
-	<dimen name="stats_diagram_height_minus_margins">195dp</dimen>
 	<dimen name="stats_diagram_new_infections_avg_stroke_width">2dp</dimen>
 	<dimen name="stats_diagram_padding_top">15dp</dimen>
 	<dimen name="stats_diagram_padding_bottom">5dp</dimen>
