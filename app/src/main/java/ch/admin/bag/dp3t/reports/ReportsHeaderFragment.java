@@ -103,14 +103,13 @@ public class ReportsHeaderFragment extends Fragment {
 
 		List<ExposureDay> exposureDays = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays();
 
-		if (date != null && exposureDays.size() > 0) {
+		if (date != null && !exposureDays.isEmpty()) {
 			date.setText(getDateString(exposureDays.get(exposureDays.size() - 1), true));
 		}
 
 		daysContainer.removeAllViews();
 		for (ExposureDay exposureDay : exposureDays) {
-			View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_reports_exposure_day, daysContainer,
-					false);
+			View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_reports_exposure_day, daysContainer, false);
 			TextView itemDate = itemView.findViewById(R.id.exposure_day_textview);
 			itemDate.setText(getDateString(exposureDay, false));
 			daysContainer.addView(itemView, 0);

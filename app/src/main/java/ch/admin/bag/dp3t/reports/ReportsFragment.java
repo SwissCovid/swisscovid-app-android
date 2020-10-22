@@ -65,8 +65,6 @@ public class ReportsFragment extends Fragment {
 
 	private boolean hotlineJustCalled = false;
 
-	private int originalFirstChildPadding = 0;
-
 	public ReportsFragment() { super(R.layout.fragment_reports); }
 
 	@Override
@@ -252,9 +250,7 @@ public class ReportsFragment extends Fragment {
 
 				@Override
 				public void onTransitionEnd(@NonNull Transition transition) {
-					headerFragmentContainer.post(() -> {
-						setupScrollBehavior();
-					});
+					headerFragmentContainer.post(() -> setupScrollBehavior());
 				}
 
 				@Override
@@ -292,31 +288,35 @@ public class ReportsFragment extends Fragment {
 	public void animateHeaderHeight(boolean showAll, int numExposureDays, View exposureDaysContainer, View dateTextView) {
 
 		int exposureDayItemHeight = getResources().getDimensionPixelSize(R.dimen.header_reports_exposure_day_height);
+		int endExposureDayTopPadding;
 		int endHeaderHeight;
 		int endDateTextHeight;
 		int endExposureDaysContainerHeight;
 		int endScrollViewPadding;
 		if (showAll) {
+			endExposureDayTopPadding = getResources().getDimensionPixelSize(R.dimen.spacing_medium);
 			endHeaderHeight = getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days) +
-					exposureDayItemHeight * (numExposureDays - 1);
+					exposureDayItemHeight * (numExposureDays - 1) + endExposureDayTopPadding;
 			endDateTextHeight = 0;
-			endExposureDaysContainerHeight = exposureDayItemHeight * numExposureDays;
+			endExposureDaysContainerHeight = exposureDayItemHeight * numExposureDays + endExposureDayTopPadding;
 			endScrollViewPadding = getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_multiple_days) +
-					exposureDayItemHeight * (numExposureDays - 1);
+					exposureDayItemHeight * (numExposureDays - 1) + endExposureDayTopPadding;
 		} else {
+			endExposureDayTopPadding = 0;
 			endHeaderHeight = getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days);
 			endDateTextHeight = exposureDayItemHeight;
 			endExposureDaysContainerHeight = 0;
 			endScrollViewPadding = getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_multiple_days);
 		}
 
+		int startExposureDayTopPadding = exposureDaysContainer.getPaddingTop();
 		int startHeaderHeight = headerFragmentContainer.getLayoutParams().height;
 		int startScrollViewPadding = scrollViewFirstchild.getPaddingTop();
 		int startDateTextHeight = dateTextView.getLayoutParams().height;
 		int startExposureDaysContainerHeight = exposureDaysContainer.getLayoutParams().height;
 
 		ValueAnimator anim = ValueAnimator.ofFloat(0, 1);
-		anim.addUpdateListener((v) -> {
+		anim.addUpdateListener(v -> {
 					float value = (float) v.getAnimatedValue();
 					setHeight(headerFragmentContainer, value * (endHeaderHeight - startHeaderHeight) + startHeaderHeight);
 					setHeight(dateTextView, value * (endDateTextHeight - startDateTextHeight) + startDateTextHeight);
@@ -325,6 +325,9 @@ public class ReportsFragment extends Fragment {
 					scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
 							(int) (value * (endScrollViewPadding - startScrollViewPadding) + startScrollViewPadding),
 							scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+					exposureDaysContainer.setPadding(exposureDaysContainer.getPaddingLeft(),
+							(int) (value * (endExposureDayTopPadding - startExposureDayTopPadding) + startExposureDayTopPadding),
+							exposureDaysContainer.getPaddingRight(), exposureDaysContainer.getPaddingBottom());
 					if (value == 0) {
 						exposureDaysContainer.setVisibility(View.VISIBLE);
 						dateTextView.setVisibility(View.VISIBLE);
@@ -364,7 +367,7 @@ public class ReportsFragment extends Fragment {
 					scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
 		}
 		headerFragmentContainer.setLayoutParams(headerLp);
-		headerFragmentContainer.post(() -> setupScrollBehavior());
+		headerFragmentContainer.post(this::setupScrollBehavior);
 	}
 
 	private void setupScrollBehavior() {
@@ -399,7 +402,6 @@ public class ReportsFragment extends Fragment {
 		updateHeaderSize(isReportsHeaderAnimationPending, numExposureDays);
 
 		if (isReportsHeaderAnimationPending) {
-			originalFirstChildPadding = scrollViewFirstchild.getPaddingTop();
 			scrollViewFirstchild.setVisibility(View.GONE);
 		}
 
