@@ -19,24 +19,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-import java.util.Iterator;
 import java.util.List;
+import java.util.TimeZone;
+
+import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
+import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ReportsHeaderFragment extends Fragment {
 
 	private static final String ARG_TYPE = "ARG_TYPE";
-	private static final String ARG_TIMESTAMPS = "ARG_TIMESTAMPS";
 	private static final String ARG_SHOWANIMATIONCONTROLS = "ARG_SHOWANIMATIONCONTROLS";
 
-	public static ReportsHeaderFragment newInstance(@NonNull Type type, List<Long> timestamps, boolean showAnimationControls) {
+	public static ReportsHeaderFragment newInstance(@NonNull Type type, boolean showAnimationControls) {
 		ReportsHeaderFragment reportsHeaderFragment = new ReportsHeaderFragment();
 		Bundle args = new Bundle();
 		args.putInt(ARG_TYPE, type.ordinal());
-		args.putLongArray(ARG_TIMESTAMPS, toLongArray(timestamps));
 		args.putBoolean(ARG_SHOWANIMATIONCONTROLS, showAnimationControls);
 		reportsHeaderFragment.setArguments(args);
 		return reportsHeaderFragment;
@@ -49,16 +52,15 @@ public class ReportsHeaderFragment extends Fragment {
 	}
 
 
+	private TracingViewModel tracingViewModel;
 	private Type type;
-	private long[] timestamps;
 	private boolean showAnimationControls;
 
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
 		type = Type.values()[getArguments().getInt(ARG_TYPE)];
-		timestamps = getArguments().getLongArray(ARG_TIMESTAMPS);
 		showAnimationControls = getArguments().getBoolean(ARG_SHOWANIMATIONCONTROLS);
 	}
 
@@ -80,70 +82,86 @@ public class ReportsHeaderFragment extends Fragment {
 				view = inflater.inflate(R.layout.fragment_reports_header_positive_tested, container, false);
 				break;
 		}
-
 		return view;
 	}
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-		//TODO: What if timestamps is null or empty
-		if (type == Type.POSSIBLE_INFECTION) {
-			TextView date = view.findViewById(R.id.fragment_reports_header_date);
-			View info = view.findViewById(R.id.fragment_reports_header_info);
-			View image = view.findViewById(R.id.fragment_reports_header_image);
-			Button continueButton = view.findViewById(R.id.fragment_reports_header_continue_button);
-			TextView subtitle = view.findViewById(R.id.fragment_reports_header_subtitle);
-			TextView showAllButton = view.findViewById(R.id.fragment_reports_header_show_all_button);
-			ViewGroup daysContainer = view.findViewById(R.id.fragment_reports_dates_container);
+		if (type == Type.NO_REPORTS || type == Type.POSITIVE_TESTED) {
+			return;
+		}
 
-			if (date != null) {
-				date.setText(getDateString(timestamps[0], true));
-			}
+		TextView date = view.findViewById(R.id.fragment_reports_header_date);
+		View info = view.findViewById(R.id.fragment_reports_header_info);
+		View image = view.findViewById(R.id.fragment_reports_header_image);
+		Button continueButton = view.findViewById(R.id.fragment_reports_header_continue_button);
+		TextView subtitle = view.findViewById(R.id.fragment_reports_header_subtitle);
+		TextView showAllButton = view.findViewById(R.id.fragment_reports_header_show_all_button);
+		ViewGroup daysContainer = view.findViewById(R.id.fragment_reports_dates_container);
+		TextView titleTextView = view.findViewById(R.id.fragment_reports_header_title);
 
-			daysContainer.removeAllViews();
-			for (long timestamp : timestamps) {
-				View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_reports_exposure_day, daysContainer,
-						false);
-				TextView itemDate = itemView.findViewById(R.id.exposure_day_textview);
-				itemDate.setText(getDateString(timestamp, false));
-				daysContainer.addView(itemView);
-			}
-			if (timestamps.length <= 1) {
-				showAllButton.setVisibility(View.GONE);
+		List<ExposureDay> exposureDays = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays();
+
+		if (date != null && exposureDays.size() > 0) {
+			date.setText(getDateString(exposureDays.get(exposureDays.size() - 1), true));
+		}
+
+		daysContainer.removeAllViews();
+		for (ExposureDay exposureDay : exposureDays) {
+			View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_reports_exposure_day, daysContainer,
+					false);
+			TextView itemDate = itemView.findViewById(R.id.exposure_day_textview);
+			itemDate.setText(getDateString(exposureDay, false));
+			daysContainer.addView(itemView, 0);
+		}
+		if (exposureDays.size() <= 1) {
+			showAllButton.setVisibility(View.GONE);
+		} else {
+			showAllButton.setVisibility(View.VISIBLE);
+		}
+
+		showAllButton.setOnClickListener(view1 -> {
+			if (daysContainer.getVisibility() == View.VISIBLE) {
+				subtitle.setText(R.string.meldung_detail_exposed_subtitle_last_encounter);
+				showAllButton.setText(R.string.meldung_detail_exposed_show_all_button);
+				((ReportsFragment) getParentFragment()).animateHeaderHeight(false, exposureDays.size(), daysContainer, date);
 			} else {
-				showAllButton.setVisibility(View.VISIBLE);
+				subtitle.setText(R.string.meldung_detail_exposed_subtitle_all_encounters);
+				showAllButton.setText(R.string.meldung_detail_exposed_show_less_button);
+				((ReportsFragment) getParentFragment()).animateHeaderHeight(true, exposureDays.size(), daysContainer, date);
 			}
+		});
+		showAllButton.setPaintFlags(showAllButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-			showAllButton.setOnClickListener(view1 -> {
-				if (daysContainer.getVisibility() == View.VISIBLE) {
-					subtitle.setText(R.string.meldung_detail_exposed_subtitle_last_encounter);
-					showAllButton.setText(R.string.meldung_detail_exposed_show_all_button);
-					((ReportsFragment) getParentFragment()).animateHeaderHeight(false, timestamps.length, daysContainer, date);
-				} else {
-					subtitle.setText(R.string.meldung_detail_exposed_subtitle_all_encounters);
-					showAllButton.setText(R.string.meldung_detail_exposed_show_less_button);
-					((ReportsFragment) getParentFragment()).animateHeaderHeight(true, timestamps.length, daysContainer, date);
+		if (showAnimationControls) {
+
+			info.setVisibility(View.GONE);
+			showAllButton.setVisibility(View.GONE);
+			image.setVisibility(View.VISIBLE);
+			continueButton.setVisibility(View.VISIBLE);
+			SecureStorage secureStorage = SecureStorage.getInstance(getContext());
+			long lastShownExposureDay = secureStorage.getLastShownContactTimestamp();
+			long latestExposureDayTimestamp = lastShownExposureDay;
+			for (ExposureDay exposureDay : exposureDays) {
+				if (exposureDay.getExposedDate().getStartOfDayTimestamp() == lastShownExposureDay) {
+					titleTextView.setText(R.string.meldung_detail_new_contact_title);
 				}
-			});
-			showAllButton.setPaintFlags(showAllButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
-			if (showAnimationControls) {
-
-				info.setVisibility(View.GONE);
-				showAllButton.setVisibility(View.GONE);
-				image.setVisibility(View.VISIBLE);
-				continueButton.setVisibility(View.VISIBLE);
-
-				continueButton.setOnClickListener(view1 -> {
-					((ReportsFragment) getParentFragment())
-							.doHeaderAnimation(info, image, continueButton, showAllButton, timestamps.length);
-				});
+				if (exposureDay.getExposedDate().getStartOfDayTimestamp() > latestExposureDayTimestamp) {
+					latestExposureDayTimestamp = exposureDay.getExposedDate().getStartOfDayTimestamp();
+				}
 			}
+			final long finalLatestExposureTimestamp = latestExposureDayTimestamp;
+			continueButton.setOnClickListener(view1 -> {
+				secureStorage.setLastShownContactTimestamp(finalLatestExposureTimestamp);
+				((ReportsFragment) getParentFragment())
+						.doHeaderAnimation(info, image, continueButton, showAllButton, titleTextView, exposureDays.size());
+			});
 		}
 	}
 
-	private String getDateString(long timestamp, boolean withDiff) {
+	private String getDateString(ExposureDay exposureDay, boolean withDiff) {
+		long timestamp = exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault());
 		String dateStr = DateUtils.getFormattedDate(timestamp);
 		if (!withDiff) return dateStr;
 
@@ -158,16 +176,6 @@ public class ReportsHeaderFragment extends Fragment {
 			dateStr += getString(R.string.date_days_ago).replace("{COUNT}", String.valueOf(daysDiff));
 		}
 		return dateStr;
-	}
-
-	private static long[] toLongArray(List<Long> longs) {
-		if (longs == null) return null;
-		long[] ret = new long[longs.size()];
-		Iterator<Long> iterator = longs.iterator();
-		for (int i = 0; i < ret.length; i++) {
-			ret[i] = iterator.next();
-		}
-		return ret;
 	}
 
 }

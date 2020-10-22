@@ -29,12 +29,6 @@ import androidx.transition.AutoTransition;
 import androidx.transition.Transition;
 import androidx.transition.TransitionManager;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TimeZone;
-
-import org.dpppt.android.sdk.models.ExposureDay;
-
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
@@ -128,12 +122,11 @@ public class ReportsFragment extends Fragment {
 			infectedView.setVisibility(View.GONE);
 
 			ReportsHeaderFragment.Type headerType;
-			ArrayList<Long> dates = new ArrayList<>();
+			int numExposureDays = 0;
 
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				headerType = ReportsHeaderFragment.Type.POSITIVE_TESTED;
 				infectedView.setVisibility(View.VISIBLE);
-				dates.add(secureStorage.getInfectedDate());
 				infectedView.findViewById(R.id.delete_reports).setOnClickListener(v -> {
 					AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle);
 					builder.setMessage(R.string.delete_infection_dialog)
@@ -152,19 +145,13 @@ public class ReportsFragment extends Fragment {
 				}
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
 				headerType = ReportsHeaderFragment.Type.POSSIBLE_INFECTION;
-				List<ExposureDay> exposureDays = tracingStatusInterface.getExposureDays();
+				numExposureDays = tracingStatusInterface.getExposureDays().size();
 				boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
 				if (isHotlineCallPending) {
 					hotlineView.setVisibility(View.VISIBLE);
 				} else {
 					saveOthersView.setVisibility(View.VISIBLE);
 				}
-				for (int i = 0; i < exposureDays.size(); i++) {
-					ExposureDay exposureDay = exposureDays.get(i);
-					long exposureTimestamp = exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault());
-					dates.add(exposureTimestamp);
-				}
-
 				int daysLeft = DAYS_TO_STAY_IN_QUARANTINE - (int) tracingStatusInterface.getDaysSinceExposure();
 				if (daysLeft > DAYS_TO_STAY_IN_QUARANTINE || daysLeft <= 0) {
 					xDaysLeftTextview.setVisibility(View.GONE);
@@ -173,7 +160,6 @@ public class ReportsFragment extends Fragment {
 				} else {
 					xDaysLeftTextview.setText(getString(R.string.date_in_days).replace("{COUNT}", String.valueOf(daysLeft)));
 				}
-
 				hotlineView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
 				saveOthersView.findViewById(R.id.delete_reports)
 						.setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
@@ -182,7 +168,7 @@ public class ReportsFragment extends Fragment {
 				headerType = ReportsHeaderFragment.Type.NO_REPORTS;
 			}
 
-			setupHeaderFragment(headerType, dates);
+			setupHeaderFragment(headerType, numExposureDays);
 		});
 
 		NotificationManager notificationManager =
@@ -244,7 +230,7 @@ public class ReportsFragment extends Fragment {
 	}
 
 
-	public void doHeaderAnimation(View info, View image, Button button, View showAllButton, int numExposureDays) {
+	public void doHeaderAnimation(View info, View image, Button button, View showAllButton, TextView title, int numExposureDays) {
 		secureStorage.setReportsHeaderAnimationPending(false);
 
 		ViewGroup rootView = (ViewGroup) getView();
@@ -291,6 +277,7 @@ public class ReportsFragment extends Fragment {
 
 			updateHeaderSize(false, numExposureDays);
 
+			title.setText(R.string.meldung_detail_exposed_title);
 			info.setVisibility(View.VISIBLE);
 			image.setVisibility(View.GONE);
 			button.setVisibility(View.GONE);
@@ -405,11 +392,11 @@ public class ReportsFragment extends Fragment {
 		return Math.min(scrollY, scrollRange) / (float) scrollRange;
 	}
 
-	private void setupHeaderFragment(ReportsHeaderFragment.Type headerType, List<Long> timestamps) {
+	private void setupHeaderFragment(ReportsHeaderFragment.Type headerType, int numExposureDays) {
 
 		boolean isReportsHeaderAnimationPending = secureStorage.isReportsHeaderAnimationPending();
 
-		updateHeaderSize(isReportsHeaderAnimationPending, timestamps.size());
+		updateHeaderSize(isReportsHeaderAnimationPending, numExposureDays);
 
 		if (isReportsHeaderAnimationPending) {
 			originalFirstChildPadding = scrollViewFirstchild.getPaddingTop();
@@ -418,21 +405,17 @@ public class ReportsFragment extends Fragment {
 
 		headerFragmentContainer.post(this::setupScrollBehavior);
 
-		//TODO: Check what is happening with position == items.size() - 1
-		//boolean showAnimationControls = isReportsHeaderAnimationPending && position == items.size() - 1;
-		boolean showAnimationControls = isReportsHeaderAnimationPending;
-
 		Fragment header;
 		switch (headerType) {
 			case NO_REPORTS:
-				header = ReportsHeaderFragment.newInstance(ReportsHeaderFragment.Type.NO_REPORTS, null, false);
+				header = ReportsHeaderFragment.newInstance(ReportsHeaderFragment.Type.NO_REPORTS, false);
 				break;
 			case POSSIBLE_INFECTION:
 				header = ReportsHeaderFragment
-						.newInstance(ReportsHeaderFragment.Type.POSSIBLE_INFECTION, timestamps, showAnimationControls);
+						.newInstance(ReportsHeaderFragment.Type.POSSIBLE_INFECTION, isReportsHeaderAnimationPending);
 				break;
 			case POSITIVE_TESTED:
-				header = ReportsHeaderFragment.newInstance(ReportsHeaderFragment.Type.POSITIVE_TESTED, timestamps, false);
+				header = ReportsHeaderFragment.newInstance(ReportsHeaderFragment.Type.POSITIVE_TESTED, false);
 				break;
 			default:
 				throw new IllegalStateException("Unexpected value: " + headerType);
