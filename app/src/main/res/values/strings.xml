@@ -992,7 +992,7 @@ Schwarzenburgstrasse 157
     <string name="share_app_url">"https://foph-coronavirus.ch/swisscovid-app/#download"</string>
 
     <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
-    <string name="stats_counter">"{COUNT} m"</string>
+    <string name="stats_counter">"{COUNT} M"</string>
 
     <!-- Statistik Tag der Daten "{DAY}" wird mit dem Aktualisierungsdatum ersetzt z.B. "14.9." -->
     <string name="stats_source_day">"Stats as of {DAY}"</string>
@@ -1005,4 +1005,51 @@ Schwarzenburgstrasse 157
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Currently unable to load stats"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} million"</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Activate encounter notifications"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Open settings"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Open the system settings via the button below."</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Select:"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Exposure Notifications"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"First activate the function…"</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Share Exposure Information"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"If not done already, you can now set SwissCovid as active region."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Set As Active Region"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"How it works"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <!-- Fuzzy -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <!-- Fuzzy -->
+    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
 </resources>

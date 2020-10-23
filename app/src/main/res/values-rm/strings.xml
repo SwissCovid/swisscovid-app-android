@@ -1001,4 +1001,49 @@ Schwarzenburgstrasse 157
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Actualmain na pon las datas betg vegnir chargiadas"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} miu."</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Activar ils avis da scuntradas"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Avrir ils parameters"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Avri ils parameters dal sistem cun cliccar sin la tasta sutvart. "</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Selecziunai:"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Avis da scuntradas"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"Activai l'emprim la funcziun…"</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Parter las infurmaziuns davart scuntradas"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"Sche quai n'è betg anc betg, pudais Vus fixar ussa SwissCovid sco regiun activa."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Fixar sco regiun activa"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"Uschia funcziuni"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters."</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
 </resources>

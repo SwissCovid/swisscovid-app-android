@@ -128,8 +128,8 @@ public class DebugFragment extends Fragment {
 		ExposureDayStorage eds = ExposureDayStorage.getInstance(requireContext());
 		eds.clear();
 
-		DayDate dayOfExposure = new DayDate();
-		ExposureDay exposureDay = new ExposureDay(-1, dayOfExposure, System.currentTimeMillis());
+		DayDate dayOfExposure = new DayDate().subtractDays(2);
+		ExposureDay exposureDay = new ExposureDay(1, dayOfExposure, System.currentTimeMillis());
 		eds.addExposureDays(requireContext(), Arrays.asList(exposureDay));
 	}
 

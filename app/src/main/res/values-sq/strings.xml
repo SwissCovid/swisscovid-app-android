@@ -1006,4 +1006,49 @@ Schwarzenburgstrasse 157
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Momentalisht të dhënat nuk mund të ngarkohen"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} milion"</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Aktivizo mesazhet e takimit"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Hap cilësimet"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Hapni cilësimet e sistemit nëpërmjet butonit poshtë."</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Zgjidhni:"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Mesazhet e takimit"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"Aktivizoni së pari funksionin..."</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Ndaj informacionet e takimit"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"Nëse nuk e keni bërë tashmë, atëherë tani mund ta përcaktoni SwissCovid si rajon aktiv."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Përcakto si rajon aktiv"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"Kështu funksionon"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters."</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
 </resources>

@@ -19,30 +19,15 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		app:layout_constraintTop_toTopOf="parent"
-		app:navigationIcon="@drawable/ic_arrow_back"
 		app:navigationContentDescription="@string/android_accessibility_back_button"
+		app:navigationIcon="@drawable/ic_arrow_back"
 		app:title="@string/reports_title_homescreen" />
 
-	<FrameLayout
+	<androidx.fragment.app.FragmentContainerView
+		android:id="@+id/header_fragment_container"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		app:layout_constraintTop_toBottomOf="@id/reports_toolbar">
-
-		<androidx.viewpager2.widget.ViewPager2
-			android:id="@+id/reports_header_viewpager"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent" />
-
-		<ch.admin.bag.dp3t.reports.CirclePageIndicator
-			android:id="@+id/reports_pageindicator"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_gravity="bottom"
-			android:layout_marginBottom="@dimen/spacing_larger"
-			android:visibility="gone"
-			tools:visibility="visible" />
-
-	</FrameLayout>
+		android:layout_height="wrap_content"
+		app:layout_constraintTop_toBottomOf="@id/reports_toolbar" />
 
 	<ch.admin.bag.dp3t.reports.LockableScrollView
 		android:id="@+id/reports_scrollview"
