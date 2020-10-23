@@ -24,6 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.Calendar;
 import java.util.List;
 
 import ch.admin.bag.dp3t.R;
@@ -211,6 +212,15 @@ public class StatsFragment extends Fragment {
 				int requiredWidth = diagramView.getTotalTheoreticWidth();
 				// Setting the width via LayoutParams does NOT work for the direct child of a ScrollView!
 				scrollViewWidener.setMinimumWidth(requiredWidth);
+
+				//Add a right padding to the scroll view if the last data entry is a Monday to prevent cutoff of the x axis label
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(history.get(history.size() - 1).getDateParsed());
+				boolean isMonday = cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY;
+				if (isMonday) {
+					diagramScrollView.setPadding(diagramScrollView.getPaddingLeft(), diagramScrollView.getPaddingTop(),
+							getResources().getDimensionPixelSize(R.dimen.spacing_medium), diagramScrollView.getPaddingBottom());
+				}
 
 				diagramScrollView.post(() -> {
 					diagramScrollView.scrollTo(requiredWidth, 0);
