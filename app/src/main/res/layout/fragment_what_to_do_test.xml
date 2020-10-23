@@ -69,7 +69,7 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_medium_large"
-					android:layout_marginBottom="@dimen/spacing_very_large"
+					android:layout_marginBottom="@dimen/spacing_medium_large"
 					android:orientation="vertical">
 
 					<LinearLayout
@@ -77,6 +77,7 @@
 						android:layout_height="wrap_content"
 						android:layout_marginStart="@dimen/spacing_larger"
 						android:layout_marginEnd="@dimen/spacing_larger"
+						android:layout_marginBottom="@dimen/spacing_medium"
 						android:orientation="vertical">
 
 						<TextView
@@ -118,9 +119,9 @@
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:layout_marginStart="@dimen/spacing_medium"
-						android:layout_marginEnd="@dimen/spacing_medium"
 						android:layout_marginTop="@dimen/spacing_large"
-						android:background="@color/status_blue_bg"
+						android:layout_marginEnd="@dimen/spacing_medium"
+						android:background="@color/status_purple_bg"
 						android:orientation="horizontal"
 						android:padding="@dimen/spacing_medium"
 						android:visibility="gone"
@@ -131,7 +132,7 @@
 							android:layout_height="wrap_content"
 							android:layout_marginEnd="@dimen/spacing_very_small"
 							android:src="@drawable/ic_info"
-							android:tint="@color/dark_main" />
+							android:tint="@color/purple_main" />
 
 						<LinearLayout
 							android:layout_width="match_parent"
@@ -168,11 +169,11 @@
 									android:layout_width="@dimen/icon_size"
 									android:layout_height="@dimen/icon_size"
 									android:src="@drawable/ic_launch"
-									android:tint="@color/blue_main" />
+									android:tint="@color/purple_main" />
 
 								<TextView
 									android:id="@+id/wtd_inform_infobox_link_text"
-									style="@style/NextStep.Text.Bold.Blue"
+									style="@style/NextStep.Text.Bold.Purple"
 									android:layout_width="wrap_content"
 									android:layout_height="wrap_content"
 									android:layout_marginLeft="@dimen/spacing_small"
