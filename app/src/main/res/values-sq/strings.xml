@@ -629,7 +629,7 @@ Biseda e konsultës është falas, aplikohen vetëm tarifat e telefonit."</strin
 
 Në këtë mënyrë sigurohet që nga aplikacioni të sinjalizohen vetëm rastet e konfirmuara.
 
-Keni dalë pozitiv dhe pas 2 orësh nuk keni marrë ende asnjë kod Covid?
+Keni dalë pozitiv dhe pas 4 orësh nuk keni marrë ende asnjë kod Covid?
 Atëherë kontaktoni \"Infoline Coronavirus\":"</string>
 
     <!-- Inform Detail: FAQ Titel -->
@@ -965,7 +965,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"Ndryshoni cilësimet, për t'u informuar për një mesazh të ri edhe jashtë aplikacionit."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -981,8 +981,8 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections">"Infektimet e reja të raportuara"</string>
     <string name="stats_legend_new_infections_average">"Mesatarja 7-ditore"</string>
     <string name="stats_legend_entered_covidcodes">"Kodi i futur i Covid"</string>
-    <string name="share_app_supertitle">"Së bashku..."</string>
-    <string name="share_app_title">"Të parandalojmë një valë të dytë"</string>
+    <string name="share_app_supertitle">"Së bashku…"</string>
+    <string name="share_app_title">"të parandalojmë infektimet"</string>
     <string name="share_app_button">"Shpërndaj aplikacionin"</string>
     <string name="share_app_body">"Kur aplikacionin \"SwissCovid\" e aktivizojnë sa më shumë persona të jetë e mundur, atëherë ne mund ta ndërpresim më herët zinxhirin e infektimit."</string>
 
@@ -1041,14 +1041,14 @@ Schwarzenburgstrasse 157
     <string name="ios_tracing_permission_error_button">"Kështu funksionon"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
-    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Takimi i fundit"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters."</string>
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"Të gjitha takimet"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
-    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+    <string name="meldung_detail_exposed_show_all_button">"Shfaq të gjitha"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
+    <string name="meldung_detail_exposed_show_less_button">"Shfaq më pak"</string>
 </resources>

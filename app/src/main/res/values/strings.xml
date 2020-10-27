@@ -628,7 +628,7 @@ The counselling is free of charge. You just have to pay for the call."</string>
 
 This ensures that only confirmed cases are notified via the app.
 
-You have tested positive and after 2 hours have not yet received a Covidcode? 
+You have tested positive and after 4 hours have not yet received a Covidcode? 
 If this is the case, please contact the Coronavirus Infoline:"</string>
 
     <!-- Not translated -->
@@ -964,7 +964,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"Change the settings to receive notification outside the app as well in the event of a report."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -980,8 +980,8 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections">"New infections reported"</string>
     <string name="stats_legend_new_infections_average">"7-day average"</string>
     <string name="stats_legend_entered_covidcodes">"Covidcodes entered"</string>
-    <string name="share_app_supertitle">"Working together to…"</string>
-    <string name="share_app_title">"Prevent a second wave"</string>
+    <string name="share_app_supertitle">"Together…"</string>
+    <string name="share_app_title">"against the spread of Covid"</string>
     <string name="share_app_button">"Share app"</string>
     <string name="share_app_body">"If as many people as possible activate the SwissCovid app, we can break infection chains early."</string>
 
@@ -1041,15 +1041,15 @@ Schwarzenburgstrasse 157
 
     <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
     <!-- Fuzzy -->
-    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last contact"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters"</string>
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"All contacts"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
     <!-- Fuzzy -->
     <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
+    <string name="meldung_detail_exposed_show_less_button">"Show fewer"</string>
 </resources>

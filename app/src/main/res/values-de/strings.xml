@@ -641,7 +641,7 @@ Das Beratungsgespräch ist kostenlos; es fallen nur die Telefongebühren an."</s
 
 Damit wird sichergestellt, dass nur bestätigte Fälle über die App gemeldet werden.
 
-Sie wurden positiv getestet und haben nach 2h noch keinen Covidcode erhalten?
+Sie wurden positiv getestet und haben nach 4h noch keinen Covidcode erhalten?
 Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
@@ -998,7 +998,7 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <string name="meldungen_background_error_text_android">"Ändern Sie die Einstellungen, um bei einer neuen Meldung auch ausserhalb der App informiert zu werden."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5">"COVID-19-Kontaktmitteilungen"</string>
@@ -1015,7 +1015,7 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <string name="stats_legend_new_infections">"Gemeldete Neuinfektionen"</string>
     <string name="stats_legend_new_infections_average">"7-Tage-Schnitt"</string>
     <string name="stats_legend_entered_covidcodes">"Eingegebene Covidcodes"</string>
-    <string name="share_app_supertitle">"Gemeinsam..."</string>
+    <string name="share_app_supertitle">"Gemeinsam…"</string>
     <string name="share_app_title">"Ansteckungen verhindern"</string>
     <string name="share_app_button">"App teilen"</string>
 

@@ -606,7 +606,7 @@
     <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"ውጽኢት መርመርኦም ፖዚቲቭ ዝኾኑ ሰባት ኮቪድኮድ ይውሃቦም። ብኸምዚ መንገዲ እቶም ሕማም ዝተረጋገጸሎም ሰባት ጥራይ በቲ ኣፕ ከምዝምዝገቡ ይረጋገጽ። 
 
-ኣወንታ/ፖሲቲቭ ተመርሚርኩም ድሕሪ 2 ሰዓት ገና ናይ ኮቪድ ኮድ ኣይተወሃብኩም፧
+ኣወንታ/ፖሲቲቭ ተመርሚርኩም ድሕሪ 4 ሰዓት ገና ናይ ኮቪድ ኮድ ኣይተወሃብኩም፧
 ሽዑ እቲ ኢንፎላይን ኮሮናቫይረስ ርኸቡ ኢኹም፥"</string>
 
     <!-- Inform Detail: FAQ Titel -->
@@ -933,7 +933,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"ሓድሽ ሓበሬታ ምስዝህሉ: ካብቲ ኣፕ ወጻኢ ውን ንኽትሕበሩ ምእንታን: ነቲ ሴቲንግ ቀይርዎ።"</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -949,8 +949,8 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections">"ዝተሓበሩ ሓድሽቲ ልበዳታት"</string>
     <string name="stats_legend_new_infections_average">"ናይ 7 መዓልቲ ገምጋም"</string>
     <string name="stats_legend_entered_covidcodes">"ዝተመዝገቡ ናይ ኮቪድ ኮዳት"</string>
-    <string name="share_app_supertitle">"ብሓባር …"</string>
-    <string name="share_app_title">"ካልኣይ ምዝርጋሕ ምውጋድ"</string>
+    <string name="share_app_supertitle">"ብሓባር…"</string>
+    <string name="share_app_title">"ልበዳታት ምውጋድ"</string>
     <string name="share_app_button">"ነቲ ኤፕ ምኽፋል"</string>
     <string name="share_app_body">"ብዝተኻእለ መጠን ብዙሓት ንSwissCovid ኤፕ እንድሕር ወሊዖሞ፣ ናይ ልበዳ ሰንሰለታት ብኣጋኡ ከነቋርጾም ንኽእል ኢና።"</string>
 
@@ -1009,14 +1009,14 @@ Schwarzenburgstrasse 157
     <string name="ios_tracing_permission_error_button">"ከምዚ እዩ ዝሰርሕ"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
-    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"ዝሓለፈ መራኸቢ"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters."</string>
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"ኩሎም መራኸቢታት"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
-    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+    <string name="meldung_detail_exposed_show_all_button">"ኩሉ ምርኣይ"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
+    <string name="meldung_detail_exposed_show_less_button">"ዝወሓደ ምርኣይ"</string>
 </resources>

@@ -629,7 +629,7 @@ Savetovanje je besplatno; plaćaju se samo troškovi poziva."</string>
 
 Time se osigurava da se putem aplikacije prijavljuju samo potvrđeni slučajevi.
 
-Rezultat testa je pozitivan, ali niste dobili Covid šifru ni nakon 2 sata?
+Rezultat testa je pozitivan, ali niste dobili Covid šifru ni nakon 4 sata?
 U tom slučaju, obratite se info liniji za virus korona."</string>
 
     <!-- Inform Detail: FAQ Titel -->
@@ -964,7 +964,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"Promenite podešavanja da biste dobijali obaveštenja o novoj poruci takođe i izvan aplikacije."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -980,8 +980,8 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections">"Prijavljene nove infekcije"</string>
     <string name="stats_legend_new_infections_average">"Presek u periodu od 7 dana"</string>
     <string name="stats_legend_entered_covidcodes">"Unete Covid šifre"</string>
-    <string name="share_app_supertitle">"Zajedno..."</string>
-    <string name="share_app_title">"sprečimo drugi talas pandemije"</string>
+    <string name="share_app_supertitle">"Zajedno…"</string>
+    <string name="share_app_title">"Sprečimo širenje infekcije"</string>
     <string name="share_app_button">"Deli aplikaciju"</string>
     <string name="share_app_body">"Ako što više nas aktivira aplikaciju SwissCovid, moći ćemo pravovremeno da prekinemo lanac širenja infekcije."</string>
 
@@ -1040,14 +1040,14 @@ Schwarzenburgstrasse 157
     <string name="ios_tracing_permission_error_button">"Tako to funkcioniše"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
-    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Posljednji kontakti"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters."</string>
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"Svi kontakti"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
-    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+    <string name="meldung_detail_exposed_show_all_button">"Prikaži sve"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
+    <string name="meldung_detail_exposed_show_less_button">"Prikaži manje"</string>
 </resources>
