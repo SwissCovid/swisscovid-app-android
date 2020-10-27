@@ -22,7 +22,6 @@ public class DateUtils {
 
 	private static final DateFormat DATE_TIME_FORMAT = SimpleDateFormat.getDateTimeInstance();
 	private static final DateFormat DATE_FORMAT = SimpleDateFormat.getDateInstance();
-	private static final DateFormat DATE_FORMAT_WRITTEN_MONTH = new SimpleDateFormat("dd. MMMM yyyy");
 
 	public static int getDaysDiff(long date) {
 		try {
@@ -51,7 +50,7 @@ public class DateUtils {
 	}
 
 	public static String getFormattedDateWrittenMonth(long date) {
-		return DATE_FORMAT_WRITTEN_MONTH.format(new Date(date));
+		return new SimpleDateFormat("dd. MMMM yyyy").format(new Date(date));
 	}
 
 	public static Date getParsedDateStats(String date) {
