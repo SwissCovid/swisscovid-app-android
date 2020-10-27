@@ -49,6 +49,10 @@ public class DateUtils {
 		return DATE_FORMAT.format(new Date(date));
 	}
 
+	public static String getFormattedDateWrittenMonth(long date) {
+		return new SimpleDateFormat("dd. MMMM yyyy").format(new Date(date));
+	}
+
 	public static Date getParsedDateStats(String date) {
 		if (date == null) {
 			return null;
