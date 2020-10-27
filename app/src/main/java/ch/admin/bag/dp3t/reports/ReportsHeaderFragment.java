@@ -161,9 +161,10 @@ public class ReportsHeaderFragment extends Fragment {
 
 	private String getDateString(ExposureDay exposureDay, boolean withDiff) {
 		long timestamp = exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault());
-		String dateStr = DateUtils.getFormattedDate(timestamp);
-		if (!withDiff) return dateStr;
-
+		if (!withDiff) {
+			return DateUtils.getFormattedDateWrittenMonth(timestamp);
+		}
+		String dateStr = getString(R.string.date_text_before_date).replace("{DATE}", DateUtils.getFormattedDate(timestamp));
 		dateStr += " / ";
 		int daysDiff = DateUtils.getDaysDiff(timestamp);
 
