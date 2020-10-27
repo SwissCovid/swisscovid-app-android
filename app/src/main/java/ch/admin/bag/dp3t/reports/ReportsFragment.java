@@ -228,7 +228,7 @@ public class ReportsFragment extends Fragment {
 	}
 
 
-	public void doHeaderAnimation(View info, View image, Button button, View showAllButton, TextView title, int numExposureDays) {
+	public void doHeaderAnimation(View info, View image, Button button, View showAllButton, int numExposureDays) {
 		secureStorage.setReportsHeaderAnimationPending(false);
 
 		ViewGroup rootView = (ViewGroup) getView();
@@ -273,7 +273,6 @@ public class ReportsFragment extends Fragment {
 
 			updateHeaderSize(false, numExposureDays);
 
-			title.setText(R.string.meldung_detail_exposed_title);
 			info.setVisibility(View.VISIBLE);
 			image.setVisibility(View.GONE);
 			button.setVisibility(View.GONE);

@@ -36,7 +36,6 @@ public class SecureStorage {
 	private static final String KEY_INFORM_TOKEN_REQ = "inform_token_req";
 	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
-	private static final String KEY_LAST_SHOWN_CONTACT_TIMESTAMP = "last_shown_contact_timestamp";
 	private static final String KEY_HOTLINE_CALL_PENDING = "hotline_call_pending";
 	private static final String KEY_HOTLINE_LAST_CALL_TIMESTAMP = "hotline_ever_called_timestamp";
 	private static final String KEY_PENDING_REPORTS_HEADER_ANIMATION = "pending_reports_header_animation";
@@ -142,14 +141,6 @@ public class SecureStorage {
 
 	public void setLastShownContactId(int contactId) {
 		prefs.edit().putInt(KEY_LAST_SHOWN_CONTACT_ID, contactId).apply();
-	}
-
-	public long getLastShownContactTimestamp() {
-		return prefs.getLong(KEY_LAST_SHOWN_CONTACT_TIMESTAMP, -1);
-	}
-
-	public void setLastShownContactTimestamp(long timestamp) {
-		prefs.edit().putLong(KEY_LAST_SHOWN_CONTACT_TIMESTAMP, timestamp).apply();
 	}
 
 	public boolean isHotlineCallPending() {

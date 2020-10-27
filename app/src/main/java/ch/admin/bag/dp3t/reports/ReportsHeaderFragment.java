@@ -27,7 +27,6 @@ import java.util.TimeZone;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
@@ -139,23 +138,11 @@ public class ReportsHeaderFragment extends Fragment {
 			showAllButton.setVisibility(View.GONE);
 			image.setVisibility(View.VISIBLE);
 			continueButton.setVisibility(View.VISIBLE);
-			SecureStorage secureStorage = SecureStorage.getInstance(getContext());
-			long lastShownExposureDay = secureStorage.getLastShownContactTimestamp();
-			long latestExposureDayTimestamp = lastShownExposureDay;
-			for (ExposureDay exposureDay : exposureDays) {
-				if (exposureDay.getExposedDate().getStartOfDayTimestamp() == lastShownExposureDay) {
-					titleTextView.setText(R.string.meldung_detail_new_contact_title);
-				}
-				if (exposureDay.getExposedDate().getStartOfDayTimestamp() > latestExposureDayTimestamp) {
-					latestExposureDayTimestamp = exposureDay.getExposedDate().getStartOfDayTimestamp();
-				}
-			}
-			final long finalLatestExposureTimestamp = latestExposureDayTimestamp;
-			continueButton.setOnClickListener(view1 -> {
-				secureStorage.setLastShownContactTimestamp(finalLatestExposureTimestamp);
-				((ReportsFragment) getParentFragment())
-						.doHeaderAnimation(info, image, continueButton, showAllButton, titleTextView, exposureDays.size());
-			});
+			titleTextView.setText(R.string.meldung_detail_new_contact_title);
+			continueButton.setOnClickListener(view1 ->
+					((ReportsFragment) getParentFragment())
+							.doHeaderAnimation(info, image, continueButton, showAllButton, exposureDays.size())
+			);
 		}
 	}
 
