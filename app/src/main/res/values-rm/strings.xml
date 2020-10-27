@@ -626,7 +626,7 @@ Il discurs da cussegliaziun è gratuit; igl è da pajar mo la taxa da telefon."<
       
 Uschia vegni garantì che mo cas confermads vegnan avisads via l'app.
 
-Vus essas vegnida testada resp. vegnì testà en moda positiva sin il coronavirus e n'avais suenter 2 uras anc retschavì nagin code covid? Alura contactai l'infoline coronavirus:"</string>
+Vus essas vegnida testada resp. vegnì testà en moda positiva sin il coronavirus e n'avais suenter 4 uras anc retschavì nagin code covid? Alura contactai l'infoline coronavirus:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Tge vegn tramess?"</string>
@@ -960,7 +960,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"Midai la configuraziun per esser infurmà/infurmada tar ina nova communicaziun er ordaifer l'app."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -976,8 +976,8 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections">"infecziuns novas annunziadas"</string>
     <string name="stats_legend_new_infections_average">"media da 7 dis"</string>
     <string name="stats_legend_entered_covidcodes">"codes covid endatads"</string>
-    <string name="share_app_supertitle">"Impedir cuminaivlamain"</string>
-    <string name="share_app_title">"ina segunda unda"</string>
+    <string name="share_app_supertitle">"Impedir…"</string>
+    <string name="share_app_title">"cuminaivlamain infecziuns"</string>
     <string name="share_app_button">"Cundivider l'app"</string>
     <string name="share_app_body">"Sche uschè bleras persunas sco pussaivel activeschan l'app SwissCovid, pudain nus interrumper ad uras las chadainas d'infecziun."</string>
 
@@ -1036,14 +1036,14 @@ Schwarzenburgstrasse 157
     <string name="ios_tracing_permission_error_button">"Uschia funcziuni"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
-    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Ultim inscunter"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters."</string>
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"Tut ils inscunters"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
-    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+    <string name="meldung_detail_exposed_show_all_button">"Mussar tuts"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
+    <string name="meldung_detail_exposed_show_less_button">"Mussar damain"</string>
 </resources>

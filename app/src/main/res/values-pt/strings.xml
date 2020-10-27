@@ -630,7 +630,7 @@ A chamada de aconselhamento é gratuita, apenas sujeita à tarifa normal."</stri
 
 Isto assegura que só os casos confirmados são assinalados na app.
 
-Testou positivo e ainda não recebeu nenhum código COVID ao fim de 2 h?
+Testou positivo e ainda não recebeu nenhum código COVID ao fim de 4 h?
 Nesse caso, contacte a linha informativa coronavírus:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
@@ -965,7 +965,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"Altere as definições para receber as notificações também fora da app."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -981,8 +981,8 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections">"Novos casos de infeção registados"</string>
     <string name="stats_legend_new_infections_average">"Média de 7 dias"</string>
     <string name="stats_legend_entered_covidcodes">"Códigos COVID introduzidos"</string>
-    <string name="share_app_supertitle">"Juntos..."</string>
-    <string name="share_app_title">"Para prevenir uma segunda vaga"</string>
+    <string name="share_app_supertitle">"Juntos…"</string>
+    <string name="share_app_title">"prevenimos o contágio "</string>
     <string name="share_app_button">"Partilhar a app"</string>
     <string name="share_app_body">"Quanto mais pessoas ativarem a app SwissCovid, mais cedo conseguiremos interromper as cadeias de transmissão."</string>
 
@@ -1041,14 +1041,14 @@ Schwarzenburgstrasse 157
     <string name="ios_tracing_permission_error_button">"Funciona assim"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
-    <string name="meldung_detail_exposed_subtitle_last_encounter">"Last encounter"</string>
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Último contacto"</string>
 
     <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_subtitle_all_encounters">"All encounters."</string>
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"Todos os contactos"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
-    <string name="meldung_detail_exposed_show_all_button">"Show all"</string>
+    <string name="meldung_detail_exposed_show_all_button">"Mostrar todas"</string>
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
-    <string name="meldung_detail_exposed_show_less_button">"Show less"</string>
+    <string name="meldung_detail_exposed_show_less_button">"Mostrar menos"</string>
 </resources>
