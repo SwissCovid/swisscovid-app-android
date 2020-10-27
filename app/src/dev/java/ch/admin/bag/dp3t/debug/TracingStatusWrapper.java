@@ -66,7 +66,6 @@ public class TracingStatusWrapper extends DefaultTracingStatusWrapper {
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		if (debugAppState == DebugAppState.CONTACT_EXPOSED) {
 			secureStorage.setReportsHeaderAnimationPending(true);
-			secureStorage.setLastShownContactTimestamp(-1);
 		} else if (debugAppState == DebugAppState.REPORTED_EXPOSED) {
 			DP3T.stop(context);
 			setStatus(DP3T.getStatus(context));
