@@ -13,6 +13,7 @@ import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
@@ -294,12 +295,15 @@ public class ReportsFragment extends Fragment {
 		int endScrollViewPadding;
 		if (showAll) {
 			endExposureDayTopPadding = getResources().getDimensionPixelSize(R.dimen.spacing_medium);
-			endHeaderHeight = getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days) +
-					exposureDayItemHeight * (numExposureDays - 1) + endExposureDayTopPadding;
+			endHeaderHeight = Math.min(getScreenHeight() / 3 * 2,
+					getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days) +
+							exposureDayItemHeight * (numExposureDays - 1) + endExposureDayTopPadding);
 			endDateTextHeight = 0;
-			endExposureDaysContainerHeight = exposureDayItemHeight * numExposureDays + endExposureDayTopPadding;
-			endScrollViewPadding = getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_multiple_days) +
-					exposureDayItemHeight * (numExposureDays - 1) + endExposureDayTopPadding;
+			endExposureDaysContainerHeight =
+					endHeaderHeight - getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days) +
+							exposureDayItemHeight;
+			endScrollViewPadding =
+					endHeaderHeight - getResources().getDimensionPixelSize(R.dimen.top_item_header_overlap_reports_multiple_days);
 		} else {
 			endExposureDayTopPadding = 0;
 			endHeaderHeight = getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days);
@@ -342,6 +346,10 @@ public class ReportsFragment extends Fragment {
 		);
 		anim.setDuration(100);
 		anim.start();
+	}
+
+	private int getScreenHeight() {
+		return Resources.getSystem().getDisplayMetrics().heightPixels;
 	}
 
 	private void setHeight(View view, float height) {
