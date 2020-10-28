@@ -34,7 +34,7 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="inform_fertig_button_title">"Serrar"</string>
 
     <!-- Titel auf Homescreen für Begegnungen -->
-    <string name="handshakes_title_homescreen">"Scuntradas"</string>
+    <string name="handshakes_title_homescreen">"Inscunters"</string>
 
     <!-- Abbrechen -->
     <string name="cancel">"Interrumper"</string>
@@ -64,10 +64,10 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="bluetooth_permission_turned_off">"L'app na funcziuna betg, perquai che Vus n’avais betg dà l'autorisaziun bluetooth."</string>
 
     <!-- Permission Text für Bluetooth -->
-    <string name="NSBluetoothPeripheralUsageDescription">"Scuntradas vegnan identifitgadas via bluetooth, economisant l'energia."</string>
+    <string name="NSBluetoothPeripheralUsageDescription">"Inscunters vegnan identifitgadas via bluetooth, economisant l'energia."</string>
 
     <!-- Permission Text für Bluetooth -->
-    <string name="NSBluetoothAlwaysUsageDescription">"Scuntradas vegnan identifitgadas via bluetooth, economisant l'energia."</string>
+    <string name="NSBluetoothAlwaysUsageDescription">"Inscunters vegnan identifitgadas via bluetooth, economisant l'energia."</string>
 
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Endatar il code covid"</string>
@@ -109,7 +109,7 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="tracing_active_title">"App activa"</string>
 
     <!-- Text bei Tracing aktiv -->
-    <string name="tracing_active_text">"Scuntradas vegnan arcunadas en moda anonima"</string>
+    <string name="tracing_active_text">"Inscunters vegnan arcunadas en moda anonima"</string>
 
     <!-- Android: Fehler Text bei Tracing -->
     <string name="android_tracing_error_title">"Tracing inactiv"</string>
@@ -260,7 +260,7 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
     <string name="meldung_detail_positive_test_box_text">"Observai las instrucziuns davart l'isolaziun che Vus avais retschavì"</string>
     <string name="tracing_ended_title">"Tracing terminà"</string>
-    <string name="tracing_ended_text">"I na vegnan arcunadas pli naginas scuntradas."</string>
+    <string name="tracing_ended_text">"I na vegnan arcunads pli nagins inscunters."</string>
     <string name="exposed_info_contact_hotline">"Contactai la"</string>
     <string name="meldung_homescreen_positive_info_line1">"Observai la"</string>
     <string name="meldung_homescreen_positive_info_line2">"Instrucziuns davart l'autoisolaziun"</string>
@@ -346,7 +346,7 @@ Infoline SwissCovid
     <string name="onboarding_begegnungen_heading">"Co funcziuna l'app?"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
-    <string name="onboarding_begegnungen_title">"Identifitgar scuntradas grazia a bluetooth"</string>
+    <string name="onboarding_begegnungen_title">"Identifitgar inscunters grazia a bluetooth"</string>
 
     <!-- Onboarding Begegnungen: Text -->
     <string name="onboarding_begegnungen_text1">"L'app percorscha automaticamain, sche dus utilisaders èn damanaivel in da l’auter per in tschert temp."</string>
@@ -552,16 +552,16 @@ Resguardai las directivas davart l'isolaziun che Vus avais retschavì."</string>
     <string name="menu_impressum">"Impressum"</string>
 
     <!-- Begegnungen: FAQ Titel -->
-    <string name="begegnung_detail_faq1_title">"Tge vul dir scuntrada?"</string>
+    <string name="begegnung_detail_faq1_title">"Tge vul dir inscunter?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq1_text">"Sche telefons mobils cun l'app sa chattan damanaivel in da l'auter per in tschert temp, vegn quai registrà sin l'apparat sco scuntrada."</string>
+    <string name="begegnung_detail_faq1_text">"Sche telefons mobils cun l'app sa chattan damanaivel in da l'auter per in tschert temp, vegn quai registrà sin l'apparat sco inscunter."</string>
 
     <!-- Begegnungen: FAQ Titel -->
     <string name="begegnung_detail_faq2_title">"Èn mias datas segiras?"</string>
 
     <!-- Begegnungen: FAQ Text -->
-    <string name="begegnung_detail_faq2_text">"En cas d'ina scuntrada vegnan barattadas mo IDs casualas. 
+    <string name="begegnung_detail_faq2_text">"En cas d'in inscunter vegnan barattadas mo IDs casualas. 
 
 Quellas vegnan arcunadas localmain sin ils apparats e puspè stizzadas suenter 14 dis."</string>
 
@@ -588,7 +588,7 @@ En cas d'ina eventuala infecziun vegnis Vus orientada/orientà cun ina communica
     <string name="meldungen_nomeldungen_faq2_titel">"Tge vul dir eventuala infecziun?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"L'app n'examinescha betg sulettamain, sch'i ha dà scuntradas cun persunas infectadas, mabain er quant ditg ch'ellas han durà e quant damanaivel che Vus essas stada/stà a questas persunas.
+    <string name="meldungen_nomeldungen_faq2_text">"L'app n'examinescha betg sulettamain, sch'i ha dà inscunters cun persunas infectadas, mabain er quant ditg ch'els han durà e quant damanaivel che Vus essas stada/stà a questas persunas.
 
 Vus vegnis infurmada/infurmà mo, sche la pussaivladad d'esser infectada/infectà è gronda avunda."</string>
 
@@ -626,7 +626,7 @@ Il discurs da cussegliaziun è gratuit; igl è da pajar mo la taxa da telefon."<
       
 Uschia vegni garantì che mo cas confermads vegnan avisads via l'app.
 
-Vus essas vegnida testada resp. vegnì testà en moda positiva sin il coronavirus e n'avais suenter 2 uras anc retschavì nagin code covid? Alura contactai l'infoline coronavirus:"</string>
+Vus essas vegnida testada resp. vegnì testà en moda positiva sin il coronavirus e n'avais suenter 4 uras anc retschavì nagin code covid? Alura contactai l'infoline coronavirus:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Tge vegn tramess?"</string>
@@ -646,7 +646,7 @@ Uschia vegnan autras utilisadras ed auters utilisaders da l'app SwissCovid a sav
     <string name="inform_code_intro_title">"Infurmaziun impurtanta"</string>
 
     <!-- Informieren-Flow: Erster Screen Text -->
-    <string name="inform_code_intro_text">"Cumbain ch'i na vegnan tramessas naginas datas davart Vossa persuna, èsi pussaivel ch'insatgi sa regorda da la scuntrada a maun da la data."</string>
+    <string name="inform_code_intro_text">"Cumbain ch'i na vegnan tramessas naginas datas davart Vossa persuna, èsi pussaivel ch'insatgi sa regorda da l'inscunter a maun da la data."</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
     <string name="inform_code_intro_button">"Chapì"</string>
@@ -741,7 +741,7 @@ Uschia vegnan autras utilisadras ed auters utilisaders da l'app SwissCovid a sav
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <string name="delete_infection_dialog">"Vulais Vus propi stizzar l’avis?"</string>
     <string name="android_onboarding_battery_permission_title">"Ignorar l'optimaziun da l'accu"</string>
-    <string name="android_onboarding_battery_permission_text">"Per pudair identifitgar las scuntradas d’in cuntin, sto l'optimaziun da l'accu esser deactivada per questa app."</string>
+    <string name="android_onboarding_battery_permission_text">"Per pudair identifitgar ils inscunters d’in cuntin, sto l'optimaziun da l'accu esser deactivada per questa app."</string>
     <string name="android_onboarding_battery_permission_button">"Permetter"</string>
     <string name="android_onboarding_battery_permission_button_deactivated">"OK"</string>
     <string name="android_onboarding_battery_permission_info_1_title">"Mo per questa app"</string>
@@ -809,7 +809,7 @@ Sch'i na stat actualmain a disposiziun nagina actualisaziun sin Voss apparat, em
 fraina 
 chadainas d'infecziun.
 "</string>
-    <string name="inform_detail_faq3_text">"Cumbain ch'i na vegnan tramessas naginas datas davart Vossa persuna, èsi pussaivel ch'insatgi sa regorda da la scuntrada a maun da la data."</string>
+    <string name="inform_detail_faq3_text">"Cumbain ch'i na vegnan tramessas naginas datas davart Vossa persuna, èsi pussaivel ch'insatgi sa regorda da l'inscunter a maun da la data."</string>
     <string name="inform_detail_faq3_title">"Rest jau anonima/anonim?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
@@ -885,7 +885,7 @@ Schwarzenburgstrasse 157
     <string name="activate_tracing_button">"Activar tracing"</string>
 
     <!-- Detailed Version of tracing_turned_off_text that is displayed to the user in the Tracing Detail View when the Tracing is deactivated. -->
-    <string name="tracing_turned_off_detailed_text">"Activai il tracing per che l'app possia arcunar scuntradas e retschaiver avis."</string>
+    <string name="tracing_turned_off_detailed_text">"Activai il tracing per che l'app possia arcunar inscunters e retschaiver avis."</string>
 
     <!-- Warning that is displayed to the user in the Home View under the Meldungen-Card. -->
     <string name="meldungen_tracing_not_active_warning">"Sch'il tracing è deactivà, na pon er vegnidas retschavids nagins avis."</string>
@@ -960,7 +960,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"Midai la configuraziun per esser infurmà/infurmada tar ina nova communicaziun er ordaifer l'app."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -976,8 +976,8 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections">"infecziuns novas annunziadas"</string>
     <string name="stats_legend_new_infections_average">"media da 7 dis"</string>
     <string name="stats_legend_entered_covidcodes">"codes covid endatads"</string>
-    <string name="share_app_supertitle">"Impedir cuminaivlamain"</string>
-    <string name="share_app_title">"ina segunda unda"</string>
+    <string name="share_app_supertitle">"Impedir…"</string>
+    <string name="share_app_title">"cuminaivlamain infecziuns"</string>
     <string name="share_app_button">"Cundivider l'app"</string>
     <string name="share_app_body">"Sche uschè bleras persunas sco pussaivel activeschan l'app SwissCovid, pudain nus interrumper ad uras las chadainas d'infecziun."</string>
 
@@ -1001,4 +1001,49 @@ Schwarzenburgstrasse 157
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Actualmain na pon las datas betg vegnir chargiadas"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} miu."</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Activar ils avis d'inscunters"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Avrir ils parameters"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Avri ils parameters dal sistem cun cliccar sin la tasta sutvart. "</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Selecziunai:"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Avis d'inscunters"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"Activai l'emprim la funcziun…"</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Parter las infurmaziuns davart inscunters"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"Sche quai n'è betg anc betg, pudais Vus fixar ussa SwissCovid sco regiun activa."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Fixar sco regiun activa"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"Uschia funcziuni"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Ultim inscunter"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"Tut ils inscunters"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <string name="meldung_detail_exposed_show_all_button">"Mussar tuts"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Mussar damain"</string>
 </resources>

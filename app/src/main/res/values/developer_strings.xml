@@ -14,5 +14,6 @@
 	<string name="debug_test_notification">Test Exposure Notification</string>
 	<string name="debug_devoptions_title">Developer Options</string>
 	<string name="debug_certpinning_enabled">Certificate Pinning enabled</string>
+	<string name="number_of_exposure_days">How many exposure days should be simulated?</string>
 
 </resources>

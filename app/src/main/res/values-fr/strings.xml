@@ -627,7 +627,7 @@ La consultation est gratuite ; seuls les frais d'appel sont à votre charge."</s
 
 Cela permet d'assurer que seuls les cas confirmés sont signalés via l'application.
 
-Vous n'avez toujours pas reçu de code COVID 2h après avoir été testé positif?
+Vous n'avez toujours pas reçu de code COVID 4h après avoir été testé positif?
 Veuillez contacter l'infoline coronavirus:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
@@ -966,7 +966,7 @@ d'ouvrir un site internet."</string>
     <string name="meldungen_background_error_text_android">"Veuillez modifier les paramètres pour pouvoir recevoir les nouvelles notifications même en dehors de l'application."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -983,7 +983,7 @@ d'ouvrir un site internet."</string>
     <string name="stats_legend_new_infections_average">"Vue sur 7 jours"</string>
     <string name="stats_legend_entered_covidcodes">"Codes COVID saisis"</string>
     <string name="share_app_supertitle">"Ensemble…"</string>
-    <string name="share_app_title">"éviter une deuxième vague"</string>
+    <string name="share_app_title">"empêcher les contaminations"</string>
     <string name="share_app_button">"Partager l'application"</string>
     <string name="share_app_body">"Si un maximum de personnes activent l'application SwissCovid, nous pouvons interrompre rapidement les chaînes d'infection."</string>
 
@@ -1007,4 +1007,49 @@ d'ouvrir un site internet."</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Les données ne peuvent pas être chargées pour l'instant."</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} million"</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Activation des notifications d'exposition"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Ouvrir les paramètres"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Ouvrez les paramètres système via le bouton ci-dessous"</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Cliquez sur :"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Notifications d'exposition"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"Activez tout d'abord la fonction..."</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Partager les informations relatives aux expositions"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"Si ce n'est pas déjà fait, choisissez SwissCovid comme région active."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Définir comme région active"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"Voici comment faire"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Dernière rencontre"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"Toutes les rencontres"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <string name="meldung_detail_exposed_show_all_button">"Affichage complet"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Affichage réduit"</string>
 </resources>

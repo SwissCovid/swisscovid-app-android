@@ -29,6 +29,8 @@ public class DiagramView extends View {
 	private static final int STROKE_WIDTH_X_AXIS = 1;
 	private static final int HEIGHT_X_AXIS_DATE_MARKER = 10;
 	private static final int PADDING_X_AXIS_DATE_MARKER_LABEL = 5;
+	private static final int PADDING_IF_MONDAY = 15;
+	private static final int PADDING_IF_TUESDAY_OR_SUNDAY = 5;
 
 	private static final int STROKE_WIDTH_Y_AXIS = 1;
 	private static final int WIDTH_Y_AXIS_DASH_ON = 2;
@@ -131,7 +133,8 @@ public class DiagramView extends View {
 	 * Returns the width in DP that the DiagramView would need on an infinite screen.
 	 */
 	public int getTotalTheoreticWidth() {
-		return Math.round(history.size() * WIDTH_BAR * dp + (history.size() - 1) * PADDING_BAR * dp);
+		return Math.round(history.size() * WIDTH_BAR * dp + (history.size() - 1) * PADDING_BAR * dp + getLeftPadding() +
+				getRightPadding());
 	}
 
 	@Override
@@ -143,7 +146,7 @@ public class DiagramView extends View {
 			return;
 		}
 
-		canvas.translate(-canvasXTranslation, 0);
+		canvas.translate(-canvasXTranslation + getLeftPadding(), 0);
 
 		drawData(canvas);
 		drawXAxis(canvas);
@@ -262,6 +265,34 @@ public class DiagramView extends View {
 			}
 		}
 		return max;
+	}
+
+	// Returns a padding in dp to prevent x axis label cutoff
+	private float getLeftPadding() {
+		if (history == null || history.isEmpty()) return 0;
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(history.get(0).getDateParsed());
+		if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY) {
+			return PADDING_IF_MONDAY * dp;
+		} else if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+			return PADDING_IF_TUESDAY_OR_SUNDAY * dp;
+		} else {
+			return 0;
+		}
+	}
+
+	// Returns a padding in dp to prevent x axis label cutoff
+	private float getRightPadding() {
+		if (history == null || history.isEmpty()) return 0;
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(history.get(history.size() - 1).getDateParsed());
+		if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY) {
+			return PADDING_IF_MONDAY * dp;
+		} else if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY) {
+			return PADDING_IF_TUESDAY_OR_SUNDAY * dp;
+		} else {
+			return 0;
+		}
 	}
 
 }

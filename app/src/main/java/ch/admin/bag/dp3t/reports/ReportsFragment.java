@@ -9,16 +9,16 @@
  */
 package ch.admin.bag.dp3t.reports;
 
+import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,14 +29,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.transition.AutoTransition;
 import androidx.transition.Transition;
 import androidx.transition.TransitionManager;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TimeZone;
-
-import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
@@ -57,12 +49,9 @@ public class ReportsFragment extends Fragment {
 	private TracingViewModel tracingViewModel;
 	private SecureStorage secureStorage;
 
-	private ReportsSlidePageAdapter pagerAdapter;
-
-	private ViewPager2 headerViewPager;
+	private View headerFragmentContainer;
 	private LockableScrollView scrollView;
 	private View scrollViewFirstchild;
-	private CirclePageIndicator circlePageIndicator;
 
 	private View healthyView;
 	private View saveOthersView;
@@ -76,8 +65,6 @@ public class ReportsFragment extends Fragment {
 
 
 	private boolean hotlineJustCalled = false;
-
-	private int originalFirstChildPadding = 0;
 
 	public ReportsFragment() { super(R.layout.fragment_reports); }
 
@@ -94,10 +81,9 @@ public class ReportsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.reports_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-		headerViewPager = view.findViewById(R.id.reports_header_viewpager);
+		headerFragmentContainer = view.findViewById(R.id.header_fragment_container);
 		scrollView = view.findViewById(R.id.reports_scrollview);
 		scrollViewFirstchild = view.findViewById(R.id.reports_scrollview_firstChild);
-		circlePageIndicator = view.findViewById(R.id.reports_pageindicator);
 
 		healthyView = view.findViewById(R.id.reports_healthy);
 		saveOthersView = view.findViewById(R.id.reports_save_others);
@@ -128,20 +114,18 @@ public class ReportsFragment extends Fragment {
 
 		infoLinkHealthy.setOnClickListener(v -> openLink(R.string.no_meldungen_box_url));
 
-		pagerAdapter = new ReportsSlidePageAdapter();
-		headerViewPager.setAdapter(pagerAdapter);
-		circlePageIndicator.setViewPager(headerViewPager);
-
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			healthyView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.GONE);
 			hotlineView.setVisibility(View.GONE);
 			infectedView.setVisibility(View.GONE);
 
-			List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
+			ReportsHeaderFragment.Type headerType;
+			int numExposureDays = 0;
+
 			if (tracingStatusInterface.isReportedAsInfected()) {
+				headerType = ReportsHeaderFragment.Type.POSITIVE_TESTED;
 				infectedView.setVisibility(View.VISIBLE);
-				items.add(new Pair<>(ReportsPagerFragment.Type.POSITIVE_TESTED, secureStorage.getInfectedDate()));
 				infectedView.findViewById(R.id.delete_reports).setOnClickListener(v -> {
 					AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle);
 					builder.setMessage(R.string.delete_infection_dialog)
@@ -159,23 +143,14 @@ public class ReportsFragment extends Fragment {
 					infectedView.findViewById(R.id.delete_reports).setVisibility(View.GONE);
 				}
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
-				List<ExposureDay> exposureDays = tracingStatusInterface.getExposureDays();
+				headerType = ReportsHeaderFragment.Type.POSSIBLE_INFECTION;
+				numExposureDays = tracingStatusInterface.getExposureDays().size();
 				boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
 				if (isHotlineCallPending) {
 					hotlineView.setVisibility(View.VISIBLE);
 				} else {
 					saveOthersView.setVisibility(View.VISIBLE);
 				}
-				for (int i = 0; i < exposureDays.size(); i++) {
-					ExposureDay exposureDay = exposureDays.get(i);
-					long exposureTimestamp = exposureDay.getExposedDate().getStartOfDay(TimeZone.getDefault());
-					if (i == 0) {
-						items.add(new Pair<>(ReportsPagerFragment.Type.POSSIBLE_INFECTION, exposureTimestamp));
-					} else {
-						items.add(new Pair<>(ReportsPagerFragment.Type.NEW_CONTACT, exposureTimestamp));
-					}
-				}
-
 				int daysLeft = DAYS_TO_STAY_IN_QUARANTINE - (int) tracingStatusInterface.getDaysSinceExposure();
 				if (daysLeft > DAYS_TO_STAY_IN_QUARANTINE || daysLeft <= 0) {
 					xDaysLeftTextview.setVisibility(View.GONE);
@@ -184,22 +159,22 @@ public class ReportsFragment extends Fragment {
 				} else {
 					xDaysLeftTextview.setText(getString(R.string.date_in_days).replace("{COUNT}", String.valueOf(daysLeft)));
 				}
-
 				hotlineView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
 				saveOthersView.findViewById(R.id.delete_reports)
 						.setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
 			} else {
 				healthyView.setVisibility(View.VISIBLE);
-				items.add(new Pair<>(ReportsPagerFragment.Type.NO_REPORTS, null));
+				headerType = ReportsHeaderFragment.Type.NO_REPORTS;
 			}
 
-			pagerAdapter.updateItems(items);
+			setupHeaderFragment(headerType, numExposureDays);
 		});
 
 		NotificationManager notificationManager =
 				(NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.cancel(NotificationUtil.NOTIFICATION_ID_CONTACT);
 	}
+
 
 	private void deleteNotifications(TracingStatusInterface tracingStatusInterface) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.NextStep_AlertDialogStyle);
@@ -253,7 +228,8 @@ public class ReportsFragment extends Fragment {
 		}
 	}
 
-	public void doHeaderAnimation(View info, View image, Button button) {
+
+	public void doHeaderAnimation(View info, View image, Button button, View showAllButton, int numExposureDays) {
 		secureStorage.setReportsHeaderAnimationPending(false);
 
 		ViewGroup rootView = (ViewGroup) getView();
@@ -275,9 +251,7 @@ public class ReportsFragment extends Fragment {
 
 				@Override
 				public void onTransitionEnd(@NonNull Transition transition) {
-					headerViewPager.post(() -> {
-						setupScrollBehavior();
-					});
+					headerFragmentContainer.post(() -> setupScrollBehavior());
 				}
 
 				@Override
@@ -298,56 +272,129 @@ public class ReportsFragment extends Fragment {
 
 			TransitionManager.beginDelayedTransition(rootView, autoTransition);
 
-			updateHeaderSize(false);
-
-			scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
-					originalFirstChildPadding,
-					scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+			updateHeaderSize(false, numExposureDays);
 
 			info.setVisibility(View.VISIBLE);
 			image.setVisibility(View.GONE);
 			button.setVisibility(View.GONE);
-
-			circlePageIndicator.setVisibility(pagerAdapter.items.size() > 1 ? View.VISIBLE : View.GONE);
-			headerViewPager.setUserInputEnabled(true);
+			if (numExposureDays <= 1) {
+				showAllButton.setVisibility(View.GONE);
+			} else {
+				showAllButton.setVisibility(View.VISIBLE);
+			}
 		});
 	}
 
-	private void updateHeaderSize(boolean isReportsHeaderAnimationPending) {
-		ViewGroup.LayoutParams headerLp = headerViewPager.getLayoutParams();
-		FrameLayout headerLayout = (FrameLayout) headerViewPager.getParent();
-		ViewGroup.LayoutParams headerLayoutLp = headerLayout.getLayoutParams();
+	public void animateHeaderHeight(boolean showAll, int numExposureDays, View exposureDaysContainer, View dateTextView) {
+
+		int exposureDayItemHeight = getResources().getDimensionPixelSize(R.dimen.header_reports_exposure_day_height);
+		int endExposureDayTopPadding;
+		int endHeaderHeight;
+		int endDateTextHeight;
+		int endExposureDaysContainerHeight;
+		int endScrollViewPadding;
+		if (showAll) {
+			endExposureDayTopPadding = getResources().getDimensionPixelSize(R.dimen.spacing_medium);
+			endHeaderHeight = Math.min(getScreenHeight() / 3 * 2,
+					getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days) +
+							exposureDayItemHeight * (numExposureDays - 1) + endExposureDayTopPadding);
+			endDateTextHeight = 0;
+			endExposureDaysContainerHeight =
+					endHeaderHeight - getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days) +
+							exposureDayItemHeight;
+			endScrollViewPadding =
+					endHeaderHeight - getResources().getDimensionPixelSize(R.dimen.top_item_header_overlap_reports_multiple_days);
+		} else {
+			endExposureDayTopPadding = 0;
+			endHeaderHeight = getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days);
+			endDateTextHeight = exposureDayItemHeight;
+			endExposureDaysContainerHeight = 0;
+			endScrollViewPadding = getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_multiple_days);
+		}
+
+		int startExposureDayTopPadding = exposureDaysContainer.getPaddingTop();
+		int startHeaderHeight = headerFragmentContainer.getLayoutParams().height;
+		int startScrollViewPadding = scrollViewFirstchild.getPaddingTop();
+		int startDateTextHeight = dateTextView.getLayoutParams().height;
+		int startExposureDaysContainerHeight = exposureDaysContainer.getLayoutParams().height;
+
+		ValueAnimator anim = ValueAnimator.ofFloat(0, 1);
+		anim.addUpdateListener(v -> {
+					float value = (float) v.getAnimatedValue();
+					setHeight(headerFragmentContainer, value * (endHeaderHeight - startHeaderHeight) + startHeaderHeight);
+					setHeight(dateTextView, value * (endDateTextHeight - startDateTextHeight) + startDateTextHeight);
+					setHeight(exposureDaysContainer,
+							value * (endExposureDaysContainerHeight - startExposureDaysContainerHeight) + startExposureDaysContainerHeight);
+					scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
+							(int) (value * (endScrollViewPadding - startScrollViewPadding) + startScrollViewPadding),
+							scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+					exposureDaysContainer.setPadding(exposureDaysContainer.getPaddingLeft(),
+							(int) (value * (endExposureDayTopPadding - startExposureDayTopPadding) + startExposureDayTopPadding),
+							exposureDaysContainer.getPaddingRight(), exposureDaysContainer.getPaddingBottom());
+					if (value == 0) {
+						exposureDaysContainer.setVisibility(View.VISIBLE);
+						dateTextView.setVisibility(View.VISIBLE);
+					} else if (value == 1) {
+						if (showAll) {
+							dateTextView.setVisibility(View.GONE);
+						} else {
+							exposureDaysContainer.setVisibility(View.GONE);
+						}
+						headerFragmentContainer.post(this::setupScrollBehavior);
+					}
+				}
+		);
+		anim.setDuration(100);
+		anim.start();
+	}
+
+	private int getScreenHeight() {
+		return Resources.getSystem().getDisplayMetrics().heightPixels;
+	}
+
+	private void setHeight(View view, float height) {
+		ViewGroup.LayoutParams params = view.getLayoutParams();
+		params.height = (int) height;
+		view.setLayoutParams(params);
+	}
+
+	private void updateHeaderSize(boolean isReportsHeaderAnimationPending, int numExposureDays) {
+		ViewGroup.LayoutParams headerLp = headerFragmentContainer.getLayoutParams();
 		if (isReportsHeaderAnimationPending) {
 			headerLp.height = ViewGroup.LayoutParams.MATCH_PARENT;
-			headerLayoutLp.height = ViewGroup.LayoutParams.MATCH_PARENT;
-		} else {
+		} else if (numExposureDays <= 1) {
 			headerLp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports);
-			headerLayoutLp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+			scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
+					getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports),
+					scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
+		} else {
+			headerLp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports_multiple_days);
+			scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
+					getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_multiple_days),
+					scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
 		}
-		headerViewPager.setLayoutParams(headerLp);
-		headerLayout.setLayoutParams(headerLayoutLp);
+		headerFragmentContainer.setLayoutParams(headerLp);
+		headerFragmentContainer.post(this::setupScrollBehavior);
 	}
 
 	private void setupScrollBehavior() {
 		if (!isVisible()) return;
 
 		Rect rect = new Rect();
-		headerViewPager.getDrawingRect(rect);
+		headerFragmentContainer.getDrawingRect(rect);
 		scrollView.setScrollPreventRect(rect);
-
-		View headerParent = (View) headerViewPager.getParent();
 
 		int scrollRangePx = scrollViewFirstchild.getPaddingTop();
 		int translationRangePx = -getResources().getDimensionPixelSize(R.dimen.spacing_huge);
 		scrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
 			float progress = computeScrollAnimProgress(scrollY, scrollRangePx);
-			headerParent.setAlpha(1 - progress);
-			headerParent.setTranslationY(progress * translationRangePx);
+			headerFragmentContainer.setAlpha(1 - progress);
+			headerFragmentContainer.setTranslationY(progress * translationRangePx);
 		});
 		scrollView.post(() -> {
 			float progress = computeScrollAnimProgress(scrollView.getScrollY(), scrollRangePx);
-			headerParent.setAlpha(1 - progress);
-			headerParent.setTranslationY(progress * translationRangePx);
+			headerFragmentContainer.setAlpha(1 - progress);
+			headerFragmentContainer.setTranslationY(progress * translationRangePx);
 		});
 	}
 
@@ -355,90 +402,37 @@ public class ReportsFragment extends Fragment {
 		return Math.min(scrollY, scrollRange) / (float) scrollRange;
 	}
 
-	private class ReportsSlidePageAdapter extends FragmentStateAdapter {
+	private void setupHeaderFragment(ReportsHeaderFragment.Type headerType, int numExposureDays) {
 
-		List<Pair<ReportsPagerFragment.Type, Long>> items = new ArrayList<>();
+		boolean isReportsHeaderAnimationPending = secureStorage.isReportsHeaderAnimationPending();
 
-		boolean isReportsHeaderAnimationPending = false;
+		updateHeaderSize(isReportsHeaderAnimationPending, numExposureDays);
 
-		ReportsSlidePageAdapter() {
-			super(ReportsFragment.this);
+		if (isReportsHeaderAnimationPending) {
+			scrollViewFirstchild.setVisibility(View.GONE);
 		}
 
-		void updateItems(List<Pair<ReportsPagerFragment.Type, Long>> items) {
+		headerFragmentContainer.post(this::setupScrollBehavior);
 
-			isReportsHeaderAnimationPending = secureStorage.isReportsHeaderAnimationPending();
-
-			this.items.clear();
-			this.items.addAll(items);
-			notifyDataSetChanged();
-
-			if (items.size() > 1) {
-				if (!isReportsHeaderAnimationPending) circlePageIndicator.setVisibility(View.VISIBLE);
-				ViewGroup.LayoutParams lp = headerViewPager.getLayoutParams();
-				lp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports_with_indicator);
-				headerViewPager.setLayoutParams(lp);
-				scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
-						getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports_width_indicator),
-						scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
-			} else {
-				circlePageIndicator.setVisibility(View.GONE);
-				ViewGroup.LayoutParams lp = headerViewPager.getLayoutParams();
-				lp.height = getResources().getDimensionPixelSize(R.dimen.header_height_reports);
-				headerViewPager.setLayoutParams(lp);
-				scrollViewFirstchild.setPadding(scrollViewFirstchild.getPaddingLeft(),
-						getResources().getDimensionPixelSize(R.dimen.top_item_padding_reports),
-						scrollViewFirstchild.getPaddingRight(), scrollViewFirstchild.getPaddingBottom());
-			}
-
-			updateHeaderSize(isReportsHeaderAnimationPending);
-
-			if (isReportsHeaderAnimationPending) {
-				headerViewPager.setUserInputEnabled(false);
-
-				originalFirstChildPadding = scrollViewFirstchild.getPaddingTop();
-
-				scrollViewFirstchild.setVisibility(View.GONE);
-			}
-
-			headerViewPager.post(() -> {
-				headerViewPager.setCurrentItem(items.size() - 1, false);
-
-				setupScrollBehavior();
-			});
+		Fragment header;
+		switch (headerType) {
+			case NO_REPORTS:
+				header = ReportsHeaderFragment.newInstance(ReportsHeaderFragment.Type.NO_REPORTS, false);
+				break;
+			case POSSIBLE_INFECTION:
+				header = ReportsHeaderFragment
+						.newInstance(ReportsHeaderFragment.Type.POSSIBLE_INFECTION, isReportsHeaderAnimationPending);
+				break;
+			case POSITIVE_TESTED:
+				header = ReportsHeaderFragment.newInstance(ReportsHeaderFragment.Type.POSITIVE_TESTED, false);
+				break;
+			default:
+				throw new IllegalStateException("Unexpected value: " + headerType);
 		}
 
-		@NonNull
-		@Override
-		public Fragment createFragment(int position) {
-
-			Pair<ReportsPagerFragment.Type, Long> item = items.get(position);
-			ReportsPagerFragment.Type type = item.first;
-			long timestamp = item.second == null ? 0 : item.second;
-
-			boolean showAnimationControls = isReportsHeaderAnimationPending && position == items.size() - 1;
-
-			switch (type) {
-				case NO_REPORTS:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.NO_REPORTS, 0, false);
-				case POSSIBLE_INFECTION:
-					return ReportsPagerFragment
-							.newInstance(ReportsPagerFragment.Type.POSSIBLE_INFECTION, timestamp, showAnimationControls);
-				case NEW_CONTACT:
-					return ReportsPagerFragment
-							.newInstance(ReportsPagerFragment.Type.NEW_CONTACT, timestamp, showAnimationControls);
-				case POSITIVE_TESTED:
-					return ReportsPagerFragment.newInstance(ReportsPagerFragment.Type.POSITIVE_TESTED, timestamp, false);
-			}
-
-			throw new IllegalArgumentException();
-		}
-
-		@Override
-		public int getItemCount() {
-			return items.size();
-		}
-
+		getChildFragmentManager().beginTransaction()
+				.replace(R.id.header_fragment_container, header)
+				.commit();
 	}
 
 }

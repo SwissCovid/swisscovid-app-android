@@ -628,7 +628,7 @@ Savetovanje je besplatno; plaćaju se samo troškovi poziva."</string>
 
 Time se osigurava da se putem aplikacije prijavljuju samo potvrđeni slučajevi.
 
-Rezultat testa je pozitivan, ali niste dobili Covid šifru ni nakon 2 sata?
+Rezultat testa je pozitivan, ali niste dobili Covid šifru ni nakon 4 sata?
 U tom slučaju, obratite se info liniji za virus korona."</string>
 
     <!-- Inform Detail: FAQ Titel -->
@@ -960,7 +960,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"Promenite podešavanja da biste dobijali obaveštenja o novoj poruci takođe i izvan aplikacije."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -976,8 +976,8 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections">"Prijavljene nove infekcije"</string>
     <string name="stats_legend_new_infections_average">"Presek u periodu od 7 dana"</string>
     <string name="stats_legend_entered_covidcodes">"Unete Covid šifre"</string>
-    <string name="share_app_supertitle">"Zajedno..."</string>
-    <string name="share_app_title">"sprečimo drugi talas pandemije"</string>
+    <string name="share_app_supertitle">"Zajedno…"</string>
+    <string name="share_app_title">"Sprečimo širenje infekcije"</string>
     <string name="share_app_button">"Deli aplikaciju"</string>
     <string name="share_app_body">"Ako što više nas aktivira aplikaciju SwissCovid, moći ćemo pravovremeno da prekinemo lanac širenja infekcije."</string>
 
@@ -988,7 +988,7 @@ Schwarzenburgstrasse 157
     <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
 
     <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59" -->
-    <string name="stats_counter">"{COUNT} miliona korisnika"</string>
+    <string name="stats_counter">"{COUNT} miliona"</string>
 
     <!-- Statistik Tag der Daten "{DAY}" wird mit dem Aktualisierungsdatum ersetzt z.B. "14.9." -->
     <string name="stats_source_day">"Stanje na dan {DAY}"</string>
@@ -1001,4 +1001,49 @@ Schwarzenburgstrasse 157
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Podaci trenutno ne mogu da se učitaju"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} miliona"</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Aktiviraj obaveštenja o kontaktima"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Otvori podešavanja"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Otvorite podešavanja sistema preko tipke dole."</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Odaberite:"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Obaveštenja o kontaktima"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"Prvo aktivirajte funkciju..."</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Podeli informacije o kontaktima"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"Ako to već niste napravili, sada možete definisati SwissCovid kao aktivni region."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Definiši kao aktivni region"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"Tako to funkcioniše"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Posljednji kontakti"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"Svi kontakti"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <string name="meldung_detail_exposed_show_all_button">"Prikaži sve"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Prikaži manje"</string>
 </resources>

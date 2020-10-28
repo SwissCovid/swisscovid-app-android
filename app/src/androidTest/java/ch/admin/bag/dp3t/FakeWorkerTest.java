@@ -4,7 +4,9 @@ import android.content.Context;
 import android.util.Log;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.work.*;
+import androidx.work.Configuration;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 import androidx.work.testing.SynchronousExecutor;
 import androidx.work.testing.TestDriver;
 import androidx.work.testing.WorkManagerTestInitHelper;
@@ -60,11 +62,11 @@ public class FakeWorkerTest {
 		server.start();
 
 		AppConfigManager appConfigManager = AppConfigManager.getInstance(context);
-		DP3T.init(context, new ApplicationInfo("test", server.url("/bucket/").toString(), server.url("/report/").toString()),
+		DP3T.init(context, new ApplicationInfo(server.url("/bucket/").toString(), server.url("/report/").toString()),
 				null);
 		appConfigManager.setTracingEnabled(false);
 		DP3T.clearData(context);
-		DP3T.init(context, new ApplicationInfo("test", server.url("/bucket/").toString(), server.url("/report/").toString()),
+		DP3T.init(context, new ApplicationInfo(server.url("/bucket/").toString(), server.url("/report/").toString()),
 				null);
 		appConfigManager.setTracingEnabled(true);
 
@@ -78,7 +80,7 @@ public class FakeWorkerTest {
 
 		FakeWorker.safeStartFakeWorker(context);
 		// TDummy is initialized to a time in the future.
-		assertTrue (SecureStorage.getInstance(context).getTDummy() > System.currentTimeMillis());
+		assertTrue(SecureStorage.getInstance(context).getTDummy() > System.currentTimeMillis());
 	}
 
 	@Test
@@ -199,8 +201,8 @@ public class FakeWorkerTest {
 		double max = 1.1 / FakeWorker.SAMPLING_RATE;
 		double min = 0.9 / FakeWorker.SAMPLING_RATE;
 
-		assertTrue (averageIntervalDays < max);
-		assertTrue (averageIntervalDays > min);
+		assertTrue(averageIntervalDays < max);
+		assertTrue(averageIntervalDays > min);
 	}
 
 	@Test

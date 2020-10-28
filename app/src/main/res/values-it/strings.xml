@@ -632,7 +632,7 @@ Il colloquio di consulenza è gratuito; paghi soltanto il costo della telefonata
 
 In questo modo si garantisce che l'app segnali soltanto i casi confermati.
 
-Sei risultato positivo al test e dopo due ore non hai ancora ricevuto un codice Covid? Allora contatta la Infoline Coronavirus"</string>
+Sei risultato positivo al test e dopo quattro ore non hai ancora ricevuto un codice Covid? Allora contatta la Infoline Coronavirus"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Che cosa viene inviato?"</string>
@@ -969,7 +969,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"Modifica le impostazioni per essere informato anche al di fuori dell'app in caso di nuova segnalazione."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -986,7 +986,7 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections_average">"Media su 7 giorni"</string>
     <string name="stats_legend_entered_covidcodes">"Codici Covid immessi"</string>
     <string name="share_app_supertitle">"Insieme…"</string>
-    <string name="share_app_title">"possiamo impedire una seconda ondata"</string>
+    <string name="share_app_title">"impediamo i contagi"</string>
     <string name="share_app_button">"Condividi l'app"</string>
     <string name="share_app_body">"Quante più persone attivano l'app SwissCovid, tanto più è possibile interrompere precocemente le catene di infezione."</string>
 
@@ -1010,4 +1010,50 @@ Schwarzenburgstrasse 157
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Impossibile caricare i dati in questo momento"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} milioni"</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Attivare le segnalazioni degli incontri"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Apri impostazioni"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Apri le impostazioni di sistema con il pulsante in basso."</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Seleziona:"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Notifiche di esposizione"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"Attiva prima la funzione…"</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Condividi le informazioni di esposizione
+"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"Se non l'hai ancora fatto, ora puoi definire SwissCovid come regione attiva."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Imposta come zona attiva"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"Ecco come fare"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Ultimo incontro"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"Tutti gli incontri"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <string name="meldung_detail_exposed_show_all_button">"Mostra tutte le segnalazioni"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Mostra meno segnalazioni"</string>
 </resources>

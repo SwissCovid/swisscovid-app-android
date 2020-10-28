@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
   ~
   ~ This Source Code Form is subject to the terms of the Mozilla Public
@@ -52,12 +51,15 @@
 
 	<dimen name="top_item_padding">115dp</dimen>
 	<dimen name="top_item_padding_reports">185dp</dimen>
-	<dimen name="top_item_padding_reports_width_indicator">205dp</dimen>
+	<dimen name="top_item_padding_reports_multiple_days">215dp</dimen>
+	<dimen name="top_item_header_overlap_reports_multiple_days">25dp</dimen>
 	<dimen name="top_item_padding_stats">88dp</dimen>
 
 	<dimen name="header_height">150dp</dimen>
 	<dimen name="header_height_reports">210dp</dimen>
-	<dimen name="header_height_reports_with_indicator">230dp</dimen>
+	<dimen name="header_height_reports_multiple_days">240dp</dimen>
+
+	<dimen name="header_reports_exposure_day_height">44dp</dimen>
 
 	<dimen name="header_size_arc">65dp</dimen>
 	<dimen name="header_stroke_width_circle">4dp</dimen>
@@ -82,7 +84,6 @@
 	<dimen name="legend_icon_size">13dp</dimen>
 
 	<dimen name="stats_diagram_height">220dp</dimen>
-	<dimen name="stats_diagram_height_minus_margins">195dp</dimen>
 	<dimen name="stats_diagram_new_infections_avg_stroke_width">2dp</dimen>
 	<dimen name="stats_diagram_padding_top">15dp</dimen>
 	<dimen name="stats_diagram_padding_bottom">5dp</dimen>

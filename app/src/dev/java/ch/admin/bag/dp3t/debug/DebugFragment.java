@@ -11,16 +11,21 @@ package ch.admin.bag.dp3t.debug;
 
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
+
+import java.util.Arrays;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.internal.storage.ExposureDayStorage;
@@ -117,18 +122,33 @@ public class DebugFragment extends Fragment {
 		updateRadioGroup(optionsGroup);
 
 		view.findViewById(R.id.debug_button_testmeldung).setOnClickListener(v -> {
-			exposeMyself();
-			getActivity().finish();
+			showExposureDaysInputDialog();
 		});
 	}
 
-	private void exposeMyself() {
+	private void showExposureDaysInputDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+		builder.setTitle(getString(R.string.number_of_exposure_days));
+		final EditText input = new EditText(getContext());
+		input.setText("2");
+		input.setInputType(InputType.TYPE_NUMBER_FLAG_SIGNED | InputType.TYPE_CLASS_NUMBER);
+		builder.setView(input);
+		builder.setPositiveButton(R.string.android_button_ok,
+				(a, b) -> exposeMyself(Integer.parseInt(input.getText().toString())));
+		builder.show();
+	}
+
+	private void exposeMyself(int numberOfDays) {
+
 		ExposureDayStorage eds = ExposureDayStorage.getInstance(requireContext());
 		eds.clear();
 
-		DayDate dayOfExposure = new DayDate();
-		ExposureDay exposureDay = new ExposureDay(-1, dayOfExposure, System.currentTimeMillis());
-		eds.addExposureDay(requireContext(), exposureDay);
+		for (int i = 0; i < numberOfDays; i++) {
+			DayDate dayOfExposure = new DayDate().subtractDays(i);
+			ExposureDay exposureDay = new ExposureDay(i, dayOfExposure, System.currentTimeMillis());
+			eds.addExposureDays(requireContext(), Arrays.asList(exposureDay));
+		}
+		getActivity().finish();
 	}
 
 	private void updateRadioGroup(RadioGroup optionsGroup) {

@@ -84,7 +84,7 @@ public class ConfigWorker extends Worker {
 
 	private static void loadConfig(Context context) throws IOException, ResponseError, SignatureException {
 		ConfigRepository configRepository = new ConfigRepository(context);
-		ConfigResponseModel config = configRepository.getConfig();
+		ConfigResponseModel config = configRepository.getConfig(context);
 
 		DP3T.setMatchingParameters(context,
 				config.getSdkConfig().getLowerThreshold(), config.getSdkConfig().getHigherThreshold(),

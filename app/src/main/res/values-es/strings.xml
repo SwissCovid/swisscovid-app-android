@@ -622,7 +622,7 @@ La consulta es gratuita; solo se incurre en los gastos telefónicos."</string>
 
 Así se garantiza que la aplicación solo informe de los casos confirmados.
 
-¿Ha dado usted positivo en el test y no ha recibido el código Covid después de dos horas?
+¿Ha dado usted positivo en el test y no ha recibido el código Covid después de cuatro horas?
 En este caso, póngase en contacto con la Infoline Coronavirus:"</string>
 
     <!-- Inform Detail: FAQ Titel -->
@@ -957,7 +957,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_background_error_text_android">"Cambie los ajustes para recibir las notificaciones más actuales también fuera de la aplicación."</string>
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
-    <string name="infoline_coronavirus_number">"+41 58 463 00 00"</string>
+    <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 13.5 -->
     <string name="tracing_setting_text_ios_13_5"></string>
@@ -974,7 +974,7 @@ Schwarzenburgstrasse 157
     <string name="stats_legend_new_infections_average">"Promedio últimos 7 días"</string>
     <string name="stats_legend_entered_covidcodes">"Códigos Covid introducidos"</string>
     <string name="share_app_supertitle">"Juntos…"</string>
-    <string name="share_app_title">"evitamos una segunda ola"</string>
+    <string name="share_app_title">"evitamos los contagios"</string>
     <string name="share_app_button">"Compartir la aplicación"</string>
     <string name="share_app_body">"Si un gran número de personas activan la app SwissCovid, es posible interrumpir las cadenas de contagio a tiempo."</string>
 
@@ -998,4 +998,49 @@ Schwarzenburgstrasse 157
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"No es posible cargar los datos en este momento"</string>
+
+    <!-- Zahlenformat für die Aktive nutzer nummer {COUNT} wird durch die aktuelle Zahl ersetzt z.b. "1.59". Voll Millionen wort -->
+    <string name="stats_counter_full">"{COUNT} millones"</string>
+
+    <!-- iOS settings tutorial title -->
+    <string name="ios_settings_tutorial_title">"Activar la notificación de los contactos"</string>
+
+    <!-- iOS settings tutorial open settings button -->
+    <string name="ios_settings_tutorial_open_settings_button">"Abrir ajustes"</string>
+
+    <!-- iOS settings tutorial schritt 1 -->
+    <string name="ios_settings_tutorial_step_1_text">"Abra los ajustes del sistema pulsando abajo."</string>
+
+    <!-- iOS settings tutorial schritt 2 -->
+    <string name="ios_settings_tutorial_step_2_text">"Seleccione:"</string>
+
+    <!-- ios settings tutorial exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_2_exposure_notification">"Notificación de contactos"</string>
+
+    <!-- iOS settings tutorial schritt 3 -->
+    <string name="ios_settings_tutorial_step_3_text">"Active primero la función…"</string>
+
+    <!-- iOS settings tutorial share exposure notification text wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_3_share_exposure_information">"Compartir informaciones sobre contactos"</string>
+
+    <!-- iOS settings tutorial schritt 4 -->
+    <string name="ios_settings_tutorial_step_4_text">"Si no lo ha hecho ya, puede activar SwissCovid como región activa."</string>
+
+    <!-- iOS settings tutorial set as aktive region wie in iOS settings -->
+    <string name="ios_settings_tutorial_step_4_set_as_aktive_region">"Seleccionar como región activa"</string>
+
+    <!-- ios tracing permission fehlermeldung button text -->
+    <string name="ios_tracing_permission_error_button">"Así funciona"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn nur eine Begegnung angezeigt wird. -->
+    <string name="meldung_detail_exposed_subtitle_last_encounter">"Último contacto"</string>
+
+    <!-- Subtitle für Meldung Detail Screen Header wenn alle Begegnungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_subtitle_all_encounters">"Todos los contactos"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn nur eine Meldung angezeigt wird. -->
+    <string name="meldung_detail_exposed_show_all_button">"Mostrar todos"</string>
+
+    <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
+    <string name="meldung_detail_exposed_show_less_button">"Mostrar menos"</string>
 </resources>
