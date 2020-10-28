@@ -98,6 +98,7 @@ public class ReportsHeaderFragment extends Fragment {
 		TextView subtitle = view.findViewById(R.id.fragment_reports_header_subtitle);
 		TextView showAllButton = view.findViewById(R.id.fragment_reports_header_show_all_button);
 		ViewGroup daysContainer = view.findViewById(R.id.fragment_reports_dates_container);
+		View daysContainerScrollview = view.findViewById(R.id.fragment_reports_dates_scroll_view);
 		TextView titleTextView = view.findViewById(R.id.fragment_reports_header_title);
 
 		List<ExposureDay> exposureDays = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays();
@@ -120,14 +121,16 @@ public class ReportsHeaderFragment extends Fragment {
 		}
 
 		showAllButton.setOnClickListener(view1 -> {
-			if (daysContainer.getVisibility() == View.VISIBLE) {
+			if (daysContainerScrollview.getVisibility() == View.VISIBLE) {
 				subtitle.setText(R.string.meldung_detail_exposed_subtitle_last_encounter);
 				showAllButton.setText(R.string.meldung_detail_exposed_show_all_button);
-				((ReportsFragment) getParentFragment()).animateHeaderHeight(false, exposureDays.size(), daysContainer, date);
+				((ReportsFragment) getParentFragment())
+						.animateHeaderHeight(false, exposureDays.size(), daysContainerScrollview, date);
 			} else {
 				subtitle.setText(R.string.meldung_detail_exposed_subtitle_all_encounters);
 				showAllButton.setText(R.string.meldung_detail_exposed_show_less_button);
-				((ReportsFragment) getParentFragment()).animateHeaderHeight(true, exposureDays.size(), daysContainer, date);
+				((ReportsFragment) getParentFragment())
+						.animateHeaderHeight(true, exposureDays.size(), daysContainerScrollview, date);
 			}
 		});
 		showAllButton.setPaintFlags(showAllButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -138,7 +141,7 @@ public class ReportsHeaderFragment extends Fragment {
 			showAllButton.setVisibility(View.GONE);
 			image.setVisibility(View.VISIBLE);
 			continueButton.setVisibility(View.VISIBLE);
-			titleTextView.setText(R.string.meldung_detail_new_contact_title);
+			titleTextView.setText(R.string.meldung_detail_exposed_title);
 			continueButton.setOnClickListener(view1 ->
 					((ReportsFragment) getParentFragment())
 							.doHeaderAnimation(info, image, continueButton, showAllButton, exposureDays.size())

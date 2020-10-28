@@ -86,12 +86,18 @@
 			android:gravity="center"
 			tools:text="am 30.04.2020 / Today" />
 
-		<LinearLayout
-			android:id="@+id/fragment_reports_dates_container"
+		<ScrollView
+			android:id="@+id/fragment_reports_dates_scroll_view"
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
-			android:orientation="vertical"
-			android:visibility="gone" />
+			android:visibility="gone">
+
+			<LinearLayout
+				android:id="@+id/fragment_reports_dates_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical" />
+		</ScrollView>
 
 		<TextView
 			android:id="@+id/fragment_reports_header_show_all_button"
