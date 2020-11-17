@@ -58,9 +58,6 @@ public class ReportsFragment extends Fragment {
 	private View hotlineView;
 	private View infectedView;
 
-	private TextView callHotlineLastText1;
-	private TextView callHotlineLastText2;
-
 	private TextView xDaysLeftTextview;
 
 
@@ -90,8 +87,6 @@ public class ReportsFragment extends Fragment {
 		hotlineView = view.findViewById(R.id.reports_hotline);
 		infectedView = view.findViewById(R.id.reports_infected);
 
-		callHotlineLastText1 = hotlineView.findViewById(R.id.card_encounters_last_call);
-		callHotlineLastText2 = saveOthersView.findViewById(R.id.card_encounters_last_call);
 		xDaysLeftTextview = saveOthersView.findViewById(R.id.x_days_left_textview);
 
 		Button callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
@@ -178,8 +173,8 @@ public class ReportsFragment extends Fragment {
 
 	private void deleteNotifications(TracingStatusInterface tracingStatusInterface) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.NextStep_AlertDialogStyle);
-		builder.setMessage(R.string.delete_reports_dialog)
-				.setPositiveButton(R.string.android_button_ok, (dialog, id) -> {
+		builder.setMessage(R.string.delete_notification_dialog)
+				.setPositiveButton(R.string.delete_reports_button, (dialog, id) -> {
 					tracingStatusInterface.resetExposureDays(getContext());
 					getParentFragmentManager().popBackStack();
 				})
@@ -214,18 +209,6 @@ public class ReportsFragment extends Fragment {
 			saveOthersView.setVisibility(View.VISIBLE);
 		}
 
-		long lastHotlineCallTimestamp = secureStorage.lastHotlineCallTimestamp();
-		if (lastHotlineCallTimestamp != 0) {
-			((TextView) hotlineView.findViewById(R.id.card_encounters_title)).setText(R.string.meldungen_detail_call_again);
-
-			String date = DateUtils.getFormattedDateTime(lastHotlineCallTimestamp);
-			date = getString(R.string.meldungen_detail_call_last_call).replace("{DATE}", date);
-			callHotlineLastText1.setText(date);
-			callHotlineLastText2.setText(date);
-		} else {
-			callHotlineLastText1.setText("");
-			callHotlineLastText2.setText("");
-		}
 	}
 
 
