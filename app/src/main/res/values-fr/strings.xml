@@ -1082,4 +1082,7 @@ d'ouvrir un site internet."</string>
 
     <!-- Dialog Text beim Löschen einer Meldung über einen möglichen Kontakt -->
     <string name="delete_notification_dialog"></string>
+
+    <!-- URL to the SwissCovid Leitfaden -->
+    <string name="swisscovid_leitfaden_url"></string>
 </resources>

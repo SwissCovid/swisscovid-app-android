@@ -1119,4 +1119,7 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
 
     <!-- Dialog Text beim Löschen einer Meldung über einen möglichen Kontakt -->
     <string name="delete_notification_dialog">"Die Meldung über eine mögliche Ansteckung dient als Nachweis, den Sie für einen kostenlosen Coronavirus-Test benötigen. Wenn Sie diese Meldung löschen, verlieren Sie diesen Nachweis und den Link für den SwissCovid Leitfaden."</string>
+
+    <!-- URL to the SwissCovid Leitfaden -->
+    <string name="swisscovid_leitfaden_url"></string>
 </resources>

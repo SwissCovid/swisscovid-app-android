@@ -36,8 +36,10 @@ public class SecureStorage {
 	private static final String KEY_INFORM_TOKEN_REQ = "inform_token_req";
 	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
-	private static final String KEY_HOTLINE_CALL_PENDING = "hotline_call_pending";
-	private static final String KEY_HOTLINE_LAST_CALL_TIMESTAMP = "hotline_ever_called_timestamp";
+
+	//KEY_LEITFADEN_OPEN_PENDING key value is kept to old value to avoid migration issues
+	private static final String KEY_LEITFADEN_OPEN_PENDING = "hotline_call_pending";
+
 	private static final String KEY_PENDING_REPORTS_HEADER_ANIMATION = "pending_reports_header_animation";
 	private static final String KEY_CONFIG_FORCE_UPDATE = "config_do_force_update";
 	private static final String KEY_CONFIG_HAS_INFOBOX = "has_ghettobox";
@@ -144,20 +146,15 @@ public class SecureStorage {
 	}
 
 	public boolean isHotlineCallPending() {
-		return prefs.getBoolean(KEY_HOTLINE_CALL_PENDING, false);
+		return prefs.getBoolean(KEY_LEITFADEN_OPEN_PENDING, false);
 	}
 
-	public void setHotlineCallPending(boolean pending) {
-		prefs.edit().putBoolean(KEY_HOTLINE_CALL_PENDING, pending).apply();
+	public void setLeitfadenOpenPending(boolean pending) {
+		prefs.edit().putBoolean(KEY_LEITFADEN_OPEN_PENDING, pending).apply();
 	}
 
-	public long lastHotlineCallTimestamp() {
-		return prefs.getLong(KEY_HOTLINE_LAST_CALL_TIMESTAMP, 0);
-	}
-
-	public void justCalledHotline() {
-		prefs.edit().putBoolean(KEY_HOTLINE_CALL_PENDING, false)
-				.putLong(KEY_HOTLINE_LAST_CALL_TIMESTAMP, System.currentTimeMillis())
+	public void leitfadenOpened() {
+		prefs.edit().putBoolean(KEY_LEITFADEN_OPEN_PENDING, false)
 				.apply();
 	}
 
