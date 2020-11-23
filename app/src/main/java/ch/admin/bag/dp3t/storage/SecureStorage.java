@@ -145,7 +145,7 @@ public class SecureStorage {
 		prefs.edit().putInt(KEY_LAST_SHOWN_CONTACT_ID, contactId).apply();
 	}
 
-	public boolean isHotlineCallPending() {
+	public boolean isOpenLeitfadenPending() {
 		return prefs.getBoolean(KEY_LEITFADEN_OPEN_PENDING, false);
 	}
 

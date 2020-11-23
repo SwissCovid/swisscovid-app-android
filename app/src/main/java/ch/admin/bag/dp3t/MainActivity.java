@@ -94,9 +94,9 @@ public class MainActivity extends FragmentActivity {
 		checkIntentForActions();
 
 		if (!consumedExposedIntent) {
-			boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
+			boolean isOpenLeitfadenPending = secureStorage.isOpenLeitfadenPending();
 			boolean isExposed = tracingViewModel.getTracingStatusInterface().wasContactReportedAsExposed();
-			if (isHotlineCallPending && isExposed) {
+			if (isOpenLeitfadenPending && isExposed) {
 				gotoReportsFragment();
 			}
 		}

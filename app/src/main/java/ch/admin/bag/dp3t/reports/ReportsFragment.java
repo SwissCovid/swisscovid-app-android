@@ -83,7 +83,7 @@ public class ReportsFragment extends Fragment {
 
 		healthyView = view.findViewById(R.id.reports_healthy);
 		saveOthersView = view.findViewById(R.id.reports_save_others);
-		leitfadenView = view.findViewById(R.id.reports_hotline);
+		leitfadenView = view.findViewById(R.id.reports_leitfaden);
 		infectedView = view.findViewById(R.id.reports_infected);
 
 		xDaysLeftTextview = saveOthersView.findViewById(R.id.x_days_left_textview);
@@ -144,8 +144,8 @@ public class ReportsFragment extends Fragment {
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
 				headerType = ReportsHeaderFragment.Type.POSSIBLE_INFECTION;
 				numExposureDays = tracingStatusInterface.getExposureDays().size();
-				boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
-				if (isHotlineCallPending) {
+				boolean isOpenLeitfadenPending = secureStorage.isOpenLeitfadenPending();
+				if (isOpenLeitfadenPending) {
 					leitfadenView.setVisibility(View.VISIBLE);
 				} else {
 					saveOthersView.setVisibility(View.VISIBLE);

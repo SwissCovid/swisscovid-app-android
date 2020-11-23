@@ -58,8 +58,8 @@
 				tools:visibility="visible" />
 
 			<include
-				android:id="@+id/reports_hotline"
-				layout="@layout/card_what_to_do_call_us"
+				android:id="@+id/reports_leitfaden"
+				layout="@layout/card_what_to_do_leitfaden"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_medium_large"
