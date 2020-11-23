@@ -1074,10 +1074,10 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_open_leitfaden_again_button">"Shko tek udhëzuesi"</string>
 
     <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
-    <string name="exposed_info_answer_questions_in_leitfaden">"Answer the questions"</string>
+    <string name="exposed_info_answer_questions_in_leitfaden">"Përgjigjuni pyetjeve në"</string>
 
     <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
-    <string name="exposed_info_swisscovid_leitfaden">"SwissCovid Guide"</string>
+    <string name="exposed_info_swisscovid_leitfaden">"Udhëzuesi \"SwissCovid\""</string>
 
     <!-- Dialog Text beim Löschen einer Meldung über einen möglichen Kontakt -->
     <string name="delete_notification_dialog">"Njoftimi për një infektim të mundshëm shërben si vërtetim që ju keni nevojë për një test falas të koronavirusit. Nëse ju e fshini këtë njoftim, atëherë e humbisni këtë vërtetim dhe lidhjen për udhëzuesin \"SwissCovid\"."</string>
