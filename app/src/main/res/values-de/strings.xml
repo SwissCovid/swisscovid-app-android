@@ -1094,7 +1094,7 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <string name="meldungen_detail_leitfaden_title">"SwissCovid Leitfaden"</string>
 
     <!-- Text zum SwissCovid Leitfaden bei Kontaktmeldung -->
-    <string name="meldungen_detail_leitfaden_text">"Beantworten Sie die Fragen im SwissCvoid Leitfaden um zu erfahren, wie Sie richtig reagieren."</string>
+    <string name="meldungen_detail_leitfaden_text">"Beantworten Sie die Fragen im SwissCovid Leitfaden um zu erfahren, wie Sie richtig reagieren."</string>
 
     <!-- Button Text zum Öffnen vom SwissCovid Leitfaden -->
     <string name="meldungen_detail_open_leitfaden_button">"Jetzt ausfüllen"</string>

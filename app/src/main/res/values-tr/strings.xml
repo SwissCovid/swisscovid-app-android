@@ -795,7 +795,7 @@ Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşm
     <string name="inform_detail_faq3_title">"Bilgilerim anonim mi?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"Lütfen bir doktor ya da sağlık kuruluşu ile iletişime geçin."</string>
+    <string name="meldungen_detail_explanation_text4">"Hastalığa ait ilk belirtilerin görülmesi halinde bir doktoru veya bir sağlık kuruluşunu arayın."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"KOVİD-19 Bildirimleri"</string>
@@ -860,7 +860,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Ücretsiz test olma"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"SwissCovid Danışma Hattı size ücretsiz korona testleri konusunda bilgi vermektedir."</string>
+    <string name="meldungen_detail_free_test_text">"SwissCovid Kılavuzu, ücretsiz Corona virüs testi imkanları hakkında sizi bilgilendirecektir."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Takibi etkinleştir"</string>
@@ -1029,34 +1029,34 @@ Schwarzenburgstrasse 157
     <string name="meldung_detail_exposed_show_less_button">"Daha azını göster"</string>
 
     <!-- Titel vom SwissCovid Leitfaden bei Kontaktmeldung -->
-    <string name="meldungen_detail_leitfaden_title"></string>
+    <string name="meldungen_detail_leitfaden_title">"SwissCovid Kılavuzu"</string>
 
     <!-- Text zum SwissCovid Leitfaden bei Kontaktmeldung -->
-    <string name="meldungen_detail_leitfaden_text"></string>
+    <string name="meldungen_detail_leitfaden_text">"Nasıl doğru şekilde hareket edeceğinizi öğrenmek için SwissCovid Kılavuzu'ndaki soruları yanıtlayın."</string>
 
     <!-- Button Text zum Öffnen vom SwissCovid Leitfaden -->
-    <string name="meldungen_detail_open_leitfaden_button"></string>
+    <string name="meldungen_detail_open_leitfaden_button">"Şimdi doldurun"</string>
 
     <!-- Title für Infotext zu SwissCovid Infoline -->
-    <string name="meldungen_tel_information_title"></string>
+    <string name="meldungen_tel_information_title">"Telefon İle Danışma"</string>
 
     <!-- Infotext zu SwissCovid Infoline -->
-    <string name="meldungen_tel_information_text"></string>
+    <string name="meldungen_tel_information_text">"Başka sorularınızın olması halinde, SwissCovid Bilgi hattı (Infoline) size telefon yoluyla da bilgi vermekten memnuniyet duyacaktır."</string>
 
     <!-- Hinweis Text nach dem Ausfüllen vom SwissCovid Leitfaden, dass man erneut ausfüllen kann -->
-    <string name="meldungen_detail_leitfaden_again_text"></string>
+    <string name="meldungen_detail_leitfaden_again_text">"SwissCovid Kılavuzu'nu dilediğiniz zaman buradan yeniden açabilirsiniz."</string>
 
     <!-- Button Text um SwissCovid Leitfaden erneut zu öffnen -->
-    <string name="meldungen_detail_open_leitfaden_again_button"></string>
+    <string name="meldungen_detail_open_leitfaden_again_button">"Kılavuz için"</string>
 
     <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
-    <string name="exposed_info_answer_questions_in_leitfaden"></string>
+    <string name="exposed_info_answer_questions_in_leitfaden">"Soruları yanıtlayın"</string>
 
     <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
-    <string name="exposed_info_swisscovid_leitfaden"></string>
+    <string name="exposed_info_swisscovid_leitfaden">"SwissCovid Kılavuzu"</string>
 
     <!-- Dialog Text beim Löschen einer Meldung über einen möglichen Kontakt -->
-    <string name="delete_notification_dialog"></string>
+    <string name="delete_notification_dialog">"Muhtemel bir enfeksiyon bildirimi, ücretsiz Corona virüs testi yaptırmanız gerektiğinin kanıtı niteliğindedir. Bu bildirimi silerseniz, bu kanıtı ve SwissCovid Kılavuz bağlantısını kaybetmiş olursunuz."</string>
 
     <!-- URL to the SwissCovid Leitfaden -->
     <string name="swisscovid_leitfaden_url"></string>
