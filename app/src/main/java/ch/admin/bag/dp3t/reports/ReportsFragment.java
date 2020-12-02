@@ -30,6 +30,10 @@ import androidx.transition.AutoTransition;
 import androidx.transition.Transition;
 import androidx.transition.TransitionManager;
 
+import java.util.List;
+
+import org.dpppt.android.sdk.models.ExposureDay;
+
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
@@ -201,7 +205,15 @@ public class ReportsFragment extends Fragment {
 	private void openSwissCovidLeitfaden() {
 		leitfadenJustOpened = true;
 		secureStorage.leitfadenOpened();
-		UrlUtil.openUrl(getContext(), getString(R.string.swisscovid_leitfaden_url));
+		List<ExposureDay> exposureDays = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays();
+		StringBuilder contactDates = new StringBuilder();
+		String delimiter = "";
+		for (ExposureDay exposureDay : exposureDays) {
+			contactDates.append(delimiter);
+			contactDates.append(exposureDay.getExposedDate().formatAsString());
+			delimiter = ",";
+		}
+		UrlUtil.openUrl(getContext(), getString(R.string.swisscovid_leitfaden_url).replace("{CONTACT_DATES}", contactDates));
 	}
 
 	private void callHotline() {
