@@ -840,7 +840,7 @@ Infektionsketten."</string>
 
     <!-- Meldung Detail Weiss Box unten -->
     <!-- Fuzzy -->
-    <string name="meldungen_detail_explanation_text4">"Rufen Sie eine Ärztin bzw. einen Arzt oder eine Gesundheitseinrichtung an."</string>
+    <string name="meldungen_detail_explanation_text4">"Bei ersten Symptomen rufen Sie eine Ärztin bzw. einen Arzt oder eine Gesundheitseinrichtung an."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"COVID-19-Benachrichtigungen"</string>
@@ -905,7 +905,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Kostenloser Test möglich"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"Die Infoline SwissCovid berät Sie über die Möglichkeit eines kostenlosen Corona Tests."</string>
+    <string name="meldungen_detail_free_test_text">"Der SwissCovid Leitfaden informiert Sie über die Möglichkeit eines kostenlosen Coronavirus-Tests."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Tracing aktivieren"</string>
@@ -1089,4 +1089,37 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
     <string name="meldung_detail_exposed_show_less_button">"Weniger anzeigen"</string>
+
+    <!-- Titel vom SwissCovid Leitfaden bei Kontaktmeldung -->
+    <string name="meldungen_detail_leitfaden_title">"SwissCovid Leitfaden"</string>
+
+    <!-- Text zum SwissCovid Leitfaden bei Kontaktmeldung -->
+    <string name="meldungen_detail_leitfaden_text">"Beantworten Sie die Fragen im SwissCovid Leitfaden um zu erfahren, wie Sie richtig reagieren."</string>
+
+    <!-- Button Text zum Öffnen vom SwissCovid Leitfaden -->
+    <string name="meldungen_detail_open_leitfaden_button">"Jetzt ausfüllen"</string>
+
+    <!-- Title für Infotext zu SwissCovid Infoline -->
+    <string name="meldungen_tel_information_title">"Telefonische Auskunft"</string>
+
+    <!-- Infotext zu SwissCovid Infoline -->
+    <string name="meldungen_tel_information_text">"Bei weiteren Fragen gibt Ihnen die Infoline SwissCovid gerne auch telefonisch Auskunft."</string>
+
+    <!-- Hinweis Text nach dem Ausfüllen vom SwissCovid Leitfaden, dass man erneut ausfüllen kann -->
+    <string name="meldungen_detail_leitfaden_again_text">"Sie können den SwissCovid Leitfaden hier jederzeit erneut öffnen."</string>
+
+    <!-- Button Text um SwissCovid Leitfaden erneut zu öffnen -->
+    <string name="meldungen_detail_open_leitfaden_again_button">"Zum Leitfaden"</string>
+
+    <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
+    <string name="exposed_info_answer_questions_in_leitfaden">"Beantworten Sie die Fragen im"</string>
+
+    <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
+    <string name="exposed_info_swisscovid_leitfaden">"SwissCovid Leitfaden"</string>
+
+    <!-- Dialog Text beim Löschen einer Meldung über einen möglichen Kontakt -->
+    <string name="delete_notification_dialog">"Die Meldung über eine mögliche Ansteckung dient als Nachweis, den Sie für einen kostenlosen Coronavirus-Test benötigen. Wenn Sie diese Meldung löschen, verlieren Sie diesen Nachweis und den Link für den SwissCovid Leitfaden."</string>
+
+    <!-- URL to the SwissCovid Leitfaden -->
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.bag-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 </resources>

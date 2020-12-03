@@ -818,7 +818,7 @@ prekida lanac
     <string name="inform_detail_faq3_title">"Da li ostajem anoniman?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"Pozovite lekara ili zdravstvenu ustanovu."</string>
+    <string name="meldungen_detail_explanation_text4">"Kod prvih simptoma obratite se lekaru ili nekoj zdravstvenoj ustanovi."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"Obavijesti o izloženosti bolesti COVID-19"</string>
@@ -883,7 +883,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Moguće je besplatno testiranje"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"Preko info-linije aplikacije SwissCovid možete da dobijete savete o mogućnosti besplatnog testiranja na virus korona."</string>
+    <string name="meldungen_detail_free_test_text">"SwissCovid smernice informišu Vas o mogućnosti besplatnog testiranja na virus korona."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Aktiviraj praćenje"</string>
@@ -1050,4 +1050,37 @@ Schwarzenburgstrasse 157
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
     <string name="meldung_detail_exposed_show_less_button">"Prikaži manje"</string>
+
+    <!-- Titel vom SwissCovid Leitfaden bei Kontaktmeldung -->
+    <string name="meldungen_detail_leitfaden_title">"SwissCovid smernice"</string>
+
+    <!-- Text zum SwissCovid Leitfaden bei Kontaktmeldung -->
+    <string name="meldungen_detail_leitfaden_text">"Odgovorite na pitanja u SwissCovid smernicama kako biste saznali kako adekvatno da reagujete."</string>
+
+    <!-- Button Text zum Öffnen vom SwissCovid Leitfaden -->
+    <string name="meldungen_detail_open_leitfaden_button">"Popuniti"</string>
+
+    <!-- Title für Infotext zu SwissCovid Infoline -->
+    <string name="meldungen_tel_information_title">"Telefonske informacije"</string>
+
+    <!-- Infotext zu SwissCovid Infoline -->
+    <string name="meldungen_tel_information_text">"Ukoliko imate dodatna pitanja, informacije možete dobiti i telefonskim putem preko info linije aplikacije SwissCovid."</string>
+
+    <!-- Hinweis Text nach dem Ausfüllen vom SwissCovid Leitfaden, dass man erneut ausfüllen kann -->
+    <string name="meldungen_detail_leitfaden_again_text">"Ovde možete u svako vreme ponovo da otvorite SwissCovid smernice."</string>
+
+    <!-- Button Text um SwissCovid Leitfaden erneut zu öffnen -->
+    <string name="meldungen_detail_open_leitfaden_again_button">"Idi na SwissCovid smernice"</string>
+
+    <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
+    <string name="exposed_info_answer_questions_in_leitfaden">"Odgovorite na pitanja u"</string>
+
+    <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
+    <string name="exposed_info_swisscovid_leitfaden">"SwissCovid smernicama"</string>
+
+    <!-- Dialog Text beim Löschen einer Meldung über einen möglichen Kontakt -->
+    <string name="delete_notification_dialog">"Poruka o mogućoj infekciji služi kao dokaz za besplatno testiranje na virus korona. Ako obrišete tu poruku, izgubićete dokaz i link na SwissCovid smernice."</string>
+
+    <!-- URL to the SwissCovid Leitfaden -->
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.foph-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 </resources>

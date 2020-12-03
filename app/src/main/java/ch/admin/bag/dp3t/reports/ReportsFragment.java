@@ -30,10 +30,13 @@ import androidx.transition.AutoTransition;
 import androidx.transition.Transition;
 import androidx.transition.TransitionManager;
 
+import java.util.List;
+
+import org.dpppt.android.sdk.models.ExposureDay;
+
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.DateUtils;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 import ch.admin.bag.dp3t.util.PhoneUtil;
 import ch.admin.bag.dp3t.util.UrlUtil;
@@ -55,16 +58,13 @@ public class ReportsFragment extends Fragment {
 
 	private View healthyView;
 	private View saveOthersView;
-	private View hotlineView;
+	private View leitfadenView;
 	private View infectedView;
-
-	private TextView callHotlineLastText1;
-	private TextView callHotlineLastText2;
 
 	private TextView xDaysLeftTextview;
 
 
-	private boolean hotlineJustCalled = false;
+	private boolean leitfadenJustOpened = false;
 
 	public ReportsFragment() { super(R.layout.fragment_reports); }
 
@@ -87,22 +87,25 @@ public class ReportsFragment extends Fragment {
 
 		healthyView = view.findViewById(R.id.reports_healthy);
 		saveOthersView = view.findViewById(R.id.reports_save_others);
-		hotlineView = view.findViewById(R.id.reports_hotline);
+		leitfadenView = view.findViewById(R.id.reports_leitfaden);
 		infectedView = view.findViewById(R.id.reports_infected);
 
-		callHotlineLastText1 = hotlineView.findViewById(R.id.card_encounters_last_call);
-		callHotlineLastText2 = saveOthersView.findViewById(R.id.card_encounters_last_call);
 		xDaysLeftTextview = saveOthersView.findViewById(R.id.x_days_left_textview);
 
-		Button callHotlineButton1 = hotlineView.findViewById(R.id.card_encounters_button);
-		Button callHotlineButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
+		Button openSwisscovidLeitfadenButton1 = leitfadenView.findViewById(R.id.card_encounters_button);
+		Button openSwisscovidLeitfadenButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
 
-		callHotlineButton1.setOnClickListener(view1 -> callHotline());
-		callHotlineButton2.setOnClickListener(view1 -> callHotline());
+		openSwisscovidLeitfadenButton1.setOnClickListener(view1 -> openSwissCovidLeitfaden());
+		openSwisscovidLeitfadenButton2.setOnClickListener(view1 -> openSwissCovidLeitfaden());
+
+		View callHotlineButton1 = leitfadenView.findViewById(R.id.item_call_hotline_layout);
+		View callHotlineButton2 = saveOthersView.findViewById(R.id.item_call_hotline_layout);
+		callHotlineButton1.setOnClickListener(v -> callHotline());
+		callHotlineButton2.setOnClickListener(v -> callHotline());
 
 		Button faqButton1 = healthyView.findViewById(R.id.card_encounters_faq_button);
 		Button faqButton2 = saveOthersView.findViewById(R.id.card_encounters_faq_button);
-		Button faqButton3 = hotlineView.findViewById(R.id.card_encounters_faq_button);
+		Button faqButton3 = leitfadenView.findViewById(R.id.card_encounters_faq_button);
 		Button faqButton4 = infectedView.findViewById(R.id.card_encounters_faq_button);
 
 		faqButton1.setOnClickListener(v -> showFaq());
@@ -117,7 +120,7 @@ public class ReportsFragment extends Fragment {
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			healthyView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.GONE);
-			hotlineView.setVisibility(View.GONE);
+			leitfadenView.setVisibility(View.GONE);
 			infectedView.setVisibility(View.GONE);
 
 			ReportsHeaderFragment.Type headerType;
@@ -145,9 +148,9 @@ public class ReportsFragment extends Fragment {
 			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
 				headerType = ReportsHeaderFragment.Type.POSSIBLE_INFECTION;
 				numExposureDays = tracingStatusInterface.getExposureDays().size();
-				boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
-				if (isHotlineCallPending) {
-					hotlineView.setVisibility(View.VISIBLE);
+				boolean isOpenLeitfadenPending = secureStorage.isOpenLeitfadenPending();
+				if (isOpenLeitfadenPending) {
+					leitfadenView.setVisibility(View.VISIBLE);
 				} else {
 					saveOthersView.setVisibility(View.VISIBLE);
 				}
@@ -159,7 +162,8 @@ public class ReportsFragment extends Fragment {
 				} else {
 					xDaysLeftTextview.setText(getString(R.string.date_in_days).replace("{COUNT}", String.valueOf(daysLeft)));
 				}
-				hotlineView.findViewById(R.id.delete_reports).setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
+				leitfadenView.findViewById(R.id.delete_reports)
+						.setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
 				saveOthersView.findViewById(R.id.delete_reports)
 						.setOnClickListener(v -> deleteNotifications(tracingStatusInterface));
 			} else {
@@ -178,8 +182,8 @@ public class ReportsFragment extends Fragment {
 
 	private void deleteNotifications(TracingStatusInterface tracingStatusInterface) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.NextStep_AlertDialogStyle);
-		builder.setMessage(R.string.delete_reports_dialog)
-				.setPositiveButton(R.string.android_button_ok, (dialog, id) -> {
+		builder.setMessage(R.string.delete_notification_dialog)
+				.setPositiveButton(R.string.delete_reports_button, (dialog, id) -> {
 					tracingStatusInterface.resetExposureDays(getContext());
 					getParentFragmentManager().popBackStack();
 				})
@@ -198,9 +202,21 @@ public class ReportsFragment extends Fragment {
 		UrlUtil.openUrl(getContext(), getString(R.string.faq_button_url));
 	}
 
+	private void openSwissCovidLeitfaden() {
+		leitfadenJustOpened = true;
+		secureStorage.leitfadenOpened();
+		List<ExposureDay> exposureDays = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays();
+		StringBuilder contactDates = new StringBuilder();
+		String delimiter = "";
+		for (ExposureDay exposureDay : exposureDays) {
+			contactDates.append(delimiter);
+			contactDates.append(exposureDay.getExposedDate().formatAsString());
+			delimiter = ",";
+		}
+		UrlUtil.openUrl(getContext(), getString(R.string.swisscovid_leitfaden_url).replace("{CONTACT_DATES}", contactDates));
+	}
+
 	private void callHotline() {
-		hotlineJustCalled = true;
-		secureStorage.justCalledHotline();
 		PhoneUtil.callHelpline(getContext());
 	}
 
@@ -208,23 +224,10 @@ public class ReportsFragment extends Fragment {
 	public void onResume() {
 		super.onResume();
 
-		if (hotlineJustCalled) {
-			hotlineJustCalled = false;
-			hotlineView.setVisibility(View.GONE);
+		if (leitfadenJustOpened) {
+			leitfadenJustOpened = false;
+			leitfadenView.setVisibility(View.GONE);
 			saveOthersView.setVisibility(View.VISIBLE);
-		}
-
-		long lastHotlineCallTimestamp = secureStorage.lastHotlineCallTimestamp();
-		if (lastHotlineCallTimestamp != 0) {
-			((TextView) hotlineView.findViewById(R.id.card_encounters_title)).setText(R.string.meldungen_detail_call_again);
-
-			String date = DateUtils.getFormattedDateTime(lastHotlineCallTimestamp);
-			date = getString(R.string.meldungen_detail_call_last_call).replace("{DATE}", date);
-			callHotlineLastText1.setText(date);
-			callHotlineLastText2.setText(date);
-		} else {
-			callHotlineLastText1.setText("");
-			callHotlineLastText2.setText("");
 		}
 	}
 

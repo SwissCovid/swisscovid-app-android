@@ -94,9 +94,9 @@ public class MainActivity extends FragmentActivity {
 		checkIntentForActions();
 
 		if (!consumedExposedIntent) {
-			boolean isHotlineCallPending = secureStorage.isHotlineCallPending();
+			boolean isOpenLeitfadenPending = secureStorage.isOpenLeitfadenPending();
 			boolean isExposed = tracingViewModel.getTracingStatusInterface().wasContactReportedAsExposed();
-			if (isHotlineCallPending && isExposed) {
+			if (isOpenLeitfadenPending && isExposed) {
 				gotoReportsFragment();
 			}
 		}
@@ -113,7 +113,7 @@ public class MainActivity extends FragmentActivity {
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
 		if (ACTION_INFORMED_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory) {
-			secureStorage.setHotlineCallPending(false);
+			secureStorage.setLeitfadenOpenPending(false);
 			secureStorage.setReportsHeaderAnimationPending(false);
 			gotoReportsFragment();
 			intent.setAction(null);
