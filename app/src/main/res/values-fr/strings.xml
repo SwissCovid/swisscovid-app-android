@@ -1084,5 +1084,5 @@ d'ouvrir un site internet."</string>
     <string name="delete_notification_dialog">"La notification d'une possible infection constitue une preuve dont vous avez besoin pour bénéficier d'un test gratuit au coronavirus. Si vous l'effacez, vous perdez cette preuve ainsi que le lien vers le guide SwissCovid."</string>
 
     <!-- URL to the SwissCovid Leitfaden -->
-    <string name="swisscovid_leitfaden_url"></string>
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.ofsp-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 </resources>

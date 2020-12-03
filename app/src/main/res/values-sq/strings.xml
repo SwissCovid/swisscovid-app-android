@@ -1083,5 +1083,5 @@ Schwarzenburgstrasse 157
     <string name="delete_notification_dialog">"Njoftimi për një infektim të mundshëm shërben si vërtetim që ju keni nevojë për një test falas të koronavirusit. Nëse ju e fshini këtë njoftim, atëherë e humbisni këtë vërtetim dhe lidhjen për udhëzuesin \"SwissCovid\"."</string>
 
     <!-- URL to the SwissCovid Leitfaden -->
-    <string name="swisscovid_leitfaden_url"></string>
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.foph-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 </resources>

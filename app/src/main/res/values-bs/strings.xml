@@ -1082,5 +1082,5 @@ Schwarzenburgstrasse 157
     <string name="delete_notification_dialog">"Poruka o mogućoj infekciji služi kao dokaz za besplatno testiranje na virus korona. Ako obrišete tu poruku, izgubićete dokaz i link na SwissCovid smernice."</string>
 
     <!-- URL to the SwissCovid Leitfaden -->
-    <string name="swisscovid_leitfaden_url"></string>
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.foph-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 </resources>

@@ -1088,5 +1088,5 @@ Schwarzenburgstrasse 157
     <string name="delete_notification_dialog">"La segnalazione di un possibile contagio è il giustificativo che ti serve per fare il test del coronavirus gratuitamente. Se elimini questa segnalazione perdi il giustificativo e il link alla guida SwissCovid."</string>
 
     <!-- URL to the SwissCovid Leitfaden -->
-    <string name="swisscovid_leitfaden_url"></string>
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.ufsp-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 </resources>

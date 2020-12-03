@@ -1078,5 +1078,5 @@ Schwarzenburgstrasse 157
     <string name="delete_notification_dialog">"L'avis davart in'eventuala infecziun serva sco cumprova che Vus druvais per in test dal coronavirus gratuit. Sche Vus stizzais quest avis, perdais Vus la cumprova ed il link per il mussavia SwissCovid."</string>
 
     <!-- URL to the SwissCovid Leitfaden -->
-    <string name="swisscovid_leitfaden_url"></string>
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.bag-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 </resources>

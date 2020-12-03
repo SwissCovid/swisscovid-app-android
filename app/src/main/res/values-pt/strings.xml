@@ -1083,5 +1083,5 @@ Schwarzenburgstrasse 157
     <string name="delete_notification_dialog">"A notificação sobre um possível contágio constitui um comprovativo de que necessitará para fazer um teste gratuito ao coronavírus. Se a apagar, perde o comprovativo e a ligação ao guia da SwissCovid."</string>
 
     <!-- URL to the SwissCovid Leitfaden -->
-    <string name="swisscovid_leitfaden_url"></string>
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.foph-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 </resources>

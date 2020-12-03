@@ -1059,5 +1059,5 @@ Schwarzenburgstrasse 157
     <string name="delete_notification_dialog">"Muhtemel bir enfeksiyon bildirimi, ücretsiz Corona virüs testi yaptırmanız gerektiğinin kanıtı niteliğindedir. Bu bildirimi silerseniz, bu kanıtı ve SwissCovid Kılavuz bağlantısını kaybetmiş olursunuz."</string>
 
     <!-- URL to the SwissCovid Leitfaden -->
-    <string name="swisscovid_leitfaden_url"></string>
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.foph-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 </resources>
