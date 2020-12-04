@@ -1122,4 +1122,31 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
 
     <!-- URL to the SwissCovid Leitfaden -->
     <string name="swisscovid_leitfaden_url">"https://swisscovid.bag-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
+
+    <!-- Tracing Erinnerung 4 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_four_hours">"4 Stunden"</string>
+
+    <!-- Tracing Erinnerung 8 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_eight_hours">"8 Stunden"</string>
+
+    <!-- Tracing Erinnerung 12 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_twelve_hours">"12 Stunden"</string>
+
+    <!-- Tracing Erinnerung keine Erinngerung Radio Button -->
+    <string name="tracing_reminder_radio_no_reminder">"Keine Erinnerung"</string>
+
+    <!-- Tracing Erinnerung bestätigen Button -->
+    <string name="tracing_reminder_confirm_button">"OK"</string>
+
+    <!-- Tracing Erinnerung abbrechen Button -->
+    <string name="tracing_reminder_cancel_button">"Abbrechen"</string>
+
+    <!-- Tracing Erinnerung Titel -->
+    <string name="tracing_reminder_title">"Erinnerung setzen"</string>
+
+    <!-- Tracing Erinnerung Untertitel -->
+    <string name="tracing_reminder_subtitle">"SwissCovid kann Sie daran erinnern, das Tracing wieder zu aktivieren."</string>
+
+    <!-- Tracing Erinnerung Warnung -->
+    <string name="tracing_reminder_warning">"Das Tracing wird deaktiviert."</string>
 </resources>

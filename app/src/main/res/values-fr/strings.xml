@@ -1075,7 +1075,7 @@ d'ouvrir un site internet."</string>
     <string name="meldungen_detail_open_leitfaden_again_button">"Ouvrir le guide"</string>
 
     <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
-    <string name="exposed_info_answer_questions_in_leitfaden">"Answer the questions"</string>
+    <string name="exposed_info_answer_questions_in_leitfaden">"Répondez aux questions posées dans le"</string>
 
     <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
     <string name="exposed_info_swisscovid_leitfaden">"guide SwissCovid"</string>
@@ -1085,4 +1085,31 @@ d'ouvrir un site internet."</string>
 
     <!-- URL to the SwissCovid Leitfaden -->
     <string name="swisscovid_leitfaden_url">"https://swisscovid.ofsp-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
+
+    <!-- Tracing Erinnerung 4 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_four_hours"></string>
+
+    <!-- Tracing Erinnerung 8 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_eight_hours"></string>
+
+    <!-- Tracing Erinnerung 12 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_twelve_hours"></string>
+
+    <!-- Tracing Erinnerung keine Erinngerung Radio Button -->
+    <string name="tracing_reminder_radio_no_reminder"></string>
+
+    <!-- Tracing Erinnerung bestätigen Button -->
+    <string name="tracing_reminder_confirm_button"></string>
+
+    <!-- Tracing Erinnerung abbrechen Button -->
+    <string name="tracing_reminder_cancel_button"></string>
+
+    <!-- Tracing Erinnerung Titel -->
+    <string name="tracing_reminder_title"></string>
+
+    <!-- Tracing Erinnerung Untertitel -->
+    <string name="tracing_reminder_subtitle"></string>
+
+    <!-- Tracing Erinnerung Warnung -->
+    <string name="tracing_reminder_warning"></string>
 </resources>
