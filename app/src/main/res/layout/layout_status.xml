@@ -135,7 +135,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:gravity="start"
-			android:text="@string/exposed_info_contact_hotline" />
+			android:text="@string/exposed_info_answer_questions_in_leitfaden" />
 
 		<TextView
 			android:id="@+id/status_additional_info_tel"
@@ -143,7 +143,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:gravity="start"
-			android:text="@string/exposed_info_contact_hotline_name" />
+			android:text="@string/exposed_info_swisscovid_leitfaden" />
 
 		<TextView
 			android:id="@+id/status_additional_info_since"

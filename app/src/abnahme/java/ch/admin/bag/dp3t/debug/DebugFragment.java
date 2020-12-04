@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.internal.nearby.ExposureWindowMatchingWorker;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
@@ -58,6 +59,9 @@ public class DebugFragment extends Fragment {
 			CertificatePinning.setEnabled(isChecked, v.getContext());
 			DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
 		});
+
+		view.findViewById(R.id.debug_trigger_exposure_check)
+				.setOnClickListener(v -> ExposureWindowMatchingWorker.startMatchingWorker(v.getContext()));
 	}
 
 }

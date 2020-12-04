@@ -787,7 +787,7 @@
     <string name="inform_detail_faq3_title">"ስቱር ድዩ፧"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"ንሓኪም ወይ ንትካል ሕክምና ደውሉ።"</string>
+    <string name="meldungen_detail_explanation_text4">"ኣብ ቀዳሞት ምልክታት ንሓንቲ ወይ ሓደ ሓኪም ወይ ንሓደ ትካል ጥዕና ደውሉ ኢኹም።"</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">" መልእኽትታት ኮቪድ-19 "</string>
@@ -852,7 +852,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"ነጻ መርመራ ይከኣል'ዩ"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"Infoline SwissCovid ብዛዕባ ኣማራጺ ነጻ መርመራ ኮሮና ይመኽረኩም።"</string>
+    <string name="meldungen_detail_free_test_text">"መምርሒ SwissCovid ብዛዕባ ኣማራጺ ነጻ ዝኾነ መርመራ ኮሮናቫይረስ ይሕብረኩም።"</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"ንትራይሲንግ(Tracing) ምውላዕ"</string>
@@ -1019,4 +1019,64 @@ Schwarzenburgstrasse 157
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
     <string name="meldung_detail_exposed_show_less_button">"ዝወሓደ ምርኣይ"</string>
+
+    <!-- Titel vom SwissCovid Leitfaden bei Kontaktmeldung -->
+    <string name="meldungen_detail_leitfaden_title">"መምርሒ SwissCovid"</string>
+
+    <!-- Text zum SwissCovid Leitfaden bei Kontaktmeldung -->
+    <string name="meldungen_detail_leitfaden_text">"ነቶም ኣብ መምርሒ SwissCovid ዘለው ሕቶታት መልሱ ኢኹም፣ ቅኑዕ መልሲ ከመይ ጌርኩም ከምትህቡ መታን ክትፈልጡ።"</string>
+
+    <!-- Button Text zum Öffnen vom SwissCovid Leitfaden -->
+    <string name="meldungen_detail_open_leitfaden_button">"ሕጂ ምምላእ"</string>
+
+    <!-- Title für Infotext zu SwissCovid Infoline -->
+    <string name="meldungen_tel_information_title">"ሓበሬታ ብተሌፎን"</string>
+
+    <!-- Infotext zu SwissCovid Infoline -->
+    <string name="meldungen_tel_information_text">"ኣብ ቀጸልቲ ሕቶታት ኢንፎላይን SwissCovid ዋላ ብተሌፎን ሓበሬታ ይህበኩም።"</string>
+
+    <!-- Hinweis Text nach dem Ausfüllen vom SwissCovid Leitfaden, dass man erneut ausfüllen kann -->
+    <string name="meldungen_detail_leitfaden_again_text">"ንመምርሒ SwissCovid ኣብዚ ኩሉ ግዜ ብሓድሽ ክትከፍትዎ ትኽእሉ።"</string>
+
+    <!-- Button Text um SwissCovid Leitfaden erneut zu öffnen -->
+    <string name="meldungen_detail_open_leitfaden_again_button">"ናብቲ መምርሒ"</string>
+
+    <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
+    <string name="exposed_info_answer_questions_in_leitfaden">"ሕቶታት መልሱ ኢኹም ኣብ"</string>
+
+    <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
+    <string name="exposed_info_swisscovid_leitfaden">"መምርሒ SwissCovid"</string>
+
+    <!-- Dialog Text beim Löschen einer Meldung über einen möglichen Kontakt -->
+    <string name="delete_notification_dialog">"መልእኽቲ ብዛዕባ ክፍጸም ዝከኣል ልበዳ ከም መረጋገጺ እዩ ዝኸውን፣ ንሱ ሽዑ ንነጻ ዝኾነ መርመራ ኮሮናቫይረስ ከድልየኩም እዩ። እዚ መልእኽቲ እንድሕር ትድምስስዎ ኮይንኩም፣ እዚ መረጋገጺ ምስቲ ሊንክ/ሓበሬታ መርበብ ንመምርሒ SwissCovid ከተጥፍእዎ ኢኹም።"</string>
+
+    <!-- URL to the SwissCovid Leitfaden -->
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.foph-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
+
+    <!-- Tracing Erinnerung 4 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_four_hours"></string>
+
+    <!-- Tracing Erinnerung 8 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_eight_hours"></string>
+
+    <!-- Tracing Erinnerung 12 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_twelve_hours"></string>
+
+    <!-- Tracing Erinnerung keine Erinngerung Radio Button -->
+    <string name="tracing_reminder_radio_no_reminder"></string>
+
+    <!-- Tracing Erinnerung bestätigen Button -->
+    <string name="tracing_reminder_confirm_button"></string>
+
+    <!-- Tracing Erinnerung abbrechen Button -->
+    <string name="tracing_reminder_cancel_button"></string>
+
+    <!-- Tracing Erinnerung Titel -->
+    <string name="tracing_reminder_title"></string>
+
+    <!-- Tracing Erinnerung Untertitel -->
+    <string name="tracing_reminder_subtitle"></string>
+
+    <!-- Tracing Erinnerung Warnung -->
+    <string name="tracing_reminder_warning"></string>
 </resources>

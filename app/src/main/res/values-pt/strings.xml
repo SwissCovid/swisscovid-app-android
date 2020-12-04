@@ -819,7 +819,7 @@ cadeias de transmissão."</string>
     <string name="inform_detail_faq3_title">"Permaneço anónimo?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
-    <string name="meldungen_detail_explanation_text4">"Telefone a um médico ou a um estabelecimento de saúde."</string>
+    <string name="meldungen_detail_explanation_text4">"Aos primeiros sintomas, contacte o seu médico ou uma unidade de saúde."</string>
 
     <!-- Text beim Bluetooth Control -->
     <string name="tracing_setting_text_android">"Notificações de exposição à COVID-19"</string>
@@ -884,7 +884,7 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Possibilidade de teste gratuito"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"A linha informativa SwissCovid aconselha-o sobre um possível teste gratuito ao coronavírus."</string>
+    <string name="meldungen_detail_free_test_text">"O guia da SwissCovid informa-o sobre a possibilidade de um teste gratuito ao coronavírus."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Ativar o rastreamento"</string>
@@ -1051,4 +1051,64 @@ Schwarzenburgstrasse 157
 
     <!-- Button Titel im Meldung Detail Header, wenn alle Meldungen angezeigt werden. -->
     <string name="meldung_detail_exposed_show_less_button">"Mostrar menos"</string>
+
+    <!-- Titel vom SwissCovid Leitfaden bei Kontaktmeldung -->
+    <string name="meldungen_detail_leitfaden_title">"Guia da SwissCovid"</string>
+
+    <!-- Text zum SwissCovid Leitfaden bei Kontaktmeldung -->
+    <string name="meldungen_detail_leitfaden_text">"Responda às perguntas no guia da SwissCovid e saiba como proceder corretamente."</string>
+
+    <!-- Button Text zum Öffnen vom SwissCovid Leitfaden -->
+    <string name="meldungen_detail_open_leitfaden_button">"Preencher agora"</string>
+
+    <!-- Title für Infotext zu SwissCovid Infoline -->
+    <string name="meldungen_tel_information_title">"Informações por telefone"</string>
+
+    <!-- Infotext zu SwissCovid Infoline -->
+    <string name="meldungen_tel_information_text">"Se tiver perguntas, poderá também obter informações através da linha informativa da SwissCovid."</string>
+
+    <!-- Hinweis Text nach dem Ausfüllen vom SwissCovid Leitfaden, dass man erneut ausfüllen kann -->
+    <string name="meldungen_detail_leitfaden_again_text">"Abra aqui o guia da SwissCovid sempre que quiser."</string>
+
+    <!-- Button Text um SwissCovid Leitfaden erneut zu öffnen -->
+    <string name="meldungen_detail_open_leitfaden_again_button">"Abrir o guia da SwissCovid"</string>
+
+    <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
+    <string name="exposed_info_answer_questions_in_leitfaden">"Responda às perguntas no"</string>
+
+    <!-- Homescreen Text mit Hinweis zu SwissCovid Leitfaden bei einer Meldung -->
+    <string name="exposed_info_swisscovid_leitfaden">"guia da SwissCovid"</string>
+
+    <!-- Dialog Text beim Löschen einer Meldung über einen möglichen Kontakt -->
+    <string name="delete_notification_dialog">"A notificação sobre um possível contágio constitui um comprovativo de que necessitará para fazer um teste gratuito ao coronavírus. Se a apagar, perde o comprovativo e a ligação ao guia da SwissCovid."</string>
+
+    <!-- URL to the SwissCovid Leitfaden -->
+    <string name="swisscovid_leitfaden_url">"https://swisscovid.foph-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
+
+    <!-- Tracing Erinnerung 4 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_four_hours"></string>
+
+    <!-- Tracing Erinnerung 8 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_eight_hours"></string>
+
+    <!-- Tracing Erinnerung 12 Stunden Radio Button -->
+    <string name="tracing_reminder_radio_twelve_hours"></string>
+
+    <!-- Tracing Erinnerung keine Erinngerung Radio Button -->
+    <string name="tracing_reminder_radio_no_reminder"></string>
+
+    <!-- Tracing Erinnerung bestätigen Button -->
+    <string name="tracing_reminder_confirm_button"></string>
+
+    <!-- Tracing Erinnerung abbrechen Button -->
+    <string name="tracing_reminder_cancel_button"></string>
+
+    <!-- Tracing Erinnerung Titel -->
+    <string name="tracing_reminder_title"></string>
+
+    <!-- Tracing Erinnerung Untertitel -->
+    <string name="tracing_reminder_subtitle"></string>
+
+    <!-- Tracing Erinnerung Warnung -->
+    <string name="tracing_reminder_warning"></string>
 </resources>

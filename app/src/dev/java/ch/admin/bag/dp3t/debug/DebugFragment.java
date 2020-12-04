@@ -28,6 +28,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.Arrays;
 
 import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.internal.nearby.ExposureWindowMatchingWorker;
 import org.dpppt.android.sdk.internal.storage.ExposureDayStorage;
 import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposureDay;
@@ -98,6 +99,9 @@ public class DebugFragment extends Fragment {
 			CertificatePinning.setEnabled(isChecked, v.getContext());
 			DP3T.setCertificatePinner(CertificatePinning.getCertificatePinner());
 		});
+
+		view.findViewById(R.id.debug_trigger_exposure_check)
+				.setOnClickListener(v -> ExposureWindowMatchingWorker.startMatchingWorker(v.getContext()));
 	}
 
 	private void setupStateOptions(View view) {

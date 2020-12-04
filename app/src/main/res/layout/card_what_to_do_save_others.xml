@@ -75,7 +75,7 @@
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_tiny_small"
 					android:gravity="center_vertical"
-					android:text="@string/meldungen_detail_guard_text"
+					android:text="@string/meldungen_detail_leitfaden_again_text"
 					app:layout_constraintBottom_toTopOf="@id/card_encounters_barrier1"
 					app:layout_constraintLeft_toLeftOf="parent"
 					app:layout_constraintRight_toRightOf="@id/card_encounters_space1"
@@ -94,26 +94,16 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_small"
-					android:text="@string/meldungen_detail_call_again_button"
+					android:text="@string/meldungen_detail_open_leitfaden_again_button"
+					android:drawableRight="@drawable/ic_launch_blue"
 					app:layout_constraintTop_toBottomOf="@id/card_encounters_barrier1" />
-
-				<TextView
-					android:id="@+id/card_encounters_last_call"
-					style="@style/NextStep.Text"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_small"
-					android:text="@string/meldungen_detail_call_last_call"
-					android:textColor="@color/grey_dark"
-					android:textSize="@dimen/text_size_small"
-					app:layout_constraintTop_toBottomOf="@id/card_encounters_button" />
 
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_large"
 					android:orientation="vertical"
-					app:layout_constraintTop_toBottomOf="@id/card_encounters_last_call">
+					app:layout_constraintTop_toBottomOf="@id/card_encounters_button">
 
 					<TextView
 						style="@style/NextStep.Text.Bold"
@@ -226,6 +216,71 @@
 
 			</LinearLayout>
 
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:paddingLeft="@dimen/spacing_medium"
+				android:paddingTop="@dimen/spacing_larger"
+				android:paddingRight="@dimen/spacing_medium"
+				android:paddingBottom="@dimen/spacing_larger">
+
+				<ImageView
+					android:layout_width="@dimen/icon_size"
+					android:layout_height="@dimen/icon_size"
+					android:layout_marginLeft="@dimen/spacing_very_small"
+					android:layout_marginRight="@dimen/spacing_small"
+					android:src="@drawable/ic_infoline" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/NextStep.Text.Bold"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginBottom="@dimen/spacing_small"
+						android:text="@string/meldungen_tel_information_title" />
+
+					<TextView
+						style="@style/NextStep.Text"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/meldungen_tel_information_text" />
+
+					<LinearLayout
+						android:id="@+id/item_call_hotline_layout"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/spacing_very_small"
+						android:background="@drawable/ripple_button"
+						android:orientation="horizontal"
+						android:paddingTop="@dimen/spacing_small"
+						android:paddingBottom="@dimen/spacing_small">
+
+						<ImageView
+							android:layout_width="@dimen/icon_size"
+							android:layout_height="@dimen/icon_size"
+							android:src="@drawable/ic_call"
+							android:tint="@color/blue_main" />
+
+						<TextView
+							android:id="@+id/item_call_hotline_text"
+							style="@style/NextStep.Text.Bold.Blue"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginLeft="@dimen/spacing_small"
+							android:text="@string/infoline_tel_number" />
+
+					</LinearLayout>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
 			<View
 				android:layout_width="match_parent"
 				android:layout_height="1dp"
@@ -256,33 +311,6 @@
 		android:orientation="vertical"
 		android:paddingTop="@dimen/spacing_very_large"
 		android:paddingBottom="@dimen/spacing_medium_large">
-
-		<TextView
-			style="@style/NextStep.Text.Bold"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="@dimen/spacing_small"
-			android:text="@string/meldungen_meldungen_faq1_title" />
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
-
-			<ImageView
-				android:layout_width="@dimen/icon_size"
-				android:layout_height="@dimen/icon_size"
-				android:layout_marginRight="@dimen/spacing_medium_large"
-				android:src="@drawable/ic_call"
-				android:tint="@color/blue_main" />
-
-			<TextView
-				style="@style/NextStep.Text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="@string/meldungen_meldungen_faq1_text" />
-
-		</LinearLayout>
 
 		<Button
 			android:id="@+id/card_encounters_faq_button"
