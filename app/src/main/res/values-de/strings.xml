@@ -1149,4 +1149,106 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
 
     <!-- Tracing Erinnerung Warnung -->
     <string name="tracing_reminder_warning">"Das Tracing wird deaktiviert."</string>
+
+    <!-- Kantonname Zürich -->
+    <string name="Zürich">"Zürich"</string>
+
+    <!-- Kantonname Aargau -->
+    <string name="Aargau">"Aargau"</string>
+
+    <!-- Kantonname Appenzell Innerrhoden -->
+    <!-- Fuzzy -->
+    <string name="Appenzell_Innerrhoden">"Appenzell Innerrhoden"</string>
+
+    <!-- Kantonname Appenzell Ausserrhoden -->
+    <!-- Fuzzy -->
+    <string name="Appenzell_Ausserrhoden">"Appenzell Ausserrhoden"</string>
+
+    <!-- Kantonname Bern -->
+    <string name="Bern">"Bern"</string>
+
+    <!-- Kantonname Basel-Landschaft -->
+    <!-- Fuzzy -->
+    <string name="Basel_Landschaft">"Basel-Landschaft"</string>
+
+    <!-- Kantonname Basel-Stadt -->
+    <!-- Fuzzy -->
+    <string name="Basel_Stadt">"Basel-Stadt"</string>
+
+    <!-- Kantonname Freiburg -->
+    <string name="Freiburg">"Freiburg"</string>
+
+    <!-- Kantonname Genf -->
+    <string name="Genf">"Genf"</string>
+
+    <!-- Kantonname Glarus -->
+    <string name="Glarus">"Glarus"</string>
+
+    <!-- Kantonname Graubünden -->
+    <string name="Graubünden">"Graubünden"</string>
+
+    <!-- Kantonname Jura -->
+    <string name="Jura">"Jura"</string>
+
+    <!-- Kantonname Luzern -->
+    <string name="Luzern">"Luzern"</string>
+
+    <!-- Kantonname Neuenburg -->
+    <string name="Neuenburg">"Neuenburg"</string>
+
+    <!-- Kantonname Nidwalden -->
+    <string name="Nidwalden">"Nidwalden"</string>
+
+    <!-- Kantonname Obwalden -->
+    <string name="Obwalden">"Obwalden"</string>
+
+    <!-- Kantonname St. Gallen -->
+    <!-- Fuzzy -->
+    <string name="St_Gallen">"St. Gallen"</string>
+
+    <!-- Kantonname Schaffhausen -->
+    <string name="Schaffhausen">"Schaffhausen"</string>
+
+    <!-- Kantonname Solothurn -->
+    <string name="Solothurn">"Solothurn"</string>
+
+    <!-- Kantonname Schwyz -->
+    <string name="Schwyz">"Schwyz"</string>
+
+    <!-- Kantonname Thurgau -->
+    <string name="Thurgau">"Thurgau"</string>
+
+    <!-- Kantonname Tessin -->
+    <string name="Tessin">"Tessin"</string>
+
+    <!-- Kantonname Uri -->
+    <string name="Uri">"Uri"</string>
+
+    <!-- Kantonname Waadt -->
+    <string name="Waadt">"Waadt"</string>
+
+    <!-- Kantonname Wallis -->
+    <string name="Wallis">"Wallis"</string>
+
+    <!-- Kantonname Zug -->
+    <string name="Zug">"Zug"</string>
+
+    <!-- Kantonname Fürstentum Liechtenstein -->
+    <!-- Fuzzy -->
+    <string name="Fürstentum_Liechtenstein">"Fürstentum Liechtenstein"</string>
+
+    <!-- Test standorte Popup Titel -->
+    <string name="test_location_popup_title">"Wo kann ich einen Test machen?"</string>
+
+    <!-- Test standorte Popup Text -->
+    <string name="test_location_popup_text">"Sie können sich bei verschiedenen Ärztinnen und Ärzten, Testzentren, Spitälern und Apotheken auf das neue Coronavirus testen lassen. Informationen zu den Testangeboten finden Sie auf den kantonalen Webseiten:"</string>
+
+    <!-- Notification Channel name for Tracing Reactivation Reminders on Android Devices (Only visible in System Settings) -->
+    <string name="android_reminder_channel_name">"Tracing-Aktivierungs Erinnerung"</string>
+
+    <!-- Titel der Tracing-Reaktivierungs-Notification -->
+    <string name="tracing_reminder_notification_title">"Tracing aktivieren"</string>
+
+    <!-- Subtitle der Tracing-Reaktivierungs-Notification -->
+    <string name="tracing_reminder_notification_subtitle">"Aktivieren Sie das Tracing, damit die App Begegnungen speichern und Meldungen empfangen kann."</string>
 </resources>

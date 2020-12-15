@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="@dimen/spacing_medium">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/grey_light"
+			android:orientation="horizontal"
+			android:padding="@dimen/spacing_small">
+
+			<ImageView
+				android:layout_width="@dimen/icon_size"
+				android:layout_height="@dimen/icon_size"
+				android:src="@drawable/ic_warning_red" />
+
+			<TextView
+				style="@style/NextStep.Text.Red"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_marginStart="@dimen/spacing_small"
+				android:layout_weight="1"
+				android:text="@string/tracing_reminder_warning" />
+
+		</LinearLayout>
+
+		<ImageView
+			android:layout_width="@dimen/icon_size"
+			android:layout_height="@dimen/icon_size"
+			android:layout_gravity="center"
+			android:layout_marginTop="@dimen/spacing_larger"
+			android:src="@drawable/ic_notification" />
+
+		<TextView
+			style="@style/NextStep.Text.Title.Dark"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="@dimen/spacing_medium_large"
+			android:layout_marginTop="@dimen/spacing_small"
+			android:text="@string/tracing_reminder_title" />
+
+		<TextView
+			style="@style/NextStep.Text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="@dimen/spacing_medium_large"
+			android:layout_marginTop="@dimen/spacing_small"
+			android:gravity="center_horizontal"
+			android:text="@string/tracing_reminder_subtitle" />
+
+		<RadioGroup
+			android:id="@+id/reactivate_tracing_reminder_radio_group"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="@dimen/spacing_medium_large"
+			android:layout_marginTop="@dimen/spacing_very_large">
+
+			<RadioButton
+				android:id="@+id/reactivate_tracing_reminder_radio_option_four_hours"
+				style="@style/NextStep.RadioButton.Reminder"
+				android:text="@string/tracing_reminder_radio_four_hours" />
+
+			<RadioButton
+				android:id="@+id/reactivate_tracing_reminder_radio_option_eight_hours"
+				style="@style/NextStep.RadioButton.Reminder"
+				android:text="@string/tracing_reminder_radio_eight_hours" />
+
+			<RadioButton
+				android:id="@+id/reactivate_tracing_reminder_radio_option_twelve_hours"
+				style="@style/NextStep.RadioButton.Reminder"
+				android:text="@string/tracing_reminder_radio_twelve_hours" />
+
+			<RadioButton
+				android:id="@+id/reactivate_tracing_reminder_radio_option_no_reminder"
+				style="@style/NextStep.RadioButton.Reminder"
+				android:text="@string/tracing_reminder_radio_no_reminder" />
+
+		</RadioGroup>
+
+		<Button
+			android:id="@+id/reactivate_tracing_reminder_ok_button"
+			style="@style/NextStep.Button.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="@dimen/spacing_very_large"
+			android:paddingStart="@dimen/spacing_huger"
+			android:paddingEnd="@dimen/spacing_huger"
+			android:text="@string/android_button_ok" />
+
+		<Button
+			android:id="@+id/reactivate_tracing_reminder_cancel_button"
+			style="@style/NextStep.Button.Transparent.Blue.Light"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="@dimen/spacing_large"
+			android:layout_marginBottom="@dimen/spacing_large"
+			android:text="@string/cancel" />
+
+	</LinearLayout>
+</ScrollView>

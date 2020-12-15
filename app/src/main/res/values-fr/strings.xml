@@ -1112,4 +1112,106 @@ d'ouvrir un site internet."</string>
 
     <!-- Tracing Erinnerung Warnung -->
     <string name="tracing_reminder_warning"></string>
+
+    <!-- Kantonname Zürich -->
+    <string name="Zürich">"Zurich"</string>
+
+    <!-- Kantonname Aargau -->
+    <string name="Aargau">"Argovie"</string>
+
+    <!-- Kantonname Appenzell Innerrhoden -->
+    <!-- Fuzzy -->
+    <string name="Appenzell_Innerrhoden">"Appenzell Rhodes-Intérieures"</string>
+
+    <!-- Kantonname Appenzell Ausserrhoden -->
+    <!-- Fuzzy -->
+    <string name="Appenzell_Ausserrhoden">"Appenzell Rhodes-Extérieures"</string>
+
+    <!-- Kantonname Bern -->
+    <string name="Bern">"Berne"</string>
+
+    <!-- Kantonname Basel-Landschaft -->
+    <!-- Fuzzy -->
+    <string name="Basel_Landschaft">"Bâle-Campagne"</string>
+
+    <!-- Kantonname Basel-Stadt -->
+    <!-- Fuzzy -->
+    <string name="Basel_Stadt">"Bâle-Ville"</string>
+
+    <!-- Kantonname Freiburg -->
+    <string name="Freiburg">"Fribourg"</string>
+
+    <!-- Kantonname Genf -->
+    <string name="Genf">"Genève"</string>
+
+    <!-- Kantonname Glarus -->
+    <string name="Glarus">"Glaris"</string>
+
+    <!-- Kantonname Graubünden -->
+    <string name="Graubünden">"Grisons"</string>
+
+    <!-- Kantonname Jura -->
+    <string name="Jura">"Jura"</string>
+
+    <!-- Kantonname Luzern -->
+    <string name="Luzern">"Lucerne"</string>
+
+    <!-- Kantonname Neuenburg -->
+    <string name="Neuenburg">"Neuchâtel"</string>
+
+    <!-- Kantonname Nidwalden -->
+    <string name="Nidwalden">"Nidwald"</string>
+
+    <!-- Kantonname Obwalden -->
+    <string name="Obwalden">"Obwald"</string>
+
+    <!-- Kantonname St. Gallen -->
+    <!-- Fuzzy -->
+    <string name="St_Gallen">"Saint-Gall"</string>
+
+    <!-- Kantonname Schaffhausen -->
+    <string name="Schaffhausen">"Schaffhouse"</string>
+
+    <!-- Kantonname Solothurn -->
+    <string name="Solothurn">"Soleure"</string>
+
+    <!-- Kantonname Schwyz -->
+    <string name="Schwyz">"Schwyz"</string>
+
+    <!-- Kantonname Thurgau -->
+    <string name="Thurgau">"Thurgovie"</string>
+
+    <!-- Kantonname Tessin -->
+    <string name="Tessin">"Tessin"</string>
+
+    <!-- Kantonname Uri -->
+    <string name="Uri">"Uri"</string>
+
+    <!-- Kantonname Waadt -->
+    <string name="Waadt">"Vaud"</string>
+
+    <!-- Kantonname Wallis -->
+    <string name="Wallis">"Valais"</string>
+
+    <!-- Kantonname Zug -->
+    <string name="Zug">"Zoug"</string>
+
+    <!-- Kantonname Fürstentum Liechtenstein -->
+    <!-- Fuzzy -->
+    <string name="Fürstentum_Liechtenstein">"Liechtenstein"</string>
+
+    <!-- Test standorte Popup Titel -->
+    <string name="test_location_popup_title"></string>
+
+    <!-- Test standorte Popup Text -->
+    <string name="test_location_popup_text"></string>
+
+    <!-- Notification Channel name for Tracing Reactivation Reminders on Android Devices (Only visible in System Settings) -->
+    <string name="android_reminder_channel_name"></string>
+
+    <!-- Titel der Tracing-Reaktivierungs-Notification -->
+    <string name="tracing_reminder_notification_title"></string>
+
+    <!-- Subtitle der Tracing-Reaktivierungs-Notification -->
+    <string name="tracing_reminder_notification_subtitle"></string>
 </resources>
