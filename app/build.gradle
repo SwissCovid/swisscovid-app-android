@@ -61,6 +61,8 @@ android {
 
 	productFlavors {
 		dev {
+			manifestPlaceholders = [COVIDCODE_HOSTNAME: "swisscovid.ch"]
+			buildConfigField 'String', 'COVIDCODE_URL', '"https://swisscovid.ch/"'
 			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-d.bag.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-d.bfs.admin.ch/"'
@@ -72,6 +74,8 @@ android {
 			applicationIdSuffix '.dev'
 		}
 		tescht {
+			manifestPlaceholders = [COVIDCODE_HOSTNAME: "swisscovid.ch"]
+			buildConfigField 'String', 'COVIDCODE_URL', '"https://swisscovid.ch/"'
 			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-t.bag.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-t.bfs.admin.ch/"'
@@ -83,6 +87,8 @@ android {
 			applicationIdSuffix '.test'
 		}
 		abnahme {
+			manifestPlaceholders = [COVIDCODE_HOSTNAME: "swisscovid.ch"]
+			buildConfigField 'String', 'COVIDCODE_URL', '"https://swisscovid.ch/"'
 			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service-a.bag.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt-a.bfs.admin.ch/"'
@@ -94,6 +100,8 @@ android {
 			applicationIdSuffix '.abnahme'
 		}
 		prod {
+			manifestPlaceholders = [COVIDCODE_HOSTNAME: "swisscovid.ch"]
+			buildConfigField 'String', 'COVIDCODE_URL', '"https://swisscovid.ch/"'
 			buildConfigField 'boolean', 'DEV_HISTORY', 'false'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service.bag.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt.bfs.admin.ch/"'
@@ -104,6 +112,8 @@ android {
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
 		}
 		log {
+			manifestPlaceholders = [COVIDCODE_HOSTNAME: "swisscovid.ch"]
+			buildConfigField 'String', 'COVIDCODE_URL', '"https://swisscovid.ch/"'
 			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
 			buildConfigField 'String', 'AUTH_CODE_URL', '"https://codegen-service.bag.admin.ch/"'
 			buildConfigField 'String', 'CONFIG_URL', '"https://www.pt.bfs.admin.ch/"'

@@ -20,14 +20,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.sdk.DP3T;
 
+import ch.admin.bag.dp3t.inform.InformActivity;
 import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
+import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
 
 import static ch.admin.bag.dp3t.util.NotificationUtil.ACTION_ACTIVATE_TRACING;
+import static ch.admin.bag.dp3t.inform.InformActivity.EXTRA_COVIDCODE;
 
 public class MainActivity extends FragmentActivity {
 
@@ -130,6 +133,27 @@ public class MainActivity extends FragmentActivity {
 		} else if (ACTION_ACTIVATE_TRACING.equals(intentAction)) {
 			tracingViewModel.enableTracing(this, () -> {}, e -> {}, () -> {});
 		}
+	}
+
+	private void checkValidCovidcodeIntent(String url) {
+		String[] fragmentSplit = url.split("#");
+		if (fragmentSplit.length != 2) return;
+		String urlPrefix = fragmentSplit[0];
+		String covidCode = fragmentSplit[1];
+		if (!urlPrefix.equals(BuildConfig.COVIDCODE_URL)) return;
+		if (covidCode.length() != 12) return;
+		startInformFlow(covidCode);
+	}
+
+	private void startInformFlow(String covidCode) {
+		getSupportFragmentManager()
+				.beginTransaction()
+				.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
+				.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
+				.commit();
+		Intent intent = new Intent(this, InformActivity.class);
+		intent.putExtra(EXTRA_COVIDCODE, covidCode);
+		startActivity(intent);
 	}
 
 	private void showHomeFragment() {

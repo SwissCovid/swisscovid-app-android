@@ -39,6 +39,8 @@ import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.JwtUtil;
 import ch.admin.bag.dp3t.util.PhoneUtil;
 
+import static ch.admin.bag.dp3t.inform.InformActivity.EXTRA_COVIDCODE;
+
 public class InformFragment extends Fragment {
 
 	private static final long TIMEOUT_VALID_CODE = 1000l * 60 * 5;
@@ -93,6 +95,13 @@ public class InformFragment extends Fragment {
 			authCodeInput.setText(lastCode);
 		} else if (lastCode != null || lastToken != null) {
 			secureStorage.clearInformTimeAndCodeAndToken();
+		}
+
+		if (requireActivity().getIntent().getExtras() != null) {
+			String covidCode = requireActivity().getIntent().getExtras().getString(EXTRA_COVIDCODE);
+			if (covidCode != null) {
+				authCodeInput.setText(covidCode);
+			}
 		}
 
 		buttonSend.setOnClickListener(v -> {
