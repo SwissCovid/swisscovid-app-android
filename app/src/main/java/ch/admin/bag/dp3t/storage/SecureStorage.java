@@ -18,10 +18,13 @@ import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
@@ -55,6 +58,7 @@ public class SecureStorage {
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_SDK_INT = "last_config_load_success_sdk_int";
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
+	private static final String KEY_TEST_LOCATIONS = "test_locations";
 
 	private static SecureStorage instance;
 
@@ -283,6 +287,15 @@ public class SecureStorage {
 			return null;
 		}
 		return map.get(language);
+	}
+
+	public void setTestLocations(Map<String, String> testLocations) {
+		prefs.edit().putString(KEY_TEST_LOCATIONS, gson.toJson(testLocations)).apply();
+	}
+
+	public Map<String, String> getTestLocations() {
+		Type type = new TypeToken<HashMap<String, String>>() { }.getType();
+		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, "{}"), type);
 	}
 
 }

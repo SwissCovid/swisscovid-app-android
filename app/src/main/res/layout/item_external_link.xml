@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	style="@style/NextStep.Text.Bold.Purple"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginVertical="@dimen/spacing_tiny_small"
+	android:clickable="true"
+	android:drawableStart="@drawable/ic_launch_purple"
+	android:drawablePadding="@dimen/spacing_small"
+	android:focusable="true"
+	android:foreground="?android:selectableItemBackground"
+	android:padding="@dimen/spacing_very_small"
+	tools:text="@string/Graubünden" />
