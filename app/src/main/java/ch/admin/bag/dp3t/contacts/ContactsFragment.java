@@ -12,7 +12,6 @@ package ch.admin.bag.dp3t.contacts;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -45,6 +44,7 @@ public class ContactsFragment extends Fragment {
 	private ScrollView scrollView;
 
 	private Switch tracingSwitch;
+	private boolean userInitiatedCheckedChange = true;
 
 	public static ContactsFragment newInstance() {
 		return new ContactsFragment();
@@ -68,8 +68,6 @@ public class ContactsFragment extends Fragment {
 		Toolbar toolbar = view.findViewById(R.id.contacts_toolbar);
 		toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-		View tracingStatusView = view.findViewById(R.id.tracing_status);
-		View tracingErrorView = view.findViewById(R.id.tracing_error);
 		tracingSwitch = view.findViewById(R.id.contacts_tracing_switch);
 
 		headerView = view.findViewById(R.id.contacts_header_view);
@@ -88,32 +86,35 @@ public class ContactsFragment extends Fragment {
 	private void setupTracingView() {
 		Activity activity = requireActivity();
 
-		tracingSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if (isChecked) {
-					tracingViewModel.enableTracing(activity,
-							() -> { },
-							(e) -> {
-								String message = ENExceptionHelper.getErrorMessage(e, activity);
-								Logger.e(TAG, message);
-								new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
-										.setTitle(R.string.android_en_start_failure)
-										.setMessage(message)
-										.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
-										.show();
-								tracingSwitch.setChecked(false);
-							},
-							() -> tracingSwitch.setChecked(false));
-				} else {
-					tracingViewModel.disableTracing();
-				}
-			}
+		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
+			setTracingSwitchChecked(status.isTracingEnabled());
 		});
 
-		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
-			tracingSwitch.setChecked(status.isTracingEnabled());
+		tracingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+			if (isChecked) {
+				tracingViewModel.enableTracing(activity,
+						() -> { },
+						(e) -> {
+							String message = ENExceptionHelper.getErrorMessage(e, activity);
+							Logger.e(TAG, message);
+							new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
+									.setTitle(R.string.android_en_start_failure)
+									.setMessage(message)
+									.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
+									.show();
+							setTracingSwitchChecked(false);
+						},
+						() -> setTracingSwitchChecked(false));
+			} else {
+				if (userInitiatedCheckedChange) showReactivateTracingReminderDialog();
+			}
 		});
+	}
+
+	private void setTracingSwitchChecked(boolean checked) {
+		userInitiatedCheckedChange = false;
+		tracingSwitch.setChecked(checked);
+		userInitiatedCheckedChange = true;
 	}
 
 	private void setupHistoryCard(View view) {
@@ -158,6 +159,12 @@ public class ContactsFragment extends Fragment {
 	public void onDestroyView() {
 		super.onDestroyView();
 		headerView.stopAnimation();
+	}
+
+	private void showReactivateTracingReminderDialog() {
+		requireActivity().getSupportFragmentManager().beginTransaction()
+				.add(ReactivateTracingReminderDialog.newInstance(), ReactivateTracingReminderDialog.class.getCanonicalName())
+				.commit();
 	}
 
 	private void setupScrollBehavior() {

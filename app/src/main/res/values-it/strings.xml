@@ -1116,4 +1116,106 @@ Schwarzenburgstrasse 157
 
     <!-- Tracing Erinnerung Warnung -->
     <string name="tracing_reminder_warning"></string>
+
+    <!-- Kantonname Zürich -->
+    <string name="Zürich">"Zurigo"</string>
+
+    <!-- Kantonname Aargau -->
+    <string name="Aargau">"Argovia"</string>
+
+    <!-- Kantonname Appenzell Innerrhoden -->
+    <!-- Fuzzy -->
+    <string name="Appenzell_Innerrhoden">"Appenzello Interno"</string>
+
+    <!-- Kantonname Appenzell Ausserrhoden -->
+    <!-- Fuzzy -->
+    <string name="Appenzell_Ausserrhoden">"Appenzello Esterno"</string>
+
+    <!-- Kantonname Bern -->
+    <string name="Bern">"Berna"</string>
+
+    <!-- Kantonname Basel-Landschaft -->
+    <!-- Fuzzy -->
+    <string name="Basel_Landschaft">"Basilea Campagna"</string>
+
+    <!-- Kantonname Basel-Stadt -->
+    <!-- Fuzzy -->
+    <string name="Basel_Stadt">"Basilea Città"</string>
+
+    <!-- Kantonname Freiburg -->
+    <string name="Freiburg">"Friburgo"</string>
+
+    <!-- Kantonname Genf -->
+    <string name="Genf">"Ginevra"</string>
+
+    <!-- Kantonname Glarus -->
+    <string name="Glarus">"Glarona"</string>
+
+    <!-- Kantonname Graubünden -->
+    <string name="Graubünden">"Grigioni"</string>
+
+    <!-- Kantonname Jura -->
+    <string name="Jura">"Giura"</string>
+
+    <!-- Kantonname Luzern -->
+    <string name="Luzern">"Lucerna"</string>
+
+    <!-- Kantonname Neuenburg -->
+    <string name="Neuenburg">"Neuchâtel"</string>
+
+    <!-- Kantonname Nidwalden -->
+    <string name="Nidwalden">"Nidvaldo"</string>
+
+    <!-- Kantonname Obwalden -->
+    <string name="Obwalden">"Obvaldo"</string>
+
+    <!-- Kantonname St. Gallen -->
+    <!-- Fuzzy -->
+    <string name="St_Gallen">"San Gallo"</string>
+
+    <!-- Kantonname Schaffhausen -->
+    <string name="Schaffhausen">"Sciaffusa"</string>
+
+    <!-- Kantonname Solothurn -->
+    <string name="Solothurn">"Soletta"</string>
+
+    <!-- Kantonname Schwyz -->
+    <string name="Schwyz">"Svitto"</string>
+
+    <!-- Kantonname Thurgau -->
+    <string name="Thurgau">"Turgovia"</string>
+
+    <!-- Kantonname Tessin -->
+    <string name="Tessin">"Ticino"</string>
+
+    <!-- Kantonname Uri -->
+    <string name="Uri">"Uri"</string>
+
+    <!-- Kantonname Waadt -->
+    <string name="Waadt">"Vaud"</string>
+
+    <!-- Kantonname Wallis -->
+    <string name="Wallis">"Vallese"</string>
+
+    <!-- Kantonname Zug -->
+    <string name="Zug">"Zugo"</string>
+
+    <!-- Kantonname Fürstentum Liechtenstein -->
+    <!-- Fuzzy -->
+    <string name="Fürstentum_Liechtenstein">"Liechtenstein"</string>
+
+    <!-- Test standorte Popup Titel -->
+    <string name="test_location_popup_title"></string>
+
+    <!-- Test standorte Popup Text -->
+    <string name="test_location_popup_text"></string>
+
+    <!-- Notification Channel name for Tracing Reactivation Reminders on Android Devices (Only visible in System Settings) -->
+    <string name="android_reminder_channel_name"></string>
+
+    <!-- Titel der Tracing-Reaktivierungs-Notification -->
+    <string name="tracing_reminder_notification_title"></string>
+
+    <!-- Subtitle der Tracing-Reaktivierungs-Notification -->
+    <string name="tracing_reminder_notification_subtitle"></string>
 </resources>

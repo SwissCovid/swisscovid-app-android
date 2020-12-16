@@ -27,6 +27,8 @@ import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
+import static ch.admin.bag.dp3t.util.NotificationUtil.ACTION_ACTIVATE_TRACING;
+
 public class MainActivity extends FragmentActivity {
 
 	public static final String ACTION_EXPOSED_GOTO_REPORTS = "ACTION_EXPOSED_GOTO_REPORTS";
@@ -125,6 +127,8 @@ public class MainActivity extends FragmentActivity {
 			if (tracingViewModel.getTracingStatusInterface().wasContactReportedAsExposed()) {
 				gotoReportsFragment();
 			}
+		} else if (ACTION_ACTIVATE_TRACING.equals(intentAction)) {
+			tracingViewModel.enableTracing(this, () -> {}, e -> {}, () -> {});
 		}
 	}
 
