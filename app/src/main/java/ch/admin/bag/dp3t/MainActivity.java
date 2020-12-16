@@ -42,7 +42,9 @@ public class MainActivity extends FragmentActivity {
 	private static final int REQ_ONBOARDING = 123;
 
 	private static final String STATE_CONSUMED_EXPOSED_INTENT = "STATE_CONSUMED_EXPOSED_INTENT";
+	private static final String STATE_CONSUMED_COVIDCODE_INTENT = "STATE_CONSUMED_COVIDCODE_INTENT";
 	private boolean consumedExposedIntent;
+	private boolean consumedCovidcodeIntent;
 
 	private SecureStorage secureStorage;
 	private TracingViewModel tracingViewModel;
@@ -89,6 +91,7 @@ public class MainActivity extends FragmentActivity {
 			}
 		} else {
 			consumedExposedIntent = savedInstanceState.getBoolean(STATE_CONSUMED_EXPOSED_INTENT);
+			consumedCovidcodeIntent = savedInstanceState.getBoolean(STATE_CONSUMED_COVIDCODE_INTENT);
 		}
 
 		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
@@ -113,13 +116,26 @@ public class MainActivity extends FragmentActivity {
 	public void onSaveInstanceState(@NonNull Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putBoolean(STATE_CONSUMED_EXPOSED_INTENT, consumedExposedIntent);
+		outState.putBoolean(STATE_CONSUMED_COVIDCODE_INTENT, consumedCovidcodeIntent);
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		setIntent(intent);
+		consumedCovidcodeIntent = false;
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		checkValidCovidcodeIntent();
 	}
 
 	private void checkIntentForActions() {
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
-		TracingStatusInterface tracingStatus = tracingViewModel.getAppStatusLiveData().getValue();
 		if (ACTION_INFORMED_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory) {
 			secureStorage.setLeitfadenOpenPending(false);
 			secureStorage.setReportsHeaderAnimationPending(false);
@@ -138,13 +154,20 @@ public class MainActivity extends FragmentActivity {
 		}
 	}
 
-	private void checkValidCovidcodeIntent(String url) {
-		Uri uri = Uri.parse(url);
+	private void checkValidCovidcodeIntent() {
+		boolean launchedFromHistory = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
+		TracingStatusInterface tracingStatus = tracingViewModel.getAppStatusLiveData().getValue();
+		if (getIntent().getData() == null || launchedFromHistory || tracingStatus == null || tracingStatus.isReportedAsInfected() ||
+				consumedCovidcodeIntent) {
+			return;
+		}
+		Uri uri = Uri.parse(getIntent().getData().toString());
 		if (!uri.getHost().equals("covidcode.ch")) return;
 		if (!uri.getPath().equals("/c")) return;
 		String covidCode = uri.getFragment();
 		if (covidCode != null && covidCode.length() != 12) return;
 		startInformFlow(covidCode);
+		consumedCovidcodeIntent = true;
 	}
 
 	private void startInformFlow(String covidCode) {
