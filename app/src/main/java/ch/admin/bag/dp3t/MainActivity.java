@@ -11,6 +11,7 @@ package ch.admin.bag.dp3t;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.sdk.DP3T;
 
+import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.inform.InformActivity;
 import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
@@ -117,6 +119,7 @@ public class MainActivity extends FragmentActivity {
 		Intent intent = getIntent();
 		String intentAction = intent.getAction();
 		boolean launchedFromHistory = (intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
+		TracingStatusInterface tracingStatus = tracingViewModel.getAppStatusLiveData().getValue();
 		if (ACTION_INFORMED_GOTO_REPORTS.equals(intentAction) && !launchedFromHistory) {
 			secureStorage.setLeitfadenOpenPending(false);
 			secureStorage.setReportsHeaderAnimationPending(false);
@@ -136,12 +139,11 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	private void checkValidCovidcodeIntent(String url) {
-		String[] fragmentSplit = url.split("#");
-		if (fragmentSplit.length != 2) return;
-		String urlPrefix = fragmentSplit[0];
-		String covidCode = fragmentSplit[1];
-		if (!urlPrefix.equals(BuildConfig.COVIDCODE_URL)) return;
-		if (covidCode.length() != 12) return;
+		Uri uri = Uri.parse(url);
+		if (!uri.getHost().equals("covidcode.ch")) return;
+		if (!uri.getPath().equals("/c")) return;
+		String covidCode = uri.getFragment();
+		if (covidCode != null && covidCode.length() != 12) return;
 		startInformFlow(covidCode);
 	}
 

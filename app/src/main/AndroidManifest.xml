@@ -41,10 +41,13 @@
 
 			<intent-filter android:autoVerify="true">
 				<action android:name="android.intent.action.VIEW" />
+
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
+
 				<data
-					android:host="${COVIDCODE_HOSTNAME}"
+					android:host="covidcode.ch"
+					android:pathPrefix="/c"
 					android:scheme="https" />
 			</intent-filter>
 
