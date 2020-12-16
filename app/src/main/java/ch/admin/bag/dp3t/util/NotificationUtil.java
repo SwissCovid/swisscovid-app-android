@@ -36,16 +36,15 @@ public class NotificationUtil {
 
 	@RequiresApi(api = Build.VERSION_CODES.O)
 	public static void createNotificationChannel(Context context) {
-		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		String channelName = context.getString(R.string.app_name);
-		NotificationChannel channel =
-				new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_HIGH);
-		channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-		notificationManager.createNotificationChannel(channel);
+		createNotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, Notification.VISIBILITY_PRIVATE, context);
 	}
 
 	public static void showReminderNotification(Context context) {
-		createNotificationChannel(CHANNEL_ID_REMINDER, context.getString(R.string.android_reminder_channel_name), context);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			createNotificationChannel(CHANNEL_ID_REMINDER, context.getString(R.string.android_reminder_channel_name),
+					Notification.VISIBILITY_PUBLIC, context);
+		}
 		PendingIntent pendingIntent = createReminderPendingIntent(context);
 		String title = context.getString(R.string.tracing_reminder_notification_title);
 		String message = context.getString(R.string.tracing_reminder_notification_subtitle);
@@ -55,10 +54,13 @@ public class NotificationUtil {
 		notificationManager.notify(message.hashCode(), notification);
 	}
 
-	private static void createNotificationChannel(String channelId, String channelName, Context context) {
+	@RequiresApi(api = Build.VERSION_CODES.O)
+	private static void createNotificationChannel(String channelId, String channelName, int lockscreenVisibility,
+			Context context) {
 		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		if (Build.VERSION.SDK_INT >= 26) {
 			NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH);
+			channel.setLockscreenVisibility(lockscreenVisibility);
 			notificationManager.createNotificationChannel(channel);
 		}
 	}
