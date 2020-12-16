@@ -17,8 +17,11 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +35,7 @@ import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
 public class SecureStorage {
 
 	private static final String PREFERENCES = "SecureStorage";
+	private static final String DEFAULT_TEST_LOCATIONS_JSON_PATH = "testlocations.json";
 
 	private static final String KEY_INFECTED_DATE = "infected_date";
 	private static final String KEY_INFORM_TIME_REQ = "inform_time_req";
@@ -60,16 +64,20 @@ public class SecureStorage {
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
 	private static final String KEY_TEST_LOCATIONS = "test_locations";
 
+	Type stringMapType = new TypeToken<Map<String, String>>() { }.getType();
+
 	private static SecureStorage instance;
 
 	private SharedPreferences prefs;
 
 	private Gson gson = new Gson();
+	private Context context;
 
 	private final MutableLiveData<Boolean> forceUpdateLiveData;
 	private final MutableLiveData<Boolean> hasInfoboxLiveData;
 
 	private SecureStorage(@NonNull Context context) {
+		this.context = context;
 		try {
 			String masterKeys = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
 			this.prefs = EncryptedSharedPreferences
@@ -294,8 +302,20 @@ public class SecureStorage {
 	}
 
 	public Map<String, String> getTestLocations() {
-		Type type = new TypeToken<HashMap<String, String>>() { }.getType();
-		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, "{}"), type);
+		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, getDefaultTestLocations()), stringMapType);
+	}
+
+	private String getDefaultTestLocations() {
+		try (BufferedReader br = new BufferedReader(
+				new InputStreamReader(context.getAssets().open(DEFAULT_TEST_LOCATIONS_JSON_PATH), StandardCharsets.UTF_8));
+		) {
+			StringBuilder sb = new StringBuilder();
+			String str;
+			while ((str = br.readLine()) != null) { sb.append(str); }
+			return sb.toString();
+		} catch (IOException e) {
+			return null;
+		}
 	}
 
 }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,12 +46,14 @@ public class WhereToTestDialogFragment extends DialogFragment {
 		ViewGroup cantonsContainer = view.findViewById(R.id.where_to_test_links_container);
 		cantonsContainer.removeAllViews();
 		Map<String, String> cantonUrls = secureStorage.getTestLocations();
+		if (cantonUrls == null) return;
 		for (Map.Entry<String, String> cantonEntry : cantonUrls.entrySet()) {
-			TextView cantonView = (TextView) View.inflate(cantonsContainer.getContext(), R.layout.item_external_link, null);
-			cantonView.setText(getResources().getIdentifier(cantonEntry.getKey(), "string", requireContext().getPackageName()));
+			int cantonStringRes = getResources().getIdentifier(cantonEntry.getKey(), "string", requireContext().getPackageName());
+			if (cantonStringRes == 0) continue;
+			TextView cantonView =
+					(TextView) LayoutInflater.from(requireContext()).inflate(R.layout.item_external_link, cantonsContainer, false);
+			cantonView.setText(cantonStringRes);
 			cantonView.setOnClickListener(v -> UrlUtil.openUrl(requireContext(), cantonEntry.getValue()));
-			cantonView.setLayoutParams(
-					new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 			cantonsContainer.addView(cantonView);
 		}
 	}

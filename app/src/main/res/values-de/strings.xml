@@ -1151,91 +1151,112 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <string name="tracing_reminder_warning">"Das Tracing wird deaktiviert."</string>
 
     <!-- Kantonname Zürich -->
-    <string name="Zürich">"Zürich"</string>
+    <!-- Fuzzy -->
+    <string name="canton_zurich">"Zürich"</string>
 
     <!-- Kantonname Aargau -->
-    <string name="Aargau">"Aargau"</string>
+    <!-- Fuzzy -->
+    <string name="canton_aargau">"Aargau"</string>
 
     <!-- Kantonname Appenzell Innerrhoden -->
     <!-- Fuzzy -->
-    <string name="Appenzell_Innerrhoden">"Appenzell Innerrhoden"</string>
+    <string name="canton_appenzell_innerrhoden">"Appenzell Innerrhoden"</string>
 
     <!-- Kantonname Appenzell Ausserrhoden -->
     <!-- Fuzzy -->
-    <string name="Appenzell_Ausserrhoden">"Appenzell Ausserrhoden"</string>
+    <string name="canton_appenzell_ausserrhoden">"Appenzell Ausserrhoden"</string>
 
     <!-- Kantonname Bern -->
-    <string name="Bern">"Bern"</string>
+    <!-- Fuzzy -->
+    <string name="canton_berne">"Bern"</string>
 
     <!-- Kantonname Basel-Landschaft -->
     <!-- Fuzzy -->
-    <string name="Basel_Landschaft">"Basel-Landschaft"</string>
+    <string name="canton_basel_country">"Basel-Landschaft"</string>
 
     <!-- Kantonname Basel-Stadt -->
     <!-- Fuzzy -->
-    <string name="Basel_Stadt">"Basel-Stadt"</string>
+    <string name="canton_basel_city">"Basel-Stadt"</string>
 
     <!-- Kantonname Freiburg -->
-    <string name="Freiburg">"Freiburg"</string>
+    <!-- Fuzzy -->
+    <string name="canton_fribourg">"Freiburg"</string>
 
     <!-- Kantonname Genf -->
-    <string name="Genf">"Genf"</string>
+    <!-- Fuzzy -->
+    <string name="canton_geneva">"Genf"</string>
 
     <!-- Kantonname Glarus -->
-    <string name="Glarus">"Glarus"</string>
+    <!-- Fuzzy -->
+    <string name="canton_glarus">"Glarus"</string>
 
     <!-- Kantonname Graubünden -->
-    <string name="Graubünden">"Graubünden"</string>
+    <!-- Fuzzy -->
+    <string name="canton_graubuenden">"Graubünden"</string>
 
     <!-- Kantonname Jura -->
-    <string name="Jura">"Jura"</string>
+    <!-- Fuzzy -->
+    <string name="canton_jura">"Jura"</string>
 
     <!-- Kantonname Luzern -->
-    <string name="Luzern">"Luzern"</string>
+    <!-- Fuzzy -->
+    <string name="canton_lucerne">"Luzern"</string>
 
     <!-- Kantonname Neuenburg -->
-    <string name="Neuenburg">"Neuenburg"</string>
+    <!-- Fuzzy -->
+    <string name="canton_neuchatel">"Neuenburg"</string>
 
     <!-- Kantonname Nidwalden -->
-    <string name="Nidwalden">"Nidwalden"</string>
+    <!-- Fuzzy -->
+    <string name="canton_nidwalden">"Nidwalden"</string>
 
     <!-- Kantonname Obwalden -->
-    <string name="Obwalden">"Obwalden"</string>
+    <!-- Fuzzy -->
+    <string name="canton_obwalden">"Obwalden"</string>
 
     <!-- Kantonname St. Gallen -->
     <!-- Fuzzy -->
-    <string name="St_Gallen">"St. Gallen"</string>
+    <string name="canton_st_gallen">"St. Gallen"</string>
 
     <!-- Kantonname Schaffhausen -->
-    <string name="Schaffhausen">"Schaffhausen"</string>
+    <!-- Fuzzy -->
+    <string name="canton_schaffhausen">"Schaffhausen"</string>
 
     <!-- Kantonname Solothurn -->
-    <string name="Solothurn">"Solothurn"</string>
+    <!-- Fuzzy -->
+    <string name="canton_solothurn">"Solothurn"</string>
 
     <!-- Kantonname Schwyz -->
-    <string name="Schwyz">"Schwyz"</string>
+    <!-- Fuzzy -->
+    <string name="canton_schwyz">"Schwyz"</string>
 
     <!-- Kantonname Thurgau -->
-    <string name="Thurgau">"Thurgau"</string>
+    <!-- Fuzzy -->
+    <string name="canton_thurgovia">"Thurgau"</string>
 
     <!-- Kantonname Tessin -->
-    <string name="Tessin">"Tessin"</string>
+    <!-- Fuzzy -->
+    <string name="canton_ticino">"Tessin"</string>
 
     <!-- Kantonname Uri -->
-    <string name="Uri">"Uri"</string>
+    <!-- Fuzzy -->
+    <string name="canton_uri">"Uri"</string>
 
     <!-- Kantonname Waadt -->
-    <string name="Waadt">"Waadt"</string>
+    <!-- Fuzzy -->
+    <string name="canton_vaud">"Waadt"</string>
 
     <!-- Kantonname Wallis -->
-    <string name="Wallis">"Wallis"</string>
+    <!-- Fuzzy -->
+    <string name="canton_valais">"Wallis"</string>
 
     <!-- Kantonname Zug -->
-    <string name="Zug">"Zug"</string>
+    <!-- Fuzzy -->
+    <string name="canton_zug">"Zug"</string>
 
     <!-- Kantonname Fürstentum Liechtenstein -->
     <!-- Fuzzy -->
-    <string name="Fürstentum_Liechtenstein">"Fürstentum Liechtenstein"</string>
+    <string name="country_liechtenstein">"Fürstentum Liechtenstein"</string>
 
     <!-- Test standorte Popup Titel -->
     <string name="test_location_popup_title">"Wo kann ich einen Test machen?"</string>
