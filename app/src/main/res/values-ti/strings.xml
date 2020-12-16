@@ -1081,85 +1081,85 @@ Schwarzenburgstrasse 157
     <string name="tracing_reminder_warning"></string>
 
     <!-- Kantonname Zürich -->
-    <string name="Zürich">"Zürich"</string>
+    <string name="canton_zurich">"Zürich"</string>
 
     <!-- Kantonname Aargau -->
-    <string name="Aargau">"Aargau"</string>
+    <string name="canton_aargau">"Aargau"</string>
 
     <!-- Kantonname Appenzell Innerrhoden -->
-    <string name="Appenzell_Innerrhoden">"Appenzell Innerrhoden"</string>
+    <string name="canton_appenzell_innerrhoden">"Appenzell Innerrhoden"</string>
 
     <!-- Kantonname Appenzell Ausserrhoden -->
-    <string name="Appenzell_Ausserrhoden">"Appenzell Ausserrhoden"</string>
+    <string name="canton_appenzell_ausserrhoden">"Appenzell Ausserrhoden"</string>
 
     <!-- Kantonname Bern -->
-    <string name="Bern">"Berne"</string>
+    <string name="canton_berne">"Berne"</string>
 
     <!-- Kantonname Basel-Landschaft -->
-    <string name="Basel_Landschaft">"Basel-Country"</string>
+    <string name="canton_basel_country">"Basel-Country"</string>
 
     <!-- Kantonname Basel-Stadt -->
-    <string name="Basel_Stadt">"Basel-City"</string>
+    <string name="canton_basel_city">"Basel-City"</string>
 
     <!-- Kantonname Freiburg -->
-    <string name="Freiburg">"Fribourg"</string>
+    <string name="canton_fribourg">"Fribourg"</string>
 
     <!-- Kantonname Genf -->
-    <string name="Genf">"Geneva"</string>
+    <string name="canton_geneva">"Geneva"</string>
 
     <!-- Kantonname Glarus -->
-    <string name="Glarus">"Glarus"</string>
+    <string name="canton_glarus">"Glarus"</string>
 
     <!-- Kantonname Graubünden -->
-    <string name="Graubünden">"Graubünden"</string>
+    <string name="canton_graubuenden">"Graubünden"</string>
 
     <!-- Kantonname Jura -->
-    <string name="Jura">"Jura"</string>
+    <string name="canton_jura">"Jura"</string>
 
     <!-- Kantonname Luzern -->
-    <string name="Luzern">"Lucerne"</string>
+    <string name="canton_lucerne">"Lucerne"</string>
 
     <!-- Kantonname Neuenburg -->
-    <string name="Neuenburg">"Neuchâtel"</string>
+    <string name="canton_neuchatel">"Neuchâtel"</string>
 
     <!-- Kantonname Nidwalden -->
-    <string name="Nidwalden">"Nidwalden"</string>
+    <string name="canton_nidwalden">"Nidwalden"</string>
 
     <!-- Kantonname Obwalden -->
-    <string name="Obwalden">"Obwalden"</string>
+    <string name="canton_obwalden">"Obwalden"</string>
 
     <!-- Kantonname St. Gallen -->
-    <string name="St_Gallen">"St. Gallen"</string>
+    <string name="canton_st_gallen">"St. Gallen"</string>
 
     <!-- Kantonname Schaffhausen -->
-    <string name="Schaffhausen">"Schaffhausen"</string>
+    <string name="canton_schaffhausen">"Schaffhausen"</string>
 
     <!-- Kantonname Solothurn -->
-    <string name="Solothurn">"Solothurn"</string>
+    <string name="canton_solothurn">"Solothurn"</string>
 
     <!-- Kantonname Schwyz -->
-    <string name="Schwyz">"Schwyz"</string>
+    <string name="canton_schwyz">"Schwyz"</string>
 
     <!-- Kantonname Thurgau -->
-    <string name="Thurgau">"Thurgovia"</string>
+    <string name="canton_thurgovia">"Thurgovia"</string>
 
     <!-- Kantonname Tessin -->
-    <string name="Tessin">"Ticino"</string>
+    <string name="canton_ticino">"Ticino"</string>
 
     <!-- Kantonname Uri -->
-    <string name="Uri">"Uri"</string>
+    <string name="canton_uri">"Uri"</string>
 
     <!-- Kantonname Waadt -->
-    <string name="Waadt">"Vaud"</string>
+    <string name="canton_vaud">"Vaud"</string>
 
     <!-- Kantonname Wallis -->
-    <string name="Wallis">"Valais"</string>
+    <string name="canton_valais">"Valais"</string>
 
     <!-- Kantonname Zug -->
-    <string name="Zug">"Zug"</string>
+    <string name="canton_zug">"Zug"</string>
 
     <!-- Kantonname Fürstentum Liechtenstein -->
-    <string name="Fürstentum_Liechtenstein">"Liechtenstein"</string>
+    <string name="country_liechtenstein">"Liechtenstein"</string>
 
     <!-- Test standorte Popup Titel -->
     <string name="test_location_popup_title"></string>

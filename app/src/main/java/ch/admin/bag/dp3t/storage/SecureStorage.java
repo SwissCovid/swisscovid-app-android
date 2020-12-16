@@ -17,11 +17,17 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
@@ -29,6 +35,7 @@ import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
 public class SecureStorage {
 
 	private static final String PREFERENCES = "SecureStorage";
+	private static final String DEFAULT_TEST_LOCATIONS_JSON_PATH = "testlocations.json";
 
 	private static final String KEY_INFECTED_DATE = "infected_date";
 	private static final String KEY_INFORM_TIME_REQ = "inform_time_req";
@@ -55,17 +62,22 @@ public class SecureStorage {
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_SDK_INT = "last_config_load_success_sdk_int";
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
+	private static final String KEY_TEST_LOCATIONS = "test_locations";
+
+	Type stringMapType = new TypeToken<Map<String, String>>() { }.getType();
 
 	private static SecureStorage instance;
 
 	private SharedPreferences prefs;
 
 	private Gson gson = new Gson();
+	private Context context;
 
 	private final MutableLiveData<Boolean> forceUpdateLiveData;
 	private final MutableLiveData<Boolean> hasInfoboxLiveData;
 
 	private SecureStorage(@NonNull Context context) {
+		this.context = context;
 		try {
 			String masterKeys = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
 			this.prefs = EncryptedSharedPreferences
@@ -283,6 +295,27 @@ public class SecureStorage {
 			return null;
 		}
 		return map.get(language);
+	}
+
+	public void setTestLocations(Map<String, String> testLocations) {
+		prefs.edit().putString(KEY_TEST_LOCATIONS, gson.toJson(testLocations)).apply();
+	}
+
+	public Map<String, String> getTestLocations() {
+		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, getDefaultTestLocations()), stringMapType);
+	}
+
+	private String getDefaultTestLocations() {
+		try (BufferedReader br = new BufferedReader(
+				new InputStreamReader(context.getAssets().open(DEFAULT_TEST_LOCATIONS_JSON_PATH), StandardCharsets.UTF_8));
+		) {
+			StringBuilder sb = new StringBuilder();
+			String str;
+			while ((str = br.readLine()) != null) { sb.append(str); }
+			return sb.toString();
+		} catch (IOException e) {
+			return null;
+		}
 	}
 
 }
