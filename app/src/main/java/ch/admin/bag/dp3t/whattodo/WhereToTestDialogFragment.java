@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import java.util.Map;
+import java.util.SortedMap;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.storage.SecureStorage;
@@ -45,9 +46,9 @@ public class WhereToTestDialogFragment extends DialogFragment {
 		view.findViewById(R.id.where_to_test_close_button).setOnClickListener(v -> dismiss());
 		ViewGroup cantonsContainer = view.findViewById(R.id.where_to_test_links_container);
 		cantonsContainer.removeAllViews();
-		Map<String, String> cantonUrls = secureStorage.getTestLocations();
+		SortedMap<String, String> cantonUrls = secureStorage.getTestLocations();
 		if (cantonUrls == null) return;
-		for (Map.Entry<String, String> cantonEntry : cantonUrls.entrySet()) {
+		for (SortedMap.Entry<String, String> cantonEntry : cantonUrls.entrySet()) {
 			int cantonStringRes = getResources().getIdentifier(cantonEntry.getKey(), "string", requireContext().getPackageName());
 			if (cantonStringRes == 0) continue;
 			TextView cantonView =

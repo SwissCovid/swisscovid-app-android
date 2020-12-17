@@ -163,7 +163,7 @@ public class MainActivity extends FragmentActivity {
 		}
 		Uri uri = Uri.parse(getIntent().getData().toString());
 		if (!uri.getHost().equals("covidcode.ch")) return;
-		if (!uri.getPath().equals("/c")) return;
+		if (!uri.getPath().equals("/c") && !uri.getPath().equals("/c/")) return;
 		String covidCode = uri.getFragment();
 		if (covidCode != null && covidCode.length() != 12) return;
 		startInformFlow(covidCode);
