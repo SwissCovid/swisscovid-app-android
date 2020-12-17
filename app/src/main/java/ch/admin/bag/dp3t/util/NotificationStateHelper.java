@@ -64,7 +64,7 @@ public class NotificationStateHelper {
 			illustrationView.setVisibility(View.GONE);
 		}
 		ImageView triangle = statusView.findViewById(R.id.status_triangle);
-		triangle.setVisibility(View.GONE);
+		triangle.setVisibility(View.INVISIBLE);
 		View infoContainer = statusView.findViewById(R.id.status_additional_info);
 		infoContainer.setVisibility(View.GONE);
 		TextView infoText = statusView.findViewById(R.id.status_additional_info_text);
