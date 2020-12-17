@@ -11,15 +11,11 @@ package ch.admin.bag.dp3t;
 
 import android.app.Activity;
 import android.app.Application;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.core.app.NotificationCompat;
 
 import java.security.PublicKey;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -39,7 +35,6 @@ import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.networking.FakeWorker;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.ActivityLifecycleCallbacksAdapter;
-import ch.admin.bag.dp3t.util.NotificationRepeatWorker;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 
 public class MainApplication extends Application {
