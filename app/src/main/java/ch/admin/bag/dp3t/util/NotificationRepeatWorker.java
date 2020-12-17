@@ -20,17 +20,15 @@ import androidx.work.WorkerParameters;
 import java.util.concurrent.TimeUnit;
 
 import ch.admin.bag.dp3t.BuildConfig;
-import ch.admin.bag.dp3t.MainApplication;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 
 public class NotificationRepeatWorker extends Worker {
 
-	private static final String TAG = "NotificationRepeatWorker";
 	public static final String WORK_TAG = "ch.admin.bag.dp3t.util.NotificationRepeatWorker";
 
 	private static final long NOTIFICATION_DELAY = BuildConfig.FLAVOR.equals("dev") ? 15 * 60 * 1000L : 4 * 60 * 60 * 1000L;
 
-	public static void startFakeWorker(Context context) {
+	public static void startWorker(Context context) {
 		OneTimeWorkRequest notificationWorker = new OneTimeWorkRequest.Builder(NotificationRepeatWorker.class)
 				.setInitialDelay(NOTIFICATION_DELAY, TimeUnit.MILLISECONDS)
 				.addTag(WORK_TAG)
@@ -49,7 +47,7 @@ public class NotificationRepeatWorker extends Worker {
 		Context context = getApplicationContext();
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 		if (secureStorage.getAppOpenAfterNotificationPending()) {
-			MainApplication.generateContactNotification(context);
+			NotificationUtil.generateContactNotification(context);
 		}
 		return Result.success();
 	}

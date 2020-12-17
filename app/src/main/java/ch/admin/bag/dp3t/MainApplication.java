@@ -131,43 +131,12 @@ public class MainApplication extends Application {
 	private static void createNewContactNotification(Context context, int contactId) {
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 
-		generateContactNotification(context);
+		NotificationUtil.generateContactNotification(context);
 
 		secureStorage.setAppOpenAfterNotificationPending(true);
 		secureStorage.setLeitfadenOpenPending(true);
 		secureStorage.setReportsHeaderAnimationPending(true);
 		secureStorage.setLastShownContactId(contactId);
-	}
-
-	public static void generateContactNotification(Context context) {
-
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-			NotificationUtil.createNotificationChannel(context);
-		}
-
-		Intent resultIntent = new Intent(context, MainActivity.class);
-		resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-		resultIntent.setAction(MainActivity.ACTION_EXPOSED_GOTO_REPORTS);
-
-		PendingIntent pendingIntent =
-				PendingIntent.getActivity(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		Notification notification =
-				new NotificationCompat.Builder(context, NotificationUtil.NOTIFICATION_CHANNEL_ID)
-						.setContentTitle(context.getString(R.string.push_exposed_title))
-						.setContentText(context.getString(R.string.push_exposed_text))
-						.setPriority(NotificationCompat.PRIORITY_MAX)
-						.setSmallIcon(R.drawable.ic_begegnungen)
-						.setContentIntent(pendingIntent)
-						.setOngoing(true)
-						.setAutoCancel(true)
-						.build();
-
-		NotificationManager notificationManager =
-				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-		notificationManager.notify(NotificationUtil.NOTIFICATION_ID_CONTACT, notification);
-
-		NotificationRepeatWorker.startFakeWorker(context);
 	}
 
 }
