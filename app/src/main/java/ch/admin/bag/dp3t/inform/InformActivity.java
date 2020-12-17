@@ -21,6 +21,7 @@ import ch.admin.bag.dp3t.R;
 public class InformActivity extends FragmentActivity {
 
 	private boolean allowed = true;
+	public static final String EXTRA_COVIDCODE = "EXTRA_COVIDCODE";
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
