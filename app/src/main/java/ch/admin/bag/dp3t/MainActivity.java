@@ -31,8 +31,8 @@ import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
 
-import static ch.admin.bag.dp3t.util.NotificationUtil.ACTION_ACTIVATE_TRACING;
 import static ch.admin.bag.dp3t.inform.InformActivity.EXTRA_COVIDCODE;
+import static ch.admin.bag.dp3t.util.NotificationUtil.ACTION_ACTIVATE_TRACING;
 
 public class MainActivity extends FragmentActivity {
 
@@ -124,6 +124,12 @@ public class MainActivity extends FragmentActivity {
 		super.onNewIntent(intent);
 		setIntent(intent);
 		consumedCovidcodeIntent = false;
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		secureStorage.setAppOpenAfterNotificationPending(false);
 	}
 
 	@Override

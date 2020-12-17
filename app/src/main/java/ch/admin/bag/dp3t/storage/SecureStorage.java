@@ -63,6 +63,7 @@ public class SecureStorage {
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
 	private static final String KEY_TEST_LOCATIONS = "test_locations";
+	private static final String KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING = "appOpenAfterNotificationPending";
 
 	Type stringSortedMapType = new TypeToken<SortedMap<String, String>>() { }.getType();
 
@@ -316,6 +317,14 @@ public class SecureStorage {
 		} catch (IOException e) {
 			return null;
 		}
+	}
+
+	public void setAppOpenAfterNotificationPending(boolean pending) {
+		prefs.edit().putBoolean(KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING, pending).apply();
+	}
+
+	public boolean getAppOpenAfterNotificationPending(){
+		return prefs.getBoolean(KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING, false);
 	}
 
 }

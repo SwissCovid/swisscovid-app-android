@@ -39,6 +39,7 @@ import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.networking.FakeWorker;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.ActivityLifecycleCallbacksAdapter;
+import ch.admin.bag.dp3t.util.NotificationRepeatWorker;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 
 public class MainApplication extends Application {
@@ -130,6 +131,16 @@ public class MainApplication extends Application {
 	private static void createNewContactNotification(Context context, int contactId) {
 		SecureStorage secureStorage = SecureStorage.getInstance(context);
 
+		generateContactNotification(context);
+
+		secureStorage.setAppOpenAfterNotificationPending(true);
+		secureStorage.setLeitfadenOpenPending(true);
+		secureStorage.setReportsHeaderAnimationPending(true);
+		secureStorage.setLastShownContactId(contactId);
+	}
+
+	public static void generateContactNotification(Context context) {
+
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			NotificationUtil.createNotificationChannel(context);
 		}
@@ -156,9 +167,7 @@ public class MainApplication extends Application {
 				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.notify(NotificationUtil.NOTIFICATION_ID_CONTACT, notification);
 
-		secureStorage.setLeitfadenOpenPending(true);
-		secureStorage.setReportsHeaderAnimationPending(true);
-		secureStorage.setLastShownContactId(contactId);
+		NotificationRepeatWorker.startFakeWorker(context);
 	}
 
 }
