@@ -33,13 +33,36 @@ public class NotificationUtil {
 	public static final int NOTIFICATION_ID_UPDATE = 43;
 	public static final int NOTIFICATION_ID_REMINDER = 44;
 
+	public static void generateContactNotification(Context context) {
 
-	@RequiresApi(api = Build.VERSION_CODES.O)
-	public static void createNotificationChannel(Context context) {
-		String channelName = context.getString(R.string.app_name);
-		createNotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, Notification.VISIBILITY_PRIVATE, context);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			createNotificationChannel(context);
+		}
+
+		Intent resultIntent = new Intent(context, MainActivity.class);
+		resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+		resultIntent.setAction(MainActivity.ACTION_EXPOSED_GOTO_REPORTS);
+
+		PendingIntent pendingIntent =
+				PendingIntent.getActivity(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+		Notification notification =
+				new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+						.setContentTitle(context.getString(R.string.push_exposed_title))
+						.setContentText(context.getString(R.string.push_exposed_text))
+						.setPriority(NotificationCompat.PRIORITY_MAX)
+						.setSmallIcon(R.drawable.ic_begegnungen)
+						.setContentIntent(pendingIntent)
+						.setOngoing(true)
+						.setAutoCancel(true)
+						.build();
+
+		NotificationManager notificationManager =
+				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		notificationManager.notify(NOTIFICATION_ID_CONTACT, notification);
+
+		NotificationRepeatWorker.startWorker(context);
 	}
-
 	public static void showReminderNotification(Context context) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			createNotificationChannel(CHANNEL_ID_REMINDER, context.getString(R.string.android_reminder_channel_name),
@@ -52,6 +75,12 @@ public class NotificationUtil {
 		Notification notification = createNotification(title, message, pendingIntent, CHANNEL_ID_REMINDER, context);
 		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.notify(message.hashCode(), notification);
+	}
+
+	@RequiresApi(api = Build.VERSION_CODES.O)
+	public static void createNotificationChannel(Context context) {
+		String channelName = context.getString(R.string.app_name);
+		createNotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, Notification.VISIBILITY_PRIVATE, context);
 	}
 
 	@RequiresApi(api = Build.VERSION_CODES.O)
