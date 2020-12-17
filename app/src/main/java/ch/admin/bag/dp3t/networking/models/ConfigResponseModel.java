@@ -9,7 +9,7 @@
  */
 package ch.admin.bag.dp3t.networking.models;
 
-import java.util.Map;
+import java.util.SortedMap;
 
 public class ConfigResponseModel {
 
@@ -17,7 +17,7 @@ public class ConfigResponseModel {
 	private InfoBoxModelCollection infoBox;
 	private WhatToDoPositiveTestTextsCollection whatToDoPositiveTestTexts;
 	private SdkConfigModel androidGaenSdkConfig;
-	private Map<String, String> testLocations;
+	private SortedMap<String, String> testLocations;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -40,7 +40,7 @@ public class ConfigResponseModel {
 		return whatToDoPositiveTestTexts;
 	}
 
-	public Map<String, String> getTestLocations() {
+	public SortedMap<String, String> getTestLocations() {
 		return testLocations;
 	}
 

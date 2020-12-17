@@ -24,7 +24,7 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.SortedMap;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -64,7 +64,7 @@ public class SecureStorage {
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
 	private static final String KEY_TEST_LOCATIONS = "test_locations";
 
-	Type stringMapType = new TypeToken<Map<String, String>>() { }.getType();
+	Type stringSortedMapType = new TypeToken<SortedMap<String, String>>() { }.getType();
 
 	private static SecureStorage instance;
 
@@ -297,12 +297,12 @@ public class SecureStorage {
 		return map.get(language);
 	}
 
-	public void setTestLocations(Map<String, String> testLocations) {
+	public void setTestLocations(SortedMap<String, String> testLocations) {
 		prefs.edit().putString(KEY_TEST_LOCATIONS, gson.toJson(testLocations)).apply();
 	}
 
-	public Map<String, String> getTestLocations() {
-		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, getDefaultTestLocations()), stringMapType);
+	public SortedMap<String, String> getTestLocations() {
+		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, getDefaultTestLocations()), stringSortedMapType);
 	}
 
 	private String getDefaultTestLocations() {
