@@ -132,7 +132,7 @@ public class ReportsFragment extends Fragment {
 				infectedView.findViewById(R.id.delete_reports).setOnClickListener(v -> {
 					AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle);
 					builder.setMessage(R.string.delete_infection_dialog)
-							.setPositiveButton(R.string.android_button_ok, (dialog, id) -> {
+							.setPositiveButton(R.string.delete_infection_dialog_finish_button, (dialog, id) -> {
 								tracingStatusInterface.resetInfectionStatus(getContext());
 								getParentFragmentManager().popBackStack();
 							})

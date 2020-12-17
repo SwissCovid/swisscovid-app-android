@@ -1202,4 +1202,52 @@ Schwarzenburgstrasse 157
 
     <!-- Subtitle der Tracing-Reaktivierungs-Notification -->
     <string name="tracing_reminder_notification_subtitle"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Titel -->
+    <string name="ios_software_update_blocking_title"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: text -->
+    <string name="ios_software_update_blocking_text"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial title -->
+    <string name="ios_software_update_blocking_tutorial_title"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial first -->
+    <string name="ios_software_update_blocking_tutorial_first"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial second -->
+    <string name="ios_software_update_blocking_tutorial_second"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial second settings general (Muss mit dem Eintrag in den IOS Einstellungen übereinstimmen!) -->
+    <string name="ios_software_update_blocking_tutorial_second_settings"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial third -->
+    <string name="ios_software_update_blocking_tutorial_third"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial third software update (Muss mit dem Eintrag in den IOS Einstellungen übereinstimmen!) -->
+    <string name="ios_software_update_blocking_tutorial_third_software_update"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial fourth -->
+    <string name="ios_software_update_blocking_tutorial_fourth"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial fourth load and install (Muss mit dem Eintrag in den IOS Einstellungen übereinstimmen!) -->
+    <string name="ios_software_update_blocking_tutorial_fourth_load_and_install"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial apple button -->
+    <string name="ios_software_update_blocking_tutorial_apple"></string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial apple url -->
+    <string name="ios_software_update_blocking_tutorial_apple_url">"https://support.apple.com/hr-hr/HT204204"</string>
+
+    <!-- iOS Notification Text bei benötigten OS update -->
+    <string name="ios_software_update_notification_title"></string>
+
+    <!-- iOS Notification Text bei benötigten OS update -->
+    <string name="ios_software_update_notification_text"></string>
+
+    <!-- Button Text um die Isolation zu beenden -->
+    <string name="delete_infection_dialog_finish_button"></string>
+
+    <!-- Text der nach der Eingabe des Covidcodes angezeigt wird. -->
+    <string name="tracing_ended_info"></string>
 </resources>
