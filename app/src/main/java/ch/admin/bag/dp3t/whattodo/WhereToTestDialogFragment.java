@@ -9,10 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import java.util.List;
 import java.util.Map;
-import java.util.SortedMap;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.networking.models.TestLocationModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.UrlUtil;
 
@@ -46,15 +47,18 @@ public class WhereToTestDialogFragment extends DialogFragment {
 		view.findViewById(R.id.where_to_test_close_button).setOnClickListener(v -> dismiss());
 		ViewGroup cantonsContainer = view.findViewById(R.id.where_to_test_links_container);
 		cantonsContainer.removeAllViews();
-		SortedMap<String, String> cantonUrls = secureStorage.getTestLocations();
-		if (cantonUrls == null) return;
-		for (SortedMap.Entry<String, String> cantonEntry : cantonUrls.entrySet()) {
-			int cantonStringRes = getResources().getIdentifier(cantonEntry.getKey(), "string", requireContext().getPackageName());
+		Map<String, List<TestLocationModel>> testLocations = secureStorage.getTestLocations();
+		if (testLocations == null) return;
+		List<TestLocationModel> localizedTestLocations = testLocations.get(getString(R.string.language_key));
+		if (localizedTestLocations == null) return;
+		for (TestLocationModel testLocation : localizedTestLocations) {
+			int cantonStringRes =
+					getResources().getIdentifier(testLocation.getRegion(), "string", requireContext().getPackageName());
 			if (cantonStringRes == 0) continue;
 			TextView cantonView =
 					(TextView) LayoutInflater.from(requireContext()).inflate(R.layout.item_external_link, cantonsContainer, false);
 			cantonView.setText(cantonStringRes);
-			cantonView.setOnClickListener(v -> UrlUtil.openUrl(requireContext(), cantonEntry.getValue()));
+			cantonView.setOnClickListener(v -> UrlUtil.openUrl(requireContext(), testLocation.getUrl()));
 			cantonsContainer.addView(cantonView);
 		}
 	}

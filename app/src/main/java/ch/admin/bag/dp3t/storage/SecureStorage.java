@@ -24,11 +24,14 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.SortedMap;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import ch.admin.bag.dp3t.networking.models.TestLocationModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
 
@@ -64,8 +67,6 @@ public class SecureStorage {
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
 	private static final String KEY_TEST_LOCATIONS = "test_locations";
 	private static final String KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING = "appOpenAfterNotificationPending";
-
-	Type stringSortedMapType = new TypeToken<SortedMap<String, String>>() { }.getType();
 
 	private static SecureStorage instance;
 
@@ -298,12 +299,13 @@ public class SecureStorage {
 		return map.get(language);
 	}
 
-	public void setTestLocations(SortedMap<String, String> testLocations) {
+	public void setTestLocations(Map<String, List<TestLocationModel>> testLocations) {
 		prefs.edit().putString(KEY_TEST_LOCATIONS, gson.toJson(testLocations)).apply();
 	}
 
-	public SortedMap<String, String> getTestLocations() {
-		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, getDefaultTestLocations()), stringSortedMapType);
+	public Map<String, List<TestLocationModel>> getTestLocations() {
+		Type testLocationsType = new TypeToken<Map<String, List<TestLocationModel>>>() { }.getType();
+		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, getDefaultTestLocations()), testLocationsType);
 	}
 
 	private String getDefaultTestLocations() {
@@ -323,7 +325,7 @@ public class SecureStorage {
 		prefs.edit().putBoolean(KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING, pending).apply();
 	}
 
-	public boolean getAppOpenAfterNotificationPending(){
+	public boolean getAppOpenAfterNotificationPending() {
 		return prefs.getBoolean(KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING, false);
 	}
 
