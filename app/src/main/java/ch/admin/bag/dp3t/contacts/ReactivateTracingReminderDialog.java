@@ -1,5 +1,6 @@
 package ch.admin.bag.dp3t.contacts;
 
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -59,10 +60,7 @@ public class ReactivateTracingReminderDialog extends DialogFragment implements C
 		noReminderButton.setOnCheckedChangeListener(this);
 		reminderRadioGroup.check(R.id.reactivate_tracing_reminder_radio_option_four_hours);
 
-		view.findViewById(R.id.reactivate_tracing_reminder_cancel_button).setOnClickListener(v -> {
-			tracingViewModel.invalidateTracingStatus();
-			dismiss();
-		});
+		view.findViewById(R.id.reactivate_tracing_reminder_cancel_button).setOnClickListener(v -> dismiss());
 		view.findViewById(R.id.reactivate_tracing_reminder_ok_button).setOnClickListener(v -> {
 			tracingViewModel.disableTracing();
 			switch (reminderRadioGroup.getCheckedRadioButtonId()) {
@@ -90,6 +88,12 @@ public class ReactivateTracingReminderDialog extends DialogFragment implements C
 			}
 			dismiss();
 		});
+	}
+
+	@Override
+	public void onDismiss(@NonNull DialogInterface dialog) {
+		super.onDismiss(dialog);
+		tracingViewModel.invalidateTracingStatus();
 	}
 
 	@Override
