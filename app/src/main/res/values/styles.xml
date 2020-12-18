@@ -286,11 +286,12 @@
 		<item name="android:drawableStart">@drawable/ic_radio_button</item>
 	</style>
 
-	<style name="NextStep.AlertDialogStyle" parent="Theme.AppCompat.Light.Dialog">
-		<item name="colorAccent">@color/blue_main</item>
+	<style name="NextStep.AlertDialogStyle" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+		<item name="android:colorAccent">@color/blue_main</item>
 		<item name="android:textColor">@color/dark_main</item>
 		<item name="android:textColorPrimary">@color/dark_main</item>
-		<item name="android:buttonStyle">@style/NextStep.Button.Transparent.Blue.Light</item>
+		<item name="buttonBarPositiveButtonStyle">@style/NextStep.Button.Transparent.Blue.Light</item>
+		<item name="buttonBarNegativeButtonStyle">@style/NextStep.Button.Transparent.Blue.Light</item>
 	</style>
 
 </resources>
