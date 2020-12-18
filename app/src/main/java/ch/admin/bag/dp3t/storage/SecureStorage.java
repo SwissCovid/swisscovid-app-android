@@ -24,12 +24,14 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import ch.admin.bag.dp3t.networking.models.TestLocationModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
 
@@ -297,12 +299,12 @@ public class SecureStorage {
 		return map.get(language);
 	}
 
-	public void setTestLocations(Map<String, SortedMap<String, String>> testLocations) {
+	public void setTestLocations(Map<String, List<TestLocationModel>> testLocations) {
 		prefs.edit().putString(KEY_TEST_LOCATIONS, gson.toJson(testLocations)).apply();
 	}
 
-	public Map<String, SortedMap<String, String>> getTestLocations() {
-		Type testLocationsType = new TypeToken<Map<String, SortedMap<String, String>>>() { }.getType();
+	public Map<String, List<TestLocationModel>> getTestLocations() {
+		Type testLocationsType = new TypeToken<Map<String, List<TestLocationModel>>>() { }.getType();
 		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, getDefaultTestLocations()), testLocationsType);
 	}
 
