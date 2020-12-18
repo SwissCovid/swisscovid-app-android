@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.util.ReminderHelper;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
@@ -22,6 +23,7 @@ public class ReactivateTracingReminderDialog extends DialogFragment implements C
 	public static ReactivateTracingReminderDialog newInstance() { return new ReactivateTracingReminderDialog(); }
 
 	private static final long HOUR_IN_MILLISECONDS = 1000L * 60 * 60;
+	private static final long MINUTE_IN_MILLISECONDS = 1000L * 60;
 	private TracingViewModel tracingViewModel;
 
 	@Override
@@ -66,15 +68,21 @@ public class ReactivateTracingReminderDialog extends DialogFragment implements C
 			switch (reminderRadioGroup.getCheckedRadioButtonId()) {
 				case R.id.reactivate_tracing_reminder_radio_option_four_hours:
 					ReminderHelper
-							.setTracingActivationReminder(System.currentTimeMillis() + 4 * HOUR_IN_MILLISECONDS, requireContext());
+							.setTracingActivationReminder(System.currentTimeMillis() +
+											4 * (BuildConfig.FLAVOR.equals("dev") ? MINUTE_IN_MILLISECONDS : HOUR_IN_MILLISECONDS),
+									requireContext());
 					break;
 				case R.id.reactivate_tracing_reminder_radio_option_eight_hours:
 					ReminderHelper
-							.setTracingActivationReminder(System.currentTimeMillis() + 8 * HOUR_IN_MILLISECONDS, requireContext());
+							.setTracingActivationReminder(System.currentTimeMillis() +
+											8 * (BuildConfig.FLAVOR.equals("dev") ? MINUTE_IN_MILLISECONDS : HOUR_IN_MILLISECONDS),
+									requireContext());
 					break;
 				case R.id.reactivate_tracing_reminder_radio_option_twelve_hours:
 					ReminderHelper
-							.setTracingActivationReminder(System.currentTimeMillis() + 12 * HOUR_IN_MILLISECONDS,
+							.setTracingActivationReminder(System.currentTimeMillis() +
+											12 * (BuildConfig.FLAVOR.equals("dev") ? MINUTE_IN_MILLISECONDS :
+												  HOUR_IN_MILLISECONDS),
 									requireContext());
 					break;
 				default:
