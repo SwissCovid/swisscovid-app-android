@@ -1322,4 +1322,33 @@ Wählen Sie das entsprechende Land, um auch diese Begegnungen zu informieren."</
     <string name="tracing_ended_info">"Es werden keine Begegnungen mehr gespeichert.
 
 Das Tracing kann nach der Isolation wieder aktiviert werden."</string>
+    <string name="testlocation_url_canton_aargau">"https://www.ag.ch/de/themen_1/coronavirus_2/coronavirus.jsp"</string>
+    <string name="testlocation_url_canton_appenzell_ausserrhoden">"https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/"</string>
+    <string name="testlocation_url_canton_appenzell_innerrhoden">"https://www.ai.ch/themen/gesundheit-alter-und-soziales/gesundheitsfoerderung-und-praevention/uebertragbare-krankheiten/coronavirus"</string>
+    <string name="testlocation_url_canton_basel_country">"https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsarztlicher-dienst/aktuelles"</string>
+    <string name="testlocation_url_canton_basel_city">"https://www.coronavirus.bs.ch/"</string>
+    <string name="testlocation_url_canton_berne">"http://www.be.ch/corona"</string>
+    <string name="testlocation_url_canton_fribourg">"https://www.fr.ch/de/gesundheit/covid-19/coronavirus-aktuelle-informationen-alle-news-in-zusammenhang-mit-covid-19-getroffene-massnahmen-faq"</string>
+    <string name="testlocation_url_canton_geneva">"https://www.ge.ch/covid-19-se-proteger-proteger-autres"</string>
+    <string name="testlocation_url_canton_glarus">"https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/coronavirus.html/4817"</string>
+    <string name="testlocation_url_canton_graubuenden">"https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/coronavirus/info/Seiten/Start.aspx"</string>
+    <string name="testlocation_url_canton_jura">"https://www.jura.ch/fr/Autorites/Coronavirus/Accueil/Coronavirus-Informations-officielles-a-la-population-jurassienne.html"</string>
+    <string name="testlocation_url_canton_lucerne">"https://gesundheit.lu.ch/themen/Humanmedizin/Infektionskrankheiten/Informationen_Coronavirus"</string>
+    <string name="testlocation_url_canton_neuchatel">"https://www.ne.ch/autorites/DFS/SCSP/medecin-cantonal/maladies-vaccinations/Pages/Coronavirus.aspx"</string>
+    <string name="testlocation_url_canton_nidwalden">"https://www.nw.ch/gesundheitsamtdienste/6044"</string>
+    <string name="testlocation_url_canton_obwalden">"https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962"</string>
+    <string name="testlocation_url_canton_st_gallen">"https://www.sg.ch/tools/informationen-coronavirus.html"</string>
+    <string name="testlocation_url_canton_schaffhausen">"https://sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Verwaltung/Departement-des-Innern/Gesundheitsamt-2954701-DE.html"</string>
+    <string name="testlocation_url_canton_schwyz">"https://www.sz.ch/behoerden/information-medien/medienmitteilungen/coronavirus.html/72-416-412-1379-6948"</string>
+    <string name="testlocation_url_canton_solothurn">"https://corona.so.ch/"</string>
+    <string name="testlocation_url_canton_thurgovia">"https://www.tg.ch/news/fachdossier-coronavirus.html/10552"</string>
+    <string name="testlocation_url_canton_ticino">"https://www4.ti.ch/dss/dsp/covid19/home/"</string>
+    <string name="testlocation_url_canton_uri">"https://www.ur.ch/themen/2962"</string>
+    <string name="testlocation_url_canton_valais">"https://www.vs.ch/de/web/coronavirus/home"</string>
+    <string name="testlocation_url_canton_zug">"https://www.zg.ch/behoerden/gesundheitsdirektion/amt-fuer-gesundheit/corona"</string>
+    <string name="testlocation_url_canton_vaud">"https://www.vd.ch/toutes-les-actualites/hotline-et-informations-sur-le-coronavirus/"</string>
+
+    <!-- Fuzzy -->
+    <string name="testlocation_url_canton_zurich">"https://www.zh.ch/de/gesundheit/coronavirus.html"</string>
+    <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
 </resources>
