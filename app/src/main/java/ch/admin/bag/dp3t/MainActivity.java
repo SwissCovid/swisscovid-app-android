@@ -135,7 +135,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		checkValidCovidcodeIntent();
+		if (secureStorage.getOnboardingCompleted()) checkValidCovidcodeIntent();
 	}
 
 	private void checkIntentForActions() {
@@ -171,7 +171,7 @@ public class MainActivity extends FragmentActivity {
 		if (!uri.getHost().equals("covidcode.ch")) return;
 		if (!uri.getPath().equals("/c") && !uri.getPath().equals("/c/")) return;
 		String covidCode = uri.getFragment();
-		if (covidCode != null && covidCode.length() != 12) return;
+		if (covidCode == null || covidCode.length() != 12) return;
 		startInformFlow(covidCode);
 		consumedCovidcodeIntent = true;
 	}
