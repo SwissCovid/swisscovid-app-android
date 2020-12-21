@@ -233,6 +233,14 @@
 		<item name="android:background">@drawable/bg_button_outlined_purple</item>
 	</style>
 
+	<style name="NextStep.Button.AlertDialog" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+		<item name="android:textSize">@dimen/text_size_button</item>
+		<item name="android:textColor">@color/blue_main</item>
+		<item name="android:fontFamily">@font/inter_regular</item>
+		<item name="android:textAllCaps">false</item>
+		<item name="rippleColor">@color/grey_dark</item>
+	</style>
+
 	<!-- Other -->
 
 	<style name="NextStep.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
@@ -290,8 +298,8 @@
 		<item name="android:colorAccent">@color/blue_main</item>
 		<item name="android:textColor">@color/dark_main</item>
 		<item name="android:textColorPrimary">@color/dark_main</item>
-		<item name="buttonBarPositiveButtonStyle">@style/NextStep.Button.Transparent.Blue.Light</item>
-		<item name="buttonBarNegativeButtonStyle">@style/NextStep.Button.Transparent.Blue.Light</item>
+		<item name="buttonBarPositiveButtonStyle">@style/NextStep.Button.AlertDialog</item>
+		<item name="buttonBarNegativeButtonStyle">@style/NextStep.Button.AlertDialog</item>
 	</style>
 
 </resources>
