@@ -46,8 +46,7 @@
 				<category android:name="android.intent.category.BROWSABLE" />
 
 				<data
-					android:host="covidcode.ch"
-					android:pathPrefix="/c"
+					android:host="cc.admin.ch"
 					android:scheme="https" />
 			</intent-filter>
 
