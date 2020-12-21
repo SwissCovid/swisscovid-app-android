@@ -236,7 +236,8 @@
 	<style name="NextStep.Button.AlertDialog" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
 		<item name="android:textSize">@dimen/text_size_button</item>
 		<item name="android:textColor">@color/blue_main</item>
-		<item name="android:fontFamily">@font/inter_regular</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textAllCaps">false</item>
 		<item name="rippleColor">@color/grey_dark</item>
 	</style>
