@@ -10,7 +10,7 @@
 package ch.admin.bag.dp3t.reports;
 
 import android.animation.ValueAnimator;
-import android.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.res.Resources;
