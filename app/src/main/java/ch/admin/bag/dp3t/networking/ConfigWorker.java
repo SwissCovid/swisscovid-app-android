@@ -112,6 +112,8 @@ public class ConfigWorker extends Worker {
 			secureStorage.setHasInfobox(false);
 		}
 
+		secureStorage.setTestLocations(config.getTestLocations());
+
 		boolean forceUpdate = secureStorage.getDoForceUpdate();
 		if (forceUpdate) {
 			if (!secureStorage.getForceUpdateLiveData().hasObservers()) {

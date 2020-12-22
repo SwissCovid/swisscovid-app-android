@@ -11,6 +11,7 @@ package ch.admin.bag.dp3t;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,12 +21,18 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.dpppt.android.sdk.DP3T;
 
+import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
+import ch.admin.bag.dp3t.inform.InformActivity;
 import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
+import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
+
+import static ch.admin.bag.dp3t.inform.InformActivity.EXTRA_COVIDCODE;
+import static ch.admin.bag.dp3t.util.NotificationUtil.ACTION_ACTIVATE_TRACING;
 
 public class MainActivity extends FragmentActivity {
 
@@ -35,7 +42,9 @@ public class MainActivity extends FragmentActivity {
 	private static final int REQ_ONBOARDING = 123;
 
 	private static final String STATE_CONSUMED_EXPOSED_INTENT = "STATE_CONSUMED_EXPOSED_INTENT";
+	private static final String STATE_CONSUMED_COVIDCODE_INTENT = "STATE_CONSUMED_COVIDCODE_INTENT";
 	private boolean consumedExposedIntent;
+	private boolean consumedCovidcodeIntent;
 
 	private SecureStorage secureStorage;
 	private TracingViewModel tracingViewModel;
@@ -82,6 +91,7 @@ public class MainActivity extends FragmentActivity {
 			}
 		} else {
 			consumedExposedIntent = savedInstanceState.getBoolean(STATE_CONSUMED_EXPOSED_INTENT);
+			consumedCovidcodeIntent = savedInstanceState.getBoolean(STATE_CONSUMED_COVIDCODE_INTENT);
 		}
 
 		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
@@ -106,6 +116,26 @@ public class MainActivity extends FragmentActivity {
 	public void onSaveInstanceState(@NonNull Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putBoolean(STATE_CONSUMED_EXPOSED_INTENT, consumedExposedIntent);
+		outState.putBoolean(STATE_CONSUMED_COVIDCODE_INTENT, consumedCovidcodeIntent);
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		setIntent(intent);
+		consumedCovidcodeIntent = false;
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		secureStorage.setAppOpenAfterNotificationPending(false);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (secureStorage.getOnboardingCompleted()) checkValidCovidcodeIntent();
 	}
 
 	private void checkIntentForActions() {
@@ -125,7 +155,36 @@ public class MainActivity extends FragmentActivity {
 			if (tracingViewModel.getTracingStatusInterface().wasContactReportedAsExposed()) {
 				gotoReportsFragment();
 			}
+		} else if (ACTION_ACTIVATE_TRACING.equals(intentAction)) {
+			tracingViewModel.enableTracing(this, () -> {}, e -> {}, () -> {});
 		}
+	}
+
+	private void checkValidCovidcodeIntent() {
+		boolean launchedFromHistory = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
+		TracingStatusInterface tracingStatus = tracingViewModel.getAppStatusLiveData().getValue();
+		if (getIntent().getData() == null || launchedFromHistory || tracingStatus == null || tracingStatus.isReportedAsInfected() ||
+				consumedCovidcodeIntent) {
+			return;
+		}
+		Uri uri = Uri.parse(getIntent().getData().toString());
+		if (!uri.getHost().equals("cc.admin.ch")) return;
+		if (!uri.getPath().equals("") && !uri.getPath().equals("/")) return;
+		String covidCode = uri.getFragment();
+		if (covidCode == null || covidCode.length() != 12) return;
+		startInformFlow(covidCode);
+		consumedCovidcodeIntent = true;
+	}
+
+	private void startInformFlow(String covidCode) {
+		getSupportFragmentManager()
+				.beginTransaction()
+				.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
+				.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
+				.commit();
+		Intent intent = new Intent(this, InformActivity.class);
+		intent.putExtra(EXTRA_COVIDCODE, covidCode);
+		startActivity(intent);
 	}
 
 	private void showHomeFragment() {

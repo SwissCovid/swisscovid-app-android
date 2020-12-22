@@ -36,6 +36,7 @@ import ch.admin.bag.dp3t.MainApplication;
 import ch.admin.bag.dp3t.debug.TracingStatusWrapper;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
+import ch.admin.bag.dp3t.util.ReminderHelper;
 
 public class TracingViewModel extends AndroidViewModel {
 
@@ -134,6 +135,7 @@ public class TracingViewModel extends AndroidViewModel {
 				() -> {
 					sync();
 					successCallback.run();
+					ReminderHelper.removeTracingActivationReminder(getApplication());
 				},
 				errorCallback,
 				cancelledCallback);

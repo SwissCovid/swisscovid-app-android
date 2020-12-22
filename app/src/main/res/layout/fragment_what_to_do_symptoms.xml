@@ -93,6 +93,16 @@
 						android:layout_marginTop="@dimen/spacing_medium_large"
 						android:text="@string/symptom_detail_box_text" />
 
+					<Button
+						android:id="@+id/wtd_symtoms_button"
+						style="@style/NextStep.Button.Purple"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center_horizontal"
+						android:layout_marginTop="@dimen/spacing_very_large"
+						android:text="@string/symptom_detail_box_button"
+						android:textAllCaps="true" />
+
 				</LinearLayout>
 
 			</androidx.cardview.widget.CardView>

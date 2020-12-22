@@ -215,7 +215,7 @@ Ainsi, vous contribuez à interrompre les chaînes de transmission."</string>
     <string name="symptom_detail_box_title">"Se faire tester"</string>
 
     <!-- Symptom Detail Weisse Box Button -->
-    <string name="symptom_detail_box_button">"En savoir plus"</string>
+    <string name="symptom_detail_box_button">"Informations supplémentaires"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
     <string name="symptom_detail_box_text">"L'OFSP recommande à toutes les personnes qui présentent des symptômes du COVID-19 de se faire tester. Appelez un médecin ou une institution de santé."</string>
@@ -667,10 +667,10 @@ Ainsi, d'autres utilisateurs de l'application SwissCovid apprennent qu'ils ont p
 – Perte soudaine de l’odorat et/ou du goût"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
-    <string name="meldungen_positive_tested_faq1_title">"Pourquoi le traçage de proximité est-il interrompu ?"</string>
+    <string name="meldungen_positive_tested_faq1_title">"Pourquoi le traçage est-il désactivé ?"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Text -->
-    <string name="meldungen_positive_tested_faq1_text">"Après un test positif, le traçage de proximité est automatiquement interrompu dans l'application."</string>
+    <string name="meldungen_positive_tested_faq1_text">"Le traçage est automatiquement désactivé après un test positif. Vous pourrez le réactiver à la fin de votre isolement."</string>
 
     <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
     <string name="language_key">"fr"</string>
@@ -739,7 +739,7 @@ Ainsi, d'autres utilisateurs de l'application SwissCovid apprennent qu'ils ont p
     <string name="delete_reports_dialog">"Voulez-vous vraiment supprimer la notification ?"</string>
 
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
-    <string name="delete_infection_button">"Supprimer la notification"</string>
+    <string name="delete_infection_button">"Terminer l'isolement"</string>
 
     <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
     <string name="delete_infection_dialog">"Voulez-vous vraiment supprimer la notification ? "</string>
@@ -1087,29 +1087,228 @@ d'ouvrir un site internet."</string>
     <string name="swisscovid_leitfaden_url">"https://swisscovid.ofsp-coronavirus.ch/screening?contactDates={CONTACT_DATES}"</string>
 
     <!-- Tracing Erinnerung 4 Stunden Radio Button -->
-    <string name="tracing_reminder_radio_four_hours"></string>
+    <string name="tracing_reminder_radio_four_hours">"4 heures"</string>
 
     <!-- Tracing Erinnerung 8 Stunden Radio Button -->
-    <string name="tracing_reminder_radio_eight_hours"></string>
+    <string name="tracing_reminder_radio_eight_hours">"8 heures"</string>
 
     <!-- Tracing Erinnerung 12 Stunden Radio Button -->
-    <string name="tracing_reminder_radio_twelve_hours"></string>
+    <string name="tracing_reminder_radio_twelve_hours">"12 heures"</string>
 
     <!-- Tracing Erinnerung keine Erinngerung Radio Button -->
-    <string name="tracing_reminder_radio_no_reminder"></string>
+    <string name="tracing_reminder_radio_no_reminder">"Pas de rappel"</string>
 
     <!-- Tracing Erinnerung bestätigen Button -->
-    <string name="tracing_reminder_confirm_button"></string>
+    <string name="tracing_reminder_confirm_button">"OK"</string>
 
     <!-- Tracing Erinnerung abbrechen Button -->
-    <string name="tracing_reminder_cancel_button"></string>
+    <string name="tracing_reminder_cancel_button">"Interrompre"</string>
 
     <!-- Tracing Erinnerung Titel -->
-    <string name="tracing_reminder_title"></string>
+    <string name="tracing_reminder_title">"Mettre un rappel"</string>
 
     <!-- Tracing Erinnerung Untertitel -->
-    <string name="tracing_reminder_subtitle"></string>
+    <string name="tracing_reminder_subtitle">"SwissCovid peut vous rappeler de réactiver le traçage."</string>
 
     <!-- Tracing Erinnerung Warnung -->
-    <string name="tracing_reminder_warning"></string>
+    <string name="tracing_reminder_warning">"Le traçage est désactivé."</string>
+
+    <!-- Kantonname Zürich -->
+    <!-- Fuzzy -->
+    <string name="canton_zurich">"Zurich"</string>
+
+    <!-- Kantonname Aargau -->
+    <!-- Fuzzy -->
+    <string name="canton_aargau">"Argovie"</string>
+
+    <!-- Kantonname Appenzell Innerrhoden -->
+    <!-- Fuzzy -->
+    <string name="canton_appenzell_innerrhoden">"Appenzell Rhodes-Intérieures"</string>
+
+    <!-- Kantonname Appenzell Ausserrhoden -->
+    <!-- Fuzzy -->
+    <string name="canton_appenzell_ausserrhoden">"Appenzell Rhodes-Extérieures"</string>
+
+    <!-- Kantonname Bern -->
+    <!-- Fuzzy -->
+    <string name="canton_berne">"Berne"</string>
+
+    <!-- Kantonname Basel-Landschaft -->
+    <!-- Fuzzy -->
+    <string name="canton_basel_country">"Bâle-Campagne"</string>
+
+    <!-- Kantonname Basel-Stadt -->
+    <!-- Fuzzy -->
+    <string name="canton_basel_city">"Bâle-Ville"</string>
+
+    <!-- Kantonname Freiburg -->
+    <!-- Fuzzy -->
+    <string name="canton_fribourg">"Fribourg"</string>
+
+    <!-- Kantonname Genf -->
+    <!-- Fuzzy -->
+    <string name="canton_geneva">"Genève"</string>
+
+    <!-- Kantonname Glarus -->
+    <!-- Fuzzy -->
+    <string name="canton_glarus">"Glaris"</string>
+
+    <!-- Kantonname Graubünden -->
+    <!-- Fuzzy -->
+    <string name="canton_graubuenden">"Grisons"</string>
+
+    <!-- Kantonname Jura -->
+    <!-- Fuzzy -->
+    <string name="canton_jura">"Jura"</string>
+
+    <!-- Kantonname Luzern -->
+    <!-- Fuzzy -->
+    <string name="canton_lucerne">"Lucerne"</string>
+
+    <!-- Kantonname Neuenburg -->
+    <!-- Fuzzy -->
+    <string name="canton_neuchatel">"Neuchâtel"</string>
+
+    <!-- Kantonname Nidwalden -->
+    <!-- Fuzzy -->
+    <string name="canton_nidwalden">"Nidwald"</string>
+
+    <!-- Kantonname Obwalden -->
+    <!-- Fuzzy -->
+    <string name="canton_obwalden">"Obwald"</string>
+
+    <!-- Kantonname St. Gallen -->
+    <!-- Fuzzy -->
+    <string name="canton_st_gallen">"Saint-Gall"</string>
+
+    <!-- Kantonname Schaffhausen -->
+    <!-- Fuzzy -->
+    <string name="canton_schaffhausen">"Schaffhouse"</string>
+
+    <!-- Kantonname Solothurn -->
+    <!-- Fuzzy -->
+    <string name="canton_solothurn">"Soleure"</string>
+
+    <!-- Kantonname Schwyz -->
+    <!-- Fuzzy -->
+    <string name="canton_schwyz">"Schwyz"</string>
+
+    <!-- Kantonname Thurgau -->
+    <!-- Fuzzy -->
+    <string name="canton_thurgovia">"Thurgovie"</string>
+
+    <!-- Kantonname Tessin -->
+    <!-- Fuzzy -->
+    <string name="canton_ticino">"Tessin"</string>
+
+    <!-- Kantonname Uri -->
+    <!-- Fuzzy -->
+    <string name="canton_uri">"Uri"</string>
+
+    <!-- Kantonname Waadt -->
+    <!-- Fuzzy -->
+    <string name="canton_vaud">"Vaud"</string>
+
+    <!-- Kantonname Wallis -->
+    <!-- Fuzzy -->
+    <string name="canton_valais">"Valais"</string>
+
+    <!-- Kantonname Zug -->
+    <string name="canton_zug">"Zug"</string>
+
+    <!-- Kantonname Fürstentum Liechtenstein -->
+    <!-- Fuzzy -->
+    <string name="country_liechtenstein">"Liechtenstein"</string>
+
+    <!-- Test standorte Popup Titel -->
+    <string name="test_location_popup_title">"Où puis-je me faire tester ?"</string>
+
+    <!-- Test standorte Popup Text -->
+    <string name="test_location_popup_text">"Vous pouvez vous faire tester chez un médecin ou dans divers centres de test, hôpitaux et pharmacies. Informations sur les offres de test sur les sites des cantons :"</string>
+
+    <!-- Notification Channel name for Tracing Reactivation Reminders on Android Devices (Only visible in System Settings) -->
+    <string name="android_reminder_channel_name">"Rappel d'activation du traçage"</string>
+
+    <!-- Titel der Tracing-Reaktivierungs-Notification -->
+    <string name="tracing_reminder_notification_title">"Traçage activé"</string>
+
+    <!-- Subtitle der Tracing-Reaktivierungs-Notification -->
+    <string name="tracing_reminder_notification_subtitle">"Activez le traçage pour que l'application puisse enregistrer les contacts et recevoir les notifications."</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Titel -->
+    <string name="ios_software_update_blocking_title">"Mise à jour requise"</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: text -->
+    <string name="ios_software_update_blocking_text">"Vous devez installer la dernière version d'iOS pour que SwissCovid puisse fonctionner."</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial title -->
+    <string name="ios_software_update_blocking_tutorial_title">"Voici comment faire :"</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial first -->
+    <string name="ios_software_update_blocking_tutorial_first">"Ouvrez les «Paramètres» sur l'écran d'accueil."</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial second -->
+    <string name="ios_software_update_blocking_tutorial_second">"Allez sous …"</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial second settings general (Muss mit dem Eintrag in den IOS Einstellungen übereinstimmen!) -->
+    <string name="ios_software_update_blocking_tutorial_second_settings">"Général"</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial third -->
+    <string name="ios_software_update_blocking_tutorial_third">"Choisissez …"</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial third software update (Muss mit dem Eintrag in den IOS Einstellungen übereinstimmen!) -->
+    <string name="ios_software_update_blocking_tutorial_third_software_update">"Mise à jour logicielle"</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial fourth -->
+    <string name="ios_software_update_blocking_tutorial_fourth">"Cliquez sur … "</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial fourth load and install (Muss mit dem Eintrag in den IOS Einstellungen übereinstimmen!) -->
+    <string name="ios_software_update_blocking_tutorial_fourth_load_and_install">"Télécharger et installer"</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial apple button -->
+    <string name="ios_software_update_blocking_tutorial_apple">"Instructions fournies par Apple"</string>
+
+    <!-- iOS Blockierende View bei benötigten OS update: Tutorial apple url -->
+    <string name="ios_software_update_blocking_tutorial_apple_url">"https://support.apple.com/fr-fr/HT204204"</string>
+
+    <!-- iOS Notification Text bei benötigten OS update -->
+    <string name="ios_software_update_notification_title">"Mise à jour requise"</string>
+
+    <!-- iOS Notification Text bei benötigten OS update -->
+    <string name="ios_software_update_notification_text">"Vous devez installer la dernière version d'iOS pour que SwissCovid puisse fonctionner."</string>
+
+    <!-- Button Text um die Isolation zu beenden -->
+    <string name="delete_infection_dialog_finish_button">"Terminer"</string>
+
+    <!-- Text der nach der Eingabe des Covidcodes angezeigt wird. -->
+    <string name="tracing_ended_info">"Aucun contact n'est enregistré. Le traçage peut être réactivé après l'isolement."</string>
+    <string name="testlocation_url_canton_aargau">"https://www.ag.ch/de/themen_1/coronavirus_2/coronavirus.jsp"</string>
+    <string name="testlocation_url_canton_appenzell_ausserrhoden">"https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/"</string>
+    <string name="testlocation_url_canton_appenzell_innerrhoden">"https://www.ai.ch/themen/gesundheit-alter-und-soziales/gesundheitsfoerderung-und-praevention/uebertragbare-krankheiten/coronavirus"</string>
+    <string name="testlocation_url_canton_basel_country">"https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsarztlicher-dienst/aktuelles"</string>
+    <string name="testlocation_url_canton_basel_city">"https://www.coronavirus.bs.ch/"</string>
+    <string name="testlocation_url_canton_berne">"http://www.be.ch/corona"</string>
+    <string name="testlocation_url_canton_fribourg">"https://www.fr.ch/sante/covid-19/coronavirus-informations-actuelles-toutes-les-actualites-liees-au-covid-19-mesures-prises-faq-statistiques"</string>
+    <string name="testlocation_url_canton_geneva">"https://www.ge.ch/covid-19-se-proteger-proteger-autres"</string>
+    <string name="testlocation_url_canton_glarus">"https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/coronavirus.html/4817"</string>
+    <string name="testlocation_url_canton_graubuenden">"https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/coronavirus/info/Seiten/Start.aspx"</string>
+    <string name="testlocation_url_canton_jura">"https://www.jura.ch/fr/Autorites/Coronavirus/Accueil/Coronavirus-Informations-officielles-a-la-population-jurassienne.html"</string>
+    <string name="testlocation_url_canton_lucerne">"https://gesundheit.lu.ch/themen/Humanmedizin/Infektionskrankheiten/Informationen_Coronavirus"</string>
+    <string name="testlocation_url_canton_neuchatel">"https://www.ne.ch/autorites/DFS/SCSP/medecin-cantonal/maladies-vaccinations/Pages/Coronavirus.aspx"</string>
+    <string name="testlocation_url_canton_nidwalden">"https://www.nw.ch/gesundheitsamtdienste/6044"</string>
+    <string name="testlocation_url_canton_obwalden">"https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962"</string>
+    <string name="testlocation_url_canton_st_gallen">"https://www.sg.ch/tools/informationen-coronavirus.html"</string>
+    <string name="testlocation_url_canton_schaffhausen">"https://sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Verwaltung/Departement-des-Innern/Gesundheitsamt-2954701-DE.html"</string>
+    <string name="testlocation_url_canton_schwyz">"https://www.sz.ch/behoerden/information-medien/medienmitteilungen/coronavirus.html/72-416-412-1379-6948"</string>
+    <string name="testlocation_url_canton_solothurn">"https://corona.so.ch/"</string>
+    <string name="testlocation_url_canton_thurgovia">"https://www.tg.ch/news/fachdossier-coronavirus.html/10552"</string>
+    <string name="testlocation_url_canton_ticino">"https://www4.ti.ch/dss/dsp/covid19/home/"</string>
+    <string name="testlocation_url_canton_uri">"https://www.ur.ch/themen/2962"</string>
+    <string name="testlocation_url_canton_valais">"https://www.vs.ch/web/coronavirus/"</string>
+    <string name="testlocation_url_canton_zug">"https://www.zg.ch/behoerden/gesundheitsdirektion/amt-fuer-gesundheit/corona"</string>
+    <string name="testlocation_url_canton_vaud">"https://www.vd.ch/toutes-les-actualites/hotline-et-informations-sur-le-coronavirus/"</string>
+
+    <!-- Fuzzy -->
+    <string name="testlocation_url_canton_zurich">"https://www.zh.ch/de/gesundheit/coronavirus.html"</string>
+    <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
 </resources>

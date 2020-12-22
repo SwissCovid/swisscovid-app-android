@@ -9,12 +9,16 @@
  */
 package ch.admin.bag.dp3t.networking.models;
 
+import java.util.List;
+import java.util.Map;
+
 public class ConfigResponseModel {
 
 	private boolean forceUpdate;
 	private InfoBoxModelCollection infoBox;
 	private WhatToDoPositiveTestTextsCollection whatToDoPositiveTestTexts;
 	private SdkConfigModel androidGaenSdkConfig;
+	private Map<String, List<TestLocationModel>> testLocations;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -35,6 +39,10 @@ public class ConfigResponseModel {
 
 	public WhatToDoPositiveTestTextsCollection getWhatToDoPositiveTestTexts() {
 		return whatToDoPositiveTestTexts;
+	}
+
+	public Map<String, List<TestLocationModel>> getTestLocations() {
+		return testLocations;
 	}
 
 }
