@@ -84,6 +84,8 @@ public class FakeWorker extends Worker {
 	@NonNull
 	@Override
 	public ListenableWorker.Result doWork() {
+		DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake_doWork");
+
 		long now = clock.currentTimeMillis();
 		SecureStorage secureStorage = SecureStorage.getInstance(getApplicationContext());
 		long t_dummy = secureStorage.getTDummy();
@@ -104,6 +106,7 @@ public class FakeWorker extends Worker {
 					Logger.d(TAG, "finished with success");
 				} else {
 					Logger.e(TAG, "failed");
+					DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake_returnRetry");
 					return Result.retry();
 				}
 			} else {
@@ -114,6 +117,7 @@ public class FakeWorker extends Worker {
 		}
 
 		startFakeWorker(getApplicationContext(), ExistingWorkPolicy.APPEND, t_dummy);
+		DP3T.addWorkerStartedToHistory(getApplicationContext(), "fake_returnSuccess");
 		return Result.success();
 	}
 

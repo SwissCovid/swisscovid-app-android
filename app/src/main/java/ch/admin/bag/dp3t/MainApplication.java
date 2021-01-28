@@ -54,6 +54,8 @@ public class MainApplication extends Application {
 
 		initDP3T(this);
 
+		DP3T.addWorkerStartedToHistory(getApplicationContext(), "MainApplication");
+
 		FakeWorker.safeStartFakeWorker(this);
 		ConfigWorker.scheduleConfigWorkerIfOutdated(this);
 
