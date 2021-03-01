@@ -630,9 +630,7 @@ Il colloquio di consulenza è gratuito; paghi soltanto il costo della telefonata
     <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"Le persone che sono risultate positive al test del nuovo coronavirus ricevono un codice Covid.
 
-In questo modo si garantisce che l'app segnali soltanto i casi confermati.
-
-Sei risultato positivo al test e dopo quattro ore non hai ancora ricevuto un codice Covid? Allora contatta la Infoline Coronavirus"</string>
+In questo modo si garantisce che l'app segnali soltanto i casi confermati."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Che cosa viene inviato?"</string>
@@ -667,8 +665,17 @@ Grazie a questi ID, gli altri utenti dell'app SwissCovid vengono a sapere che vi
 – mal di gola
 – tosse (perlopiù secca)
 – affanno
+– dolori al petto
+– perdita improvvisa dell'olfatto e/o del gusto
+
+Possono inoltre comparire i seguenti sintomi:
+
+– mal di testa
+– malessere, debolezza generale
 – dolori muscolari
-– perdita improvvisa dell'olfatto e/o del gusto"</string>
+– raffreddore
+– sintomi gastrointestinali (nausea, vomito, diarrea, mal di pancia)
+– eruzioni cutanee"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Perché il tracciamento è disattivato?"</string>
@@ -1007,7 +1014,7 @@ Schwarzenburgstrasse 157
     <string name="stats_more_statistics_button">"Altre statistiche"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/en/home/innovative-methods/swisscovid-app-monitoring.html"</string>
+    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/de/overview"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Impossibile caricare i dati in questo momento"</string>
@@ -1318,4 +1325,77 @@ Schwarzenburgstrasse 157
     <!-- Fuzzy -->
     <string name="testlocation_url_canton_zurich">"https://www.zh.ch/de/gesundheit/coronavirus.html"</string>
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
+
+    <!-- text for info box pop up for the hearing impaired -->
+    <string name="hearing_impaired_info"></string>
+
+    <!-- Überschrift des Covidcodes-Statistik-Moduls -->
+    <string name="stats_covidcodes_title"></string>
+
+    <!-- Untertitel des Covidcodes-Statistik-Moduls -->
+    <string name="stats_covidcodes_subtitle"></string>
+
+    <!-- Überschrift des Fallzahlen-Statistik Moduls -->
+    <string name="stats_cases_title"></string>
+
+    <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
+    <string name="stats_cases_subtitle"></string>
+
+    <!-- Label der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_label"></string>
+
+    <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_label"></string>
+
+    <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_label"></string>
+
+    <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_label"></string>
+
+    <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
+    <string name="stats_info_popup_title"></string>
+
+    <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
+    <string name="stats_info_popup_subtitle_covidcodes"></string>
+
+    <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
+    <string name="stats_info_popup_subtitle_cases"></string>
+
+    <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_description"></string>
+
+    <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_description"></string>
+
+    <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_description"></string>
+
+    <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_description"></string>
+
+    <!-- Label der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_label"></string>
+
+    <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_description"></string>
+
+    <!-- Inform Detail: Infobox Text -->
+    <string name="inform_detail_infobox1_text">"Sei risultato positivo al test e dopo quattro ore non hai ancora ricevuto un codice Covid?
+Allora contatta la Infoline codice Covid:"</string>
+
+    <!-- Inform Detail: Infobox Title -->
+    <string name="inform_detail_infobox1_title">"Non hai ancora un codice Covid?"</string>
+
+    <!-- Titel des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_title"></string>
+
+    <!-- Text des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_text"></string>
+
+    <!-- Ja-Antwort -->
+    <string name="answer_yes"></string>
+
+    <!-- Nein-Antwort -->
+    <string name="answer_no"></string>
 </resources>
