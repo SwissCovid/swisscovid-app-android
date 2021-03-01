@@ -12,7 +12,8 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
+	android:layout_height="wrap_content"
+	tools:background="@color/white">
 
 	<androidx.constraintlayout.widget.Group
 		android:id="@+id/stats_covidcodes_group"
@@ -67,7 +68,9 @@
 		android:layout_marginTop="@dimen/spacing_small"
 		android:layout_marginEnd="@dimen/spacing_tiny_small"
 		android:layout_marginBottom="@dimen/spacing_small"
-		android:background="@color/grey_light"
+		android:background="@drawable/bg_rounded_grey_light"
+		android:gravity="center"
+		android:minHeight="@dimen/stats_metric_box_height"
 		android:orientation="vertical"
 		android:padding="@dimen/spacing_medium"
 		app:layout_constraintBottom_toBottomOf="parent"
@@ -100,13 +103,14 @@
 	<LinearLayout
 		android:id="@+id/stats_covidcodes_two_days"
 		android:layout_width="0dp"
-		android:layout_height="0dp"
+		android:layout_height="wrap_content"
 		android:layout_marginStart="@dimen/spacing_tiny_small"
 		android:layout_marginEnd="@dimen/spacing_small"
-		android:background="@color/grey_light"
+		android:background="@drawable/bg_rounded_grey_light"
+		android:gravity="center"
+		android:minHeight="@dimen/stats_metric_box_height"
 		android:orientation="vertical"
 		android:padding="@dimen/spacing_medium"
-		app:layout_constraintBottom_toBottomOf="@+id/stats_covidcodes_total"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toEndOf="@+id/stats_covidcodes_total"
 		app:layout_constraintTop_toTopOf="@+id/stats_covidcodes_total">

@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -48,6 +49,11 @@ public class StatsFragment extends Fragment {
 	private Group covidcodesGroup;
 	private TextView totalCovidcodesEntered;
 	private TextView totalCovidcodesEnteredLastTwoDays;
+
+	private ViewGroup casesSevenDayAverageContainer;
+	private TextView casesSevenDayAverage;
+	private ViewGroup casesPreviousWeekChangeContainer;
+	private TextView casesPreviousWeekChange;
 
 	private View diagramBox;
 	private DiagramView diagramView;
@@ -91,6 +97,11 @@ public class StatsFragment extends Fragment {
 		covidcodesGroup = view.findViewById(R.id.stats_covidcodes_group);
 		totalCovidcodesEntered = view.findViewById(R.id.stats_covidcodes_total_value);
 		totalCovidcodesEnteredLastTwoDays = view.findViewById(R.id.stats_covidcodes_two_days_value);
+
+		casesSevenDayAverageContainer = view.findViewById(R.id.stats_cases_seven_day_average);
+		casesSevenDayAverage = view.findViewById(R.id.stats_cases_seven_day_average_value);
+		casesPreviousWeekChangeContainer = view.findViewById(R.id.stats_cases_previous_week_change);
+		casesPreviousWeekChange = view.findViewById(R.id.stats_cases_previous_week_change_value);
 
 		diagramBox = view.findViewById(R.id.diagram_box);
 		diagramView = view.findViewById(R.id.diagram_view);
@@ -166,6 +177,9 @@ public class StatsFragment extends Fragment {
 
 				covidcodesGroup.setVisibility(View.INVISIBLE);
 
+				casesSevenDayAverageContainer.setVisibility(View.INVISIBLE);
+				casesPreviousWeekChangeContainer.setVisibility(View.INVISIBLE);
+
 				diagramBox.setVisibility(View.GONE);
 				diagramYAxisView.setVisibility(View.GONE);
 				errorView.setVisibility(View.GONE);
@@ -177,6 +191,9 @@ public class StatsFragment extends Fragment {
 				totalActiveusersText.setVisibility(View.INVISIBLE);
 
 				covidcodesGroup.setVisibility(View.INVISIBLE);
+
+				casesSevenDayAverageContainer.setVisibility(View.INVISIBLE);
+				casesPreviousWeekChangeContainer.setVisibility(View.INVISIBLE);
 
 				diagramBox.setVisibility(View.GONE);
 				diagramYAxisView.setVisibility(View.GONE);
@@ -195,6 +212,9 @@ public class StatsFragment extends Fragment {
 
 				covidcodesGroup.setVisibility(View.VISIBLE);
 
+				casesSevenDayAverageContainer.setVisibility(View.VISIBLE);
+				casesPreviousWeekChangeContainer.setVisibility(View.VISIBLE);
+
 				diagramBox.setVisibility(View.VISIBLE);
 				diagramYAxisView.setVisibility(View.VISIBLE);
 				// lastUpdated.visibility is set below
@@ -208,6 +228,9 @@ public class StatsFragment extends Fragment {
 
 				totalCovidcodesEntered.setText(FormatUtil.formatNumberInThousands(stats.getTotalCovidcodesEntered()));
 				totalCovidcodesEnteredLastTwoDays.setText(FormatUtil.formatPercentage(stats.getTotalCovidcodesEntered0to2d(), 0));
+
+				casesSevenDayAverage.setText(FormatUtil.formatNumberInThousands(stats.getNewInfectionsSevenDayAvg()));
+				casesPreviousWeekChange.setText(FormatUtil.formatPercentage(stats.getNewInfectionsSevenDayAvgRelPrevWeek(), 0));
 
 				List<HistoryDataPointModel> history = stats.getHistory();
 				diagramView.setHistory(history);
