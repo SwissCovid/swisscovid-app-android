@@ -49,7 +49,6 @@ public class StatsFragment extends Fragment {
 	private View scrollViewWidener;
 	private DiagramYAxisView diagramYAxisView;
 
-	private TextView lastUpdated;
 	private View errorView;
 	private TextView errorRetryButton;
 	private View progressView;
@@ -89,7 +88,6 @@ public class StatsFragment extends Fragment {
 		scrollViewWidener = view.findViewById(R.id.scroll_view_widener);
 		diagramYAxisView = view.findViewById(R.id.diagram_y_axis_view);
 
-		lastUpdated = view.findViewById(R.id.last_updated);
 		errorView = view.findViewById(R.id.error_view);
 		errorRetryButton = view.findViewById(R.id.button_retry);
 		progressView = view.findViewById(R.id.progress_view);
@@ -158,7 +156,6 @@ public class StatsFragment extends Fragment {
 
 				diagramBox.setVisibility(View.GONE);
 				diagramYAxisView.setVisibility(View.GONE);
-				lastUpdated.setVisibility(View.INVISIBLE);
 				errorView.setVisibility(View.GONE);
 				errorRetryButton.setVisibility(View.GONE);
 				progressView.setVisibility(View.VISIBLE);
@@ -169,7 +166,6 @@ public class StatsFragment extends Fragment {
 
 				diagramBox.setVisibility(View.GONE);
 				diagramYAxisView.setVisibility(View.GONE);
-				lastUpdated.setVisibility(View.INVISIBLE);
 				errorView.setVisibility(View.VISIBLE);
 				errorRetryButton.setVisibility(View.VISIBLE);
 				progressView.setVisibility(View.GONE);
@@ -193,16 +189,6 @@ public class StatsFragment extends Fragment {
 				String text = totalActiveusers.getContext().getResources().getString(R.string.stats_counter);
 				text = text.replace("{COUNT}", stats.getTotalActiveUsersInMillions());
 				totalActiveusers.setText(text);
-
-				String lastUpdatedDate = stats.getLastUpdatedFormatted();
-				if (lastUpdatedDate == null) {
-					lastUpdated.setVisibility(View.INVISIBLE);
-				} else {
-					lastUpdated.setVisibility(View.VISIBLE);
-					String text2 = lastUpdated.getContext().getResources().getString(R.string.stats_source_day);
-					text2 = text2.replace("{DAY}", lastUpdatedDate);
-					lastUpdated.setText(text2);
-				}
 
 				List<HistoryDataPointModel> history = stats.getHistory();
 				diagramView.setHistory(history);

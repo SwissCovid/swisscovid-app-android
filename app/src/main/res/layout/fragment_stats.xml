@@ -131,23 +131,6 @@
 							android:drawablePadding="@dimen/spacing_small"
 							android:text="@string/stats_legend_new_infections_average" />
 
-						<TextView
-							style="@style/NextStep.Text.Small.Blue"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_very_small"
-							android:drawableStart="@drawable/legend_entered_covidcodes"
-							android:drawablePadding="@dimen/spacing_small"
-							android:text="@string/stats_legend_entered_covidcodes" />
-
-						<TextView
-							android:id="@+id/last_updated"
-							style="@style/NextStep.Text.Small.GreyDark"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_medium_large"
-							android:gravity="end"
-							android:text="@string/stats_source_day" />
 					</LinearLayout>
 				</androidx.cardview.widget.CardView>
 
