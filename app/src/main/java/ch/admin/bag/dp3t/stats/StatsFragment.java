@@ -37,6 +37,8 @@ import ch.admin.bag.dp3t.util.UrlUtil;
 
 public class StatsFragment extends Fragment {
 
+	private static final int DIAGRAM_HISTORY_DAY_COUNT = 28;
+
 	private StatsViewModel statsViewModel;
 
 	Toolbar toolbar;
@@ -232,9 +234,11 @@ public class StatsFragment extends Fragment {
 				casesSevenDayAverage.setText(FormatUtil.formatNumberInThousands(stats.getNewInfectionsSevenDayAvg()));
 				casesPreviousWeekChange.setText(FormatUtil.formatPercentage(stats.getNewInfectionsSevenDayAvgRelPrevWeek(), 0));
 
-				List<HistoryDataPointModel> history = stats.getHistory();
-				diagramView.setHistory(history);
-				diagramYAxisView.setMaxYValue(DiagramView.findMaxYValue(history));
+				List<HistoryDataPointModel> fullHistory = stats.getHistory();
+				List<HistoryDataPointModel> diagramHistory =
+						fullHistory.subList(fullHistory.size() - DIAGRAM_HISTORY_DAY_COUNT, fullHistory.size());
+				diagramView.setHistory(diagramHistory);
+				diagramYAxisView.setMaxYValue(DiagramView.findMaxYValue(diagramHistory));
 
 				int requiredWidth = diagramView.getTotalTheoreticWidth();
 				// Setting the width via LayoutParams does NOT work for the direct child of a ScrollView!
