@@ -201,15 +201,15 @@
 									android:orientation="horizontal"
 									android:paddingHorizontal="@dimen/spacing_small"
 									android:paddingTop="@dimen/spacing_small"
-									android:paddingBottom="@dimen/spacing_small">
+									android:paddingBottom="@dimen/spacing_small"
+									android:visibility="gone"
+									tools:visibility="visible">
 
 									<ImageView
 										android:layout_width="@dimen/icon_size"
 										android:layout_height="@dimen/icon_size"
 										android:src="@drawable/ic_hearing_impaired"
-										android:tint="@color/purple_main"
-										android:visibility="gone"
-										tools:visibility="visible" />
+										android:tint="@color/purple_main" />
 								</LinearLayout>
 							</LinearLayout>
 

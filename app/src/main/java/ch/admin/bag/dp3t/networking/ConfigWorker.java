@@ -106,6 +106,7 @@ public class ConfigWorker extends Worker {
 				secureStorage.setInfoboxLinkUrl(info.getUrl());
 				secureStorage.setInfoboxId(info.getInfoId());
 				secureStorage.setInfoboxDismissible(info.getDismissible());
+				secureStorage.setInfoboxHearingImpairedInfo(info.getHearingImpairedInfo());
 				secureStorage.setHasInfobox(true);
 			}
 		} else {
