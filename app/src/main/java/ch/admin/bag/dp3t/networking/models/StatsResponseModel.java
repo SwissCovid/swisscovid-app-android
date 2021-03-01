@@ -9,7 +9,6 @@
  */
 package ch.admin.bag.dp3t.networking.models;
 
-import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -17,10 +16,12 @@ import ch.admin.bag.dp3t.util.DateUtils;
 
 public class StatsResponseModel {
 
-	private static double ONE_MILLION = 1000000;
-
 	private String lastUpdated;
 	private int totalActiveUsers;
+	private int totalCovidcodesEntered;
+	private double totalCovidcodesEntered0to2d;
+	private int newInfectionsSevenDayAvg;
+	private double newInfectionsSevenDayAvgRelPrevWeek;
 	private List<HistoryDataPointModel> history;
 
 	public String getLastUpdatedRaw() {
@@ -39,10 +40,20 @@ public class StatsResponseModel {
 		return totalActiveUsers;
 	}
 
-	public String getTotalActiveUsersInMillions() {
-		DecimalFormat df = new DecimalFormat("##.##");
-		double usersInMillion = totalActiveUsers / ONE_MILLION;
-		return df.format(usersInMillion);
+	public int getTotalCovidcodesEntered() {
+		return totalCovidcodesEntered;
+	}
+
+	public double getTotalCovidcodesEntered0to2d() {
+		return totalCovidcodesEntered0to2d;
+	}
+
+	public int getNewInfectionsSevenDayAvg() {
+		return newInfectionsSevenDayAvg;
+	}
+
+	public double getNewInfectionsSevenDayAvgRelPrevWeek() {
+		return newInfectionsSevenDayAvgRelPrevWeek;
 	}
 
 	public List<HistoryDataPointModel> getHistory() {

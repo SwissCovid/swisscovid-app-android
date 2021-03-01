@@ -21,6 +21,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -29,6 +30,7 @@ import java.util.List;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.models.HistoryDataPointModel;
 import ch.admin.bag.dp3t.networking.models.StatsResponseModel;
+import ch.admin.bag.dp3t.util.FormatUtil;
 import ch.admin.bag.dp3t.util.UiUtils;
 import ch.admin.bag.dp3t.util.UrlUtil;
 
@@ -42,6 +44,10 @@ public class StatsFragment extends Fragment {
 
 	private TextView totalActiveusers;
 	private TextView totalActiveusersText;
+
+	private Group covidcodesGroup;
+	private TextView totalCovidcodesEntered;
+	private TextView totalCovidcodesEnteredLastTwoDays;
 
 	private View diagramBox;
 	private DiagramView diagramView;
@@ -81,6 +87,10 @@ public class StatsFragment extends Fragment {
 
 		totalActiveusers = view.findViewById(R.id.stats_total_active_users);
 		totalActiveusersText = view.findViewById(R.id.stats_total_active_users_text);
+
+		covidcodesGroup = view.findViewById(R.id.stats_covidcodes_group);
+		totalCovidcodesEntered = view.findViewById(R.id.stats_covidcodes_total_value);
+		totalCovidcodesEnteredLastTwoDays = view.findViewById(R.id.stats_covidcodes_two_days_value);
 
 		diagramBox = view.findViewById(R.id.diagram_box);
 		diagramView = view.findViewById(R.id.diagram_view);
@@ -154,6 +164,8 @@ public class StatsFragment extends Fragment {
 				totalActiveusers.setVisibility(View.INVISIBLE);
 				totalActiveusersText.setVisibility(View.INVISIBLE);
 
+				covidcodesGroup.setVisibility(View.INVISIBLE);
+
 				diagramBox.setVisibility(View.GONE);
 				diagramYAxisView.setVisibility(View.GONE);
 				errorView.setVisibility(View.GONE);
@@ -163,6 +175,8 @@ public class StatsFragment extends Fragment {
 			case ERROR:
 				totalActiveusers.setVisibility(View.INVISIBLE);
 				totalActiveusersText.setVisibility(View.INVISIBLE);
+
+				covidcodesGroup.setVisibility(View.INVISIBLE);
 
 				diagramBox.setVisibility(View.GONE);
 				diagramYAxisView.setVisibility(View.GONE);
@@ -179,6 +193,8 @@ public class StatsFragment extends Fragment {
 				totalActiveusers.setVisibility(View.VISIBLE);
 				totalActiveusersText.setVisibility(View.VISIBLE);
 
+				covidcodesGroup.setVisibility(View.VISIBLE);
+
 				diagramBox.setVisibility(View.VISIBLE);
 				diagramYAxisView.setVisibility(View.VISIBLE);
 				// lastUpdated.visibility is set below
@@ -187,8 +203,11 @@ public class StatsFragment extends Fragment {
 				progressView.setVisibility(View.GONE);
 
 				String text = totalActiveusers.getContext().getResources().getString(R.string.stats_counter);
-				text = text.replace("{COUNT}", stats.getTotalActiveUsersInMillions());
+				text = text.replace("{COUNT}", FormatUtil.formatNumberInMillions(stats.getTotalActiveUsers()));
 				totalActiveusers.setText(text);
+
+				totalCovidcodesEntered.setText(FormatUtil.formatNumberInThousands(stats.getTotalCovidcodesEntered()));
+				totalCovidcodesEnteredLastTwoDays.setText(FormatUtil.formatPercentage(stats.getTotalCovidcodesEntered0to2d(), 0));
 
 				List<HistoryDataPointModel> history = stats.getHistory();
 				diagramView.setHistory(history);

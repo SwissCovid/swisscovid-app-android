@@ -117,6 +117,14 @@
 		<item name="android:gravity">center_horizontal</item>
 	</style>
 
+	<style name="NextStep.Text.Title.Purple">
+		<item name="android:textColor">@color/purple_main</item>
+	</style>
+
+	<style name="NextStep.Text.Title.Blue">
+		<item name="android:textColor">@color/blue_main</item>
+	</style>
+
 	<style name="NextStep.Text.Title.Dark.Mega">
 		<item name="android:textSize">@dimen/text_size_title_mega</item>
 	</style>
@@ -126,6 +134,18 @@
 		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">@color/green_main</item>
+	</style>
+
+	<style name="NextStep.Text.SubTitle.Dark">
+		<item name="android:textColor">@color/dark_main</item>
+	</style>
+
+	<style name="NextStep.Text.SubTitle.Purple">
+		<item name="android:textColor">@color/purple_main</item>
+	</style>
+
+	<style name="NextStep.Text.SubTitle.Blue">
+		<item name="android:textColor">@color/blue_main</item>
 	</style>
 
 	<style name="NextStep.Text.SplashTitle">

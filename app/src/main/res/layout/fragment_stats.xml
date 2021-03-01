@@ -9,11 +9,12 @@
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<FrameLayout xmlns:tools="http://schemas.android.com/tools"
+	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
@@ -94,6 +95,20 @@
 				</androidx.cardview.widget.CardView>
 
 				<androidx.cardview.widget.CardView
+					android:id="@+id/stats_covidcodes_card"
+					style="@style/NextStep.Card"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginHorizontal="@dimen/spacing_medium_large"
+					android:layout_marginTop="@dimen/spacing_medium"
+					android:background="@color/white"
+					app:layout_constraintTop_toBottomOf="@id/stats_active_users_card">
+
+					<include layout="@layout/layout_stats_covidcodes" />
+
+				</androidx.cardview.widget.CardView>
+
+				<androidx.cardview.widget.CardView
 					android:id="@+id/stats_diagram_card"
 					style="@style/NextStep.Card"
 					android:layout_width="match_parent"
@@ -101,7 +116,7 @@
 					android:layout_marginTop="@dimen/spacing_medium"
 					android:layout_marginHorizontal="@dimen/spacing_medium_large"
 					android:background="@color/white"
-					app:layout_constraintTop_toBottomOf="@id/stats_active_users_card">
+					app:layout_constraintTop_toBottomOf="@id/stats_covidcodes_card">
 
 					<LinearLayout
 						android:layout_width="match_parent"
