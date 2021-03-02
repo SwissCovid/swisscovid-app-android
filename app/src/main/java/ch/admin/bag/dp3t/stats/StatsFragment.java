@@ -18,7 +18,7 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.Group;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -42,21 +42,19 @@ public class StatsFragment extends Fragment {
 	private ScrollView scrollView;
 	private ImageView headerView;
 
+	private ViewGroup totalActiveUsersCardContent;
 	private TextView totalActiveusers;
-	private TextView totalActiveusersText;
 
-	private Group covidcodesGroup;
+	private CardView covidcodesCard;
 	private ImageButton covidcodesInfoButton;
 	private TextView totalCovidcodesEntered;
 	private TextView totalCovidcodesEnteredLastTwoDays;
 
+	private CardView casesCard;
 	private ImageButton casesInfoButton;
-	private ViewGroup casesSevenDayAverageContainer;
 	private TextView casesSevenDayAverage;
-	private ViewGroup casesPreviousWeekChangeContainer;
 	private TextView casesPreviousWeekChange;
 
-	private View diagramBox;
 	private DiagramView diagramView;
 	private HorizontalScrollView diagramScrollView;
 	private View scrollViewWidener;
@@ -92,21 +90,19 @@ public class StatsFragment extends Fragment {
 		scrollView = view.findViewById(R.id.stats_scroll_view);
 		headerView = view.findViewById(R.id.header_view);
 
+		totalActiveUsersCardContent = view.findViewById(R.id.stats_active_users_card_content);
 		totalActiveusers = view.findViewById(R.id.stats_total_active_users);
-		totalActiveusersText = view.findViewById(R.id.stats_total_active_users_text);
 
-		covidcodesGroup = view.findViewById(R.id.stats_covidcodes_group);
+		covidcodesCard = view.findViewById(R.id.stats_covidcodes_card);
 		covidcodesInfoButton = view.findViewById(R.id.stats_covidcodes_info_button);
 		totalCovidcodesEntered = view.findViewById(R.id.stats_covidcodes_total_value);
 		totalCovidcodesEnteredLastTwoDays = view.findViewById(R.id.stats_covidcodes_two_days_value);
 
+		casesCard = view.findViewById(R.id.stats_diagram_card);
 		casesInfoButton = view.findViewById(R.id.stats_cases_info_button);
-		casesSevenDayAverageContainer = view.findViewById(R.id.stats_cases_seven_day_average);
 		casesSevenDayAverage = view.findViewById(R.id.stats_cases_seven_day_average_value);
-		casesPreviousWeekChangeContainer = view.findViewById(R.id.stats_cases_previous_week_change);
 		casesPreviousWeekChange = view.findViewById(R.id.stats_cases_previous_week_change_value);
 
-		diagramBox = view.findViewById(R.id.diagram_box);
 		diagramView = view.findViewById(R.id.diagram_view);
 		diagramScrollView = view.findViewById(R.id.diagram_scroll_view);
 		scrollViewWidener = view.findViewById(R.id.scroll_view_widener);
@@ -126,7 +122,7 @@ public class StatsFragment extends Fragment {
 		setupShareAppButton();
 		setupInfoButtons();
 
-		statsViewModel.getStatsLiveData().observe(getViewLifecycleOwner(), this::displayStats);
+		statsViewModel.getStatsLiveData().observe(getViewLifecycleOwner(), this::onStatsOutcomeChanged);
 	}
 
 	private void setupScrollBehavior() {
@@ -215,86 +211,75 @@ public class StatsFragment extends Fragment {
 		});
 	}
 
-	private void displayStats(StatsOutcome outcome) {
+	private void onStatsOutcomeChanged(StatsOutcome outcome) {
 		switch (outcome.getOutcome()) {
 			case LOADING:
-				totalActiveusers.setVisibility(View.INVISIBLE);
-				totalActiveusersText.setVisibility(View.INVISIBLE);
+				totalActiveUsersCardContent.setVisibility(View.GONE);
+				covidcodesCard.setVisibility(View.GONE);
+				casesCard.setVisibility(View.GONE);
 
-				covidcodesGroup.setVisibility(View.INVISIBLE);
-
-				casesSevenDayAverageContainer.setVisibility(View.INVISIBLE);
-				casesPreviousWeekChangeContainer.setVisibility(View.INVISIBLE);
-
-				diagramBox.setVisibility(View.GONE);
-				diagramYAxisView.setVisibility(View.GONE);
+				progressView.setVisibility(View.VISIBLE);
 				errorView.setVisibility(View.GONE);
 				errorRetryButton.setVisibility(View.GONE);
-				progressView.setVisibility(View.VISIBLE);
 				break;
 			case ERROR:
-				totalActiveusers.setVisibility(View.INVISIBLE);
-				totalActiveusersText.setVisibility(View.INVISIBLE);
+				totalActiveUsersCardContent.setVisibility(View.GONE);
+				covidcodesCard.setVisibility(View.GONE);
+				casesCard.setVisibility(View.GONE);
 
-				covidcodesGroup.setVisibility(View.INVISIBLE);
-
-				casesSevenDayAverageContainer.setVisibility(View.INVISIBLE);
-				casesPreviousWeekChangeContainer.setVisibility(View.INVISIBLE);
-
-				diagramBox.setVisibility(View.GONE);
-				diagramYAxisView.setVisibility(View.GONE);
+				progressView.setVisibility(View.GONE);
 				errorView.setVisibility(View.VISIBLE);
 				errorRetryButton.setVisibility(View.VISIBLE);
-				progressView.setVisibility(View.GONE);
 
 				errorRetryButton.setPaintFlags(errorRetryButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 				errorRetryButton.setOnClickListener(v -> statsViewModel.loadStats());
 				break;
 			case RESULT:
-				StatsResponseModel stats = outcome.getStatsResponseModel();
+				totalActiveUsersCardContent.setVisibility(View.VISIBLE);
+				covidcodesCard.setVisibility(View.VISIBLE);
+				casesCard.setVisibility(View.VISIBLE);
 
-				totalActiveusers.setVisibility(View.VISIBLE);
-				totalActiveusersText.setVisibility(View.VISIBLE);
-
-				covidcodesGroup.setVisibility(View.VISIBLE);
-
-				casesSevenDayAverageContainer.setVisibility(View.VISIBLE);
-				casesPreviousWeekChangeContainer.setVisibility(View.VISIBLE);
-
-				diagramBox.setVisibility(View.VISIBLE);
-				diagramYAxisView.setVisibility(View.VISIBLE);
-				// lastUpdated.visibility is set below
 				errorView.setVisibility(View.GONE);
 				errorRetryButton.setVisibility(View.GONE);
 				progressView.setVisibility(View.GONE);
 
-				String text = totalActiveusers.getContext().getResources().getString(R.string.stats_counter);
-				text = text.replace("{COUNT}", FormatUtil.formatNumberInMillions(stats.getTotalActiveUsers()));
-				totalActiveusers.setText(text);
-
-				totalCovidcodesEntered.setText(FormatUtil.formatNumberInThousands(stats.getTotalCovidcodesEntered()));
-				totalCovidcodesEnteredLastTwoDays.setText(FormatUtil.formatPercentage(stats.getTotalCovidcodesEntered0to2d(), 0));
-
-				casesSevenDayAverage.setText(FormatUtil.formatNumberInThousands(stats.getNewInfectionsSevenDayAvg()));
-				casesPreviousWeekChange.setText(FormatUtil.formatPercentage(stats.getNewInfectionsSevenDayAvgRelPrevWeek(), 0));
-
-				List<HistoryDataPointModel> fullHistory = stats.getHistory();
-				List<HistoryDataPointModel> diagramHistory =
-						fullHistory.subList(fullHistory.size() - DIAGRAM_HISTORY_DAY_COUNT, fullHistory.size());
-				diagramView.setHistory(diagramHistory);
-				diagramYAxisView.setMaxYValue(DiagramView.findMaxYValue(diagramHistory));
-
-				int requiredWidth = diagramView.getTotalTheoreticWidth();
-				// Setting the width via LayoutParams does NOT work for the direct child of a ScrollView!
-				scrollViewWidener.setMinimumWidth(requiredWidth);
-
-				diagramScrollView.post(() -> {
-					diagramScrollView.scrollTo(requiredWidth, 0);
-					//make sure scroll position of diagramView gets also updated, also if scrollposition of diagramScrollView is
-					// already at requiredWidth
-					diagramView.setScrollX(diagramScrollView.getScrollX());
-				});
+				displayStats(outcome.getStatsResponseModel());
+				break;
 		}
+	}
+
+	private void displayStats(StatsResponseModel stats) {
+		String text = totalActiveusers.getContext().getResources().getString(R.string.stats_counter);
+		text = text.replace("{COUNT}", FormatUtil.formatNumberInMillions(stats.getTotalActiveUsers()));
+		totalActiveusers.setText(text);
+
+		totalCovidcodesEntered.setText(FormatUtil.formatNumberInThousands(stats.getTotalCovidcodesEntered()));
+		totalCovidcodesEnteredLastTwoDays.setText(FormatUtil.formatPercentage(stats.getTotalCovidcodesEntered0to2d(), 0));
+
+		casesSevenDayAverage.setText(FormatUtil.formatNumberInThousands(stats.getNewInfectionsSevenDayAvg()));
+		casesPreviousWeekChange.setText(FormatUtil.formatPercentage(stats.getNewInfectionsSevenDayAvgRelPrevWeek(), 0));
+
+		List<HistoryDataPointModel> fullHistory = stats.getHistory();
+		List<HistoryDataPointModel> diagramHistory;
+		if (fullHistory.size() >= DIAGRAM_HISTORY_DAY_COUNT) {
+			diagramHistory = fullHistory.subList(fullHistory.size() - DIAGRAM_HISTORY_DAY_COUNT, fullHistory.size());
+		} else {
+			diagramHistory = fullHistory;
+		}
+
+		diagramView.setHistory(diagramHistory);
+		diagramYAxisView.setMaxYValue(DiagramView.findMaxYValue(diagramHistory));
+
+		int requiredWidth = diagramView.getTotalTheoreticWidth();
+		// Setting the width via LayoutParams does NOT work for the direct child of a ScrollView!
+		scrollViewWidener.setMinimumWidth(requiredWidth);
+
+		diagramScrollView.post(() -> {
+			diagramScrollView.scrollTo(requiredWidth, 0);
+			//make sure scroll position of diagramView gets also updated, also if scrollposition of diagramScrollView is
+			// already at requiredWidth
+			diagramView.setScrollX(diagramScrollView.getScrollX());
+		});
 	}
 
 }

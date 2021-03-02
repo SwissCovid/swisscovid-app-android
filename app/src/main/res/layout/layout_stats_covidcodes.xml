@@ -15,14 +15,6 @@
 	android:layout_height="wrap_content"
 	tools:background="@color/white">
 
-	<androidx.constraintlayout.widget.Group
-		android:id="@+id/stats_covidcodes_group"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:visibility="invisible"
-		app:constraint_referenced_ids="stats_covidcodes_title,stats_covidcodes_total,stats_covidcodes_two_days"
-		tools:visibility="visible" />
-
 	<ImageButton
 		android:id="@+id/stats_covidcodes_info_button"
 		android:layout_width="wrap_content"
