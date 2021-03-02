@@ -70,39 +70,53 @@
 
 				</androidx.cardview.widget.CardView>
 
-				<androidx.cardview.widget.CardView
+				<!-- Without this FrameLayout, the alpha transition would have a gray background due to the card shadow -->
+				<FrameLayout
 					android:id="@+id/stats_covidcodes_card"
-					style="@style/NextStep.Card"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginHorizontal="@dimen/spacing_medium_large"
-					android:layout_marginTop="@dimen/spacing_medium"
-					android:background="@color/white"
+					android:clipToPadding="false"
+					android:paddingBottom="@dimen/spacing_medium"
 					app:layout_constraintTop_toBottomOf="@id/stats_active_users_card">
 
-					<include layout="@layout/layout_stats_covidcodes" />
+					<androidx.cardview.widget.CardView
+						style="@style/NextStep.Card"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="@dimen/spacing_medium_large"
+						android:layout_marginTop="@dimen/spacing_medium"
+						android:background="@color/white">
 
-				</androidx.cardview.widget.CardView>
+						<include layout="@layout/layout_stats_covidcodes" />
 
-				<androidx.cardview.widget.CardView
+					</androidx.cardview.widget.CardView>
+				</FrameLayout>
+
+				<!-- Without this FrameLayout, the alpha transition would have a gray background due to the card shadow -->
+				<FrameLayout
 					android:id="@+id/stats_diagram_card"
-					style="@style/NextStep.Card"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_medium"
-					android:layout_marginHorizontal="@dimen/spacing_medium_large"
-					android:background="@color/white"
+					android:clipToPadding="false"
+					android:paddingBottom="@dimen/spacing_small"
 					app:layout_constraintTop_toBottomOf="@id/stats_covidcodes_card">
 
-					<include layout="@layout/layout_stats_diagram" />
-				</androidx.cardview.widget.CardView>
+					<androidx.cardview.widget.CardView
+						style="@style/NextStep.Card"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="@dimen/spacing_medium_large"
+						android:background="@color/white">
+
+						<include layout="@layout/layout_stats_diagram" />
+					</androidx.cardview.widget.CardView>
+				</FrameLayout>
 
 				<LinearLayout
 					android:id="@+id/stats_more"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="@dimen/spacing_medium_large"
-					android:layout_marginTop="@dimen/spacing_small"
 					android:background="?selectableItemBackground"
 					android:gravity="center_vertical"
 					android:orientation="horizontal"

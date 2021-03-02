@@ -9,23 +9,26 @@
  */
 package ch.admin.bag.dp3t.stats;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.models.HistoryDataPointModel;
@@ -39,6 +42,7 @@ public class StatsFragment extends Fragment {
 	private static final int DIAGRAM_HISTORY_DAY_COUNT = 28;
 
 	private StatsViewModel statsViewModel;
+	private final Map<View, ObjectAnimator> animatorMap = new HashMap<>();
 
 	Toolbar toolbar;
 	private ScrollView scrollView;
@@ -47,12 +51,12 @@ public class StatsFragment extends Fragment {
 	private ViewGroup totalActiveUsersCardContent;
 	private TextView totalActiveusers;
 
-	private CardView covidcodesCard;
+	private ViewGroup covidcodesCard;
 	private ImageButton covidcodesInfoButton;
 	private TextView totalCovidcodesEntered;
 	private TextView totalCovidcodesEnteredLastTwoDays;
 
-	private CardView casesCard;
+	private ViewGroup casesCard;
 	private ImageButton casesInfoButton;
 	private TextView casesSevenDayAverage;
 	private TextView casesPreviousWeekChange;
@@ -216,34 +220,31 @@ public class StatsFragment extends Fragment {
 	private void onStatsOutcomeChanged(StatsOutcome outcome) {
 		switch (outcome.getOutcome()) {
 			case LOADING:
-				totalActiveUsersCardContent.setVisibility(View.GONE);
-				covidcodesCard.setVisibility(View.GONE);
-				casesCard.setVisibility(View.GONE);
+				hideView(totalActiveUsersCardContent, false);
+				hideView(covidcodesCard, false);
+				hideView(casesCard, false);
 
-				progressView.setVisibility(View.VISIBLE);
-				errorView.setVisibility(View.GONE);
-				errorRetryButton.setVisibility(View.GONE);
+				showView(progressView, false);
+				hideView(errorView, false);
 				break;
 			case ERROR:
-				totalActiveUsersCardContent.setVisibility(View.GONE);
-				covidcodesCard.setVisibility(View.GONE);
-				casesCard.setVisibility(View.GONE);
+				hideView(totalActiveUsersCardContent, false);
+				hideView(covidcodesCard, false);
+				hideView(casesCard, false);
 
-				progressView.setVisibility(View.GONE);
-				errorView.setVisibility(View.VISIBLE);
-				errorRetryButton.setVisibility(View.VISIBLE);
+				hideView(progressView, true);
+				showView(errorView, true);
 
 				errorRetryButton.setPaintFlags(errorRetryButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 				errorRetryButton.setOnClickListener(v -> statsViewModel.loadStats());
 				break;
 			case RESULT:
-				totalActiveUsersCardContent.setVisibility(View.VISIBLE);
-				covidcodesCard.setVisibility(View.VISIBLE);
-				casesCard.setVisibility(View.VISIBLE);
+				showView(totalActiveUsersCardContent, true);
+				showView(covidcodesCard, true);
+				showView(casesCard, true);
 
-				errorView.setVisibility(View.GONE);
-				errorRetryButton.setVisibility(View.GONE);
-				progressView.setVisibility(View.GONE);
+				hideView(progressView, true);
+				hideView(errorView, true);
 
 				displayStats(outcome.getStatsResponseModel());
 				break;
@@ -293,6 +294,56 @@ public class StatsFragment extends Fragment {
 		});
 		animator.setDuration(600L);
 		animator.start();
+	}
+
+	private void showView(View targetView, boolean animate) {
+		if (animatorMap.containsKey(targetView)) {
+			animatorMap.get(targetView).cancel();
+		}
+
+		if (targetView.getVisibility() == View.VISIBLE) return;
+
+		if (animate) {
+			ObjectAnimator animator = ObjectAnimator.ofFloat(targetView, View.ALPHA, 0f, 1f);
+			animator.addListener(new AnimatorListenerAdapter() {
+				@Override
+				public void onAnimationStart(Animator animation) {
+					targetView.setVisibility(View.VISIBLE);
+					animatorMap.remove(targetView);
+				}
+			});
+			animator.setDuration(600L);
+			animator.start();
+			animatorMap.put(targetView, animator);
+		} else {
+			targetView.setAlpha(1f);
+			targetView.setVisibility(View.VISIBLE);
+		}
+	}
+
+	private void hideView(View targetView, boolean animate) {
+		if (animatorMap.containsKey(targetView)) {
+			animatorMap.get(targetView).cancel();
+		}
+
+		if (targetView.getVisibility() == View.GONE) return;
+
+		if (animate) {
+			ObjectAnimator animator = ObjectAnimator.ofFloat(targetView, View.ALPHA, 1f, 0f);
+			animator.addListener(new AnimatorListenerAdapter() {
+				@Override
+				public void onAnimationEnd(Animator animation) {
+					targetView.setVisibility(View.GONE);
+					animatorMap.remove(targetView);
+				}
+			});
+			animator.setDuration(600L);
+			animator.start();
+			animatorMap.put(targetView, animator);
+		} else {
+			targetView.setAlpha(0f);
+			targetView.setVisibility(View.GONE);
+		}
 	}
 
 }
