@@ -9,9 +9,11 @@
  */
 package ch.admin.bag.dp3t.stats;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -249,9 +251,7 @@ public class StatsFragment extends Fragment {
 	}
 
 	private void displayStats(StatsResponseModel stats) {
-		String text = totalActiveusers.getContext().getResources().getString(R.string.stats_counter);
-		text = text.replace("{COUNT}", FormatUtil.formatNumberInMillions(stats.getTotalActiveUsers()));
-		totalActiveusers.setText(text);
+		countUpActiveUsers(stats.getTotalActiveUsers());
 
 		totalCovidcodesEntered.setText(FormatUtil.formatNumberInThousands(stats.getTotalCovidcodesEntered()));
 		totalCovidcodesEnteredLastTwoDays.setText(FormatUtil.formatPercentage(stats.getTotalCovidcodesEntered0to2d(), 0));
@@ -280,6 +280,19 @@ public class StatsFragment extends Fragment {
 			// already at requiredWidth
 			diagramView.setScrollX(diagramScrollView.getScrollX());
 		});
+	}
+
+	private void countUpActiveUsers(int totalActiveUsers) {
+		ValueAnimator animator = ValueAnimator.ofInt(0, totalActiveUsers);
+		animator.addUpdateListener(animation -> {
+			int animationValue = (int) animation.getAnimatedValue();
+
+			String text = totalActiveusers.getContext().getResources().getString(R.string.stats_counter);
+			text = text.replace("{COUNT}", FormatUtil.formatNumberInMillions(animationValue));
+			totalActiveusers.setText(text);
+		});
+		animator.setDuration(600L);
+		animator.start();
 	}
 
 }

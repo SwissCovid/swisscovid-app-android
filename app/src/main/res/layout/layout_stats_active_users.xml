@@ -29,6 +29,7 @@
 			style="@style/NextStep.Text.Title.Dark.Mega"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:fontFeatureSettings="tnum"
 			android:gravity="center"
 			tools:text="42.42 Mio." />
 

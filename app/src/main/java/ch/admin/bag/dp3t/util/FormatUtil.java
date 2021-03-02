@@ -8,7 +8,7 @@ public class FormatUtil {
 	private static final double ONE_MILLION = 1000000;
 
 	public static String formatNumberInMillions(int value) {
-		DecimalFormat df = new DecimalFormat("##.##");
+		DecimalFormat df = new DecimalFormat("#0.00");
 		double valueInMillions = value / ONE_MILLION;
 		return df.format(valueInMillions);
 	}
