@@ -925,9 +925,6 @@ Schwarzenburgstrasse 157
     <!-- Info text that is displayed on the Home Travel Card. -->
     <string name="travel_home_description"></string>
 
-    <!-- Introductory Text that is displayed at the top of the travel settings screen. -->
-    <string name="travel_screen_introduction"></string>
-
     <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_1"></string>
 
@@ -939,27 +936,6 @@ Schwarzenburgstrasse 157
 
     <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_text_2"></string>
-
-    <!-- Button title for the Add Countries Button in the travel screen. -->
-    <string name="travel_screen_add_countries_button"></string>
-
-    <!-- Text that is displayed under a country name that indicates until what date the user will still receive notifications from this country. -->
-    <string name="travel_screen_notifications_activated_until"></string>
-
-    <!-- List Header for the favourites in the "Add countries" Screen of the Travel feature. -->
-    <string name="travel_screen_favourites"></string>
-
-    <!-- List header for other countries in the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_other_countries"></string>
-
-    <!-- Title for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_title"></string>
-
-    <!-- Text for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_text"></string>
-
-    <!-- Information text that asks the user about informing other countries when he enters a covid code into the app. -->
-    <string name="travel_report_code_info"></string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
     <string name="accessibility_faq_button_hint_non_bag">"Ce bouton permet de quitter l'application et
@@ -1324,9 +1300,6 @@ d'ouvrir un site internet."</string>
     <!-- Überschrift des Covidcodes-Statistik-Moduls -->
     <string name="stats_covidcodes_title"></string>
 
-    <!-- Untertitel des Covidcodes-Statistik-Moduls -->
-    <string name="stats_covidcodes_subtitle"></string>
-
     <!-- Überschrift des Fallzahlen-Statistik Moduls -->
     <string name="stats_cases_title"></string>
 
@@ -1389,4 +1362,22 @@ d'ouvrir un site internet."</string>
 
     <!-- Nein-Antwort -->
     <string name="answer_no"></string>
+
+    <!-- Text in der Infobox auf dem Reisen-Screen -->
+    <string name="travel_screen_info"></string>
+
+    <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
+    <string name="travel_screen_compatible_countries"></string>
+
+    <!-- Informieren Flow: Erster Screen Reise-Infotext -->
+    <string name="inform_code_travel_text"></string>
+
+    <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
+    <string name="stats_covidcodes_total_header"></string>
+
+    <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_header"></string>
+
+    <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
+    <string name="stats_cases_rel_prev_week_popup_header"></string>
 </resources>

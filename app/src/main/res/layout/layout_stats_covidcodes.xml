@@ -20,7 +20,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:visibility="invisible"
-		app:constraint_referenced_ids="stats_covidcodes_title,stats_covidcodes_subtitle,stats_covidcodes_total,stats_covidcodes_two_days"
+		app:constraint_referenced_ids="stats_covidcodes_title,stats_covidcodes_total,stats_covidcodes_two_days"
 		tools:visibility="visible" />
 
 	<ImageButton
@@ -47,19 +47,6 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
 
-	<TextView
-		android:id="@+id/stats_covidcodes_subtitle"
-		style="@style/NextStep.Text.SubTitle.Dark"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_marginHorizontal="@dimen/spacing_small"
-		android:fontFamily="@font/inter_light"
-		android:gravity="center"
-		android:text="@string/stats_covidcodes_subtitle"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/stats_covidcodes_title" />
-
 	<LinearLayout
 		android:id="@+id/stats_covidcodes_total"
 		android:layout_width="0dp"
@@ -77,7 +64,16 @@
 		app:layout_constraintEnd_toStartOf="@+id/stats_covidcodes_two_days"
 		app:layout_constraintHorizontal_chainStyle="packed"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/stats_covidcodes_subtitle">
+		app:layout_constraintTop_toBottomOf="@+id/stats_covidcodes_title">
+
+		<TextView
+			android:id="@+id/stats_covidcodes_total_title"
+			style="@style/NextStep.Text.Small.Bold"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="@string/stats_covidcodes_total_header"
+			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
 			android:id="@+id/stats_covidcodes_total_value"
@@ -114,6 +110,15 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toEndOf="@+id/stats_covidcodes_total"
 		app:layout_constraintTop_toTopOf="@+id/stats_covidcodes_total">
+
+		<TextView
+			android:id="@+id/stats_covidcodes_two_days_title"
+			style="@style/NextStep.Text.Small.Bold"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="@string/stats_covidcodes_0to2days_header"
+			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
 			android:id="@+id/stats_covidcodes_two_days_value"
