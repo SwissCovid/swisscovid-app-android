@@ -90,10 +90,7 @@
 					android:layout_marginEnd="@dimen/spacing_medium_large"
 					android:background="@drawable/ripple_button_white"
 					android:orientation="horizontal"
-					android:paddingLeft="@dimen/spacing_medium"
-					android:paddingTop="@dimen/spacing_medium"
-					android:paddingRight="@dimen/spacing_medium"
-					android:paddingBottom="@dimen/spacing_medium">
+					android:padding="@dimen/spacing_medium">
 
 					<ImageView
 						android:id="@+id/infobox_link_icon"
