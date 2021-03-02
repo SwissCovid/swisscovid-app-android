@@ -14,11 +14,7 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -26,6 +22,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ch.admin.bag.dp3t.R;
@@ -49,9 +46,11 @@ public class StatsFragment extends Fragment {
 	private TextView totalActiveusersText;
 
 	private Group covidcodesGroup;
+	private ImageButton covidcodesInfoButton;
 	private TextView totalCovidcodesEntered;
 	private TextView totalCovidcodesEnteredLastTwoDays;
 
+	private ImageButton casesInfoButton;
 	private ViewGroup casesSevenDayAverageContainer;
 	private TextView casesSevenDayAverage;
 	private ViewGroup casesPreviousWeekChangeContainer;
@@ -97,9 +96,11 @@ public class StatsFragment extends Fragment {
 		totalActiveusersText = view.findViewById(R.id.stats_total_active_users_text);
 
 		covidcodesGroup = view.findViewById(R.id.stats_covidcodes_group);
+		covidcodesInfoButton = view.findViewById(R.id.stats_covidcodes_info_button);
 		totalCovidcodesEntered = view.findViewById(R.id.stats_covidcodes_total_value);
 		totalCovidcodesEnteredLastTwoDays = view.findViewById(R.id.stats_covidcodes_two_days_value);
 
+		casesInfoButton = view.findViewById(R.id.stats_cases_info_button);
 		casesSevenDayAverageContainer = view.findViewById(R.id.stats_cases_seven_day_average);
 		casesSevenDayAverage = view.findViewById(R.id.stats_cases_seven_day_average_value);
 		casesPreviousWeekChangeContainer = view.findViewById(R.id.stats_cases_previous_week_change);
@@ -123,6 +124,7 @@ public class StatsFragment extends Fragment {
 		setupDiagramScrollBehavior();
 		setupMoreStatsButton();
 		setupShareAppButton();
+		setupInfoButtons();
 
 		statsViewModel.getStatsLiveData().observe(getViewLifecycleOwner(), this::displayStats);
 	}
@@ -168,6 +170,48 @@ public class StatsFragment extends Fragment {
 
 			Intent shareIntent = Intent.createChooser(intent, null);
 			startActivity(shareIntent);
+		});
+	}
+
+	private void setupInfoButtons() {
+		covidcodesInfoButton.setOnClickListener(v -> {
+			ArrayList<StatsDetailsSection> sections = new ArrayList<>();
+			sections.add(new StatsDetailsSection(getString(R.string.stats_covidcodes_total_label),
+					getString(R.string.stats_covidcodes_total_description)));
+			sections.add(new StatsDetailsSection(getString(R.string.stats_covidcodes_0to2days_label),
+					getString(R.string.stats_covidcodes_0to2days_description)));
+			StatsDetailsDialogFragment fragment = StatsDetailsDialogFragment.newInstance(
+					R.color.blue_main,
+					getString(R.string.stats_info_popup_subtitle_covidcodes),
+					getString(R.string.stats_info_popup_title),
+					sections
+			);
+
+			requireActivity().getSupportFragmentManager()
+					.beginTransaction()
+					.add(fragment, StatsDetailsDialogFragment.class.getCanonicalName())
+					.commit();
+		});
+
+		casesInfoButton.setOnClickListener(v -> {
+			ArrayList<StatsDetailsSection> sections = new ArrayList<>();
+			sections.add(new StatsDetailsSection(getString(R.string.stats_cases_current_label),
+					getString(R.string.stats_cases_current_description)));
+			sections.add(new StatsDetailsSection(getString(R.string.stats_cases_7day_average_label),
+					getString(R.string.stats_cases_7day_average_description)));
+			sections.add(new StatsDetailsSection(getString(R.string.stats_cases_rel_prev_week_label),
+					getString(R.string.stats_cases_rel_prev_week_description)));
+			StatsDetailsDialogFragment fragment = StatsDetailsDialogFragment.newInstance(
+					R.color.purple_main,
+					getString(R.string.stats_info_popup_subtitle_cases),
+					getString(R.string.stats_info_popup_title),
+					sections
+			);
+
+			requireActivity().getSupportFragmentManager()
+					.beginTransaction()
+					.add(fragment, StatsDetailsDialogFragment.class.getCanonicalName())
+					.commit();
 		});
 	}
 
