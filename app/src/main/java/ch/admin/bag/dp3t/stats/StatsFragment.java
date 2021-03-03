@@ -255,10 +255,10 @@ public class StatsFragment extends Fragment {
 		countUpActiveUsers(stats.getTotalActiveUsers());
 
 		totalCovidcodesEntered.setText(FormatUtil.formatNumberInThousands(stats.getTotalCovidcodesEntered()));
-		totalCovidcodesEnteredLastTwoDays.setText(FormatUtil.formatPercentage(stats.getTotalCovidcodesEntered0to2d(), 0));
+		totalCovidcodesEnteredLastTwoDays.setText(FormatUtil.formatPercentage(stats.getCovidcodesEntered0to2dPrevWeek(), 0, false));
 
 		casesSevenDayAverage.setText(FormatUtil.formatNumberInThousands(stats.getNewInfectionsSevenDayAvg()));
-		casesPreviousWeekChange.setText(FormatUtil.formatPercentage(stats.getNewInfectionsSevenDayAvgRelPrevWeek(), 0));
+		casesPreviousWeekChange.setText(FormatUtil.formatPercentage(stats.getNewInfectionsSevenDayAvgRelPrevWeek(), 0, true));
 
 		List<HistoryDataPointModel> fullHistory = stats.getHistory();
 		List<HistoryDataPointModel> diagramHistory;

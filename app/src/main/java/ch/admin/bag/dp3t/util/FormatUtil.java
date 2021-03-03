@@ -6,6 +6,7 @@ import java.text.DecimalFormatSymbols;
 public class FormatUtil {
 
 	private static final double ONE_MILLION = 1000000;
+	private static final String EMPTY_VALUE = "-";
 
 	public static String formatNumberInMillions(int value) {
 		DecimalFormat df = new DecimalFormat("#0.00");
@@ -13,16 +14,31 @@ public class FormatUtil {
 		return df.format(valueInMillions);
 	}
 
-	public static String formatNumberInThousands(int value) {
-		DecimalFormat df = new DecimalFormat("#,###");
-		DecimalFormatSymbols symbols = df.getDecimalFormatSymbols();
-		symbols.setGroupingSeparator(' ');
-		df.setDecimalFormatSymbols(symbols);
-		return df.format(value);
+	public static String formatNumberInThousands(Integer value) {
+		if (value == null) {
+			return EMPTY_VALUE;
+		} else {
+			DecimalFormat df = new DecimalFormat("#,###");
+			DecimalFormatSymbols symbols = df.getDecimalFormatSymbols();
+			symbols.setGroupingSeparator(' ');
+			df.setDecimalFormatSymbols(symbols);
+			return df.format(value);
+		}
 	}
 
-	public static String formatPercentage(double value, int decimals) {
-		return String.format("%." + decimals + "f", value * 100) + "%";
+	public static String formatPercentage(Double value, int decimals, boolean alwaysShowSign) {
+		if (value == null) {
+			return EMPTY_VALUE;
+		} else {
+			String format;
+			if (alwaysShowSign) {
+				format = "%+." + decimals + "f";
+			} else {
+				format = "%." + decimals + "f";
+			}
+
+			return String.format(format, value * 100) + "%";
+		}
 	}
 
 }

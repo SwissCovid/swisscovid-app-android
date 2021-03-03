@@ -18,10 +18,10 @@ public class StatsResponseModel {
 
 	private String lastUpdated;
 	private int totalActiveUsers;
-	private int totalCovidcodesEntered;
-	private double totalCovidcodesEntered0to2d;
-	private int newInfectionsSevenDayAvg;
-	private double newInfectionsSevenDayAvgRelPrevWeek;
+	private Integer totalCovidcodesEntered;
+	private Double covidcodesEntered0to2dPrevWeek;
+	private Integer newInfectionsSevenDayAvg;
+	private Double newInfectionsSevenDayAvgRelPrevWeek;
 	private List<HistoryDataPointModel> history;
 
 	public String getLastUpdatedRaw() {
@@ -40,19 +40,19 @@ public class StatsResponseModel {
 		return totalActiveUsers;
 	}
 
-	public int getTotalCovidcodesEntered() {
+	public Integer getTotalCovidcodesEntered() {
 		return totalCovidcodesEntered;
 	}
 
-	public double getTotalCovidcodesEntered0to2d() {
-		return totalCovidcodesEntered0to2d;
+	public Double getCovidcodesEntered0to2dPrevWeek() {
+		return covidcodesEntered0to2dPrevWeek;
 	}
 
-	public int getNewInfectionsSevenDayAvg() {
+	public Integer getNewInfectionsSevenDayAvg() {
 		return newInfectionsSevenDayAvg;
 	}
 
-	public double getNewInfectionsSevenDayAvgRelPrevWeek() {
+	public Double getNewInfectionsSevenDayAvgRelPrevWeek() {
 		return newInfectionsSevenDayAvgRelPrevWeek;
 	}
 
