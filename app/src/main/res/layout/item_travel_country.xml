@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingBottom="@dimen/spacing_medium_large"
+	android:gravity="center_vertical"
+	android:orientation="horizontal">
+
+	<include
+		layout="@layout/view_country_flag"
+		android:layout_width="@dimen/flag_width"
+		android:layout_height="@dimen/flag_height" />
+
+	<TextView
+		android:id="@+id/travel_country_name"
+		style="@style/NextStep.Text.Bold"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/spacing_small"
+		tools:text="Switzerland" />
+
+</LinearLayout>

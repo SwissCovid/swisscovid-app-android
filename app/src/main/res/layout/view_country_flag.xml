@@ -7,8 +7,8 @@
 	<TextView
 		android:id="@+id/flag_cc"
 		style="@style/NextStep.Text.Small.Light"
-		android:layout_width="26dp"
-		android:layout_height="20dp"
+		android:layout_width="@dimen/flag_width"
+		android:layout_height="@dimen/flag_height"
 		android:background="@color/white"
 		android:gravity="center"
 		android:textSize="12dp"
@@ -17,8 +17,9 @@
 	<ImageView
 		android:id="@+id/flag_icon"
 		android:layout_width="wrap_content"
-		android:layout_height="20dp"
+		android:layout_height="@dimen/flag_height"
+		android:layout_gravity="center"
 		android:adjustViewBounds="true"
-		android:src="@drawable/flag_ch" />
+		tools:src="@drawable/flag_ch" />
 
 </FrameLayout>

@@ -44,7 +44,7 @@
 				android:layout_height="@dimen/chevron_size_title"
 				android:layout_marginEnd="@dimen/spacing_small"
 				android:src="@drawable/ic_chevron_right"
-				app:tint="@color/dark_main" />
+				android:tint="@color/dark_main" />
 
 		</LinearLayout>
 

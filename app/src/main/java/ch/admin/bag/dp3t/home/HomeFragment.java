@@ -54,6 +54,7 @@ import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.travel.TravelFragment;
 import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdInfolineAccessabilityDialogFragment;
@@ -350,18 +351,14 @@ public class HomeFragment extends Fragment {
 
 	private void setupTravelCard() {
 		travelCard.setOnClickListener(
-				// TODO: detail fragment
 				v -> getActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
-						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
+						.replace(R.id.main_fragment_container, TravelFragment.newInstance())
+						.addToBackStack(TravelFragment.class.getCanonicalName())
 						.commit()
 		);
 
 		List<String> countries = secureStorage.getInteropCountries();
-		if (countries == null || countries.isEmpty()) {
-			countries = Arrays.asList("CH", "LI");
-		}
 
 		ConstraintLayout constraintLayout = travelCard.findViewById(R.id.travel_flags);
 		Flow flowConstraint = constraintLayout.findViewById(R.id.travel_flags_flow);
