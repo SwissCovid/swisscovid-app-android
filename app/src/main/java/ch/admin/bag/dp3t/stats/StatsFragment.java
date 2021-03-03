@@ -9,9 +9,6 @@
  */
 package ch.admin.bag.dp3t.stats;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -30,9 +27,7 @@ import androidx.transition.TransitionManager;
 import androidx.transition.TransitionSet;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.models.HistoryDataPointModel;
@@ -47,7 +42,6 @@ public class StatsFragment extends Fragment {
 	private static final long ANIMATION_DURATION = 600L;
 
 	private StatsViewModel statsViewModel;
-	private final Map<View, ObjectAnimator> animatorMap = new HashMap<>();
 
 	Toolbar toolbar;
 	private ScrollView scrollView;
@@ -235,31 +229,28 @@ public class StatsFragment extends Fragment {
 
 		switch (outcome.getOutcome()) {
 			case LOADING:
-				hideView(totalActiveUsersCardContent, false);
-				hideView(covidcodesCard, false);
-				hideView(casesCard, false);
-
-				showView(progressView, false);
-				hideView(errorView, false);
+				totalActiveUsersCardContent.setVisibility(View.GONE);
+				covidcodesCard.setVisibility(View.GONE);
+				casesCard.setVisibility(View.GONE);
+				progressView.setVisibility(View.VISIBLE);
+				errorView.setVisibility(View.GONE);
 				break;
 			case ERROR:
-				hideView(totalActiveUsersCardContent, false);
-				hideView(covidcodesCard, false);
-				hideView(casesCard, false);
-
-				hideView(progressView, true);
-				showView(errorView, true);
+				totalActiveUsersCardContent.setVisibility(View.GONE);
+				covidcodesCard.setVisibility(View.GONE);
+				casesCard.setVisibility(View.GONE);
+				progressView.setVisibility(View.GONE);
+				errorView.setVisibility(View.VISIBLE);
 
 				errorRetryButton.setPaintFlags(errorRetryButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 				errorRetryButton.setOnClickListener(v -> statsViewModel.loadStats());
 				break;
 			case RESULT:
-				showView(totalActiveUsersCardContent, true);
-				showView(covidcodesCard, true);
-				showView(casesCard, true);
-
-				hideView(progressView, true);
-				hideView(errorView, true);
+				totalActiveUsersCardContent.setVisibility(View.VISIBLE);
+				covidcodesCard.setVisibility(View.VISIBLE);
+				casesCard.setVisibility(View.VISIBLE);
+				progressView.setVisibility(View.GONE);
+				errorView.setVisibility(View.GONE);
 
 				displayStats(outcome.getStatsResponseModel());
 				break;
@@ -309,56 +300,6 @@ public class StatsFragment extends Fragment {
 		});
 		animator.setDuration(ANIMATION_DURATION);
 		animator.start();
-	}
-
-	private void showView(View targetView, boolean animate) {
-		if (animatorMap.containsKey(targetView)) {
-			animatorMap.get(targetView).cancel();
-		}
-
-		if (targetView.getVisibility() == View.VISIBLE) return;
-
-		if (animate) {
-			ObjectAnimator animator = ObjectAnimator.ofFloat(targetView, View.ALPHA, 0f, 1f);
-			animator.addListener(new AnimatorListenerAdapter() {
-				@Override
-				public void onAnimationStart(Animator animation) {
-					targetView.setVisibility(View.VISIBLE);
-					animatorMap.remove(targetView);
-				}
-			});
-			animator.setDuration(ANIMATION_DURATION);
-			animator.start();
-			animatorMap.put(targetView, animator);
-		} else {
-			targetView.setAlpha(1f);
-			targetView.setVisibility(View.VISIBLE);
-		}
-	}
-
-	private void hideView(View targetView, boolean animate) {
-		if (animatorMap.containsKey(targetView)) {
-			animatorMap.get(targetView).cancel();
-		}
-
-		if (targetView.getVisibility() == View.GONE) return;
-
-		if (animate) {
-			ObjectAnimator animator = ObjectAnimator.ofFloat(targetView, View.ALPHA, 1f, 0f);
-			animator.addListener(new AnimatorListenerAdapter() {
-				@Override
-				public void onAnimationEnd(Animator animation) {
-					targetView.setVisibility(View.GONE);
-					animatorMap.remove(targetView);
-				}
-			});
-			animator.setDuration(ANIMATION_DURATION);
-			animator.start();
-			animatorMap.put(targetView, animator);
-		} else {
-			targetView.setAlpha(0f);
-			targetView.setVisibility(View.GONE);
-		}
 	}
 
 }
