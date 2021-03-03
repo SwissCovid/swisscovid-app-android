@@ -66,6 +66,7 @@ public class SecureStorage {
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
 	private static final String KEY_TEST_LOCATIONS = "test_locations";
+	private static final String KEY_INTEROP_COUNTRIES = "interop_countries";
 	private static final String KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING = "appOpenAfterNotificationPending";
 	private static final String KEY_ISOLATION_END_DIALOG_TIMESTAMP = "isolation_end_dialog_timestamp";
 
@@ -169,8 +170,7 @@ public class SecureStorage {
 	}
 
 	public void leitfadenOpened() {
-		prefs.edit().putBoolean(KEY_LEITFADEN_OPEN_PENDING, false)
-				.apply();
+		prefs.edit().putBoolean(KEY_LEITFADEN_OPEN_PENDING, false).apply();
 	}
 
 	public boolean isReportsHeaderAnimationPending() {
@@ -314,6 +314,15 @@ public class SecureStorage {
 	public Map<String, List<TestLocationModel>> getTestLocations() {
 		Type testLocationsType = new TypeToken<Map<String, List<TestLocationModel>>>() { }.getType();
 		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, getDefaultTestLocations()), testLocationsType);
+	}
+
+	public void setInteropCountries(List<String> interopCountries) {
+		prefs.edit().putString(KEY_INTEROP_COUNTRIES, gson.toJson(interopCountries)).apply();
+	}
+
+	public List<String> getInteropCountries() {
+		Type interopCountriesType = new TypeToken<List<String>>() { }.getType();
+		return gson.fromJson(prefs.getString(KEY_INTEROP_COUNTRIES, "[]"), interopCountriesType);
 	}
 
 	private String getDefaultTestLocations() {

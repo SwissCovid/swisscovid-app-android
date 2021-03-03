@@ -11,6 +11,7 @@ package ch.admin.bag.dp3t.home;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -29,12 +30,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.helper.widget.Flow;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.util.concurrent.TimeUnit;
+import java.util.Arrays;
+import java.util.List;
 
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.logger.Logger;
@@ -70,6 +75,7 @@ public class HomeFragment extends Fragment {
 	private View reportStatusBubble;
 	private View reportStatusView;
 	private View reportErrorView;
+	private View travelCard;
 	private View cardSymptomsFrame;
 	private View cardTestFrame;
 	private View cardSymptoms;
@@ -108,6 +114,7 @@ public class HomeFragment extends Fragment {
 		reportStatusBubble = view.findViewById(R.id.report_status_bubble);
 		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
 		reportErrorView = reportStatusBubble.findViewById(R.id.report_errors);
+		travelCard = view.findViewById(R.id.card_travel);
 		headerView = view.findViewById(R.id.home_header_view);
 		scrollView = view.findViewById(R.id.home_scroll_view);
 		cardSymptoms = view.findViewById(R.id.card_what_to_do_symptoms);
@@ -120,6 +127,7 @@ public class HomeFragment extends Fragment {
 		setupInfobox();
 		setupTracingView();
 		setupNotification();
+		setupTravelCard();
 		setupWhatToDo();
 		setupNonProductionHint();
 		setupScrollBehavior();
@@ -338,6 +346,54 @@ public class HomeFragment extends Fragment {
 		} else {
 			return NotificationManagerCompat.from(context).areNotificationsEnabled();
 		}
+	}
+
+	private void setupTravelCard() {
+		travelCard.setOnClickListener(
+				// TODO: detail fragment
+				v -> getActivity().getSupportFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
+						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
+						.commit()
+		);
+
+		List<String> countries = secureStorage.getInteropCountries();
+		if (countries == null || countries.isEmpty()) {
+			countries = Arrays.asList("CH", "LI");
+		}
+
+		ConstraintLayout constraintLayout = travelCard.findViewById(R.id.travel_flags);
+		Flow flowConstraint = constraintLayout.findViewById(R.id.travel_flags_flow);
+		int[] flagViewIds = new int[countries.size()];
+		for (int i = 0; i < countries.size(); i++) {
+			String country = countries.get(i);
+			if (TextUtils.isEmpty(country)) {
+				continue;
+			}
+
+			@SuppressLint("InflateParams") // causes invalid constraints
+			View flagView = getLayoutInflater().inflate(R.layout.view_country_flag, null);
+			flagView.setId(View.generateViewId());
+			flagView.setContentDescription(TranslationUtil.getCountryName(requireContext(), country));
+
+			ImageView flagImageView = flagView.findViewById(R.id.flag_icon);
+			TextView flagTextView = flagView.findViewById(R.id.flag_cc);
+
+			String idName = "flag_" + country.toLowerCase();
+			int drawableRes = UiUtils.getDrawableResourceByName(requireContext(), idName);
+			if (drawableRes != 0) {
+				flagImageView.setImageResource(drawableRes);
+				flagTextView.setVisibility(View.GONE);
+			} else {
+				flagImageView.setVisibility(View.GONE);
+				flagTextView.setText(country);
+			}
+
+			flagViewIds[i] = flagView.getId();
+			constraintLayout.addView(flagView);
+		}
+		flowConstraint.setReferencedIds(flagViewIds);
 	}
 
 	private void setupWhatToDo() {
