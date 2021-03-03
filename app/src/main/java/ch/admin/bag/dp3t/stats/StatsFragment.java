@@ -22,8 +22,12 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.transition.AutoTransition;
+import androidx.transition.TransitionManager;
+import androidx.transition.TransitionSet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,6 +44,7 @@ import ch.admin.bag.dp3t.util.UrlUtil;
 public class StatsFragment extends Fragment {
 
 	private static final int DIAGRAM_HISTORY_DAY_COUNT = 28;
+	private static final long ANIMATION_DURATION = 600L;
 
 	private StatsViewModel statsViewModel;
 	private final Map<View, ObjectAnimator> animatorMap = new HashMap<>();
@@ -47,6 +52,8 @@ public class StatsFragment extends Fragment {
 	Toolbar toolbar;
 	private ScrollView scrollView;
 	private ImageView headerView;
+
+	private ConstraintLayout statsConstraintLayout;
 
 	private ViewGroup totalActiveUsersCardContent;
 	private TextView totalActiveusers;
@@ -95,6 +102,8 @@ public class StatsFragment extends Fragment {
 		toolbar = view.findViewById(R.id.main_toolbar);
 		scrollView = view.findViewById(R.id.stats_scroll_view);
 		headerView = view.findViewById(R.id.header_view);
+
+		statsConstraintLayout = view.findViewById(R.id.stats_constraint_layout);
 
 		totalActiveUsersCardContent = view.findViewById(R.id.stats_active_users_card_content);
 		totalActiveusers = view.findViewById(R.id.stats_total_active_users);
@@ -218,6 +227,12 @@ public class StatsFragment extends Fragment {
 	}
 
 	private void onStatsOutcomeChanged(StatsOutcome outcome) {
+		// Begin a simultaneous auto transition for bounds and fade transitions
+		AutoTransition transition = new AutoTransition();
+		transition.setOrdering(TransitionSet.ORDERING_TOGETHER);
+		transition.setDuration(ANIMATION_DURATION);
+		TransitionManager.beginDelayedTransition(statsConstraintLayout, transition);
+
 		switch (outcome.getOutcome()) {
 			case LOADING:
 				hideView(totalActiveUsersCardContent, false);
@@ -292,7 +307,7 @@ public class StatsFragment extends Fragment {
 			text = text.replace("{COUNT}", FormatUtil.formatNumberInMillions(animationValue));
 			totalActiveusers.setText(text);
 		});
-		animator.setDuration(600L);
+		animator.setDuration(ANIMATION_DURATION);
 		animator.start();
 	}
 
@@ -312,7 +327,7 @@ public class StatsFragment extends Fragment {
 					animatorMap.remove(targetView);
 				}
 			});
-			animator.setDuration(600L);
+			animator.setDuration(ANIMATION_DURATION);
 			animator.start();
 			animatorMap.put(targetView, animator);
 		} else {
@@ -337,7 +352,7 @@ public class StatsFragment extends Fragment {
 					animatorMap.remove(targetView);
 				}
 			});
-			animator.setDuration(600L);
+			animator.setDuration(ANIMATION_DURATION);
 			animator.start();
 			animatorMap.put(targetView, animator);
 		} else {

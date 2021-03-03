@@ -9,7 +9,6 @@
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
@@ -33,6 +32,7 @@
 			android:layout_height="match_parent">
 
 			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/stats_constraint_layout"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:paddingTop="@dimen/top_item_padding_stats"
@@ -46,6 +46,7 @@
 					app:layout_constraintGuide_begin="@dimen/stats_checkmark_size_half" />
 
 				<ImageView
+					android:id="@+id/stats_icon"
 					android:layout_width="@dimen/stats_checkmark_size"
 					android:layout_height="@dimen/stats_checkmark_size"
 					android:background="@drawable/bg_circle_white"
