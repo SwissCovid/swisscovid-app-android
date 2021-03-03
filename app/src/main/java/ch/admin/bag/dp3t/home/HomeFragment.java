@@ -23,6 +23,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -46,6 +47,7 @@ import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
+import ch.admin.bag.dp3t.whattodo.WtdInfolineAccessabilityDialogFragment;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
 import ch.admin.bag.dp3t.whattodo.WtdSymptomsFragment;
 
@@ -173,6 +175,23 @@ public class HomeFragment extends Fragment {
 				linkGroup.setVisibility(VISIBLE);
 			} else {
 				linkGroup.setVisibility(View.GONE);
+			}
+
+			String hearingImpairedInfo = secureStorage.getInfoboxHearingImpairedInfo();
+			View hearingImpairedView = infobox.findViewById(R.id.infobox_link_hearing_impaired);
+			ImageView linkIcon = infobox.findViewById(R.id.infobox_link_icon);
+			if (hearingImpairedInfo != null) {
+				hearingImpairedView.setOnClickListener(v ->
+						requireActivity().getSupportFragmentManager().beginTransaction()
+								.add(WtdInfolineAccessabilityDialogFragment.newInstance(hearingImpairedInfo),
+										WtdInfolineAccessabilityDialogFragment.class.getCanonicalName())
+								.commit()
+				);
+				linkIcon.setImageResource(R.drawable.ic_phone);
+				hearingImpairedView.setVisibility(VISIBLE);
+			} else {
+				linkIcon.setImageResource(R.drawable.ic_launch);
+				hearingImpairedView.setVisibility(View.GONE);
 			}
 
 			boolean isDismissible = secureStorage.getInfoboxDismissible();

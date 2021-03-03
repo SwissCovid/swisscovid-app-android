@@ -72,38 +72,69 @@
 				style="@style/NextStep.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_small"
 				android:layout_marginEnd="@dimen/spacing_medium_large"
 				android:textColor="@color/white"
 				tools:text="Hier steht ein Text. Das kann ein Hinweis sein. Je länger umso mehr." />
 
 			<LinearLayout
-				android:id="@+id/infobox_link_group"
-				android:layout_width="wrap_content"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginStart="-12dp"
-				android:layout_marginTop="@dimen/spacing_small"
-				android:layout_marginEnd="@dimen/spacing_medium_large"
-				android:background="@drawable/ripple_button_white"
-				android:orientation="horizontal"
-				android:paddingLeft="@dimen/spacing_medium"
-				android:paddingTop="@dimen/spacing_medium"
-				android:paddingRight="@dimen/spacing_medium"
-				android:paddingBottom="@dimen/spacing_medium">
+				android:orientation="horizontal">
 
-				<ImageView
-					android:layout_width="@dimen/icon_size"
-					android:layout_height="@dimen/icon_size"
-					android:layout_marginEnd="@dimen/spacing_medium"
-					android:src="@drawable/ic_launch" />
-
-				<TextView
-					android:id="@+id/infobox_link_text"
-					style="@style/NextStep.Text.Bold"
-					android:layout_width="match_parent"
+				<LinearLayout
+					android:id="@+id/infobox_link_group"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:textColor="@color/white"
-					tools:text="Und ein externer Link" />
+					android:layout_marginStart="-12dp"
+					android:layout_marginEnd="@dimen/spacing_medium_large"
+					android:background="@drawable/ripple_button_white"
+					android:orientation="horizontal"
+					android:padding="@dimen/spacing_medium">
 
+					<ImageView
+						android:id="@+id/infobox_link_icon"
+						android:layout_width="@dimen/icon_size"
+						android:layout_height="@dimen/icon_size"
+						android:layout_marginEnd="@dimen/spacing_medium"
+						android:src="@drawable/ic_launch"
+						android:tint="@color/white" />
+
+					<TextView
+						android:id="@+id/infobox_link_text"
+						style="@style/NextStep.Text.Bold"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:textColor="@color/white"
+						tools:text="Und ein externer Link" />
+
+				</LinearLayout>
+
+				<Space
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1" />
+
+				<LinearLayout
+					android:id="@+id/infobox_link_hearing_impaired"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_very_small"
+					android:layout_marginEnd="@dimen/spacing_medium_large"
+					android:background="@drawable/ripple_button_white"
+					android:orientation="horizontal"
+					android:paddingHorizontal="@dimen/spacing_small"
+					android:paddingTop="@dimen/spacing_small"
+					android:paddingBottom="@dimen/spacing_small"
+					android:visibility="gone"
+					tools:visibility="visible">
+
+					<ImageView
+						android:layout_width="@dimen/icon_size"
+						android:layout_height="@dimen/icon_size"
+						android:src="@drawable/ic_hearing_impaired"
+						android:tint="@color/white" />
+				</LinearLayout>
 			</LinearLayout>
 
 		</LinearLayout>

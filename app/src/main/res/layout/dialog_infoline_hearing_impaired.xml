@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginTop="@dimen/spacing_very_large"
+		android:padding="@dimen/spacing_very_small"
+		android:src="@drawable/ic_hearing_impaired" />
+
+	<TextView
+		android:id="@+id/infoline_hearing_impaired_text"
+		style="@style/NextStep.Text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/spacing_medium"
+		android:gravity="center"
+		android:paddingHorizontal="@dimen/spacing_larger"
+		android:textColorHighlight="@color/black_10"
+		tools:autoLink="email"
+		tools:textColorLink="@color/purple_main" />
+
+	<Button
+		android:id="@+id/infoline_hearing_impaired_ok_button"
+		style="@style/NextStep.Button.Purple"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="@dimen/spacing_huge"
+		android:layout_marginBottom="@dimen/spacing_huge"
+		android:paddingStart="@dimen/spacing_huger"
+		android:paddingEnd="@dimen/spacing_huger"
+		android:text="@string/android_button_ok" />
+
+</LinearLayout>

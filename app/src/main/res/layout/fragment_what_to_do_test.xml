@@ -155,30 +155,62 @@
 								tools:text="Text for the Infobox" />
 
 							<LinearLayout
-								android:id="@+id/wtd_inform_infobox_link_layout"
-								android:layout_width="wrap_content"
+								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
-								android:layout_marginTop="@dimen/spacing_very_small"
-								android:background="@drawable/ripple_button"
-								android:orientation="horizontal"
-								android:paddingTop="@dimen/spacing_small"
-								android:paddingEnd="@dimen/spacing_medium"
-								android:paddingBottom="@dimen/spacing_small">
+								android:orientation="horizontal">
 
-								<ImageView
-									android:layout_width="@dimen/icon_size"
-									android:layout_height="@dimen/icon_size"
-									android:src="@drawable/ic_launch"
-									android:tint="@color/purple_main" />
-
-								<TextView
-									android:id="@+id/wtd_inform_infobox_link_text"
-									style="@style/NextStep.Text.Bold.Purple"
+								<LinearLayout
+									android:id="@+id/wtd_inform_infobox_link_layout"
 									android:layout_width="wrap_content"
 									android:layout_height="wrap_content"
-									android:layout_marginLeft="@dimen/spacing_small"
-									tools:text="+41 12 345 67 89" />
+									android:layout_marginTop="@dimen/spacing_very_small"
+									android:background="@drawable/ripple_button"
+									android:orientation="horizontal"
+									android:paddingTop="@dimen/spacing_small"
+									android:paddingEnd="@dimen/spacing_medium"
+									android:paddingBottom="@dimen/spacing_small">
 
+									<ImageView
+										android:id="@+id/wtd_inform_infobox_link_icon"
+										android:layout_width="@dimen/icon_size"
+										android:layout_height="@dimen/icon_size"
+										android:src="@drawable/ic_launch"
+										android:tint="@color/purple_main" />
+
+									<TextView
+										android:id="@+id/wtd_inform_infobox_link_text"
+										style="@style/NextStep.Text.Bold.Purple"
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:layout_marginLeft="@dimen/spacing_small"
+										tools:text="+41 12 345 67 89" />
+
+								</LinearLayout>
+
+								<Space
+									android:layout_width="0dp"
+									android:layout_height="wrap_content"
+									android:layout_weight="1" />
+
+								<LinearLayout
+									android:id="@+id/wtd_inform_infobox_link_hearing_impaired"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_marginTop="@dimen/spacing_very_small"
+									android:background="@drawable/ripple_button"
+									android:orientation="horizontal"
+									android:paddingHorizontal="@dimen/spacing_small"
+									android:paddingTop="@dimen/spacing_small"
+									android:paddingBottom="@dimen/spacing_small"
+									android:visibility="gone"
+									tools:visibility="visible">
+
+									<ImageView
+										android:layout_width="@dimen/icon_size"
+										android:layout_height="@dimen/icon_size"
+										android:src="@drawable/ic_hearing_impaired"
+										android:tint="@color/purple_main" />
+								</LinearLayout>
 							</LinearLayout>
 
 						</LinearLayout>

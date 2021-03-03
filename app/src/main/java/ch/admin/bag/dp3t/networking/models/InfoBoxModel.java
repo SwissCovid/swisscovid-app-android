@@ -17,14 +17,17 @@ public class InfoBoxModel {
 	private String urlTitle;
 	private boolean isDismissible;
 	private String infoId;
+	private String hearingImpairedInfo;
 
-	public InfoBoxModel(String title, String msg, String url, String urlTitle, boolean isDismissible, String infoId) {
+	public InfoBoxModel(String title, String msg, String url, String urlTitle, boolean isDismissible, String infoId,
+			String hearingImpairedInfo) {
 		this.title = title;
 		this.msg = msg;
 		this.url = url;
 		this.urlTitle = urlTitle;
 		this.isDismissible = isDismissible;
 		this.infoId = infoId;
+		this.hearingImpairedInfo = hearingImpairedInfo;
 	}
 
 	public String getTitle() {
@@ -46,5 +49,9 @@ public class InfoBoxModel {
 	public boolean getDismissible() { return isDismissible; }
 
 	public String getInfoId() { return infoId; }
+
+	public String getHearingImpairedInfo() {
+		return hearingImpairedInfo;
+	}
 
 }
