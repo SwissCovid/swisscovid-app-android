@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.Date;
 import java.util.concurrent.CancellationException;
+import java.util.concurrent.TimeUnit;
 
 import com.google.android.gms.common.api.ApiException;
 
@@ -180,6 +181,11 @@ public class InformFragment extends Fragment {
 							progressDialog.dismiss();
 						}
 						secureStorage.clearInformTimeAndCodeAndToken();
+
+						// Ask if user wants to end isolation after 14 days
+						long isolationEndDialogTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(14);
+						secureStorage.setIsolationEndDialogTimestamp(isolationEndDialogTimestamp);
+
 						getParentFragmentManager().beginTransaction()
 								.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter,
 										R.anim.slide_pop_exit)

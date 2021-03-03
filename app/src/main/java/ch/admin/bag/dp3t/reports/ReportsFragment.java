@@ -10,7 +10,6 @@
 package ch.admin.bag.dp3t.reports;
 
 import android.animation.ValueAnimator;
-import androidx.appcompat.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.res.Resources;
@@ -23,6 +22,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -134,6 +134,7 @@ public class ReportsFragment extends Fragment {
 					builder.setMessage(R.string.delete_infection_dialog)
 							.setPositiveButton(R.string.delete_infection_dialog_finish_button, (dialog, id) -> {
 								tracingStatusInterface.resetInfectionStatus(getContext());
+								secureStorage.setIsolationEndDialogTimestamp(-1L);
 								getParentFragmentManager().popBackStack();
 							})
 							.setNegativeButton(R.string.cancel, (dialog, id) -> {
