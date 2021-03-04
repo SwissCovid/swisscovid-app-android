@@ -377,7 +377,7 @@ public class HomeFragment extends Fragment {
 								secureStorage.setIsolationEndDialogTimestamp(-1L);
 							})
 							.setNegativeButton(R.string.answer_no, (dialog, which) -> {
-								long newTimestamp = isolationEndDialogTimestamp + TimeUnit.DAYS.toMillis(1);
+								long newTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1);
 								secureStorage.setIsolationEndDialogTimestamp(newTimestamp);
 							})
 							.setCancelable(false)
