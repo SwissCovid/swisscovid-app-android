@@ -13,24 +13,24 @@
     <clip-path
         android:pathData="M3,1L23,1A2,2 0,0 1,25 3L25,17A2,2 0,0 1,23 19L3,19A2,2 0,0 1,1 17L1,3A2,2 0,0 1,3 1z"/>
     <path
-        android:pathData="M1,1L25,1L25,7L1,7z"
-        android:fillColor="#262626"
+        android:pathData="M1,1L9,1L9,19L1,19z"
+        android:fillColor="#008C45"
         android:fillType="evenOdd"/>
   </group>
   <group>
     <clip-path
         android:pathData="M3,1L23,1A2,2 0,0 1,25 3L25,17A2,2 0,0 1,23 19L3,19A2,2 0,0 1,1 17L1,3A2,2 0,0 1,3 1z"/>
     <path
-        android:pathData="M1,7L25,7L25,13L1,13z"
-        android:fillColor="#F01515"
+        android:pathData="M9,1L17,1L17,19L9,19z"
+        android:fillColor="#FFF"
         android:fillType="evenOdd"/>
   </group>
   <group>
     <clip-path
         android:pathData="M3,1L23,1A2,2 0,0 1,25 3L25,17A2,2 0,0 1,23 19L3,19A2,2 0,0 1,1 17L1,3A2,2 0,0 1,3 1z"/>
     <path
-        android:pathData="M1,13L25,13L25,19L1,19z"
-        android:fillColor="#FFD521"
+        android:pathData="M17,1L25,1L25,19L17,19z"
+        android:fillColor="#CD212A"
         android:fillType="evenOdd"/>
   </group>
 </vector>
