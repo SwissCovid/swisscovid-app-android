@@ -67,6 +67,7 @@ public class SecureStorage {
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
 	private static final String KEY_TEST_LOCATIONS = "test_locations";
 	private static final String KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING = "appOpenAfterNotificationPending";
+	private static final String KEY_ISOLATION_END_DIALOG_TIMESTAMP = "isolation_end_dialog_timestamp";
 
 	private static SecureStorage instance;
 
@@ -334,6 +335,14 @@ public class SecureStorage {
 
 	public boolean getAppOpenAfterNotificationPending() {
 		return prefs.getBoolean(KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING, false);
+	}
+
+	public long getIsolationEndDialogTimestamp() {
+		return prefs.getLong(KEY_ISOLATION_END_DIALOG_TIMESTAMP, -1L);
+	}
+
+	public void setIsolationEndDialogTimestamp(long timestamp) {
+		prefs.edit().putLong(KEY_ISOLATION_END_DIALOG_TIMESTAMP, timestamp).apply();
 	}
 
 }

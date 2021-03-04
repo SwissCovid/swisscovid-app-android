@@ -31,7 +31,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.logger.Logger;
@@ -42,6 +45,7 @@ import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
 import ch.admin.bag.dp3t.home.model.TracingState;
+import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
@@ -119,6 +123,8 @@ public class HomeFragment extends Fragment {
 		setupWhatToDo();
 		setupNonProductionHint();
 		setupScrollBehavior();
+
+		showEndIsolationDialogIfNecessary();
 	}
 
 	@Override
@@ -372,6 +378,35 @@ public class HomeFragment extends Fragment {
 			headerView.setAlpha(1 - progress);
 			headerView.setTranslationY(progress * translationRangePx);
 		});
+	}
+
+	private void showEndIsolationDialogIfNecessary() {
+		Observer<TracingStatusInterface> observer = new Observer<TracingStatusInterface>() {
+			@Override
+			public void onChanged(TracingStatusInterface tracingStatusInterface) {
+				long isolationEndDialogTimestamp = secureStorage.getIsolationEndDialogTimestamp();
+				if (isolationEndDialogTimestamp != -1L && System.currentTimeMillis() > isolationEndDialogTimestamp) {
+					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+							.setTitle(R.string.homescreen_isolation_ended_popup_title)
+							.setMessage(R.string.homescreen_isolation_ended_popup_text)
+							.setPositiveButton(R.string.answer_yes, (dialog, which) -> {
+								if (tracingStatusInterface.isReportedAsInfected()) {
+									tracingStatusInterface.resetInfectionStatus(getContext());
+								}
+								secureStorage.setIsolationEndDialogTimestamp(-1L);
+							})
+							.setNegativeButton(R.string.answer_no, (dialog, which) -> {
+								long newTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1);
+								secureStorage.setIsolationEndDialogTimestamp(newTimestamp);
+							})
+							.setCancelable(false)
+							.show();
+				}
+				tracingViewModel.getAppStatusLiveData().removeObserver(this);
+			}
+		};
+
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), observer);
 	}
 
 	private void enableTracing() {

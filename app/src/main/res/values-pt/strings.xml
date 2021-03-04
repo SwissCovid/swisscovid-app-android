@@ -628,10 +628,7 @@ A chamada de aconselhamento é gratuita, apenas sujeita à tarifa normal."</stri
     <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"As pessoas que testaram positivo para o novo coronavírus recebem um código COVID.
 
-Isto assegura que só os casos confirmados são assinalados na app.
-
-Testou positivo e ainda não recebeu nenhum código COVID ao fim de 4 h?
-Nesse caso, contacte a linha informativa coronavírus:"</string>
+Isto assegura que só os casos confirmados são assinalados na app."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Que dados são enviados?"</string>
@@ -666,8 +663,17 @@ Desta forma, outros utilizadores da app SwissCovid ficam a saber que existe a po
 – Dores de garganta
 – Tosse (seca, na maioria dos casos)
 – Falta de ar
+– Dores no peito
+– Perda repentina do olfato e/ou do paladar
+
+Outros sintomas podem ser:
+
+– Dores de cabeça
+– Fraqueza geral, indisposição
 – Dores musculares
-– Perda repentina do olfato e/ou do paladar"</string>
+– Constipação
+– Sintomas gastrointestinais (náusea, vómito, diarréia, dores de estômago)
+– Erupções cutâneas"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Porque está o rastreamento desativado?"</string>
@@ -919,9 +925,6 @@ Schwarzenburgstrasse 157
     <!-- Info text that is displayed on the Home Travel Card. -->
     <string name="travel_home_description"></string>
 
-    <!-- Introductory Text that is displayed at the top of the travel settings screen. -->
-    <string name="travel_screen_introduction"></string>
-
     <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_1"></string>
 
@@ -933,27 +936,6 @@ Schwarzenburgstrasse 157
 
     <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_text_2"></string>
-
-    <!-- Button title for the Add Countries Button in the travel screen. -->
-    <string name="travel_screen_add_countries_button"></string>
-
-    <!-- Text that is displayed under a country name that indicates until what date the user will still receive notifications from this country. -->
-    <string name="travel_screen_notifications_activated_until"></string>
-
-    <!-- List Header for the favourites in the "Add countries" Screen of the Travel feature. -->
-    <string name="travel_screen_favourites"></string>
-
-    <!-- List header for other countries in the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_other_countries"></string>
-
-    <!-- Title for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_title"></string>
-
-    <!-- Text for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_text"></string>
-
-    <!-- Information text that asks the user about informing other countries when he enters a covid code into the app. -->
-    <string name="travel_report_code_info"></string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
     <string name="accessibility_faq_button_hint_non_bag">"Este botão permite sair da aplicação e abrir uma página de internet."</string>
@@ -1002,7 +984,7 @@ Schwarzenburgstrasse 157
     <string name="stats_more_statistics_button">"Mais dados estatísticos"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/de/home/innovative-methoden/swisscovid-app-monitoring.html"</string>
+    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/de/overview"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Os dados não podem ser carregados de momento"</string>
@@ -1286,4 +1268,91 @@ Após o isolamento, o rastreamento pode ser reativado."</string>
     <!-- Fuzzy -->
     <string name="testlocation_url_canton_zurich">"https://www.zh.ch/de/gesundheit/coronavirus.html"</string>
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
+
+    <!-- text for info box pop up for the hearing impaired -->
+    <string name="hearing_impaired_info"></string>
+
+    <!-- Überschrift des Covidcodes-Statistik-Moduls -->
+    <string name="stats_covidcodes_title"></string>
+
+    <!-- Überschrift des Fallzahlen-Statistik Moduls -->
+    <string name="stats_cases_title"></string>
+
+    <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
+    <string name="stats_cases_subtitle"></string>
+
+    <!-- Label der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_label"></string>
+
+    <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_label"></string>
+
+    <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_label"></string>
+
+    <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_label"></string>
+
+    <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
+    <string name="stats_info_popup_title"></string>
+
+    <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
+    <string name="stats_info_popup_subtitle_covidcodes"></string>
+
+    <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
+    <string name="stats_info_popup_subtitle_cases"></string>
+
+    <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_description"></string>
+
+    <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_description"></string>
+
+    <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_description"></string>
+
+    <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_description"></string>
+
+    <!-- Label der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_label"></string>
+
+    <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_description"></string>
+
+    <!-- Inform Detail: Infobox Text -->
+    <string name="inform_detail_infobox1_text">"Você foi testado positivo e ainda não recebeu um código COVID após 4 horas? Nesse caso contacte a linha informativa do código COVID:"</string>
+
+    <!-- Inform Detail: Infobox Title -->
+    <string name="inform_detail_infobox1_title">"Ainda não recebeu um código COVID?"</string>
+
+    <!-- Titel des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_title"></string>
+
+    <!-- Text des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_text"></string>
+
+    <!-- Ja-Antwort -->
+    <string name="answer_yes"></string>
+
+    <!-- Nein-Antwort -->
+    <string name="answer_no"></string>
+
+    <!-- Text in der Infobox auf dem Reisen-Screen -->
+    <string name="travel_screen_info"></string>
+
+    <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
+    <string name="travel_screen_compatible_countries"></string>
+
+    <!-- Informieren Flow: Erster Screen Reise-Infotext -->
+    <string name="inform_code_travel_text"></string>
+
+    <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
+    <string name="stats_covidcodes_total_header"></string>
+
+    <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_header"></string>
+
+    <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
+    <string name="stats_cases_rel_prev_week_popup_header"></string>
 </resources>

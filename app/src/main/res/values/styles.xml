@@ -301,6 +301,8 @@
 		<item name="android:textColorPrimary">@color/dark_main</item>
 		<item name="buttonBarPositiveButtonStyle">@style/NextStep.Button.AlertDialog</item>
 		<item name="buttonBarNegativeButtonStyle">@style/NextStep.Button.AlertDialog</item>
+		<item name="android:fontFamily">@font/inter_light</item>
+		<item name="fontFamily">@font/inter_light</item>
 	</style>
 
 </resources>
