@@ -11,7 +11,6 @@ package ch.admin.bag.dp3t.home;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -31,7 +30,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.helper.widget.Flow;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -55,6 +53,7 @@ import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.travel.TravelFragment;
+import ch.admin.bag.dp3t.travel.TravelUtils;
 import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdInfolineAccessabilityDialogFragment;
@@ -359,38 +358,8 @@ public class HomeFragment extends Fragment {
 		);
 
 		List<String> countries = secureStorage.getInteropCountries();
-
-		ConstraintLayout constraintLayout = travelCard.findViewById(R.id.travel_flags);
-		Flow flowConstraint = constraintLayout.findViewById(R.id.travel_flags_flow);
-		int[] flagViewIds = new int[countries.size()];
-		for (int i = 0; i < countries.size(); i++) {
-			String country = countries.get(i);
-			if (TextUtils.isEmpty(country)) {
-				continue;
-			}
-
-			@SuppressLint("InflateParams") // causes invalid constraints
-			View flagView = getLayoutInflater().inflate(R.layout.view_country_flag, null);
-			flagView.setId(View.generateViewId());
-			flagView.setContentDescription(TranslationUtil.getCountryName(requireContext(), country));
-
-			ImageView flagImageView = flagView.findViewById(R.id.flag_icon);
-			TextView flagTextView = flagView.findViewById(R.id.flag_cc);
-
-			String idName = "flag_" + country.toLowerCase();
-			int drawableRes = UiUtils.getDrawableResourceByName(requireContext(), idName);
-			if (drawableRes != 0) {
-				flagImageView.setImageResource(drawableRes);
-				flagTextView.setVisibility(View.GONE);
-			} else {
-				flagImageView.setVisibility(View.GONE);
-				flagTextView.setText(country);
-			}
-
-			flagViewIds[i] = flagView.getId();
-			constraintLayout.addView(flagView);
-		}
-		flowConstraint.setReferencedIds(flagViewIds);
+		Flow flowConstraint = travelCard.findViewById(R.id.travel_flags_flow);
+		TravelUtils.inflateFlagFlow(flowConstraint, countries);
 	}
 
 	private void setupWhatToDo() {

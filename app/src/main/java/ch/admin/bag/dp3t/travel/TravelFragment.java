@@ -24,7 +24,6 @@ import java.util.List;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.TranslationUtil;
 import ch.admin.bag.dp3t.util.UiUtils;
 
 public class TravelFragment extends Fragment {
@@ -68,7 +67,7 @@ public class TravelFragment extends Fragment {
 		List<String> countries = secureStorage.getInteropCountries();
 
 		for (String countryCode : countries) {
-			String countryName = TranslationUtil.getCountryName(requireContext(), countryCode);
+			String countryName = TravelUtils.getCountryName(requireContext(), countryCode);
 
 			View countryItemView = getLayoutInflater().inflate(R.layout.item_travel_country, null);
 			countryItemView.setContentDescription(countryName);
