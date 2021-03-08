@@ -8,10 +8,14 @@ public class FormatUtil {
 	private static final double ONE_MILLION = 1000000;
 	private static final String EMPTY_VALUE = "-";
 
-	public static String formatNumberInMillions(int value) {
-		DecimalFormat df = new DecimalFormat("#0.00");
-		double valueInMillions = value / ONE_MILLION;
-		return df.format(valueInMillions);
+	public static String formatNumberInMillions(Integer value) {
+		if (value == null) {
+			return EMPTY_VALUE;
+		} else {
+			DecimalFormat df = new DecimalFormat("#0.00");
+			double valueInMillions = value / ONE_MILLION;
+			return df.format(valueInMillions);
+		}
 	}
 
 	public static String formatNumberInThousands(Integer value) {

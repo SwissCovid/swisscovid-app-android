@@ -17,7 +17,7 @@ import ch.admin.bag.dp3t.util.DateUtils;
 public class StatsResponseModel {
 
 	private String lastUpdated;
-	private int totalActiveUsers;
+	private Integer totalActiveUsers;
 	private Integer totalCovidcodesEntered;
 	private Double covidcodesEntered0to2dPrevWeek;
 	private Integer newInfectionsSevenDayAvg;
@@ -36,7 +36,7 @@ public class StatsResponseModel {
 		return DateUtils.getFormattedDateStats(getLastUpdatedParsed());
 	}
 
-	public int getTotalActiveUsers() {
+	public Integer getTotalActiveUsers() {
 		return totalActiveUsers;
 	}
 

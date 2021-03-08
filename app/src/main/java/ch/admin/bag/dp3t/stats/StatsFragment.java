@@ -258,7 +258,11 @@ public class StatsFragment extends Fragment {
 	}
 
 	private void displayStats(StatsResponseModel stats) {
-		countUpActiveUsers(stats.getTotalActiveUsers());
+		if (stats.getTotalActiveUsers() != null) {
+			countUpActiveUsers(stats.getTotalActiveUsers());
+		} else {
+			totalActiveusers.setText(FormatUtil.formatNumberInMillions(null));
+		}
 
 		totalCovidcodesEntered.setText(FormatUtil.formatNumberInThousands(stats.getTotalCovidcodesEntered()));
 		totalCovidcodesEnteredLastTwoDays.setText(FormatUtil.formatPercentage(stats.getCovidcodesEntered0to2dPrevWeek(), 0, false));
@@ -289,7 +293,7 @@ public class StatsFragment extends Fragment {
 		});
 	}
 
-	private void countUpActiveUsers(int totalActiveUsers) {
+	private void countUpActiveUsers(Integer totalActiveUsers) {
 		ValueAnimator animator = ValueAnimator.ofInt(0, totalActiveUsers);
 		animator.addUpdateListener(animation -> {
 			int animationValue = (int) animation.getAnimatedValue();
