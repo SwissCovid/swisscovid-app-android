@@ -250,7 +250,7 @@ Thank you for helping to break the chain of infection."</string>
     <string name="meldung_detail_positive_tested_title">"Tested positive"</string>
 
     <!-- Meldung Detail: Positiv Getestet Subtitel -->
-    <string name="meldung_detail_positive_tested_subtitle">"You have tested positive for the new coronavirus."</string>
+    <string name="meldung_detail_positive_tested_subtitle">"You have tested positive for the coronavirus."</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
     <string name="meldung_detail_positive_test_box_subtitle">"What should I do?"</string>
@@ -275,7 +275,9 @@ Thank you for helping to break the chain of infection."</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
     <string name="meldung_detail_exposed_subtitle">"An infection could have occurred"</string>
-    <string name="meldung_homescreen_positiv_text">"You have tested positive for the new coronavirus."</string>
+
+    <!-- Meldung auf Homescreen: Positiv getestet -->
+    <string name="meldung_homescreen_positiv_text">"You have tested positive for the coronavirus."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
     <string name="reset_onboarding">"Reset onboarding"</string>
@@ -325,7 +327,7 @@ Infoline SwissCovid
     <string name="onboarding_prinzip_title">"Staying one step ahead of the virus"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"By using the SwissCovid app, we can all help to contain the spread of the new coronavirus."</string>
+    <string name="onboarding_prinzip_text1">"By using the SwissCovid app, we can all help to contain the spread of the coronavirus."</string>
 
     <!-- Onboarding Prinzip Text -->
     <string name="onboarding_prinzip_text2">"The app tells you if you might have been exposed to the coronavirus."</string>
@@ -361,7 +363,7 @@ Infoline SwissCovid
     <string name="onboarding_meldung_title">"Report of potential infection"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"The app notifies you if you may have been exposed to the coronavirus."</string>
+    <string name="onboarding_meldung_text1">"The app tells you if you might have been exposed to the coronavirus."</string>
 
     <!-- Onboarding Meldung: Text -->
     <string name="onboarding_meldung_text2">"By responding appropriately, you can break the chain of infection and protect other people."</string>
@@ -623,8 +625,7 @@ The counselling is free of charge. You just have to pay for the call."</string>
     <string name="inform_detail_faq1_title">"What is a Covidcode?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <!-- Fuzzy -->
-    <string name="inform_detail_faq1_text">"People who have tested positive for the new coronavirus receive a Covidcode. 
+    <string name="inform_detail_faq1_text">"People who have tested positive for the coronavirus receive a Covidcode. 
 
 This ensures that only confirmed cases are notified via the app."</string>
 
@@ -650,7 +651,7 @@ Other SwissCovid apps can then check if it is possible that they have been infec
     <string name="inform_code_intro_text">"Although no personal data relating to you is sent out, it may well be that someone remembers their encounter with you from the date."</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
-    <string name="inform_code_intro_button">"OK"</string>
+    <string name="inform_code_intro_button">"Agree"</string>
 
     <!-- Symptome: FAQ Titel -->
     <string name="symptom_faq1_title">"What are the symptoms of COVID-19?"</string>
@@ -919,22 +920,26 @@ Schwarzenburgstrasse 157
     <string name="infobox_close_button_accessibility">"Close"</string>
 
     <!-- Title for the Home View Travel Card. -->
-    <string name="travel_title"></string>
+    <string name="travel_title">"Travel"</string>
 
-    <!-- Info text that is displayed on the Home Travel Card. -->
-    <string name="travel_home_description"></string>
+    <!-- Info text that is displayed  on the Home Travel Card. -->
+    <string name="travel_home_description">"SwissCovid works in the following countries:"</string>
 
-    <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_1"></string>
+    <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_1">"What does that mean?"</string>
 
-    <!-- First text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1"></string>
+    <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_1">"You don’t have to install another app if you’re travelling in one of the compatible countries.
 
-    <!-- Second title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_2"></string>
+SwissCovid checks random IDs published in the compatible countries. This means that you can also receive alerts of possible infection abroad."</string>
 
-    <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2"></string>
+    <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_2">"What happens when the Covidcode is entered?"</string>
+
+    <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_2">"When the Covidcode is entered, the random IDs sent by you are also shared with the compatible countries.
+
+To enable travellers from abroad to also receive alerts, this happens regardless of whether you yourself are travelling abroad or not."</string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
     <string name="accessibility_faq_button_hint_non_bag">"This button leaves the app and opens a website."</string>
@@ -1201,7 +1206,7 @@ Schwarzenburgstrasse 157
     <string name="test_location_popup_title">"Where can I get a test?"</string>
 
     <!-- Test standorte Popup Text -->
-    <string name="test_location_popup_text">"You can be tested for the new coronavirus at various doctors, test centres, hospitals and pharmacies. You will find information on the various testing facilities on the relevant cantonal websites:"</string>
+    <string name="test_location_popup_text">"You can be tested for the coronavirus at various doctors, test centres, hospitals and pharmacies. You will find information on the various testing facilities on the relevant cantonal websites:"</string>
 
     <!-- Notification Channel name for Tracing Reactivation Reminders on Android Devices (Only visible in System Settings) -->
     <string name="android_reminder_channel_name">"Tracing activation reminder"</string>
@@ -1292,55 +1297,59 @@ Tracing can be reactivated after isolation."</string>
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
 
     <!-- text for info box pop up for the hearing impaired -->
-    <string name="hearing_impaired_info"></string>
+    <string name="hearing_impaired_info">"Are you deaf or hard of hearing and unable to call the coronavirus infoline on the phone?
+
+Send an email to covid-support@medgate.ch."</string>
 
     <!-- Überschrift des Covidcodes-Statistik-Moduls -->
-    <string name="stats_covidcodes_title"></string>
+    <string name="stats_covidcodes_title">"Covidcodes"</string>
 
     <!-- Überschrift des Fallzahlen-Statistik Moduls -->
-    <string name="stats_cases_title"></string>
+    <string name="stats_cases_title">"Numbers of cases"</string>
 
     <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
-    <string name="stats_cases_subtitle"></string>
+    <string name="stats_cases_subtitle">"Current development"</string>
 
     <!-- Label der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_label"></string>
+    <string name="stats_covidcodes_total_label">"entered"</string>
 
     <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_label"></string>
+    <string name="stats_covidcodes_0to2days_label">"within 0-2 days"</string>
 
     <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_label"></string>
+    <string name="stats_cases_7day_average_label">"7-day average"</string>
 
     <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_label"></string>
+    <string name="stats_cases_rel_prev_week_label">"vs previous week"</string>
 
     <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
-    <string name="stats_info_popup_title"></string>
+    <string name="stats_info_popup_title">"Details on the figures"</string>
 
     <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
-    <string name="stats_info_popup_subtitle_covidcodes"></string>
+    <string name="stats_info_popup_subtitle_covidcodes">"Covidcodes entered"</string>
 
     <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
-    <string name="stats_info_popup_subtitle_cases"></string>
+    <string name="stats_info_popup_subtitle_cases">"Numbers of cases"</string>
 
     <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_description"></string>
+    <string name="stats_covidcodes_total_description">"Number of Covidcodes entered since the launch of the SwissCovid app in June 2020. This is the number of people who have notified their contacts of possible infection via the app."</string>
 
     <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_description"></string>
+    <string name="stats_covidcodes_0to2days_description">"The percentage of Covidcodes entered already in the first two days after onset of symptoms. This figure is for the last 7 days.
+
+Time is a crucial factor when it comes to combating coronavirus: the shorter the time between the onset of symptoms, the result of the test and entering the Covidcode, the earlier alerted contacts can stay at home and protect other people."</string>
 
     <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_description"></string>
+    <string name="stats_cases_7day_average_description">"Shows the average number of reported new infections per day over 7 days."</string>
 
     <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_description"></string>
+    <string name="stats_cases_rel_prev_week_description">"Shows the change in the 7-day average compared with the situation a week ago."</string>
 
     <!-- Label der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_label"></string>
+    <string name="stats_cases_current_label">"Current developments"</string>
 
     <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_description"></string>
+    <string name="stats_cases_current_description">"The chart shows new infections reported in the last 28 days. This gives an overview of current developments."</string>
 
     <!-- Inform Detail: Infobox Text -->
     <string name="inform_detail_infobox1_text">"Have you tested positive and still haven’t received a Covidcode after 4 hours?
@@ -1350,32 +1359,32 @@ Contact the Covidcode Infoline:"</string>
     <string name="inform_detail_infobox1_title">"Don’t have a Covidcode yet?"</string>
 
     <!-- Titel des Popups mit der Frage, ob der User die Isolation beendet hat -->
-    <string name="homescreen_isolation_ended_popup_title"></string>
+    <string name="homescreen_isolation_ended_popup_title">"Have you come out of isolation?"</string>
 
     <!-- Text des Popups mit der Frage, ob der User die Isolation beendet hat -->
-    <string name="homescreen_isolation_ended_popup_text"></string>
+    <string name="homescreen_isolation_ended_popup_text">"Tracing can be reactivated once you have completed your period of isolation."</string>
 
     <!-- Ja-Antwort -->
-    <string name="answer_yes"></string>
+    <string name="answer_yes">"Yes"</string>
 
     <!-- Nein-Antwort -->
-    <string name="answer_no"></string>
+    <string name="answer_no">"No"</string>
 
     <!-- Text in der Infobox auf dem Reisen-Screen -->
-    <string name="travel_screen_info"></string>
+    <string name="travel_screen_info">"Travelling abroad? SwissCovid works in these countries."</string>
 
     <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
-    <string name="travel_screen_compatible_countries"></string>
+    <string name="travel_screen_compatible_countries">"Compatible countries:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text"></string>
+    <string name="inform_code_travel_text">"To enable travellers from abroad to receive alerts as well, the random IDs are also shared with the coronavirus apps in compatible countries."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
-    <string name="stats_covidcodes_total_header"></string>
+    <string name="stats_covidcodes_total_header">"Total"</string>
 
     <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_header"></string>
+    <string name="stats_covidcodes_0to2days_header">"Current"</string>
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
-    <string name="stats_cases_rel_prev_week_popup_header"></string>
+    <string name="stats_cases_rel_prev_week_popup_header">"Change versus previous week"</string>
 </resources>
