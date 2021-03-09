@@ -55,7 +55,7 @@ public class StatsViewModel extends AndroidViewModel {
 					outcome.setOutcome(Outcome.RESULT);
 				}
 				statsLiveData.postValue(outcome);
-			} catch (IOException | ResponseError | SignatureException e) {
+			} catch (IOException | ResponseError e) {
 				outcome.setOutcome(Outcome.ERROR);
 				statsLiveData.postValue(outcome);
 			}

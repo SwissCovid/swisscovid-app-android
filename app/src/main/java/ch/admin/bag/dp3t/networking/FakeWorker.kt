@@ -12,7 +12,6 @@ package ch.admin.bag.dp3t.networking
 import android.content.Context
 import androidx.work.*
 import ch.admin.bag.dp3t.BuildConfig
-import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.ExponentialDistribution
@@ -20,12 +19,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
 import org.dpppt.android.sdk.DP3T
+import org.dpppt.android.sdk.DP3TKotlin
 import org.dpppt.android.sdk.internal.logger.Logger
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization
-import java.io.IOException
-import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
-import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.max
 
 class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWorker(context, workerParams) {
@@ -42,8 +39,10 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 		private const val FACTOR_HOUR_MILLIS = 60 * 60 * 1000L
 		private const val FACTOR_DAY_MILLIS = 24 * FACTOR_HOUR_MILLIS
 		private const val MAX_DELAY_HOURS: Long = 48
+
 		@JvmField
 		val SAMPLING_RATE = if (BuildConfig.FLAVOR == "dev") 1.0f else 0.2f
+
 		@JvmField
 		var clock: Clock = ClockImpl()
 
@@ -109,7 +108,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 					Logger.d(TAG, "finished with success")
 				} else {
 					Logger.e(TAG, "failed")
-					scheduleNext(clock.currentTimeMillis()+TimeUnit.MINUTES.toMillis(30))
+					scheduleNext(clock.currentTimeMillis() + TimeUnit.MINUTES.toMillis(30))
 					return@withContext Result.failure()
 				}
 			} else {
@@ -129,32 +128,15 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 	}
 
 	private suspend fun executeFakeRequest(context: Context): Boolean {
-		return try {
+		try {
 			val authCodeRepository = AuthCodeRepository(context)
 			val accessTokenResponse = authCodeRepository.getAccessTokenSync(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
 			val accessToken = accessTokenResponse.accessToken
-			val countdownLatch = CountDownLatch(1)
-			val error = AtomicBoolean(false)
-			DP3T.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)),
-				{
-					countdownLatch.countDown()
-				},
-				{
-					error.set(true)
-					countdownLatch.countDown()
-				}
-			)
-			countdownLatch.await()
-			!error.get()
-		} catch (e: IOException) {
+			DP3TKotlin.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)))
+			return true
+		} catch (e: Exception) {
 			Logger.e(TAG, "fake request failed", e)
-			false
-		} catch (e: ResponseError) {
-			Logger.e(TAG, "fake request failed", e)
-			false
-		} catch (e: InterruptedException) {
-			Logger.e(TAG, "fake request failed", e)
-			false
+			return false
 		}
 	}
 
