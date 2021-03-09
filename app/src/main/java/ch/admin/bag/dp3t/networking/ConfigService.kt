@@ -10,6 +10,7 @@
 package ch.admin.bag.dp3t.networking
 
 import ch.admin.bag.dp3t.networking.models.ConfigResponseModel
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
@@ -23,5 +24,5 @@ interface ConfigService {
 		@Query("osversion") osVersion: String,
 		@Query("buildnr") buildNumber: String,
 		@Query("enModuleVersion") enModuleVersion: String
-	): ConfigResponseModel
+	): Response<ConfigResponseModel>
 }

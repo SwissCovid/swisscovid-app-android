@@ -66,9 +66,13 @@ class ConfigRepository(context: Context) {
 		val buildNumber = BuildConfig.BUILD_TIME.toString()
 		val enModuleVersion = DP3T.getENModuleVersion(context).toString()
 		val configResponse = configService.getConfig(appVersion, osVersion, buildNumber, enModuleVersion)
-		secureStorage.lastConfigLoadSuccess = System.currentTimeMillis()
-		secureStorage.lastConfigLoadSuccessAppVersion = BuildConfig.VERSION_CODE
-		secureStorage.lastConfigLoadSuccessSdkInt = Build.VERSION.SDK_INT
-		return configResponse
+		if (configResponse.isSuccessful) {
+			secureStorage.lastConfigLoadSuccess = System.currentTimeMillis()
+			secureStorage.lastConfigLoadSuccessAppVersion = BuildConfig.VERSION_CODE
+			secureStorage.lastConfigLoadSuccessSdkInt = Build.VERSION.SDK_INT
+			return configResponse.body() ?: throw ResponseError(configResponse.raw())
+		} else {
+			throw ResponseError(configResponse.raw())
+		}
 	}
 }
