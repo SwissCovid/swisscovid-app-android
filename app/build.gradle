@@ -169,6 +169,7 @@ dependencies {
 	implementation 'androidx.fragment:fragment:1.2.5'
 	implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
 	implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
+	implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
 	implementation 'androidx.viewpager2:viewpager2:1.0.0'
 	implementation 'androidx.security:security-crypto:1.0.0-rc03'
 	implementation 'androidx.work:work-runtime-ktx:2.5.0'

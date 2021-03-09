@@ -128,7 +128,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 		scheduleFakeWorker(applicationContext, t_dummy, nextWorkName)
 	}
 
-	private fun executeFakeRequest(context: Context): Boolean {
+	private suspend fun executeFakeRequest(context: Context): Boolean {
 		return try {
 			val authCodeRepository = AuthCodeRepository(context)
 			val accessTokenResponse = authCodeRepository.getAccessTokenSync(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))

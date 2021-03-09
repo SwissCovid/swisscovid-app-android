@@ -169,7 +169,8 @@ public class InformFragment extends Fragment {
 						}
 						buttonSend.setEnabled(true);
 					}
-				});
+				},
+				getViewLifecycleOwner());
 	}
 
 	private void informExposed(Date onsetDate, String authorizationHeader) {

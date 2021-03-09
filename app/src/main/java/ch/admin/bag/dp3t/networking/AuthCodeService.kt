@@ -7,23 +7,17 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-package ch.admin.bag.dp3t.networking;
+package ch.admin.bag.dp3t.networking
 
-import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
-import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
+import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
+import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel
+import retrofit2.Response
+import retrofit2.http.Body
+import retrofit2.http.Headers
+import retrofit2.http.POST
 
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.Headers;
-import retrofit2.http.POST;
-
-public interface AuthCodeService {
-
-	@Headers({
-					 "accept: */*",
-					 "content-type: application/json"
-			 })
+interface AuthCodeService {
+	@Headers("accept: */*", "content-type: application/json")
 	@POST("v1/onset")
-	Call<AuthenticationCodeResponseModel> getAccessToken(@Body AuthenticationCodeRequestModel code);
-
+	suspend fun getAccessToken(@Body code: AuthenticationCodeRequestModel): Response<AuthenticationCodeResponseModel>
 }
