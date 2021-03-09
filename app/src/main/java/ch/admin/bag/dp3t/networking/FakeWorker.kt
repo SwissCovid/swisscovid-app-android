@@ -110,7 +110,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 				} else {
 					Logger.e(TAG, "failed")
 					scheduleNext(t_dummy)
-					Result.failure()
+					return@withContext Result.failure()
 				}
 			} else {
 				Logger.d(TAG, "outdated request is dropped.")
@@ -119,7 +119,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 			secureStorage.tDummy = t_dummy
 		}
 		scheduleNext(t_dummy)
-		Result.success()
+		return@withContext Result.success()
 	}
 
 	private fun scheduleNext(t_dummy: Long) {
