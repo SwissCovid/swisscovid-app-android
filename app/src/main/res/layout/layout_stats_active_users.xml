@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingHorizontal="@dimen/spacing_medium"
+	android:paddingTop="@dimen/spacing_medium_large"
+	android:paddingBottom="@dimen/spacing_medium"
+	tools:background="@color/white">
+
+	<LinearLayout
+		android:id="@+id/stats_active_users_card_content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		tools:visibility="visible">
+
+		<TextView
+			android:id="@+id/stats_total_active_users"
+			style="@style/NextStep.Text.Title.Dark.Mega"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:fontFeatureSettings="tnum"
+			android:gravity="center"
+			tools:text="42.42 Mio." />
+
+		<TextView
+			android:id="@+id/stats_total_active_users_text"
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="@string/stats_title" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/error_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="@dimen/spacing_medium_large"
+		android:background="@drawable/bg_rounded_grey_light"
+		android:gravity="center_horizontal"
+		android:orientation="vertical"
+		android:paddingStart="@dimen/spacing_large"
+		android:paddingEnd="@dimen/spacing_large"
+		tools:visibility="visible">
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_large"
+			android:src="@drawable/ic_info_black_outlined"
+			android:tint="@color/dark_main" />
+
+		<TextView
+			style="@style/NextStep.Text.Title.Dark"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_small"
+			android:gravity="center"
+			android:text="@string/loading_view_error_title" />
+
+		<TextView
+			style="@style/NextStep.Text.Dark"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_very_small"
+			android:gravity="center"
+			android:text="@string/stats_loading_error_text" />
+
+		<TextView
+			android:id="@+id/button_retry"
+			style="@style/NextStep.Text.Bold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_small"
+			android:layout_marginBottom="@dimen/spacing_larger"
+			android:background="?selectableItemBackground"
+			android:gravity="center"
+			android:padding="@dimen/spacing_small"
+			android:text="@string/loading_view_reload" />
+	</LinearLayout>
+
+	<ProgressBar
+		android:id="@+id/progress_view"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="@dimen/spacing_medium"
+		android:indeterminateTint="@color/blue_main" />
+</FrameLayout>

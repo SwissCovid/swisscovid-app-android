@@ -50,7 +50,6 @@ public class DiagramView extends View {
 
 	private Paint newInfectionsPaint;
 	private Paint newInfectionsAvgPaint;
-	private Paint enteredCovidcodesPaint;
 	private Paint xAxisPaint;
 	private Paint yAxisPaint;
 	private Paint labelPaint;
@@ -92,11 +91,6 @@ public class DiagramView extends View {
 		newInfectionsAvgPaint.setStyle(Paint.Style.STROKE);
 		newInfectionsAvgPaint.setColor(newInfectionsAvgPaintColor);
 		newInfectionsAvgPaint.setStrokeWidth(STROKE_WIDTH_AVG_LINE * dp);
-
-		int enteredCovidcodesPaintColor = getResources().getColor(R.color.stats_diagram_entered_covidcodes, null);
-		enteredCovidcodesPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		enteredCovidcodesPaint.setStyle(Paint.Style.FILL);
-		enteredCovidcodesPaint.setColor(enteredCovidcodesPaintColor);
 
 		int xAxisPaintColor = getResources().getColor(R.color.stats_diagram_x_axis, null);
 		xAxisPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -165,34 +159,21 @@ public class DiagramView extends View {
 		for (int i = 0; i < history.size(); i++) {
 			Integer ni = history.get(i).getNewInfections();
 			Integer niavg = history.get(i).getNewInfectionsSevenDayAverage();
-			Integer cc = history.get(i).getCovidcodesEntered();
 
 			// Draw bars
 			float left = i * (WIDTH_BAR + PADDING_BAR) * dp;
 			float right = left + WIDTH_BAR * dp;
-
 			float bottom = getHeight() - OFFSET_BOTTOM_X_AXIS * dp;
-			float topCovidcodes = bottom;
-
-			if (cc != null) {
-				topCovidcodes = bottom - bottom * (cc.floatValue() / maxYValue);
-				canvas.drawRect(left, topCovidcodes, right, bottom, enteredCovidcodesPaint);
-			}
 
 			if (ni != null) {
-				float bottomNewInfections = topCovidcodes;
 				float niToDraw = ni;
-				if (cc != null) {
-					bottomNewInfections -= PADDING_BAR * dp;
-					niToDraw -= cc;
-				}
-				float topNewInfections = bottomNewInfections - bottom * (niToDraw / maxYValue);
-				canvas.drawRect(left, topNewInfections, right, bottomNewInfections, newInfectionsPaint);
+				float topNewInfections = bottom - (bottom * (niToDraw / maxYValue));
+				canvas.drawRect(left, topNewInfections, right, bottom, newInfectionsPaint);
 			}
 
 			// Prepare drawing average-new-infections line
 			float avgX = left + WIDTH_BAR * dp / 2;
-			float avgY = 0;
+			float avgY;
 			if (niavg != null) {
 				avgY = bottom - bottom * (niavg * 1F / maxYValue);
 				if (prevValueMissing) {

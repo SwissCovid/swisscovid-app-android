@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<ImageView
+		android:id="@+id/stats_details_info_close_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end"
+		android:foreground="?android:selectableItemBackground"
+		android:padding="@dimen/spacing_medium_large"
+		android:src="@drawable/ic_close"
+		tools:tint="@color/blue_main" />
+
+	<TextView
+		android:id="@+id/stats_details_subtitle"
+		style="@style/NextStep.Text.Bold"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingHorizontal="@dimen/spacing_larger"
+		tools:text="@string/stats_info_popup_title"
+		tools:textColor="@color/blue_main" />
+
+	<TextView
+		android:id="@+id/stats_details_title"
+		style="@style/NextStep.Text.Title.Dark"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/spacing_very_small"
+		android:layout_marginBottom="@dimen/spacing_medium_large"
+		android:gravity="start"
+		android:paddingHorizontal="@dimen/spacing_larger"
+		tools:text="@string/stats_info_popup_subtitle_covidcodes" />
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingBottom="@dimen/spacing_larger">
+
+		<LinearLayout
+			android:id="@+id/stats_details_sections"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingHorizontal="@dimen/spacing_larger">
+
+			<!-- @layout/item_stats_details_section -->
+
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

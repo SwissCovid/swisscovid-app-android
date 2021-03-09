@@ -9,109 +9,184 @@
   -->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:background="@color/stats_diagram_background"
-	android:minHeight="@dimen/stats_diagram_height">
+	android:minHeight="@dimen/stats_diagram_height"
+	tools:background="@color/white">
 
 	<!-- diagram view -->
 
-	<LinearLayout
-		android:id="@+id/diagram_box"
-		android:layout_width="match_parent"
-		android:layout_height="@dimen/stats_diagram_height"
-		android:layout_marginBottom="@dimen/stats_diagram_padding_bottom"
-		android:orientation="horizontal">
-
-		<FrameLayout
-			android:layout_width="0dp"
-			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:layout_marginTop="@dimen/stats_diagram_padding_top">
-
-			<ch.admin.bag.dp3t.stats.DiagramView
-				android:id="@+id/diagram_view"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent" />
-
-			<HorizontalScrollView
-				android:id="@+id/diagram_scroll_view"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:nestedScrollingEnabled="true">
-
-				<!-- Forces the HorizontalScrollView to the width that the DiagramView needs -->
-				<View
-					android:id="@+id/scroll_view_widener"
-					android:layout_width="0dp"
-					android:layout_height="match_parent" />
-
-			</HorizontalScrollView>
-		</FrameLayout>
-
-		<!-- Top margin is part of drawing. This avoids cases where - when the maximum label -->
-		<!-- is at the very top - the upper half of the label is cut off. -->
-		<ch.admin.bag.dp3t.stats.DiagramYAxisView
-			android:id="@+id/diagram_y_axis_view"
-			android:layout_width="wrap_content"
-			android:layout_height="match_parent" />
-	</LinearLayout>
-
-	<!-- error view -->
+	<ImageButton
+		android:id="@+id/stats_cases_info_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="top|end"
+		android:background="@drawable/ripple_button"
+		android:padding="@dimen/spacing_small"
+		android:src="@drawable/ic_info_black_outlined"
+		android:tint="@color/purple_main" />
 
 	<LinearLayout
-		android:id="@+id/error_view"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_marginTop="@dimen/spacing_small"
-		android:layout_marginBottom="@dimen/spacing_small"
-		android:background="@color/stats_diagram_background"
-		android:gravity="center_horizontal"
-		android:orientation="vertical"
-		android:paddingStart="@dimen/spacing_large"
-		android:paddingEnd="@dimen/spacing_large">
-
-		<ImageView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/spacing_large"
-			android:src="@drawable/ic_info"
-			android:tint="@color/dark_main" />
+		android:layout_height="wrap_content"
+		android:paddingBottom="@dimen/spacing_large"
+		android:orientation="vertical">
 
 		<TextView
+			android:id="@+id/stats_cases_title"
 			style="@style/NextStep.Text.Title.Dark"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/spacing_small"
 			android:gravity="center"
-			android:text="@string/loading_view_error_title" />
+			android:text="@string/stats_cases_title" />
 
 		<TextView
-			style="@style/NextStep.Text.Dark"
+			android:id="@+id/stats_cases_subtitle"
+			style="@style/NextStep.Text.SubTitle.Dark"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="@string/stats_cases_subtitle"
+			android:fontFamily="@font/inter_light" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<LinearLayout
+				android:id="@+id/stats_cases_seven_day_average"
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:minHeight="@dimen/stats_metric_box_height"
+				android:layout_marginStart="@dimen/spacing_small"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:layout_marginEnd="@dimen/spacing_tiny_small"
+				android:layout_weight="1"
+				android:background="@drawable/bg_rounded_grey_light"
+				android:gravity="center"
+				android:orientation="vertical"
+				android:padding="@dimen/spacing_medium">
+
+				<TextView
+					android:id="@+id/stats_cases_seven_day_average_value"
+					style="@style/NextStep.Text.Title.Purple"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					tools:text="1630" />
+
+				<TextView
+					android:id="@+id/stats_cases_seven_day_average_label"
+					style="@style/NextStep.Text.Small.Purple"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:fontFamily="@font/inter_regular"
+					android:gravity="center"
+					android:text="@string/stats_cases_7day_average_label" />
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/stats_cases_previous_week_change"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:minHeight="@dimen/stats_metric_box_height"
+				android:layout_marginStart="@dimen/spacing_tiny_small"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:layout_marginEnd="@dimen/spacing_small"
+				android:layout_weight="1"
+				android:background="@drawable/bg_rounded_grey_light"
+				android:gravity="center"
+				android:orientation="vertical"
+				android:padding="@dimen/spacing_medium">
+
+				<TextView
+					android:id="@+id/stats_cases_previous_week_change_value"
+					style="@style/NextStep.Text.Title.Purple"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:text="-17%" />
+
+				<TextView
+					android:id="@+id/stats_cases_previous_week_change_label"
+					style="@style/NextStep.Text.Small.Purple"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/stats_cases_rel_prev_week_label"
+					android:fontFamily="@font/inter_regular"
+					app:layout_constraintTop_toBottomOf="@+id/stats_covidcodes_title" />
+			</LinearLayout>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/diagram_box"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/stats_diagram_height"
+			android:layout_marginBottom="@dimen/stats_diagram_padding_bottom"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:layout_marginTop="@dimen/spacing_large"
+			android:orientation="horizontal">
+
+			<FrameLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_marginTop="@dimen/stats_diagram_padding_top"
+				android:layout_weight="1">
+
+				<ch.admin.bag.dp3t.stats.DiagramView
+					android:id="@+id/diagram_view"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent" />
+
+				<HorizontalScrollView
+					android:id="@+id/diagram_scroll_view"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:nestedScrollingEnabled="true">
+
+					<!-- Forces the HorizontalScrollView to the width that the DiagramView needs -->
+					<View
+						android:id="@+id/scroll_view_widener"
+						android:layout_width="0dp"
+						android:layout_height="match_parent" />
+
+				</HorizontalScrollView>
+			</FrameLayout>
+
+			<!-- Top margin is part of drawing. This avoids cases where - when the maximum label -->
+			<!-- is at the very top - the upper half of the label is cut off. -->
+			<ch.admin.bag.dp3t.stats.DiagramYAxisView
+				android:id="@+id/diagram_y_axis_view"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent" />
+		</LinearLayout>
+
+		<TextView
+			style="@style/NextStep.Text.Small.Purple"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_medium"
+			android:layout_marginHorizontal="@dimen/spacing_large"
+			android:drawableStart="@drawable/legend_new_infections"
+			android:drawablePadding="@dimen/spacing_small"
+			android:text="@string/stats_legend_new_infections" />
+
+		<TextView
+			style="@style/NextStep.Text.Small.Purple"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/spacing_very_small"
-			android:gravity="center"
-			android:text="@string/stats_loading_error_text" />
-
-		<TextView
-			android:id="@+id/button_retry"
-			style="@style/NextStep.Text.Bold"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/spacing_very_small"
-			android:background="?selectableItemBackground"
-			android:gravity="center"
-			android:padding="@dimen/spacing_small"
-			android:text="@string/loading_view_reload" />
+			android:layout_marginHorizontal="@dimen/spacing_large"
+			android:drawableStart="@drawable/legend_new_infections_avg"
+			android:drawablePadding="@dimen/spacing_small"
+			android:text="@string/stats_legend_new_infections_average" />
 	</LinearLayout>
 
-	<!-- loading view -->
-
-	<ProgressBar
-		android:id="@+id/progress_view"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center"
-		android:indeterminateTint="@color/blue_main" />
 </FrameLayout>

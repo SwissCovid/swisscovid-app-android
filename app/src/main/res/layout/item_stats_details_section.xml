@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/stats_details_section_title"
+		style="@style/NextStep.Text.Bold"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		tools:text="@string/stats_covidcodes_total_label" />
+
+	<TextView
+		android:id="@+id/stats_details_section_content"
+		style="@style/NextStep.Text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="@dimen/spacing_larger"
+		tools:text="@string/stats_covidcodes_total_description" />
+
+</LinearLayout>

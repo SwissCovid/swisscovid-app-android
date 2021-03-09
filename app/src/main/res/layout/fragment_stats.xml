@@ -13,7 +13,7 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<FrameLayout xmlns:tools="http://schemas.android.com/tools"
+	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
@@ -32,6 +32,7 @@
 			android:layout_height="match_parent">
 
 			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/stats_constraint_layout"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:paddingTop="@dimen/top_item_padding_stats"
@@ -45,6 +46,7 @@
 					app:layout_constraintGuide_begin="@dimen/stats_checkmark_size_half" />
 
 				<ImageView
+					android:id="@+id/stats_icon"
 					android:layout_width="@dimen/stats_checkmark_size"
 					android:layout_height="@dimen/stats_checkmark_size"
 					android:background="@drawable/bg_circle_white"
@@ -65,98 +67,57 @@
 					android:background="@color/white"
 					app:layout_constraintTop_toTopOf="@id/checkmark_guideline">
 
-					<LinearLayout
-						android:layout_width="match_parent"
-						android:layout_height="match_parent"
-						android:orientation="vertical"
-						android:paddingHorizontal="@dimen/spacing_medium"
-						android:paddingTop="@dimen/spacing_medium_large"
-						android:paddingBottom="@dimen/spacing_small">
-
-						<TextView
-							android:id="@+id/stats_total_active_users"
-							style="@style/NextStep.Text.Title.Dark.Mega"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:gravity="center"
-							tools:text="42.42 Mio." />
-
-						<TextView
-							android:id="@+id/stats_total_active_users_text"
-							style="@style/NextStep.Text.Blue"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:gravity="center"
-							android:text="@string/stats_title" />
-
-					</LinearLayout>
+					<include layout="@layout/layout_stats_active_users" />
 
 				</androidx.cardview.widget.CardView>
 
-				<androidx.cardview.widget.CardView
-					android:id="@+id/stats_diagram_card"
-					style="@style/NextStep.Card"
+				<!-- Without this FrameLayout, the alpha transition would have a gray background due to the card shadow -->
+				<FrameLayout
+					android:id="@+id/stats_covidcodes_card"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_medium"
-					android:layout_marginHorizontal="@dimen/spacing_medium_large"
-					android:background="@color/white"
+					android:clipToPadding="false"
+					android:paddingBottom="@dimen/spacing_medium"
 					app:layout_constraintTop_toBottomOf="@id/stats_active_users_card">
 
-					<LinearLayout
+					<androidx.cardview.widget.CardView
+						style="@style/NextStep.Card"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
-						android:orientation="vertical"
-						android:paddingHorizontal="@dimen/spacing_medium"
-						android:paddingTop="@dimen/spacing_medium_large"
-						android:paddingBottom="@dimen/spacing_small">
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="@dimen/spacing_medium_large"
+						android:layout_marginTop="@dimen/spacing_medium"
+						android:background="@color/white">
+
+						<include layout="@layout/layout_stats_covidcodes" />
+
+					</androidx.cardview.widget.CardView>
+				</FrameLayout>
+
+				<!-- Without this FrameLayout, the alpha transition would have a gray background due to the card shadow -->
+				<FrameLayout
+					android:id="@+id/stats_diagram_card"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:clipToPadding="false"
+					android:paddingBottom="@dimen/spacing_small"
+					app:layout_constraintTop_toBottomOf="@id/stats_covidcodes_card">
+
+					<androidx.cardview.widget.CardView
+						style="@style/NextStep.Card"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="@dimen/spacing_medium_large"
+						android:background="@color/white">
 
 						<include layout="@layout/layout_stats_diagram" />
-
-						<TextView
-							style="@style/NextStep.Text.Small.Purple"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_medium"
-							android:drawableStart="@drawable/legend_new_infections"
-							android:drawablePadding="@dimen/spacing_small"
-							android:text="@string/stats_legend_new_infections" />
-
-						<TextView
-							style="@style/NextStep.Text.Small.Purple"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_very_small"
-							android:drawableStart="@drawable/legend_new_infections_avg"
-							android:drawablePadding="@dimen/spacing_small"
-							android:text="@string/stats_legend_new_infections_average" />
-
-						<TextView
-							style="@style/NextStep.Text.Small.Blue"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_very_small"
-							android:drawableStart="@drawable/legend_entered_covidcodes"
-							android:drawablePadding="@dimen/spacing_small"
-							android:text="@string/stats_legend_entered_covidcodes" />
-
-						<TextView
-							android:id="@+id/last_updated"
-							style="@style/NextStep.Text.Small.GreyDark"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_medium_large"
-							android:gravity="end"
-							android:text="@string/stats_source_day" />
-					</LinearLayout>
-				</androidx.cardview.widget.CardView>
+					</androidx.cardview.widget.CardView>
+				</FrameLayout>
 
 				<LinearLayout
 					android:id="@+id/stats_more"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="@dimen/spacing_medium_large"
-					android:layout_marginTop="@dimen/spacing_small"
 					android:background="?selectableItemBackground"
 					android:gravity="center_vertical"
 					android:orientation="horizontal"

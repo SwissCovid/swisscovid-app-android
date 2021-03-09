@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	tools:background="@color/white">
+
+	<ImageButton
+		android:id="@+id/stats_covidcodes_info_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/ripple_button"
+		android:padding="@dimen/spacing_small"
+		android:src="@drawable/ic_info_black_outlined"
+		android:tint="@color/blue_main"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<TextView
+		android:id="@+id/stats_covidcodes_title"
+		style="@style/NextStep.Text.Title.Dark"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="@dimen/spacing_small"
+		android:layout_marginTop="@dimen/spacing_small"
+		android:gravity="center"
+		android:text="@string/stats_covidcodes_title"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<LinearLayout
+		android:id="@+id/stats_covidcodes_total"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/spacing_small"
+		android:layout_marginTop="@dimen/spacing_small"
+		android:layout_marginEnd="@dimen/spacing_tiny_small"
+		android:layout_marginBottom="@dimen/spacing_small"
+		android:background="@drawable/bg_rounded_grey_light"
+		android:gravity="center"
+		android:minHeight="@dimen/stats_metric_box_height"
+		android:orientation="vertical"
+		android:padding="@dimen/spacing_medium"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/stats_covidcodes_two_days"
+		app:layout_constraintHorizontal_chainStyle="packed"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/stats_covidcodes_title">
+
+		<TextView
+			android:id="@+id/stats_covidcodes_total_title"
+			style="@style/NextStep.Text.Small.Bold"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="@string/stats_covidcodes_total_header"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/stats_covidcodes_total_value"
+			style="@style/NextStep.Text.Title.Blue"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:text="59 352" />
+
+		<TextView
+			android:id="@+id/stats_covidcodes_total_label"
+			style="@style/NextStep.Text.Small.Blue"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:fontFamily="@font/inter_regular"
+			android:gravity="center"
+			android:text="@string/stats_covidcodes_total_label"
+			app:layout_constraintTop_toBottomOf="@+id/stats_covidcodes_title" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/stats_covidcodes_two_days"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/spacing_tiny_small"
+		android:layout_marginEnd="@dimen/spacing_small"
+		android:background="@drawable/bg_rounded_grey_light"
+		android:gravity="center"
+		android:minHeight="@dimen/stats_metric_box_height"
+		android:orientation="vertical"
+		android:padding="@dimen/spacing_medium"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/stats_covidcodes_total"
+		app:layout_constraintTop_toTopOf="@+id/stats_covidcodes_total">
+
+		<TextView
+			android:id="@+id/stats_covidcodes_two_days_title"
+			style="@style/NextStep.Text.Small.Bold"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="@string/stats_covidcodes_0to2days_header"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/stats_covidcodes_two_days_value"
+			style="@style/NextStep.Text.Title.Blue"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:text="59 %" />
+
+		<TextView
+			android:id="@+id/stats_covidcodes_two_days_label"
+			style="@style/NextStep.Text.Small.Blue"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:fontFamily="@font/inter_regular"
+			android:gravity="center"
+			android:text="@string/stats_covidcodes_0to2days_label"
+			app:layout_constraintTop_toBottomOf="@+id/stats_covidcodes_title" />
+	</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -90,6 +90,7 @@
 	<dimen name="stats_checkmark_size">46dp</dimen>
 	<dimen name="stats_checkmark_size_half">23dp</dimen>
 	<dimen name="stats_share_app_icon_size">16dp</dimen>
+	<dimen name="stats_metric_box_height">72dp</dimen>
 
 	<dimen name="divider_height">1dp</dimen>
 </resources>
