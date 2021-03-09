@@ -385,14 +385,13 @@ public class HomeFragment extends Fragment {
 			@Override
 			public void onChanged(TracingStatusInterface tracingStatusInterface) {
 				long isolationEndDialogTimestamp = secureStorage.getIsolationEndDialogTimestamp();
-				if (isolationEndDialogTimestamp != -1L && System.currentTimeMillis() > isolationEndDialogTimestamp) {
+				if (isolationEndDialogTimestamp != -1L && System.currentTimeMillis() > isolationEndDialogTimestamp &&
+						tracingStatusInterface.isReportedAsInfected()) {
 					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
 							.setTitle(R.string.homescreen_isolation_ended_popup_title)
 							.setMessage(R.string.homescreen_isolation_ended_popup_text)
 							.setPositiveButton(R.string.answer_yes, (dialog, which) -> {
-								if (tracingStatusInterface.isReportedAsInfected()) {
-									tracingStatusInterface.resetInfectionStatus(getContext());
-								}
+								tracingStatusInterface.resetInfectionStatus(getContext());
 								secureStorage.setIsolationEndDialogTimestamp(-1L);
 							})
 							.setNegativeButton(R.string.answer_no, (dialog, which) -> {
