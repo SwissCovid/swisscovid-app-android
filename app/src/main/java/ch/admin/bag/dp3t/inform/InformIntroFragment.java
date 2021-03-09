@@ -14,9 +14,14 @@ import android.view.View;
 import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.helper.widget.Flow;
 import androidx.fragment.app.Fragment;
 
+import java.util.List;
+
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.travel.TravelUtils;
 
 public class InformIntroFragment extends Fragment {
 
@@ -35,6 +40,11 @@ public class InformIntroFragment extends Fragment {
 			getActivity().finish();
 		});
 		((InformActivity) requireActivity()).allowBackButton(true);
+
+		SecureStorage secureStorage = SecureStorage.getInstance(getContext());
+		List<String> countries = secureStorage.getInteropCountries();
+		Flow flowConstraint = view.findViewById(R.id.inform_intro_travel_flags_flow);
+		TravelUtils.inflateFlagFlow(flowConstraint, countries);
 
 		Button continueButton = view.findViewById(R.id.inform_intro_button_continue);
 		continueButton.setOnClickListener(v -> {

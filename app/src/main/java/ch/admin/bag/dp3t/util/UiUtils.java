@@ -10,6 +10,7 @@
 
 package ch.admin.bag.dp3t.util;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.util.TypedValue;
 import androidx.annotation.NonNull;
@@ -22,6 +23,10 @@ public class UiUtils {
 
 	public static float computeScrollAnimProgress(int scrollY, int scrollRange) {
 		return Math.min(scrollY, scrollRange) / (float) scrollRange;
+	}
+
+	public static int getDrawableResourceByName(Context context, String idName) {
+		return context.getResources().getIdentifier(idName, "drawable", context.getPackageName());
 	}
 
 }

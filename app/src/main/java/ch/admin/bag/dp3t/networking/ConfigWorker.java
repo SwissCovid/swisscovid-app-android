@@ -38,7 +38,7 @@ import ch.admin.bag.dp3t.util.NotificationUtil;
 public class ConfigWorker extends Worker {
 
 	private static final int REPEAT_INTERVAL_CONFIG_HOURS = 6;
-	private static final long MAX_AGE_OF_CONFIG_FOR_RELOAD_AT_APP_START = 12 * 60 * 60 * 1000l;//12h
+	private static final long MAX_AGE_OF_CONFIG_FOR_RELOAD_AT_APP_START = 12 * 60 * 60 * 1000L; //12h
 
 	private static final String TAG = "ConfigWorker";
 	private static final String WORK_TAG = "ch.admin.bag.dp3t.ConfigWorker";
@@ -114,6 +114,8 @@ public class ConfigWorker extends Worker {
 		}
 
 		secureStorage.setTestLocations(config.getTestLocations());
+
+		secureStorage.setInteropCountries(config.getInterOpsCountries());
 
 		boolean forceUpdate = secureStorage.getDoForceUpdate();
 		if (forceUpdate) {

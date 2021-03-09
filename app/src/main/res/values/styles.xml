@@ -63,6 +63,10 @@
 	<style name="NextStep.Text.Small.Light">
 		<item name="android:textColor">@color/anthracite_lighter</item>
 	</style>
+a
+	<style name="NextStep.Text.Small.Anthracite">
+		<item name="android:textColor">@color/anthracite</item>
+	</style>
 
 	<style name="NextStep.Text.Small.Purple">
 		<item name="android:textColor">@color/purple_main</item>

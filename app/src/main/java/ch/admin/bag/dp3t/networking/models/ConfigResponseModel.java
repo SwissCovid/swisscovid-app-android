@@ -19,6 +19,7 @@ public class ConfigResponseModel {
 	private WhatToDoPositiveTestTextsCollection whatToDoPositiveTestTexts;
 	private SdkConfigModel androidGaenSdkConfig;
 	private Map<String, List<TestLocationModel>> testLocations;
+	private List<String> interOpsCountries;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -43,6 +44,10 @@ public class ConfigResponseModel {
 
 	public Map<String, List<TestLocationModel>> getTestLocations() {
 		return testLocations;
+	}
+
+	public List<String> getInterOpsCountries() {
+		return interOpsCountries;
 	}
 
 }
