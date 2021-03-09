@@ -10,7 +10,6 @@
 package ch.admin.bag.dp3t.networking
 
 import android.content.Context
-import android.util.Log
 import androidx.work.*
 import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.networking.errors.ResponseError
@@ -56,21 +55,18 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 
 		@JvmStatic
 		fun safeStartFakeWorker(context: Context) {
-			val activeWorkList = WorkManager.getInstance(context).getWorkInfosByTag(WORK_TAG).get()
-			if (activeWorkList.any { it.state != WorkInfo.State.CANCELLED }) {
-				Log.d(TAG, "worker already scheduled")
-				return
-			}
-
+			val secureStorage = SecureStorage.getInstance(context)
 			var t_dummy = SecureStorage.getInstance(context).tDummy
 			if (t_dummy == -1L) {
 				t_dummy = clock.currentTimeMillis() + clock.syncInterval()
-				SecureStorage.getInstance(context).tDummy = t_dummy
+				secureStorage.tDummy = t_dummy
 			}
-			scheduleFakeWorker(WORK_NAME_PING, context, t_dummy)
+			scheduleFakeWorker(context, t_dummy, secureStorage.scheduledFakeWorkerName ?: WORK_NAME_PING)
 		}
 
-		private fun scheduleFakeWorker(workName: String, context: Context, t_dummy: Long) {
+		private fun scheduleFakeWorker(context: Context, t_dummy: Long, workName: String) {
+			val secureStorage = SecureStorage.getInstance(context)
+			secureStorage.scheduledFakeWorkerName = workName
 			val now = clock.currentTimeMillis()
 			val executionDelay = max(0L, t_dummy - now)
 			val executionDelayDays = executionDelay.toDouble() / FACTOR_DAY_MILLIS
@@ -129,7 +125,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 	private fun scheduleNext(t_dummy: Long) {
 		val currentWorkName = inputData.getString(ARG_WORK_NAME)
 		val nextWorkName = if (currentWorkName == WORK_NAME_PING) WORK_NAME_PONG else WORK_NAME_PING
-		scheduleFakeWorker(nextWorkName, applicationContext, t_dummy)
+		scheduleFakeWorker(applicationContext, t_dummy, nextWorkName)
 	}
 
 	private fun executeFakeRequest(context: Context): Boolean {

@@ -71,6 +71,7 @@ public class SecureStorage {
 	private static final String KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING = "appOpenAfterNotificationPending";
 	private static final String KEY_ISOLATION_END_DIALOG_TIMESTAMP = "isolation_end_dialog_timestamp";
 	private static final String KEY_APP_VERSION_CODE = "app_version_code";
+	private static final String KEY_SCHEDULED_FAKE_WORKER_NAME = "scheduled_fake_worker_name";
 
 	private static SecureStorage instance;
 
@@ -367,6 +368,14 @@ public class SecureStorage {
 
 	public int getLastKnownAppVersionCode() {
 		return prefs.getInt(KEY_APP_VERSION_CODE, -1);
+	}
+
+	public void setScheduledFakeWorkerName(String workerName) {
+		prefs.edit().putString(KEY_SCHEDULED_FAKE_WORKER_NAME, workerName).apply();
+	}
+
+	public String getScheduledFakeWorkerName() {
+		return prefs.getString(KEY_SCHEDULED_FAKE_WORKER_NAME, null);
 	}
 
 }
