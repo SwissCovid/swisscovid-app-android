@@ -109,7 +109,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 					Logger.d(TAG, "finished with success")
 				} else {
 					Logger.e(TAG, "failed")
-					scheduleNext(t_dummy)
+					scheduleNext(clock.currentTimeMillis()+TimeUnit.MINUTES.toMillis(30))
 					return@withContext Result.failure()
 				}
 			} else {
