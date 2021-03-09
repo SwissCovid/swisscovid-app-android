@@ -10,7 +10,7 @@
 
 plugins {
 	id 'com.android.application'
-	id "org.sonarqube" version "2.8"
+	id 'kotlin-android'
 }
 
 apply from: 'backend_certs.gradle'
@@ -136,6 +136,10 @@ android {
 	compileOptions {
 		sourceCompatibility = 1.8
 		targetCompatibility = 1.8
+	}
+
+	kotlinOptions {
+		jvmTarget = "1.8"
 	}
 }
 

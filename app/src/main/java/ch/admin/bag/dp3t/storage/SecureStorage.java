@@ -70,6 +70,7 @@ public class SecureStorage {
 	private static final String KEY_INTEROP_COUNTRIES = "interop_countries";
 	private static final String KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING = "appOpenAfterNotificationPending";
 	private static final String KEY_ISOLATION_END_DIALOG_TIMESTAMP = "isolation_end_dialog_timestamp";
+	private static final String KEY_APP_VERSION_CODE = "app_version_code";
 
 	private static SecureStorage instance;
 
@@ -358,6 +359,14 @@ public class SecureStorage {
 
 	public void setIsolationEndDialogTimestamp(long timestamp) {
 		prefs.edit().putLong(KEY_ISOLATION_END_DIALOG_TIMESTAMP, timestamp).apply();
+	}
+
+	public void setLastKnownAppVersionCode(int versionCode) {
+		prefs.edit().putInt(KEY_APP_VERSION_CODE, versionCode).apply();
+	}
+
+	public int getLastKnownAppVersionCode() {
+		return prefs.getInt(KEY_APP_VERSION_CODE, -1);
 	}
 
 }
