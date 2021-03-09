@@ -100,6 +100,8 @@ public class MainApplication extends Application {
 		DP3T.setUserAgent(
 				() -> context.getPackageName() + ";" + BuildConfig.VERSION_NAME + ";" + BuildConfig.BUILD_TIME + ";Android;" +
 						Build.VERSION.SDK_INT + ";" + DP3T.getENModuleVersion(context));
+
+		DP3T.setWithFederationGateway(context, true);
 	}
 
 	private BroadcastReceiver contactUpdateReceiver = new BroadcastReceiver() {
