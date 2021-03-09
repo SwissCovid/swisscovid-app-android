@@ -250,7 +250,7 @@ Në këtë mënyrë na ndihmoni, për të ndaluar zinxhirin e infeksionit."</str
     <string name="meldung_detail_positive_tested_title">"Pozitiv në test"</string>
 
     <!-- Meldung Detail: Positiv Getestet Subtitel -->
-    <string name="meldung_detail_positive_tested_subtitle">"Ju keni rezultuar pozitiv me koronavirusin e ri."</string>
+    <string name="meldung_detail_positive_tested_subtitle">"Ju keni rezultuar pozitiv me koronavirusin."</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
     <string name="meldung_detail_positive_test_box_subtitle">"Çfarë nevojitet të bëj?"</string>
@@ -275,7 +275,9 @@ Në këtë mënyrë na ndihmoni, për të ndaluar zinxhirin e infeksionit."</str
 
     <!-- Meldung Detail Exposed Subtitel -->
     <string name="meldung_detail_exposed_subtitle">"Ekziston dyshimi i një infeksioni të mundshëm."</string>
-    <string name="meldung_homescreen_positiv_text">"Ju keni rezultuar pozitiv me koronavirusin e ri."</string>
+
+    <!-- Meldung auf Homescreen: Positiv getestet -->
+    <string name="meldung_homescreen_positiv_text">"Ju keni rezultuar pozitiv me koronavirusin."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
     <string name="reset_onboarding">"Rivendos onboarding"</string>
@@ -326,10 +328,10 @@ Linja e informimit SwissCovid
 virusit"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"Me aplikacionin Swiss Covid të gjithë ne mund të ndihmojmë për të frenuar përhapjen e koronavirusit të ri."</string>
+    <string name="onboarding_prinzip_text1">"Me aplikacionin Swiss Covid të gjithë ne mund të ndihmojmë për të frenuar përhapjen e koronavirusin."</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text2">"Aplikacioni ju informon nëse jeni ekspozuar potencialisht me koronavirusin e ri."</string>
+    <string name="onboarding_prinzip_text2">"Aplikacioni ju informon nëse jeni ekspozuar potencialisht me koronavirusin."</string>
 
     <!-- Onboarding Privacy: Titel oben -->
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
@@ -364,7 +366,7 @@ falë Bluetooth"</string>
 infeksioni të mundshëm"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"Aplikacioni ju informon nëse jeni ekspozuar potencialisht me koronavirusin e ri."</string>
+    <string name="onboarding_meldung_text1">"Aplikacioni ju informon nëse jeni ekspozuar potencialisht me koronavirusin."</string>
 
     <!-- Onboarding Meldung: Text -->
     <string name="onboarding_meldung_text2">"Me sjelljen e duhur ju mund të ndërprisni zinxhirin e infeksionit dhe të mbroni të tjerët."</string>
@@ -624,8 +626,7 @@ Biseda e konsultës është falas, aplikohen vetëm tarifat e telefonit."</strin
     <string name="inform_detail_faq1_title">"Çfarë është një kod Covid?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <!-- Fuzzy -->
-    <string name="inform_detail_faq1_text">"Personat që kanë rezultuar pozitivë me koronavirusin e ri marrin një kod Covid.
+    <string name="inform_detail_faq1_text">"Personat që kanë rezultuar pozitivë me koronavirusin marrin një kod Covid.
 
 Në këtë mënyrë sigurohet që nga aplikacioni të sinjalizohen vetëm rastet e konfirmuara."</string>
 
@@ -650,7 +651,7 @@ Në këtë mënyrë mësoni përdoruesit e tjerë të alikacionit SwissCovid, t�
     <string name="inform_code_intro_text">"Edhe pse nuk dërgohet asnjë e dhënë personale, mund të ndodhë që dikush mund të kujtohet për kontaktin me anë të datës."</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
-    <string name="inform_code_intro_button">"Kuptova"</string>
+    <string name="inform_code_intro_button">"Pranoj"</string>
 
     <!-- Symptome: FAQ Titel -->
     <string name="symptom_faq1_title">"Çfarë simptomash ka COVID-19?"</string>
@@ -920,22 +921,26 @@ Schwarzenburgstrasse 157
     <string name="infobox_close_button_accessibility">"Mbyll"</string>
 
     <!-- Title for the Home View Travel Card. -->
-    <string name="travel_title"></string>
+    <string name="travel_title">"Udhëtimi"</string>
 
-    <!-- Info text that is displayed on the Home Travel Card. -->
-    <string name="travel_home_description"></string>
+    <!-- Info text that is displayed  on the Home Travel Card. -->
+    <string name="travel_home_description">"SwissCovid punon në shtetet më poshtë:"</string>
 
-    <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_1"></string>
+    <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_1">"Cfarë do të thotë kjo?"</string>
 
-    <!-- First text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1"></string>
+    <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_1">"Nëse do të udhëtoni në një nga shtetet e përfshira, nuk keni nevojë të instaloni asnjë aplikacion tjetër për koronavirusin.
 
-    <!-- Second title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_2"></string>
+SwissCovid kontrollon kartat e identitetit në mënyrë rastësore që janë krijuar në shtetet e përfshira. Në këtë mënyrë, ju mund të paralajmëroheni edhe për një infeksion të mundshëm jashtë vendit."</string>
 
-    <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2"></string>
+    <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_2">"Çfarë ndodh kur regjistron kodin Covid?"</string>
+
+    <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_2">"Kur regjistroni kodin Covid, kartat e identitetit që dërgoni do të shpërndahen gjithashtu me shtetet e përfshira.
+
+Në mënyrë që udhëtarët nga jashtë shtetit të mund të paralajmërohen, kjo bëhet pavarësisht nëse keni qenë vetë jashtë shtetit ose jo."</string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
     <string name="accessibility_faq_button_hint_non_bag">"Ky buton ju largon nga aplikacioni dhe hap një faqe interneti."</string>
@@ -1179,7 +1184,7 @@ Schwarzenburgstrasse 157
     <string name="test_location_popup_title">"Ku mund të bëj një test?"</string>
 
     <!-- Test standorte Popup Text -->
-    <string name="test_location_popup_text">"Ju mund të testoheni për koronavirusin e ri në mjekë, qendra provash, spitale dhe farmaci të ndryshme. Informacioni në lidhje me ofertat e testeve mund të gjenden në faqet e internetit të kantonit:"</string>
+    <string name="test_location_popup_text">"Ju mund të testoheni për koronavirusin në mjekë, qendra provash, spitale dhe farmaci të ndryshme. Informacioni në lidhje me ofertat e testeve mund të gjenden në faqet e internetit të kantonit:"</string>
 
     <!-- Notification Channel name for Tracing Reactivation Reminders on Android Devices (Only visible in System Settings) -->
     <string name="android_reminder_channel_name">"Përkujtues i aktivizimit të gjurmuesit"</string>
@@ -1270,55 +1275,59 @@ Gjurmimi mund të riaktivizohet pas izolimit."</string>
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
 
     <!-- text for info box pop up for the hearing impaired -->
-    <string name="hearing_impaired_info"></string>
+    <string name="hearing_impaired_info">"A jeni i shurdhër ose keni probleme dëgjimi dhe nuk mund të telefononi linjën telefonike për koronavirusin Infoline Coronavirus?
+
+Atëherë na dërgoni një email te covid-support@medgate.ch"</string>
 
     <!-- Überschrift des Covidcodes-Statistik-Moduls -->
-    <string name="stats_covidcodes_title"></string>
+    <string name="stats_covidcodes_title">"Kodet Covid"</string>
 
     <!-- Überschrift des Fallzahlen-Statistik Moduls -->
-    <string name="stats_cases_title"></string>
+    <string name="stats_cases_title">"Numrat e rasteve"</string>
 
     <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
-    <string name="stats_cases_subtitle"></string>
+    <string name="stats_cases_subtitle">"Raste aktuale"</string>
 
     <!-- Label der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_label"></string>
+    <string name="stats_covidcodes_total_label">"të regjistruara"</string>
 
     <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_label"></string>
+    <string name="stats_covidcodes_0to2days_label">"brenda 0-2 ditëve"</string>
 
     <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_label"></string>
+    <string name="stats_cases_7day_average_label">"Mesatarja 7 ditore"</string>
 
     <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_label"></string>
+    <string name="stats_cases_rel_prev_week_label">"në javën e mëparshme"</string>
 
     <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
-    <string name="stats_info_popup_title"></string>
+    <string name="stats_info_popup_title">"Detaje mbi numrat"</string>
 
     <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
-    <string name="stats_info_popup_subtitle_covidcodes"></string>
+    <string name="stats_info_popup_subtitle_covidcodes">"Kodet Covid të regjistruara"</string>
 
     <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
-    <string name="stats_info_popup_subtitle_cases"></string>
+    <string name="stats_info_popup_subtitle_cases">"Numrat e rasteve"</string>
 
     <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_description"></string>
+    <string name="stats_covidcodes_total_description">"Numri i rasteve Covid të regjistruara që kur aplikacioni SwissCovid filloi në qershor të vitit 2020. Ky është numri sa njerëz kanë njoftuar kontaktet e tyre për infeksion të mundshëm përmes aplikacionit."</string>
 
     <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_description"></string>
+    <string name="stats_covidcodes_0to2days_description">"Raporti i kodeve Covid të regjistruara brenda dy ditëve të para pas shfaqjes së simptomave. Kjo përqindje lidhet me 7 ditët e fundit.
+
+Koha është faktor vendimtar në luftën ndaj koronavirusit: sa më e shkurtër të jetë koha nga fillimi i simptomave, rezultatit të testit dhe regjistrimit të kodit Covid, aq më shpejt kontaktet e njoftuara mund të qëndrojnë në shtëpi dhe të mbrojnë të tjerët."</string>
 
     <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_description"></string>
+    <string name="stats_cases_7day_average_description">"Tregon mesataren e infeksioneve të reja të raportuara në ditë për 7 ditë."</string>
 
     <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_description"></string>
+    <string name="stats_cases_rel_prev_week_description">"Tregon ndryshimin në mesataren 7-ditore në krahasim me një javë më parë."</string>
 
     <!-- Label der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_label"></string>
+    <string name="stats_cases_current_label">"Raste aktuale"</string>
 
     <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_description"></string>
+    <string name="stats_cases_current_description">"Grafiku tregon infeksionet e reja të raportuara gjatë 28 ditëve të fundit. Kjo jep një pasqyrë të rasteve aktuale."</string>
 
     <!-- Inform Detail: Infobox Text -->
     <string name="inform_detail_infobox1_text">"Keni rezultuar pozitiv në testim dhe pas 4 orësh nuk keni marrë ende asnjë kod Covid? Atëherë kontaktoni linjën e informacionit për kodin Covid:"</string>
@@ -1327,32 +1336,32 @@ Gjurmimi mund të riaktivizohet pas izolimit."</string>
     <string name="inform_detail_infobox1_title">"Nuk keni marrë ende asnjë kod Covid?"</string>
 
     <!-- Titel des Popups mit der Frage, ob der User die Isolation beendet hat -->
-    <string name="homescreen_isolation_ended_popup_title"></string>
+    <string name="homescreen_isolation_ended_popup_title">"A e keni mbaruar periudhën tuaj të izolimit?"</string>
 
     <!-- Text des Popups mit der Frage, ob der User die Isolation beendet hat -->
-    <string name="homescreen_isolation_ended_popup_text"></string>
+    <string name="homescreen_isolation_ended_popup_text">"Gjurmimi mund të riaktivizohet sapo të keni mbaruar periudhën e izolimit."</string>
 
     <!-- Ja-Antwort -->
-    <string name="answer_yes"></string>
+    <string name="answer_yes">"Po"</string>
 
     <!-- Nein-Antwort -->
-    <string name="answer_no"></string>
+    <string name="answer_no">"Jo"</string>
 
     <!-- Text in der Infobox auf dem Reisen-Screen -->
-    <string name="travel_screen_info"></string>
+    <string name="travel_screen_info">"Udhëtim jashtë shtetit? SwissCovid punon në këto shtete."</string>
 
     <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
-    <string name="travel_screen_compatible_countries"></string>
+    <string name="travel_screen_compatible_countries">"Shtetet e përfshira:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text"></string>
+    <string name="inform_code_travel_text">"Në mënyrë që udhëtarët nga jashtë shtetit të mund të paralajmërohen, kartat e identitetit shpërndahen me aplikacionet për koronavirusin të vendeve të përfshira."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
-    <string name="stats_covidcodes_total_header"></string>
+    <string name="stats_covidcodes_total_header">"Total"</string>
 
     <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_header"></string>
+    <string name="stats_covidcodes_0to2days_header">"Aktual"</string>
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
-    <string name="stats_cases_rel_prev_week_popup_header"></string>
+    <string name="stats_cases_rel_prev_week_popup_header">"Ndryshimi me javën e mëparshme"</string>
 </resources>

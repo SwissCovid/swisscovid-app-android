@@ -277,6 +277,8 @@ Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
     <string name="meldung_detail_exposed_subtitle">"Es besteht die Möglichkeit einer Ansteckung."</string>
+
+    <!-- Meldung auf Homescreen: Positiv getestet -->
     <string name="meldung_homescreen_positiv_text">"Sie wurden positiv auf das Coronavirus getestet."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
@@ -943,23 +945,23 @@ Schwarzenburgstrasse 157
     <!-- Title for the Home View Travel Card. -->
     <string name="travel_title">"Reisen"</string>
 
-    <!-- Info text that is displayed on the Home Travel Card. -->
+    <!-- Info text that is displayed  on the Home Travel Card. -->
     <string name="travel_home_description">"SwissCovid funktioniert in den folgenden Ländern:"</string>
 
-    <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
+    <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
     <!-- Fuzzy -->
     <string name="travel_screen_explanation_title_1">"Was bedeutet das?"</string>
 
-    <!-- First text for the travel feature explanation at the bottom of the travel screen. -->
+    <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
     <!-- Fuzzy -->
     <string name="travel_screen_explanation_text_1">"Wenn Sie in einem der kompatiblen Länder unterwegs sind, müssen Sie keine andere Corona-App installieren.
 
 SwissCovid überprüft die in den kompatiblen Ländern veröffentlichten zufälligen IDs. So können Sie auch bei einer möglichen Ansteckung im Ausland gewarnt werden."</string>
 
-    <!-- Second title for the travel feature explanation at the bottom of the travel screen. -->
+    <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"Was geschieht bei Eingabe des Covidcodes?"</string>
 
-    <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
+    <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_text_2">"Bei der Eingabe des Covidcodes werden die von Ihnen gesendeten zufälligen IDs auch mit den kompatiblen Ländern geteilt.
 
 Damit auch Reisende aus dem Ausland gewarnt werden können, geschieht das unabhängig davon, ob Sie selber im Ausland unterwegs waren oder nicht."</string>

@@ -250,7 +250,7 @@ De esta forma, está ayudando a parar las cadenas de contagio."</string>
     <string name="meldung_detail_positive_tested_title">"Test positivo"</string>
 
     <!-- Meldung Detail: Positiv Getestet Subtitel -->
-    <string name="meldung_detail_positive_tested_subtitle">"Ha dado usted positivo en el test del nuevo coronavirus"</string>
+    <string name="meldung_detail_positive_tested_subtitle">"Ha dado usted positivo en el test del  coronavirus"</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
     <string name="meldung_detail_positive_test_box_subtitle">"¿Qué debo hacer?"</string>
@@ -275,7 +275,9 @@ De esta forma, está ayudando a parar las cadenas de contagio."</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
     <string name="meldung_detail_exposed_subtitle">"Existe la posibilidad de un contagio."</string>
-    <string name="meldung_homescreen_positiv_text">"A dado usted positivo en el test del nuevo coronavirus"</string>
+
+    <!-- Meldung auf Homescreen: Positiv getestet -->
+    <string name="meldung_homescreen_positiv_text">"A dado usted positivo en el test del  coronavirus"</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
     <string name="reset_onboarding">"Reiniciar onboarding"</string>
@@ -361,7 +363,7 @@ Infoline SwissCovid
     <string name="onboarding_meldung_title">"Notificación de un posible contagio"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"La aplicación le avisa si ha estado usted potencialmente expuesto al nuevo coronavirus."</string>
+    <string name="onboarding_meldung_text1">"La aplicación le avisa si ha estado usted potencialmente expuesto al coronavirus."</string>
 
     <!-- Onboarding Meldung: Text -->
     <string name="onboarding_meldung_text2">"Adoptando la conducta adecuada puede usted romper las cadenas de contagio y proteger a los demás."</string>
@@ -617,8 +619,7 @@ La consulta es gratuita; solo se incurre en los gastos telefónicos."</string>
     <string name="inform_detail_faq1_title">"¿Qué es el código Covid?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <!-- Fuzzy -->
-    <string name="inform_detail_faq1_text">"Las personas que han dado positivo en el test del nuevo coronavirus reciben un código Covid. 
+    <string name="inform_detail_faq1_text">"Las personas que han dado positivo en el test del  coronavirus reciben un código Covid. 
 
 Así se garantiza que la aplicación solo informe de los casos confirmados."</string>
 
@@ -643,7 +644,7 @@ De esta forma, se informa a otros usuarios de la aplicación SwissCovid de que e
     <string name="inform_code_intro_text">"A pesar de que no se envían datos sobre su persona, es posible que alguien recuerde por la fecha haber tenido contacto con usted."</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
-    <string name="inform_code_intro_button">"Entendido"</string>
+    <string name="inform_code_intro_button">"Estoy de acuerdo"</string>
 
     <!-- Symptome: FAQ Titel -->
     <string name="symptom_faq1_title">"¿Cuáles son los síntomas de COVID-19?"</string>
@@ -911,22 +912,26 @@ Schwarzenburgstrasse 157
     <string name="infobox_close_button_accessibility">"Cerrar"</string>
 
     <!-- Title for the Home View Travel Card. -->
-    <string name="travel_title"></string>
+    <string name="travel_title">"Viajar"</string>
 
-    <!-- Info text that is displayed on the Home Travel Card. -->
-    <string name="travel_home_description"></string>
+    <!-- Info text that is displayed  on the Home Travel Card. -->
+    <string name="travel_home_description">"SwissCovid funciona en los países siguientes:"</string>
 
-    <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_1"></string>
+    <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_1">"¿Y esto qué significa?"</string>
 
-    <!-- First text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1"></string>
+    <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_1">"Si está usted de viaje en uno de los países compatibles no es necesario descargar otra aplicación contra el coronavirus.
 
-    <!-- Second title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_2"></string>
+SwissCovid analiza las ID aleatorias difundidas en los países compatibles. Así, la aplicación le avisa de un posible contagio incluso estando en el extranjero."</string>
 
-    <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2"></string>
+    <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_2">"¿Qué ocurre al introducir el código Covid?"</string>
+
+    <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_2">"Al introducir el código Covid, las ID aleatorias que usted envía se comparten también con los países compatibles.
+
+Al fin de poder alertar también a los viajeros del extranjero, esto ocurre independientemente de que usted haya estado en el extranjero o no. "</string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
     <string name="accessibility_faq_button_hint_non_bag">"Este botón sale de la aplicación y abre una página web."</string>
@@ -1170,7 +1175,7 @@ Schwarzenburgstrasse 157
     <string name="test_location_popup_title">"¿Dónde puedo hacerme el test?"</string>
 
     <!-- Test standorte Popup Text -->
-    <string name="test_location_popup_text">"Puede usted hacerse el test del nuevo coronavirus en la consulta de diversos médicos, centros especializados, hospitales y farmacias. Encontrará más información sobre las distintas posibilidades en las páginas web de los cantones:"</string>
+    <string name="test_location_popup_text">"Puede usted hacerse el test del  coronavirus en la consulta de diversos médicos, centros especializados, hospitales y farmacias. Encontrará más información sobre las distintas posibilidades en las páginas web de los cantones:"</string>
 
     <!-- Notification Channel name for Tracing Reactivation Reminders on Android Devices (Only visible in System Settings) -->
     <string name="android_reminder_channel_name">"Recordatorio de activación del rastreo."</string>
@@ -1260,55 +1265,57 @@ El rastreo puede volver a activarse una vez finalizado en aislamiento."</string>
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
 
     <!-- text for info box pop up for the hearing impaired -->
-    <string name="hearing_impaired_info"></string>
+    <string name="hearing_impaired_info">"¿Es usted sordo o tiene una discapacidad auditiva y no puede llamar a la Infoline del coronavirus?
+
+Envíe un correo electrónico a covid-support@medgate.ch"</string>
 
     <!-- Überschrift des Covidcodes-Statistik-Moduls -->
-    <string name="stats_covidcodes_title"></string>
+    <string name="stats_covidcodes_title">"Códigos Covid"</string>
 
     <!-- Überschrift des Fallzahlen-Statistik Moduls -->
-    <string name="stats_cases_title"></string>
+    <string name="stats_cases_title">"Número de casos"</string>
 
     <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
-    <string name="stats_cases_subtitle"></string>
+    <string name="stats_cases_subtitle">"Evolución actual"</string>
 
     <!-- Label der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_label"></string>
+    <string name="stats_covidcodes_total_label">"introducidos"</string>
 
     <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_label"></string>
+    <string name="stats_covidcodes_0to2days_label">"en 0 a 2 días"</string>
 
     <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_label"></string>
+    <string name="stats_cases_7day_average_label">"Promedio 7 días"</string>
 
     <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_label"></string>
+    <string name="stats_cases_rel_prev_week_label">"respecto a la semana previa"</string>
 
     <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
-    <string name="stats_info_popup_title"></string>
+    <string name="stats_info_popup_title">"Las cifras en detalle"</string>
 
     <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
-    <string name="stats_info_popup_subtitle_covidcodes"></string>
+    <string name="stats_info_popup_subtitle_covidcodes">"Códigos Covid introducidos"</string>
 
     <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
-    <string name="stats_info_popup_subtitle_cases"></string>
+    <string name="stats_info_popup_subtitle_cases">"Número de casos"</string>
 
     <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_description"></string>
+    <string name="stats_covidcodes_total_description">"Número de códigos Covid introducidos desde el lanzamiento de la app SwissCovid en junio de 2020. Esta es la cantidad de personas que ha podido informar a sus contactos sobre la posibilidad de un contagio."</string>
 
     <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_description"></string>
+    <string name="stats_covidcodes_0to2days_description">"Proporción de códigos Covid introducidos en los dos primeros días tras la aparición de los síntomas. Esta proporción se refiere a los últimos 7 días.      El tiempo es un factor determinante a la hora de luchar contra el coronavirus: cuanto menor tiempo transcurra entre la aparición de síntomas, el resultado del test y la introducción del código Covid, antes podrán quedarse en casa los contactos notificados y proteger así a otros."</string>
 
     <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_description"></string>
+    <string name="stats_cases_7day_average_description">"Muestra el promedio de nuevos contagios notificados por día en un plazo de 7 días."</string>
 
     <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_description"></string>
+    <string name="stats_cases_rel_prev_week_description">"Muestra el cambio del promedio de 7 días en comparación con la semana anterior."</string>
 
     <!-- Label der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_label"></string>
+    <string name="stats_cases_current_label">"Evolución actual"</string>
 
     <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_description"></string>
+    <string name="stats_cases_current_description">"El gráfico muestra los nuevos contagios notificados en los últimos 28 días. Así, se obtiene una panorámica de la evolución actual."</string>
 
     <!-- Inform Detail: Infobox Text -->
     <string name="inform_detail_infobox1_text">"¿Ha dado usted positivo en el test y no ha obtenido el código Covid después de 4 horas? En este caso, llame a la Infoline:"</string>
@@ -1317,32 +1324,32 @@ El rastreo puede volver a activarse una vez finalizado en aislamiento."</string>
     <string name="inform_detail_infobox1_title">"¿Aún no ha recibido el código Covid?"</string>
 
     <!-- Titel des Popups mit der Frage, ob der User die Isolation beendet hat -->
-    <string name="homescreen_isolation_ended_popup_title"></string>
+    <string name="homescreen_isolation_ended_popup_title">"¿Ha terminado el aislamiento?"</string>
 
     <!-- Text des Popups mit der Frage, ob der User die Isolation beendet hat -->
-    <string name="homescreen_isolation_ended_popup_text"></string>
+    <string name="homescreen_isolation_ended_popup_text">"El rastreo puede ser activado de nuevo tan pronto como haya terminado el aislamiento."</string>
 
     <!-- Ja-Antwort -->
-    <string name="answer_yes"></string>
+    <string name="answer_yes">"Sí"</string>
 
     <!-- Nein-Antwort -->
-    <string name="answer_no"></string>
+    <string name="answer_no">"No"</string>
 
     <!-- Text in der Infobox auf dem Reisen-Screen -->
-    <string name="travel_screen_info"></string>
+    <string name="travel_screen_info">"¿En el extranjero? SwissCovid funciona en estos países."</string>
 
     <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
-    <string name="travel_screen_compatible_countries"></string>
+    <string name="travel_screen_compatible_countries">"Países compatibles:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text"></string>
+    <string name="inform_code_travel_text">"A fin de alertar también a viajeros del extranjero, las ID aleatorias se comparten con las aplicaciones contra el coronavirus de países compatibles."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
-    <string name="stats_covidcodes_total_header"></string>
+    <string name="stats_covidcodes_total_header">"Total"</string>
 
     <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_header"></string>
+    <string name="stats_covidcodes_0to2days_header">"Actual"</string>
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
-    <string name="stats_cases_rel_prev_week_popup_header"></string>
+    <string name="stats_cases_rel_prev_week_popup_header">"Cambio con respecto a la semana previa"</string>
 </resources>
