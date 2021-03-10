@@ -67,7 +67,7 @@ public class WtdInfolineAccessabilityDialogFragment extends DialogFragment {
 		view.findViewById(R.id.infoline_hearing_impaired_ok_button).setOnClickListener(v -> dismiss());
 		TextView infoTextView = (TextView) view.findViewById(R.id.infoline_hearing_impaired_text);
 
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 			// The urlSpanFactory parameter type is only available starting with SDK 24
 			Spannable spannable = new SpannableString(infoText);
 			Linkify.addLinks(spannable, Linkify.EMAIL_ADDRESSES, s -> {
