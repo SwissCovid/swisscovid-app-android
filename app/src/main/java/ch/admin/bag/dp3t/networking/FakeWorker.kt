@@ -41,7 +41,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 		private const val FACTOR_DAY_MILLIS = 24 * FACTOR_HOUR_MILLIS
 		private const val MAX_DELAY_HOURS: Long = 48
 
-		private var isWorkInProgress = AtomicBoolean(false)
+		private val isWorkInProgress = AtomicBoolean(false)
 
 		@JvmField
 		val SAMPLING_RATE = if (BuildConfig.FLAVOR == "dev") 1.0f else 0.2f
