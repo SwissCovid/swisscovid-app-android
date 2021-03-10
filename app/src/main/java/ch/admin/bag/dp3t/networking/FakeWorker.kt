@@ -23,6 +23,7 @@ import org.dpppt.android.sdk.DP3TKotlin
 import org.dpppt.android.sdk.internal.logger.Logger
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.max
 
 class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWorker(context, workerParams) {
@@ -39,6 +40,8 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 		private const val FACTOR_HOUR_MILLIS = 60 * 60 * 1000L
 		private const val FACTOR_DAY_MILLIS = 24 * FACTOR_HOUR_MILLIS
 		private const val MAX_DELAY_HOURS: Long = 48
+
+		private var isWorkInProgress = AtomicBoolean(false)
 
 		@JvmField
 		val SAMPLING_RATE = if (BuildConfig.FLAVOR == "dev") 1.0f else 0.2f
@@ -89,35 +92,43 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 	}
 
 	override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
-		val now = clock.currentTimeMillis()
-		val secureStorage = SecureStorage.getInstance(applicationContext)
-		var t_dummy = secureStorage.tDummy
-		if (t_dummy < 0) {
-			//if t_dummy < 0 because of some weird state, we reset it
-			t_dummy = now + clock.syncInterval()
+		if (!isWorkInProgress.compareAndSet(false, true)) {
+			return@withContext Result.success()
 		}
-		//to make sure we can still write the EncryptedSharedPreferences, we always write the value back
-		secureStorage.tDummy = t_dummy
-		while (t_dummy < now && isActive) {
-			Logger.d(TAG, "start")
-			// only do request if it was planned to do in the last 48h
-			if (t_dummy >= now - FACTOR_HOUR_MILLIS * MAX_DELAY_HOURS) {
-				DP3T.addWorkerStartedToHistory(applicationContext, "fake")
-				val success = executeFakeRequest(applicationContext)
-				if (success) {
-					Logger.d(TAG, "finished with success")
-				} else {
-					Logger.e(TAG, "failed")
-					scheduleNext(clock.currentTimeMillis() + TimeUnit.MINUTES.toMillis(30))
-					return@withContext Result.failure()
-				}
-			} else {
-				Logger.d(TAG, "outdated request is dropped.")
+
+		try {
+			val now = clock.currentTimeMillis()
+			val secureStorage = SecureStorage.getInstance(applicationContext)
+			var t_dummy = secureStorage.tDummy
+			if (t_dummy < 0) {
+				//if t_dummy < 0 because of some weird state, we reset it
+				t_dummy = now + clock.syncInterval()
 			}
-			t_dummy += clock.syncInterval()
+			//to make sure we can still write the EncryptedSharedPreferences, we always write the value back
 			secureStorage.tDummy = t_dummy
+			while (t_dummy < now && isActive) {
+				Logger.d(TAG, "start")
+				// only do request if it was planned to do in the last 48h
+				if (t_dummy >= now - FACTOR_HOUR_MILLIS * MAX_DELAY_HOURS) {
+					DP3T.addWorkerStartedToHistory(applicationContext, "fake")
+					val success = executeFakeRequest(applicationContext)
+					if (success) {
+						Logger.d(TAG, "finished with success")
+					} else {
+						Logger.e(TAG, "failed")
+						scheduleNext(clock.currentTimeMillis() + TimeUnit.MINUTES.toMillis(30))
+						return@withContext Result.failure()
+					}
+				} else {
+					Logger.d(TAG, "outdated request is dropped.")
+				}
+				t_dummy += clock.syncInterval()
+				secureStorage.tDummy = t_dummy
+			}
+			scheduleNext(t_dummy)
+		} finally {
+			isWorkInProgress.set(false)
 		}
-		scheduleNext(t_dummy)
 		return@withContext Result.success()
 	}
 
@@ -128,15 +139,15 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 	}
 
 	private suspend fun executeFakeRequest(context: Context): Boolean {
-		try {
+		return try {
 			val authCodeRepository = AuthCodeRepository(context)
 			val accessTokenResponse = authCodeRepository.getAccessTokenSync(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
 			val accessToken = accessTokenResponse.accessToken
 			DP3TKotlin.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)))
-			return true
+			true
 		} catch (e: Exception) {
 			Logger.e(TAG, "fake request failed", e)
-			return false
+			false
 		}
 	}
 
