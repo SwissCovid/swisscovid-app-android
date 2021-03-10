@@ -628,7 +628,7 @@
     <string name="inform_code_intro_text">"ዝኾነ ሓበሬታ ብዛዕባኹም ዋላኳ እንተዘይተሰደደ: ዝኾነ ሰብ በቲ ዕለት ጌሩ ምርኻብኩም ክዝክሮ ይኽእል እዩ። "</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
-    <string name="inform_code_intro_button">"ተረዲኡኒ"</string>
+    <string name="inform_code_intro_button">"ተሰማሚዐ"</string>
 
     <!-- Symptome: FAQ Titel -->
     <string name="symptom_faq1_title">"ምልክታት ኮቪድ-19 እንታይ እዩ፧"</string>
@@ -892,26 +892,26 @@ Schwarzenburgstrasse 157
     <string name="infobox_close_button_accessibility">"ዕጸው"</string>
 
     <!-- Title for the Home View Travel Card. -->
-    <string name="travel_title">"Travel"</string>
+    <string name="travel_title">"መገሻታት"</string>
 
     <!-- Info text that is displayed  on the Home Travel Card. -->
-    <string name="travel_home_description">"SwissCovid works in the following countries:"</string>
+    <string name="travel_home_description">"SwissCovid ኣብ ዝስዕቡ ሃገራት ይሰርሕ፥"</string>
 
     <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_1">"What does that mean?"</string>
+    <string name="travel_screen_explanation_title_1">"እዚ እንታይ ማለት፧"</string>
 
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1">"You don’t have to install another app if you’re travelling in one of the compatible countries.
+    <string name="travel_screen_explanation_text_1">"ንስኹም ኣብ ሓደ ካብቶም ተቓደውቲ ሃገራት እንተትግዕዙ ኮይንኩም፣ ካልእ ኮሮና ኤፕ ከተምጽኡ ኣየድልየኩምን።
 
-SwissCovid checks random IDs published in the compatible countries. This means that you can also receive alerts of possible infection abroad."</string>
+SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገሑ ብሃውሪ ዝተፈጠሩ ኣይ.ዲታት ይቈጻጸር። ንስኹም ዋላ ኣብ ክፍጸም ዝኽእል ልበዳ ኣብ ወጻኢ ክትጥንቐቑ ትኽእሉ ኢኹም።"</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_2">"What happens when the Covidcode is entered?"</string>
+    <string name="travel_screen_explanation_title_2">"ኣብ ምእታው ኮቪድኮድ እንታይ ክፍጸም ድዩ፧"</string>
 
     <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2">"When the Covidcode is entered, the random IDs sent by you are also shared with the compatible countries.
+    <string name="travel_screen_explanation_text_2">"ኣብ ምእታይ ኮቪድኮድ እቶም ካባኹም ዝተሰደዱ ብሃውሪ ዝተፈጠሩ ኣይ.ዲታት እንተላይ ምስቶም ተቓደውቲ ሃገራት ክካፈሉ እዮም።
 
-To enable travellers from abroad to also receive alerts, this happens regardless of whether you yourself are travelling abroad or not."</string>
+ገየሽቲ ካብ ወጻኢ እንተላይ መታን ክጥንቀቑ፣ ባዕልኹም ኣብ ወጻኢ ትግዕዙ ኔርኩም ወይ ኣይትግዕዙን ኔርኩም ብዘየገድስ እዩ።"</string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
     <string name="accessibility_faq_button_hint_non_bag">"እዚ መጠውቒ/Button ካብቲ ኤፕ ይወጽእን ሓድሽ ወብሳይት ይኸፍትን።"</string>
@@ -1246,59 +1246,59 @@ To enable travellers from abroad to also receive alerts, this happens regardless
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
 
     <!-- text for info box pop up for the hearing impaired -->
-    <string name="hearing_impaired_info">"Are you deaf or hard of hearing and unable to call the coronavirus infoline on the phone?
+    <string name="hearing_impaired_info">"ክትሰምዑ ኣይትኽእሉን ወይ ናይ ምስማዕ ስንክልና ስለዘለና ነቲ ሓበሬታ ስልኪ ኮሮናቫይረስ ክትድውሉ ኣይትኽእሉን፧
 
-Send an email to covid-support@medgate.ch."</string>
+ሽዑ ኢመይል ናብ covid-support@medgate.ch ስደዱ ኢኹም"</string>
 
     <!-- Überschrift des Covidcodes-Statistik-Moduls -->
-    <string name="stats_covidcodes_title">"Covidcodes"</string>
+    <string name="stats_covidcodes_title">"ኮቪድ-ኮዳት"</string>
 
     <!-- Überschrift des Fallzahlen-Statistik Moduls -->
-    <string name="stats_cases_title">"Numbers of cases"</string>
+    <string name="stats_cases_title">"መጠን ልበዳታት"</string>
 
     <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
-    <string name="stats_cases_subtitle">"Current development"</string>
+    <string name="stats_cases_subtitle">"ግዝያዊ ምዕባለ"</string>
 
     <!-- Label der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_label">"entered"</string>
+    <string name="stats_covidcodes_total_label">"ዝተኣተወ"</string>
 
     <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_label">"within 0-2 days"</string>
+    <string name="stats_covidcodes_0to2days_label">"ኣብ ውሽጢ 0-2 መዓልትታት"</string>
 
     <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_label">"7-day average"</string>
+    <string name="stats_cases_7day_average_label">"ገምጋም 7 መዓልቲ"</string>
 
     <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_label">"vs previous week"</string>
+    <string name="stats_cases_rel_prev_week_label">"ናብ ዝሓለፈ ሰሙን"</string>
 
     <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
-    <string name="stats_info_popup_title">"Details on the figures"</string>
+    <string name="stats_info_popup_title">"ዝርዝራዊ ሓበሬታ ብዛዕባቶም ቁጽርታት"</string>
 
     <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
-    <string name="stats_info_popup_subtitle_covidcodes">"Covidcodes entered"</string>
+    <string name="stats_info_popup_subtitle_covidcodes">"ዝተኣተዉ ኮቪድ-ኮዳት"</string>
 
     <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
-    <string name="stats_info_popup_subtitle_cases">"Numbers of cases"</string>
+    <string name="stats_info_popup_subtitle_cases">"መጠን ልበዳታት"</string>
 
     <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_description">"Number of Covidcodes entered since the launch of the SwissCovid app in June 2020. This is the number of people who have notified their contacts of possible infection via the app."</string>
+    <string name="stats_covidcodes_total_description">"መጠን ናይቶም ዝተኣተዉ ኮቪድ-ኮዳት ካብ መጀመርታ SwissCovid App ኣብ ሰነ 2020። ክንድቲ ብዙሕ ሰባት በቲ ኤፕ ርክቦም ብሓደ ክፍጸም ዝኽእል ልበዳ ሓቢሮም ኔሮም።"</string>
 
     <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_description">"The percentage of Covidcodes entered already in the first two days after onset of symptoms. This figure is for the last 7 days.
+    <string name="stats_covidcodes_0to2days_description">"መጠን ኣብ ውሽጢ ቀዳሞት ክልተኦም መዓልትታት ድሕሪ መጀመርታ ምልክታት ድሮ ዝተኣተዉ ዝነበሩ። እዚ መጠን ንዝሓለፉ 7 መዓልትታት ይምልከት።
 
-Time is a crucial factor when it comes to combating coronavirus: the shorter the time between the onset of symptoms, the result of the test and entering the Covidcode, the earlier alerted contacts can stay at home and protect other people."</string>
+ኣብ ምቕላስ ኮሮናቫይረስ ግዜ ሓደ ወሳኒ ረቋሒ እዩ፥ ኣብ መንጎ መጀመርታ ምልክታት፣ ውጽኢት መርመራ ከምኡ'ውን ምእታው ኮቪድኮድ ሓጺር ግዜ እንተሓለፈ፣ ዝተሓበሩ ርክባት ብዝያዳ ብኣጋኡ ኣብ ገዛ ክተርፉ ከምኡ ድማ ንካልኦት ክከላኸሉ ይኽእሉ።"</string>
 
     <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_description">"Shows the average number of reported new infections per day over 7 days."</string>
+    <string name="stats_cases_7day_average_description">"ገምጋም ናይቶም ዝተሓበሩ ሓድሽቲ ልበዳታት ኣብ መዓልቲ ብ7 መዓልትታት የርኢ።"</string>
 
     <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_description">"Shows the change in the 7-day average compared with the situation a week ago."</string>
+    <string name="stats_cases_rel_prev_week_description">"ንቅያር ገምጋም 7 መዓልቲ የርኢ ምስቲ ናይ ቅድሚ ሓደ ሰሙን እንተትነጻጸር ኮይንካ።"</string>
 
     <!-- Label der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_label">"Current developments"</string>
+    <string name="stats_cases_current_label">"ግዝያዊ ምዕባለ"</string>
 
     <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_description">"The chart shows new infections reported in the last 28 days. This gives an overview of current developments."</string>
+    <string name="stats_cases_current_description">"እቲ ስእሊ ነቶም ዝተሓበሩ ሓድሽቲ ልበዳታት ኣብ ዝሓለፉ 28 መዓልትታት የርኢ። እዚ ሓፈሻዊ ሓበሬታ ብዛዕባ ግዝያዊ ምዕባለ ይህብ።"</string>
 
     <!-- Inform Detail: Infobox Text -->
     <string name="inform_detail_infobox1_text">"ኣወንታዊ ኮቪድ ኣባኹም ተረጋጊጹ፣ ድሕሪ 4 ሰዓት ናይ ኮቪድ ኮድ ገና ኣይተወሃብኩምን፧
@@ -1308,32 +1308,32 @@ Time is a crucial factor when it comes to combating coronavirus: the shorter the
     <string name="inform_detail_infobox1_title">"ናይ ኮቪድ ኮድ ገና የብልኩምን፧"</string>
 
     <!-- Titel des Popups mit der Frage, ob der User die Isolation beendet hat -->
-    <string name="homescreen_isolation_ended_popup_title">"Have you come out of isolation?"</string>
+    <string name="homescreen_isolation_ended_popup_title">"ግለላኹም ውዲእኹሞ ዶ፧"</string>
 
     <!-- Text des Popups mit der Frage, ob der User die Isolation beendet hat -->
-    <string name="homescreen_isolation_ended_popup_text">"Tracing can be reactivated once you have completed your period of isolation."</string>
+    <string name="homescreen_isolation_ended_popup_text">"ነቲ ግለላ ወዲእኹሞ እንተኾይንኩም እቲ ምክትታል መሊሱ ክውላዕ ይከኣል።"</string>
 
     <!-- Ja-Antwort -->
-    <string name="answer_yes">"Yes"</string>
+    <string name="answer_yes">"እወ"</string>
 
     <!-- Nein-Antwort -->
-    <string name="answer_no">"No"</string>
+    <string name="answer_no">"ኣይፋል"</string>
 
     <!-- Text in der Infobox auf dem Reisen-Screen -->
-    <string name="travel_screen_info">"Travelling abroad? SwissCovid works in these countries."</string>
+    <string name="travel_screen_info">"ኣብ ወጻኢ ምግዓዝ፧ ኣብዚኦም ሃገራት SwissCovid ይሰርሕ እዩ።"</string>
 
     <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
-    <string name="travel_screen_compatible_countries">"Compatible countries:"</string>
+    <string name="travel_screen_compatible_countries">"ተቓደውቲ ሃገራት፥"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"To enable travellers from abroad to receive alerts as well, the random IDs are also shared with the coronavirus apps in compatible countries."</string>
+    <string name="inform_code_travel_text">"ገየሽቲ ካብ ወጻኢ ውን መታን ክጥንቀቑ፣ እቶም ብሃውሪ ዝተገበሩ ኣይ.ዲታት ምስቶም ኮሮና ኤፕስ ናይቶም ተቓደውቲ ሃገራት ክካፈሉ እዮም።"</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
-    <string name="stats_covidcodes_total_header">"Total"</string>
+    <string name="stats_covidcodes_total_header">"ጥቕላላ"</string>
 
     <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_header">"Current"</string>
+    <string name="stats_covidcodes_0to2days_header">"ሓድሽ ሓበሬታ"</string>
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
-    <string name="stats_cases_rel_prev_week_popup_header">"Change versus previous week"</string>
+    <string name="stats_cases_rel_prev_week_popup_header">"ቅያር ካብ ዝሓለፈ ሰሙን"</string>
 </resources>

@@ -1318,7 +1318,7 @@ Scrivete un'e-mail all'indirizzo: covid-support@medgate.ch"</string>
     <string name="stats_covidcodes_title">"Codici Covid"</string>
 
     <!-- Überschrift des Fallzahlen-Statistik Moduls -->
-    <string name="stats_cases_title">"Numero di casi"</string>
+    <string name="stats_cases_title">"Numeri di casi"</string>
 
     <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
     <string name="stats_cases_subtitle">"Situazione attuale"</string>
@@ -1333,25 +1333,24 @@ Scrivete un'e-mail all'indirizzo: covid-support@medgate.ch"</string>
     <string name="stats_cases_7day_average_label">"Media di 7 giorni"</string>
 
     <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_label">"settimana precedente"</string>
+    <string name="stats_cases_rel_prev_week_label">"alla settimana precedente"</string>
 
     <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
-    <string name="stats_info_popup_title">"Cifre dettagliate"</string>
+    <string name="stats_info_popup_title">"Dettagli sulle cifre"</string>
 
     <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
     <string name="stats_info_popup_subtitle_covidcodes">"Codici Covid immessi"</string>
 
     <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
-    <string name="stats_info_popup_subtitle_cases">"Numero di casi"</string>
+    <string name="stats_info_popup_subtitle_cases">"Numeri di casi"</string>
 
     <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_description">"Numero di codici Covid immessi dal lancio dell'app SwissCovid nel giugno del 2020. Ecco quante persone hanno avvisato i propri contatti di un possibile contagio attraverso l'app."</string>
+    <string name="stats_covidcodes_total_description">"Numeri di codici Covid immessi dal lancio dell'app SwissCovid nel giugno del 2020. Ecco quante persone hanno avvisato i propri contatti di un possibile contagio attraverso l'app."</string>
 
     <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
     <string name="stats_covidcodes_0to2days_description">"Quota di codici Covid immessi entro i primi due giorni dalla comparsa dei sintomi. Questa quota si riferisce agli ultimi 7 giorni.
 
-
-Nella lotta al coronavirus il tempo è un fattore fondamentale: meno tempo trascorre tra la comparsa dei sintomi, il risultato del test e l'immissione del codice Covid e più rapidamente si possono avvisare i contatti di rimanere a casa e proteggere gli altri."</string>
+Nella lotta al coronavirus il tempo è un fattore fondamentale: meno tempo trascorre tra la comparsa dei sintomi, il risultato del test e l'immissione del codice Covid, più rapidamente si possono avvisare i contatti di rimanere a casa e proteggere gli altri."</string>
 
     <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
     <string name="stats_cases_7day_average_description">"Mostra la media delle nuove infezioni dichiarate al giorno su 7 giorni."</string>
@@ -1360,10 +1359,10 @@ Nella lotta al coronavirus il tempo è un fattore fondamentale: meno tempo trasc
     <string name="stats_cases_rel_prev_week_description">"Mostra la differenza tra la media di 7 giorni attuale e quella della settimana precedente."</string>
 
     <!-- Label der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_label">"Situazione attuale"</string>
+    <string name="stats_cases_current_label">"Sviluppo attuale"</string>
 
     <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_description">"Il grafico mostra le nuove infezioni dichiarate negli ultimi 28 giorni. Ciò fornisce una panoramica sulla situazione attuale."</string>
+    <string name="stats_cases_current_description">"Il grafico mostra le nuove infezioni dichiarate negli ultimi 28 giorni. Ciò fornisce una panoramica sul sviluppo attuale."</string>
 
     <!-- Inform Detail: Infobox Text -->
     <string name="inform_detail_infobox1_text">"Sei risultato positivo al test e dopo quattro ore non hai ancora ricevuto un codice Covid?
@@ -1397,8 +1396,8 @@ Allora contatta la Infoline codice Covid:"</string>
     <string name="stats_covidcodes_total_header">"Totale"</string>
 
     <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_header">"Dato attuale"</string>
+    <string name="stats_covidcodes_0to2days_header">"Attuale"</string>
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
-    <string name="stats_cases_rel_prev_week_popup_header">"Differenza rispetto alla settimana precedente"</string>
+    <string name="stats_cases_rel_prev_week_popup_header">"Cambio rispetto alla settimana precedente"</string>
 </resources>
