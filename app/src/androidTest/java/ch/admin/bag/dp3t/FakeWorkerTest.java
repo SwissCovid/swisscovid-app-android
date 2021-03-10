@@ -176,9 +176,9 @@ public class FakeWorkerTest {
 		FakeWorker.safeStartFakeWorker(context);
 		WorkInfo workInfo = executeWorker();
 
-		// The worker should be failed and there is a new worker enqueued.
+		// The worker should be done (success) and there is a new worker enqueued.
 		// T_dummy stays the same and exactly one network request is executed (and fails with Error code 503)
-		assertEquals(WorkInfo.State.FAILED, workInfo.getState());
+		assertEquals(WorkInfo.State.SUCCEEDED, workInfo.getState());
 		WorkInfo workInfoNext = null;
 		int workerCount = 0;
 		for (WorkInfo wi : WorkManager.getInstance(context).getWorkInfosByTag(FakeWorker.WORK_TAG).get()) {
