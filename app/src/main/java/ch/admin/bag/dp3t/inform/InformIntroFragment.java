@@ -11,6 +11,7 @@ package ch.admin.bag.dp3t.inform;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,8 +44,14 @@ public class InformIntroFragment extends Fragment {
 
 		SecureStorage secureStorage = SecureStorage.getInstance(getContext());
 		List<String> countries = secureStorage.getInteropCountries();
-		Flow flowConstraint = view.findViewById(R.id.inform_intro_travel_flags_flow);
-		TravelUtils.inflateFlagFlow(flowConstraint, countries);
+		ViewGroup countriesContainer = view.findViewById(R.id.inform_intro_travel);
+		if (!countries.isEmpty()) {
+			countriesContainer.setVisibility(View.VISIBLE);
+			Flow flowConstraint = view.findViewById(R.id.inform_intro_travel_flags_flow);
+			TravelUtils.inflateFlagFlow(flowConstraint, countries);
+		} else {
+			countriesContainer.setVisibility(View.GONE);
+		}
 
 		Button continueButton = view.findViewById(R.id.inform_intro_button_continue);
 		continueButton.setOnClickListener(v -> {

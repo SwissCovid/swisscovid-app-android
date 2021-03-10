@@ -35,9 +35,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.util.concurrent.TimeUnit;
-import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.logger.Logger;
@@ -358,8 +357,13 @@ public class HomeFragment extends Fragment {
 		);
 
 		List<String> countries = secureStorage.getInteropCountries();
-		Flow flowConstraint = travelCard.findViewById(R.id.travel_flags_flow);
-		TravelUtils.inflateFlagFlow(flowConstraint, countries);
+		if (!countries.isEmpty()) {
+			travelCard.setVisibility(VISIBLE);
+			Flow flowConstraint = travelCard.findViewById(R.id.travel_flags_flow);
+			TravelUtils.inflateFlagFlow(flowConstraint, countries);
+		} else {
+			travelCard.setVisibility(View.GONE);
+		}
 	}
 
 	private void setupWhatToDo() {

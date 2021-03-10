@@ -53,34 +53,41 @@
 					android:gravity="center_horizontal"
 					android:text="@string/inform_code_intro_text" />
 
-				<TextView
-					style="@style/NextStep.Text"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_larger"
-					android:gravity="center_horizontal"
-					android:text="@string/inform_code_travel_text" />
-
-				<androidx.constraintlayout.widget.ConstraintLayout
+				<LinearLayout
+					android:id="@+id/inform_intro_travel"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginBottom="@dimen/spacing_huge"
-					android:layout_marginTop="@dimen/spacing_large">
+					android:orientation="vertical">
 
-					<androidx.constraintlayout.helper.widget.Flow
-						android:id="@+id/inform_intro_travel_flags_flow"
+					<TextView
+						style="@style/NextStep.Text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/spacing_larger"
+						android:gravity="center_horizontal"
+						android:text="@string/inform_code_travel_text" />
+
+					<androidx.constraintlayout.widget.ConstraintLayout
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						app:constraint_referenced_ids=""
-						app:flow_horizontalAlign="center"
-						app:flow_horizontalBias="0.5"
-						app:flow_horizontalGap="8dp"
-						app:flow_horizontalStyle="packed"
-						app:flow_verticalGap="8dp"
-						app:flow_wrapMode="chain"
-						app:layout_constraintTop_toTopOf="parent" />
+						android:layout_marginBottom="@dimen/spacing_huge"
+						android:layout_marginTop="@dimen/spacing_large">
 
-				</androidx.constraintlayout.widget.ConstraintLayout>
+						<androidx.constraintlayout.helper.widget.Flow
+							android:id="@+id/inform_intro_travel_flags_flow"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							app:constraint_referenced_ids=""
+							app:flow_horizontalAlign="center"
+							app:flow_horizontalBias="0.5"
+							app:flow_horizontalGap="8dp"
+							app:flow_horizontalStyle="packed"
+							app:flow_verticalGap="8dp"
+							app:flow_wrapMode="chain"
+							app:layout_constraintTop_toTopOf="parent" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+				</LinearLayout>
 
 			</LinearLayout>
 
