@@ -52,6 +52,9 @@ public class FakeWorkerTest {
 		context = InstrumentationRegistry.getInstrumentation().getTargetContext();
 		Logger.init(context, LogLevel.DEBUG);
 
+		//cancel all work that was scheduled on normal WorkManager on Application creation
+		WorkManager.getInstance(context).cancelAllWork();
+
 		// Initialize WorkManager for instrumentation tests.
 		Configuration config = new Configuration.Builder()
 				// Set log level to Log.DEBUG to make it easier to debug
@@ -75,6 +78,9 @@ public class FakeWorkerTest {
 		appConfigManager.setTracingEnabled(true);
 
 		SecureStorage.getInstance(context).setTDummy(-1);
+
+		//cancel all work that was scheduled during initialization
+		WorkManager.getInstance(context).cancelAllWork();
 	}
 
 	@Test
@@ -173,7 +179,15 @@ public class FakeWorkerTest {
 		// The worker should be failed and there is a new worker enqueued.
 		// T_dummy stays the same and exactly one network request is executed (and fails with Error code 503)
 		assertEquals(WorkInfo.State.FAILED, workInfo.getState());
-		WorkInfo workInfoNext = WorkManager.getInstance(context).getWorkInfosByTag(FakeWorker.WORK_TAG).get().get(1);
+		WorkInfo workInfoNext = null;
+		int workerCount = 0;
+		for (WorkInfo wi : WorkManager.getInstance(context).getWorkInfosByTag(FakeWorker.WORK_TAG).get()) {
+			if (wi.getState() == WorkInfo.State.ENQUEUED) {
+				workInfoNext = wi;
+			}
+			workerCount++;
+		}
+		assertEquals(2, workerCount);
 		assertEquals(WorkInfo.State.ENQUEUED, workInfoNext.getState());
 		assertEquals(1, requestCounter.get());
 		long new_t_dummy = SecureStorage.getInstance(context).getTDummy();
