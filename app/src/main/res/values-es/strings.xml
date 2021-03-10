@@ -277,7 +277,7 @@ De esta forma, está ayudando a parar las cadenas de contagio."</string>
     <string name="meldung_detail_exposed_subtitle">"Existe la posibilidad de un contagio."</string>
 
     <!-- Meldung auf Homescreen: Positiv getestet -->
-    <string name="meldung_homescreen_positiv_text">"A dado usted positivo en el test del  coronavirus"</string>
+    <string name="meldung_homescreen_positiv_text">"A dado usted positivo en el test del coronavirus"</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
     <string name="reset_onboarding">"Reiniciar onboarding"</string>
@@ -1303,7 +1303,9 @@ Envíe un correo electrónico a covid-support@medgate.ch"</string>
     <string name="stats_covidcodes_total_description">"Número de códigos Covid introducidos desde el lanzamiento de la app SwissCovid en junio de 2020. Esta es la cantidad de personas que ha podido informar a sus contactos sobre la posibilidad de un contagio."</string>
 
     <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_description">"Proporción de códigos Covid introducidos en los dos primeros días tras la aparición de los síntomas. Esta proporción se refiere a los últimos 7 días.      El tiempo es un factor determinante a la hora de luchar contra el coronavirus: cuanto menor tiempo transcurra entre la aparición de síntomas, el resultado del test y la introducción del código Covid, antes podrán quedarse en casa los contactos notificados y proteger así a otros."</string>
+    <string name="stats_covidcodes_0to2days_description">"Proporción de códigos Covid introducidos en los dos primeros días tras la aparición de los síntomas. Esta proporción se refiere a los últimos 7 días.
+
+El tiempo es un factor determinante a la hora de luchar contra el coronavirus: cuanto menor tiempo transcurra entre la aparición de síntomas, el resultado del test y la introducción del código Covid, antes podrán quedarse en casa los contactos notificados y proteger así a otros."</string>
 
     <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
     <string name="stats_cases_7day_average_description">"Muestra el promedio de nuevos contagios notificados por día en un plazo de 7 días."</string>

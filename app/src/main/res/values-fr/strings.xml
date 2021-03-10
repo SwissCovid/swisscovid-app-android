@@ -1317,13 +1317,13 @@ Alors envoyez un message à covid-support@medgate.ch."</string>
     <string name="stats_covidcodes_total_label">"saisis"</string>
 
     <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_0to2days_label">"dans les 2 premiers jours"</string>
+    <string name="stats_covidcodes_0to2days_label">"pendant les 2 premiers jours"</string>
 
     <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_label">"moyenne sur 7 jours"</string>
+    <string name="stats_cases_7day_average_label">"moyenne de 7 jours"</string>
 
     <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_label">"la semaine passée"</string>
+    <string name="stats_cases_rel_prev_week_label">"que la semaine passée"</string>
 
     <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
     <string name="stats_info_popup_title">"Détails sur les chiffres"</string>
@@ -1335,24 +1335,24 @@ Alors envoyez un message à covid-support@medgate.ch."</string>
     <string name="stats_info_popup_subtitle_cases">"Nombre de cas"</string>
 
     <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
-    <string name="stats_covidcodes_total_description">"Nombre de codes COVID saisis depuis le lancement de SwissCovid en juin 2020. Voici combien de personnes ont averti leurs contacts d'une éventuelle infection via l'application."</string>
+    <string name="stats_covidcodes_total_description">"Nombre de codes COVID saisis depuis le commencement de SwissCovid en juin 2020. La chiffre répresente le nombre de personnes qui ont averti leurs contacts d'une éventuelle infection via l'application."</string>
 
     <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
     <string name="stats_covidcodes_0to2days_description">"Proportion de codes COVID saisis au cours des deux premiers jours après l'apparition des symptômes. Ce chiffre couvre les 7 derniers jours. 
 
-La vitesse est un facteur décisif dans la lutte contre le coronavirus : moins on perd de temps entre le début des symptômes, le résultat du test et la saisie du code COVID, plus vite les contacts avertis peuvent rester chez eux et protéger les autres."</string>
+La vitesse est un facteur décisif dans la lutte contre le coronavirus : moins on perd de temps entre le début des symptômes, le résultat du test et l'entré du code COVID, le plus vite les contacts avertis peuvent rester chez eux et protéger les autres."</string>
 
     <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
-    <string name="stats_cases_7day_average_description">"Indique la moyenne des nouvelles infections déclarées par jour sur 7 jours."</string>
+    <string name="stats_cases_7day_average_description">"Indique la moyenne des nouvelles infections déclarées par jour et pendant 7 jours."</string>
 
     <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
-    <string name="stats_cases_rel_prev_week_description">"Indique la variation de la moyenne sur 7 jours par rapport à la semaine passée."</string>
+    <string name="stats_cases_rel_prev_week_description">"Indique le changement de la moyenne pendant 7 jours par rapport à la semaine passée."</string>
 
     <!-- Label der "Aktuelle Entwicklung" Statistik -->
     <string name="stats_cases_current_label">"Évolution actuelle"</string>
 
     <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
-    <string name="stats_cases_current_description">"Le graphique indique les nouvelles infections déclarées ces 28 derniers jours, pour donner un aperçu de l'évolution actuelle."</string>
+    <string name="stats_cases_current_description">"Le graphique indique les nouvelles infections déclarées pendant les 28 derniers jours pour donner un aperçu de l'évolution actuelle."</string>
 
     <!-- Inform Detail: Infobox Text -->
     <string name="inform_detail_infobox1_text">"Vous avez été testé positif mais n'avez pas encore reçu de code COVID 4 heures plus tard ? Contactez l'infoline:"</string>
@@ -1388,5 +1388,5 @@ La vitesse est un facteur décisif dans la lutte contre le coronavirus : moins o
     <string name="stats_covidcodes_0to2days_header">"Actuellement"</string>
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
-    <string name="stats_cases_rel_prev_week_popup_header">"Variation depuis la semaine passée"</string>
+    <string name="stats_cases_rel_prev_week_popup_header">"Changemenent depuis la semaine passée"</string>
 </resources>
