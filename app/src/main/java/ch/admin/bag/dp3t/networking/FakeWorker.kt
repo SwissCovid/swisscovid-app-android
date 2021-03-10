@@ -15,9 +15,7 @@ import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.ExponentialDistribution
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.DP3TKotlin
 import org.dpppt.android.sdk.internal.logger.Logger
@@ -106,7 +104,8 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 			}
 			//to make sure we can still write the EncryptedSharedPreferences, we always write the value back
 			secureStorage.tDummy = t_dummy
-			while (t_dummy < now && isActive) {
+			while (t_dummy < now) {
+				ensureActive()
 				Logger.d(TAG, "start")
 				// only do request if it was planned to do in the last 48h
 				if (t_dummy >= now - FACTOR_HOUR_MILLIS * MAX_DELAY_HOURS) {
@@ -116,8 +115,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 						Logger.d(TAG, "finished with success")
 					} else {
 						Logger.e(TAG, "failed")
-						scheduleNext(clock.currentTimeMillis() + TimeUnit.MINUTES.toMillis(30))
-						return@withContext Result.failure()
+						throw RuntimeException("sending fake request failed")
 					}
 				} else {
 					Logger.d(TAG, "outdated request is dropped.")
@@ -126,9 +124,15 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 				secureStorage.tDummy = t_dummy
 			}
 			scheduleNext(t_dummy)
+
+		} catch (cancellationException: CancellationException) {
+			throw cancellationException
+		} catch (e: Exception) {
+			scheduleNext(clock.currentTimeMillis() + TimeUnit.MINUTES.toMillis(30))
 		} finally {
 			isWorkInProgress.set(false)
 		}
+
 		return@withContext Result.success()
 	}
 
