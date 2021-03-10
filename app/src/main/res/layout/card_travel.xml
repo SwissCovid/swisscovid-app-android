@@ -10,16 +10,15 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/card_travel"
 	style="@style/NextStep.Card"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
+	android:layout_height="wrap_content"
+	android:foreground="?selectableItemBackground">
 
 	<LinearLayout
-		android:id="@+id/card_travel"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:foreground="?selectableItemBackground"
 		android:orientation="vertical">
 
 		<LinearLayout

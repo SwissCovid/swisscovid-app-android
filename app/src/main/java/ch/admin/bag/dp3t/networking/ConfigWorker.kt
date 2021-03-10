@@ -90,7 +90,7 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 			}
 
 			secureStorage.testLocations = config.testLocations
-			secureStorage.interopCountries = config.interOpsCountries;
+			secureStorage.interopCountries = config.interOpsCountries
 
 			val forceUpdate = secureStorage.doForceUpdate
 			if (forceUpdate) {

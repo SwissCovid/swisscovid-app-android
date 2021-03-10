@@ -23,7 +23,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -326,10 +326,10 @@ public class SecureStorage {
 	public List<String> getInteropCountries() {
 		Type interopCountriesType = new TypeToken<List<String>>() { }.getType();
 		List<String> countries = gson.fromJson(prefs.getString(KEY_INTEROP_COUNTRIES, "[]"), interopCountriesType);
-		if (countries != null && countries.size() > 0) {
+		if (countries != null) {
 			return countries;
 		} else {
-			return Arrays.asList("CH", "LI");
+			return new ArrayList<>();
 		}
 	}
 
