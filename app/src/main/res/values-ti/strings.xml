@@ -935,7 +935,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
     <string name="bottom_nav_tab_home">"SwissCovid"</string>
     <string name="bottom_nav_tab_stats">"ቁጽርታት"</string>
-    <string name="stats_title">"ድሮ ንSwisCovid ይጥቐሙሉ እዮም"</string>
+    <string name="stats_title">"ድሮ ንSwissCovid ይጥቐሙሉ እዮም"</string>
     <string name="stats_legend_new_infections">"ዝተሓበሩ ሓድሽቲ ልበዳታት"</string>
     <string name="stats_legend_new_infections_average">"ናይ 7 መዓልቲ ገምጋም"</string>
     <string name="stats_legend_entered_covidcodes">"ዝተመዝገቡ ናይ ኮቪድ ኮዳት"</string>

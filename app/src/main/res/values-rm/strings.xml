@@ -984,7 +984,7 @@ Per che er las viagiaturas ed ils viagiaturs da l'exteriur possian vegnir infurm
     <string name="stats_more_statistics_button">"Ulteriuras statisticas"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/de/overview"</string>
+    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/rm/overview"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Actualmain na pon las datas betg vegnir chargiadas"</string>
