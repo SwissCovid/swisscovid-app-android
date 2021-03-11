@@ -114,7 +114,7 @@
 
 					</LinearLayout>
 
-					<LinearLayout
+					<androidx.constraintlayout.widget.ConstraintLayout
 						android:id="@+id/wtd_inform_infobox"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
@@ -122,68 +122,97 @@
 						android:layout_marginTop="@dimen/spacing_large"
 						android:layout_marginEnd="@dimen/spacing_medium"
 						android:background="@color/status_purple_bg"
-						android:orientation="horizontal"
 						android:padding="@dimen/spacing_medium"
 						android:visibility="gone"
 						tools:visibility="visible">
 
 						<ImageView
+							android:id="@+id/wtd_inform_infobox_icon"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:layout_marginEnd="@dimen/spacing_very_small"
 							android:src="@drawable/ic_info"
-							android:tint="@color/purple_main" />
+							android:tint="@color/purple_main"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintTop_toTopOf="parent" />
+
+						<TextView
+							android:id="@+id/wtd_inform_infobox_title"
+							style="@style/NextStep.Text.Bold"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_marginStart="@dimen/spacing_medium"
+							android:layout_marginBottom="@dimen/spacing_very_small"
+							app:layout_constraintEnd_toEndOf="parent"
+							app:layout_constraintStart_toEndOf="@+id/wtd_inform_infobox_icon"
+							app:layout_constraintTop_toTopOf="parent"
+							tools:text="Infobox Title" />
+
+						<TextView
+							android:id="@+id/wtd_inform_infobox_msg"
+							style="@style/NextStep.Text"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							app:layout_constraintEnd_toEndOf="parent"
+							app:layout_constraintStart_toStartOf="@+id/wtd_inform_infobox_title"
+							app:layout_constraintTop_toBottomOf="@+id/wtd_inform_infobox_title"
+							tools:text="Text for the Infobox" />
 
 						<LinearLayout
-							android:layout_width="match_parent"
+							android:id="@+id/wtd_inform_infobox_link_layout"
+							android:layout_width="0dp"
 							android:layout_height="wrap_content"
-							android:orientation="vertical">
+							android:layout_marginTop="@dimen/spacing_very_small"
+							android:background="@drawable/ripple_button"
+							android:orientation="horizontal"
+							android:paddingTop="@dimen/spacing_small"
+							android:paddingEnd="@dimen/spacing_medium"
+							android:paddingBottom="@dimen/spacing_small"
+							app:layout_constraintEnd_toStartOf="@+id/wtd_inform_infobox_link_hearing_impaired"
+							app:layout_constraintHorizontal_bias="0"
+							app:layout_constraintStart_toStartOf="@+id/wtd_inform_infobox_title"
+							app:layout_constraintTop_toBottomOf="@+id/wtd_inform_infobox_msg"
+							app:layout_constraintWidth_default="wrap">
+
+							<ImageView
+								android:id="@+id/wtd_inform_infobox_link_icon"
+								android:layout_width="@dimen/icon_size"
+								android:layout_height="@dimen/icon_size"
+								android:layout_gravity="center_vertical"
+								android:src="@drawable/ic_launch"
+								android:tint="@color/purple_main" />
 
 							<TextView
-								android:id="@+id/wtd_inform_infobox_title"
-								style="@style/NextStep.Text.Bold"
-								android:layout_width="match_parent"
-								android:layout_height="wrap_content"
-								android:layout_marginBottom="@dimen/spacing_very_small"
-								tools:text="Infobox Title" />
-
-							<TextView
-								android:id="@+id/wtd_inform_infobox_msg"
-								style="@style/NextStep.Text"
-								android:layout_width="match_parent"
-								android:layout_height="wrap_content"
-								tools:text="Text for the Infobox" />
-
-							<LinearLayout
-								android:id="@+id/wtd_inform_infobox_link_layout"
+								android:id="@+id/wtd_inform_infobox_link_text"
+								style="@style/NextStep.Text.Bold.Purple"
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
-								android:layout_marginTop="@dimen/spacing_very_small"
-								android:background="@drawable/ripple_button"
-								android:orientation="horizontal"
-								android:paddingTop="@dimen/spacing_small"
-								android:paddingEnd="@dimen/spacing_medium"
-								android:paddingBottom="@dimen/spacing_small">
-
-								<ImageView
-									android:layout_width="@dimen/icon_size"
-									android:layout_height="@dimen/icon_size"
-									android:src="@drawable/ic_launch"
-									android:tint="@color/purple_main" />
-
-								<TextView
-									android:id="@+id/wtd_inform_infobox_link_text"
-									style="@style/NextStep.Text.Bold.Purple"
-									android:layout_width="wrap_content"
-									android:layout_height="wrap_content"
-									android:layout_marginLeft="@dimen/spacing_small"
-									tools:text="+41 12 345 67 89" />
-
-							</LinearLayout>
+								android:layout_marginLeft="@dimen/spacing_small"
+								tools:text="+41 12 345 67 89" />
 
 						</LinearLayout>
 
-					</LinearLayout>
+						<LinearLayout
+							android:id="@+id/wtd_inform_infobox_link_hearing_impaired"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:background="@drawable/ripple_button"
+							android:orientation="horizontal"
+							android:padding="@dimen/spacing_small"
+							android:visibility="gone"
+							app:layout_constraintBottom_toBottomOf="@+id/wtd_inform_infobox_link_layout"
+							app:layout_constraintEnd_toEndOf="parent"
+							app:layout_constraintTop_toTopOf="@+id/wtd_inform_infobox_link_layout"
+							tools:visibility="visible">
+
+						<ImageView
+								android:layout_width="@dimen/icon_size"
+								android:layout_height="@dimen/icon_size"
+								android:src="@drawable/ic_hearing_impaired"
+								android:tint="@color/purple_main" />
+						</LinearLayout>
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
 
 				</LinearLayout>
 

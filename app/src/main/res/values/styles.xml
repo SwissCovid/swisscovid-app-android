@@ -63,6 +63,10 @@
 	<style name="NextStep.Text.Small.Light">
 		<item name="android:textColor">@color/anthracite_lighter</item>
 	</style>
+a
+	<style name="NextStep.Text.Small.Anthracite">
+		<item name="android:textColor">@color/anthracite</item>
+	</style>
 
 	<style name="NextStep.Text.Small.Purple">
 		<item name="android:textColor">@color/purple_main</item>
@@ -117,6 +121,14 @@
 		<item name="android:gravity">center_horizontal</item>
 	</style>
 
+	<style name="NextStep.Text.Title.Purple">
+		<item name="android:textColor">@color/purple_main</item>
+	</style>
+
+	<style name="NextStep.Text.Title.Blue">
+		<item name="android:textColor">@color/blue_main</item>
+	</style>
+
 	<style name="NextStep.Text.Title.Dark.Mega">
 		<item name="android:textSize">@dimen/text_size_title_mega</item>
 	</style>
@@ -126,6 +138,18 @@
 		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">@color/green_main</item>
+	</style>
+
+	<style name="NextStep.Text.SubTitle.Dark">
+		<item name="android:textColor">@color/dark_main</item>
+	</style>
+
+	<style name="NextStep.Text.SubTitle.Purple">
+		<item name="android:textColor">@color/purple_main</item>
+	</style>
+
+	<style name="NextStep.Text.SubTitle.Blue">
+		<item name="android:textColor">@color/blue_main</item>
 	</style>
 
 	<style name="NextStep.Text.SplashTitle">
@@ -301,6 +325,8 @@
 		<item name="android:textColorPrimary">@color/dark_main</item>
 		<item name="buttonBarPositiveButtonStyle">@style/NextStep.Button.AlertDialog</item>
 		<item name="buttonBarNegativeButtonStyle">@style/NextStep.Button.AlertDialog</item>
+		<item name="android:fontFamily">@font/inter_light</item>
+		<item name="fontFamily">@font/inter_light</item>
 	</style>
 
 </resources>

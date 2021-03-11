@@ -247,7 +247,7 @@
     <string name="meldung_detail_positive_tested_title">"Testiniz pozitif"</string>
 
     <!-- Meldung Detail: Positiv Getestet Subtitel -->
-    <string name="meldung_detail_positive_tested_subtitle">"Yeni Korona virüsü testiniz pozitiftir."</string>
+    <string name="meldung_detail_positive_tested_subtitle">"Korona virüsü testiniz pozitiftir."</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
     <string name="meldung_detail_positive_test_box_subtitle">"Ne yapmalıyım?"</string>
@@ -272,7 +272,9 @@
 
     <!-- Meldung Detail Exposed Subtitel -->
     <string name="meldung_detail_exposed_subtitle">"Enfeksiyon riski bulunmaktadır."</string>
-    <string name="meldung_homescreen_positiv_text">"Yeni Korona virüsü testiniz pozitiftir."</string>
+
+    <!-- Meldung auf Homescreen: Positiv getestet -->
+    <string name="meldung_homescreen_positiv_text">"Korona virüsü testiniz pozitiftir."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
     <string name="reset_onboarding">"Kaydı geri al"</string>
@@ -320,7 +322,7 @@
     <string name="onboarding_prinzip_title">"Virüsün bir adım önünde"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"SwissCovid uygulaması ile yeni Korona virüsünün yayılımını sınırlandırmaya yardımcı olabilirsiniz."</string>
+    <string name="onboarding_prinzip_text1">"SwissCovid uygulaması ile Korona virüsünün yayılımını sınırlandırmaya yardımcı olabilirsiniz."</string>
 
     <!-- Onboarding Prinzip Text -->
     <string name="onboarding_prinzip_text2">"Korona virüsü ile potansiyel temaslarda uygulama sizi bilgilendirir."</string>
@@ -356,7 +358,7 @@
     <string name="onboarding_meldung_title">"Enfeksiyon riskinde dair bildirim"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"Uygulama, potansiyel olarak yeni Korona virüsü ile temasınız olduğunda sizi uyarır."</string>
+    <string name="onboarding_meldung_text1">"Uygulama, potansiyel olarak Korona virüsü ile temasınız olduğunda sizi uyarır."</string>
 
     <!-- Onboarding Meldung: Text -->
     <string name="onboarding_meldung_text2">"Doğru davranışlarla enfeksiyon zincirlerini kırabilir ve diğer insanları koruyabilirsiniz."</string>
@@ -610,10 +612,7 @@ Yalnızca bulaşma riski yeterince büyük ise bilgilendirilirsiniz."</string>
     <!-- Fuzzy -->
     <string name="inform_detail_faq1_text">"Korona virüsü testi pozitif olan kişilere Kovid kodu verilir.
 
-Bu şekilde yalnızca onaylanmış vakaların uygulama üzerinden bildirilmesi garantilenir.
-
-Test sonucunuz pozitif çıktı ve 4 saat içerisinde henüz Covid kodunu almadınız mı?
-Bu durumda, Corona Virüs Bilgi Hattı (Infoline) ile iletişime geçiniz:"</string>
+Bu şekilde yalnızca onaylanmış vakaların uygulama üzerinden bildirilmesi garantilenir."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Neler iletilir?"</string>
@@ -635,7 +634,7 @@ Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşm
     <string name="inform_code_intro_text">"Kişisel bilgileriniz iletilmese dahi, bazı kişiler tarihler temelinde sizinle olan teması hatırlayabilirler."</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
-    <string name="inform_code_intro_button">"Anlaşıldı"</string>
+    <string name="inform_code_intro_button">"Kabul ediyorum"</string>
 
     <!-- Symptome: FAQ Titel -->
     <string name="symptom_faq1_title">"KOVİD-19 semptomları nedir?"</string>
@@ -647,8 +646,17 @@ Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşm
 – Boğaz ağrısı
 – Öksürme (genelde kuru)
 – Nefes darlığı
+– Göğüs ağrıları
+– Koku ve tad alma yetisinin aniden kaybolması
+
+Ayrıca bu semptomlar görülebilir:
+
+– Başağrıları
+– Genel halsizlik, rahatsızlık
 – Kas ağrıları
-– Koku ve tad alma yetisinin aniden kaybolması"</string>
+– Nezle
+– Mide-bağırsak semptomları (bulantı, kusma, ishal, mide ağrıları)
+– Deri döküntüleri"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"İzleme neden devre dışı bırakıldı?"</string>
@@ -890,46 +898,26 @@ Schwarzenburgstrasse 157
     <string name="infobox_close_button_accessibility">"Kapat"</string>
 
     <!-- Title for the Home View Travel Card. -->
-    <string name="travel_title"></string>
+    <string name="travel_title">"Seyahatler"</string>
 
-    <!-- Info text that is displayed on the Home Travel Card. -->
-    <string name="travel_home_description"></string>
+    <!-- Info text that is displayed  on the Home Travel Card. -->
+    <string name="travel_home_description">"SwissCovid şu ülkelerde çalışır:"</string>
 
-    <!-- Introductory Text that is displayed at the top of the travel settings screen. -->
-    <string name="travel_screen_introduction"></string>
+    <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_1">"Bunun anlamı nedir?"</string>
 
-    <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_1"></string>
+    <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_1">"Uyumlu ülkelerin birinde seyahat ettiğinizde, başka bir Korona uygulamasını kurmak zorunda kalmazsınız.
 
-    <!-- First text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1"></string>
+SwissCovid uyumlu ülkelerde yayınlanan rastgele kimlikleri kontrol eder. Böylece yurt dışındaki olası bir bulaşı durumunda da uyarılabilirsiniz."</string>
 
-    <!-- Second title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_2"></string>
+    <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_2">"Covid kodu girildiğinde neler olur?"</string>
 
-    <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2"></string>
+    <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_2">"Covid kodu girildiğinde tarafınızdan girilen rastgele kimlikler uyumlu olan ülkelerle de paylaşılır.
 
-    <!-- Button title for the Add Countries Button in the travel screen. -->
-    <string name="travel_screen_add_countries_button"></string>
-
-    <!-- Text that is displayed under a country name that indicates until what date the user will still receive notifications from this country. -->
-    <string name="travel_screen_notifications_activated_until"></string>
-
-    <!-- List Header for the favourites in the "Add countries" Screen of the Travel feature. -->
-    <string name="travel_screen_favourites"></string>
-
-    <!-- List header for other countries in the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_other_countries"></string>
-
-    <!-- Title for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_title"></string>
-
-    <!-- Text for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_text"></string>
-
-    <!-- Information text that asks the user about informing other countries when he enters a covid code into the app. -->
-    <string name="travel_report_code_info"></string>
+Yurt dışı seyahatlerinden gelen kişilerin de uyarılabilmesi için bu, sizin yurt dışı seyahatinde bulunmuş olup olmamanıza bağlı kalmaksızın uygulanır."</string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
     <string name="accessibility_faq_button_hint_non_bag">"Bu buton, uygulamadan çıkarak bir web sayfası açar."</string>
@@ -978,7 +966,7 @@ Schwarzenburgstrasse 157
     <string name="stats_more_statistics_button">"Diğer İstatistikler"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/de/home/innovative-methoden/swisscovid-app-monitoring.html"</string>
+    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/de/overview"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Veriler şu anda yüklenemiyor."</string>
@@ -1262,4 +1250,96 @@ Schwarzenburgstrasse 157
     <!-- Fuzzy -->
     <string name="testlocation_url_canton_zurich">"https://www.zh.ch/de/gesundheit/coronavirus.html"</string>
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
+
+    <!-- text for info box pop up for the hearing impaired -->
+    <string name="hearing_impaired_info">"İşitmiyor veya işitme özürlü müsünüz ve Koronavirüs bilgi hattını arayamıyor musunuz?
+
+O halde covid-support@medgate.ch adresine bir e-posta gönderiniz"</string>
+
+    <!-- Überschrift des Covidcodes-Statistik-Moduls -->
+    <string name="stats_covidcodes_title">"Covid kodları"</string>
+
+    <!-- Überschrift des Fallzahlen-Statistik Moduls -->
+    <string name="stats_cases_title">"Vaka sayıları"</string>
+
+    <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
+    <string name="stats_cases_subtitle">"güncel gelişme"</string>
+
+    <!-- Label der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_label">"girildi"</string>
+
+    <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_label">"0-2 gün içinde"</string>
+
+    <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_label">"7 gün ortalaması"</string>
+
+    <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_label">"önceki haftaya göre"</string>
+
+    <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
+    <string name="stats_info_popup_title">"Rakamlara ilişkin ayrıntılar"</string>
+
+    <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
+    <string name="stats_info_popup_subtitle_covidcodes">"Girilen Covid kodları"</string>
+
+    <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
+    <string name="stats_info_popup_subtitle_cases">"Vaka sayıları"</string>
+
+    <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_description">"SwissCovid uygulaması Haziran 2020'de başladığından beri girilen Covid kodlarının sayısı. Uygulamayı kullanan bu kadar insan, temas ettikleri kişilere olası bir bulaşıyı bildirdi."</string>
+
+    <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_description">"Semptom başlangıcından sonra ilk iki gün içerisinde girilmiş olan Covid kodlarının oranı. Bu oran son 7 günü kapsar.
+
+Zaman, Koronavirüs ile mücadelede en önemli faktördür: Semptom başlangıcı, test sonucu ve Covid kodu girişi arasında geçen süre ne kadar kısa olursa, bildirimde bulunulan temas kişileri o kadar erkenden evde kalabilir ve başkalarını koruyabilir."</string>
+
+    <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_description">"7 gün boyunca her gün bildirilen yeni enfeksiyonların ortalamasını gösterir."</string>
+
+    <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_description">"Bir hafta öncesinin durumuna nazaran 7 günlük ortalamanın değişimini gösterir."</string>
+
+    <!-- Label der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_label">"Güncel gelişme"</string>
+
+    <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_description">"Grafik son 28 günde bildirilmiş olan yeni enfeksiyonları gösterir. Bu ise güncel gelişme hakkında genel bir bakış kazandırır."</string>
+
+    <!-- Inform Detail: Infobox Text -->
+    <string name="inform_detail_infobox1_text">"Test sonucunuz pozitif çıktı ve 4 saat içerisinde henüz Covid kodunu almadınız mı? 
+Bu durumda, Covid Kodu Bilgi Hattı (Infoline) ile iletişime geçiniz:"</string>
+
+    <!-- Inform Detail: Infobox Title -->
+    <string name="inform_detail_infobox1_title">"Covid kodunu henüz almadınız mı?"</string>
+
+    <!-- Titel des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_title">"İzolasyonunuzu sonlandırdınız mı?"</string>
+
+    <!-- Text des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_text">"İzolasyonu sonlandırdığınız anda izleme tekrar etkin hale getirilebilir."</string>
+
+    <!-- Ja-Antwort -->
+    <string name="answer_yes">"Evet"</string>
+
+    <!-- Nein-Antwort -->
+    <string name="answer_no">"Hayır"</string>
+
+    <!-- Text in der Infobox auf dem Reisen-Screen -->
+    <string name="travel_screen_info">"Yurt dışı seyahatinde misiniz? SwissCovid bu ülkelerde çalışır."</string>
+
+    <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
+    <string name="travel_screen_compatible_countries">"Uyumlu ülkeler:"</string>
+
+    <!-- Informieren Flow: Erster Screen Reise-Infotext -->
+    <string name="inform_code_travel_text">"Yurt dışı seyahatlerinden dönen kişilere de uyarıda bulunulabilmesi için, rastgele kimlikler uyumlu ülkelerin Korona uygulamalarıyla paylaşılır."</string>
+
+    <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
+    <string name="stats_covidcodes_total_header">"Toplam"</string>
+
+    <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_header">"Güncel"</string>
+
+    <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
+    <string name="stats_cases_rel_prev_week_popup_header">"Önceki haftaya göre değişim"</string>
 </resources>

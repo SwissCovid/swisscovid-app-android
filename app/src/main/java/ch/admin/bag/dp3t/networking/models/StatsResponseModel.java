@@ -9,7 +9,6 @@
  */
 package ch.admin.bag.dp3t.networking.models;
 
-import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -17,10 +16,12 @@ import ch.admin.bag.dp3t.util.DateUtils;
 
 public class StatsResponseModel {
 
-	private static double ONE_MILLION = 1000000;
-
 	private String lastUpdated;
-	private int totalActiveUsers;
+	private Integer totalActiveUsers;
+	private Integer totalCovidcodesEntered;
+	private Double covidcodesEntered0to2dPrevWeek;
+	private Integer newInfectionsSevenDayAvg;
+	private Double newInfectionsSevenDayAvgRelPrevWeek;
 	private List<HistoryDataPointModel> history;
 
 	public String getLastUpdatedRaw() {
@@ -35,14 +36,24 @@ public class StatsResponseModel {
 		return DateUtils.getFormattedDateStats(getLastUpdatedParsed());
 	}
 
-	public int getTotalActiveUsers() {
+	public Integer getTotalActiveUsers() {
 		return totalActiveUsers;
 	}
 
-	public String getTotalActiveUsersInMillions() {
-		DecimalFormat df = new DecimalFormat("##.##");
-		double usersInMillion = totalActiveUsers / ONE_MILLION;
-		return df.format(usersInMillion);
+	public Integer getTotalCovidcodesEntered() {
+		return totalCovidcodesEntered;
+	}
+
+	public Double getCovidcodesEntered0to2dPrevWeek() {
+		return covidcodesEntered0to2dPrevWeek;
+	}
+
+	public Integer getNewInfectionsSevenDayAvg() {
+		return newInfectionsSevenDayAvg;
+	}
+
+	public Double getNewInfectionsSevenDayAvgRelPrevWeek() {
+		return newInfectionsSevenDayAvgRelPrevWeek;
 	}
 
 	public List<HistoryDataPointModel> getHistory() {

@@ -89,6 +89,21 @@ public class WtdPositiveTestFragment extends Fragment {
 				} else {
 					view.findViewById(R.id.wtd_inform_infobox_link_layout).setVisibility(View.GONE);
 				}
+
+				if (textModel.getInfoBox().getHearingImpairedInfo() != null) {
+					((ImageView) view.findViewById(R.id.wtd_inform_infobox_link_icon)).setImageResource(R.drawable.ic_phone);
+					view.findViewById(R.id.wtd_inform_infobox_link_hearing_impaired).setOnClickListener(v -> {
+						requireActivity().getSupportFragmentManager().beginTransaction()
+								.add(WtdInfolineAccessabilityDialogFragment
+												.newInstance(textModel.getInfoBox().getHearingImpairedInfo()),
+										WtdInfolineAccessabilityDialogFragment.class.getCanonicalName())
+								.commit();
+					});
+					view.findViewById(R.id.wtd_inform_infobox_link_hearing_impaired).setVisibility(View.VISIBLE);
+				} else {
+					((ImageView) view.findViewById(R.id.wtd_inform_infobox_link_icon)).setImageResource(R.drawable.ic_launch);
+					view.findViewById(R.id.wtd_inform_infobox_link_hearing_impaired).setVisibility(View.GONE);
+				}
 			} else {
 				view.findViewById(R.id.wtd_inform_infobox).setVisibility(View.GONE);
 			}

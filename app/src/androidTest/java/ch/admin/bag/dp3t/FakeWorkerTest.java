@@ -13,13 +13,13 @@ import androidx.work.testing.SynchronousExecutor;
 import androidx.work.testing.TestDriver;
 import androidx.work.testing.WorkManagerTestInitHelper;
 
-import junit.framework.TestCase;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+
+import junit.framework.TestCase;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.internal.AppConfigManager;
@@ -52,6 +52,9 @@ public class FakeWorkerTest {
 		context = InstrumentationRegistry.getInstrumentation().getTargetContext();
 		Logger.init(context, LogLevel.DEBUG);
 
+		//cancel all work that was scheduled on normal WorkManager on Application creation
+		WorkManager.getInstance(context).cancelAllWork();
+
 		// Initialize WorkManager for instrumentation tests.
 		Configuration config = new Configuration.Builder()
 				// Set log level to Log.DEBUG to make it easier to debug
@@ -75,6 +78,9 @@ public class FakeWorkerTest {
 		appConfigManager.setTracingEnabled(true);
 
 		SecureStorage.getInstance(context).setTDummy(-1);
+
+		//cancel all work that was scheduled during initialization
+		WorkManager.getInstance(context).cancelAllWork();
 	}
 
 	@Test
@@ -169,12 +175,22 @@ public class FakeWorkerTest {
 
 		FakeWorker.safeStartFakeWorker(context);
 		WorkInfo workInfo = executeWorker();
-		long new_t_dummy = SecureStorage.getInstance(context).getTDummy();
 
-		// The request stays enqueued. T_dummy stays the same and exactly one network request is executed (and fails with Error
-		// code 503)
-		assertEquals(WorkInfo.State.ENQUEUED, workInfo.getState());
+		// The worker should be done (success) and there is a new worker enqueued.
+		// T_dummy stays the same and exactly one network request is executed (and fails with Error code 503)
+		assertEquals(WorkInfo.State.SUCCEEDED, workInfo.getState());
+		WorkInfo workInfoNext = null;
+		int workerCount = 0;
+		for (WorkInfo wi : WorkManager.getInstance(context).getWorkInfosByTag(FakeWorker.WORK_TAG).get()) {
+			if (wi.getState() == WorkInfo.State.ENQUEUED) {
+				workInfoNext = wi;
+			}
+			workerCount++;
+		}
+		assertEquals(2, workerCount);
+		assertEquals(WorkInfo.State.ENQUEUED, workInfoNext.getState());
 		assertEquals(1, requestCounter.get());
+		long new_t_dummy = SecureStorage.getInstance(context).getTDummy();
 		assertEquals(new_t_dummy, t_dummy);
 	}
 
@@ -285,7 +301,12 @@ public class FakeWorkerTest {
 		UUID requestID = workInfoList.get(0).getId();
 		testDriver.setInitialDelayMet(requestID);
 		testDriver.setAllConstraintsMet(requestID);
-		return WorkManager.getInstance(context).getWorkInfoById(requestID).get();
+		WorkInfo workInfo = null;
+		do {
+			Thread.sleep(500);
+			workInfo = WorkManager.getInstance(context).getWorkInfoById(requestID).get();
+		} while (workInfo.getState() == WorkInfo.State.RUNNING);
+		return workInfo;
 	}
 
 

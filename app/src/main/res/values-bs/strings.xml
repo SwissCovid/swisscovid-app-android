@@ -200,7 +200,7 @@ Time nam pomažete u prekidanju lanca širenja infekcije."</string>
     <string name="inform_detail_box_button">"Unos Covid šifre"</string>
 
     <!-- Informieren Detail Weisse Box Text -->
-    <string name="inform_detail_box_text">"Unosom Covid šifre obaveštavate aplikaciju da ste testirani pozitivno na novi virus korona."</string>
+    <string name="inform_detail_box_text">"Unosom Covid šifre obaveštavate aplikaciju da ste testirani pozitivno na virus korona."</string>
 
     <!-- Symptome Detail Subtitel -->
     <string name="symptom_detail_subtitle">"Šta da radim ako..."</string>
@@ -250,7 +250,7 @@ Time nam pomažete u prekidanju lanca širenja infekcije."</string>
     <string name="meldung_detail_positive_tested_title">"Testiran pozitivno"</string>
 
     <!-- Meldung Detail: Positiv Getestet Subtitel -->
-    <string name="meldung_detail_positive_tested_subtitle">"Testirani ste pozitivno na novi virus korona."</string>
+    <string name="meldung_detail_positive_tested_subtitle">"Testirani ste pozitivno na virus korona."</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
     <string name="meldung_detail_positive_test_box_subtitle">"Šta bi trebalo da uradim?"</string>
@@ -275,7 +275,9 @@ Time nam pomažete u prekidanju lanca širenja infekcije."</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
     <string name="meldung_detail_exposed_subtitle">"Postoji mogućnost infekcije."</string>
-    <string name="meldung_homescreen_positiv_text">"Testirani ste pozitivno na novi virus korona."</string>
+
+    <!-- Meldung auf Homescreen: Positiv getestet -->
+    <string name="meldung_homescreen_positiv_text">"Testirani ste pozitivno na virus korona."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
     <string name="reset_onboarding">"Resetuj onboarding"</string>
@@ -326,10 +328,10 @@ Info linija SwissCovid
 ispred virusa"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"Pomoću aplikacije Swiss Covid svi možemo da pomognemo u suzbijanju širenja novog virusa korona."</string>
+    <string name="onboarding_prinzip_text1">"Pomoću aplikacije Swiss Covid svi možemo da pomognemo u suzbijanju širenja virusa korona."</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text2">"Aplikacija vas obaveštava ako postoji sumnja na to da ste zaraženi novim virusom korona."</string>
+    <string name="onboarding_prinzip_text2">"Aplikacija vas obaveštava ako postoji sumnja na to da ste zaraženi virusom korona."</string>
 
     <!-- Onboarding Privacy: Titel oben -->
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
@@ -364,7 +366,7 @@ pomoću Bluetooth-a"</string>
 moguće infekcije"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"Aplikacija vas obaveštava ako postoji sumnja na to da ste zaraženi novim virusom korona."</string>
+    <string name="onboarding_meldung_text1">"Aplikacija vas obaveštava ako postoji sumnja na to da ste zaraženi virusom korona."</string>
 
     <!-- Onboarding Meldung: Text -->
     <string name="onboarding_meldung_text2">"Ispravnim ponašanjem možete zaštititi sebe i druge."</string>
@@ -624,13 +626,9 @@ Savetovanje je besplatno; plaćaju se samo troškovi poziva."</string>
     <string name="inform_detail_faq1_title">"Šta je Covid šifra?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <!-- Fuzzy -->
-    <string name="inform_detail_faq1_text">"Ljudi koji su testirani pozitivno na novi virus korona dobijaju Covid šifru.
+    <string name="inform_detail_faq1_text">"Ljudi koji su testirani pozitivno na virus korona dobijaju Covid šifru.
 
-Time se osigurava da se putem aplikacije prijavljuju samo potvrđeni slučajevi.
-
-Rezultat testa je pozitivan, ali niste dobili Covid šifru ni nakon 4 sata?
-U tom slučaju, obratite se info liniji za virus korona."</string>
+Time se osigurava da se putem aplikacije prijavljuju samo potvrđeni slučajevi."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Šta se šalje?"</string>
@@ -653,7 +651,7 @@ Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost
     <string name="inform_code_intro_text">"Iako se lični podaci koji se odnose na vas ne šalju, možda se neko seća svog kontakta sa vama na osnovu datuma."</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
-    <string name="inform_code_intro_button">"Shvatam"</string>
+    <string name="inform_code_intro_button">"Saglasan"</string>
 
     <!-- Symptome: FAQ Titel -->
     <string name="symptom_faq1_title">"Koji su simptomi COVID-19?"</string>
@@ -665,8 +663,17 @@ Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost
 – bolovi u grlu
 – kašalj (najčešće suv)
 – kratak dah
+– bolovi u grudima
+– iznenadni gubitak čula mirisa i/ili ukusa
+
+Osim toga, mogući su sledeći simptomi:
+
+– glavobolja
+– opšta slabost, malaksalost
 – bolovi u mišićima
-– iznenadni gubitak čula mirisa i/ili ukusa"</string>
+– kijavica
+– simptomi gastrointestinalnog trakta (mučnina, povraćanje, proliv, bolovi u stomaku)
+– osipi na koži"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Zbog čega je praćenje deaktivirano?"</string>
@@ -913,46 +920,26 @@ Schwarzenburgstrasse 157
     <string name="infobox_close_button_accessibility">"Zatvori"</string>
 
     <!-- Title for the Home View Travel Card. -->
-    <string name="travel_title"></string>
+    <string name="travel_title">"Putovanja"</string>
 
-    <!-- Info text that is displayed on the Home Travel Card. -->
-    <string name="travel_home_description"></string>
+    <!-- Info text that is displayed  on the Home Travel Card. -->
+    <string name="travel_home_description">"SwissCovid funkcijoniše u sledećim državama:"</string>
 
-    <!-- Introductory Text that is displayed at the top of the travel settings screen. -->
-    <string name="travel_screen_introduction"></string>
+    <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_1">"Šta to znači?"</string>
 
-    <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_1"></string>
+    <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_1">"Ukoliko putujete jednom od kompatibilnih država, ne morate instalirati drugu Corona aplikaciju.
 
-    <!-- First text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1"></string>
+SwissCovid proverava slučajne identifikacije u kompatibilnim državama koje su objavljene. Tako možete biti upozoreni u vezi jedne moguće zaraze u inostranstvu."</string>
 
-    <!-- Second title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_2"></string>
+    <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_2">"Šta se dešava kada unesete Covid-kod?"</string>
 
-    <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2"></string>
+    <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_2">"Pri unošenju Covid-koda se sa kompatibilnim državama dele i slučajne identifikacije koje ste poslali.
 
-    <!-- Button title for the Add Countries Button in the travel screen. -->
-    <string name="travel_screen_add_countries_button"></string>
-
-    <!-- Text that is displayed under a country name that indicates until what date the user will still receive notifications from this country. -->
-    <string name="travel_screen_notifications_activated_until"></string>
-
-    <!-- List Header for the favourites in the "Add countries" Screen of the Travel feature. -->
-    <string name="travel_screen_favourites"></string>
-
-    <!-- List header for other countries in the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_other_countries"></string>
-
-    <!-- Title for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_title"></string>
-
-    <!-- Text for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_text"></string>
-
-    <!-- Information text that asks the user about informing other countries when he enters a covid code into the app. -->
-    <string name="travel_report_code_info"></string>
+Da bi putnici u inostranstvu mogli da se upozore, to se dešava nezavisno od toga da li ste vi putovali u inostranstvu ili niste."</string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
     <string name="accessibility_faq_button_hint_non_bag">"Ovo dugme napušta aplikaciju i otvara veb stranicu."</string>
@@ -1001,7 +988,7 @@ Schwarzenburgstrasse 157
     <string name="stats_more_statistics_button">"Dodatni statistički podaci"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/de/home/innovative-methoden/swisscovid-app-monitoring.html"</string>
+    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/de/overview"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Podaci trenutno ne mogu da se učitaju"</string>
@@ -1196,7 +1183,7 @@ Schwarzenburgstrasse 157
     <string name="test_location_popup_title">"Gde mogu da uradim test?"</string>
 
     <!-- Test standorte Popup Text -->
-    <string name="test_location_popup_text">"Na novi koronavirus možete da se testirate kod raznih lekara, u centrima za testiranje, bolnicama i apotekama. Informacije o ponudama testiranja možete pronaći na  internet stranicama kantona:"</string>
+    <string name="test_location_popup_text">"Na koronavirus možete da se testirate kod raznih lekara, u centrima za testiranje, bolnicama i apotekama. Informacije o ponudama testiranja možete pronaći na  internet stranicama kantona:"</string>
 
     <!-- Notification Channel name for Tracing Reactivation Reminders on Android Devices (Only visible in System Settings) -->
     <string name="android_reminder_channel_name">"Podsećanje na aktivaciju praćenja"</string>
@@ -1285,4 +1272,96 @@ Praćenje može ponovo da se aktivira po završetku izolacije."</string>
     <!-- Fuzzy -->
     <string name="testlocation_url_canton_zurich">"https://www.zh.ch/de/gesundheit/coronavirus.html"</string>
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
+
+    <!-- text for info box pop up for the hearing impaired -->
+    <string name="hearing_impaired_info">"Da li ste bez sluha ili imate smetnju sluha i ne možete nazvati Infoline Coronavirus?
+
+Onda pošaljite e-mail na covid-support@medgate.ch"</string>
+
+    <!-- Überschrift des Covidcodes-Statistik-Moduls -->
+    <string name="stats_covidcodes_title">"Covid-kodovi"</string>
+
+    <!-- Überschrift des Fallzahlen-Statistik Moduls -->
+    <string name="stats_cases_title">"Broj slučajeva"</string>
+
+    <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
+    <string name="stats_cases_subtitle">"aktuelan razvoj"</string>
+
+    <!-- Label der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_label">"të regjistruara"</string>
+
+    <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_label">"u roku od 0 do 2 dana"</string>
+
+    <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_label">"prosek od 7 dana"</string>
+
+    <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_label">"vratiti na prošlu nedelju"</string>
+
+    <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
+    <string name="stats_info_popup_title">"detalji u vezi brojeva"</string>
+
+    <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
+    <string name="stats_info_popup_subtitle_covidcodes">"Covidcodes entered"</string>
+
+    <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
+    <string name="stats_info_popup_subtitle_cases">"Broj slučajeva"</string>
+
+    <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_description">"Iznos unešenih Covid-kodova od starta SwissCovid aplikacije u junu 2020. Toliko osoba je preko aplikacije obavestilo vaše kontakte o mogućim zarazama."</string>
+
+    <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_description">"Deo Covid-kodova koji su već unešeni u roku od prva dva dana nakon početka simptoma. Taj deo se odnosi na poslednjih 7 dana.
+
+Vreme je odlučujući faktor u suzbijanju Corona virusa: što je vreme između pojave simptoma, rezultata testa i unošenja Covid-koda koja, to će obavešteni kontakti ranije moći da ostanu kod kuće i da zaštitite druge."</string>
+
+    <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_description">"Pokazuje prosek prijavljenih novih infekcija dnevno za period od 7 dana."</string>
+
+    <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_description">"Pokazuje promenu proseka od 7 dana upoređujući stanje od pre nedelju dana."</string>
+
+    <!-- Label der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_label">"Aktuelan razvoj"</string>
+
+    <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_description">"Grafika pokazuje prijavljene nove infekcije poslednjih 28 dana. Time imate pregled o aktuelnom razvoju."</string>
+
+    <!-- Inform Detail: Infobox Text -->
+    <string name="inform_detail_infobox1_text">"Testirani ste pozitivno i 4 h posle još niste dobili Covid šifru?
+Kontaktirajte info-liniju za Covid šifre:"</string>
+
+    <!-- Inform Detail: Infobox Title -->
+    <string name="inform_detail_infobox1_title">"Još niste dobili Covid šifru?"</string>
+
+    <!-- Titel des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_title">"Da li je vaša izolacija istekla?"</string>
+
+    <!-- Text des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_text">"Praćenje može opet da se aktivira, čim ste završili sa izolacijom."</string>
+
+    <!-- Ja-Antwort -->
+    <string name="answer_yes">"Da"</string>
+
+    <!-- Nein-Antwort -->
+    <string name="answer_no">"Ne"</string>
+
+    <!-- Text in der Infobox auf dem Reisen-Screen -->
+    <string name="travel_screen_info">"Putujete li u inostranstvu? U ovim državama SwissCovid funkcioniše."</string>
+
+    <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
+    <string name="travel_screen_compatible_countries">"Kompatibilne države:"</string>
+
+    <!-- Informieren Flow: Erster Screen Reise-Infotext -->
+    <string name="inform_code_travel_text">"Da bi se putnici iz inostranstva mogli upozoriti, slučajne identifikacije sa Corona aplikacijom kompatibilnih država se dele."</string>
+
+    <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
+    <string name="stats_covidcodes_total_header">"Ukupno"</string>
+
+    <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_header">"Aktuelno"</string>
+
+    <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
+    <string name="stats_cases_rel_prev_week_popup_header">"Promena u vezi prošle nedelje"</string>
 </resources>

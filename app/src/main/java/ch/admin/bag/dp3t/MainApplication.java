@@ -54,6 +54,14 @@ public class MainApplication extends Application {
 
 		initDP3T(this);
 
+		SecureStorage secureStorage = SecureStorage.getInstance(this);
+		int appVersionCode = BuildConfig.VERSION_CODE;
+		if (secureStorage.getLastKnownAppVersionCode() != appVersionCode) {
+			secureStorage.setLastKnownAppVersionCode(appVersionCode);
+			// cancel any active fake workers (will be restarted below if needed)
+			FakeWorker.stop(this);
+		}
+
 		FakeWorker.safeStartFakeWorker(this);
 		ConfigWorker.scheduleConfigWorkerIfOutdated(this);
 
@@ -100,6 +108,8 @@ public class MainApplication extends Application {
 		DP3T.setUserAgent(
 				() -> context.getPackageName() + ";" + BuildConfig.VERSION_NAME + ";" + BuildConfig.BUILD_TIME + ";Android;" +
 						Build.VERSION.SDK_INT + ";" + DP3T.getENModuleVersion(context));
+
+		DP3T.setWithFederationGateway(context, true);
 	}
 
 	private BroadcastReceiver contactUpdateReceiver = new BroadcastReceiver() {

@@ -249,7 +249,7 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="meldung_detail_positive_tested_title">"Testada/testà en moda positiva"</string>
 
     <!-- Meldung Detail: Positiv Getestet Subtitel -->
-    <string name="meldung_detail_positive_tested_subtitle">"Vus essas vegnida testada/vegnì testà en moda positiva sin il nov coronavirus."</string>
+    <string name="meldung_detail_positive_tested_subtitle">"Vus essas vegnida testada/vegnì testà en moda positiva sin il coronavirus."</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Subtitel -->
     <string name="meldung_detail_positive_test_box_subtitle">"Tge duai jau far?"</string>
@@ -274,7 +274,9 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
     <string name="meldung_detail_exposed_subtitle">"Ina infecziun è pussaivla."</string>
-    <string name="meldung_homescreen_positiv_text">"Vus essas vegnida testada/vegnì testà en moda positiva sin il nov coronavirus."</string>
+
+    <!-- Meldung auf Homescreen: Positiv getestet -->
+    <string name="meldung_homescreen_positiv_text">"Vus essas vegnida testada/vegnì testà en moda positiva sin il coronavirus."</string>
 
     <!-- Debug Screen: Onboarding Reset Button -->
     <string name="reset_onboarding">"Redefinir onboarding"</string>
@@ -325,10 +327,10 @@ Infoline SwissCovid
     <string name="onboarding_prinzip_title">"In pass ordavant al virus"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"Cun l'app SwissCovid pon tuts gidar da franar la derasaziun dal nov coronavirus."</string>
+    <string name="onboarding_prinzip_text1">"Cun l'app SwissCovid pon tuts gidar da franar la derasaziun dal coronavirus."</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text2">"L'app As infurmescha, sche Vus essas stada exponida/stà exponì al nov coronavirus."</string>
+    <string name="onboarding_prinzip_text2">"L'app As infurmescha, sche Vus essas stada exponida/stà exponì al coronavirus."</string>
 
     <!-- Onboarding Privacy: Titel oben -->
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
@@ -361,7 +363,7 @@ Infoline SwissCovid
     <string name="onboarding_meldung_title">"Avis en cas d'ina eventuala infecziun"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"L'app As infurmescha, sche Vus essas stada exponida/stà exponì potenzialmain al nov coronavirus."</string>
+    <string name="onboarding_meldung_text1">"L'app As infurmescha, sche Vus essas stada exponida/stà exponì potenzialmain al coronavirus."</string>
 
     <!-- Onboarding Meldung: Text -->
     <string name="onboarding_meldung_text2">"Cun il cumportament gist pudais Vus interrumper chadainas d'infecziun e proteger autras persunas."</string>
@@ -621,12 +623,9 @@ Il discurs da cussegliaziun è gratuit; igl è da pajar mo la taxa da telefon."<
     <string name="inform_detail_faq1_title">"Tge è in code covid?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <!-- Fuzzy -->
-    <string name="inform_detail_faq1_text">"Persunas ch’èn vegnidas testadas en moda positiva sin il nov coronavirus survegnan in code covid.
-      
-Uschia vegni garantì che mo cas confermads vegnan avisads via l'app.
-
-Vus essas vegnida testada resp. vegnì testà en moda positiva sin il coronavirus e n'avais suenter 4 uras anc retschavì nagin code covid? Alura contactai l'infoline coronavirus:"</string>
+    <string name="inform_detail_faq1_text">"Persunas ch’èn vegnidas testadas en moda positiva sin il coronavirus survegnan in code covid.
+ 
+Uschia vegni garantì che mo cas confermads vegnan avisads via l'app."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Tge vegn tramess?"</string>
@@ -649,7 +648,7 @@ Uschia vegnan autras utilisadras ed auters utilisaders da l'app SwissCovid a sav
     <string name="inform_code_intro_text">"Cumbain ch'i na vegnan tramessas naginas datas davart Vossa persuna, èsi pussaivel ch'insatgi sa regorda da l'inscunter a maun da la data."</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
-    <string name="inform_code_intro_button">"Chapì"</string>
+    <string name="inform_code_intro_button">"D'accord"</string>
 
     <!-- Symptome: FAQ Titel -->
     <string name="symptom_faq1_title">"Tge èn sintoms da COVID-19?"</string>
@@ -661,9 +660,17 @@ Uschia vegnan autras utilisadras ed auters utilisaders da l'app SwissCovid a sav
 – mal la gula
 – tuss (per il solit tuss sitga)
 – respiraziun asmatica
-– mal ils musculs
+– mal il pèz
 – perdita andetga da l'odurat e/u dal palat
-"</string>
+
+Pussaivels èn er ils suandants sintoms:
+
+– mal il chau
+– deblezza generala, malesser
+– mal ils musculs
+– dafraid
+– sintoms dal tract digestiv (indispostadad, vomitar, diarrea, mal il venter)
+– eczems"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Pertge è il tracing deactivà?"</string>
@@ -909,46 +916,26 @@ Schwarzenburgstrasse 157
     <string name="infobox_close_button_accessibility">"Serrar"</string>
 
     <!-- Title for the Home View Travel Card. -->
-    <string name="travel_title"></string>
+    <string name="travel_title">"Viadis"</string>
 
-    <!-- Info text that is displayed on the Home Travel Card. -->
-    <string name="travel_home_description"></string>
+    <!-- Info text that is displayed  on the Home Travel Card. -->
+    <string name="travel_home_description">"SwissCovid funcziuna en ils suandants pajais:"</string>
 
-    <!-- Introductory Text that is displayed at the top of the travel settings screen. -->
-    <string name="travel_screen_introduction"></string>
+    <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_1">"Tge vul quai dir?"</string>
 
-    <!-- First title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_1"></string>
+    <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_1">"Sche Vus essas (en gir) en in pajais cumpatibel, na stuais Vus betg installar in'autra app da corona.
 
-    <!-- First text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1"></string>
+SwissCovid verifitgescha las IDs casualas ch'èn vegnidas publitgadas en ils pajais cumpatibels. Uschia pudais Vus vegnir infurmada resp. infurmà er en cas d'ina eventuala infecziun a l'exteriur."</string>
 
-    <!-- Second title for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_title_2"></string>
+    <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_title_2">"Tge capita, sche jau endatesch il code covid?"</string>
 
-    <!-- Second text for the travel feature explanation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2"></string>
+    <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
+    <string name="travel_screen_explanation_text_2">"Sche Vus endatais il code covid vegnan las IDs casualas che Vus avais tramess er cundivididas cun ils pajais cumpatibels.
 
-    <!-- Button title for the Add Countries Button in the travel screen. -->
-    <string name="travel_screen_add_countries_button"></string>
-
-    <!-- Text that is displayed under a country name that indicates until what date the user will still receive notifications from this country. -->
-    <string name="travel_screen_notifications_activated_until"></string>
-
-    <!-- List Header for the favourites in the "Add countries" Screen of the Travel feature. -->
-    <string name="travel_screen_favourites"></string>
-
-    <!-- List header for other countries in the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_other_countries"></string>
-
-    <!-- Title for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_title"></string>
-
-    <!-- Text for the explanation at the bottom of the "add countries" screen of the travel feature. -->
-    <string name="travel_screen_add_countries_explanation_text"></string>
-
-    <!-- Information text that asks the user about informing other countries when he enters a covid code into the app. -->
-    <string name="travel_report_code_info"></string>
+Per che er las viagiaturas ed ils viagiaturs da l'exteriur possian vegnir infurmads, succeda quai independentamain dal fatg, sche Vus essas sezza stada resp. sez stà a l'exteriur u betg."</string>
 
     <!-- Accessibility: FAQ button hint wenn die app verlassen wird und eine website öffnet -->
     <string name="accessibility_faq_button_hint_non_bag">"Quest buttun banduna l'app ad avra ina pagina d'internet. "</string>
@@ -997,7 +984,7 @@ Schwarzenburgstrasse 157
     <string name="stats_more_statistics_button">"Ulteriuras statisticas"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url">"https://www.experimental.bfs.admin.ch/expstat/de/home/innovative-methoden/swisscovid-app-monitoring.html"</string>
+    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/rm/overview"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Actualmain na pon las datas betg vegnir chargiadas"</string>
@@ -1192,7 +1179,7 @@ Schwarzenburgstrasse 157
     <string name="test_location_popup_title">"Nua poss jau far in test?"</string>
 
     <!-- Test standorte Popup Text -->
-    <string name="test_location_popup_text">"Vus pudais As laschar testar sin il nov coronavirus tar differentas medias e medis, en centers da test, en ospitals ed en apotecas. Infurmaziuns davart las purschidas da test chattais Vus sin las paginas chantunalas:"</string>
+    <string name="test_location_popup_text">"Vus pudais As laschar testar sin il coronavirus tar differentas medias e medis, en centers da test, en ospitals ed en apotecas. Infurmaziuns davart las purschidas da test chattais Vus sin las paginas chantunalas:"</string>
 
     <!-- Notification Channel name for Tracing Reactivation Reminders on Android Devices (Only visible in System Settings) -->
     <string name="android_reminder_channel_name">"Regurdientscha d'activar il tracing"</string>
@@ -1281,4 +1268,95 @@ Il tracing po puspè vegnir activà suenter l'isolaziun."</string>
     <!-- Fuzzy -->
     <string name="testlocation_url_canton_zurich">"https://www.zh.ch/de/gesundheit/coronavirus.html"</string>
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
+
+    <!-- text for info box pop up for the hearing impaired -->
+    <string name="hearing_impaired_info">"Essas Vus senza udida u avais Vus in impediment d'udida e na pudais betg telefonar a la Infoline coronavirus?
+
+Alura tramettai in e-mail a covid-support@medgate.ch"</string>
+
+    <!-- Überschrift des Covidcodes-Statistik-Moduls -->
+    <string name="stats_covidcodes_title">"Codes covid"</string>
+
+    <!-- Überschrift des Fallzahlen-Statistik Moduls -->
+    <string name="stats_cases_title">"Dumber dals cas"</string>
+
+    <!-- Untertitel des Fallzahlen-Statistik-Moduls -->
+    <string name="stats_cases_subtitle">"svilup actual"</string>
+
+    <!-- Label der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_label">"endatà"</string>
+
+    <!-- Label der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_label">"entaifer 0-2 dis"</string>
+
+    <!-- Label der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_label">"media da 7 dis"</string>
+
+    <!-- Label der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_label">"envers l'emna precedenta"</string>
+
+    <!-- Überschrift des Info-Popups auf dem Statistik-Screen -->
+    <string name="stats_info_popup_title">"Detagls davart las cifras"</string>
+
+    <!-- Untertitel des Infopopups zu Covidcodes-Statistiken -->
+    <string name="stats_info_popup_subtitle_covidcodes">"Codes covid endatads"</string>
+
+    <!-- Untertitel des Infopopups zu Fallzahlen-Statistiken -->
+    <string name="stats_info_popup_subtitle_cases">"Dumber dals cas"</string>
+
+    <!-- Beschreibung der "Total eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_total_description">"Dumber dals codes covid endatads dapi il cumenzament da l'app SwissCovid il zercladur 2020. Uschè bleras persunas han infurmà tras l'app lur contacts davart ina eventuala infecziun."</string>
+
+    <!-- Beschreibung der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_description">"Quota dals codes covid ch'èn vegnids endatads entaifer ils emprims dus dis suenter il cumenzament dals sintoms. Questa quota sa referescha als ultims 7 dis.
+
+Il temp è in factur decisiv en il cumbat cunter il coronavirus: pli curt ch'il temp tranter il cumenzament dals sintoms, il resultat dal test e l'endataziun dal code covid è, e pli baud ch'ils contacts infurmads pon restar a chasa e proteger autras persunas."</string>
+
+    <!-- Beschreibung der "7-Tage-Schnitt Fallzahlen" Statistik -->
+    <string name="stats_cases_7day_average_description">"Mussa la media da las infecziuns novas per di sur 7 dis."</string>
+
+    <!-- Beschreibung der "Änderung gegenüber Vorwoche Fallzahlen" Statistik -->
+    <string name="stats_cases_rel_prev_week_description">"Mussa la midada da la media da 7 dis en cumparegliaziun cun il stadi d'avant in'emna."</string>
+
+    <!-- Label der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_label">"Svilup actual"</string>
+
+    <!-- Beschreibung der "Aktuelle Entwicklung" Statistik -->
+    <string name="stats_cases_current_description">"La grafica mussa las infecziuns novas annunziadas dals ultims 28 dis. Quai dat ina survista dal svilup actual."</string>
+
+    <!-- Inform Detail: Infobox Text -->
+    <string name="inform_detail_infobox1_text">"Voss test è positiv e Vus n'avais suenter 4 uras anc adina betg retschavì in code covid? Alura contactai la infoline code covid:"</string>
+
+    <!-- Inform Detail: Infobox Title -->
+    <string name="inform_detail_infobox1_title">"Anc nagin code covid?"</string>
+
+    <!-- Titel des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_title">"Avais Vus terminà Vossa isolaziun?"</string>
+
+    <!-- Text des Popups mit der Frage, ob der User die Isolation beendet hat -->
+    <string name="homescreen_isolation_ended_popup_text">"Il tracing po puspè vegnir activà, uschespert che Vus avais terminà l'isolaziun."</string>
+
+    <!-- Ja-Antwort -->
+    <string name="answer_yes">"Gea"</string>
+
+    <!-- Nein-Antwort -->
+    <string name="answer_no">"Na"</string>
+
+    <!-- Text in der Infobox auf dem Reisen-Screen -->
+    <string name="travel_screen_info">"En gir a l'exteriur? En quests pajais funcziuna SwissCovid."</string>
+
+    <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
+    <string name="travel_screen_compatible_countries">"Pajais cumpatibels:"</string>
+
+    <!-- Informieren Flow: Erster Screen Reise-Infotext -->
+    <string name="inform_code_travel_text">"Per che er las viagiaturas ed ils viagiaturs da l'exteriur possian vegnir infurmads, vegnan cundivididas las IDs casualas cun las apps da corona dals pajais cumpatibels."</string>
+
+    <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
+    <string name="stats_covidcodes_total_header">"total"</string>
+
+    <!-- Überschrift der "Innert 0-2 Tagen eingegebene Covidcodes" Statistik -->
+    <string name="stats_covidcodes_0to2days_header">"actual"</string>
+
+    <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
+    <string name="stats_cases_rel_prev_week_popup_header">"Midada envers l'emna precedenta"</string>
 </resources>

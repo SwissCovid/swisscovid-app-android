@@ -23,14 +23,20 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.helper.widget.Flow;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.logger.Logger;
@@ -41,11 +47,15 @@ import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
 import ch.admin.bag.dp3t.home.model.TracingState;
+import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.travel.TravelFragment;
+import ch.admin.bag.dp3t.travel.TravelUtils;
 import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
+import ch.admin.bag.dp3t.whattodo.WtdInfolineAccessabilityDialogFragment;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
 import ch.admin.bag.dp3t.whattodo.WtdSymptomsFragment;
 
@@ -64,6 +74,7 @@ public class HomeFragment extends Fragment {
 	private View reportStatusBubble;
 	private View reportStatusView;
 	private View reportErrorView;
+	private View travelCard;
 	private View cardSymptomsFrame;
 	private View cardTestFrame;
 	private View cardSymptoms;
@@ -102,6 +113,7 @@ public class HomeFragment extends Fragment {
 		reportStatusBubble = view.findViewById(R.id.report_status_bubble);
 		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
 		reportErrorView = reportStatusBubble.findViewById(R.id.report_errors);
+		travelCard = view.findViewById(R.id.card_travel);
 		headerView = view.findViewById(R.id.home_header_view);
 		scrollView = view.findViewById(R.id.home_scroll_view);
 		cardSymptoms = view.findViewById(R.id.card_what_to_do_symptoms);
@@ -114,9 +126,12 @@ public class HomeFragment extends Fragment {
 		setupInfobox();
 		setupTracingView();
 		setupNotification();
+		setupTravelCard();
 		setupWhatToDo();
 		setupNonProductionHint();
 		setupScrollBehavior();
+
+		showEndIsolationDialogIfNecessary();
 	}
 
 	@Override
@@ -173,6 +188,23 @@ public class HomeFragment extends Fragment {
 				linkGroup.setVisibility(VISIBLE);
 			} else {
 				linkGroup.setVisibility(View.GONE);
+			}
+
+			String hearingImpairedInfo = secureStorage.getInfoboxHearingImpairedInfo();
+			View hearingImpairedView = infobox.findViewById(R.id.infobox_link_hearing_impaired);
+			ImageView linkIcon = infobox.findViewById(R.id.infobox_link_icon);
+			if (hearingImpairedInfo != null) {
+				hearingImpairedView.setOnClickListener(v ->
+						requireActivity().getSupportFragmentManager().beginTransaction()
+								.add(WtdInfolineAccessabilityDialogFragment.newInstance(hearingImpairedInfo),
+										WtdInfolineAccessabilityDialogFragment.class.getCanonicalName())
+								.commit()
+				);
+				linkIcon.setImageResource(R.drawable.ic_phone);
+				hearingImpairedView.setVisibility(VISIBLE);
+			} else {
+				linkIcon.setImageResource(R.drawable.ic_launch);
+				hearingImpairedView.setVisibility(View.GONE);
 			}
 
 			boolean isDismissible = secureStorage.getInfoboxDismissible();
@@ -315,6 +347,25 @@ public class HomeFragment extends Fragment {
 		}
 	}
 
+	private void setupTravelCard() {
+		travelCard.setOnClickListener(
+				v -> getActivity().getSupportFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.main_fragment_container, TravelFragment.newInstance())
+						.addToBackStack(TravelFragment.class.getCanonicalName())
+						.commit()
+		);
+
+		List<String> countries = secureStorage.getInteropCountries();
+		if (!countries.isEmpty()) {
+			travelCard.setVisibility(VISIBLE);
+			Flow flowConstraint = travelCard.findViewById(R.id.travel_flags_flow);
+			TravelUtils.inflateFlagFlow(flowConstraint, countries);
+		} else {
+			travelCard.setVisibility(View.GONE);
+		}
+	}
+
 	private void setupWhatToDo() {
 		cardSymptoms.setOnClickListener(
 				v -> getActivity().getSupportFragmentManager().beginTransaction()
@@ -353,6 +404,34 @@ public class HomeFragment extends Fragment {
 			headerView.setAlpha(1 - progress);
 			headerView.setTranslationY(progress * translationRangePx);
 		});
+	}
+
+	private void showEndIsolationDialogIfNecessary() {
+		Observer<TracingStatusInterface> observer = new Observer<TracingStatusInterface>() {
+			@Override
+			public void onChanged(TracingStatusInterface tracingStatusInterface) {
+				long isolationEndDialogTimestamp = secureStorage.getIsolationEndDialogTimestamp();
+				if (isolationEndDialogTimestamp != -1L && System.currentTimeMillis() > isolationEndDialogTimestamp &&
+						tracingStatusInterface.isReportedAsInfected()) {
+					new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+							.setTitle(R.string.homescreen_isolation_ended_popup_title)
+							.setMessage(R.string.homescreen_isolation_ended_popup_text)
+							.setPositiveButton(R.string.answer_yes, (dialog, which) -> {
+								tracingStatusInterface.resetInfectionStatus(getContext());
+								secureStorage.setIsolationEndDialogTimestamp(-1L);
+							})
+							.setNegativeButton(R.string.answer_no, (dialog, which) -> {
+								long newTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1);
+								secureStorage.setIsolationEndDialogTimestamp(newTimestamp);
+							})
+							.setCancelable(false)
+							.show();
+				}
+				tracingViewModel.getAppStatusLiveData().removeObserver(this);
+			}
+		};
+
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), observer);
 	}
 
 	private void enableTracing() {

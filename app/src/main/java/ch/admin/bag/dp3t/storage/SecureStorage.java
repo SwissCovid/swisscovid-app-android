@@ -23,10 +23,10 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.SortedMap;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -59,6 +59,7 @@ public class SecureStorage {
 	private static final String KEY_CONFIG_INFOBOX_LINK_URL = "ghettobox_link_url";
 	private static final String KEY_CONFIG_INFOBOX_ID = "ghettobox_id";
 	private static final String KEY_CONFIG_INFOBOX_IS_DISMISSIBLE = "ghettobox_is_dismissible";
+	private static final String KEY_CONFIG_INFOBOX_HEARING_IMPAIRED_INFO = "ghettobox_hearing_impaired_info";
 	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS = "last_config_load_success";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION = "last_config_load_success_app_version";
@@ -66,7 +67,11 @@ public class SecureStorage {
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
 	private static final String KEY_TEST_LOCATIONS = "test_locations";
+	private static final String KEY_INTEROP_COUNTRIES = "interop_countries";
 	private static final String KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING = "appOpenAfterNotificationPending";
+	private static final String KEY_ISOLATION_END_DIALOG_TIMESTAMP = "isolation_end_dialog_timestamp";
+	private static final String KEY_APP_VERSION_CODE = "app_version_code";
+	private static final String KEY_SCHEDULED_FAKE_WORKER_NAME = "scheduled_fake_worker_name";
 
 	private static SecureStorage instance;
 
@@ -168,8 +173,7 @@ public class SecureStorage {
 	}
 
 	public void leitfadenOpened() {
-		prefs.edit().putBoolean(KEY_LEITFADEN_OPEN_PENDING, false)
-				.apply();
+		prefs.edit().putBoolean(KEY_LEITFADEN_OPEN_PENDING, false).apply();
 	}
 
 	public boolean isReportsHeaderAnimationPending() {
@@ -246,6 +250,13 @@ public class SecureStorage {
 		return prefs.getBoolean(KEY_CONFIG_INFOBOX_IS_DISMISSIBLE, false);
 	}
 
+	public String getInfoboxHearingImpairedInfo() {
+		return prefs.getString(KEY_CONFIG_INFOBOX_HEARING_IMPAIRED_INFO, null);
+	}
+
+	public void setInfoboxHearingImpairedInfo(String hearingImpairedInfo) {
+		prefs.edit().putString(KEY_CONFIG_INFOBOX_HEARING_IMPAIRED_INFO, hearingImpairedInfo).apply();
+	}
 
 	public boolean isUserNotInPilotGroup() {
 		return prefs.getBoolean(KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP, false);
@@ -308,6 +319,20 @@ public class SecureStorage {
 		return gson.fromJson(prefs.getString(KEY_TEST_LOCATIONS, getDefaultTestLocations()), testLocationsType);
 	}
 
+	public void setInteropCountries(List<String> interopCountries) {
+		prefs.edit().putString(KEY_INTEROP_COUNTRIES, gson.toJson(interopCountries)).apply();
+	}
+
+	public List<String> getInteropCountries() {
+		Type interopCountriesType = new TypeToken<List<String>>() { }.getType();
+		List<String> countries = gson.fromJson(prefs.getString(KEY_INTEROP_COUNTRIES, "[]"), interopCountriesType);
+		if (countries != null) {
+			return countries;
+		} else {
+			return new ArrayList<>();
+		}
+	}
+
 	private String getDefaultTestLocations() {
 		try (BufferedReader br = new BufferedReader(
 				new InputStreamReader(context.getAssets().open(DEFAULT_TEST_LOCATIONS_JSON_PATH), StandardCharsets.UTF_8));
@@ -327,6 +352,30 @@ public class SecureStorage {
 
 	public boolean getAppOpenAfterNotificationPending() {
 		return prefs.getBoolean(KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING, false);
+	}
+
+	public long getIsolationEndDialogTimestamp() {
+		return prefs.getLong(KEY_ISOLATION_END_DIALOG_TIMESTAMP, -1L);
+	}
+
+	public void setIsolationEndDialogTimestamp(long timestamp) {
+		prefs.edit().putLong(KEY_ISOLATION_END_DIALOG_TIMESTAMP, timestamp).apply();
+	}
+
+	public void setLastKnownAppVersionCode(int versionCode) {
+		prefs.edit().putInt(KEY_APP_VERSION_CODE, versionCode).apply();
+	}
+
+	public int getLastKnownAppVersionCode() {
+		return prefs.getInt(KEY_APP_VERSION_CODE, -1);
+	}
+
+	public void setScheduledFakeWorkerName(String workerName) {
+		prefs.edit().putString(KEY_SCHEDULED_FAKE_WORKER_NAME, workerName).apply();
+	}
+
+	public String getScheduledFakeWorkerName() {
+		return prefs.getString(KEY_SCHEDULED_FAKE_WORKER_NAME, null);
 	}
 
 }

@@ -48,10 +48,14 @@ public class StatsViewModel extends AndroidViewModel {
 				statsLiveData.postValue(outcome);
 
 				StatsResponseModel model = statsRepository.getStats();
-				outcome.setStatsResponseModel(model);
-				outcome.setOutcome(Outcome.RESULT);
+				if (model.getLastUpdatedRaw() == null && model.getHistory().isEmpty()) {
+					outcome.setOutcome(Outcome.ERROR);
+				} else {
+					outcome.setStatsResponseModel(model);
+					outcome.setOutcome(Outcome.RESULT);
+				}
 				statsLiveData.postValue(outcome);
-			} catch (IOException | ResponseError | SignatureException e) {
+			} catch (IOException | ResponseError e) {
 				outcome.setOutcome(Outcome.ERROR);
 				statsLiveData.postValue(outcome);
 			}
