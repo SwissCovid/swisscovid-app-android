@@ -988,7 +988,7 @@ To enable travellers from abroad to also receive alerts, this happens regardless
     <string name="stats_more_statistics_button">"View more statistics"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/de/overview"</string>
+    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/en/overview"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Currently unable to load stats"</string>

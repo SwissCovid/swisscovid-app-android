@@ -990,7 +990,7 @@ d'ouvrir un site internet."</string>
     <string name="stats_more_statistics_button">"Autres statistiques"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/de/overview"</string>
+    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/fr/overview"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Les données ne peuvent pas être chargées pour l'instant."</string>

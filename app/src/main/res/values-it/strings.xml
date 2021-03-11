@@ -997,7 +997,7 @@ Affinché anche i viaggiatori all'estero possano essere avvisati, la condivision
     <string name="stats_more_statistics_button">"Altre statistiche"</string>
 
     <!-- URL zu weiteren statistiken -->
-    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/de/overview"</string>
+    <string name="stats_more_statistics_url">"https://www.covid19.admin.ch/it/overview"</string>
 
     <!-- Body of the error message shown when the statistics data cannot be loaded -->
     <string name="stats_loading_error_text">"Impossibile caricare i dati in questo momento"</string>
