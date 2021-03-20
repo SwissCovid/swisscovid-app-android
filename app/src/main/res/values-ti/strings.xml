@@ -26,7 +26,9 @@
     <string name="inform_send_thankyou">"የቐንየልና"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"እቶም ብግምት ዝተሰርዑ መለልዪ ቁጽርታት ናይ ኣፕኩም ተሰዲዶም ኣለዉ። ብኸምዚ መንገዲ ሰንሰለት ለበዳ ሕማም ንኽቋረጽ ትሕግዙ።"</string>
+    <string name="inform_send_thankyou_text">"እቶም ግላውያን መፋትሕ ናይ ኤፕኩም ተሰዲዶም ኣለዉ።
+
+ብኸምዚ መንገዲ ሰንሰለት ለበዳ ሕማም ንኽቋረጽ ትሕግዙ።"</string>
 
     <!-- Informieren: Button Titel -->
     <string name="inform_fertig_button_title">"ዕጸው"</string>
@@ -612,7 +614,8 @@
     <string name="inform_detail_faq2_title">"እንታይ እዩ ዝስደድ፧ "</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"እቶምብግምት ዝተሰርዑ መለልዪ ቁጽርታት ጥራይ እዮም ዝስደዱ ። ውልቃቂ ሰነዳት ኣይስደዱን እዮም።  
+    <string name="inform_detail_faq2_text">"ውልቃዊ ሓበሬታ ዘይኮነ፣ ጥራይ እቶም ግላውያን መፋትሕ እዮም ዝስደዱ።
+  
 ብኸምዚ መንገዲ ካልኦት ተጠቀምቲ ስዊስኮቪድ ተኽእሎ መልከፍቲ ሕማም ከምዘሎ ይፈልጡ።"</string>
 
     <!-- Telefonnummer der Infoline -->
@@ -903,13 +906,13 @@ Schwarzenburgstrasse 157
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_text_1">"ንስኹም ኣብ ሓደ ካብቶም ተቓደውቲ ሃገራት እንተትግዕዙ ኮይንኩም፣ ካልእ ኮሮና ኤፕ ከተምጽኡ ኣየድልየኩምን።
 
-SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገሑ ብሃውሪ ዝተፈጠሩ ኣይ.ዲታት ይቈጻጸር። ንስኹም ዋላ ኣብ ክፍጸም ዝኽእል ልበዳ ኣብ ወጻኢ ክትጥንቐቑ ትኽእሉ ኢኹም።"</string>
+SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገሑ ግላውያን መፋትሕ ይቈጻጸር። ንስኹም ዋላ ኣብ ክፍጸም ዝኽእል ልበዳ ኣብ ወጻኢ ክትጥንቐቑ ትኽእሉ ኢኹም።"</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"ኣብ ምእታው ኮቪድኮድ እንታይ ክፍጸም ድዩ፧"</string>
 
     <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2">"ኣብ ምእታይ ኮቪድኮድ እቶም ካባኹም ዝተሰደዱ ብሃውሪ ዝተፈጠሩ ኣይ.ዲታት እንተላይ ምስቶም ተቓደውቲ ሃገራት ክካፈሉ እዮም።
+    <string name="travel_screen_explanation_text_2">"ኣብ ምእታው ኮቪድኮድ እቶም ካባኹም ዝተሰደዱ ግላውያን መፋትሕ እንተላይ ምስቶም ተቓደውቲ ሃገራት ክካፈሉ እዮም።
 
 ገየሽቲ ካብ ወጻኢ እንተላይ መታን ክጥንቀቑ፣ ባዕልኹም ኣብ ወጻኢ ትግዕዙ ኔርኩም ወይ ኣይትግዕዙን ኔርኩም ብዘየገድስ እዩ።"</string>
 
@@ -1326,7 +1329,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="travel_screen_compatible_countries">"ተቓደውቲ ሃገራት፥"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"ገየሽቲ ካብ ወጻኢ ውን መታን ክጥንቀቑ፣ እቶም ብሃውሪ ዝተገበሩ ኣይ.ዲታት ምስቶም ኮሮና ኤፕስ ናይቶም ተቓደውቲ ሃገራት ክካፈሉ እዮም።"</string>
+    <string name="inform_code_travel_text">"ገየሽቲ ካብ ወጻኢ ውን መታን ክጥንቀቑ፣ እቶም ግላውያን መፋትሕ ምስቶም ኮሮና ኤፕስ ናይቶም ተቓደውቲ ሃገራት ክካፈሉ እዮም።"</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"ጥቕላላ"</string>

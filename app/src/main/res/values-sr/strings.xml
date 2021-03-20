@@ -26,7 +26,7 @@
     <string name="inform_send_thankyou">"Hvala"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Poslani su nasumični ID-ovi iz vaše aplikacije.
+    <string name="inform_send_thankyou_text">"Poslani su privatni identifikacioni ključevi iz vaše aplikacije.
 
 Time nam pomažete u prekidanju lanca širenja infekcije."</string>
 
@@ -633,7 +633,7 @@ Time se osigurava da se putem aplikacije prijavljuju samo potvrđeni slučajevi.
     <string name="inform_detail_faq2_title">"Šta se šalje?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Šalju se samo nasumični ID-ovi iz vaše aplikacije, a ne šalju se lični podaci.
+    <string name="inform_detail_faq2_text">"Šalju se samo privatni identifikacioni ključevi iz vaše aplikacije, a ne šalju se lični podaci.
 
 Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost infekcije."</string>
 
@@ -927,13 +927,13 @@ Schwarzenburgstrasse 157
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_text_1">"Ukoliko putujete jednom od kompatibilnih država, ne morate instalirati drugu Corona aplikaciju.
 
-SwissCovid proverava slučajne identifikacije u kompatibilnim državama koje su objavljene. Tako možete biti upozoreni u vezi jedne moguće zaraze u inostranstvu."</string>
+SwissCovid proverava privatne identifikacione ključeve objavljene u kompatibilnim državama. Tako možete biti upozoreni u vezi jedne moguće zaraze u inostranstvu."</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"Šta se dešava kada unesete Covid-kod?"</string>
 
     <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2">"Pri unošenju Covid-koda se sa kompatibilnim državama dele i slučajne identifikacije koje ste poslali.
+    <string name="travel_screen_explanation_text_2">"Pri unošenju Covid-koda se sa kompatibilnim državama dele i privatni identifikacioni ključevi koje ste poslali.
 
 Da bi putnici u inostranstvu mogli da se upozore, to se dešava nezavisno od toga da li ste vi putovali u inostranstvu ili niste."</string>
 
@@ -1350,7 +1350,7 @@ Kontaktirajte info-liniju za Covid šifre:"</string>
     <string name="travel_screen_compatible_countries">"Kompatibilne države:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"Da bi se putnici iz inostranstva mogli upozoriti, slučajne identifikacije sa Corona aplikacijom kompatibilnih država se dele."</string>
+    <string name="inform_code_travel_text">"Da bi se putnici iz inostranstva mogli upozoriti, dele se privatni identifikacioni ključevi sa Corona aplikacijom kompatibilnih država."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"Ukupno"</string>
