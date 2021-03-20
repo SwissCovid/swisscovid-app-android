@@ -26,7 +26,7 @@
     <string name="inform_send_thankyou">"Merci beaucoup"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Les ID aléatoires de votre application ont été envoyés.
+    <string name="inform_send_thankyou_text">"Les clés privées de votre application ont été envoyés.
 
 Ainsi, vous contribuez à interrompre les chaînes de transmission."</string>
 
@@ -632,7 +632,7 @@ Cela permet d'assurer que seuls les cas confirmés sont signalés via l'applicat
     <string name="inform_detail_faq2_title">"Qu'est-ce qui est envoyé ?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Seules les ID aléatoires de votre application sont envoyées, aucune donnée personnelle.
+    <string name="inform_detail_faq2_text">"Seules les clés privées de votre application sont envoyées, aucune donnée personnelle.
 
 Ainsi, d'autres utilisateurs de l'application SwissCovid apprennent qu'ils ont peut-être été infectés."</string>
 
@@ -932,13 +932,13 @@ Schwarzenburgstrasse 157
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_text_1">"Si vous voyagez dans un des pays compatibles, vous n'avez pas besoin d'installer une autre application. 
 
-SwissCovid vérifie les IDs aléatoires publiées dans les pays compatibles. Ainsi, vous serez averti d'une d'infection possible à l'étranger également."</string>
+SwissCovid vérifie les clés privées publiées dans les pays compatibles. Ainsi, vous serez averti d'une infection possible à l'étranger également."</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"Que se passe-t-il quand je saisis le code COVID ?"</string>
 
     <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2">"Lorsque vous saisissez le code COVID, les IDs aléatoires que vous avez envoyées sont partagées avec les pays compatibles également. 
+    <string name="travel_screen_explanation_text_2">"Lorsque vous saisissez le code COVID, les clés privées que vous avez envoyées sont partagées avec les pays compatibles également.
 
 Cet envoi se produit que vous ayez été à l'étranger ou non afin de pouvoir avertir les voyageurs en provenance d'autres pays."</string>
 
@@ -1379,7 +1379,7 @@ La vitesse est un facteur décisif dans la lutte contre le coronavirus : moins o
     <string name="travel_screen_compatible_countries">"Pays compatibles :"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"Afin que les voyageurs en provenance de l'étranger puissent aussi être avertis, les IDs aléatoires sont partagées avec les applications des pays compatibles."</string>
+    <string name="inform_code_travel_text">"Afin que les voyageurs en provenance de l'étranger puissent aussi être avertis, les clés privées sont partagées avec les applications des pays compatibles."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"Total"</string>

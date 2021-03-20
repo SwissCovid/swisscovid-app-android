@@ -26,7 +26,7 @@
     <string name="inform_send_thankyou">"Muito obrigado"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Foram enviados os IDs aleatórios da sua app.
+    <string name="inform_send_thankyou_text">"Foram enviados as chaves privadas do seu app.
 
 Obrigado por ajudar a travar as cadeias de transmissão."</string>
 
@@ -635,9 +635,9 @@ Isto assegura que só os casos confirmados são assinalados na app."</string>
     <string name="inform_detail_faq2_title">"Que dados são enviados?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Só são enviados os IDs aleatórios da sua app e nunca dados pessoais.
+    <string name="inform_detail_faq2_text">"Só são enviadas as chaves privadas do seu app e nunca dados pessoais.
 
-Desta forma, outros utilizadores da app SwissCovid ficam a saber que existe a possibilidade de um contágio."</string>
+Desta forma, outros utilizadores do app SwissCovid ficam a saber que existe a possibilidade de um contágio."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -930,15 +930,15 @@ Schwarzenburgstrasse 157
     <string name="travel_screen_explanation_title_1">"O que significa isto?"</string>
 
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1">"Se viajar para um dos países compatíveis, não necessita de instalar mais nenhuma app de coronavírus.
+    <string name="travel_screen_explanation_text_1">"Se viajar para um dos países compatíveis, não necessita de instalar mais nenhum app de coronavírus.
 
-A SwissCovid verifica os ID aleatórios divulgados nos países compatíveis para que possa ser alertado de um possível contágio, mesmo no estrangeiro."</string>
+A SwissCovid verifica as chaves privadas divulgadas nos países compatíveis para que possa ser alertado de um possível contágio, mesmo no estrangeiro."</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"O que acontece quando insiro o código COVID?"</string>
 
     <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2">"Ao inserir o código COVID, os ID aleatórios que enviou também serão partilhados com os países compatíveis.
+    <string name="travel_screen_explanation_text_2">"Ao inserir o código COVID, as chaves privadas que enviou também serão partilhadas com os países compatíveis.
 
 Isto acontece independentemente de ter estado no estrangeiro ou não para que os viajantes estrangeiros possam também ser alertados."</string>
 
@@ -1354,7 +1354,7 @@ No combate ao coronavírus, o tempo é um fator decisivo: quanto menos tempo pas
     <string name="travel_screen_compatible_countries">"Países compatíveis:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"Para alertar também os viajantes de outros países, os ID aleatórios são partilhados com as apps de coronavírus dos países compatíveis."</string>
+    <string name="inform_code_travel_text">"Para alertar também os viajantes de outros países, as chaves privadas são partilhadas com os apps de coronavírus dos países compatíveis."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"Total"</string>

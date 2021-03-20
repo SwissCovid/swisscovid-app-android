@@ -26,7 +26,7 @@
     <string name="inform_send_thankyou">"Grazia fitg"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Las IDs casualas da Vossa app èn vegnidas tramessas.
+    <string name="inform_send_thankyou_text">"Las clavs privatas da Vossa app èn vegnidas tramessas.
 
 Uschia gidais Vus da franar chadainas d'infecziun."</string>
 
@@ -631,9 +631,9 @@ Uschia vegni garantì che mo cas confermads vegnan avisads via l'app."</string>
     <string name="inform_detail_faq2_title">"Tge vegn tramess?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"I vegnan tramessas mo las IDs casualas da Vossa app, naginas datas persunalas.
+    <string name="inform_detail_faq2_text">"I vegnan tramessas mo las clavs privatas da Vossa app, naginas datas persunalas.
 
-Uschia vegnan autras utilisadras ed auters utilisaders da l'app SwissCovid a savair ch'ina  infecziun è pussaivla."</string>
+Uschia vegnan autras utilisadras ed auters utilisaders da l'app SwissCovid a savair ch'ina infecziun è pussaivla."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -927,13 +927,13 @@ Schwarzenburgstrasse 157
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_text_1">"Sche Vus essas (en gir) en in pajais cumpatibel, na stuais Vus betg installar in'autra app da corona.
 
-SwissCovid verifitgescha las IDs casualas ch'èn vegnidas publitgadas en ils pajais cumpatibels. Uschia pudais Vus vegnir infurmada resp. infurmà er en cas d'ina eventuala infecziun a l'exteriur."</string>
+SwissCovid verifitgescha las clavs privatas ch'èn vegnidas publitgadas en ils pajais cumpatibels. Uschia pudais Vus vegnir infurmada resp. infurmà er en cas d'ina eventuala infecziun a l'exteriur."</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"Tge capita, sche jau endatesch il code covid?"</string>
 
     <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2">"Sche Vus endatais il code covid vegnan las IDs casualas che Vus avais tramess er cundivididas cun ils pajais cumpatibels.
+    <string name="travel_screen_explanation_text_2">"Sche Vus endatais il code covid vegnan las clavs privatas che Vus avais tramess er cundivididas cun ils pajais cumpatibels.
 
 Per che er las viagiaturas ed ils viagiaturs da l'exteriur possian vegnir infurmads, succeda quai independentamain dal fatg, sche Vus essas sezza stada resp. sez stà a l'exteriur u betg."</string>
 
@@ -1349,7 +1349,7 @@ Il temp è in factur decisiv en il cumbat cunter il coronavirus: pli curt ch'il 
     <string name="travel_screen_compatible_countries">"Pajais cumpatibels:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"Per che er las viagiaturas ed ils viagiaturs da l'exteriur possian vegnir infurmads, vegnan cundivididas las IDs casualas cun las apps da corona dals pajais cumpatibels."</string>
+    <string name="inform_code_travel_text">"Per che er las viagiaturas ed ils viagiaturs da l'exteriur possian vegnir infurmads, vegnan cundivididas las clavs privatas cun las apps da corona dals pajais cumpatibels."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"total"</string>
