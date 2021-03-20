@@ -26,7 +26,7 @@
     <string name="inform_send_thankyou">"Vielen Dank"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Die zufälligen IDs Ihrer App wurden gesendet.
+    <string name="inform_send_thankyou_text">"Die privaten Schlüssel Ihrer App wurden gesendet.
 
 Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
 
@@ -647,7 +647,7 @@ Damit wird sichergestellt, dass nur bestätigte Fälle über die App gemeldet we
     <string name="inform_detail_faq2_title">"Was wird gesendet?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Es werden nur die zufälligen IDs Ihrer App gesendet, keine persönlichen Daten.
+    <string name="inform_detail_faq2_text">"Es werden nur die privaten Schlüssel Ihrer App gesendet, keine persönlichen Daten.
 
 Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteckung besteht."</string>
 
@@ -953,16 +953,15 @@ Schwarzenburgstrasse 157
     <string name="travel_screen_explanation_title_1">"Was bedeutet das?"</string>
 
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
-    <!-- Fuzzy -->
     <string name="travel_screen_explanation_text_1">"Wenn Sie in einem der kompatiblen Länder unterwegs sind, müssen Sie keine andere Corona-App installieren.
 
-SwissCovid überprüft die in den kompatiblen Ländern veröffentlichten zufälligen IDs. So können Sie auch bei einer möglichen Ansteckung im Ausland gewarnt werden."</string>
+SwissCovid überprüft die in den kompatiblen Ländern veröffentlichten privaten Schlüssel. So können Sie auch bei einer möglichen Ansteckung im Ausland gewarnt werden."</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"Was geschieht bei Eingabe des Covidcodes?"</string>
 
     <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2">"Bei der Eingabe des Covidcodes werden die von Ihnen gesendeten zufälligen IDs auch mit den kompatiblen Ländern geteilt.
+    <string name="travel_screen_explanation_text_2">"Bei der Eingabe des Covidcodes werden die von Ihnen gesendeten privaten Schlüssel auch mit den kompatiblen Ländern geteilt.
 
 Damit auch Reisende aus dem Ausland gewarnt werden können, geschieht das unabhängig davon, ob Sie selber im Ausland unterwegs waren oder nicht."</string>
 
@@ -1414,7 +1413,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <string name="travel_screen_compatible_countries">"Kompatible Länder:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"Damit auch Reisende aus dem Ausland gewarnt werden können, werden die zufälligen IDs mit den Corona-Apps der kompatiblen Länder geteilt."</string>
+    <string name="inform_code_travel_text">"Damit auch Reisende aus dem Ausland gewarnt werden können, werden die privaten Schlüssel mit den Corona-Apps der kompatiblen Länder geteilt."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"Total"</string>

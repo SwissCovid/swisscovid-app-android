@@ -26,7 +26,7 @@
     <string name="inform_send_thankyou">"Teşekkür ederiz"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"Uygulamanızın rastgele belirlenmiş ID'leri gönderilmiştir. Bu şekilde enfeksiyon zincirlerini kırmaya yardımcı olursunuz."</string>
+    <string name="inform_send_thankyou_text">"Uygulamanızın özel kodları gönderilmiştir. Bu şekilde enfeksiyon zincirlerini kırmaya yardımcı olursunuz."</string>
 
     <!-- Informieren: Button Titel -->
     <string name="inform_fertig_button_title">"Kapat"</string>
@@ -618,7 +618,7 @@ Bu şekilde yalnızca onaylanmış vakaların uygulama üzerinden bildirilmesi g
     <string name="inform_detail_faq2_title">"Neler iletilir?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Şahsi bilgileriniz değil, uygulamanızın yalnızca rastgele ID'leri iletilir. 
+    <string name="inform_detail_faq2_text">"Şahsi bilgileriniz değil, uygulamanızın yalnızca özel kodları iletilir. 
 Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşma riski olabileceğini öğenir."</string>
 
     <!-- Telefonnummer der Infoline -->
@@ -909,13 +909,13 @@ Schwarzenburgstrasse 157
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_text_1">"Uyumlu ülkelerin birinde seyahat ettiğinizde, başka bir Korona uygulamasını kurmak zorunda kalmazsınız.
 
-SwissCovid uyumlu ülkelerde yayınlanan rastgele kimlikleri kontrol eder. Böylece yurt dışındaki olası bir bulaşı durumunda da uyarılabilirsiniz."</string>
+SwissCovid uyumlu ülkelerde yayınlanan özel kodlar kontrol eder. Böylece yurt dışındaki olası bir bulaşı durumunda da uyarılabilirsiniz."</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"Covid kodu girildiğinde neler olur?"</string>
 
     <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2">"Covid kodu girildiğinde tarafınızdan girilen rastgele kimlikler uyumlu olan ülkelerle de paylaşılır.
+    <string name="travel_screen_explanation_text_2">"Covid kodu girildiğinde tarafınızdan girilen özel kodlar uyumlu olan ülkelerle de paylaşılır.
 
 Yurt dışı seyahatlerinden gelen kişilerin de uyarılabilmesi için bu, sizin yurt dışı seyahatinde bulunmuş olup olmamanıza bağlı kalmaksızın uygulanır."</string>
 
@@ -1332,7 +1332,7 @@ Bu durumda, Covid Kodu Bilgi Hattı (Infoline) ile iletişime geçiniz:"</string
     <string name="travel_screen_compatible_countries">"Uyumlu ülkeler:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"Yurt dışı seyahatlerinden dönen kişilere de uyarıda bulunulabilmesi için, rastgele kimlikler uyumlu ülkelerin Korona uygulamalarıyla paylaşılır."</string>
+    <string name="inform_code_travel_text">"Yurt dışı seyahatlerinden dönen kişilere de uyarıda bulunulabilmesi için, özel kodlar uyumlu ülkelerin Korona uygulamalarıyla paylaşılır."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"Toplam"</string>

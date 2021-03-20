@@ -26,7 +26,7 @@
     <string name="inform_send_thankyou">"Shumë faleminderit"</string>
 
     <!-- Informieren: Danke Text -->
-    <string name="inform_send_thankyou_text">"ID e rastit të aplikacionit tuaj u dërguan.
+    <string name="inform_send_thankyou_text">"Kodet e identifikimit të aplikacionit tuaj u dërguan.
 
 Në këtë mënyrë na ndihmoni, për të ndaluar zinxhirin e infeksionit."</string>
 
@@ -634,7 +634,7 @@ Në këtë mënyrë sigurohet që nga aplikacioni të sinjalizohen vetëm rastet
     <string name="inform_detail_faq2_title">"Çfarë dërgohet?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Dërgohen vetëm ID e rastit të aplikacionit tuaj, asnjë e dhënë personale.
+    <string name="inform_detail_faq2_text">"Dërgohen vetëm kodet e identifikimit të aplikacionit tuaj, asnjë e dhënë personale.
 
 Në këtë mënyrë mësoni përdoruesit e tjerë të alikacionit SwissCovid, të cilët mundësisht janë infektuar."</string>
 
@@ -932,13 +932,13 @@ Schwarzenburgstrasse 157
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_text_1">"Nëse do të udhëtoni në një nga shtetet e përfshira, nuk keni nevojë të instaloni asnjë aplikacion tjetër për koronavirusin.
 
-SwissCovid kontrollon kartat e identitetit në mënyrë rastësore që janë krijuar në shtetet e përfshira. Në këtë mënyrë, ju mund të paralajmëroheni edhe për një infeksion të mundshëm jashtë vendit."</string>
+SwissCovid kontrollon kodet e identifikimit në mënyrë rastësore që janë krijuar në shtetet e përfshira. Në këtë mënyrë, ju mund të paralajmëroheni edhe për një infeksion të mundshëm jashtë vendit."</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"Çfarë ndodh kur regjistron kodin Covid?"</string>
 
     <!-- Second text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_2">"Kur regjistroni kodin Covid, kartat e identitetit që dërgoni do të shpërndahen gjithashtu me shtetet e përfshira.
+    <string name="travel_screen_explanation_text_2">"Kur regjistroni kodin Covid, kodet e identifikimit që dërgoni do të shpërndahen gjithashtu me shtetet e përfshira.
 
 Në mënyrë që udhëtarët nga jashtë shtetit të mund të paralajmërohen, kjo bëhet pavarësisht nëse keni qenë vetë jashtë shtetit ose jo."</string>
 
@@ -1354,7 +1354,7 @@ Koha është faktor vendimtar në luftën ndaj koronavirusit: sa më e shkurtër
     <string name="travel_screen_compatible_countries">"Shtetet e përfshira:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"Në mënyrë që udhëtarët nga jashtë shtetit të mund të paralajmërohen, kartat e identitetit shpërndahen me aplikacionet për koronavirusin të vendeve të përfshira."</string>
+    <string name="inform_code_travel_text">"Në mënyrë që udhëtarët nga jashtë shtetit të mund të paralajmërohen, kodet e identifikimit shpërndahen me aplikacionet për koronavirusin të vendeve të përfshira."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"Total"</string>
