@@ -72,6 +72,7 @@ public class SecureStorage {
 	private static final String KEY_ISOLATION_END_DIALOG_TIMESTAMP = "isolation_end_dialog_timestamp";
 	private static final String KEY_APP_VERSION_CODE = "app_version_code";
 	private static final String KEY_SCHEDULED_FAKE_WORKER_NAME = "scheduled_fake_worker_name";
+	private static final String KEY_POSITIVE_REPORT_ONSET_DATE = "positive_report_onset_date";
 
 	private static SecureStorage instance;
 
@@ -376,6 +377,14 @@ public class SecureStorage {
 
 	public String getScheduledFakeWorkerName() {
 		return prefs.getString(KEY_SCHEDULED_FAKE_WORKER_NAME, null);
+	}
+
+	public long getPositiveReportOnsetDate() {
+		return prefs.getLong(KEY_POSITIVE_REPORT_ONSET_DATE, -1L);
+	}
+
+	public void setPositiveReportOnsetDate(long onsetDate) {
+		prefs.edit().putLong(KEY_POSITIVE_REPORT_ONSET_DATE, onsetDate).apply();
 	}
 
 }

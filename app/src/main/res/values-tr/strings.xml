@@ -1342,4 +1342,13 @@ Bu durumda, Covid Kodu Bilgi Hattı (Infoline) ile iletişime geçiniz:"</string
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
     <string name="stats_cases_rel_prev_week_popup_header">"Önceki haftaya göre değişim"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Titel (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_title"></string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_text"></string>
+
+    <!-- Informieren: Danke Text mit Onset Date -->
+    <string name="inform_send_thankyou_text_onsetdate"></string>
 </resources>

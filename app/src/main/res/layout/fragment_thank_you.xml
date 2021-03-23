@@ -34,6 +34,7 @@
 			android:text="@string/inform_send_thankyou" />
 
 		<TextView
+			android:id="@+id/inform_thank_you_text"
 			style="@style/NextStep.Text"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

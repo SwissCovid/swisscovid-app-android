@@ -183,6 +183,9 @@ public class InformFragment extends Fragment {
 						}
 						secureStorage.clearInformTimeAndCodeAndToken();
 
+						// Store the onset date of this report
+						secureStorage.setPositiveReportOnsetDate(onsetDate.getTime());
+
 						// Ask if user wants to end isolation after 14 days
 						long isolationEndDialogTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(14);
 						secureStorage.setIsolationEndDialogTimestamp(isolationEndDialogTimestamp);
