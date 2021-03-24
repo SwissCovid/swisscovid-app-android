@@ -10,17 +10,17 @@
 package ch.admin.bag.dp3t.inform;
 
 import android.os.Bundle;
-import android.text.Spannable;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.TimeZone;
+
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DateUtils;
-import ch.admin.bag.dp3t.util.StringUtil;
 
 public class ThankYouFragment extends Fragment {
 
@@ -47,17 +47,21 @@ public class ThankYouFragment extends Fragment {
 		((InformActivity) requireActivity()).allowBackButton(false);
 
 		// Show the onset date in the thank you message
-		TextView thankYouTextView = view.findViewById(R.id.inform_thank_you_text);
+		TextView thankYouInfoTextView = view.findViewById(R.id.inform_thank_you_text_info);
+		TextView onsetDateTextView = view.findViewById(R.id.inform_thank_you_text_onsetdate);
+		TextView stopInfectionChainsTextView = view.findViewById(R.id.inform_thank_you_text_stop_infection_chains);
 		long onsetDateInMillis = secureStorage.getPositiveReportOnsetDate();
 		if (onsetDateInMillis > 0L) {
-			String formattedDate = DateUtils.getFormattedDateWrittenMonth(onsetDateInMillis);
-			String thankYouText = getString(R.string.inform_send_thankyou_text_onsetdate).replace("{ONSET_DATE}", formattedDate);
-			int start = thankYouText.indexOf(formattedDate);
-			int end = thankYouText.indexOf("\n", start); // Include the " - today" part of the line
-			Spannable formattedText = StringUtil.makePartiallyBold(thankYouText, start, end);
-			thankYouTextView.setText(formattedText);
+			String formattedDate = DateUtils.getFormattedDateWrittenMonth(onsetDateInMillis, TimeZone.getTimeZone("UTC"));
+			String formattedOnsetDateText = getString(R.string.inform_send_thankyou_text_onsetdate).replace("{ONSET_DATE}", formattedDate);
+
+			thankYouInfoTextView.setText(R.string.inform_send_thankyou_text_onsetdate_info);
+			onsetDateTextView.setText(formattedOnsetDateText);
+			stopInfectionChainsTextView.setText(R.string.inform_send_thankyou_text_stop_infection_chains);
 		} else {
-			thankYouTextView.setText(R.string.inform_send_thankyou_text);
+			thankYouInfoTextView.setText(R.string.inform_send_thankyou_text);
+			onsetDateTextView.setVisibility(View.GONE);
+			stopInfectionChainsTextView.setVisibility(View.GONE);
 		}
 
 		view.findViewById(R.id.inform_thank_you_button_continue).setOnClickListener(v -> {

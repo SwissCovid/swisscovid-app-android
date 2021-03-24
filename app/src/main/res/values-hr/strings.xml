@@ -1367,6 +1367,12 @@ Kontaktirajte info-liniju za Covid šifre:"</string>
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
     <string name="meldungen_positive_tested_faq2_text"></string>
 
-    <!-- Informieren: Danke Text mit Onset Date -->
+    <!-- Informieren: Danke Text Onset Date -->
     <string name="inform_send_thankyou_text_onsetdate"></string>
+
+    <!-- Informieren: Danke Text Abschluss -->
+    <string name="inform_send_thankyou_text_stop_infection_chains"></string>
+
+    <!-- Informieren: Danke Text Onset Date Einleitung -->
+    <string name="inform_send_thankyou_text_onsetdate_info"></string>
 </resources>

@@ -32,6 +32,7 @@ import androidx.transition.Transition;
 import androidx.transition.TransitionManager;
 
 import java.util.List;
+import java.util.TimeZone;
 
 import org.dpppt.android.sdk.models.ExposureDay;
 
@@ -137,7 +138,7 @@ public class ReportsFragment extends Fragment {
 				long onsetDateInMillis = secureStorage.getPositiveReportOnsetDate();
 				if (onsetDateInMillis > 0L) {
 					infectedView.findViewById(R.id.card_encounters_faq_who_is_notified_container).setVisibility(View.VISIBLE);
-					String formattedDate = DateUtils.getFormattedDateWrittenMonth(onsetDateInMillis);
+					String formattedDate = DateUtils.getFormattedDateWrittenMonth(onsetDateInMillis, TimeZone.getTimeZone("UTC"));
 					String faqText = getString(R.string.meldungen_positive_tested_faq2_text).replace("{ONSET_DATE}", formattedDate);
 					Spannable formattedText = StringUtil.makePartiallyBold(faqText, formattedDate);
 					((TextView) infectedView.findViewById(R.id.card_encounters_faq_who_is_notified)).setText(formattedText);

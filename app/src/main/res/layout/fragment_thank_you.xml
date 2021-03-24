@@ -9,6 +9,7 @@
   -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:background="@color/white"
 	android:layout_height="match_parent">
 
@@ -34,7 +35,7 @@
 			android:text="@string/inform_send_thankyou" />
 
 		<TextView
-			android:id="@+id/inform_thank_you_text"
+			android:id="@+id/inform_thank_you_text_info"
 			style="@style/NextStep.Text"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -42,7 +43,28 @@
 			android:gravity="center_horizontal"
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
-			android:text="@string/inform_send_thankyou_text" />
+			tools:text="@string/inform_send_thankyou_text_onsetdate_info" />
+
+		<TextView
+			android:id="@+id/inform_thank_you_text_onsetdate"
+			style="@style/NextStep.Text.Bold"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:paddingStart="@dimen/spacing_huge"
+			android:paddingEnd="@dimen/spacing_huge"
+			android:text="@string/inform_send_thankyou_text_onsetdate" />
+
+		<TextView
+			android:id="@+id/inform_thank_you_text_stop_infection_chains"
+			style="@style/NextStep.Text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_very_large"
+			android:gravity="center_horizontal"
+			android:paddingStart="@dimen/spacing_huge"
+			android:paddingEnd="@dimen/spacing_huge"
+			android:text="@string/inform_send_thankyou_text_stop_infection_chains" />
 
 		<Button
 			android:id="@+id/inform_thank_you_button_continue"

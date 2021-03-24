@@ -1430,9 +1430,12 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
     <string name="meldungen_positive_tested_faq2_text">"Es werden alle Kontakte im Zeitraum Ihrer Ansteckungsphase vom {ONSET_DATE} bis zur Eingabe des Covidcodes benachrichtigt, wenn auf Grund der Distanz und der Dauer das Risiko einer Ansteckung bestand."</string>
 
-    <!-- Informieren: Danke Text mit Onset Date -->
-    <string name="inform_send_thankyou_text_onsetdate">"Die privaten Schlüssel Ihrer App wurden für den folgenden Zeitraum gesendet:
-{ONSET_DATE} – heute
+    <!-- Informieren: Danke Text Onset Date -->
+    <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – heute"</string>
 
-Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
+    <!-- Informieren: Danke Text Abschluss -->
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
+
+    <!-- Informieren: Danke Text Onset Date Einleitung -->
+    <string name="inform_send_thankyou_text_onsetdate_info">"Die privaten Schlüssel Ihrer App wurden für den folgenden Zeitraum gesendet:"</string>
 </resources>
