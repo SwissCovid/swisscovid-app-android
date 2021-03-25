@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.models.DayDate;
@@ -50,7 +51,13 @@ public class DateUtils {
 	}
 
 	public static String getFormattedDateWrittenMonth(long date) {
-		return new SimpleDateFormat("dd. MMMM yyyy").format(new Date(date));
+		return getFormattedDateWrittenMonth(date, TimeZone.getDefault());
+	}
+
+	public static String getFormattedDateWrittenMonth(long date, TimeZone timezone) {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd. MMMM yyyy");
+		sdf.setTimeZone(timezone);
+		return sdf.format(new Date(date));
 	}
 
 	public static Date getParsedDateStats(String date) {
