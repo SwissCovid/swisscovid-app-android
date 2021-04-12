@@ -12,7 +12,7 @@
  Utilisation de l’application SwissCovid: déclaration de confidentialité de l’Office fédéral de la santé publique
 </p>
 <p>
- Version : 24 juin 2020
+ Version : 9 avril 2021
 </p>
 <p>
  Dans la présente déclaration de confidentialité, l’Office fédéral de la santé publique (OFSP) explique dans quelle mesure il traite les données personnelles en lien avec l’utilisation de l’application SwissCovid (ci-après « l’application ») en suisse. Il ne s’agit pas d’un descriptif exhaustif ; certains éléments spécifiques peuvent être réglés dans des déclarations de confidentialité supplémentaires, des documents similaires, des conditions d’utilisation ou des programmes d’application.
@@ -22,9 +22,9 @@
  <em>
   818.101
  </em>
- ) et l’ordonnance COVID-19 du 24 juin 2020 sur l’essai pilote du traçage de proximité (RS
+ ) et l’ordonnance du 24 juin 2020 sur le système de traçage de proximité pour le coronavirus SARS-CoV-2 (OSTP ; RS
  <em>
-  818.101…
+  818.101.25
  </em>
  ).
 </p>
@@ -56,12 +56,12 @@
  Collecte et traitement de données personnelles
 </h1>
 <p>
- Tout le système de l’application est conçu de manière à ce que ses utilisateurs ne soient pas identifiables. Le traitement de données personnelles est réduit au minimum. Ainsi, aucune indication technique sur les personnes, les lieux ou les appareils n’est possible. Les géolocalisations ne sont pas enregistrées ; seules des données cryptées relatives aux contacts ayant eu lieu sont saisies. Ces données sont techniquement protégées de toute utilisation abusive. L’OFSP ne peut tirer aucune conclusion concernant les utilisateurs de l’application. Cette dernière protège les données des utilisateurs de telle sorte qu’aucun lien ne peut être établi avec une personne précise sur de longues distances. Un rattachement à un individu ne peut toutefois pas être totalement exclu. Il existe en effet une certaine probabilité qu’une personne alertée d’un possible risque d’infection puisse éventuellement tirer des conclusions sur l’identité de la personne infectée, en se remémorant les contacts sociaux qu’elle a eus au cours des derniers jours. Cette notification inclut l’information selon laquelle la personne a pu être exposée au coronavirus, la mention du jour où ce fut le cas pour la dernière fois, l’indication que l’OFSP propose une infoline pour un conseil gratuit et les recommandations de l’OFSP. En utilisant l’application, des personnes sont donc potentiellement identifiables.
-</p>
-<p>
- Le système de l’application se divise en deux composantes :
+ Tout le système de l’application est conçu de manière à ce que ses utilisateurs ne soient pas identifiables. Le traitement de données personnelles est réduit au minimum. Ainsi, aucune indication technique sur les personnes, les lieux ou les appareils n’est possible. Les géolocalisations ne sont pas enregistrées ; seules des données cryptées relatives aux contacts ayant eu lieu sont saisies. Ces données sont techniquement protégées de toute utilisation abusive. L’OFSP ne peut tirer aucune conclusion concernant les utilisateurs de l’application. Cette dernière protège les données des utilisateurs de telle sorte qu’aucun lien ne peut être établi avec une personne précise sur de longues distances. Un rattachement à un individu ne peut toutefois pas être totalement exclu. Il existe en effet une certaine probabilité qu’une personne alertée d’un possible risque d’infection puisse éventuellement tirer des conclusions sur l’identité de la personne infectée, en se remémorant les contacts sociaux qu’elle a eus au cours des derniers jours. Les personnes qui utilisent l’application sont donc potentiellement identifiables. La notification inclut les règles de conduite recommandées par l’OFSP, l’information selon laquelle la personne a pu être exposée au coronavirus, la mention des jours où cela s’est produit ainsi que l’indication que l’OFSP propose un guide (formulaire en ligne) et une infoline de conseil gratuit. Lorsque l’utilisateur quitte l’application pour remplir le guide, les jours d’infection potentielle indiqués dans l’application sont automatiquement transmis au guide.
 </p>
 <ul>
+ <li>
+  Le système de l’application se divise en deux composantes :
+ </li>
  <li>
   un système pour gérer les données relatives aux situations de rapprochement, comprenant un logiciel que les utilisateurs installent sur leur téléphone portable ainsi qu’un
   <em>
@@ -84,27 +84,27 @@
   </em>
   .
  </li>
+ <li>
+  Les deux
+  <em>
+   backends
+  </em>
+  , en tant que serveur central, sont placés directement sous le contrôle de l’OFSP et gérés sur le plan technique par l’Office fédéral de l’informatique (OFIT). Les
+  <em>
+   frontends
+  </em>
+  de gestion des codes fonctionnent sur les appareils des professionnels autorisés à créer des codes d’autorisation (codes COVID).
+ </li>
 </ul>
-<p>
- Les deux
- <em>
-  backends
- </em>
- , en tant que serveur central, sont placés directement sous le contrôle de l’OFSP et gérés sur le plan technique par l’Office fédéral de l’informatique (OFIT). Les
- <em>
-  frontends
- </em>
- de gestion des codes fonctionnent sur les appareils des professionnels autorisés à créer des codes d’autorisation (codes COVID).
-</p>
 <p>
  L’application enregistre les données suivantes sur le téléphone portable:
 </p>
 <ul>
  <li>
-  les codes d’identification (ID aléatoires) reçus des autres téléphones portables où l’application est activée,
+  les codes d’identification (ID aléatoires) reçus des autres téléphones portables où l’application est activée ;
  </li>
  <li>
-  la puissance du signal,
+  la puissance du signal ;
  </li>
  <li>
   la date et la durée estimée de la situation de rapprochement.
@@ -115,10 +115,10 @@
 </p>
 <ul>
  <li>
-  le code d’autorisation (code COVID),
+  le code d’autorisation (code COVID) ;
  </li>
  <li>
-  la date à laquelle les symptômes sont apparus ou, si l’utilisateur infecté ne présente pas de symptômes, la date du test,
+  la date à laquelle les symptômes sont apparus ou, si l’utilisateur infecté ne présente pas de symptômes, la date du test ;
  </li>
  <li>
   la date de la destruction de ces données.
@@ -133,23 +133,54 @@
 </p>
 <ul>
  <li>
-  les clés privées de l’utilisateur infecté qui étaient actuelles durant la période où d’autres personnes ont pu être infectées,
+  les clés privées de l’utilisateur infecté qui étaient actuelles durant la période où d’autres personnes ont pu être infectées ;
  </li>
  <li>
   la date de chaque clé.
  </li>
 </ul>
+<p>
+ En outre, le système de l’application peut être relié à d’autres systèmes étrangers correspondants si un niveau adéquat de protection de la personnalité est assuré dans l’État concerné (par la législation ou par des garanties suffisantes, notamment contractuelles). Les systèmes étrangers sont ainsi réputés « correspondants » s’ils sont configurés suivant les principes ci-après du système de l’application :
+</p>
+<ul>
+ <li>
+  Lors du traitement des données, toutes les mesures techniques et organisationnelles appropriées doivent être prises pour éviter que les participants ne puissent être identifiés ;
+ </li>
+ <li>
+  Dans la mesure du possible, les données sont traitées sur des composants décentralisés que les participants installent sur leur téléphone portable ; en particulier, les données enregistrées sur le téléphone portable d’un participant concernant d’autres participants sont traitées et enregistrées exclusivement sur ce téléphone ;
+ </li>
+ <li>
+  Ne sont récoltées ou traitées d’une manière ou d’une autre que les données nécessaires pour déterminer la distance et le moment des rapprochements et pour émettre les notifications, mais aucune donnée concernant la localisation ;
+ </li>
+ <li>
+  Les données sont détruites dès qu’elles ne sont plus nécessaires pour la notification.
+ </li>
+</ul>
+<p>
+ Il existe actuellement une liaison avec l’application Corona-Warn utilisée en Allemagne. Lors de la liaison, le
+ <em>
+  backend
+ </em>
+ GR et le système étranger sont raccordés à un système de liaison pour permettre la transmission réciproque des clés privées des participants infectés. Le système de l’application transmet ainsi les clés privées de l’application au système de liaison et enregistre sur le
+ <em>
+  backend
+ </em>
+ GR les clés privées des applications étrangères reliées.
+</p>
 <h1>
  <a id="_Ref514335291">
  </a>
  Buts et bases légales
 </h1>
 <p>
- Le système d’application exploité par l’OFSP se fonde sur la LEp et l’ordonnance COVID-19 sur l’essai pilote du traçage de proximité. L’application et le traitement des données entrantes par ce moyen servent exclusivement à informer les utilisateurs potentiellement exposés au coronavirus, tout en respectant la protection des données, et à établir des statistiques en lien avec le coronavirus à l’aide de données issues des deux
+ Le système d’application exploité par l’OFSP ainsi que le système de liaison se fondent sur la LEp et l’OSTP. L’application et le traitement des données entrantes par ce moyen servent exclusivement à informer les utilisateurs potentiellement exposés au coronavirus, tout en respectant la protection des données, et à établir des statistiques en lien avec le coronavirus à l’aide de données issues des deux
  <em>
   backends
  </em>
  .
+</p>
+<p>
+ Le système de liaison rend également possible la transmission d’une telle information entre deux applications nationales reliées. Les utilisateurs de l’application peuvent ainsi également être informés s’il y a eu une situation de rapprochement avec des utilisateurs infectés d’une application étrangère (p. ex. avec des frontaliers et des touristes en Suisse ou avec des contacts à l’étranger). De même, les utilisateurs d’une application étrangère reliée peuvent également être informés s’il y a eu une situation de rapprochement avec des utilisateurs infectés de l’application.
 </p>
 <h1>
  Transmission des données
@@ -167,18 +198,25 @@
  <em>
   a
  </em>
- LEp et de l’ordonnance COVID-19 sur l’essai pilote du traçage de proximité. En est exclue la réglementation concernant le code source en vertu de l’art. 60
+ LEp et de l’OSTP. En est exclue la réglementation concernant le code source en vertu de l’art. 60
  <em>
   a
  </em>
  , al. 5, let. e, LEp. L’OFSP contrôle le respect des prescriptions. Les tiers mandatés n’ont pas le droit d’utiliser à des fins personnelles les données secondaires générées durant l’exécution du contrat. Ces données sont analysées seulement par l’OFSP ou par l’OFIT (cf. ch. 8).
 </p>
 <p>
+ La liste contenant les clés privées des utilisateurs infectés du
+ <em>
+  backend
+ </em>
+ GR est en outre régulièrement transmise au système de liaison pour une information transfrontalière. Ensuite les systèmes étrangers reliés (actuellement l’application Corona-Warn utilisée en Allemagne) téléchargent ces clés privées et les tiennent à disposition de leurs applications pour extraction (cf. ch. 2).
+</p>
+<p>
  L’OFSP met régulièrement à la disposition de l’Office fédéral de la statistique (OFS) le stock actuel de données existantes dans les deux
  <em>
   backends
  </em>
- sous forme anonymisée. L’OFIT gère le logiciel dans son ensemble sur mandat de l’OFSP et fournit le service de soutien technique requis. L’OFIT a uniquement accès à des données lorsque cela s’avère nécessaire pour les buts et les activités spécifiques des collaborateurs concernés. Ces derniers sont tenus à la confidentialité lorsqu’ils traitent les données.
+ sous forme anonymisée. Les données du système de liaison peuvent être communiquées sous forme anonymisée à l’OFS et au service étranger compétent à des fins de statistiques. L’OFIT gère le logiciel dans son ensemble sur mandat de l’OFSP et fournit le service de soutien technique requis. L’OFIT a uniquement accès à des données lorsque cela s’avère nécessaire pour les buts et les activités spécifiques des collaborateurs concernés. Ces derniers sont tenus à la confidentialité lorsqu’ils traitent les données.
 </p>
 <p>
  L’application utilise une interface reliée au système d’exploitation du téléphone portable de l’utilisateur, qui nécessite le traitement des données par Apple ou Google. Les fonctionnalités des systèmes d’exploitation utilisées par l’interface doivent remplir les prescriptions de l’art. 60
@@ -205,10 +243,13 @@
   <em>
    backend
   </em>
-  GR) : 14 jours après leur saisie
+  GR) : 14 jours après leur saisie ;
  </li>
  <li>
-  données du système des codes : 24 heures après leur saisie
+  données du système des codes : 24 heures après leur saisie ;
+ </li>
+ <li>
+  données du système de liaison : au maximum 14 jours après leur transmission au système de liaison.
  </li>
 </ul>
 <h1>
