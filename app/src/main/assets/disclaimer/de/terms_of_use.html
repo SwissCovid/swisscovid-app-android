@@ -7,236 +7,223 @@
   ~
   ~ SPDX-License-Identifier: MPL-2.0
   -->
+
+<strong>
+ 1.
+ Geltungsbereich und Zweck
+</strong>
 <p>
- Datenschutzerklärung des Bundesamtes für Gesundheit BAG im Zusammenhang mit der Nutzung der «SwissCovid-App»
+ 1.1
+ Diese Nutzungsbedingungen regeln den Bezug und die Nutzung der Applikation «SwissCovid-App» (nachfolgend App) durch die Benutzerinnen und Benutzer und gelten als integrierender Bestandteil derselben.
 </p>
 <p>
- Version: 9. April 2021
+ 1.2
+ Die App des Bundesamtes für Gesundheit (BAG) stützt sich auf das Epidemiengesetz vom 28. September 2012 (EpG; SR 818.101) und die Verordnung vom 24. Juni 2020 über das Proximity-Tracing-System für das Coronavirus SARS-CoV-2 (VPTS; SR 818.101.25).
 </p>
 <p>
- In dieser Datenschutzerklärung erläutert das Bundesamt für Gesundheit (BAG), inwieweit es hinsichtlich der Nutzung der Applikation «SwissCovid-App» (nachfolgend App) in der Schweiz Personendaten bearbeitet. Das ist keine abschliessende Beschreibung; allenfalls regeln andere Datenschutzerklärungen, ähnliche Dokumente, Nutzungsbedingungen oder Anwendungsprogramme spezifische Sachverhalte.
+ 1.3
+ Die App bezweckt die Benutzerinnen und Benutzer, die potenziell dem Coronavirus ausgesetzt waren, zu benachrichtigen und Statistiken im Zusammenhang mit dem Coronavirus zu erstellen.
+</p>
+<strong>
+ 2.
+ Zugriffs- und Anwendungsbedingungen
+</strong>
+<p>
+ 2.1
+ Die Installation der App auf dem Mobiltelefon und deren Einsatz ist für die Benutzerinnen und Benutzer freiwillig.
 </p>
 <p>
- Das Datenschutzrecht regelt die Bearbeitung von Personendaten. Die Bundesgesetzgebung über den Datenschutz ist auf die Datenbearbeitung anwendbar. Die Datenschutzerklärung steht zudem im Einklang mit dem Epidemiengesetz vom 28. September 2012 (EpG; SR 818.101) und der Verordnung vom 24. Juni 2020 über das Proximity-Tracing-System für das Coronavirus SARS-CoV-2 (VPTS; SR 818.101.25).
+ 2.2
+ Die Nutzung der App ist nicht auf ein geografisches Gebiet beschränkt. Allerdings können Warnungen nur erfolgen, wenn die ausländische App mit der SwissCovid-App interoperabel ist. Zum gegenwärtigen Zeitpunkt ist lediglich die in Deutschland genutzte Corona-Warn-App interoperabel.
 </p>
 <p>
- Unter Personendaten werden alle Angaben verstanden, die sich auf eine bestimmte oder bestimmbare Person beziehen. Bearbeiten meint jeden Umgang mit Personendaten, unabhängig von den angewandten Mitteln und Verfahren, insbesondere das Beschaffen, Aufbewahren, Verwenden, Umarbeiten, Bekanntgeben, Archivieren oder Vernichten der Daten.
+ 2.3
+ Mit dem Zugriff auf die App erklärt die Benutzerin oder der Benutzer die nachfolgenden Bedingungen und rechtlichen Informationen im Zusammenhang mit der App (und den darin enthaltenen Elementen) verstanden zu haben und anerkennt diese. Sollte die Benutzerin oder der Benutzer mit diesen Bedingungen nicht einverstanden sein, ist auf die Nutzung der App zu verzichten.
 </p>
-<h1>
- <a id="_Ref514319024">
- </a>
- <a id="_Ref514345972">
- </a>
- Verantwortlicher
-</h1>
+<strong>
+ 3.
+ Funktionen der App
+</strong>
 <p>
- Verantwortlich für die Datenbearbeitungen, die hier beschrieben werden, ist das
+ 3.1
+ Mittels der App werden Benutzerinnen und Benutzer informiert, wenn sie mit mindestens einer nachweislich infizierten Benutzerin oder einem nachweislich infizierten Benutzer der SwissCovid-App oder anderen interoperablen Apps in relevantem Kontakt waren.
+</p>
+<p>
+ 3.2
+ Voraussetzung für das Funktionieren der App ist die Aktivierung von Bluetooth.
+</p>
+<p>
+ 3.3
+ Die App erfüllt unter Verwendung einer Schnittstelle zum Betriebssystem des Mobiltelefons der Benutzerin oder des Benutzers folgende Funktionen:
+</p>
+<p>
+ Das Betriebssystem generiert jeden Tag einen neuen privaten Schlüssel, der keine Rückschlüsse auf die App, das Mobiltelefon und die Benutzerinnen und Benutzer ermöglicht. Innerhalb der Reichweite von Bluetooth tauscht das Betriebssystem mit allen kompatiblen und aktiven Apps einen mindestens halbstündlich wechselnden Identifizierungscode (sog. «random ID») aus, der aus einem aktuellen privaten Schlüssel abgeleitet wird, aber nicht auf diesen Schlüssel zurückgeführt werden kann und ebenfalls keine Rückschlüsse auf die App, das Mobiltelefon und deren Benutzerinnen und Benutzer ermöglicht.
+</p>
+<p>
+ Das Betriebssystem speichert auf dem Mobiltelefon die empfangenen Identifizierungscodes, die Signalstärke, das Datum und die geschätzte Dauer der Annäherung.
+</p>
+<p>
+ Die App ruft periodisch eine Liste der privaten Schlüssel der infizierten Benutzerinnen und Benutzer der SwissCovid-App und anderen interoperablen Apps ab und lässt vom Betriebssystem überprüfen, ob mindestens ein lokal gespeicherter Identifizierungscode mit einem privaten Schlüssel der Liste generiert wurde. Ist dies der Fall und bestand zu mindestens einem Mobiltelefon einer infizierten Benutzerin oder einem infizierten Benutzer der SwissCovid-App oder anderen interoperablen Apps eine Annährung von 1,5 Metern oder weniger und erreicht die Summe der Dauer aller solchen Annäherungen innerhalb eines Tages 15 Minuten, so gibt die App die Benachrichtigung aus. Der Abstand wird anhand der Stärke der empfangenen Signale geschätzt.
+</p>
+<p>
+ 3.4
+ Ist eine Infektion bei einer Benutzerin oder einem Benutzer nachgewiesen, generieren zugriffsberechtigte Fachpersonen (z.B. behandelnde Ärztinnen und Ärzte oder Apothekerinnen und Apotheker) einen einmaligen und zeitlich begrenzt gültigen Freischaltcode («Covidcode») und geben diesen der infizierten Benutzerin oder dem infizierten Benutzer bekannt. Diese oder dieser kann den Freischaltcode in ihre oder seine App freiwillig eingeben. Die Benachrichtigung bzw. die Eingabe des Freischaltcodes erfolgt nur mit der ausdrücklichen Einwilligung der infizierten Benutzerin oder des infizierten Benutzers.
+</p>
+<p>
+ Die anderen Benutzerinnen und Benutzer der SwissCovid-App
  <br/>
- <br/>
- Bundesamt für Gesundheit BAG
- <br/>
- 3003 Bern
- <br/>
- Schweiz
- <br/>
- Tel. +41 58
- 462 69 98
- <br/>
- recht(at)bag.admin.ch
-</p>
-<h1>
- Erhebung und Bearbeitung von Personendaten
-</h1>
-<p>
- Das gesamte App-System ist darauf ausgerichtet, dass der Benutzer und die Benutzerin der App nicht bestimmbar sind. Die Bearbeitung von Personendaten wird minimiert. So sind keinerlei technische Rückschlüsse auf Personen, Standorte oder Geräte möglich. Ortsangaben werden keine erfasst, sondern lediglich verschlüsselte Daten betreffend die Kontakt-Ereignisse. Diese werden technisch vor Missbrauch geschützt. Das BAG kann keine Rückschlüsse auf die Benutzerinnen und Benutzer der App ziehen. Die App schützt die Daten der Benutzerinnen und Benutzer so, dass über weite Strecken kein Personenbezug hergestellt werden kann. Dennoch ist ein Personenbezug nicht absolut auszuschliessen. So besteht eine gewisse Wahrscheinlichkeit, dass bei der Benachrichtigung
- <em>
- </em>
- einer möglicherweise gefährdeten Person, diese aufgrund ihrer Erinnerung an ihre Sozialkontakte der letzten Tage allenfalls Rückschlüsse auf die Identität der infizierten Person ziehen kann. Durch die Benutzung der App können somit potenziell auch Personen identifiziert werden. Die Benachrichtigung umfasst weiter Verhaltensempfehlungen des BAG, die Information, dass die Benutzerin oder der Benutzer potenziell dem Coronavirus ausgesetzt war, die Angabe, an welchen Tagen dies der Fall war sowie den Hinweis, dass das BAG einen Leitfaden (Web-Formular) und eine Infoline zur kostenlosen Beratung betreibt. Verlässt die Benutzerin oder der Benutzer die App, um den Leitfaden auszufüllen, werden die in der App genannten Tage, an welchen die Möglichkeit einer Ansteckung bestand, automatisch an den Leitfaden übermittelt.
-</p>
-<ul>
- <li>
-  Das App-System gliedert sich in zwei Komponenten:
- </li>
- <li>
-  ein System zur Verwaltung der Annäherungsdaten, bestehend aus einer Software, die von den Benutzerinnen und Benutzern auf ihren Mobiltelefonen installiert wird, und einem Backend (VA-Backend);
- </li>
- <li>
-  ein System zur Verwaltung von Codes zur Freischaltung der Benachrichtigungen (Codeverwaltungssystem), bestehend aus einem webbasierten Frontend und einem Backend.
- </li>
- <li>
-  Die beiden Backends unterstehen als zentrale Server direkt der Kontrolle des BAG und werden technisch vom Bundesamt für Informatik und Kommunikation (BIT) betrieben. Die Codeverwaltungs-Frontends laufen auf Geräten der für die Generierung des Freischaltcodes («Covidcodes») berechtigten Fachpersonen.
- </li>
-</ul>
-<p>
- Auf dem Mobiltelefon werden folgende Daten gespeichert:
-</p>
-<ul>
- <li>
-  die empfangenen Identifizierungscodes (sog «random ID») der anderen Mobiltelefone mit aktiver App;
- </li>
- <li>
-  die Signalstärke;
- </li>
- <li>
-  das Datum und die geschätzte Dauer der Annäherung.
- </li>
-</ul>
-<p>
- Im Falle einer nachgewiesenen Infektion eines Benutzers oder einer Benutzerin werden im Codeverwaltungssystem folgende Daten erfasst:
-</p>
-<ul>
- <li>
-  der Freischaltcode («Covidcode»);
- </li>
- <li>
-  das Datum, an dem die ersten Symptome aufgetreten sind, oder, falls die infizierte Benutzerin oder der infizierte Benutzer keine Symptome zeigt, das Testdatum;
- </li>
- <li>
-  der Zeitpunkt der Vernichtung dieser Daten.
- </li>
-</ul>
-<p>
- Das VA-Backend besteht aus einer Liste mit folgenden Daten:
-</p>
-<ul>
- <li>
-  die privaten Schlüssel der infizierten Benutzerinnen und Benutzer, die in dem Zeitraum aktuell waren, in dem andere Benutzerinnen und Benutzer potenziell dem Coronavirus ausgesetzt waren;
- </li>
- <li>
-  das Datum jedes Schlüssels.
- </li>
-</ul>
-<p>
- Darüber hinaus kann das App-System mit entsprechenden ausländischen Systemen verbunden werden, wenn im betreffenden Staat ein angemessener Schutz der Persönlichkeit gewährleistet wird (durch die Gesetzgebung oder hinreichende Garantien, insbesondere durch Vertrag). Ausländische Systeme gelten dann als «entsprechend», wenn sie nach den folgenden Grundsätzen des App-Systems ausgestaltet sind:
-</p>
-<ul>
- <li>
-  Bei der Datenbearbeitung sind alle angemessenen technischen und organisatorischen Massnahmen zu treffen, um zu verhindern, dass die teilnehmenden Personen bestimmbar sind;
- </li>
- <li>
-  Die Daten werden so weit wie möglich auf dezentralen Komponenten, die von den teilnehmenden Personen auf ihren Mobiltelefonen installiert werden, bearbeitet. Insbesondere dürfen Daten, die auf dem Mobiltelefon einer teilnehmenden Person über andere Personen erfasst werden, ausschliesslich auf diesem Mobiltelefon bearbeitet und gespeichert werden;
- </li>
- <li>
-  Es werden nur Daten beschafft oder in anderer Art und Weise bearbeitet, die zur Bestimmung der Distanz und der Zeit der Annäherungen und zur Ausgabe der Benachrichtigungen erforderlich sind, nicht aber Standortdaten;
- </li>
- <li>
-  Die Daten werden vernichtet, sobald sie für die Benachrichtigung nicht mehr erforderlich sind.
- </li>
-</ul>
-<p>
- Zum gegenwärtigen Zeitpunkt besteht eine Verbindung mit der in Deutschland verwendeten Corona-Warn-App. Bei der Verbindung werden das VA-Backend und das ausländische System an ein Verbindungssystem angeschlossen, das die gegenseitige Übermittlung der privaten Schlüssel von infizierten Benutzerinnen und Benutzern ermöglicht. Das App-System übermittelt sodann die privaten Schlüssel der App an das Verbindungssystem und speichert die privaten Schlüssel der verbundenen ausländischen Apps auf dem VA-Backend ab.
-</p>
-<h1>
- <a id="_Ref514335291">
- </a>
- Zwecke und Rechtsgrundlagen
-</h1>
-<p>
- Das vom BAG betriebene App-System und das Verbindungssystem stützt sich auf das EpG und die VPTS.
- Die App und die mit ihr einhergehenden Datenbearbeitungen bezwecken ausschliesslich, die Benutzerinnen und Benutzer, die potenziell dem Coronavirus ausgesetzt waren, unter Wahrung des Datenschutzes zu benachrichtigen sowie Statistiken aus Daten der beiden Backends im Zusammenhang mit dem Coronavirus zu erstellen.
+ oder anderen interoperablen Apps, welche in der infektiösen Zeitspanne eine Annährung gemäss Ziffer 3.3 zu der infizierten Benutzerin oder dem infizierten Benutzer hatten, werden durch die eigenen Apps benachrichtigt.
 </p>
 <p>
- Das Verbindungssystem dient dazu, dass eine solche Benachrichtigung auch zwischen verbundenen nationalen Apps möglich ist. Damit können Benutzerinnen und Benutzer der App auch dann benachrichtigt werden, wenn sie eine Annäherung zu infizierten Benutzerinnen und Benutzern einer ausländischen App gehabt haben (z.B. zu Grenzgängern und Touristen im Inland oder Kontakten im Ausland). Umgekehrt können auch Benutzerinnen und Benutzer einer verbundenen ausländischen App benachrichtigt werden bei Annäherungen zu infizierten Benutzerinnen und Benutzern der App.
-</p>
-<h1>
- <a id="_Ref514399992">
- </a>
- Datenweitergabe
-</h1>
-<p>
- Die Liste mit den Daten des VA-Backends wird der App im Abrufverfahren zur Verfügung gestellt. Soweit das BAG für diesen Service Dritte im In- oder Ausland beauftragt, verpflichten sich diese vertraglich, die Vorgaben nach Artikel 60a EpG und der VPTS einzuhalten. Davon ausgenommen ist die Regelung betreffend den Quellcode nach Artikel 60
- <em>
-  a
- </em>
- Absatz 5 Buchstabe e EpG. Das BAG kontrolliert die Einhaltung der Vorgaben. Bei der Ausführung des Auftrags anfallende Randdaten dürfen die beauftragten Dritten nicht für eigene Zwecke nutzen. Diese Daten werden nur vom BAG bzw. vom BIT ausgewertet (vgl. Ziffer 8).
+ Die benachrichtigten Benutzerinnen und Benutzer erfahren, dass eine Annährung stattgefunden hat bzw. dass sie potenziell dem Coronavirus ausgesetzt waren und an welchen Tagen dies der Fall war. Sie erfahren nicht, welcher Benutzer oder welche Benutzerin infiziert ist und die Benachrichtigung ausgelöst hat. Die Benachrichtigung der SwissCovid-App umfasst weiter Verhaltensempfehlungen des BAG sowie den Hinweis, dass das BAG einen Leitfaden (Web-Formular) und eine Infoline zur kostenlosen Beratung betreibt. Verlässt man die App, um den Leitfaden auszufüllen, werden die in der App genannten Tage, an welchen eine Möglichkeit der Ansteckung bestand, automatisch an den Leitfaden übermittelt.
 </p>
 <p>
- Die Liste mit den privaten Schlüsseln der infizierten Benutzerinnen und Benutzer des VA-Backends wird zudem regelmässig für eine grenzüberschreitende Benachrichtigung an das Verbindungssystem übermittelt. Sodann laden die verbundenen ausländischen Systeme (zurzeit: die deutsche Corona-Warn-App) diese privaten Schlüssel herunter und stellen sie ihren Apps zum Abruf zur Verfügung (siehe Ziffer 2).
+ 3.5
+ Bei Eingabe des Freischaltcodes werden die Benutzerinnen und Benutzer darauf aufmerksam gemacht, mit welchen Ländern (vgl. Ziffer 2.2) die App interoperabel ist. Es wird darauf hingewiesen, dass – wenn das Feld «Einverstanden» gedrückt und der Freischaltcode in die App eingegeben wird – die privaten Schlüssel nicht nur innerhalb der SwissCovid-App geteilt werden, sondern auch mit allen anderen interoperablen Apps (zurzeit die deutsche Corona-Warn-App). Die privaten Schlüssel können nur mit allen interoperablen Apps oder gar nicht geteilt werden, was dem sogenannten «One-World-Prinzip» entspricht.
 </p>
 <p>
- Das BAG stellt dem Bundesamt für Statistik (BFS) periodisch den aktuellen Bestand der in beiden Backends vorhandenen Daten in anonymisierter Form für statistische Auswertungen zur Verfügung. Die Daten des Verbindungssystems können dem BFS und der zuständigen ausländischen Stelle zu Statistikzwecken in vollständig anonymisierter Form bekanntgegeben werden. Das BIT führt im Auftrag des BAG den Betrieb der gesamten Software durch und stellt den notwendigen technischen Support-Service bereit. Das BIT hat lediglich Zugriff auf Daten, soweit dies für die beschriebenen Zwecke und die Tätigkeit der betreffenden Mitarbeiter erforderlich ist. Diese sind im Umgang mit den Daten zu Vertraulichkeit verpflichtet.
+ 3.6
+ Eine Benutzerin oder ein Benutzer, die oder der über die eigene App benachrichtigt wurde, dass sie oder er potenziell dem Coronavirus ausgesetzt war, kann gegen Nachweis der Benachrichtigung kostenlos einen Test auf Infizierung mit dem Coronavirus SARS-CoV-2 oder auf Antikörper gegen diesen durchführen lassen.
 </p>
 <p>
- Die App verwendet eine Schnittstelle zum Betriebssystem des Mobiltelefons der Benutzerin oder des Benutzers, welche die Bearbeitung von Daten durch Apple oder Google bedingt. Die über die Schnittstelle genutzten Funktionen der Betriebssysteme müssen die Vorgaben von Artikel 60a EpG und der VPTS erfüllen. Davon ausgenommen ist die Regelung betreffend den Quellcode nach Artikel 60
- <em>
-  a
- </em>
- Absatz 5 Buchstabe e EpG. Das BAG vergewissert sich, dass diese Vorgabe eingehalten werden, insbesondere indem es entsprechende Zusicherungen einholt.
-</p>
-<h1>
- Dauer der Aufbewahrung
-</h1>
-<p>
- Die Daten werden vernichtet, sobald sie für die Benachrichtigung der Benutzerinnen und Benutzer nicht mehr erforderlich sind. Namentlich werden sie wie folgt vernichtet:
-</p>
-<ul>
- <li>
-  die Daten des Systems zur Verwaltung der Annäherungsdaten (sowohl auf den Mobiltelefonen als auch im VA-Backend): 14 Tage nach ihrer Erfassung;
- </li>
- <li>
-  die Daten des Codeverwaltungssystems: 24 Stunden nach ihrer Erfassung;
- </li>
- <li>
-  die Daten des Verbindungssystems: spätestens 14 Tage nach ihrer Übermittlung an das Verbindungssystem.
- </li>
-</ul>
-<h1>
- Datensicherheit
-</h1>
-<p>
- In enger Zusammenarbeit mit seinen internen und externen Hosting-Providern und anderen IT-Dienstleistern trifft das BAG zum Schutz der Daten vor unberechtigtem Zugriff, Verlust und Missbrauch angemessene Sicherheitsvorkehrungen technischer Natur (z.B. Verschlüsselungen, Pseudonymisierung, Protokollierung, Zugangskontrollen und -beschränkungen, Datensicherung, IT- und Netzwerksicherheitslösungen etc.) sowie organisatorischer Natur (z.B. Weisungen an die Mitarbeiter, Vertraulichkeitsvereinbarungen, Überprüfungen etc.) gemäss den Vorgaben der Bundesverwaltung und der schweizerischen Datenschutzgesetzgebung.
-</p>
-<h1>
- Rechte der betroffenen Person
-</h1>
-<p>
- Sie haben das Recht auf Auskunft, Berichtigung, Löschung, oder Herausgabe Ihrer Daten. Weiter steht Ihnen das Recht auf Einschränkung der Datenbearbeitung und das Recht auf Widerspruch gegen die Datenbearbeitung zu. Sie haben zudem das Recht, Einwilligungen zu widerrufen, ohne dass dadurch die Rechtmässigkeit der bis zum Widerruf erfolgten Datenbearbeitung berührt ist. Diese Rechte greifen, soweit Personendaten vorhanden sind. Das dem App-System zugrundeliegende «privacy by design», welches mit innovativen kryptografischen Methoden und einer dezentralisierten Datenbearbeitung darauf ausgerichtet ist, dass möglichst keine Angaben zu bestimmten oder bestimmbaren Personen (Personendaten) vorhanden sind, verhindert dies jedoch weitestmöglich. Aus diesem Grund ist es dem BAG beispielsweise nicht möglich, Auskunft über die zu einer bestimmten Person erfassten Annährungsereignisse zu erteilen oder diese Daten zu korrigieren. Das BAG kann diese Daten nicht einsehen, da sie lediglich auf den Mobiltelefonen gespeichert werden.
+ 3.7
+ Die App verwendet keine Standortortung oder Geolokalisation.
 </p>
 <p>
- Die Ausübung der Rechte setzt voraus, dass Sie Ihre Identität eindeutig nachweisen (z.B. durch eine Ausweiskopie). Zur Geltendmachung Ihrer Rechte können Sie das BAG unter der in Ziffer 1 angegebenen Adresse kontaktieren.
+ 3.8
+ Die App kann keine medizinische Einschätzung vornehmen, keine Massnahmen anordnen (wie z.B. eine Quarantäne) und keine Anweisungen erteilen.
+</p>
+<strong>
+ 4.
+ Sorgfaltspflichten der Benutzerinnern und Benutzer
+</strong>
+<p>
+ 4.1
+ Der technische Zugang zur App ist in der Verantwortung der Benutzerinnen und Benutzer.
 </p>
 <p>
- Im Falle datenschutzrechtlicher Verstösse können Sie sich an die zuständige Datenschutzaufsichtsbehörde wenden oder die Rechtswege nach Datenschutzgesetzgebung beschreiten.
-</p>
-<h1>
- Weiteres
-</h1>
-<p>
- Es werden Protokolle über Zugriffe auf das VA-Backend und das Codeverwaltungssystem zu den in den Artikeln 57
- <em>
-  l
- </em>
- –57
- <em>
-  o
- </em>
- des Regierungs- und Verwaltungsorganisationsgesetzes vom 21. März 1997 (RVOG; SR 172.010) aufgeführten Zwecken gespeichert. Die Zugriffe können statistisch ausgewertet werden. Es sind die Artikel 57
- <em>
-  i
- </em>
- –57
- <em>
-  q
- </em>
- RVOG und die Verordnung vom 22. Februar 2012 über die Bearbeitung von Personendaten, die bei der Nutzung der elektronischen Infrastruktur des Bundes anfallen (SR 172.010.442), anwendbar.
+ 4.2
+ Für die eigenen Geräte sind die Benutzerinnen und Benutzer verpflichtet, die notwendigen Sicherheitsvorkehrungen zu treffen und diese gegen unbefugten Zugriff durch Dritte sowie gegen Schadsoftware zu schützen.
 </p>
 <p>
- Die Protokolldaten werden folgendermassen vernichtet:
-</p>
-<ul>
- <li>
-  Protokolldaten von den vom BAG beauftragten Dritten: 7 Tage nach ihrer Erfassung;
- </li>
- <li>
-  Im Übrigen richtet sich die Vernichtung der Protokolldaten nach Artikel 4 Absatz 1 Buchstabe b der Verordnung vom 22. Februar 2012 über die Bearbeitung von Personendaten, die bei der Nutzung der elektronischen Infrastruktur des Bundes anfallen (SR 172.010.442).
- </li>
-</ul>
-<h1>
- Änderungen
-</h1>
-<p>
- Das BAG kann diese Datenschutzerklärung jederzeit ohne Vorankündigung anpassen. Es gilt die jeweils aktuelle publizierte Fassung bzw. die für den jeweiligen Zeitraum gültige Fassung. Diese Datenschutzerklärung wurde in mehreren Sprachen verfasst. Bei Divergenzen ist die deutsche Version massgebend. Im Falle einer Aktualisierung wird der Benutzer oder die Benutzerin der App über die Änderung in geeigneter Weise informiert.
+ Die Benutzerin und der Benutzer wird hiermit auf Sicherheitsrisiken durch die Nutzung des Internets und von Internet-Techniken hingewiesen.
 </p>
 <p>
- *****
+ 4.3
+ Die Benutzerinnen und Benutzer sind verpflichtet, die App auf dem neuesten Stand zu halten und Aktualisierungen («Updates») vorzunehmen. Es bestehen keine Ansprüche auf die Benutzung einer bestimmten Version der Software.
+</p>
+<p>
+ 4.4
+ Die Benutzerinnen und Benutzer sind verpflichtet, von ihr oder ihm eingegebene Daten auf ihre Vollständigkeit und Richtigkeit hin zu überprüfen.
+</p>
+<p>
+ 4.5
+ Die Benutzerinnen und Benutzer sind dafür verantwortlich, dass bei der Nutzung der App anwendbare gesetzliche Bestimmungen und die Nutzungsbedingungen eingehalten werden.
+</p>
+<strong>
+ 5.
+ Haftung und Gewährleistung
+</strong>
+<p>
+ 5.1
+ Obwohl das BAG mit aller Sorgfalt auf die Richtigkeit der veröffentlichten Informationen, Inhalte und Mitteilungen in der App achtet, kann hinsichtlich deren inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit keine Gewährleistung übernommen werden.
+</p>
+<p>
+ Das BAG behält sich ausdrücklich vor, jederzeit Informationen und Inhalte ohne Ankündigung ganz oder teilweise zu ändern, zu löschen oder zeitweise nicht zu veröffentlichen.
+</p>
+<p>
+ 5.2
+ Jegliche Haftungsansprüche gegen das BAG wegen Schäden inkl. Folgeschäden materieller oder immaterieller Art, welche bspw. aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der App und deren Informationen, Inhalte und Mitteilungen, durch Missbrauch der Verbindung, durch technische Störungen oder durch Verletzung der Sorgfaltspflichten der Benutzerinnen und Benutzer, entstanden sind, werden im Rahmen des gesetzlich Zulässigen ausgeschlossen.
+</p>
+<p>
+ Jegliches Handeln bzw. Verhalten, welches aufgrund der Informationen, Inhalte und Mitteilungen der Applikation getroffen wird, wie z.B. die Begebung in Isolation/Quarantäne, erfolgt auf Verantwortung und Risiko der Benutzerin oder des Benutzers. Das BAG übernimmt in keinem Fall Haftung für daraus resultierende Schäden.
+</p>
+<p>
+ 5.3
+ Die Haftung für Hilfspersonen und Dritte wird, soweit gesetzlich zulässig, ausgeschlossen.
+</p>
+<p>
+ 5.4
+ Das BAG übernimmt keine Verantwortung und gibt keine Garantie dafür ab, dass die Funktionen und Nutzung der App dauernd und ununterbrochen zur Verfügung stehen, fehler- und störungsfrei sind oder Fehler behoben werden oder dass die Server frei von Viren oder sonstigen schädlichen Bestandteilen sind.
+</p>
+<p>
+ Das BAG ist jederzeit berechtigt, die Nutzung der App zu unterbrechen oder einzustellen.
+</p>
+<p>
+ 5.5
+ Verweise und Links auf Websites Dritter liegen ausserhalb des Verantwortungsbereichs des BAG. Das BAG übernimmt weder für Bestand noch für den Inhalt noch für die Richtigkeit dieser Informationen eine Haftung. Der Zugriff und die Nutzung solcher Websites erfolgen auf eigene Gefahr der Benutzerin oder des Benutzers. Das BAG erklärt ausdrücklich, dass es keinerlei Einfluss auf die Gestaltung, den Inhalt und die Angebote der verknüpften Seiten haben. Informationen und Dienstleistungen von verknüpften Websites liegen vollumfänglich in der Verantwortung des jeweiligen Dritten.
+</p>
+<p>
+ Es wird jegliche Verantwortung für solche Websites abgelehnt.
+</p>
+<strong>
+ 6.
+ Datenschutz
+</strong>
+<p>
+ 6.1
+ Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie Schutz vor Missbrauch ihrer persönlichen Daten. Das BAG hält diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt.
+</p>
+<p>
+ 6.2
+ In enger Zusammenarbeit mit seinen Dienstleistern und den ausländischen Betreibern interoperabler Apps bemüht sich das BAG, die Daten so gut wie möglich vor fremden Zugriffen, Verlusten, Missbrauch oder Fälschungen zu schützen.
+</p>
+<p>
+ 6.3
+ Für die Bearbeitung von Personendaten durch das BAG gilt die Datenschutzerklärung zur App.
+</p>
+<strong>
+ 7.
+ Beendigung der Nutzung
+</strong>
+<p>
+ 7.1
+ Die Nutzung der App kann von der Benutzerin oder dem Benutzer jederzeit durch Löschung bzw. Deinstallation auf dem Mobiltelefon beendet werden.
+</p>
+<p>
+ 7.2
+ Sobald die App zur Bewältigung der durch das Coronavirus verursachten Epidemie nicht mehr erforderlich ist oder sich als ungenügend erweist, kann der Bundesrat die App einstellen bzw. deaktivieren.
+</p>
+<p>
+ 7.3
+ Spätestens beim Ausserkrafttreten der in Ziffer 1.2. aufgeführten Verordnung deaktiviert das BAG die App und fordert die Benutzerinnen und Benutzer auf, diese auf dem Mobiltelefon zu deinstallieren.
+</p>
+<strong>
+ 8.
+ Copyright und Schutz- und Nutzungsrechte
+</strong>
+<p>
+ 8.1
+ Copyright, Bundesamt für Gesundheit BAG.
+</p>
+<p>
+ 8.2
+ Die Informationen und Inhalte werden der Öffentlichkeit zugänglich gemacht. Die vom BAG in der App veröffentlichten Inhalte dürfen nur für den Eigengebrauch genutzt werden. Jede darüber hinausgehende Reproduktion und Weitergabe der Inhalte an Dritte ist unzulässig. Durch das Herunterladen oder Kopieren von Inhalten, Bildern, Fotos oder anderen Dateien werden keinerlei Rechte bezüglich der Inhalte übertragen.
+</p>
+<p>
+ Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien dieser App gehören ausschliesslich dem BAG oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.
+</p>
+<strong>
+ 9.
+ Schlussbestimmungen
+</strong>
+<p>
+ 9.1
+ Diese Bestimmungen wurden in mehreren Sprachen verfasst. Bei Divergenzen ist die deutsche Version massgebend.
+</p>
+<p>
+ 9.2
+ Die Nutzung der App ist für die Benutzerinnen und Benutzer kostenlos. Allfällige Kosten für den Netzzugang, um die App nutzen zu können, trägt die Benutzerin oder der Benutzer.
+</p>
+<p>
+ 9.3
+ Das BAG behält sich jederzeitige Änderungen und Ergänzungen der Nutzungsbedingungen vor. Die neuen Bedingungen werden den Benutzerinnen und Benutzern vorab und in geeigneter Weise kommuniziert und gelten bei Weiternutzung der App als genehmigt.
+</p>
+<p>
+ 9.4
+ Sollte eine Bestimmung in den Nutzungsbedingungen nichtig oder unwirksam sein, werden die Nutzungsbedingungen nicht allgemein berührt.
+</p>
+<p>
+ 9.5
+ Anwendbar ist schweizerisches Recht, unter Vorbehalt abweichender zwingender Bestimmungen. Ausschliesslicher Gerichtsstand für alle Streitigkeiten ist das zuständige schweizerische Gericht.
 </p>
