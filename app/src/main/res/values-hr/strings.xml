@@ -1375,4 +1375,22 @@ Kontaktirajte info-liniju za Covid šifre:"</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
     <string name="inform_send_thankyou_text_onsetdate_info"></string>
+
+    <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
+    <string name="android_inform_tracing_enabled_explanation"></string>
+
+    <!-- Leitfaden Info Popup Text -->
+    <string name="leitfaden_infopopup_text"></string>
+
+    <!-- Leitfaden InfoPopup Titel -->
+    <string name="leitfaden_infopopup_title"></string>
+
+    <!-- Update Boarding: Titel -->
+    <string name="germany_update_boarding_title"></string>
+
+    <!-- Update Boarding: Text -->
+    <string name="germany_update_boarding_text"></string>
+
+    <!-- Update Boarding: Heading oben -->
+    <string name="germany_update_boarding_heading"></string>
 </resources>

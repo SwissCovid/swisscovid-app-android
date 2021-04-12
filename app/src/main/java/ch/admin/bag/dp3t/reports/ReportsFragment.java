@@ -37,13 +37,10 @@ import java.util.TimeZone;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.contacts.ReactivateTracingReminderDialog;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.DateUtils;
-import ch.admin.bag.dp3t.util.NotificationUtil;
-import ch.admin.bag.dp3t.util.PhoneUtil;
-import ch.admin.bag.dp3t.util.StringUtil;
-import ch.admin.bag.dp3t.util.UrlUtil;
+import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class ReportsFragment extends Fragment {
@@ -97,10 +94,14 @@ public class ReportsFragment extends Fragment {
 		xDaysLeftTextview = saveOthersView.findViewById(R.id.x_days_left_textview);
 
 		Button openSwisscovidLeitfadenButton1 = leitfadenView.findViewById(R.id.card_encounters_button);
+		View leitfadenInfoButton1 = leitfadenView.findViewById(R.id.leitfaden_info_button);
 		Button openSwisscovidLeitfadenButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
+		View leitfadenInfoButton2 = saveOthersView.findViewById(R.id.leitfaden_info_button);
 
 		openSwisscovidLeitfadenButton1.setOnClickListener(view1 -> openSwissCovidLeitfaden());
+		leitfadenInfoButton1.setOnClickListener(v -> showLeitfadenInfo(openSwisscovidLeitfadenButton1.getText().toString()));
 		openSwisscovidLeitfadenButton2.setOnClickListener(view1 -> openSwissCovidLeitfaden());
+		leitfadenInfoButton2.setOnClickListener(v -> showLeitfadenInfo(openSwisscovidLeitfadenButton2.getText().toString()));
 
 		View callHotlineButton1 = leitfadenView.findViewById(R.id.item_call_hotline_layout);
 		View callHotlineButton2 = saveOthersView.findViewById(R.id.item_call_hotline_layout);
@@ -233,6 +234,14 @@ public class ReportsFragment extends Fragment {
 			delimiter = ",";
 		}
 		UrlUtil.openUrl(getContext(), getString(R.string.swisscovid_leitfaden_url).replace("{CONTACT_DATES}", contactDates));
+	}
+
+	private void showLeitfadenInfo(String buttonTitleReplacementText) {
+		String title = getString(R.string.leitfaden_infopopup_title);
+		String subtitle = getString(R.string.leitfaden_infopopup_text).replace("{BUTTON_TITLE}", buttonTitleReplacementText);
+		requireActivity().getSupportFragmentManager().beginTransaction().add(
+				SimpleDismissableDialog.newInstance(title, subtitle),
+				ReactivateTracingReminderDialog.class.getCanonicalName()).commit();
 	}
 
 	private void callHotline() {

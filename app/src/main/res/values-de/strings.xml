@@ -1438,4 +1438,23 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
     <string name="inform_send_thankyou_text_onsetdate_info">"Die privaten Schlüssel Ihrer App wurden für den folgenden Zeitraum gesendet:"</string>
+
+    <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
+    <string name="android_inform_tracing_enabled_explanation">"Beim Eingeben eines Covidcodes muss das Tracing aktiviert sein, damit Ihre privaten Schlüssel geteilt werden können."</string>
+
+    <!-- Leitfaden Info Popup Text -->
+    <!-- Fuzzy -->
+    <string name="leitfaden_infopopup_text">"Wenn Sie \"{BUTTON_TITLE}\" drücken, so verlassen Sie die App und wechseln auf die Website des SwissCovid Leitfaden. Dabei werden die Daten der letzten Begegnungen von möglichen Ansteckungen der Website mitgeschickt."</string>
+
+    <!-- Leitfaden InfoPopup Titel -->
+    <string name="leitfaden_infopopup_title">"Information SwissCovid Leitfaden"</string>
+
+    <!-- Update Boarding: Titel -->
+    <string name="germany_update_boarding_title">"Kompatibel mit Deutschland"</string>
+
+    <!-- Update Boarding: Text -->
+    <string name="germany_update_boarding_text">"Sie werden auch informiert, wenn Sie mit einer Person in Kontakt waren, welche die deutsche Corona-Warn-App nutzt und später positiv getestet wurde und umgekehrt. Dazu wurden die Nutzungsbedingungen und Datenschutzerklärung aktualisiert."</string>
+
+    <!-- Update Boarding: Heading oben -->
+    <string name="germany_update_boarding_heading">"SwissCovid Update"</string>
 </resources>
