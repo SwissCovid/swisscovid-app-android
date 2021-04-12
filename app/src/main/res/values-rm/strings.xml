@@ -64,10 +64,10 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="bluetooth_permission_turned_off">"L'app na funcziuna betg, perquai che Vus n’avais betg dà l'autorisaziun bluetooth."</string>
 
     <!-- Permission Text für Bluetooth -->
-    <string name="NSBluetoothPeripheralUsageDescription">"Inscunters vegnan identifitgadas via bluetooth, economisant l'energia."</string>
+    <string name="NSBluetoothPeripheralUsageDescription">"Inscunters vegnan identifitgads via bluetooth, economisant l'energia."</string>
 
     <!-- Permission Text für Bluetooth -->
-    <string name="NSBluetoothAlwaysUsageDescription">"Inscunters vegnan identifitgadas via bluetooth, economisant l'energia."</string>
+    <string name="NSBluetoothAlwaysUsageDescription">"Inscunters vegnan identifitgads via bluetooth, economisant l'energia."</string>
 
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Endatar il code covid"</string>
@@ -109,7 +109,7 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="tracing_active_title">"App activa"</string>
 
     <!-- Text bei Tracing aktiv -->
-    <string name="tracing_active_text">"Inscunters vegnan arcunadas en moda anonima"</string>
+    <string name="tracing_active_text">"Inscunters vegnan arcunads en moda anonima"</string>
 
     <!-- Android: Fehler Text bei Tracing -->
     <string name="android_tracing_error_title">"Tracing inactiv"</string>
@@ -172,7 +172,7 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="tab_tracing_title">"Tracing"</string>
 
     <!-- Titel auf Homescreen für Was tun Section -->
-    <string name="whattodo_title_symptoms">"Sintoms da malsogna"</string>
+    <string name="whattodo_title_symptoms">"sintoms da malsogna"</string>
 
     <!-- Subtitel auf Homescreen für Was Tun Section -->
     <string name="whattodo_subtitle_symptoms">"Tge far en cas da…"</string>
@@ -1374,4 +1374,22 @@ Il temp è in factur decisiv en il cumbat cunter il coronavirus: pli curt ch'il 
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
     <string name="inform_send_thankyou_text_onsetdate_info"></string>
+
+    <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
+    <string name="android_inform_tracing_enabled_explanation"></string>
+
+    <!-- Leitfaden Info Popup Text -->
+    <string name="leitfaden_infopopup_text"></string>
+
+    <!-- Leitfaden InfoPopup Titel -->
+    <string name="leitfaden_infopopup_title"></string>
+
+    <!-- Update Boarding: Titel -->
+    <string name="germany_update_boarding_title"></string>
+
+    <!-- Update Boarding: Text -->
+    <string name="germany_update_boarding_text"></string>
+
+    <!-- Update Boarding: Heading oben -->
+    <string name="germany_update_boarding_heading"></string>
 </resources>
