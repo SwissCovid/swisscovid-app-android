@@ -12,6 +12,7 @@ package ch.admin.bag.dp3t.storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -38,6 +39,8 @@ import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
 
 public class SecureStorage {
+
+	private static final String TAG = "SecureStorage";
 
 	private static final String PREFERENCES = "SecureStorage";
 	private static final String DEFAULT_TEST_LOCATIONS_JSON_PATH = "testlocations.json";
@@ -94,7 +97,7 @@ public class SecureStorage {
 		hasInfoboxLiveData = new MutableLiveData<>(getHasInfobox());
 	}
 
-	public static SecureStorage getInstance(Context context) {
+	public static synchronized SecureStorage getInstance(Context context) {
 		if (instance == null) {
 			instance = new SecureStorage(context);
 		}
@@ -381,7 +384,7 @@ public class SecureStorage {
 		prefs.edit().putLong(KEY_POSITIVE_REPORT_ONSET_DATE, onsetDate).apply();
 	}
 
-	private SharedPreferences initializeSharedPreferences(@NonNull Context context) {
+	private synchronized SharedPreferences initializeSharedPreferences(@NonNull Context context) {
 		try {
 			return createEncryptedSharedPreferences(context);
 		} catch (GeneralSecurityException | IOException e) {
@@ -419,8 +422,9 @@ public class SecureStorage {
 	private void tryToDeleteSharedPreferencesFile(@NonNull Context context) {
 		File sharedPreferencesFile = new File(context.getApplicationInfo().dataDir + "/shared_prefs/" + PREFERENCES + ".xml");
 		if (sharedPreferencesFile.exists()) {
-			//noinspection ResultOfMethodCallIgnored
-			sharedPreferencesFile.delete();
+			if (!sharedPreferencesFile.delete()) {
+				Log.e(TAG, "Failed to delete " + sharedPreferencesFile.toString());
+			}
 		}
 	}
 
