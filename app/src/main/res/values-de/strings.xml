@@ -1457,4 +1457,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Update Boarding: Heading oben -->
     <string name="germany_update_boarding_heading">"SwissCovid Update"</string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Update Boarding zurücksetzen"</string>
 </resources>

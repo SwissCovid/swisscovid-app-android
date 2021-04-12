@@ -1392,4 +1392,7 @@ Il temp è in factur decisiv en il cumbat cunter il coronavirus: pli curt ch'il 
 
     <!-- Update Boarding: Heading oben -->
     <string name="germany_update_boarding_heading"></string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Redefinir update boarding"</string>
 </resources>

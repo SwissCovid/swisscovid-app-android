@@ -50,6 +50,7 @@ public class SecureStorage {
 	private static final String KEY_INFORM_CODE_REQ = "inform_code_req";
 	private static final String KEY_INFORM_TOKEN_REQ = "inform_token_req";
 	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
+	private static final String KEY_UPDATE_BOARDING_VERSION = "update_boarding_version";
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
 
 	//KEY_LEITFADEN_OPEN_PENDING key value is kept to old value to avoid migration issues
@@ -152,6 +153,14 @@ public class SecureStorage {
 
 	public void setOnboardingCompleted(boolean completed) {
 		prefs.edit().putBoolean(KEY_ONBOARDING_COMPLETED, completed).apply();
+	}
+
+	public int getLastShownUpdateBoardingVersion() {
+		return prefs.getInt(KEY_UPDATE_BOARDING_VERSION, 0);
+	}
+
+	public void setLastShownUpdateBoardingVersion(int version) {
+		prefs.edit().putInt(KEY_UPDATE_BOARDING_VERSION, version).apply();
 	}
 
 	public int getLastShownContactId() {

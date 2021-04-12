@@ -1431,4 +1431,7 @@ Allora contatta la Infoline codice Covid:"</string>
 
     <!-- Update Boarding: Heading oben -->
     <string name="germany_update_boarding_heading"></string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Reimposta update boarding"</string>
 </resources>
