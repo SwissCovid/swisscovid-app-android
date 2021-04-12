@@ -18,11 +18,11 @@
 </p>
 <p>
  1.2
- Die App des Bundesamtes für Gesundheit (BAG) stützt sich auf das Epidemiengesetz vom 28. September 2012 (EpG; SR 818.101) und die Verordnung vom 24. Juni 2020 über das Proximity-Tracing-System für das Coronavirus SARS-CoV-2 (VPTS; SR 818.101….).
+ Die App des Bundesamtes für Gesundheit (BAG) stützt sich auf das Epidemiengesetz vom 28. September 2012 (EpG; SR 818.101) und die Verordnung vom 24. Juni 2020 über das Proximity-Tracing-System für das Coronavirus SARS-CoV-2 (VPTS; SR 818.101.25).
 </p>
 <p>
  1.3
- Die App bezweckt die Benutzer und Benutzerinnen, die potenziell dem Coronavirus ausgesetzt waren, zu benachrichtigen und Statistiken im Zusammenhang mit dem Coronavirus zu erstellen.
+ Die App bezweckt die Benutzerinnen und Benutzer, die potenziell dem Coronavirus ausgesetzt waren, zu benachrichtigen und Statistiken im Zusammenhang mit dem Coronavirus zu erstellen.
 </p>
 <strong>
  2.
@@ -34,11 +34,11 @@
 </p>
 <p>
  2.2
- Die Anwendung bzw. die Nutzung der App sowie deren in Ziffer 3 beschriebenen Funktionen beschränken sich auf das schweizerische Gebiet.
+ Die Nutzung der App ist nicht auf ein geografisches Gebiet beschränkt. Allerdings können Warnungen nur erfolgen, wenn die ausländische App mit der SwissCovid-App interoperabel ist. Zum gegenwärtigen Zeitpunkt ist lediglich die in Deutschland genutzte Corona-Warn-App interoperabel.
 </p>
 <p>
  2.3
- Mit dem Zugriff auf die App erklärt der Benutzer oder die Benutzerin die nachfolgenden Bedingungen und rechtlichen Informationen im Zusammenhang mit der App (und den darin enthaltenen Elementen) verstanden zu haben und anerkennt diese. Sollte der Benutzer oder die Benutzerin mit diesen Bedingungen nicht einverstanden sein, ist auf die Nutzung der App zu verzichten.
+ Mit dem Zugriff auf die App erklärt die Benutzerin oder der Benutzer die nachfolgenden Bedingungen und rechtlichen Informationen im Zusammenhang mit der App (und den darin enthaltenen Elementen) verstanden zu haben und anerkennt diese. Sollte die Benutzerin oder der Benutzer mit diesen Bedingungen nicht einverstanden sein, ist auf die Nutzung der App zu verzichten.
 </p>
 <strong>
  3.
@@ -46,7 +46,7 @@
 </strong>
 <p>
  3.1
- Mittels der App werden Benutzerinnen und Benutzer informiert, wenn sie mit mindestens einer nachweislich infizierten Benutzerin oder einem nachweislich infizierten Benutzer in relevantem Kontakt waren.
+ Mittels der App werden Benutzerinnen und Benutzer informiert, wenn sie mit mindestens einer nachweislich infizierten Benutzerin oder einem nachweislich infizierten Benutzer der SwissCovid-App oder anderen interoperablen Apps in relevantem Kontakt waren.
 </p>
 <p>
  3.2
@@ -57,34 +57,33 @@
  Die App erfüllt unter Verwendung einer Schnittstelle zum Betriebssystem des Mobiltelefons der Benutzerin oder des Benutzers folgende Funktionen:
 </p>
 <p>
- Das Betriebssystem generiert jeden Tag einen neuen privaten Schlüssel, der keine Rückschlüsse auf die App, das Mobiltelefon und die Benutzerinnen und Benutzer ermöglicht. Innerhalb der Reichweite von Bluetooth tauscht das Betriebssystem mit allen kompatiblen und aktiven Apps einen mindestens halbstündlich wechselnden Identifizierungscode ("zufällige ID / Zufalls-ID") aus, der aus einem aktuellen privaten Schlüssel abgeleitet wird, aber nicht auf diesen Schlüssel zurückgeführt werden kann und ebenfalls keine Rückschlüsse auf die App, das Mobiltelefon und deren Benutzerinnen und Benutzer ermöglicht.
+ Das Betriebssystem generiert jeden Tag einen neuen privaten Schlüssel, der keine Rückschlüsse auf die App, das Mobiltelefon und die Benutzerinnen und Benutzer ermöglicht. Innerhalb der Reichweite von Bluetooth tauscht das Betriebssystem mit allen kompatiblen und aktiven Apps einen mindestens halbstündlich wechselnden Identifizierungscode (sog. «random ID») aus, der aus einem aktuellen privaten Schlüssel abgeleitet wird, aber nicht auf diesen Schlüssel zurückgeführt werden kann und ebenfalls keine Rückschlüsse auf die App, das Mobiltelefon und deren Benutzerinnen und Benutzer ermöglicht.
 </p>
 <p>
- Das Betriebssystem speichert auf dem Mobiltelefon die empfangenen Identifizierungscodes ("zufällige IDs / Zufalls-IDs"), die Signalstärke, das Datum und die geschätzte Dauer der Annäherung.
+ Das Betriebssystem speichert auf dem Mobiltelefon die empfangenen Identifizierungscodes, die Signalstärke, das Datum und die geschätzte Dauer der Annäherung.
 </p>
 <p>
- Die App ruft periodisch eine Liste der privaten Schlüssel der infizierten Benutzerinnen und Benutzer ab und lässt vom Betriebssystem überprüfen, ob mindestens ein lokal gespeicherter Identifizierungscode ("zufällige ID / Zufalls-ID") mit einem privaten Schlüssel der Liste generiert wurde. Ist dies der Fall und
-</p>
-<p>
- bestand zu mindestens einem Mobiltelefon einer infizierten Benutzerin oder einem infizierten Benutzer eine Annährung von 1,5 Metern oder weniger und erreicht die Summe der Dauer aller solchen Annäherungen innerhalb eines Tages 15 Minuten, so gibt die App die Benachrichtigung aus. Der Abstand wird anhand der Stärke der empfangenen Signale geschätzt.
+ Die App ruft periodisch eine Liste der privaten Schlüssel der infizierten Benutzerinnen und Benutzer der SwissCovid-App und anderen interoperablen Apps ab und lässt vom Betriebssystem überprüfen, ob mindestens ein lokal gespeicherter Identifizierungscode mit einem privaten Schlüssel der Liste generiert wurde. Ist dies der Fall und bestand zu mindestens einem Mobiltelefon einer infizierten Benutzerin oder einem infizierten Benutzer der SwissCovid-App oder anderen interoperablen Apps eine Annährung von 1,5 Metern oder weniger und erreicht die Summe der Dauer aller solchen Annäherungen innerhalb eines Tages 15 Minuten, so gibt die App die Benachrichtigung aus. Der Abstand wird anhand der Stärke der empfangenen Signale geschätzt.
 </p>
 <p>
  3.4
- Ist eine Infektion bei einer Benutzerin oder einem Benutzer nachgewiesen, generieren zugriffsberechtigte Fachpersonen (z.B. behandelnde Ärztinnen und Ärzte) einen einmaligen und zeitlich begrenzt gültigen Freischaltcode ("Covidcode") und geben diesen der infizierten Benutzerin oder dem infizierten Benutzer bekannt. Dieser oder diese kann den Freischaltcode in ihre oder seine App freiwillig eingeben. Die Benachrichtigung bzw. die Eingabe des Freischaltcodes erfolgt nur mit der ausdrücklichen Einwilligung der infizierten Benutzerin oder des infizierten Benutzers.
+ Ist eine Infektion bei einer Benutzerin oder einem Benutzer nachgewiesen, generieren zugriffsberechtigte Fachpersonen (z.B. behandelnde Ärztinnen und Ärzte oder Apothekerinnen und Apotheker) einen einmaligen und zeitlich begrenzt gültigen Freischaltcode («Covidcode») und geben diesen der infizierten Benutzerin oder dem infizierten Benutzer bekannt. Diese oder dieser kann den Freischaltcode in ihre oder seine App freiwillig eingeben. Die Benachrichtigung bzw. die Eingabe des Freischaltcodes erfolgt nur mit der ausdrücklichen Einwilligung der infizierten Benutzerin oder des infizierten Benutzers.
 </p>
 <p>
- Die anderen App-Benutzerinnen und -benutzer, welche in der infektiösen Zeitspanne eine Annährung gemäss Ziffer 3.3 zu der infizierten Benutzerin oder dem infizierten Benutzer hatten, werden durch die eigenen Apps benachrichtigt.
+ Die anderen Benutzerinnen und Benutzer der SwissCovid-App
+ <br/>
+ oder anderen interoperablen Apps, welche in der infektiösen Zeitspanne eine Annährung gemäss Ziffer 3.3 zu der infizierten Benutzerin oder dem infizierten Benutzer hatten, werden durch die eigenen Apps benachrichtigt.
 </p>
 <p>
- Die benachrichtigten Benutzerinnen und Benutzer erfahren, dass eine Annährung stattgefunden hat bzw. dass sie potenziell dem Coronavirus ausgesetzt waren und an welchem Tag dies zum letzten Mal der Fall war. Sie erfahren nicht, welcher Benutzer oder welche Benutzerin infiziert ist und die Benachrichtigung ausgelöst hat. Die Benachrichtigung umfasst weiter den Hinweis, dass das BAG eine Infoline zur kostenlosen Beratung betreibt und Verhaltensempfehlungen des BAG.
+ Die benachrichtigten Benutzerinnen und Benutzer erfahren, dass eine Annährung stattgefunden hat bzw. dass sie potenziell dem Coronavirus ausgesetzt waren und an welchen Tagen dies der Fall war. Sie erfahren nicht, welcher Benutzer oder welche Benutzerin infiziert ist und die Benachrichtigung ausgelöst hat. Die Benachrichtigung der SwissCovid-App umfasst weiter Verhaltensempfehlungen des BAG sowie den Hinweis, dass das BAG einen Leitfaden (Web-Formular) und eine Infoline zur kostenlosen Beratung betreibt. Verlässt man die App, um den Leitfaden auszufüllen, werden die in der App genannten Tage, an welchen eine Möglichkeit der Ansteckung bestand, automatisch an den Leitfaden übermittelt.
 </p>
 <p>
  3.5
- Ein Benutzer oder eine Benutzerin, die über die eigene App benachrichtigt wurde, dass sie potenziell dem Coronavirus ausgesetzt war, kann gegen Nachweis der Benachrichtigung kostenlos einen Test auf Infizierung mit dem Coronavirus SARS-CoV-2 oder auf Antikörper gegen diesen durchführen lassen.
+ Bei Eingabe des Freischaltcodes werden die Benutzerinnen und Benutzer darauf aufmerksam gemacht, mit welchen Ländern (vgl. Ziffer 2.2) die App interoperabel ist. Es wird darauf hingewiesen, dass – wenn das Feld «Einverstanden» gedrückt und der Freischaltcode in die App eingegeben wird – die privaten Schlüssel nicht nur innerhalb der SwissCovid-App geteilt werden, sondern auch mit allen anderen interoperablen Apps (zurzeit die deutsche Corona-Warn-App). Die privaten Schlüssel können nur mit allen interoperablen Apps oder gar nicht geteilt werden, was dem sogenannten «One-World-Prinzip» entspricht.
 </p>
 <p>
  3.6
- Die App kommuniziert zudem Verhaltensempfehlungen des BAG.
+ Eine Benutzerin oder ein Benutzer, die oder der über die eigene App benachrichtigt wurde, dass sie oder er potenziell dem Coronavirus ausgesetzt war, kann gegen Nachweis der Benachrichtigung kostenlos einen Test auf Infizierung mit dem Coronavirus SARS-CoV-2 oder auf Antikörper gegen diesen durchführen lassen.
 </p>
 <p>
  3.7
@@ -111,7 +110,7 @@
 </p>
 <p>
  4.3
- Die Benutzerinnen und Benutzer sind verpflichtet, die App auf dem neuesten Stand zu halten und Aktualisierungen („Updates“) vorzunehmen. Es bestehen keine Ansprüche auf die Benutzung einer bestimmten Version der Software.
+ Die Benutzerinnen und Benutzer sind verpflichtet, die App auf dem neuesten Stand zu halten und Aktualisierungen («Updates») vorzunehmen. Es bestehen keine Ansprüche auf die Benutzung einer bestimmten Version der Software.
 </p>
 <p>
  4.4
@@ -127,7 +126,7 @@
 </strong>
 <p>
  5.1
- Obwohl das BAG mit aller Sorgfalt auf die Richtigkeit der veröffentlichten Informationen, Inhalte und Mitteilungen in der App achtet, kann hinsichtlich deren inhaltlichen Richtigkeit, Genauigkeit,  Aktualität, Zuverlässigkeit und Vollständigkeit keine Gewährleistung übernommen werden.
+ Obwohl das BAG mit aller Sorgfalt auf die Richtigkeit der veröffentlichten Informationen, Inhalte und Mitteilungen in der App achtet, kann hinsichtlich deren inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit keine Gewährleistung übernommen werden.
 </p>
 <p>
  Das BAG behält sich ausdrücklich vor, jederzeit Informationen und Inhalte ohne Ankündigung ganz oder teilweise zu ändern, zu löschen oder zeitweise nicht zu veröffentlichen.
@@ -167,7 +166,7 @@
 </p>
 <p>
  6.2
- In enger Zusammenarbeit mit seinen Dienstleistern bemüht sich das BAG, die Daten so gut wie möglich vor fremden Zugriffen, Verlusten, Missbrauch oder Fälschungen zu schützen.
+ In enger Zusammenarbeit mit seinen Dienstleistern und den ausländischen Betreibern interoperabler Apps bemüht sich das BAG, die Daten so gut wie möglich vor fremden Zugriffen, Verlusten, Missbrauch oder Fälschungen zu schützen.
 </p>
 <p>
  6.3
@@ -199,7 +198,7 @@
 </p>
 <p>
  8.2
- Die Informationen und Inhalte werden der Öffentlichkeit zugänglich gemacht. Die vom BAG in der App veröffentlichen Inhalte dürfen nur für den Eigengebrauch genutzt werden. Jede darüber hinausgehende Reproduktion und Weitergabe der Inhalte an Dritte ist unzulässig. Durch das Herunterladen oder Kopieren von Inhalten, Bildern, Fotos oder anderen Dateien werden keinerlei Rechte bezüglich der Inhalte übertragen.
+ Die Informationen und Inhalte werden der Öffentlichkeit zugänglich gemacht. Die vom BAG in der App veröffentlichten Inhalte dürfen nur für den Eigengebrauch genutzt werden. Jede darüber hinausgehende Reproduktion und Weitergabe der Inhalte an Dritte ist unzulässig. Durch das Herunterladen oder Kopieren von Inhalten, Bildern, Fotos oder anderen Dateien werden keinerlei Rechte bezüglich der Inhalte übertragen.
 </p>
 <p>
  Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien dieser App gehören ausschliesslich dem BAG oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.
@@ -218,7 +217,7 @@
 </p>
 <p>
  9.3
- Das BAG behält sich jederzeitige Änderungen und Ergänzungen der Nutzungsbedingungen vor. Die neuen Bedingungen werden den Benutzerinnen und Benutzern vorab und in geeigneter Weise kommuniziert und gelten ohne Widerspruch innert Monatsfrist als genehmigt.
+ Das BAG behält sich jederzeitige Änderungen und Ergänzungen der Nutzungsbedingungen vor. Die neuen Bedingungen werden den Benutzerinnen und Benutzern vorab und in geeigneter Weise kommuniziert und gelten bei Weiternutzung der App als genehmigt.
 </p>
 <p>
  9.4
