@@ -75,6 +75,16 @@ public class DebugFragment extends Fragment {
 			requireActivity().recreate();
 		});
 
+		view.findViewById(R.id.debug_button_reset_onboarding).setOnClickListener(v -> {
+			SecureStorage.getInstance(requireContext()).setOnboardingCompleted(false);
+			getActivity().finish();
+		});
+
+		view.findViewById(R.id.debug_button_reset_update_boarding).setOnClickListener(v -> {
+			SecureStorage.getInstance(requireContext()).setUpdateBoardingVersion(0);
+			getActivity().finish();
+		});
+
 		view.findViewById(R.id.debug_card_overridestate).setVisibility(View.GONE);
 
 		CheckBox certPinningCheckbox = view.findViewById(R.id.debug_certificate_pinning);

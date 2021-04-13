@@ -97,6 +97,24 @@
 						android:backgroundTint="@color/purple_main"
 						android:text="@string/debug_sdk_button_reset" />
 
+					<Button
+						android:id="@+id/debug_button_reset_onboarding"
+						style="@style/NextStep.Button"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/spacing_large"
+						android:backgroundTint="@color/purple_main"
+						android:text="@string/reset_onboarding" />
+
+					<Button
+						android:id="@+id/debug_button_reset_update_boarding"
+						style="@style/NextStep.Button"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/spacing_large"
+						android:backgroundTint="@color/purple_main"
+						android:text="@string/reset_update_boarding" />
+
 				</LinearLayout>
 
 			</androidx.cardview.widget.CardView>

@@ -1372,4 +1372,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
 
     <!-- Update Boarding: Heading oben -->
     <string name="germany_update_boarding_heading"></string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Reset update boarding"</string>
 </resources>

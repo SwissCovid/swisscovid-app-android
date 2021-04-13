@@ -1397,4 +1397,7 @@ Koha është faktor vendimtar në luftën ndaj koronavirusit: sa më e shkurtër
 
     <!-- Update Boarding: Heading oben -->
     <string name="germany_update_boarding_heading"></string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Rivendos update boarding"</string>
 </resources>

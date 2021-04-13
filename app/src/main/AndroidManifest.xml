@@ -59,6 +59,12 @@
 			tools:ignore="LockedOrientationActivity" />
 
 		<activity
+			android:name="ch.admin.bag.dp3t.updateboarding.UpdateBoardingActivity"
+			android:launchMode="singleTop"
+			android:screenOrientation="portrait"
+			tools:ignore="LockedOrientationActivity" />
+
+		<activity
 			android:name="ch.admin.bag.dp3t.inform.InformActivity"
 			android:launchMode="singleTop"
 			android:screenOrientation="portrait"

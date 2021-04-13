@@ -1387,4 +1387,7 @@ El tiempo es un factor determinante a la hora de luchar contra el coronavirus: c
 
     <!-- Update Boarding: Heading oben -->
     <string name="germany_update_boarding_heading"></string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Reiniciar update boarding"</string>
 </resources>
