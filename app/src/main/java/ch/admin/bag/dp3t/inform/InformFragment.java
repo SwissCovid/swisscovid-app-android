@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.util.Date;
 import java.util.concurrent.CancellationException;
@@ -27,6 +28,7 @@ import com.google.android.gms.common.api.ApiException;
 
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
+import org.dpppt.android.sdk.internal.logger.Logger;
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
 
 import ch.admin.bag.dp3t.R;
@@ -37,14 +39,18 @@ import ch.admin.bag.dp3t.networking.errors.ResponseError;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel;
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.util.ENExceptionHelper;
 import ch.admin.bag.dp3t.util.JwtUtil;
 import ch.admin.bag.dp3t.util.PhoneUtil;
+import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 import static ch.admin.bag.dp3t.inform.InformActivity.EXTRA_COVIDCODE;
 
 public class InformFragment extends Fragment {
 
-	private static final long TIMEOUT_VALID_CODE = 1000l * 60 * 5;
+	private static final String TAG = "InformFragment";
+
+	private static final long TIMEOUT_VALID_CODE = 1000L * 60 * 5;
 
 	private static final String REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}";
 
@@ -53,6 +59,7 @@ public class InformFragment extends Fragment {
 	private Button buttonSend;
 
 	private SecureStorage secureStorage;
+	private TracingViewModel tracingViewModel;
 
 	public static InformFragment newInstance() {
 		return new InformFragment();
@@ -67,6 +74,7 @@ public class InformFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 
 		secureStorage = SecureStorage.getInstance(getContext());
+		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
 	}
 
 	@Override
@@ -106,29 +114,65 @@ public class InformFragment extends Fragment {
 		}
 
 		buttonSend.setOnClickListener(v -> {
-			long lastTimestamp = secureStorage.getLastInformRequestTime();
-			String lastAuthToken = secureStorage.getLastInformToken();
-
 			buttonSend.setEnabled(false);
 			setInvalidCodeErrorVisible(false);
 			String authCode = authCodeInput.getText();
 
-			progressDialog = createProgressDialog();
-			if (System.currentTimeMillis() - lastTimestamp < TIMEOUT_VALID_CODE && lastAuthToken != null) {
-				Date onsetDate = JwtUtil.getOnsetDate(lastAuthToken);
-				informExposed(onsetDate, getAuthorizationHeader(lastAuthToken));
+			boolean isTracingEnabled = DP3T.isTracingEnabled(requireContext());
+			if (isTracingEnabled) {
+				authenticateInputOrInformExposed(authCode);
 			} else {
-				authenticateInput(authCode);
+				askUserToEnableTracing(authCode);
 			}
 		});
 
-		view.findViewById(R.id.cancel_button).setOnClickListener(v -> {
-			getActivity().finish();
-		});
+		view.findViewById(R.id.cancel_button).setOnClickListener(v -> getActivity().finish());
 
-		view.findViewById(R.id.inform_invalid_code_error).setOnClickListener(v -> {
-			PhoneUtil.callAppHotline(v.getContext());
-		});
+		view.findViewById(R.id.inform_invalid_code_error).setOnClickListener(v -> PhoneUtil.callAppHotline(v.getContext()));
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		authCodeInput.requestFocus();
+	}
+
+	private void authenticateInputOrInformExposed(String authCode) {
+		long lastTimestamp = secureStorage.getLastInformRequestTime();
+		String lastAuthToken = secureStorage.getLastInformToken();
+
+		progressDialog = createProgressDialog();
+		if (System.currentTimeMillis() - lastTimestamp < TIMEOUT_VALID_CODE && lastAuthToken != null) {
+			Date onsetDate = JwtUtil.getOnsetDate(lastAuthToken);
+			informExposed(onsetDate, getAuthorizationHeader(lastAuthToken));
+		} else {
+			authenticateInput(authCode);
+		}
+	}
+
+	private void askUserToEnableTracing(String authCode) {
+		new AlertDialog.Builder(getContext(), R.style.NextStep_AlertDialogStyle)
+				.setMessage(R.string.android_inform_tracing_enabled_explanation)
+				.setOnCancelListener(dialog -> buttonSend.setEnabled(true))
+				.setNegativeButton(R.string.cancel, (dialog, which) -> buttonSend.setEnabled(true))
+				.setPositiveButton(R.string.activate_tracing_button, (dialog, which) -> enableTracing(authCode))
+				.show();
+	}
+
+	private void enableTracing(String authCode) {
+		tracingViewModel.enableTracing(getActivity(),
+				() -> authenticateInputOrInformExposed(authCode),
+				(e) -> {
+					String message = ENExceptionHelper.getErrorMessage(e, getActivity());
+					Logger.e(TAG, message);
+					new AlertDialog.Builder(getActivity(), R.style.NextStep_AlertDialogStyle)
+							.setTitle(R.string.android_en_start_failure)
+							.setMessage(message)
+							.setOnDismissListener(dialog -> buttonSend.setEnabled(true))
+							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
+							.show();
+				},
+				() -> buttonSend.setEnabled(true));
 	}
 
 	private void authenticateInput(String authCode) {
@@ -217,13 +261,6 @@ public class InformFragment extends Fragment {
 						buttonSend.setEnabled(true);
 					}
 				});
-	}
-
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		authCodeInput.requestFocus();
 	}
 
 	private void setInvalidCodeErrorVisible(boolean visible) {
