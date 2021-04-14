@@ -26,6 +26,7 @@ import org.dpppt.android.sdk.internal.nearby.ExposureWindowMatchingWorker;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
+import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class DebugFragment extends Fragment {
@@ -81,7 +82,7 @@ public class DebugFragment extends Fragment {
 		});
 
 		view.findViewById(R.id.debug_button_reset_update_boarding).setOnClickListener(v -> {
-			SecureStorage.getInstance(requireContext()).setUpdateBoardingVersion(0);
+			SecureStorage.getInstance(requireContext()).setLastShownUpdateBoardingVersion(0);
 			getActivity().finish();
 		});
 
