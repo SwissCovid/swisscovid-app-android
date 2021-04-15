@@ -240,8 +240,7 @@ public class ReportsFragment extends Fragment {
 				testCountdownTextView.setText(R.string.meldungen_detail_free_test_now);
 				return;
 			}
-			if (!exposureDay.getExposedDate().addDays(MIN_EXPOSURE_AGE_TO_DO_A_TEST).isBeforeOrEquals(today) &&
-					exposureDay.getExposedDate().isBeforeOrEquals(today)) {
+			if (!exposureDay.getExposedDate().addDays(MIN_EXPOSURE_AGE_TO_DO_A_TEST).isBeforeOrEquals(today)) {
 				if (oldestExposure == null || exposureDay.getExposedDate().isBefore(oldestExposure)) {
 					oldestExposure = exposureDay.getExposedDate();
 				}
