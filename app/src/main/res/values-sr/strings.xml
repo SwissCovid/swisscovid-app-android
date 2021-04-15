@@ -886,7 +886,8 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Moguće je besplatno testiranje"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"SwissCovid smernice informišu Vas o mogućnosti besplatnog testiranja na virus korona."</string>
+    <!-- Fuzzy -->
+    <string name="meldungen_detail_free_test_text_old">"SwissCovid smernice informišu Vas o mogućnosti besplatnog testiranja na virus korona."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Aktiviraj praćenje"</string>
@@ -1396,4 +1397,16 @@ Kontaktirajte info-liniju za Covid šifre:"</string>
 
     <!-- Debug Screen: Update-Boarding Reset Button -->
     <string name="reset_update_boarding">"Resetuj update boarding"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text"></string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_in_x_tagen">"In {COUNT} days"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_now">"Now"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_tomorrow"></string>
 </resources>
