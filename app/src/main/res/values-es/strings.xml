@@ -882,7 +882,8 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Posibilidad de hacer un test gratuito"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"La guía SwissCovid le informa sobre la posibilidad de hacer un test de coronavirus gratuito."</string>
+    <!-- Fuzzy -->
+    <string name="meldungen_detail_free_test_text_old">"La guía SwissCovid le informa sobre la posibilidad de hacer un test de coronavirus gratuito."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Activar el rastreo"</string>
@@ -1390,4 +1391,16 @@ El tiempo es un factor determinante a la hora de luchar contra el coronavirus: c
 
     <!-- Debug Screen: Update-Boarding Reset Button -->
     <string name="reset_update_boarding">"Reiniciar update boarding"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text"></string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_in_x_tagen">"In {COUNT} days"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_now">"Now"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_tomorrow"></string>
 </resources>

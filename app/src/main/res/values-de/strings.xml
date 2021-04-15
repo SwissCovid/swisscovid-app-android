@@ -639,7 +639,7 @@ Das Beratungsgespräch ist kostenlos; es fallen nur die Telefongebühren an."</s
 
     <!-- Inform Detail: FAQ Text -->
     <!-- Fuzzy -->
-    <string name="inform_detail_faq1_text">"Positiv auf das Coronavirus getestete Personen erhalten einen Covidcode.
+    <string name="inform_detail_faq1_text">"Positiv auf das Coronavirus getestete Personen (PCR-Test oder Antigen-Schnelltest) erhalten einen Covidcode.
 
 Damit wird sichergestellt, dass nur bestätigte Fälle über die App gemeldet werden."</string>
 
@@ -913,7 +913,8 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Kostenloser Test möglich"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"Der SwissCovid Leitfaden informiert Sie über die Möglichkeit eines kostenlosen Coronavirus-Tests."</string>
+    <!-- Fuzzy -->
+    <string name="meldungen_detail_free_test_text_old">"Der SwissCovid Leitfaden informiert Sie über die Möglichkeit eines kostenlosen Coronavirus-Tests."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Tracing aktivieren"</string>
@@ -1387,7 +1388,7 @@ Die Zeit ist bei der Bekämpfung des Coronavirus ein entscheidender Faktor: je k
     <string name="stats_cases_current_description">"Die Grafik zeigt die gemeldeten Neuinfektionen der letzten 28 Tage. Dies gibt einen Überblick über die aktuelle Entwicklung."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Sie wurden positiv getestet und haben nach 4h noch keinen Covidcode erhalten?
+    <string name="inform_detail_infobox1_text">"Sie wurden positiv getestet (PCR-Test oder Antigen-Schnelltest) und haben nach 4h noch keinen Covidcode erhalten?
 Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Inform Detail: Infobox Title -->
@@ -1460,4 +1461,16 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Debug Screen: Update-Boarding Reset Button -->
     <string name="reset_update_boarding">"Update Boarding zurücksetzen"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"Ein Corona Test ist ab dem 5. Tag nach dem angezeigten Kontaktdatum sinnvoll und empfohlen."</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_in_x_tagen">"In {COUNT} Tagen"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_now">"Jetzt"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_tomorrow">"In 1 Tag"</string>
 </resources>
