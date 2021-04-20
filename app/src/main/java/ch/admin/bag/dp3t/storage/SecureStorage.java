@@ -70,7 +70,7 @@ public class SecureStorage {
 	private static final String KEY_ISOLATION_END_DIALOG_TIMESTAMP = "isolation_end_dialog_timestamp";
 	private static final String KEY_APP_VERSION_CODE = "app_version_code";
 	private static final String KEY_SCHEDULED_FAKE_WORKER_NAME = "scheduled_fake_worker_name";
-	private static final String KEY_POSITIVE_REPORT_ONSET_DATE = "positive_report_onset_date";
+	private static final String KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY = "positive_report_oldest_shared_key";
 
 	private static SecureStorage instance;
 
@@ -329,12 +329,12 @@ public class SecureStorage {
 		return prefs.getString(KEY_SCHEDULED_FAKE_WORKER_NAME, null);
 	}
 
-	public long getPositiveReportOnsetDate() {
-		return prefs.getLong(KEY_POSITIVE_REPORT_ONSET_DATE, -1L);
+	public long getPositiveReportOldestSharedKey() {
+		return prefs.getLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY, -1L);
 	}
 
-	public void setPositiveReportOnsetDate(long onsetDate) {
-		prefs.edit().putLong(KEY_POSITIVE_REPORT_ONSET_DATE, onsetDate).apply();
+	public void setPositiveReportOldestSharedKey(long setPositiveReportOldestSharedKey) {
+		prefs.edit().putLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY, setPositiveReportOldestSharedKey).apply();
 	}
 
 	private synchronized SharedPreferences initializeSharedPreferences(@NonNull Context context) {
@@ -346,7 +346,8 @@ public class SecureStorage {
 	}
 
 	/**
-	 * Create or obtain an encrypted SharedPreferences instance. Note that this method is synchronized because the AndroidX Security
+	 * Create or obtain an encrypted SharedPreferences instance. Note that this method is synchronized because the AndroidX
+	 * Security
 	 * library is not thread-safe.
 	 * @see <a href="https://developer.android.com/topic/security/data">https://developer.android.com/topic/security/data</a>
 	 */

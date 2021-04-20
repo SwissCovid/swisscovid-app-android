@@ -29,6 +29,7 @@ import com.google.android.gms.common.api.ApiException;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.internal.logger.Logger;
+import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
 
 import ch.admin.bag.dp3t.R;
@@ -219,16 +220,16 @@ public class InformFragment extends Fragment {
 
 	private void informExposed(Date onsetDate, String authorizationHeader) {
 		DP3T.sendIAmInfected(getActivity(), onsetDate,
-				new ExposeeAuthMethodAuthorization(authorizationHeader), new ResponseCallback<Void>() {
+				new ExposeeAuthMethodAuthorization(authorizationHeader), new ResponseCallback<DayDate>() {
 					@Override
-					public void onSuccess(Void response) {
+					public void onSuccess(DayDate oldestSharedKeyDayDate) {
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
 						secureStorage.clearInformTimeAndCodeAndToken();
 
-						// Store the onset date of this report
-						secureStorage.setPositiveReportOnsetDate(onsetDate.getTime());
+						// Store the oldest shared Key Date date of this report
+						secureStorage.setPositiveReportOldestSharedKey(oldestSharedKeyDayDate.getStartOfDayTimestamp());
 
 						// Ask if user wants to end isolation after 14 days
 						long isolationEndDialogTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(14);
