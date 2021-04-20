@@ -49,6 +49,7 @@ import ch.admin.bag.dp3t.home.model.NotificationStateError;
 import ch.admin.bag.dp3t.home.model.TracingState;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.home.views.HeaderView;
+import ch.admin.bag.dp3t.networking.models.InfoBoxModel;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.travel.TravelFragment;
@@ -160,7 +161,10 @@ public class HomeFragment extends Fragment {
 			}
 			infobox.setVisibility(VISIBLE);
 
-			String title = secureStorage.getInfoboxTitle();
+			InfoBoxModel infoBox =
+					secureStorage.getInfoBoxCollection().getInfoBox(getResources().getString(R.string.language_key));
+
+			String title = infoBox.getTitle();
 			TextView titleView = infobox.findViewById(R.id.infobox_title);
 			if (title != null) {
 				titleView.setText(title);
@@ -169,7 +173,7 @@ public class HomeFragment extends Fragment {
 				titleView.setVisibility(View.GONE);
 			}
 
-			String text = secureStorage.getInfoboxText();
+			String text = infoBox.getMsg();
 			TextView textView = infobox.findViewById(R.id.infobox_text);
 			if (text != null) {
 				textView.setText(text);
@@ -178,8 +182,8 @@ public class HomeFragment extends Fragment {
 				textView.setVisibility(View.GONE);
 			}
 
-			String url = secureStorage.getInfoboxLinkUrl();
-			String urlTitle = secureStorage.getInfoboxLinkTitle();
+			String url = infoBox.getUrl();
+			String urlTitle = infoBox.getUrlTitle();
 			View linkGroup = infobox.findViewById(R.id.infobox_link_group);
 			TextView linkView = infobox.findViewById(R.id.infobox_link_text);
 			if (url != null) {
@@ -190,7 +194,7 @@ public class HomeFragment extends Fragment {
 				linkGroup.setVisibility(View.GONE);
 			}
 
-			String hearingImpairedInfo = secureStorage.getInfoboxHearingImpairedInfo();
+			String hearingImpairedInfo = infoBox.getHearingImpairedInfo();
 			View hearingImpairedView = infobox.findViewById(R.id.infobox_link_hearing_impaired);
 			ImageView linkIcon = infobox.findViewById(R.id.infobox_link_icon);
 			if (hearingImpairedInfo != null) {
@@ -207,7 +211,7 @@ public class HomeFragment extends Fragment {
 				hearingImpairedView.setVisibility(View.GONE);
 			}
 
-			boolean isDismissible = secureStorage.getInfoboxDismissible();
+			boolean isDismissible = infoBox.getDismissible();
 			View dismissButton = infobox.findViewById(R.id.dismiss_button);
 			if (isDismissible) {
 				dismissButton.setVisibility(VISIBLE);
