@@ -11,8 +11,6 @@ package ch.admin.bag.dp3t.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -20,7 +18,6 @@ import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
@@ -344,21 +341,7 @@ public class SecureStorage {
 		try {
 			return createEncryptedSharedPreferences(context);
 		} catch (GeneralSecurityException | IOException e) {
-			// Try to recreate the shared preferences. This will cause any previous data to be lost.
-			try {
-				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-					// Try to delete the shared preferences file via the API
-					context.deleteSharedPreferences(PREFERENCES);
-				} else {
-					// Try to manually delete the shared preferences file
-					tryToDeleteSharedPreferencesFile(context);
-				}
-
-				return createEncryptedSharedPreferences(context);
-			} catch (GeneralSecurityException | IOException e2) {
-				// Tried to delete and recreate shared preferences, cannot recover
-				throw new RuntimeException(e2);
-			}
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -373,15 +356,6 @@ public class SecureStorage {
 		return EncryptedSharedPreferences
 				.create(PREFERENCES, masterKeys, context, EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
 						EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
-	}
-
-	private void tryToDeleteSharedPreferencesFile(@NonNull Context context) {
-		File sharedPreferencesFile = new File(context.getApplicationInfo().dataDir + "/shared_prefs/" + PREFERENCES + ".xml");
-		if (sharedPreferencesFile.exists()) {
-			if (!sharedPreferencesFile.delete()) {
-				Log.e(TAG, "Failed to delete " + sharedPreferencesFile.toString());
-			}
-		}
 	}
 
 }
