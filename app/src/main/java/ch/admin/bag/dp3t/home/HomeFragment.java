@@ -163,9 +163,9 @@ public class HomeFragment extends Fragment {
 			}
 			infobox.setVisibility(VISIBLE);
 
-			InfoBoxModel infoBox = infoBoxModelCollection.getInfoBox(getResources().getString(R.string.language_key));
+			InfoBoxModel infoBoxModel = infoBoxModelCollection.getInfoBox(getResources().getString(R.string.language_key));
 
-			String title = infoBox.getTitle();
+			String title = infoBoxModel.getTitle();
 			TextView titleView = infobox.findViewById(R.id.infobox_title);
 			if (title != null) {
 				titleView.setText(title);
@@ -174,7 +174,7 @@ public class HomeFragment extends Fragment {
 				titleView.setVisibility(View.GONE);
 			}
 
-			String text = infoBox.getMsg();
+			String text = infoBoxModel.getMsg();
 			TextView textView = infobox.findViewById(R.id.infobox_text);
 			if (text != null) {
 				textView.setText(text);
@@ -183,21 +183,26 @@ public class HomeFragment extends Fragment {
 				textView.setVisibility(View.GONE);
 			}
 
-			String url = infoBox.getUrl();
-			String urlTitle = infoBox.getUrlTitle();
+			String url = infoBoxModel.getUrl();
+			String urlTitle = infoBoxModel.getUrlTitle();
 			View linkGroup = infobox.findViewById(R.id.infobox_link_group);
 			TextView linkView = infobox.findViewById(R.id.infobox_link_text);
 			if (url != null) {
 				linkView.setText(urlTitle != null ? urlTitle : url);
 				linkGroup.setOnClickListener(v -> UrlUtil.openUrl(v.getContext(), url));
 				linkGroup.setVisibility(VISIBLE);
+				ImageView linkIcon = infobox.findViewById(R.id.infobox_link_icon);
+				if (url.startsWith("tel://")) {
+					linkIcon.setImageResource(R.drawable.ic_phone);
+				} else {
+					linkIcon.setImageResource(R.drawable.ic_launch);
+				}
 			} else {
 				linkGroup.setVisibility(View.GONE);
 			}
 
-			String hearingImpairedInfo = infoBox.getHearingImpairedInfo();
+			String hearingImpairedInfo = infoBoxModel.getHearingImpairedInfo();
 			View hearingImpairedView = infobox.findViewById(R.id.infobox_link_hearing_impaired);
-			ImageView linkIcon = infobox.findViewById(R.id.infobox_link_icon);
 			if (hearingImpairedInfo != null) {
 				hearingImpairedView.setOnClickListener(v ->
 						requireActivity().getSupportFragmentManager().beginTransaction()
@@ -205,14 +210,12 @@ public class HomeFragment extends Fragment {
 										WtdInfolineAccessabilityDialogFragment.class.getCanonicalName())
 								.commit()
 				);
-				linkIcon.setImageResource(R.drawable.ic_phone);
 				hearingImpairedView.setVisibility(VISIBLE);
 			} else {
-				linkIcon.setImageResource(R.drawable.ic_launch);
 				hearingImpairedView.setVisibility(View.GONE);
 			}
 
-			boolean isDismissible = infoBox.getDismissible();
+			boolean isDismissible = infoBoxModel.getDismissible();
 			View dismissButton = infobox.findViewById(R.id.dismiss_button);
 			if (isDismissible) {
 				dismissButton.setVisibility(VISIBLE);

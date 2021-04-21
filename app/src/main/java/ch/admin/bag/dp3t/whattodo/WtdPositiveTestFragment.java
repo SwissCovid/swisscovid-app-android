@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.inform.InformActivity;
 import ch.admin.bag.dp3t.networking.models.FaqEntryModel;
+import ch.admin.bag.dp3t.networking.models.InfoBoxModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.PhoneUtil;
@@ -74,28 +75,34 @@ public class WtdPositiveTestFragment extends Fragment {
 			((TextView) view.findViewById(R.id.wtd_inform_box_title)).setText(textModel.getEnterCovidcodeBoxTitle());
 			((TextView) view.findViewById(R.id.wtd_inform_box_text)).setText(textModel.getEnterCovidcodeBoxText());
 			((TextView) view.findViewById(R.id.wtd_inform_button)).setText(textModel.getEnterCovidcodeBoxButtonTitle());
+			InfoBoxModel infoBox = textModel.getInfoBox();
 
-			if (textModel.getInfoBox() != null) {
+			if (infoBox != null) {
 				view.findViewById(R.id.wtd_inform_infobox).setVisibility(View.VISIBLE);
-				((TextView) view.findViewById(R.id.wtd_inform_infobox_title)).setText(textModel.getInfoBox().getTitle());
-				((TextView) view.findViewById(R.id.wtd_inform_infobox_msg)).setText(textModel.getInfoBox().getMsg());
+				((TextView) view.findViewById(R.id.wtd_inform_infobox_title)).setText(infoBox.getTitle());
+				((TextView) view.findViewById(R.id.wtd_inform_infobox_msg)).setText(infoBox.getMsg());
 
-				if (textModel.getInfoBox().getUrl() != null && textModel.getInfoBox().getUrlTitle() != null) {
-					((TextView) view.findViewById(R.id.wtd_inform_infobox_link_text)).setText(textModel.getInfoBox().getUrlTitle());
+				if (infoBox.getUrl() != null && infoBox.getUrlTitle() != null) {
+					((TextView) view.findViewById(R.id.wtd_inform_infobox_link_text)).setText(infoBox.getUrlTitle());
 					view.findViewById(R.id.wtd_inform_infobox_link_layout).setOnClickListener(v -> {
-						UrlUtil.openUrl(v.getContext(), textModel.getInfoBox().getUrl());
+						UrlUtil.openUrl(v.getContext(), infoBox.getUrl());
 					});
 					view.findViewById(R.id.wtd_inform_infobox_link_layout).setVisibility(View.VISIBLE);
+					ImageView linkIcon = view.findViewById(R.id.wtd_inform_infobox_link_icon);
+					if (infoBox.getUrl().startsWith("tel://")) {
+						linkIcon.setImageResource(R.drawable.ic_phone);
+					} else {
+						linkIcon.setImageResource(R.drawable.ic_launch);
+					}
 				} else {
 					view.findViewById(R.id.wtd_inform_infobox_link_layout).setVisibility(View.GONE);
 				}
 
-				if (textModel.getInfoBox().getHearingImpairedInfo() != null) {
+				if (infoBox.getHearingImpairedInfo() != null) {
 					((ImageView) view.findViewById(R.id.wtd_inform_infobox_link_icon)).setImageResource(R.drawable.ic_phone);
 					view.findViewById(R.id.wtd_inform_infobox_link_hearing_impaired).setOnClickListener(v -> {
 						requireActivity().getSupportFragmentManager().beginTransaction()
-								.add(WtdInfolineAccessabilityDialogFragment
-												.newInstance(textModel.getInfoBox().getHearingImpairedInfo()),
+								.add(WtdInfolineAccessabilityDialogFragment.newInstance(infoBox.getHearingImpairedInfo()),
 										WtdInfolineAccessabilityDialogFragment.class.getCanonicalName())
 								.commit();
 					});
