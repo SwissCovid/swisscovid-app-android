@@ -34,6 +34,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.networking.models.TestLocationModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
@@ -58,14 +59,8 @@ public class SecureStorage {
 
 	private static final String KEY_PENDING_REPORTS_HEADER_ANIMATION = "pending_reports_header_animation";
 	private static final String KEY_CONFIG_FORCE_UPDATE = "config_do_force_update";
-	private static final String KEY_CONFIG_HAS_INFOBOX = "has_ghettobox";
-	private static final String KEY_CONFIG_INFOBOX_TITLE = "ghettobox_title";
-	private static final String KEY_CONFIG_INFOBOX_TEXT = "ghettobox_text";
-	private static final String KEY_CONFIG_INFOBOX_LINK_TITLE = "ghettobox_link_title";
-	private static final String KEY_CONFIG_INFOBOX_LINK_URL = "ghettobox_link_url";
-	private static final String KEY_CONFIG_INFOBOX_ID = "ghettobox_id";
-	private static final String KEY_CONFIG_INFOBOX_IS_DISMISSIBLE = "ghettobox_is_dismissible";
-	private static final String KEY_CONFIG_INFOBOX_HEARING_IMPAIRED_INFO = "ghettobox_hearing_impaired_info";
+	private static final String KEY_CONFIG_HAS_INFOBOX = "has_ghettobox_v2";
+	private static final String KEY_CONFIG_INFOBOX_COLLECTION = "ghettobox_collection";
 	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS = "last_config_load_success";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION = "last_config_load_success_app_version";
@@ -209,60 +204,12 @@ public class SecureStorage {
 		return prefs.getBoolean(KEY_CONFIG_HAS_INFOBOX, false);
 	}
 
-	public void setInfoboxTitle(String title) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_TITLE, title).apply();
+	public void setInfoBoxCollection(InfoBoxModelCollection infoBoxModelCollection) {
+		prefs.edit().putString(KEY_CONFIG_INFOBOX_COLLECTION, gson.toJson(infoBoxModelCollection)).apply();
 	}
 
-	public String getInfoboxTitle() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_TITLE, null);
-	}
-
-	public void setInfoboxText(String text) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_TEXT, text).apply();
-	}
-
-	public String getInfoboxText() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_TEXT, null);
-	}
-
-	public void setInfoboxLinkTitle(String title) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_LINK_TITLE, title).apply();
-	}
-
-	public String getInfoboxLinkTitle() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_LINK_TITLE, null);
-	}
-
-	public void setInfoboxLinkUrl(String url) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_LINK_URL, url).apply();
-	}
-
-	public String getInfoboxLinkUrl() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_LINK_URL, null);
-	}
-
-	public void setInfoboxId(String id) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_ID, id).apply();
-	}
-
-	public String getInfoboxId() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_ID, null);
-	}
-
-	public void setInfoboxDismissible(boolean isDismissible) {
-		prefs.edit().putBoolean(KEY_CONFIG_INFOBOX_IS_DISMISSIBLE, isDismissible).apply();
-	}
-
-	public boolean getInfoboxDismissible() {
-		return prefs.getBoolean(KEY_CONFIG_INFOBOX_IS_DISMISSIBLE, false);
-	}
-
-	public String getInfoboxHearingImpairedInfo() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_HEARING_IMPAIRED_INFO, null);
-	}
-
-	public void setInfoboxHearingImpairedInfo(String hearingImpairedInfo) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_HEARING_IMPAIRED_INFO, hearingImpairedInfo).apply();
+	public InfoBoxModelCollection getInfoBoxCollection() {
+		return gson.fromJson(prefs.getString(KEY_CONFIG_INFOBOX_COLLECTION, "null"), InfoBoxModelCollection.class);
 	}
 
 	public boolean isUserNotInPilotGroup() {
