@@ -50,6 +50,7 @@ import ch.admin.bag.dp3t.home.model.TracingState;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModel;
+import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.travel.TravelFragment;
@@ -154,15 +155,15 @@ public class HomeFragment extends Fragment {
 	private void setupInfobox() {
 		secureStorage.getInfoBoxLiveData().observe(getViewLifecycleOwner(), hasInfobox -> {
 			hasInfobox = hasInfobox && secureStorage.getHasInfobox();
+			InfoBoxModelCollection infoBoxModelCollection = secureStorage.getInfoBoxCollection();
 
-			if (!hasInfobox) {
+			if (!hasInfobox || infoBoxModelCollection == null) {
 				infobox.setVisibility(View.GONE);
 				return;
 			}
 			infobox.setVisibility(VISIBLE);
 
-			InfoBoxModel infoBox =
-					secureStorage.getInfoBoxCollection().getInfoBox(getResources().getString(R.string.language_key));
+			InfoBoxModel infoBox = infoBoxModelCollection.getInfoBox(getResources().getString(R.string.language_key));
 
 			String title = infoBox.getTitle();
 			TextView titleView = infobox.findViewById(R.id.infobox_title);
