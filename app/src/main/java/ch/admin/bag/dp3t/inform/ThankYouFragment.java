@@ -25,7 +25,6 @@ import ch.admin.bag.dp3t.util.DateUtils;
 public class ThankYouFragment extends Fragment {
 
 	private SecureStorage secureStorage;
-	private final long MAX_EXPOSURE_AGE_MILLIS = 10 * 24 * 60 * 60 * 1000L;
 
 	public static ThankYouFragment newInstance() {
 		return new ThankYouFragment();
@@ -52,11 +51,9 @@ public class ThankYouFragment extends Fragment {
 		TextView onsetDateTextView = view.findViewById(R.id.inform_thank_you_text_onsetdate);
 		TextView stopInfectionChainsTextView = view.findViewById(R.id.inform_thank_you_text_stop_infection_chains);
 
-		long oldestSharedKeyDateInMillis =
-				Math.max(secureStorage.getPositiveReportOldestSharedKey(), System.currentTimeMillis() - MAX_EXPOSURE_AGE_MILLIS);
-		if (oldestSharedKeyDateInMillis > 0L) {
-			String formattedDate =
-					DateUtils.getFormattedDateWrittenMonth(oldestSharedKeyDateInMillis, TimeZone.getTimeZone("UTC"));
+		long oldestSharedKeyDateMillis = secureStorage.getPositiveReportOldestSharedKey();
+		if (oldestSharedKeyDateMillis > 0L) {
+			String formattedDate = DateUtils.getFormattedDateWrittenMonth(oldestSharedKeyDateMillis, TimeZone.getTimeZone("UTC"));
 			String formattedOnsetDateText =
 					getString(R.string.inform_send_thankyou_text_onsetdate).replace("{ONSET_DATE}", formattedDate);
 

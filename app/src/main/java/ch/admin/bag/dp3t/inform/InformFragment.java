@@ -52,6 +52,7 @@ public class InformFragment extends Fragment {
 	private static final String TAG = "InformFragment";
 
 	private static final long TIMEOUT_VALID_CODE = 1000L * 60 * 5;
+	private final long MAX_EXPOSURE_AGE_MILLIS = 10 * 24 * 60 * 60 * 1000L;
 
 	private static final String REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}";
 
@@ -228,8 +229,10 @@ public class InformFragment extends Fragment {
 						}
 						secureStorage.clearInformTimeAndCodeAndToken();
 
-						// Store the oldest shared Key Date date of this report
-						secureStorage.setPositiveReportOldestSharedKey(oldestSharedKeyDayDate.getStartOfDayTimestamp());
+						// Store the oldest shared Key date of this report (but at least now-MAX_EXPOSURE_AGE_MILLIS)
+						long oldestSharedKeyDate = Math.max(oldestSharedKeyDayDate.getStartOfDayTimestamp(),
+								System.currentTimeMillis() - MAX_EXPOSURE_AGE_MILLIS);
+						secureStorage.setPositiveReportOldestSharedKey(oldestSharedKeyDate);
 
 						// Ask if user wants to end isolation after 14 days
 						long isolationEndDialogTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(14);

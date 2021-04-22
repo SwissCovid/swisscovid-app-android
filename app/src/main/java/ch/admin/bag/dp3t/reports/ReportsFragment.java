@@ -55,7 +55,6 @@ public class ReportsFragment extends Fragment {
 	private final int MAX_EXPOSURE_AGE_TO_DO_A_TEST = 10;
 	private final int MIN_EXPOSURE_AGE_TO_DO_A_TEST = 5;
 	private final long ONE_DAY_IN_MILLIS = 24L * 60 * 60 * 1000;
-	private final long MAX_EXPOSURE_AGE_MILLIS = 10 * ONE_DAY_IN_MILLIS;
 
 	private TracingViewModel tracingViewModel;
 	private SecureStorage secureStorage;
@@ -145,14 +144,12 @@ public class ReportsFragment extends Fragment {
 				headerType = ReportsHeaderFragment.Type.POSITIVE_TESTED;
 				infectedView.setVisibility(View.VISIBLE);
 
-				// Show the onset date of the report
-				long oldestSharedKeyDateInMillis =
-						Math.max(secureStorage.getPositiveReportOldestSharedKey(),
-								System.currentTimeMillis() - MAX_EXPOSURE_AGE_MILLIS);
-				if (oldestSharedKeyDateInMillis > 0L) {
+				long oldestSharedKeyDateMillis = secureStorage.getPositiveReportOldestSharedKey();
+				if (oldestSharedKeyDateMillis > 0L) {
+
 					infectedView.findViewById(R.id.card_encounters_faq_who_is_notified_container).setVisibility(View.VISIBLE);
 					String formattedDate =
-							DateUtils.getFormattedDateWrittenMonth(oldestSharedKeyDateInMillis, TimeZone.getTimeZone("UTC"));
+							DateUtils.getFormattedDateWrittenMonth(oldestSharedKeyDateMillis, TimeZone.getTimeZone("UTC"));
 					String faqText = getString(R.string.meldungen_positive_tested_faq2_text).replace("{ONSET_DATE}",
 							formattedDate);
 					Spannable formattedText = StringUtil.makePartiallyBold(faqText, formattedDate);
