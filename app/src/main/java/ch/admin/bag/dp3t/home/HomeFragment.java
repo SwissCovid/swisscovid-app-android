@@ -427,7 +427,7 @@ public class HomeFragment extends Fragment {
 							.setPositiveButton(R.string.answer_yes, (dialog, which) -> {
 								tracingStatusInterface.resetInfectionStatus(getContext());
 								secureStorage.setIsolationEndDialogTimestamp(-1L);
-								secureStorage.setPositiveReportOnsetDate(-1L);
+								secureStorage.setPositiveReportOldestSharedKey(-1L);
 							})
 							.setNegativeButton(R.string.answer_no, (dialog, which) -> {
 								long newTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1);

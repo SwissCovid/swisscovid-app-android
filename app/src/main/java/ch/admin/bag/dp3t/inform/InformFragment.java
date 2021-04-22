@@ -29,6 +29,7 @@ import com.google.android.gms.common.api.ApiException;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.ResponseCallback;
 import org.dpppt.android.sdk.internal.logger.Logger;
+import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization;
 
 import ch.admin.bag.dp3t.R;
@@ -51,6 +52,7 @@ public class InformFragment extends Fragment {
 	private static final String TAG = "InformFragment";
 
 	private static final long TIMEOUT_VALID_CODE = 1000L * 60 * 5;
+	private final long MAX_EXPOSURE_AGE_MILLIS = 10 * 24 * 60 * 60 * 1000L;
 
 	private static final String REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}";
 
@@ -219,16 +221,18 @@ public class InformFragment extends Fragment {
 
 	private void informExposed(Date onsetDate, String authorizationHeader) {
 		DP3T.sendIAmInfected(getActivity(), onsetDate,
-				new ExposeeAuthMethodAuthorization(authorizationHeader), new ResponseCallback<Void>() {
+				new ExposeeAuthMethodAuthorization(authorizationHeader), new ResponseCallback<DayDate>() {
 					@Override
-					public void onSuccess(Void response) {
+					public void onSuccess(DayDate oldestSharedKeyDayDate) {
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
 						}
 						secureStorage.clearInformTimeAndCodeAndToken();
 
-						// Store the onset date of this report
-						secureStorage.setPositiveReportOnsetDate(onsetDate.getTime());
+						// Store the oldest shared Key date of this report (but at least now-MAX_EXPOSURE_AGE_MILLIS)
+						long oldestSharedKeyDate = Math.max(oldestSharedKeyDayDate.getStartOfDayTimestamp(),
+								System.currentTimeMillis() - MAX_EXPOSURE_AGE_MILLIS);
+						secureStorage.setPositiveReportOldestSharedKey(oldestSharedKeyDate);
 
 						// Ask if user wants to end isolation after 14 days
 						long isolationEndDialogTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(14);

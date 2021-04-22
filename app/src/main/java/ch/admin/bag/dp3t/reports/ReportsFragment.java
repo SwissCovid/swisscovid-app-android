@@ -144,12 +144,14 @@ public class ReportsFragment extends Fragment {
 				headerType = ReportsHeaderFragment.Type.POSITIVE_TESTED;
 				infectedView.setVisibility(View.VISIBLE);
 
-				// Show the onset date of the report
-				long onsetDateInMillis = secureStorage.getPositiveReportOnsetDate();
-				if (onsetDateInMillis > 0L) {
+				long oldestSharedKeyDateMillis = secureStorage.getPositiveReportOldestSharedKey();
+				if (oldestSharedKeyDateMillis > 0L) {
+
 					infectedView.findViewById(R.id.card_encounters_faq_who_is_notified_container).setVisibility(View.VISIBLE);
-					String formattedDate = DateUtils.getFormattedDateWrittenMonth(onsetDateInMillis, TimeZone.getTimeZone("UTC"));
-					String faqText = getString(R.string.meldungen_positive_tested_faq2_text).replace("{ONSET_DATE}", formattedDate);
+					String formattedDate =
+							DateUtils.getFormattedDateWrittenMonth(oldestSharedKeyDateMillis, TimeZone.getTimeZone("UTC"));
+					String faqText = getString(R.string.meldungen_positive_tested_faq2_text).replace("{ONSET_DATE}",
+							formattedDate);
 					Spannable formattedText = StringUtil.makePartiallyBold(faqText, formattedDate);
 					((TextView) infectedView.findViewById(R.id.card_encounters_faq_who_is_notified)).setText(formattedText);
 				} else {
@@ -162,7 +164,7 @@ public class ReportsFragment extends Fragment {
 							.setPositiveButton(R.string.delete_infection_dialog_finish_button, (dialog, id) -> {
 								tracingStatusInterface.resetInfectionStatus(getContext());
 								secureStorage.setIsolationEndDialogTimestamp(-1L);
-								secureStorage.setPositiveReportOnsetDate(-1L);
+								secureStorage.setPositiveReportOldestSharedKey(-1L);
 								getParentFragmentManager().popBackStack();
 							})
 							.setNegativeButton(R.string.cancel, (dialog, id) -> {

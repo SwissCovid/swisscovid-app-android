@@ -50,10 +50,12 @@ public class ThankYouFragment extends Fragment {
 		TextView thankYouInfoTextView = view.findViewById(R.id.inform_thank_you_text_info);
 		TextView onsetDateTextView = view.findViewById(R.id.inform_thank_you_text_onsetdate);
 		TextView stopInfectionChainsTextView = view.findViewById(R.id.inform_thank_you_text_stop_infection_chains);
-		long onsetDateInMillis = secureStorage.getPositiveReportOnsetDate();
-		if (onsetDateInMillis > 0L) {
-			String formattedDate = DateUtils.getFormattedDateWrittenMonth(onsetDateInMillis, TimeZone.getTimeZone("UTC"));
-			String formattedOnsetDateText = getString(R.string.inform_send_thankyou_text_onsetdate).replace("{ONSET_DATE}", formattedDate);
+
+		long oldestSharedKeyDateMillis = secureStorage.getPositiveReportOldestSharedKey();
+		if (oldestSharedKeyDateMillis > 0L) {
+			String formattedDate = DateUtils.getFormattedDateWrittenMonth(oldestSharedKeyDateMillis, TimeZone.getTimeZone("UTC"));
+			String formattedOnsetDateText =
+					getString(R.string.inform_send_thankyou_text_onsetdate).replace("{ONSET_DATE}", formattedDate);
 
 			thankYouInfoTextView.setText(R.string.inform_send_thankyou_text_onsetdate_info);
 			onsetDateTextView.setText(formattedOnsetDateText);
