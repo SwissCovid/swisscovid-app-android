@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	style="@style/NextStep.Card"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<LinearLayout
+		android:id="@+id/card_checkin"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:foreground="?selectableItemBackground"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:id="@+id/checkin_header"
+			android:layout_width="match_parent"
+			android:layout_marginTop="5dp"
+			android:paddingBottom="5dp"
+			android:layout_height="match_parent"
+			android:gravity="center_vertical"
+			android:orientation="horizontal">
+
+			<TextView
+				style="@style/NextStep.Text.Title"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/spacing_medium"
+				android:layout_weight="1"
+				android:text="[TBT] Checkin" />
+
+			<ImageView
+				android:layout_width="@dimen/chevron_size_title"
+				android:layout_height="@dimen/chevron_size_title"
+				android:layout_marginEnd="@dimen/spacing_small"
+				android:src="@drawable/ic_chevron_right"
+				android:tint="@color/dark_main" />
+
+		</LinearLayout>
+
+		<Button
+			android:id="@+id/checkin_scan"
+			android:text="[TBT] scan qr"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" />
+
+	</LinearLayout>
+
+</androidx.cardview.widget.CardView>

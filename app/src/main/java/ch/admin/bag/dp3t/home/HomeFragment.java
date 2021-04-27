@@ -43,6 +43,7 @@ import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
@@ -77,6 +78,7 @@ public class HomeFragment extends Fragment {
 	private View reportStatusView;
 	private View reportErrorView;
 	private View travelCard;
+	private View checkinCard;
 	private View cardSymptomsFrame;
 	private View cardTestFrame;
 	private View cardSymptoms;
@@ -116,6 +118,7 @@ public class HomeFragment extends Fragment {
 		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
 		reportErrorView = reportStatusBubble.findViewById(R.id.report_errors);
 		travelCard = view.findViewById(R.id.card_travel);
+		checkinCard = view.findViewById(R.id.card_checkin);
 		headerView = view.findViewById(R.id.home_header_view);
 		scrollView = view.findViewById(R.id.home_scroll_view);
 		cardSymptoms = view.findViewById(R.id.card_what_to_do_symptoms);
@@ -128,6 +131,7 @@ public class HomeFragment extends Fragment {
 		setupInfobox();
 		setupTracingView();
 		setupNotification();
+		setupCheckinCard();
 		setupTravelCard();
 		setupWhatToDo();
 		setupNonProductionHint();
@@ -247,7 +251,7 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void showContactsFragment() {
-		getActivity().getSupportFragmentManager().beginTransaction()
+		requireActivity().getSupportFragmentManager().beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 				.replace(R.id.main_fragment_container, ContactsFragment.newInstance())
 				.addToBackStack(ContactsFragment.class.getCanonicalName())
@@ -255,7 +259,7 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void showReportsFragment() {
-		getActivity().getSupportFragmentManager().beginTransaction()
+		requireActivity().getSupportFragmentManager().beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 				.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
 				.addToBackStack(ReportsFragment.class.getCanonicalName())
@@ -355,9 +359,27 @@ public class HomeFragment extends Fragment {
 		}
 	}
 
+	private void setupCheckinCard() {
+		checkinCard.setOnClickListener(
+				v -> requireActivity().getSupportFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.main_fragment_container, CheckinOverviewFragment.newInstance())
+						.addToBackStack(CheckinOverviewFragment.class.getCanonicalName())
+						.commit()
+		);
+
+		checkinCard.findViewById(R.id.checkin_scan).setOnClickListener(
+				v -> requireActivity().getSupportFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.main_fragment_container, CheckinOverviewFragment.newInstance())
+						.addToBackStack(CheckinOverviewFragment.class.getCanonicalName())
+						.commit()
+		);
+	}
+
 	private void setupTravelCard() {
 		travelCard.setOnClickListener(
-				v -> getActivity().getSupportFragmentManager().beginTransaction()
+				v -> requireActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, TravelFragment.newInstance())
 						.addToBackStack(TravelFragment.class.getCanonicalName())
@@ -376,13 +398,13 @@ public class HomeFragment extends Fragment {
 
 	private void setupWhatToDo() {
 		cardSymptoms.setOnClickListener(
-				v -> getActivity().getSupportFragmentManager().beginTransaction()
+				v -> requireActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
 						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
 						.commit());
 		cardTest.setOnClickListener(
-				v -> getActivity().getSupportFragmentManager().beginTransaction()
+				v -> requireActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 						.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
 						.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
