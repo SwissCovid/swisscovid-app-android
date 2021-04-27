@@ -1326,7 +1326,8 @@ Il temp è in factur decisiv en il cumbat cunter il coronavirus: pli curt ch'il 
     <string name="stats_cases_current_description">"La grafica mussa las infecziuns novas annunziadas dals ultims 28 dis. Quai dat ina survista dal svilup actual."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Vus avais in test positiv (test da PCR u test svelt d'antigens) e n'avais suenter 4 uras anc betg retschavì in code covid? Alura contactai la Infoline coronavirus:"</string>
+    <string name="inform_detail_infobox1_text">"Vus avais in test positiv (test da PCR u test svelt d'antigens) e n'avais suenter 4 uras anc betg retschavì in code covid?
+Alura contactai la Infoline coronavirus:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Anc nagin code covid?"</string>

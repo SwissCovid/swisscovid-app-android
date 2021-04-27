@@ -1429,7 +1429,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <string name="meldungen_positive_tested_faq2_title">"Wer wird benachrichtigt?"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_text">"Es werden alle Kontakte im Zeitraum Ihrer Ansteckungsphase vom {ONSET_DATE} bis zur Eingabe des Covidcodes benachrichtigt, wenn auf Grund der Distanz und der Dauer das Risiko einer Ansteckung bestand."</string>
+    <string name="meldungen_positive_tested_faq2_text">"Es werden alle Kontakte im Zeitraum Ihrer Ansteckungsphase vom {ONSET_DATE} bis zur Eingabe des Covidcodes benachrichtigt, wenn auf Grund der Distanz und der Dauer die Möglichkeit einer Ansteckung bestand. "</string>
 
     <!-- Informieren: Danke Text Onset Date -->
     <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – heute"</string>
@@ -1445,7 +1445,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Leitfaden Info Popup Text -->
     <!-- Fuzzy -->
-    <string name="leitfaden_infopopup_text">"Wenn Sie \"{BUTTON_TITLE}\" drücken, so verlassen Sie die App und wechseln auf die Website des SwissCovid Leitfaden. Dabei werden die Daten der letzten Begegnungen von möglichen Ansteckungen der Website mitgeschickt."</string>
+    <string name="leitfaden_infopopup_text">"Wenn Sie \"{BUTTON_TITLE}\" drücken, verlassen Sie die App und wechseln auf die Website des SwissCovid Leitfadens. Dabei werden die Daten der letzten Begegnungen von möglichen Ansteckungen der Website mitgeschickt."</string>
 
     <!-- Leitfaden InfoPopup Titel -->
     <string name="leitfaden_infopopup_title">"Information SwissCovid Leitfaden"</string>
