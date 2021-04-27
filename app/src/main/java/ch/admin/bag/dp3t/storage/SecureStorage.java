@@ -35,6 +35,7 @@ import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.networking.models.TestLocationModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
+import ch.admin.bag.dp3t.viewmodel.model.CheckInState;
 
 public class SecureStorage {
 
@@ -71,6 +72,8 @@ public class SecureStorage {
 	private static final String KEY_APP_VERSION_CODE = "app_version_code";
 	private static final String KEY_SCHEDULED_FAKE_WORKER_NAME = "scheduled_fake_worker_name";
 	private static final String KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY = "positive_report_oldest_shared_key";
+	private static final String KEY_CURRENT_CHECK_IN = "KEY_CURRENT_CHECK_IN";
+	private static final String KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG = "KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG";
 
 	private static SecureStorage instance;
 
@@ -344,6 +347,23 @@ public class SecureStorage {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public void setCheckInState(CheckInState checkInState) {
+		prefs.edit().putString(KEY_CURRENT_CHECK_IN, gson.toJson(checkInState)).apply();
+	}
+
+	public CheckInState getCheckInState() {
+		return gson.fromJson(prefs.getString(KEY_CURRENT_CHECK_IN, null), CheckInState.class);
+	}
+
+	public void setCrowdNotifierLastKeyBundleTag(long lastSync) {
+		prefs.edit().putLong(KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG, lastSync).apply();
+	}
+
+	public long getCrowdNotifierLastKeyBundleTag() {
+		return prefs.getLong(KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG, 0);
+	}
+
 
 	/**
 	 * Create or obtain an encrypted SharedPreferences instance. Note that this method is synchronized because the AndroidX

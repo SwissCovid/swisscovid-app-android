@@ -12,6 +12,8 @@ plugins {
 	id 'com.android.application'
 	id 'kotlin-android'
 	id 'org.sonarqube' version '2.8'
+	id 'com.google.protobuf'
+
 }
 
 apply from: 'backend_certs.gradle'
@@ -68,6 +70,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-d.bfs.admin.ch/"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"TODO"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.dev.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.dev.BUCKET_PUBLIC_KEY}\""
 			applicationIdSuffix '.dev'
@@ -79,6 +82,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-t.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-t.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-t.bfs.admin.ch/"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"TODO"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.test.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.test.BUCKET_PUBLIC_KEY}\""
 			applicationIdSuffix '.test'
@@ -90,6 +94,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-a.bfs.admin.ch/"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"TODO"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.abnahme.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.abnahme.BUCKET_PUBLIC_KEY}\""
 			applicationIdSuffix '.abnahme'
@@ -101,6 +106,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt.bfs.admin.ch/"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"TODO"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
 		}
@@ -111,6 +117,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt.bfs.admin.ch/"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"TODO"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
 		}
@@ -142,6 +149,27 @@ android {
 	kotlinOptions {
 		jvmTarget = "1.8"
 	}
+
+	protobuf {
+		protoc {
+			artifact = 'com.google.protobuf:protoc:3.0.0'
+		}
+		plugins {
+			javalite {
+				artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+			}
+		}
+		generateProtoTasks {
+			all().each { task ->
+				task.builtins {
+					remove java
+				}
+				task.plugins {
+					javalite {}
+				}
+			}
+		}
+	}
 }
 
 
@@ -156,6 +184,7 @@ sonarqube {
 
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+	implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 
 	def dp3t_sdk_version = '2.1.0-dev-4'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
@@ -163,6 +192,9 @@ dependencies {
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	prodImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	logImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
+
+	implementation 'org.crowdnotifier:crowdnotifier-sdk-android:3.0-dev-56'
+
 
 	implementation 'androidx.appcompat:appcompat:1.2.0'
 	implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -179,6 +211,7 @@ dependencies {
 
 	implementation 'com.google.android.material:material:1.2.1'
 	implementation 'com.google.android.gms:play-services-base:17.5.0'
+	implementation 'com.google.protobuf:protobuf-lite:3.0.1'
 
 	implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 	implementation 'com.squareup.retrofit2:converter-gson:2.9.0'

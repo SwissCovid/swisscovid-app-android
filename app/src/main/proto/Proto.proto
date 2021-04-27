@@ -1,0 +1,50 @@
+syntax = "proto3";
+package ch.admin.bag.dp3t.networking.models;
+
+message ProblematicEventWrapper {
+  int32 version = 1;
+  repeated ProblematicEvent events = 2;
+}
+
+message ProblematicEvent {
+  int32 version = 1;
+  bytes identity = 2;
+  bytes secretKeyForIdentity = 3;
+  int64 startTime = 4;
+  int64 endTime = 5;
+  bytes encryptedAssociatedData = 6;
+  bytes cipherTextNonce = 7;
+}
+message AssociatedData {
+  int32 version = 1;
+  string message = 2;
+  bytes countryData = 3;
+}
+message NotifyMeAssociatedData {
+  int32 version = 1;
+  EventCriticality criticality = 2;
+}
+enum EventCriticality {
+  LOW = 0;
+  HIGH = 1;
+}
+
+message SwissCovidLocationData {
+  uint32 version = 1;
+  VenueType type = 2;
+  string room = 3;
+}
+
+enum VenueType {
+  OTHER = 0;
+  MEETING_ROOM = 1;
+  CAFETERIA = 2;
+  PRIVATE_EVENT = 3;
+  CANTEEN = 4;
+  LIBRARY = 5;
+  LECTURE_ROOM = 6;
+  SHOP = 7;
+  GYM = 8;
+  KITCHEN_AREA = 9;
+  OFFICE_SPACE = 10;
+}
