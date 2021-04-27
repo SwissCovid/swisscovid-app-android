@@ -610,9 +610,9 @@ Yalnızca bulaşma riski yeterince büyük ise bilgilendirilirsiniz."</string>
 
     <!-- Inform Detail: FAQ Text -->
     <!-- Fuzzy -->
-    <string name="inform_detail_faq1_text">"Korona virüsü testi pozitif olan kişilere Kovid kodu verilir.
+    <string name="inform_detail_faq1_text">"Koronavirüs için testi pozitif çıkan kişiler (PCR testi veya hızlı antijen testi) bir Covid kodu alır.
 
-Bu şekilde yalnızca onaylanmış vakaların uygulama üzerinden bildirilmesi garantilenir."</string>
+Böylece uygulama üzerinden yalnızca onaylı vakaların bildirilmesi sağlanır."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Neler iletilir?"</string>
@@ -1308,8 +1308,8 @@ Zaman, Koronavirüs ile mücadelede en önemli faktördür: Semptom başlangıc�
     <string name="stats_cases_current_description">"Grafik son 28 günde bildirilmiş olan yeni enfeksiyonları gösterir. Bu ise güncel gelişme hakkında genel bir bakış kazandırır."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Test sonucunuz pozitif çıktı ve 4 saat içerisinde henüz Covid kodunu almadınız mı? 
-Bu durumda, Covid Kodu Bilgi Hattı (Infoline) ile iletişime geçiniz:"</string>
+    <string name="inform_detail_infobox1_text">"Testiniz pozitif çıktı (PCR testi veya hızlı antijen testi) ve 4 saat sonra halen bir Covid kodu almadınız mı?
+O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Covid kodunu henüz almadınız mı?"</string>
@@ -1345,50 +1345,50 @@ Bu durumda, Covid Kodu Bilgi Hattı (Infoline) ile iletişime geçiniz:"</string
     <string name="stats_cases_rel_prev_week_popup_header">"Önceki haftaya göre değişim"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Titel (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_title"></string>
+    <string name="meldungen_positive_tested_faq2_title">"Kimlere haber verilir?"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_text"></string>
+    <string name="meldungen_positive_tested_faq2_text">"Mesafe ve süre nedeniyle bir bulaşma olasılığı mevcut ise {ONSET_DATE} gününden başlamak üzere, Covid kodunuzun girilmesine kadar, bulaşma döneminizin aralığındaki tüm temaslılara haber verilir."</string>
 
     <!-- Informieren: Danke Text Onset Date -->
-    <string name="inform_send_thankyou_text_onsetdate"></string>
+    <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – bugün"</string>
 
     <!-- Informieren: Danke Text Abschluss -->
-    <string name="inform_send_thankyou_text_stop_infection_chains"></string>
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Bu sayede enfeksiyon zincirlerinin durdurulması için yardımcı olacaksınız."</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
-    <string name="inform_send_thankyou_text_onsetdate_info"></string>
+    <string name="inform_send_thankyou_text_onsetdate_info">"Uygulamanızın özel anahtarları şu zaman aralığı için gönderildi:"</string>
 
     <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
-    <string name="android_inform_tracing_enabled_explanation"></string>
+    <string name="android_inform_tracing_enabled_explanation">"Bir Covid kodu girerken, özel anahtarlarınızın paylaşılabilmesi için izleme etkinleştirilmiş olmalıdır."</string>
 
     <!-- Leitfaden Info Popup Text -->
-    <string name="leitfaden_infopopup_text"></string>
+    <string name="leitfaden_infopopup_text">"\"{BUTTON_TITLE}\" üzerine basarsanız, uygulamadan çıkıp SwissCovid rehberinin web sitesine gidersiniz. Bu esnada olası bulaşmalara ait son karşılaşmaların verileri de web sitesine gönderilir."</string>
 
     <!-- Leitfaden InfoPopup Titel -->
-    <string name="leitfaden_infopopup_title"></string>
+    <string name="leitfaden_infopopup_title">"SwissCovid rehberi bilgisi"</string>
 
     <!-- Update Boarding: Titel -->
-    <string name="germany_update_boarding_title"></string>
+    <string name="germany_update_boarding_title">"Almanya ile uyumlu"</string>
 
     <!-- Update Boarding: Text -->
-    <string name="germany_update_boarding_text"></string>
+    <string name="germany_update_boarding_text">"Almanya'nın korona uyarı uygulamasını kullanan ve sonradan testi pozitif çıkan bir kişiyle temas ettiğinizde ve bunun tersi durumunda da bilgilendirilirsiniz. Bunun için kullanım koşulları ve veri koruma beyanı güncellenmiştir."</string>
 
     <!-- Update Boarding: Heading oben -->
-    <string name="germany_update_boarding_heading"></string>
+    <string name="germany_update_boarding_heading">"SwissCovid Güncellemesi "</string>
 
     <!-- Debug Screen: Update-Boarding Reset Button -->
     <string name="reset_update_boarding">"Reset update boarding"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text"></string>
+    <string name="meldungen_detail_free_test_text">"Gösterilen temas tarihinden sonraki 5. gün itibariyle bir korona testi yapılması uygundur ve tavsiye edilir."</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_in_x_tagen">"In {COUNT} days"</string>
+    <string name="meldungen_detail_free_test_in_x_tagen">"{COUNT} gün sonra"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_now">"Now"</string>
+    <string name="meldungen_detail_free_test_now">"Şimdi"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_tomorrow"></string>
+    <string name="meldungen_detail_free_test_tomorrow">"1 gün sonra"</string>
 </resources>

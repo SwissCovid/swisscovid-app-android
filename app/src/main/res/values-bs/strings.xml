@@ -626,9 +626,9 @@ Savetovanje je besplatno; plaćaju se samo troškovi poziva."</string>
     <string name="inform_detail_faq1_title">"Šta je Covid šifra?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <string name="inform_detail_faq1_text">"Ljudi koji su testirani pozitivno na virus korona dobijaju Covid šifru.
+    <string name="inform_detail_faq1_text">"Osobe pozitivno testirane na korona virus (PCR test ili antigen (brzi test) dobijaju kovid šifru.
 
-Time se osigurava da se putem aplikacije prijavljuju samo potvrđeni slučajevi."</string>
+Time se obezbeđuje da samo potvrđeni slučajevi budu prijavljeni preko aplikacije."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Šta se šalje?"</string>
@@ -1330,8 +1330,8 @@ Vreme je odlučujući faktor u suzbijanju Corona virusa: što je vreme između p
     <string name="stats_cases_current_description">"Grafika pokazuje prijavljene nove infekcije poslednjih 28 dana. Time imate pregled o aktuelnom razvoju."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Testirani ste pozitivno i 4 h posle još niste dobili Covid šifru?
-Kontaktirajte info-liniju za Covid šifre:"</string>
+    <string name="inform_detail_infobox1_text">"Pozitivno ste testirani (PCR test ili antigen brzi test) i ni posle 4 sata niste dobili kovid šifru?
+U tom slučaju kontaktirajte Infoline Coronavirus:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Još niste dobili Covid šifru?"</string>
@@ -1367,50 +1367,50 @@ Kontaktirajte info-liniju za Covid šifre:"</string>
     <string name="stats_cases_rel_prev_week_popup_header">"Promena u vezi prošle nedelje"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Titel (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_title"></string>
+    <string name="meldungen_positive_tested_faq2_title">"Ko se obaveštava"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_text"></string>
+    <string name="meldungen_positive_tested_faq2_text">"Obaveštavaju se svi kontakti u periodu vaše faze zaražavanja od {ONSET_DATE} do unosa kovid šifre, ukoliko je na osnovu distance i trajanja postojala mogućnost zaraze."</string>
 
     <!-- Informieren: Danke Text Onset Date -->
-    <string name="inform_send_thankyou_text_onsetdate"></string>
+    <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – danas"</string>
 
     <!-- Informieren: Danke Text Abschluss -->
-    <string name="inform_send_thankyou_text_stop_infection_chains"></string>
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Na taj način pomažete u zaustavljanju lanca zaraze."</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
-    <string name="inform_send_thankyou_text_onsetdate_info"></string>
+    <string name="inform_send_thankyou_text_onsetdate_info">"Privatni ključevi vaše aplikacije poslati su za sledeći period:"</string>
 
     <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
-    <string name="android_inform_tracing_enabled_explanation"></string>
+    <string name="android_inform_tracing_enabled_explanation">"Prilikom unosa kovid šifre mora se aktivirati praćenje (tracing) kako bi vaši privatni ključevi mogli da se dele."</string>
 
     <!-- Leitfaden Info Popup Text -->
-    <string name="leitfaden_infopopup_text"></string>
+    <string name="leitfaden_infopopup_text">"Kada pritisnete \"{BUTTON_TITLE}\" napuštate aplikaciju i dolazite na internet stranicu SwissCovid vodiča. Pri tome se podaci poslednjeg susreta sa mogućim zaražavanjem šalju internet stranici."</string>
 
     <!-- Leitfaden InfoPopup Titel -->
-    <string name="leitfaden_infopopup_title"></string>
+    <string name="leitfaden_infopopup_title">"Informacije iz SwissCovid vodiča"</string>
 
     <!-- Update Boarding: Titel -->
-    <string name="germany_update_boarding_title"></string>
+    <string name="germany_update_boarding_title">"Kompatibilno sa Nemačkom"</string>
 
     <!-- Update Boarding: Text -->
-    <string name="germany_update_boarding_text"></string>
+    <string name="germany_update_boarding_text">"Takođe ćete biti informisani ako ste bili u kontaktu sa osobom koja koristi nemačku aplikaciju na upozorenje na koronu i kasnije je testirana pozitivno i obrnuto. U tu svrhu su ažurirani uslovi korišćenja i izjava o zaštiti podataka."</string>
 
     <!-- Update Boarding: Heading oben -->
-    <string name="germany_update_boarding_heading"></string>
+    <string name="germany_update_boarding_heading">"SwissCovid ažuriranje"</string>
 
     <!-- Debug Screen: Update-Boarding Reset Button -->
     <string name="reset_update_boarding">"Resetuj update boarding"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text"></string>
+    <string name="meldungen_detail_free_test_text">"Testiranje na koronu ima smisla i preporučuje se posle 5. dana od prikazanog datuma kontakta."</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_in_x_tagen">"In {COUNT} days"</string>
+    <string name="meldungen_detail_free_test_in_x_tagen">"Za {COUNT} dana"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_now">"Now"</string>
+    <string name="meldungen_detail_free_test_now">"Sada"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_tomorrow"></string>
+    <string name="meldungen_detail_free_test_tomorrow">"Za 1 dan"</string>
 </resources>
