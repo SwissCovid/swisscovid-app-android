@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
+import ch.admin.bag.dp3t.checkin.events.EventsOverviewFragment
 import ch.admin.bag.dp3t.databinding.FragmentCheckinOverviewBinding
 import ch.admin.bag.dp3t.util.StringUtil
 
@@ -37,6 +38,13 @@ class CheckinOverviewFragment : Fragment() {
 			requireActivity().supportFragmentManager.popBackStack()
 		}
 
+		binding.checkinOverviewScanQr.setOnClickListener {
+			requireActivity().supportFragmentManager.beginTransaction()
+				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+				.replace(R.id.main_fragment_container, EventsOverviewFragment.newInstance())
+				.addToBackStack(EventsOverviewFragment::class.java.canonicalName)
+				.commit()
+		}
 		binding.checkinOverviewHistory.setOnClickListener { v: View? -> }
 
 
