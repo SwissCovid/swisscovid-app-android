@@ -1,10 +1,10 @@
-package ch.admin.bag.dp3t.util;
+package ch.admin.bag.dp3t.checkin.utils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import static ch.admin.bag.dp3t.util.NotificationHelper.ACTION_SNOOZE;
+import static ch.admin.bag.dp3t.checkin.utils.NotificationHelper.ACTION_SNOOZE;
 
 public class NotificationQuickActionReceiver extends BroadcastReceiver {
 

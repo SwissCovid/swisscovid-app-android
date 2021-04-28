@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.viewmodel;
+package ch.admin.bag.dp3t.checkin;
 
 import android.app.Application;
 import android.content.BroadcastReceiver;
@@ -20,14 +20,14 @@ import java.util.List;
 import org.crowdnotifier.android.sdk.CrowdNotifier;
 import org.crowdnotifier.android.sdk.model.ExposureEvent;
 
-import ch.admin.bag.dp3t.networking.TraceKeysRepository;
+import ch.admin.bag.dp3t.checkin.networking.TraceKeysRepository;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.viewmodel.model.CheckInState;
-import ch.admin.bag.dp3t.viewmodel.model.CrowdNotifierErrorState;
-import ch.admin.bag.dp3t.viewmodel.model.ReminderOption;
+import ch.admin.bag.dp3t.checkin.models.CheckInState;
+import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
+import ch.admin.bag.dp3t.checkin.models.ReminderOption;
 
-import static ch.admin.bag.dp3t.networking.CrowdNotifierKeyLoadWorker.ACTION_NEW_EXPOSURE_NOTIFICATION;
-import static ch.admin.bag.dp3t.util.CrowdNotifierReminderHelper.ACTION_DID_AUTO_CHECKOUT;
+import static ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker.ACTION_NEW_EXPOSURE_NOTIFICATION;
+import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.ACTION_DID_AUTO_CHECKOUT;
 
 public class CrowdNotifierViewModel extends AndroidViewModel {
 

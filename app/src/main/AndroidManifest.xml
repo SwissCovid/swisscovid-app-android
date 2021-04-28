@@ -74,11 +74,11 @@
 
 		<receiver android:name=".util.ReminderHelper" />
 
-		<receiver android:name=".util.CrowdNotifierReminderHelper" />
+		<receiver android:name=".checkin.utils.CrowdNotifierReminderHelper" />
 
-		<receiver android:name=".util.NotificationQuickActionReceiver" />
+		<receiver android:name=".checkin.utils.NotificationQuickActionReceiver" />
 
-		<receiver android:name=".startup.BootCompletedReceiver">
+		<receiver android:name=".checkin.startup.BootCompletedReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />
 			</intent-filter>

@@ -1,13 +1,13 @@
-package ch.admin.bag.dp3t.startup;
+package ch.admin.bag.dp3t.checkin.startup;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.CrowdNotifierReminderHelper;
-import ch.admin.bag.dp3t.util.NotificationHelper;
-import ch.admin.bag.dp3t.viewmodel.model.CheckInState;
+import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper;
+import ch.admin.bag.dp3t.checkin.utils.NotificationHelper;
+import ch.admin.bag.dp3t.checkin.models.CheckInState;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 

@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.networking;
+package ch.admin.bag.dp3t.checkin.networking;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,11 +15,11 @@ import org.crowdnotifier.android.sdk.model.ExposureEvent;
 import org.crowdnotifier.android.sdk.model.ProblematicEventInfo;
 
 import ch.admin.bag.dp3t.BuildConfig;
-import ch.admin.bag.dp3t.storage.DiaryStorage;
+import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.NotificationHelper;
+import ch.admin.bag.dp3t.checkin.utils.NotificationHelper;
 
-import static ch.admin.bag.dp3t.util.CrowdNotifierReminderHelper.autoCheckoutIfNecessary;
+import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.autoCheckoutIfNecessary;
 
 
 public class CrowdNotifierKeyLoadWorker extends Worker {

@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.util;
+package ch.admin.bag.dp3t.checkin.utils;
 
 
 import android.app.AlarmManager;
@@ -11,10 +11,11 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import org.crowdnotifier.android.sdk.CrowdNotifier;
 
 import ch.admin.bag.dp3t.BuildConfig;
-import ch.admin.bag.dp3t.storage.DiaryStorage;
+import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.storage.model.DiaryEntry;
-import ch.admin.bag.dp3t.viewmodel.model.CheckInState;
+import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
+import ch.admin.bag.dp3t.util.ReminderHelper;
+import ch.admin.bag.dp3t.checkin.models.CheckInState;
 
 public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 

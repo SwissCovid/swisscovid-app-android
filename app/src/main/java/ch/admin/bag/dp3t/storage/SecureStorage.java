@@ -35,7 +35,7 @@ import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.networking.models.TestLocationModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
-import ch.admin.bag.dp3t.viewmodel.model.CheckInState;
+import ch.admin.bag.dp3t.checkin.models.CheckInState;
 
 public class SecureStorage {
 

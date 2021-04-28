@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.util;
+package ch.admin.bag.dp3t.checkin.utils;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -15,6 +15,7 @@ import org.crowdnotifier.android.sdk.model.VenueInfo;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.MainActivity;
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.util.StringUtil;
 
 import static androidx.core.app.NotificationManagerCompat.IMPORTANCE_HIGH;
 import static androidx.core.app.NotificationManagerCompat.IMPORTANCE_LOW;

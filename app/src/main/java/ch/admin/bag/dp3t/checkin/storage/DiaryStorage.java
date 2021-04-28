@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.storage;
+package ch.admin.bag.dp3t.checkin.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,10 +15,9 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-
 import org.crowdnotifier.android.sdk.model.DayDate;
 
-import ch.admin.bag.dp3t.storage.model.DiaryEntry;
+import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
 
 public class DiaryStorage {
 
@@ -40,8 +39,8 @@ public class DiaryStorage {
 					context,
 					EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
 					EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
-		} catch (GeneralSecurityException | IOException ex) {
-			ex.printStackTrace();
+		} catch (GeneralSecurityException | IOException e) {
+			throw new RuntimeException(e);
 		}
 	}
 

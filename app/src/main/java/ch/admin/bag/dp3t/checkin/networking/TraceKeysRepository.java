@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.networking;
+package ch.admin.bag.dp3t.checkin.networking;
 
 import android.content.Context;
 
@@ -11,8 +11,7 @@ import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.UserAgentInterceptor;
 
 import ch.admin.bag.dp3t.BuildConfig;
-import ch.admin.bag.dp3t.networking.models.Proto;
-import ch.admin.bag.dp3t.networking.models.TraceKeysService;
+import ch.admin.bag.dp3t.checkin.models.Proto;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;

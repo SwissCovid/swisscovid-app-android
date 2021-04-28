@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.storage.model;
+package ch.admin.bag.dp3t.checkin.models;
 
 import org.crowdnotifier.android.sdk.model.VenueInfo;
 

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package ch.admin.bag.dp3t.networking.models;
+package ch.admin.bag.dp3t.checkin.models;
 
 message ProblematicEventWrapper {
   int32 version = 1;

@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.networking.models;
+package ch.admin.bag.dp3t.checkin.networking;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
