@@ -96,4 +96,15 @@
 
 	<dimen name="flag_width">26dp</dimen>
 	<dimen name="flag_height">20dp</dimen>
+
+
+	<!-- CrowdNotifier Dimens -->
+
+	<dimen name="button_radius">36dp</dimen>
+	<dimen name="qr_scanner_indicator_size">50dp</dimen>
+	<dimen name="qr_scanner_indicator_stroke_width">5dp</dimen>
+	<dimen name="qr_scanner_indicator_stroke_width_inverse">-6dp</dimen>
+
+	<dimen name="button_height">72dp</dimen>
+
 </resources>

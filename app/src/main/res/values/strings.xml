@@ -1503,4 +1503,33 @@ If so, contact the Coronavirus Infoline:"</string>
     <!-- Quick Action bei einer Reminder Notification, welche einen neuen Reminder setzt in 30 Minuten. -->
     <string name="reminder_notification_snooze_action">"Snooze"</string>
 
+    <string name="error_force_update_title">"Update required"</string>
+    <!-- Warnungs Text, welcher angezeigt wird, wenn ein inkompatibler QR Code (mit einem neueren QR Code Format) gescannt wurde. -->
+    <string name="error_update_text">"This QR code is not compatible with the current version of the app. Please update the app to scan it the code."</string>
+
+    <!-- Titel für den Update Button, wenn ein App Update notwending ist. -->
+    <string name="error_action_update">"Update now"</string>
+
+    <!-- Text, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären. -->
+    <!-- Fuzzy -->
+    <string name="camera_permission_dialog_text">"NotifyMe requires access to your camera. The camera will only be used for scanning QR codes."</string>
+
+    <!-- Button titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären. -->
+    <string name="camera_permission_dialog_action">"Grant camera access"</string>
+
+    <!-- Title of Checkin Screen -->
+    <string name="checkin_title">"Check-in"</string>
+
+    <!-- QR-Scanner: request for scan text -->
+    <string name="qrscanner_scan_qr_text">"Scan QR code to check in"</string>
+
+    <!-- Titel des Check-In Screens -->
+    <string name="check_in_screen_title">"Checking in"</string>
+
+    <!-- Check In: Set Reminder title -->
+    <string name="checkin_set_reminder">"Set reminder"</string>
+
+    <!-- Check In Confirm: Button title -->
+    <string name="check_in_now_button_title">"Check In Now"</string>
+
 </resources>

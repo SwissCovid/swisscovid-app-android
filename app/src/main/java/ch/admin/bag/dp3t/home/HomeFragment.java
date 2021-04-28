@@ -44,6 +44,7 @@ import org.dpppt.android.sdk.internal.logger.Logger;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment;
+import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
@@ -376,8 +377,8 @@ public class HomeFragment extends Fragment {
 		checkinCard.findViewById(R.id.checkin_scan).setOnClickListener(
 				v -> requireActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, CheckinOverviewFragment.newInstance())
-						.addToBackStack(CheckinOverviewFragment.class.getCanonicalName())
+						.replace(R.id.main_fragment_container, QrCodeScannerFragment.newInstance())
+						.addToBackStack(QrCodeScannerFragment.class.getCanonicalName())
 						.commit()
 		);
 	}

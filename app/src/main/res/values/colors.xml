@@ -71,4 +71,20 @@
 	<color name="dark_main_transparent">#754A4969</color>
 	<color name="transparent">#0000</color>
 	<color name="divider">@color/grey_medium</color>
+
+
+	<!-- CrowdNotifier Colors -->
+
+	<color name="main">#000000</color>
+	<color name="primary">#413f8d</color>
+	<color name="primary_light">#dddcea</color>
+	<color name="primary_dark">#292859</color>
+	<color name="secondary">#00a690</color>
+	<color name="tertiary">#f34e70</color>
+
+	<color name="light_grey">#f2f2f2</color>
+	<color name="transparent_milk">#c0f2f2f2</color>
+
+
+
 </resources>
