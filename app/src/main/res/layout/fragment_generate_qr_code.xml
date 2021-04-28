@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	android:orientation="vertical"
+	android:padding="20dp">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				style="@style/NextStep.Text.Blue"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="end"
+				android:text="@string/cancel" />
+
+			<TextView
+				style="@style/NextStep.Text.Title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginVertical="@dimen/spacing_huge"
+				android:text="@string/qr_code_erstellen_title" />
+
+			<TextView
+				style="@style/NextStep.Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/generate_qr_code_kategorie_title"
+				android:textAllCaps="true" />
+
+			<RadioGroup
+				android:id="@+id/generate_qr_code_radio_group"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_very_large"
+				android:layout_marginBottom="@dimen/spacing_huger" />
+
+			<TextView
+				style="@style/NextStep.Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/generate_qr_code_name_title"
+				android:textAllCaps="true" />
+
+			<EditText
+				style="@style/NextStep.Text.Bold.Blue"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="@dimen/spacing_large"
+				android:backgroundTint="@color/blue_main"
+				android:hint="@string/generate_qr_code_name_hint"
+				app:backgroundTint="@color/blue_main" />
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<Button
+		android:id="@+id/qr_code_generate"
+		style="@style/NextStep.Button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal|bottom"
+		android:layout_marginTop="@dimen/spacing_medium"
+		android:text="@string/qr_code_erstellen_button" />
+
+</LinearLayout>

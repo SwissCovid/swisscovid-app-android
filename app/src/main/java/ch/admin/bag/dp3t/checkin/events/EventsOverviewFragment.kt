@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.generateqrcode.GenerateQrCodeFragment
 import ch.admin.bag.dp3t.databinding.FragmentEventsOverviewBinding
 
 class EventsOverviewFragment : Fragment() {
@@ -27,11 +29,11 @@ class EventsOverviewFragment : Fragment() {
 		super.onViewCreated(view, savedInstanceState)
 		val adapter = QrCodeAdapter(object : OnClickListener {
 			override fun generateQrCode() {
-				/*requireActivity().supportFragmentManager.beginTransaction()
+				requireActivity().supportFragmentManager.beginTransaction()
 					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-					.replace(R.id.main_fragment_container, )
-					.addToBackStack(::class.java.canonicalName)
-					.commit()*/
+					.replace(R.id.main_fragment_container, GenerateQrCodeFragment.newInstance())
+					.addToBackStack(GenerateQrCodeFragment::class.java.canonicalName)
+					.commit()
 			}
 
 			override fun onQrCodeClicked(qrCodeItem: QrCodeItem) {
