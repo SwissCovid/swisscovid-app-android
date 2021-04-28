@@ -18,6 +18,7 @@ import android.text.style.StyleSpan;
 import androidx.annotation.NonNull;
 
 import java.math.BigInteger;
+import java.util.Calendar;
 
 public class StringUtil {
 
@@ -51,6 +52,20 @@ public class StringUtil {
 			return String.format("%0" + paddingLength + "d", 0) + hex;
 		else
 			return hex;
+	}
+
+	public static String getHourMinuteTimeString(long timeStamp, String delimiter) {
+		Calendar time = Calendar.getInstance();
+		time.setTimeInMillis(timeStamp);
+		return prependZero(time.get(Calendar.HOUR_OF_DAY)) + delimiter + prependZero(time.get(Calendar.MINUTE));
+	}
+
+	private static String prependZero(int timeUnit) {
+		if (timeUnit < 10) {
+			return "0" + timeUnit;
+		} else {
+			return String.valueOf(timeUnit);
+		}
 	}
 
 }

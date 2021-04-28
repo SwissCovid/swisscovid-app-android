@@ -1436,4 +1436,71 @@ Contact the Covidcode Infoline:"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
     <string name="meldungen_detail_free_test_tomorrow"></string>
+
+    <!-- Reminder: Option Off -->
+    <string name="reminder_option_off">"off"</string>
+
+    <!-- Reminder Option with an amount of hours -->
+    <string name="reminder_option_hours">"{HOURS} h"</string>
+
+    <!-- Reminder Option with an amount of minutes -->
+    <string name="reminder_option_minutes">"{MINUTES}'"</string>
+
+    <string name="error_network_title">"Connection error"</string>
+    <string name="error_network_text">"Check your internet connection"</string>
+    <string name="error_notification_deactivated_title">"Deactivate notifications"</string>
+    <string name="error_notification_deactivated_text">"Edit the app settings to receive report-notifications."</string>
+    <string name="error_background_refresh_title">"Background updates are off"</string>
+    <string name="error_background_refresh_text">"Edit the app settings to be informed at all times."</string>
+    <string name="error_camera_permission_title">"No camera access"</string>
+    <string name="error_camera_permission_text">"The app needs camera access to scan the QR code."</string>
+    <string name="error_action_change_settings">"Edit settings"</string>
+    <string name="error_action_retry">"Try again"</string>
+
+    <!-- Titel einer generischen Fehleranzeige -->
+    <string name="error_title">"Error"</string>
+
+    <!-- Fehlermeldung, wenn man bereits eingecheckt ist -->
+    <string name="error_already_checked_in">"You are already checked in."</string>
+
+    <string name="qr_scanner_error_code_not_yet_valid">"Code is not valid yet"</string>
+    <string name="qr_scanner_error_code_not_valid_anymore">"Code is not valid anymore"</string>
+
+    <!-- QR Code Scanner: no valid code text -->
+    <!-- Fuzzy -->
+    <string name="qrscanner_error">"No valid code!"</string>
+
+    <!-- Titel der Notification, welche erscheint, wenn der Benutzer automatisch ausgecheckt wurde nach 12 Stunden. -->
+    <string name="auto_checkout_title">"Automated checkout"</string>
+
+    <!-- Nachrichttext der Notification, welche erscheint, wenn der Benutzer automatisch ausgecheckt wurde nach 12 Stunden. -->
+    <string name="auto_checkout_body">"You were checked out automatically."</string>
+
+    <!-- Title for an exposure notification. -->
+    <string name="exposure_notification_title">"New message"</string>
+
+    <!-- Body text for an exposure notification. -->
+    <string name="exposure_notification_body">"Open the app to read the message"</string>
+
+    <!-- Notification Channel name on Android Devices (Only visible in System Settings) -->
+    <string name="android_crowdnotifier_notification_channel_name">"Reports"</string>
+
+    <!-- Reminder Notification Title -->
+    <string name="checkout_reminder_title">"Check-Out Reminder"</string>
+
+    <!-- Reminder Checkout Text -->
+    <string name="checkout_reminder_text">"Do you want to check out?"</string>
+
+    <!-- Notification Channel name for Ongoing Checkin Notifications on Android Devices (Only visible in System Settings) -->
+    <string name="android_ongoing_checkin_notification_channel_name">"Ongoing Check-in Notification"</string>
+
+    <!-- Titel der Ongoing Notification, welche während des ganzen Check Ins angezeigt wird im Notificaiton Center. -->
+    <string name="ongoing_notification_title">"You are checked in since {TIME}."</string>
+
+    <!-- Quick Action der Ongoing Notification, welche während des ganzen Check Ins angezeigt wird im Notificaiton Center. -->
+    <string name="ongoing_notification_checkout_quick_action">"Check out"</string>
+
+    <!-- Quick Action bei einer Reminder Notification, welche einen neuen Reminder setzt in 30 Minuten. -->
+    <string name="reminder_notification_snooze_action">"Snooze"</string>
+
 </resources>
