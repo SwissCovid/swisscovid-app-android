@@ -42,7 +42,7 @@ public class TravelUtils {
 			ImageView flagImageView = flagView.findViewById(R.id.flag_icon);
 			TextView flagTextView = flagView.findViewById(R.id.flag_cc);
 
-			String idName = "flag_" + country.toLowerCase();
+			String idName = "flag_" + country.toLowerCase(Locale.GERMAN);
 			int drawableRes = UiUtils.getDrawableResourceByName(context, idName);
 			if (drawableRes != 0) {
 				flagImageView.setImageResource(drawableRes);

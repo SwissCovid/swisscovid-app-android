@@ -165,9 +165,14 @@ public class HomeFragment extends Fragment {
 				infobox.setVisibility(View.GONE);
 				return;
 			}
-			infobox.setVisibility(VISIBLE);
 
 			InfoBoxModel infoBoxModel = infoBoxModelCollection.getInfoBox(getResources().getString(R.string.language_key));
+			if (infoBoxModel == null) {
+				infobox.setVisibility(View.GONE);
+				return;
+			}
+
+			infobox.setVisibility(VISIBLE);
 
 			String title = infoBoxModel.getTitle();
 			TextView titleView = infobox.findViewById(R.id.infobox_title);

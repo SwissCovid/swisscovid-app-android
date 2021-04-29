@@ -1331,7 +1331,8 @@ No combate ao coronavírus, o tempo é um fator decisivo: quanto menos tempo pas
     <string name="stats_cases_current_description">"O gráfico mostra as novas infeções registadas nos últimos 28 dias, dando um panorama da evolução atual."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Foi testado positivo (teste PCR ou teste rápido de antigénio) e ainda não recebeu um código Covid depois de 4 hs? Contacte a linha de informação coronavírus:"</string>
+    <string name="inform_detail_infobox1_text">"Foi testado positivo (teste PCR ou teste rápido de antigénio) e ainda não recebeu um código Covid depois de 4 hs?
+Contacte a linha de informação coronavírus:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Ainda não recebeu um código COVID?"</string>

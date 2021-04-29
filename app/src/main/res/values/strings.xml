@@ -625,9 +625,9 @@ The counselling is free of charge. You just have to pay for the call."</string>
     <string name="inform_detail_faq1_title">"What is a Covidcode?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <string name="inform_detail_faq1_text">"People who have tested positive for the coronavirus receive a Covidcode. 
+    <string name="inform_detail_faq1_text">"People who test positive for coronavirus (with a PCR test or rapid antigen test) will receive a Covidcode.
 
-This ensures that only confirmed cases are notified via the app."</string>
+This guarantees that only confirmed cases are reported via the app."</string>
 
     <!-- Not translated -->
     <!-- Inform Detail: FAQ Titel -->
@@ -1353,8 +1353,8 @@ Time is a crucial factor when it comes to combating coronavirus: the shorter the
     <string name="stats_cases_current_description">"The chart shows new infections reported in the last 28 days. This gives an overview of current developments."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Have you tested positive and still haven’t received a Covidcode after 4 hours?
-Contact the Covidcode Infoline:"</string>
+    <string name="inform_detail_infobox1_text">"Have you tested positive (PCR test or rapid antigen test) and did not receive a Covidcode after 4 hours?
+If so, contact the Coronavirus Infoline:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Don’t have a Covidcode yet?"</string>
@@ -1390,43 +1390,43 @@ Contact the Covidcode Infoline:"</string>
     <string name="stats_cases_rel_prev_week_popup_header">"Change versus previous week"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Titel (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_title"></string>
+    <string name="meldungen_positive_tested_faq2_title">"Who will be notified?"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_text"></string>
+    <string name="meldungen_positive_tested_faq2_text">"All the people you came into contact with during the infectious period from {ONSET_DATE} until you entered the Covidcode will be notified, if there is a possibility of infection due to the proximity and duration of the contact."</string>
 
     <!-- Informieren: Danke Text Onset Date -->
-    <string name="inform_send_thankyou_text_onsetdate"></string>
+    <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – today"</string>
 
     <!-- Informieren: Danke Text Abschluss -->
-    <string name="inform_send_thankyou_text_stop_infection_chains"></string>
+    <string name="inform_send_thankyou_text_stop_infection_chains">"In this way you are helping break chains of infection."</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
-    <string name="inform_send_thankyou_text_onsetdate_info"></string>
+    <string name="inform_send_thankyou_text_onsetdate_info">"Your app's private key was sent for the following period:"</string>
 
     <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
-    <string name="android_inform_tracing_enabled_explanation"></string>
+    <string name="android_inform_tracing_enabled_explanation">"When you enter a Covidcode, tracing needs to be activated so that your private key can be shared."</string>
 
     <!-- Leitfaden Info Popup Text -->
-    <string name="leitfaden_infopopup_text"></string>
+    <string name="leitfaden_infopopup_text">"If you press \"{BUTTON_TITLE}\", you leave the app and switch to the SwissCovid Guide website. The data on recent encounters with potentially infected people is sent to the website."</string>
 
     <!-- Leitfaden InfoPopup Titel -->
-    <string name="leitfaden_infopopup_title"></string>
+    <string name="leitfaden_infopopup_title">"SwissCovid Guide information"</string>
 
     <!-- Update Boarding: Titel -->
-    <string name="germany_update_boarding_title"></string>
+    <string name="germany_update_boarding_title">"Compatible with Germany"</string>
 
     <!-- Update Boarding: Text -->
-    <string name="germany_update_boarding_text"></string>
+    <string name="germany_update_boarding_text">"You will also be notified if you have been in contact with someone who uses the German Corona-Warn-App and later tests positive, and vice versa. The terms of use and data protection statement have been updated accordingly."</string>
 
     <!-- Update Boarding: Heading oben -->
-    <string name="germany_update_boarding_heading"></string>
+    <string name="germany_update_boarding_heading">"SwissCovid update"</string>
 
     <!-- Debug Screen: Update-Boarding Reset Button -->
     <string name="reset_update_boarding">"Reset update boarding"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text"></string>
+    <string name="meldungen_detail_free_test_text">"A coronavirus test is advisable and recommended from the 5th day after the displayed contact date."</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
     <string name="meldungen_detail_free_test_in_x_tagen">"In {COUNT} days"</string>
@@ -1435,7 +1435,7 @@ Contact the Covidcode Infoline:"</string>
     <string name="meldungen_detail_free_test_now">"Now"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_tomorrow"></string>
+    <string name="meldungen_detail_free_test_tomorrow">"In 1 day"</string>
 
     <!-- Reminder: Option Off -->
     <string name="reminder_option_off">"off"</string>

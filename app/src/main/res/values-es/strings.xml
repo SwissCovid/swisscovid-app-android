@@ -619,9 +619,9 @@ La consulta es gratuita; solo se incurre en los gastos telefónicos."</string>
     <string name="inform_detail_faq1_title">"¿Qué es el código Covid?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <string name="inform_detail_faq1_text">"Las personas que han dado positivo en el test del  coronavirus reciben un código Covid. 
+    <string name="inform_detail_faq1_text">"Las personas que han dado positivo al coronavirus (test PCR o test rápido de antígenos) reciben un código Covid.
 
-Así se garantiza que la aplicación solo informe de los casos confirmados."</string>
+Así queda garantizado que solo se notifiquen casos confirmados a través de la aplicación."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"¿Qué es lo que se envía?"</string>
@@ -1321,7 +1321,8 @@ El tiempo es un factor determinante a la hora de luchar contra el coronavirus: c
     <string name="stats_cases_current_description">"El gráfico muestra los nuevos contagios notificados en los últimos 28 días. Así, se obtiene una panorámica de la evolución actual."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"¿Ha dado usted positivo en el test y no ha obtenido el código Covid después de 4 horas? En este caso, llame a la Infoline:"</string>
+    <string name="inform_detail_infobox1_text">"¿Ha dado usted positivo (test PCR o test rápido de antígenos) y no ha recibido el código Covid después de 4 horas?
+Contacte con la Infoline del coronavirus:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"¿Aún no ha recibido el código Covid?"</string>
@@ -1357,50 +1358,50 @@ El tiempo es un factor determinante a la hora de luchar contra el coronavirus: c
     <string name="stats_cases_rel_prev_week_popup_header">"Cambio con respecto a la semana previa"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Titel (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_title"></string>
+    <string name="meldungen_positive_tested_faq2_title">"¿Quién será notificado?"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_text"></string>
+    <string name="meldungen_positive_tested_faq2_text">"Se notificará a todos los contactos establecidos durante la fase de contagio desde el {ONSET_DATE} hasta la introducción del código Covid si un contagio es probable a raíz de la distancia y la duración."</string>
 
     <!-- Informieren: Danke Text Onset Date -->
-    <string name="inform_send_thankyou_text_onsetdate"></string>
+    <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – hoy"</string>
 
     <!-- Informieren: Danke Text Abschluss -->
-    <string name="inform_send_thankyou_text_stop_infection_chains"></string>
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Así está contribuyendo a interrumpir las cadenas de contagio."</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
-    <string name="inform_send_thankyou_text_onsetdate_info"></string>
+    <string name="inform_send_thankyou_text_onsetdate_info">"Las claves privadas de su aplicación se han enviado para el periodo siguiente:"</string>
 
     <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
-    <string name="android_inform_tracing_enabled_explanation"></string>
+    <string name="android_inform_tracing_enabled_explanation">"El rastreo debe estar activado al introducir el código Covid para permitir el intercambio de las claves privadas."</string>
 
     <!-- Leitfaden Info Popup Text -->
-    <string name="leitfaden_infopopup_text"></string>
+    <string name="leitfaden_infopopup_text">"Al pulsar \"{BUTTON_TITLE}\", abandonará la app para ir a la página web de la Guía SwissCovid. En este proceso, también se transmitirán a la página web los datos de los últimos contactos en los que posiblemente haya habido contagio."</string>
 
     <!-- Leitfaden InfoPopup Titel -->
-    <string name="leitfaden_infopopup_title"></string>
+    <string name="leitfaden_infopopup_title">"Información sobre la Guía SwissCovid"</string>
 
     <!-- Update Boarding: Titel -->
-    <string name="germany_update_boarding_title"></string>
+    <string name="germany_update_boarding_title">"Compatible con Alemania"</string>
 
     <!-- Update Boarding: Text -->
-    <string name="germany_update_boarding_text"></string>
+    <string name="germany_update_boarding_text">"Será usted informado en caso de haber tenido contacto con una persona que use la aplicación alemana Corona-Warn-App y que haya dado positivo y viceversa. Para este fin, se han actualizado las condiciones de uso y la política de privacidad."</string>
 
     <!-- Update Boarding: Heading oben -->
-    <string name="germany_update_boarding_heading"></string>
+    <string name="germany_update_boarding_heading">"Actualización SwissCovid"</string>
 
     <!-- Debug Screen: Update-Boarding Reset Button -->
     <string name="reset_update_boarding">"Reiniciar update boarding"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text"></string>
+    <string name="meldungen_detail_free_test_text">"Es conveniente y recomendable hacer un test de Covid-19 transcurridos 5 días desde la fecha del contacto indicada."</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_in_x_tagen">"In {COUNT} days"</string>
+    <string name="meldungen_detail_free_test_in_x_tagen">"En {COUNT} días"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_now">"Now"</string>
+    <string name="meldungen_detail_free_test_now">"Ahora"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
-    <string name="meldungen_detail_free_test_tomorrow"></string>
+    <string name="meldungen_detail_free_test_tomorrow">"En 1 día"</string>
 </resources>
