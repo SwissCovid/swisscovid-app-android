@@ -31,7 +31,7 @@ public class CheckOutFragment extends Fragment {
 
 	public final static String TAG = CheckOutFragment.class.getCanonicalName();
 
-	private final static long ONE_DAY_IN_MILLIS = 24 * 60 * 60 * 1000;
+	private final static long ONE_DAY_IN_MILLIS = 24 * 60 * 60 * 1000L;
 
 	private CrowdNotifierViewModel viewModel;
 	private VenueInfo venueInfo;
