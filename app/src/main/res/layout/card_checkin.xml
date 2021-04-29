@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	style="@style/NextStep.Card"
 	android:layout_width="match_parent"
@@ -15,11 +16,11 @@
 		<LinearLayout
 			android:id="@+id/checkin_header"
 			android:layout_width="match_parent"
-			android:layout_marginTop="5dp"
-			android:paddingBottom="5dp"
 			android:layout_height="match_parent"
+			android:layout_marginTop="5dp"
 			android:gravity="center_vertical"
-			android:orientation="horizontal">
+			android:orientation="horizontal"
+			android:paddingBottom="5dp">
 
 			<TextView
 				style="@style/NextStep.Text.Title"
@@ -27,22 +28,80 @@
 				android:layout_height="wrap_content"
 				android:layout_marginStart="@dimen/spacing_medium"
 				android:layout_weight="1"
-				android:text="[TBT] Checkin" />
+				android:text="[TBT] My Check-Ins" />
 
 			<ImageView
 				android:layout_width="@dimen/chevron_size_title"
 				android:layout_height="@dimen/chevron_size_title"
 				android:layout_marginEnd="@dimen/spacing_small"
 				android:src="@drawable/ic_chevron_right"
-				android:tint="@color/dark_main" />
+				app:tint="@color/dark_main" />
 
 		</LinearLayout>
 
-		<Button
-			android:id="@+id/checkin_scan"
-			android:text="[TBT] scan qr"
+		<LinearLayout
+			android:id="@+id/checkin_view"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content" />
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="@dimen/spacing_small"
+			android:orientation="vertical"
+			android:visibility="gone">
+
+			<TextView
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:text="[TBT] Hier wird eine Beschreibung sein." />
+
+			<Button
+				android:id="@+id/checkin_button"
+				style="@style/NextStep.Button.Blue"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="@dimen/spacing_medium_large"
+				android:drawableStart="@drawable/ic_qr"
+				android:text="[TBT] Scan QR Code" />
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/checkout_view"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="@dimen/spacing_small"
+			android:orientation="vertical"
+			android:visibility="visible">
+
+			<TextView
+				android:id="@+id/checkin_time"
+				style="@style/NextStep.Text.SplashTitle.Dark"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:gravity="center_horizontal"
+				tools:text="20:32" />
+
+			<TextView
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_tiny_small"
+				android:gravity="center_horizontal"
+				android:text="[TBT] Sie sind eingecheckt." />
+
+			<Button
+				android:id="@+id/checkout_button"
+				style="@style/NextStep.Button.Outlined"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="@dimen/spacing_medium_large"
+				android:drawableStart="@drawable/ic_qr"
+				android:drawableTint="@color/blue_main"
+				android:text="@string/checkout_button_title"
+				android:textAllCaps="false" />
+
+		</LinearLayout>
 
 	</LinearLayout>
 

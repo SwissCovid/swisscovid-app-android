@@ -63,7 +63,8 @@
 	<style name="NextStep.Text.Small.Light">
 		<item name="android:textColor">@color/anthracite_lighter</item>
 	</style>
-a
+	a
+
 	<style name="NextStep.Text.Small.Anthracite">
 		<item name="android:textColor">@color/anthracite</item>
 	</style>
@@ -157,6 +158,10 @@ a
 		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">@color/white</item>
+	</style>
+
+	<style name="NextStep.Text.SplashTitle.Dark">
+		<item name="android:textColor">@color/main</item>
 	</style>
 
 	<style name="NextStep.Text.Status">
@@ -328,6 +333,5 @@ a
 		<item name="android:fontFamily">@font/inter_light</item>
 		<item name="fontFamily">@font/inter_light</item>
 	</style>
-
 
 </resources>

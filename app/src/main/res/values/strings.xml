@@ -1532,4 +1532,7 @@ If so, contact the Coronavirus Infoline:"</string>
     <!-- Check In Confirm: Button title -->
     <string name="check_in_now_button_title">"Check In Now"</string>
 
+    <!-- Check-Ins: Check-Out Button Title -->
+    <string name="checkout_button_title">"Check-out"</string>
+
 </resources>
