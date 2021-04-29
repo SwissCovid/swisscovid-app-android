@@ -54,6 +54,9 @@ public class CheckInFragment extends Fragment {
 	}
 
 	private void checkIfAutoCheckoutHappened() {
+		if (viewModel.getCheckInState() == null) {
+			popBackToHomeFragment();
+		}
 	}
 
 	@Override

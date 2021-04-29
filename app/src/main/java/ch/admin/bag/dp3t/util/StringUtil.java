@@ -9,6 +9,7 @@
  */
 package ch.admin.bag.dp3t.util;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -17,9 +18,14 @@ import android.text.style.StyleSpan;
 import androidx.annotation.NonNull;
 
 import java.math.BigInteger;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+
+import ch.admin.bag.dp3t.R;
 
 public class StringUtil {
 
@@ -99,6 +105,18 @@ public class StringUtil {
 					TimeUnit.MILLISECONDS.toMinutes(duration),
 					TimeUnit.MILLISECONDS.toSeconds(duration - TimeUnit.MINUTES.toMillis(TimeUnit.MILLISECONDS.toMinutes(duration)))
 			);
+		}
+	}
+
+	public static String getCheckOutDateString(Context context, long checkInTime, long checkOutTime) {
+		DateFormat dateFormat = new SimpleDateFormat("EEEE, dd. MMMM");
+		String checkInDate = dateFormat.format(new Date(checkInTime));
+		String checkOutDate = dateFormat.format(new Date(checkOutTime));
+		if (checkInDate.equals(checkOutDate)) {
+			return checkInDate;
+		} else {
+			return context.getResources().getString(R.string.checkout_from_to_date).replace("{DATE1}", checkInDate)
+					.replace("{DATE2}", "\n" + checkOutDate);
 		}
 	}
 

@@ -1649,4 +1649,28 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <string name="reminder_notification_snooze_action">"Snooze"</string>
     <string name="android_ongoing_checkin_notification_channel_name">"Permanente Checkin Meldung"</string>
     <string name="ongoing_notification_title">"Sie sind eingecheckt seit {TIME} Uhr."</string>
+
+    <!-- Check-Ins: Sichern Button bei Check-out -->
+    <string name="checkout_save_button_title">"Sichern"</string>
+
+    <!-- Check-Ins: QR-Code scannen Button -->
+    <!-- Fuzzy -->
+    <string name="scan_qr_code_button_title">"QR-Code scannen"</string>
+
+    <!-- Titel der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
+    <string name="checkin_ended_title">"Check-Ins deaktiviert"</string>
+
+    <!-- Text der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
+    <string name="checkin_ended_text">"Neue Check-Ins sind nicht möglich."</string>
+
+    <!-- Text im Check-Ins-Screen im nicht eingecheckten Zustand -->
+    <string name="checkin_detail_checked_out_text">"Schützen Sie sich und andere, indem Sie sich bei Events einchecken. Hier kommt wahrscheinlich noch mehr Text, der im Moment noch unklar ist."</string>
+
+    <!-- Text im Check-Ins-Screen, im Tagebuch-Modul -->
+    <string name="checkin_detail_diary_text">"Im Tagebuch werden all Ihre Check-Ins gespeichert. Sie können diese freiwillig teilen, falls Sie positiv getestet werden."</string>
+
+    <!-- Label im Checkin-Modul im eingecheckten Zustand -->
+    <!-- Fuzzy -->
+    <string name="checkin_checked_in">"Sie sind eingecheckt"</string>
+    <string name="checkout_from_to_date">"{DATE1} bis {DATE2}"</string>
 </resources>

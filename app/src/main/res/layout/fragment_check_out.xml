@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:elevation="@dimen/modal_elevation"
+	android:orientation="vertical">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/light_grey">
+
+		<TextView
+			android:id="@+id/check_out_fragment_cancel_button"
+			style="@style/CrowdNotifier.Text.Status.Primary.Small.Thin"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end"
+			android:background="?selectableItemBackground"
+			android:padding="@dimen/spacing_large"
+			android:text="@string/cancel"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			style="@style/CrowdNotifier.Text.Status.Small"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/checkout_button_title"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/check_out_fragment_done_button"
+			style="@style/CrowdNotifier.Text.Status.Primary.Small"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end"
+			android:background="?selectableItemBackground"
+			android:padding="@dimen/spacing_large"
+			android:text="@string/done_button"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingHorizontal="@dimen/spacing_very_large"
+			android:paddingBottom="@dimen/spacing_large">
+
+			<ImageView
+				android:id="@+id/check_out_fragment_venue_type_icon"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="@dimen/spacing_very_large"
+				android:src="@drawable/ic_tea" />
+
+			<TextView
+				android:id="@+id/check_out_fragment_title"
+				style="@style/CrowdNotifier.Text.Title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_medium"
+				android:gravity="center"
+				tools:text="Cyber Cafe SV" />
+
+			<TextView
+				android:id="@+id/check_out_fragment_subtitle"
+				style="@style/CrowdNotifier.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				android:gravity="center"
+				tools:text="Lausanne" />
+
+			<TextView
+				android:id="@+id/check_out_fragment_date"
+				style="@style/CrowdNotifier.Text.Subtitle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="@dimen/spacing_huge"
+				android:gravity="center"
+				tools:text="Thursday, October 22" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:orientation="horizontal">
+
+				<TextView
+					style="@style/CrowdNotifier.Text.Status.Small"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="@string/datepicker_from" />
+
+				<TextView
+					style="@style/CrowdNotifier.Text.Status.Small"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="@string/datepicker_to" />
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/check_out_fragment_from_text_view"
+					style="@style/CrowdNotifier.Text.Status.Primary"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="@dimen/spacing_tiny_small"
+					android:layout_weight="1"
+					android:background="@color/light_grey"
+					android:foreground="?android:selectableItemBackground"
+					android:gravity="center"
+					android:paddingVertical="@dimen/spacing_medium"
+					tools:text="07  :  56" />
+
+				<TextView
+					android:id="@+id/check_out_fragment_to_text_view"
+					style="@style/CrowdNotifier.Text.Status.Primary"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="@dimen/spacing_tiny_small"
+					android:layout_weight="1"
+					android:background="@color/light_grey"
+					android:foreground="?android:selectableItemBackground"
+					android:gravity="center"
+					android:paddingVertical="@dimen/spacing_medium"
+					tools:text="08  :  13" />
+
+			</LinearLayout>
+
+			<TextView
+				style="@style/CrowdNotifier.Text.Status.Small"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_medium"
+				android:text="@string/edit_mode_addcomment" />
+
+			<EditText
+				android:id="@+id/check_out_fragment_comment_edit_text"
+				style="@style/CrowdNotifier.EditText"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:hint="@string/edit_mode_comment_placeholder" />
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>
