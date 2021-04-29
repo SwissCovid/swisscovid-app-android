@@ -13,7 +13,7 @@
 		android:layout_height="wrap_content"
 		app:navigationContentDescription="@string/android_accessibility_back_button"
 		app:navigationIcon="@drawable/ic_arrow_back"
-		app:title="@string/check_in_screen_title" />
+		app:title="@string/checkin_title" />
 
 	<ScrollView
 		android:id="@+id/check_in_fragment_venue_info_scrollview"

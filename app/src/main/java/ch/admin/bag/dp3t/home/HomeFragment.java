@@ -398,10 +398,6 @@ public class HomeFragment extends Fragment {
 		//TODO
 	}
 
-	private void showCheckedInFragment() {
-		//TODO
-	}
-
 	private void showQrCodeScannerFragment() {
 		requireActivity().getSupportFragmentManager().beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)

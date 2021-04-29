@@ -1628,4 +1628,25 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Check-Ins: Kategorie Büroräume -->
     <string name="web_generator_category_office_space">"Büroräume"</string>
+    <string name="bottom_nav_tab_info">"Info"</string>
+    <string name="error_network_title">"Netzwerk Fehler"</string>
+    <string name="error_network_text">"Überprüfen Sie Ihre Internet Verbindung."</string>
+    <string name="error_action_retry">"Erneut versuchen"</string>
+    <string name="error_notification_deactivated_title">"Mitteilungen deaktiviert"</string>
+    <string name="error_notification_deactivated_text">"Ändern Sie die Einstellungen, um bei einer Meldung direkt informiert zu werden."</string>
+    <string name="error_action_change_settings">"Einstellungen ändern"</string>
+    <string name="error_camera_permission_title">"Kein Zugriff auf Kamera"</string>
+    <string name="error_camera_permission_text">"Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können."</string>
+    <string name="error_title">"Fehler"</string>
+    <string name="qr_scanner_error_code_not_yet_valid">"QR-Code noch nicht gültig"</string>
+    <string name="qr_scanner_error_code_not_valid_anymore">"QR-Code nicht mehr gültig"</string>
+    <string name="error_already_checked_in">"Sie sind bereits eingecheckt."</string>
+    <string name="error_update_text">"Dieser QR Code ist nicht kompatibel mit der installierten App Version. Führen Sie ein Update der App durch, um den QR Code zu scannen."</string>
+    <string name="error_update_title">"Update benötigt"</string>
+    <string name="error_action_update">"Jetzt updaten"</string>
+    <string name="android_crowdnotifier_notification_channel_name">"CrowdNotifier Meldungen"</string>
+    <string name="ongoing_notification_checkout_quick_action">"Check out"</string>
+    <string name="reminder_notification_snooze_action">"Snooze"</string>
+    <string name="android_ongoing_checkin_notification_channel_name">"Permanente Checkin Meldung"</string>
+    <string name="ongoing_notification_title">"Sie sind eingecheckt seit {TIME} Uhr."</string>
 </resources>

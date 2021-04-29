@@ -1542,4 +1542,25 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
 
     <!-- Check-Ins: Kategorie Büroräume -->
     <string name="web_generator_category_office_space"></string>
+    <string name="bottom_nav_tab_info"></string>
+    <string name="error_network_title"></string>
+    <string name="error_network_text"></string>
+    <string name="error_action_retry"></string>
+    <string name="error_notification_deactivated_title"></string>
+    <string name="error_notification_deactivated_text"></string>
+    <string name="error_action_change_settings"></string>
+    <string name="error_camera_permission_title"></string>
+    <string name="error_camera_permission_text"></string>
+    <string name="error_title"></string>
+    <string name="qr_scanner_error_code_not_yet_valid"></string>
+    <string name="qr_scanner_error_code_not_valid_anymore"></string>
+    <string name="error_already_checked_in"></string>
+    <string name="error_update_text"></string>
+    <string name="error_update_title"></string>
+    <string name="error_action_update"></string>
+    <string name="android_crowdnotifier_notification_channel_name"></string>
+    <string name="ongoing_notification_checkout_quick_action"></string>
+    <string name="reminder_notification_snooze_action"></string>
+    <string name="android_ongoing_checkin_notification_channel_name"></string>
+    <string name="ongoing_notification_title"></string>
 </resources>

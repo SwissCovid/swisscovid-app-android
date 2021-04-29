@@ -161,9 +161,12 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 				cameraProvider.unbindAll();
 				Camera camera = cameraProvider.bindToLifecycle(getViewLifecycleOwner(), cameraSelector, preview, imageAnalyzer);
 				setupFlashButton(camera);
-			} catch (ExecutionException | InterruptedException e) {
+			} catch (ExecutionException e) {
 				Log.d(TAG, "Error starting camera " + e.getMessage());
-				e.printStackTrace();
+				throw new RuntimeException(e);
+			} catch (InterruptedException e) {
+				Log.w("QR Analysis Interrupted", e.getMessage());
+				Thread.currentThread().interrupt();
 			}
 		}, ContextCompat.getMainExecutor(requireContext()));
 	}
