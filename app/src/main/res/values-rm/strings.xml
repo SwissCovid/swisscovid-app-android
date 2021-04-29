@@ -64,10 +64,10 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="bluetooth_permission_turned_off">"L'app na funcziuna betg, perquai che Vus n’avais betg dà l'autorisaziun bluetooth."</string>
 
     <!-- Permission Text für Bluetooth -->
-    <string name="NSBluetoothPeripheralUsageDescription">"Inscunters vegnan identifitgadas via bluetooth, economisant l'energia."</string>
+    <string name="NSBluetoothPeripheralUsageDescription">"Inscunters vegnan identifitgads via bluetooth, economisant l'energia."</string>
 
     <!-- Permission Text für Bluetooth -->
-    <string name="NSBluetoothAlwaysUsageDescription">"Inscunters vegnan identifitgadas via bluetooth, economisant l'energia."</string>
+    <string name="NSBluetoothAlwaysUsageDescription">"Inscunters vegnan identifitgads via bluetooth, economisant l'energia."</string>
 
     <!-- Inform: Titel der Code abschicken Seite -->
     <string name="inform_code_title">"Endatar il code covid"</string>
@@ -109,7 +109,7 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="tracing_active_title">"App activa"</string>
 
     <!-- Text bei Tracing aktiv -->
-    <string name="tracing_active_text">"Inscunters vegnan arcunadas en moda anonima"</string>
+    <string name="tracing_active_text">"Inscunters vegnan arcunads en moda anonima"</string>
 
     <!-- Android: Fehler Text bei Tracing -->
     <string name="android_tracing_error_title">"Tracing inactiv"</string>
@@ -172,7 +172,7 @@ Uschia gidais Vus da franar chadainas d'infecziun."</string>
     <string name="tab_tracing_title">"Tracing"</string>
 
     <!-- Titel auf Homescreen für Was tun Section -->
-    <string name="whattodo_title_symptoms">"Sintoms da malsogna"</string>
+    <string name="whattodo_title_symptoms">"sintoms da malsogna"</string>
 
     <!-- Subtitel auf Homescreen für Was Tun Section -->
     <string name="whattodo_subtitle_symptoms">"Tge far en cas da…"</string>
@@ -623,9 +623,9 @@ Il discurs da cussegliaziun è gratuit; igl è da pajar mo la taxa da telefon."<
     <string name="inform_detail_faq1_title">"Tge è in code covid?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <string name="inform_detail_faq1_text">"Persunas ch’èn vegnidas testadas en moda positiva sin il coronavirus survegnan in code covid.
- 
-Uschia vegni garantì che mo cas confermads vegnan avisads via l'app."</string>
+    <string name="inform_detail_faq1_text">"Persunas cun in test positiv sin il coronavirus (test da PCR u test svelt d'antigens) retschaivan in code covid.
+
+Uschia vegn garantì ch'i vegnian annunziads sur l'app mo ils cas confermads."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Tge vegn tramess?"</string>
@@ -886,7 +886,8 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Pussaivel da far in test gratuit"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"Il mussavia SwissCovid As infurmescha davart la pussaivladad da far in test dal coronavirus gratuit."</string>
+    <!-- Fuzzy -->
+    <string name="meldungen_detail_free_test_text_old">"Il mussavia SwissCovid As infurmescha davart la pussaivladad da far in test dal coronavirus gratuit."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Activar tracing"</string>
@@ -1325,7 +1326,8 @@ Il temp è in factur decisiv en il cumbat cunter il coronavirus: pli curt ch'il 
     <string name="stats_cases_current_description">"La grafica mussa las infecziuns novas annunziadas dals ultims 28 dis. Quai dat ina survista dal svilup actual."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Voss test è positiv e Vus n'avais suenter 4 uras anc adina betg retschavì in code covid? Alura contactai la infoline code covid:"</string>
+    <string name="inform_detail_infobox1_text">"Vus avais in test positiv (test da PCR u test svelt d'antigens) e n'avais suenter 4 uras anc betg retschavì in code covid?
+Alura contactai la Infoline coronavirus:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Anc nagin code covid?"</string>
@@ -1359,4 +1361,52 @@ Il temp è in factur decisiv en il cumbat cunter il coronavirus: pli curt ch'il 
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
     <string name="stats_cases_rel_prev_week_popup_header">"Midada envers l'emna precedenta"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Titel (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_title">"Tgi vegn infurmà?"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_text">"I vegnan infurmads tut ils contacts durant il spazi da temp da Vossa fasa d'infecziun dals {ONSET_DATE} fin a l'endataziun dal code covid, sch'i era pussaivel da s'infectar sin basa da la distanza e da la durada."</string>
+
+    <!-- Informieren: Danke Text Onset Date -->
+    <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – oz"</string>
+
+    <!-- Informieren: Danke Text Abschluss -->
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Uschia gidais Vus a franar las chadainas da transmissiun."</string>
+
+    <!-- Informieren: Danke Text Onset Date Einleitung -->
+    <string name="inform_send_thankyou_text_onsetdate_info">"Las clavs privatas da Vossa app èn vegnidas tramessas per il suandant spazi da temp:"</string>
+
+    <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
+    <string name="android_inform_tracing_enabled_explanation">"Per che Vossas clavs privatas possian vegnir cundivididas sto il tracing esser activà cun endatar in code covid."</string>
+
+    <!-- Leitfaden Info Popup Text -->
+    <string name="leitfaden_infopopup_text">"Sche Vus schmatgais sin \"{BUTTON_TITLE}\", bandunais Vus l'app e midais a la pagina d'internet dal mussavia SwissCovid. Uschia vegnan tramessas a la pagina d'internet er las datas dals ultims inscunters d'eventualas infecziuns."</string>
+
+    <!-- Leitfaden InfoPopup Titel -->
+    <string name="leitfaden_infopopup_title">"Infurmaziun mussavia SwissCovid"</string>
+
+    <!-- Update Boarding: Titel -->
+    <string name="germany_update_boarding_title">"Cumpatibel cun la Germania"</string>
+
+    <!-- Update Boarding: Text -->
+    <string name="germany_update_boarding_text">"Vus vegnis er infurmada resp. infurmà, sche Vus avais gì contact cun ina persuna che fa diever da l'app d'avertiment da corona tudestga e che ha gì pli tard in test positiv e viceversa. Perquai èn vegnidas actualisadas las cundiziuns d'utilisaziun e la decleraziun davart la protecziun da datas."</string>
+
+    <!-- Update Boarding: Heading oben -->
+    <string name="germany_update_boarding_heading">"Update SwissCovid"</string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Redefinir update boarding"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"In test da corona è raschunaivel e vegn recumandà a partir dal tschintgavel di suenter la data da contact inditgada."</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_in_x_tagen">"En {COUNT} dis"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_now">"Ussa"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_tomorrow">"En 1 di"</string>
 </resources>

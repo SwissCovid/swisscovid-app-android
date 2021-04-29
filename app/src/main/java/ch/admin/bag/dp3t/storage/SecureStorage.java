@@ -31,11 +31,14 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.networking.models.TestLocationModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
 
 public class SecureStorage {
+
+	private static final String TAG = "SecureStorage";
 
 	private static final String PREFERENCES = "SecureStorage";
 	private static final String DEFAULT_TEST_LOCATIONS_JSON_PATH = "testlocations.json";
@@ -45,6 +48,7 @@ public class SecureStorage {
 	private static final String KEY_INFORM_CODE_REQ = "inform_code_req";
 	private static final String KEY_INFORM_TOKEN_REQ = "inform_token_req";
 	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
+	private static final String KEY_UPDATE_BOARDING_VERSION = "update_boarding_version";
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
 
 	//KEY_LEITFADEN_OPEN_PENDING key value is kept to old value to avoid migration issues
@@ -52,14 +56,8 @@ public class SecureStorage {
 
 	private static final String KEY_PENDING_REPORTS_HEADER_ANIMATION = "pending_reports_header_animation";
 	private static final String KEY_CONFIG_FORCE_UPDATE = "config_do_force_update";
-	private static final String KEY_CONFIG_HAS_INFOBOX = "has_ghettobox";
-	private static final String KEY_CONFIG_INFOBOX_TITLE = "ghettobox_title";
-	private static final String KEY_CONFIG_INFOBOX_TEXT = "ghettobox_text";
-	private static final String KEY_CONFIG_INFOBOX_LINK_TITLE = "ghettobox_link_title";
-	private static final String KEY_CONFIG_INFOBOX_LINK_URL = "ghettobox_link_url";
-	private static final String KEY_CONFIG_INFOBOX_ID = "ghettobox_id";
-	private static final String KEY_CONFIG_INFOBOX_IS_DISMISSIBLE = "ghettobox_is_dismissible";
-	private static final String KEY_CONFIG_INFOBOX_HEARING_IMPAIRED_INFO = "ghettobox_hearing_impaired_info";
+	private static final String KEY_CONFIG_HAS_INFOBOX = "has_ghettobox_v2";
+	private static final String KEY_CONFIG_INFOBOX_COLLECTION = "ghettobox_collection";
 	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS = "last_config_load_success";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION = "last_config_load_success_app_version";
@@ -72,6 +70,7 @@ public class SecureStorage {
 	private static final String KEY_ISOLATION_END_DIALOG_TIMESTAMP = "isolation_end_dialog_timestamp";
 	private static final String KEY_APP_VERSION_CODE = "app_version_code";
 	private static final String KEY_SCHEDULED_FAKE_WORKER_NAME = "scheduled_fake_worker_name";
+	private static final String KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY = "positive_report_oldest_shared_key";
 
 	private static SecureStorage instance;
 
@@ -85,21 +84,13 @@ public class SecureStorage {
 
 	private SecureStorage(@NonNull Context context) {
 		this.context = context;
-		try {
-			String masterKeys = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
-			this.prefs = EncryptedSharedPreferences
-					.create(PREFERENCES, masterKeys, context, EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-							EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
-		} catch (GeneralSecurityException | IOException e) {
-			this.prefs = null;
-			e.printStackTrace();
-		}
+		this.prefs = initializeSharedPreferences(context);
 
 		forceUpdateLiveData = new MutableLiveData<>(getDoForceUpdate());
 		hasInfoboxLiveData = new MutableLiveData<>(getHasInfobox());
 	}
 
-	public static SecureStorage getInstance(Context context) {
+	public static synchronized SecureStorage getInstance(Context context) {
 		if (instance == null) {
 			instance = new SecureStorage(context);
 		}
@@ -156,6 +147,14 @@ public class SecureStorage {
 		prefs.edit().putBoolean(KEY_ONBOARDING_COMPLETED, completed).apply();
 	}
 
+	public int getLastShownUpdateBoardingVersion() {
+		return prefs.getInt(KEY_UPDATE_BOARDING_VERSION, 0);
+	}
+
+	public void setLastShownUpdateBoardingVersion(int version) {
+		prefs.edit().putInt(KEY_UPDATE_BOARDING_VERSION, version).apply();
+	}
+
 	public int getLastShownContactId() {
 		return prefs.getInt(KEY_LAST_SHOWN_CONTACT_ID, -1);
 	}
@@ -202,60 +201,12 @@ public class SecureStorage {
 		return prefs.getBoolean(KEY_CONFIG_HAS_INFOBOX, false);
 	}
 
-	public void setInfoboxTitle(String title) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_TITLE, title).apply();
+	public void setInfoBoxCollection(InfoBoxModelCollection infoBoxModelCollection) {
+		prefs.edit().putString(KEY_CONFIG_INFOBOX_COLLECTION, gson.toJson(infoBoxModelCollection)).apply();
 	}
 
-	public String getInfoboxTitle() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_TITLE, null);
-	}
-
-	public void setInfoboxText(String text) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_TEXT, text).apply();
-	}
-
-	public String getInfoboxText() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_TEXT, null);
-	}
-
-	public void setInfoboxLinkTitle(String title) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_LINK_TITLE, title).apply();
-	}
-
-	public String getInfoboxLinkTitle() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_LINK_TITLE, null);
-	}
-
-	public void setInfoboxLinkUrl(String url) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_LINK_URL, url).apply();
-	}
-
-	public String getInfoboxLinkUrl() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_LINK_URL, null);
-	}
-
-	public void setInfoboxId(String id) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_ID, id).apply();
-	}
-
-	public String getInfoboxId() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_ID, null);
-	}
-
-	public void setInfoboxDismissible(boolean isDismissible) {
-		prefs.edit().putBoolean(KEY_CONFIG_INFOBOX_IS_DISMISSIBLE, isDismissible).apply();
-	}
-
-	public boolean getInfoboxDismissible() {
-		return prefs.getBoolean(KEY_CONFIG_INFOBOX_IS_DISMISSIBLE, false);
-	}
-
-	public String getInfoboxHearingImpairedInfo() {
-		return prefs.getString(KEY_CONFIG_INFOBOX_HEARING_IMPAIRED_INFO, null);
-	}
-
-	public void setInfoboxHearingImpairedInfo(String hearingImpairedInfo) {
-		prefs.edit().putString(KEY_CONFIG_INFOBOX_HEARING_IMPAIRED_INFO, hearingImpairedInfo).apply();
+	public InfoBoxModelCollection getInfoBoxCollection() {
+		return gson.fromJson(prefs.getString(KEY_CONFIG_INFOBOX_COLLECTION, "null"), InfoBoxModelCollection.class);
 	}
 
 	public boolean isUserNotInPilotGroup() {
@@ -376,6 +327,36 @@ public class SecureStorage {
 
 	public String getScheduledFakeWorkerName() {
 		return prefs.getString(KEY_SCHEDULED_FAKE_WORKER_NAME, null);
+	}
+
+	public long getPositiveReportOldestSharedKey() {
+		return prefs.getLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY, -1L);
+	}
+
+	public void setPositiveReportOldestSharedKey(long setPositiveReportOldestSharedKey) {
+		prefs.edit().putLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY, setPositiveReportOldestSharedKey).apply();
+	}
+
+	private synchronized SharedPreferences initializeSharedPreferences(@NonNull Context context) {
+		try {
+			return createEncryptedSharedPreferences(context);
+		} catch (GeneralSecurityException | IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * Create or obtain an encrypted SharedPreferences instance. Note that this method is synchronized because the AndroidX
+	 * Security
+	 * library is not thread-safe.
+	 * @see <a href="https://developer.android.com/topic/security/data">https://developer.android.com/topic/security/data</a>
+	 */
+	private synchronized SharedPreferences createEncryptedSharedPreferences(@NonNull Context context)
+			throws GeneralSecurityException, IOException {
+		String masterKeys = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
+		return EncryptedSharedPreferences
+				.create(PREFERENCES, masterKeys, context, EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+						EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
 	}
 
 }

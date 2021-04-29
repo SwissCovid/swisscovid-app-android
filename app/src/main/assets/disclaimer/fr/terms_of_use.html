@@ -21,9 +21,9 @@ Cette application de l’Office fédéral de la santé publique (OFSP) se fonde 
 <em>
  818.101
 </em>
-) et sur l’ordonnance COVID-19 du 24 juin 2020 sur l’essai pilote du traçage de proximité (RS
+) et sur l’ordonnance du 24 juin 2020 sur le système de traçage de proximité pour le coronavirus SARS-CoV-2 (RS
 <em>
- 818.101…
+ 818.101.25
 </em>
 ).
 <p>
@@ -40,7 +40,7 @@ Cette application de l’Office fédéral de la santé publique (OFSP) se fonde 
 </p>
 <p>
  2.2
- L'utilisation de l'application et de ses fonctions décrites au chiffre 3 est limitée au territoire suisse.
+ L’utilisation de l’application n’est pas limitée à une zone géographique. Toutefois, des alertes sont possibles uniquement si l’application étrangère est interopérable avec l’application SwissCovid. Actuellement, seule l’application Corona-Warn utilisée en Allemagne remplit cette condition.
 </p>
 <p>
  2.3
@@ -52,7 +52,7 @@ Cette application de l’Office fédéral de la santé publique (OFSP) se fonde 
 </strong>
 <p>
  3.1
- L’application informe les utilisateurs lorsqu’elles ont été en contact avec au moins un utilisateur dont l’infection a été confirmée.
+ L’application informe les utilisateurs lorsqu’ils ont été en contact avec au moins un utilisateur de l’application SwissCovid ou d’une autre application interopérable dont l’infection a été confirmée.
 </p>
 <p>
  3.2
@@ -63,34 +63,32 @@ Cette application de l’Office fédéral de la santé publique (OFSP) se fonde 
  L’application remplit les fonctions suivantes en utilisant une interface liée au système d’exploitation du téléphone portable de l’utilisateur :
 </p>
 <p>
- le système d’exploitation génère chaque jour une nouvelle clé privée qui ne permet pas de remonter jusqu’à l’application, le téléphone portable ou à l’utilisateur. Dans le rayon de portée du Bluetooth, le système d’exploitation échange avec toutes les applications compatibles et actives un code d’identification (ID aléatoire) qui change au moins toutes les demi-heures, qui est généré à partir de la clé privée actuelle mais qui ne permet ni d’identifier la clé, ni de remonter jusqu’à l’application, au téléphone portable ou à l’utilisateur.
+ Le système d’exploitation génère chaque jour une nouvelle clé privée qui ne permet pas de remonter jusqu’à l’application, le téléphone portable ou à l’utilisateur. Dans le rayon de portée du Bluetooth, le système d’exploitation échange avec toutes les applications compatibles et actives un code d’identification (ID aléatoire) qui change au moins toutes les demi-heures, qui est généré à partir de la clé privée actuelle mais qui ne permet ni d’identifier la clé, ni de remonter jusqu’à l’application, au téléphone portable ou à l’utilisateur.
 </p>
 <p>
- Le système d’exploitation enregistre les codes d’identification reçus (ID aléatoires), la puissance du signal, la date et la durée approximative du rapprochement.
+ Le système d’exploitation enregistre les codes d’identification reçus, la puissance du signal, la date et la durée approximative du rapprochement.
 </p>
 <p>
- À intervalles réguliers, l’application extrait la liste des clés privées des utilisateurs infectés, et le système d’exploitation contrôle si au moins un code d’identification enregistré localement (ID aléatoire) a été généré avec une clé privée. Si tel est le cas et
-</p>
-<p>
- qu’un rapprochement d’un mètre et demi ou moins a été établi avec au moins un téléphone mobile d’au moins un utilisateur infecté et que la durée totale de ces rapprochements atteint ou dépasse les quinze minutes au cours de la même journée, l’application envoie une information. La distance est évaluée en fonction de l’intensité du signal reçu.
+ À intervalles réguliers, l’application extrait la liste des clés privées des utilisateurs infectés de l’application SwissCovid ou d’autres applications interopérables, et le système d’exploitation contrôle si au moins un code d’identification enregistré localement a été généré avec une clé privée. Si tel est le cas et qu’un rapprochement d’un mètre et demi ou moins a été établi avec au moins un téléphone mobile d’au moins un utilisateur infecté de l’application SwissCovid ou d’autres applications interopérables et que la durée totale de ces rapprochements atteint ou dépasse les quinze minutes au cours de la même journée, l’application envoie une information. La distance est évaluée en fonction de l’intensité du signal reçu.
 </p>
 <p>
  3.4
- Si une infection est attestée chez un utilisateur, les professionnels disposant des droits d’accès (p. ex. les médecins traitants) génèrent un code d’autorisation unique et temporaire (code COVID) et le communiquent à l’utilisateur infecté. Ce dernier peut saisir de manière volontaire le code d’autorisation dans son application. La notification et la saisie du code d’autorisation ne se font qu’avec le consentement explicite de la personne infectée.
+ Si une infection est attestée chez un utilisateur, les professionnels disposant des droits d’accès (p. ex. les médecins traitants ou les pharmaciens) génèrent un code d’autorisation unique et temporaire (code COVID) et le communiquent à l’utilisateur infecté. Ce dernier peut saisir de manière volontaire le code d’autorisation dans son application. La notification et la saisie du code d’autorisation ne se font qu’avec le consentement explicite de la personne infectée.
 </p>
 <p>
- L’application informe les autres utilisateurs qui se sont trouvés en rapprochement selon le ch. 3.3 avec l’utilisateur infecté durant la période potentiellement infectieuse.
+ L’application informe les autres utilisateurs de l’application SwissCovid ou d'autres applications interopérables qui se sont trouvés en rapprochement selon le ch. 3.3 avec l’utilisateur infecté durant la période potentiellement infectieuse.
 </p>
 <p>
- Les utilisateurs informés apprennent qu’un rapprochement a eu lieu, qu’ils ont potentiellement été exposés au coronavirus ainsi que le jour où cela s’est produit la dernière fois. Ils n’apprennent pas quel utilisateur est infecté et a déclenché la notification. Celle-ci comprend l’information que l’OFSP propose une infoline de conseil gratuit et des recommandations de l’OFSP.
+ Les utilisateurs informés apprennent qu’un rapprochement a eu lieu ou qu’ils ont potentiellement été exposés au coronavirus ainsi que les jours où cela s’est produit. Ils n’apprennent pas quel utilisateur est infecté et a déclenché la notification. Celle-ci comprend les règles de conduite recommandées par l’OFSP, l'indication que l'OFSP propose un guide (formulaire en ligne) ainsi qu'une infoline de conseil gratuit. Lorsqu'on quitte l’application pour remplir le guide, les jours d’infection potentielle indiqués dans l’application sont automatiquement transmis au guide.
 </p>
-<p>
- 3.5
- Un utilisateur qui a été informé par son application qu’il a été potentiellement exposé au coronavirus peut effectuer un test gratuit d’infection au SARS-CoV-2 ou un test d’anticorps sur présentation de la notification.
-</p>
+Lors de la saisie des codes d’autorisation, les utilisateurs sont informés des pays avec lesquels l’application est interopérable (cf. ch. 2.2). Il leur est précisé que s’ils appuient sur le champ « D’accord » et qu’ils saisissent le code d’autorisation dans l’application, les clés privées ne sont pas seulement partagées dans l’application SwissCovid mais également avec toutes les autres applications interopérables (actuellement l’application allemande Corona-Warn). Suivant le principe
+<em>
+ One World
+</em>
+, les clés privées sont soit partagées avec toutes les applications interopérables, soit pas du tout.
 <p>
  3.6
- L’application communique les recommandations de l’OFSP en matière de conduite.
+ Un utilisateur qui a été informé par son application qu’il a été potentiellement exposé au coronavirus peut effectuer un test gratuit d’infection au SARS-CoV-2 ou un test d’anticorps sur présentation de la notification.
 </p>
 <p>
  3.7
@@ -174,7 +172,7 @@ Les utilisateurs sont tenus de tenir l’application à jour et d’effectuer de
 </p>
 <p>
  6.2
- En étroite collaboration avec ses fournisseurs de services, l’OFSP s’efforce de protéger au mieux les données contre des accès non autorisés, des pertes, des abus ou des falsifications.
+ En étroite collaboration avec ses fournisseurs de services et les exploitants étrangers d’applications interopérables, l’OFSP s’efforce de protéger au mieux les données contre des accès non autorisés, des pertes, des abus ou des falsifications.
 </p>
 <p>
  6.3
@@ -225,7 +223,7 @@ Les utilisateurs sont tenus de tenir l’application à jour et d’effectuer de
 </p>
 <p>
  9.3
- L’OFSP se réserve le droit d’apporter à tout moment des modifications et des ajouts aux conditions d’utilisation. Les nouvelles conditions sont communiquées aux utilisateurs à l’avance et de manière appropriée et sont considérées comme ayant été acceptées sans objection dans un délai d’un mois.
+ L’OFSP se réserve le droit d’apporter à tout moment des modifications et des ajouts aux conditions d’utilisation. Les nouvelles conditions sont communiquées aux utilisateurs à l’avance et de manière appropriée et sont considérées comme ayant été acceptées s’ils continuent d’utiliser l’application.
 </p>
 <p>
  9.4

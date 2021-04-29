@@ -36,6 +36,7 @@ import org.dpppt.android.sdk.models.ExposureDay;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
+import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class DebugFragment extends Fragment {
@@ -91,6 +92,16 @@ public class DebugFragment extends Fragment {
 			updateRadioGroup(getView().findViewById(R.id.debug_state_options_group));
 
 			requireActivity().recreate();
+		});
+
+		view.findViewById(R.id.debug_button_reset_onboarding).setOnClickListener(v -> {
+			SecureStorage.getInstance(requireContext()).setOnboardingCompleted(false);
+			getActivity().finish();
+		});
+
+		view.findViewById(R.id.debug_button_reset_update_boarding).setOnClickListener(v -> {
+			SecureStorage.getInstance(requireContext()).setLastShownUpdateBoardingVersion(0);
+			getActivity().finish();
 		});
 
 		CheckBox certPinningCheckbox = view.findViewById(R.id.debug_certificate_pinning);

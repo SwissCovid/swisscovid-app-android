@@ -624,9 +624,9 @@ La consultation est gratuite ; seuls les frais d'appel sont à votre charge."</s
     <string name="inform_detail_faq1_title">"Qu'est-ce qu'un code COVID ?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <string name="inform_detail_faq1_text">"Un code COVID est attribué aux personnes testées positives au coronavirus.
+    <string name="inform_detail_faq1_text">"Les personnes testées positives au coronavirus (test PCR ou test rapide antigénique) reçoivent un code COVID.
 
-Cela permet d'assurer que seuls les cas confirmés sont signalés via l'application."</string>
+Ceci permet de garantir que seuls les cas confirmés sont déclarés dans l'application."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Qu'est-ce qui est envoyé ?"</string>
@@ -891,7 +891,8 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Test gratuit"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"Le guide SwissCovid vous informe sur la possibilité de vous faire tester gratuitement au coronavirus. "</string>
+    <!-- Fuzzy -->
+    <string name="meldungen_detail_free_test_text_old">"Le guide SwissCovid vous informe sur la possibilité de vous faire tester gratuitement au coronavirus. "</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Activer le traçage"</string>
@@ -1355,7 +1356,8 @@ La vitesse est un facteur décisif dans la lutte contre le coronavirus : moins o
     <string name="stats_cases_current_description">"Le graphique indique les nouvelles infections déclarées pendant les 28 derniers jours pour donner un aperçu de l'évolution actuelle."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Vous avez été testé positif mais n'avez pas encore reçu de code COVID 4 heures plus tard ? Contactez l'infoline:"</string>
+    <string name="inform_detail_infobox1_text">"Vous avez été testé positif (test PCR ou test rapide antigénique) mais vous n'avez pas encore reçu de code COVID après 4 heures ?
+Contactez l'infoline coronavirus :"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Pas encore de code COVID ?"</string>
@@ -1389,4 +1391,52 @@ La vitesse est un facteur décisif dans la lutte contre le coronavirus : moins o
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
     <string name="stats_cases_rel_prev_week_popup_header">"Changemenent depuis la semaine passée"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Titel (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_title">"Qui est averti ?"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_text">"Tous les contacts recensés pendant votre phase contagieuse du {ONSET_DATE} jusqu'à la saisie de votre code COVID sont avertis en cas de risque d'infection dû à la distance et à la durée du contact."</string>
+
+    <!-- Informieren: Danke Text Onset Date -->
+    <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – aujourd'hui"</string>
+
+    <!-- Informieren: Danke Text Abschluss -->
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Merci de nous aider à briser les chaînes d'infection."</string>
+
+    <!-- Informieren: Danke Text Onset Date Einleitung -->
+    <string name="inform_send_thankyou_text_onsetdate_info">"Les clés privées de votre application ont été envoyées pour la période suivante :"</string>
+
+    <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
+    <string name="android_inform_tracing_enabled_explanation">"Le traçage doit être activé lors de la saisie d'un code COVID, afin que les clés privées puissent être envoyées."</string>
+
+    <!-- Leitfaden Info Popup Text -->
+    <string name="leitfaden_infopopup_text">"En cliquant sur \"{BUTTON_TITLE}\", vous quitterez l'application et serez redirigé sur le site du guide SwissCovid. Les dates de vos derniers contacts avec des personnes potentiellement infectées seront alors transmises au site."</string>
+
+    <!-- Leitfaden InfoPopup Titel -->
+    <string name="leitfaden_infopopup_title">"Information Guide SwissCovid"</string>
+
+    <!-- Update Boarding: Titel -->
+    <string name="germany_update_boarding_title">"Compatible avec l'Allemagne"</string>
+
+    <!-- Update Boarding: Text -->
+    <string name="germany_update_boarding_text">"Vous serez également alerté si vous avez été en contact avec une personne qui utilise l'application allemande Corona-Warn-App et qui a été testée positive (et inversément). Les conditions d'utilisation et la déclaration concernant la protection des données ont été mises à jour."</string>
+
+    <!-- Update Boarding: Heading oben -->
+    <string name="germany_update_boarding_heading">"Mise à jour SwissCovid"</string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Réinitialiser l'intégration"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"Un test est utile et recommandé à partir du 5e jour suivant la date de contact indiquée."</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_in_x_tagen">"Dans {COUNT} jours"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_now">"Maintenant"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_tomorrow">"Dans 1 jour"</string>
 </resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginBottom="@dimen/spacing_medium_large"
+	android:background="@color/status_blue_bg"
+	android:orientation="horizontal"
+	android:padding="@dimen/spacing_medium">
+
+	<ImageView
+		android:id="@+id/info_image_view"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/ic_info"
+		android:tint="@color/dark_main"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<LinearLayout
+		android:id="@+id/info_box_container_layout"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/spacing_very_small"
+		android:orientation="vertical"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@id/info_image_view"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<TextView
+			style="@style/NextStep.Text.Bold"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/spacing_very_small"
+			android:text="@string/meldungen_detail_free_test_title" />
+
+		<TextView
+			style="@style/NextStep.Text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/meldungen_detail_free_test_text" />
+
+		<TextView
+			android:id="@+id/test_countdown_textview"
+			style="@style/NextStep.Text.Bold"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			tools:text="In 1 Tag" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/testlocations_link"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="@dimen/spacing_medium_large"
+		android:layout_marginTop="@dimen/spacing_medium"
+		android:background="?selectableItemBackground"
+		android:orientation="horizontal"
+		android:padding="@dimen/spacing_small"
+		app:layout_constrainedWidth="true"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/info_box_container_layout">
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/ic_link_internal" />
+
+		<TextView
+			style="@style/NextStep.Text.Bold.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/spacing_medium"
+			android:text="@string/test_location_popup_title" />
+	</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

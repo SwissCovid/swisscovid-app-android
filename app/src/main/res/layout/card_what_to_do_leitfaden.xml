@@ -28,6 +28,8 @@
 				android:id="@+id/card_encounters"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:clipChildren="false"
+				android:clipToPadding="false"
 				android:foreground="?selectableItemBackground"
 				android:orientation="vertical"
 				android:paddingLeft="@dimen/spacing_larger"
@@ -98,13 +100,30 @@
 				<Button
 					android:id="@+id/card_encounters_button"
 					style="@style/NextStep.Button.Blue"
-					android:layout_width="match_parent"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_small"
+					android:layout_marginEnd="@dimen/spacing_medium"
+					android:drawableEnd="@drawable/ic_launch"
+					android:paddingStart="@dimen/spacing_medium"
+					android:paddingEnd="@dimen/spacing_medium"
 					android:text="@string/meldungen_detail_open_leitfaden_button"
-					android:drawableRight="@drawable/ic_launch"
 					android:textAllCaps="true"
+					app:layout_constraintEnd_toStartOf="@id/leitfaden_info_button"
+					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@id/card_encounters_barrier1" />
+
+				<ImageButton
+					android:id="@+id/leitfaden_info_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:background="@drawable/ripple_button"
+					android:padding="@dimen/spacing_small"
+					android:src="@drawable/ic_info_black_outlined"
+					android:tint="@color/blue_main"
+					app:layout_constraintBottom_toBottomOf="@id/card_encounters_button"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="@id/card_encounters_button" />
 
 				<TextView
 					android:id="@+id/card_encounters_last_call"
@@ -121,8 +140,18 @@
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="@dimen/spacing_large"
+					android:clipChildren="false"
+					android:clipToPadding="false"
 					android:orientation="vertical"
 					app:layout_constraintTop_toBottomOf="@id/card_encounters_last_call">
+
+					<include
+						layout="@layout/view_free_test_info_box"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="-15dp"
+						android:layout_marginEnd="-15dp"
+						android:layout_marginBottom="@dimen/spacing_medium_large" />
 
 					<TextView
 						style="@style/NextStep.Text.Bold"
@@ -181,45 +210,6 @@
 				</LinearLayout>
 
 			</androidx.constraintlayout.widget.ConstraintLayout>
-
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="@dimen/spacing_medium"
-				android:layout_marginEnd="@dimen/spacing_medium"
-				android:layout_marginBottom="@dimen/spacing_medium"
-				android:background="@color/status_blue_bg"
-				android:orientation="horizontal"
-				android:padding="@dimen/spacing_medium">
-
-				<ImageView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginEnd="@dimen/spacing_very_small"
-					android:src="@drawable/ic_info"
-					android:tint="@color/dark_main" />
-
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="vertical">
-
-					<TextView
-						style="@style/NextStep.Text.Bold"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginBottom="@dimen/spacing_very_small"
-						android:text="@string/meldungen_detail_free_test_title" />
-
-					<TextView
-						style="@style/NextStep.Text"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:text="@string/meldungen_detail_free_test_text" />
-
-				</LinearLayout>
-
-			</LinearLayout>
 
 			<LinearLayout
 				android:layout_width="match_parent"

@@ -11,7 +11,7 @@ package ch.admin.bag.dp3t.networking.models;
 
 import java.util.HashMap;
 
-class InfoBoxModelCollection extends HashMap<String, InfoBoxModel> {
+public class InfoBoxModelCollection extends HashMap<String, InfoBoxModel> {
 
 	private static final String KEY_POSTFIX = "InfoBox";
 

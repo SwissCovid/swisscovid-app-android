@@ -11,6 +11,7 @@
 package ch.admin.bag.dp3t.util;
 
 import android.graphics.Typeface;
+import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
@@ -19,6 +20,22 @@ import androidx.annotation.NonNull;
 import java.math.BigInteger;
 
 public class StringUtil {
+
+	/**
+	 * Creates a spannable where the {@code boldString} is set to bold within the {@code fullString}.
+	 * Be aware that this only applies to the first occurence.
+	 *
+	 * @param fullString The entire string
+	 * @param boldString The partial string to be made bold
+	 * @return A partially bold spannable
+	 */
+	public static Spannable makePartiallyBold(@NonNull String fullString, @NonNull String boldString) {
+		int start = fullString.indexOf(boldString);
+		if (start >= 0) {
+			return makePartiallyBold(fullString, start, start + boldString.length());
+		}
+		return new SpannableString(fullString);
+	}
 
 	public static SpannableString makePartiallyBold(@NonNull String string, int start, int end) {
 		SpannableString result = new SpannableString(string);

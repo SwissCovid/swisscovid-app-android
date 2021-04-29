@@ -11,13 +11,20 @@ package ch.admin.bag.dp3t.inform;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.TimeZone;
+
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.util.DateUtils;
 
 public class ThankYouFragment extends Fragment {
+
+	private SecureStorage secureStorage;
 
 	public static ThankYouFragment newInstance() {
 		return new ThankYouFragment();
@@ -28,10 +35,36 @@ public class ThankYouFragment extends Fragment {
 	}
 
 	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		secureStorage = SecureStorage.getInstance(getContext());
+	}
+
+	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
 		((InformActivity) requireActivity()).allowBackButton(false);
+
+		// Show the onset date in the thank you message
+		TextView thankYouInfoTextView = view.findViewById(R.id.inform_thank_you_text_info);
+		TextView onsetDateTextView = view.findViewById(R.id.inform_thank_you_text_onsetdate);
+		TextView stopInfectionChainsTextView = view.findViewById(R.id.inform_thank_you_text_stop_infection_chains);
+
+		long oldestSharedKeyDateMillis = secureStorage.getPositiveReportOldestSharedKey();
+		if (oldestSharedKeyDateMillis > 0L) {
+			String formattedDate = DateUtils.getFormattedDateWrittenMonth(oldestSharedKeyDateMillis, TimeZone.getTimeZone("UTC"));
+			String formattedOnsetDateText =
+					getString(R.string.inform_send_thankyou_text_onsetdate).replace("{ONSET_DATE}", formattedDate);
+
+			thankYouInfoTextView.setText(R.string.inform_send_thankyou_text_onsetdate_info);
+			onsetDateTextView.setText(formattedOnsetDateText);
+			stopInfectionChainsTextView.setText(R.string.inform_send_thankyou_text_stop_infection_chains);
+		} else {
+			thankYouInfoTextView.setText(R.string.inform_send_thankyou_text);
+			onsetDateTextView.setVisibility(View.GONE);
+			stopInfectionChainsTextView.setVisibility(View.GONE);
+		}
 
 		view.findViewById(R.id.inform_thank_you_button_continue).setOnClickListener(v -> {
 			getParentFragmentManager().beginTransaction()

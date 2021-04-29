@@ -72,19 +72,9 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 			secureStorage.doForceUpdate = config.doForceUpdate
 			secureStorage.setWhatToDoPositiveTestTexts(config.whatToDoPositiveTestTexts)
 
-			val info = config.getInfoBox(context.getString(R.string.language_key))
-			if (info != null) {
-				if (info.infoId == null || info.infoId != secureStorage.infoboxId) {
-					//Only update the infobox if it has a new ID.
-					secureStorage.infoboxTitle = info.title
-					secureStorage.infoboxText = info.msg
-					secureStorage.infoboxLinkTitle = info.urlTitle
-					secureStorage.infoboxLinkUrl = info.url
-					secureStorage.infoboxId = info.infoId
-					secureStorage.infoboxDismissible = info.dismissible
-					secureStorage.infoboxHearingImpairedInfo = info.hearingImpairedInfo
-					secureStorage.hasInfobox = true
-				}
+			if (config.infoBox != null) {
+				secureStorage.infoBoxCollection = config.infoBox
+				secureStorage.hasInfobox = true
 			} else {
 				secureStorage.hasInfobox = false
 			}

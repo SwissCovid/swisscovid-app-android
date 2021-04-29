@@ -13,6 +13,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -27,19 +29,19 @@ import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.updateboarding.UpdateBoardingActivity;
 import ch.admin.bag.dp3t.util.UrlUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
 
 import static ch.admin.bag.dp3t.inform.InformActivity.EXTRA_COVIDCODE;
+import static ch.admin.bag.dp3t.updateboarding.UpdateBoardingActivity.UPDATE_BOARDING_VERSION;
 import static ch.admin.bag.dp3t.util.NotificationUtil.ACTION_ACTIVATE_TRACING;
 
 public class MainActivity extends FragmentActivity {
 
 	public static final String ACTION_EXPOSED_GOTO_REPORTS = "ACTION_EXPOSED_GOTO_REPORTS";
 	public static final String ACTION_INFORMED_GOTO_REPORTS = "ACTION_INFORMED_GOTO_REPORTS";
-
-	private static final int REQ_ONBOARDING = 123;
 
 	private static final String STATE_CONSUMED_EXPOSED_INTENT = "STATE_CONSUMED_EXPOSED_INTENT";
 	private static final String STATE_CONSUMED_COVIDCODE_INTENT = "STATE_CONSUMED_COVIDCODE_INTENT";
@@ -50,6 +52,17 @@ public class MainActivity extends FragmentActivity {
 	private TracingViewModel tracingViewModel;
 
 	private AlertDialog forceUpdateDialog;
+
+	private final ActivityResultLauncher<Intent> onAndUpdateBoardingLauncher =
+			registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResult -> {
+				if (activityResult.getResultCode() == RESULT_OK) {
+					secureStorage.setLastShownUpdateBoardingVersion(UPDATE_BOARDING_VERSION);
+					secureStorage.setOnboardingCompleted(true);
+					showHomeFragment();
+				} else {
+					finish();
+				}
+			});
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +97,13 @@ public class MainActivity extends FragmentActivity {
 
 		if (savedInstanceState == null) {
 			boolean onboardingCompleted = secureStorage.getOnboardingCompleted();
-			if (onboardingCompleted) {
-				showHomeFragment();
+			int lastShownUpdateBoardingVersion = secureStorage.getLastShownUpdateBoardingVersion();
+			if (!onboardingCompleted) {
+				onAndUpdateBoardingLauncher.launch(new Intent(this, OnboardingActivity.class));
+			} else if (lastShownUpdateBoardingVersion < UPDATE_BOARDING_VERSION) {
+				onAndUpdateBoardingLauncher.launch(new Intent(this, UpdateBoardingActivity.class));
 			} else {
-				startActivityForResult(new Intent(this, OnboardingActivity.class), REQ_ONBOARDING);
+				showHomeFragment();
 			}
 		} else {
 			consumedExposedIntent = savedInstanceState.getBoolean(STATE_CONSUMED_EXPOSED_INTENT);
@@ -206,14 +222,6 @@ public class MainActivity extends FragmentActivity {
 	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		DP3T.onActivityResult(this, requestCode, resultCode, data);
-		if (requestCode == REQ_ONBOARDING) {
-			if (resultCode == RESULT_OK) {
-				secureStorage.setOnboardingCompleted(true);
-				showHomeFragment();
-			} else {
-				finish();
-			}
-		}
 	}
 
 }

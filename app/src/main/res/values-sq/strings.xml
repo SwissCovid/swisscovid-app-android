@@ -626,9 +626,9 @@ Biseda e konsultës është falas, aplikohen vetëm tarifat e telefonit."</strin
     <string name="inform_detail_faq1_title">"Çfarë është një kod Covid?"</string>
 
     <!-- Inform Detail: FAQ Text -->
-    <string name="inform_detail_faq1_text">"Personat që kanë rezultuar pozitivë me koronavirusin marrin një kod Covid.
+    <string name="inform_detail_faq1_text">"Njerëzit që kanë rezultuar pozitivë për koronavirusin (test PCR ose test i shpejtë i antigjenit) marrin një kod Covid.
 
-Në këtë mënyrë sigurohet që nga aplikacioni të sinjalizohen vetëm rastet e konfirmuara."</string>
+Kjo siguron se vetëm rastet e konfirmuara raportohen përmes aplikacionit."</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"Çfarë dërgohet?"</string>
@@ -891,7 +891,8 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"Testi pa kosto është i mundur"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"Udhëzuesi \"SwissCovid\" ju informon për mundësinë e një testi falas të koronavirusit."</string>
+    <!-- Fuzzy -->
+    <string name="meldungen_detail_free_test_text_old">"Udhëzuesi \"SwissCovid\" ju informon për mundësinë e një testi falas të koronavirusit."</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"Aktivizo gjurmimin"</string>
@@ -1330,7 +1331,8 @@ Koha është faktor vendimtar në luftën ndaj koronavirusit: sa më e shkurtër
     <string name="stats_cases_current_description">"Grafiku tregon infeksionet e reja të raportuara gjatë 28 ditëve të fundit. Kjo jep një pasqyrë të rasteve aktuale."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Keni rezultuar pozitiv në testim dhe pas 4 orësh nuk keni marrë ende asnjë kod Covid? Atëherë kontaktoni linjën e informacionit për kodin Covid:"</string>
+    <string name="inform_detail_infobox1_text">"A keni testuar pozitiv (nga test PCR ose test i shpejtë antigjeni) dhe nuk keni marrë një kod Covid pas 4 orësh? 
+Atëherë kontaktoni qendrën telefonike të koronavirusit:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Nuk keni marrë ende asnjë kod Covid?"</string>
@@ -1364,4 +1366,52 @@ Koha është faktor vendimtar në luftën ndaj koronavirusit: sa më e shkurtër
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
     <string name="stats_cases_rel_prev_week_popup_header">"Ndryshimi me javën e mëparshme"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Titel (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_title">"Kush njoftohet?"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_text">"Të gjithë kontaktet në periudhën e fazës tuaj të infektimit nga {ONSET_DATE} deri në hyrjen e kodit Covid njoftohen nëse ekziston mundësia e infektimit për shkak të distancës dhe kohëzgjatjes."</string>
+
+    <!-- Informieren: Danke Text Onset Date -->
+    <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – sot"</string>
+
+    <!-- Informieren: Danke Text Abschluss -->
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Duke vepruar kështu, ju ndihmoni të ndaloni zinxhirin e infektimit."</string>
+
+    <!-- Informieren: Danke Text Onset Date Einleitung -->
+    <string name="inform_send_thankyou_text_onsetdate_info">"Çelësat privatë të aplikacionit tuaj janë dërguar për periudhën kohore vijuese:"</string>
+
+    <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
+    <string name="android_inform_tracing_enabled_explanation">"Kur futni një kod Covid, gjurmimi duhet të aktivizohet në mënyrë që çelësat tuaj privatë të mund të shpërndahen."</string>
+
+    <!-- Leitfaden Info Popup Text -->
+    <string name="leitfaden_infopopup_text">"Nëse shtypni \"{BUTTON_TITLE}\", dilni nga aplikacioni dhe kaloni në faqen e internetit të udhëzuesit SwissCovid. Të dhënat e takimeve të fundit të infektimeve të mundshme dërgohen gjithashtu në faqen e internetit."</string>
+
+    <!-- Leitfaden InfoPopup Titel -->
+    <string name="leitfaden_infopopup_title">"Informacion për udhëzuesin SwissCovid"</string>
+
+    <!-- Update Boarding: Titel -->
+    <string name="germany_update_boarding_title">"E pajtueshme me Gjermaninë"</string>
+
+    <!-- Update Boarding: Text -->
+    <string name="germany_update_boarding_text">"Ju gjithashtu informoheni nëse keni qenë në kontakt me një person që përdor aplikacionin gjerman Corona-Warn-App dhe më vonë keni rezultuar pozitiv dhe anasjelltas. Për këtë qëllim, kushtet e përdorimit dhe deklarata për mbrojtjen e të dhënave janë aktualizuar."</string>
+
+    <!-- Update Boarding: Heading oben -->
+    <string name="germany_update_boarding_heading">"Aktualizimi i SwissCovid"</string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Rivendos update boarding"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"Një test i koronavirusit është i dobishëm dhe rekomandohet që nga dita e 5-të pas datës së treguar të kontaktit."</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_in_x_tagen">"Në {COUNT} ditë"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_now">"Tani"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_tomorrow">"Në 1 ditë"</string>
 </resources>

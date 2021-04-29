@@ -608,7 +608,9 @@
 
     <!-- Inform Detail: FAQ Text -->
     <!-- Fuzzy -->
-    <string name="inform_detail_faq1_text">"ውጽኢት መርመርኦም ፖዚቲቭ ዝኾኑ ሰባት ኮቪድኮድ ይውሃቦም። ብኸምዚ መንገዲ እቶም ሕማም ዝተረጋገጸሎም ሰባት ጥራይ በቲ ኣፕ ከምዝምዝገቡ ይረጋገጽ። "</string>
+    <string name="inform_detail_faq1_text">"ሰባት ኮሮናቫይረስ ከምዘለዎም ምስዝረጋግጽ / ፖዚቲቭ ምስኮኑ (ናይ PCR መርመራ ወይ ቅልጡፍ መርመራ ጸረ-ፈርዒ) ሓደ ኮቪድ-ኮድ ክወሃቡ እዮም።
+
+ሽዑ ጥራይ ዝተረጋገጹ ጉዳያት በቲ ኤፕ ክሕበሩ ከምዝኾኑ ተረጋጊጹ።"</string>
 
     <!-- Inform Detail: FAQ Titel -->
     <string name="inform_detail_faq2_title">"እንታይ እዩ ዝስደድ፧ "</string>
@@ -865,7 +867,8 @@ Schwarzenburgstrasse 157
     <string name="meldungen_detail_free_test_title">"ነጻ መርመራ ይከኣል'ዩ"</string>
 
     <!-- Meldungen Detail Kostenloser Test Box Text -->
-    <string name="meldungen_detail_free_test_text">"መምርሒ SwissCovid ብዛዕባ ኣማራጺ ነጻ ዝኾነ መርመራ ኮሮናቫይረስ ይሕብረኩም።"</string>
+    <!-- Fuzzy -->
+    <string name="meldungen_detail_free_test_text_old">"መምርሒ SwissCovid ብዛዕባ ኣማራጺ ነጻ ዝኾነ መርመራ ኮሮናቫይረስ ይሕብረኩም።"</string>
 
     <!-- Button title on the Home Screen when the Tracing is deactivated to directly activate it. -->
     <string name="activate_tracing_button">"ንትራይሲንግ(Tracing) ምውላዕ"</string>
@@ -1304,8 +1307,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="stats_cases_current_description">"እቲ ስእሊ ነቶም ዝተሓበሩ ሓድሽቲ ልበዳታት ኣብ ዝሓለፉ 28 መዓልትታት የርኢ። እዚ ሓፈሻዊ ሓበሬታ ብዛዕባ ግዝያዊ ምዕባለ ይህብ።"</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"ኣወንታዊ ኮቪድ ኣባኹም ተረጋጊጹ፣ ድሕሪ 4 ሰዓት ናይ ኮቪድ ኮድ ገና ኣይተወሃብኩምን፧
-ሽዑ ናይ ኮቪድ-ኮድ ሓበሬታ ስልኪ ርኸቡ፥"</string>
+    <string name="inform_detail_infobox1_text">"ፖዚቲቭ ተመርሚርኩም (ናይ PCR መርመራ ወይ ቅልጡፍ መርመራ ጸረ-ፈርዒ) ከምኡ'ውን ድሕሪ 4 ሰዓት ገና ናይ ኮቪድ ኮድ ኣይተወሃብኩምን፧ ሽዑ እቲ ኢንፎላይን ኮሮናቫይረስ ርኸቡ ኢኹም፥"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"ናይ ኮቪድ ኮድ ገና የብልኩምን፧"</string>
@@ -1339,4 +1341,52 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
 
     <!-- Überschrift im Popup für die "Veränderung zur Vorwoche" Statistik -->
     <string name="stats_cases_rel_prev_week_popup_header">"ቅያር ካብ ዝሓለፈ ሰሙን"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Titel (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_title">"መን ክሕበር እዩ፧"</string>
+
+    <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
+    <string name="meldungen_positive_tested_faq2_text">"ኩሎም ኣብ እዋንኩም መልከፍቲ ካብ {ONSET_DATE} ክሳብ ምእታው ኮቪድ-ኮድ ዝነበረኩም ርክባት ክሕበሩ እዮም፣ ብምኽንያት ርሕቐትን እዋንን ኣማራጺ ልበዳ እንድሕር ኔሩ።"</string>
+
+    <!-- Informieren: Danke Text Onset Date -->
+    <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – ሎሚ"</string>
+
+    <!-- Informieren: Danke Text Abschluss -->
+    <string name="inform_send_thankyou_text_stop_infection_chains">"ሽዑ ናይ ልበዳ ሰንሰለታት ንክቋረጹ ትሐባበሩ ኢኹም።"</string>
+
+    <!-- Informieren: Danke Text Onset Date Einleitung -->
+    <string name="inform_send_thankyou_text_onsetdate_info">"ግላውያን መፋትሕ ናይ ኤፕኩም ንዝስዕብ እዋን ተሰዲዶም ኔሮም፥"</string>
+
+    <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
+    <string name="android_inform_tracing_enabled_explanation">"ኣብ ምእታው ኮቪድ-ኮድ እቲ ምክትታል ክውላዕ ኣለዎ፣ ግላዊ መፍትሕኩም ክካፈል መታን ክከኣል።"</string>
+
+    <!-- Leitfaden Info Popup Text -->
+    <string name="leitfaden_infopopup_text">"መጠወቒ \"{BUTTON_TITLE}\" ትጥውቕዎ እንተኾይንኩም፣ ካብቲ ኤፕ ትወጽኡ ከምኡ'ውን ናብቲ መርበብ ኢንተርነት መምርሒ SwissCovid ክትቕይሩ። ሽዑ ሓበሬታ/ዳታ ናይ ተፈጺሞም ዝኾኑ ልበዳታት ናይቲ ዝሓለፈ ምርኽኻብ ካብቲ መርበብ ኢንተርነት እንተላይ ይስደዱ።"</string>
+
+    <!-- Leitfaden InfoPopup Titel -->
+    <string name="leitfaden_infopopup_title">"ሓበሬታ መምርሒ SwissCovid"</string>
+
+    <!-- Update Boarding: Titel -->
+    <string name="germany_update_boarding_title">"ምስ ጀርመን ዝሰማማዕ "</string>
+
+    <!-- Update Boarding: Text -->
+    <string name="germany_update_boarding_text">"ዋላ ምስ ናይ መጠንቀቕታ ኮሮና ኤፕ ዝጥቐምን ድሓር ፖዚቲቭ ዝተመርመረን ሰብ ምርኽኻብ እንተነበረኩም ንስኹም ዋላ ክትሕበሩ ኢኹም። ሽዑ እቶም ናይ ኣጠቓቕማ ኩነታት ከምኡ'ውን ስምምዕ ምክልኻል ዳታ ክሕደሱ እዮም።"</string>
+
+    <!-- Update Boarding: Heading oben -->
+    <string name="germany_update_boarding_heading">"ምምሕዳስ SwissCovid"</string>
+
+    <!-- Debug Screen: Update-Boarding Reset Button -->
+    <string name="reset_update_boarding">"Reset update boarding"</string>
+
+    <!-- Meldungen Detail Kostenloser Test Box Text -->
+    <string name="meldungen_detail_free_test_text">"መርመራ ኮሮና ካብ 5ይ መዓልቲ ድሕሪ ዝተረኣየ ዕለት ርክብ ጠቓሚ እዩ ከምኡ'ውን ክግበር ይመርጽ።"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt in wievielen Tagen ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_in_x_tagen">"ኣብ {COUNT} መዓልትታት"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass jetzt ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_now">"ሕጂ"</string>
+
+    <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
+    <string name="meldungen_detail_free_test_tomorrow">"ኣብ 1 መዓልቲ"</string>
 </resources>

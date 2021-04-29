@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.Spannable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -31,16 +32,18 @@ import androidx.transition.Transition;
 import androidx.transition.TransitionManager;
 
 import java.util.List;
+import java.util.TimeZone;
 
+import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.contacts.ReactivateTracingReminderDialog;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.util.NotificationUtil;
-import ch.admin.bag.dp3t.util.PhoneUtil;
-import ch.admin.bag.dp3t.util.UrlUtil;
+import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
+import ch.admin.bag.dp3t.whattodo.WhereToTestDialogFragment;
 
 public class ReportsFragment extends Fragment {
 
@@ -49,6 +52,10 @@ public class ReportsFragment extends Fragment {
 	}
 
 	private final int DAYS_TO_STAY_IN_QUARANTINE = 10;
+	private final int MAX_EXPOSURE_AGE_TO_DO_A_TEST = 10;
+	private final int MIN_EXPOSURE_AGE_TO_DO_A_TEST = 5;
+	private final long ONE_DAY_IN_MILLIS = 24L * 60 * 60 * 1000;
+
 	private TracingViewModel tracingViewModel;
 	private SecureStorage secureStorage;
 
@@ -93,10 +100,17 @@ public class ReportsFragment extends Fragment {
 		xDaysLeftTextview = saveOthersView.findViewById(R.id.x_days_left_textview);
 
 		Button openSwisscovidLeitfadenButton1 = leitfadenView.findViewById(R.id.card_encounters_button);
+		View leitfadenInfoButton1 = leitfadenView.findViewById(R.id.leitfaden_info_button);
 		Button openSwisscovidLeitfadenButton2 = saveOthersView.findViewById(R.id.card_encounters_button);
+		View leitfadenInfoButton2 = saveOthersView.findViewById(R.id.leitfaden_info_button);
 
 		openSwisscovidLeitfadenButton1.setOnClickListener(view1 -> openSwissCovidLeitfaden());
+		leitfadenInfoButton1.setOnClickListener(v -> showLeitfadenInfo(openSwisscovidLeitfadenButton1.getText().toString()));
 		openSwisscovidLeitfadenButton2.setOnClickListener(view1 -> openSwissCovidLeitfaden());
+		leitfadenInfoButton2.setOnClickListener(v -> showLeitfadenInfo(openSwisscovidLeitfadenButton2.getText().toString()));
+
+		setupFreeTestInfoBox(leitfadenView);
+		setupFreeTestInfoBox(saveOthersView);
 
 		View callHotlineButton1 = leitfadenView.findViewById(R.id.item_call_hotline_layout);
 		View callHotlineButton2 = saveOthersView.findViewById(R.id.item_call_hotline_layout);
@@ -129,12 +143,28 @@ public class ReportsFragment extends Fragment {
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				headerType = ReportsHeaderFragment.Type.POSITIVE_TESTED;
 				infectedView.setVisibility(View.VISIBLE);
+
+				long oldestSharedKeyDateMillis = secureStorage.getPositiveReportOldestSharedKey();
+				if (oldestSharedKeyDateMillis > 0L) {
+
+					infectedView.findViewById(R.id.card_encounters_faq_who_is_notified_container).setVisibility(View.VISIBLE);
+					String formattedDate =
+							DateUtils.getFormattedDateWrittenMonth(oldestSharedKeyDateMillis, TimeZone.getTimeZone("UTC"));
+					String faqText = getString(R.string.meldungen_positive_tested_faq2_text).replace("{ONSET_DATE}",
+							formattedDate);
+					Spannable formattedText = StringUtil.makePartiallyBold(faqText, formattedDate);
+					((TextView) infectedView.findViewById(R.id.card_encounters_faq_who_is_notified)).setText(formattedText);
+				} else {
+					infectedView.findViewById(R.id.card_encounters_faq_who_is_notified_container).setVisibility(View.GONE);
+				}
+
 				infectedView.findViewById(R.id.delete_reports).setOnClickListener(v -> {
 					AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle);
 					builder.setMessage(R.string.delete_infection_dialog)
 							.setPositiveButton(R.string.delete_infection_dialog_finish_button, (dialog, id) -> {
 								tracingStatusInterface.resetInfectionStatus(getContext());
 								secureStorage.setIsolationEndDialogTimestamp(-1L);
+								secureStorage.setPositiveReportOldestSharedKey(-1L);
 								getParentFragmentManager().popBackStack();
 							})
 							.setNegativeButton(R.string.cancel, (dialog, id) -> {
@@ -195,6 +225,51 @@ public class ReportsFragment extends Fragment {
 		builder.show();
 	}
 
+	private void setupFreeTestInfoBox(@NonNull View view) {
+
+		View testLocationsButton = view.findViewById(R.id.testlocations_link);
+		testLocationsButton.setOnClickListener(v -> showWhereToTestDialog());
+
+		TextView testCountdownTextView = view.findViewById(R.id.test_countdown_textview);
+
+		List<ExposureDay> exposureDays = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays();
+		DayDate today = new DayDate();
+		DayDate oldestExposure = null; // This includes only exposures that are newer than MIN_EXPOSURE_AGE_TO_DO_A_TEST
+
+		for (ExposureDay exposureDay : exposureDays) {
+			if (exposureDay.getExposedDate().addDays(MIN_EXPOSURE_AGE_TO_DO_A_TEST).isBeforeOrEquals(today) &&
+					!exposureDay.getExposedDate().addDays(MAX_EXPOSURE_AGE_TO_DO_A_TEST).isBefore(today)) {
+				testCountdownTextView.setText(R.string.meldungen_detail_free_test_now);
+				return;
+			}
+			if (!exposureDay.getExposedDate().addDays(MIN_EXPOSURE_AGE_TO_DO_A_TEST).isBeforeOrEquals(today)) {
+				if (oldestExposure == null || exposureDay.getExposedDate().isBefore(oldestExposure)) {
+					oldestExposure = exposureDay.getExposedDate();
+				}
+			}
+		}
+
+		if (oldestExposure != null) {
+			int daysSinceFirstExposure =
+					(int) ((today.getStartOfDayTimestamp() - oldestExposure.getStartOfDayTimestamp()) / ONE_DAY_IN_MILLIS);
+			int daysUntilTest = MIN_EXPOSURE_AGE_TO_DO_A_TEST - daysSinceFirstExposure;
+			if (daysUntilTest == 1) {
+				testCountdownTextView.setText(R.string.meldungen_detail_free_test_tomorrow);
+			} else {
+				testCountdownTextView.setText(getString(R.string.meldungen_detail_free_test_in_x_tagen)
+						.replace("{COUNT}", String.valueOf(daysUntilTest)));
+			}
+		} else {
+			testCountdownTextView.setVisibility(View.GONE);
+		}
+	}
+
+	private void showWhereToTestDialog() {
+		requireActivity().getSupportFragmentManager().beginTransaction()
+				.add(WhereToTestDialogFragment.newInstance(), WhereToTestDialogFragment.class.getCanonicalName())
+				.commit();
+	}
+
 	private void openLink(@StringRes int stringRes) {
 		UrlUtil.openUrl(getContext(), getString(stringRes));
 	}
@@ -215,6 +290,14 @@ public class ReportsFragment extends Fragment {
 			delimiter = ",";
 		}
 		UrlUtil.openUrl(getContext(), getString(R.string.swisscovid_leitfaden_url).replace("{CONTACT_DATES}", contactDates));
+	}
+
+	private void showLeitfadenInfo(String buttonTitleReplacementText) {
+		String title = getString(R.string.leitfaden_infopopup_title);
+		String subtitle = getString(R.string.leitfaden_infopopup_text).replace("{BUTTON_TITLE}", buttonTitleReplacementText);
+		requireActivity().getSupportFragmentManager().beginTransaction().add(
+				SimpleDismissableDialog.newInstance(title, subtitle),
+				ReactivateTracingReminderDialog.class.getCanonicalName()).commit();
 	}
 
 	private void callHotline() {
