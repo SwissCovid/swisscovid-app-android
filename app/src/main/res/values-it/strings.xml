@@ -1447,4 +1447,178 @@ Contatta la Infoline coronavirus:"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
     <string name="meldungen_detail_free_test_tomorrow">"Fra 1 giorno"</string>
+
+    <!-- Check-Ins: Titel vom Reminder Push -->
+    <string name="checkout_reminder_title"></string>
+
+    <!-- Check-Ins: Check-out Reminder Push Text -->
+    <string name="checkout_reminder_text"></string>
+
+    <!-- Check-Ins: Auto-Checkout Push Titel -->
+    <string name="auto_checkout_title"></string>
+
+    <!-- Check-Ins: Auto-checkout Push Text -->
+    <string name="auto_checkout_body"></string>
+
+    <!-- Check-Ins: Qr-Scanner Text -->
+    <string name="qrscanner_scan_qr_text"></string>
+
+    <!-- Check-Ins: Fehler beim QR-Code scannen -->
+    <string name="qrscanner_error"></string>
+
+    <!-- Check-Ins: Anpassung Check-In Datumwahl von -->
+    <string name="datepicker_from"></string>
+
+    <!-- Check-Ins: Datumsauswahl bis -->
+    <string name="datepicker_to"></string>
+
+    <!-- Check-Ins: Notiz hinzufügen zu Check-In -->
+    <string name="edit_mode_addcomment"></string>
+
+    <!-- Check-Ins: Notiz zu Check-In Placeholder Text -->
+    <string name="edit_mode_comment_placeholder"></string>
+
+    <!-- Fertig Button Text -->
+    <string name="done_button"></string>
+
+    <!-- Check-Ins: Titel für Erinnerung -->
+    <string name="checkin_set_reminder"></string>
+
+    <!-- Check-Ins: Erinnerung Option Aus -->
+    <string name="reminder_option_off"></string>
+
+    <!-- Check-Ins: Tagebuch Zugriff Text -->
+    <string name="authenticate_for_diary"></string>
+
+    <!-- Check-Ins: Errinnerungsoption Stunden -->
+    <string name="reminder_option_hours"></string>
+
+    <!-- Check-Ins: Errinnerungsoption Minuten -->
+    <string name="reminder_option_minutes"></string>
+
+    <!-- Check-Ins: Fehler wenn Kamera-Erlaubnis nicht gegeben -->
+    <string name="qr_scanner_no_camera_permission"></string>
+
+    <!-- Check-Ins: Tagebuch Titel -->
+    <string name="diary_title"></string>
+
+    <!-- Check-Ins: Button Titel zum Einchecken -->
+    <string name="checkin_button_title"></string>
+
+    <!-- Check-Ins: iOS Kamera Erlaubnis Text -->
+    <string name="NSCameraUsageDescription"></string>
+
+    <!-- Check-Ins: FaceID Text um Tagebuch anzuschauen -->
+    <string name="NSFaceIDUsageDescription"></string>
+
+    <!-- Check-Ins: Text der angezeigt wieso FaceId gebraucht wird -->
+    <string name="face_id_reason_text"></string>
+
+    <!-- Check-Ins: Check-Out Button Title -->
+    <string name="checkout_button_title"></string>
+
+    <!-- Check-Ins: Titel Modul auf Homescreen -->
+    <string name="module_checkins_title"></string>
+
+    <!-- Check-Ins: Titel vom Check-In Screen -->
+    <string name="checkin_title"></string>
+
+    <!-- Check-Ins: QR-Code erstellen Titel -->
+    <string name="checkins_create_qr_code"></string>
+
+    <!-- Check-Ins: Veranstaltungen Titel -->
+    <string name="events_title"></string>
+
+    <!-- Check-Ins: Jetzt einchecken Button Titel -->
+    <string name="check_in_now_button_title"></string>
+
+    <!-- Check-Ins: Reminder Fehlermeldung Titel -->
+    <string name="checkin_reminder_settings_alert_title"></string>
+
+    <!-- Check-Ins: Erinnerungen Fehlermeldung Text -->
+    <string name="checkin_reminder_settings_alert_message"></string>
+
+    <!-- Check-Ins: Reminder Popup Anpassen -->
+    <string name="checkin_reminder_option_open_settings"></string>
+
+    <!-- Check-Ins: Bearbeiten von Check-Ins Titel -->
+    <string name="edit_controller_title"></string>
+
+    <!-- Check-Ins: Tagebuch leeres Tagbuch Titel -->
+    <string name="empty_diary_title"></string>
+
+    <!-- Check-Ins: Tagebuch leer, Text -->
+    <string name="empty_diary_text"></string>
+
+    <!-- Check-Ins: Kamera Erlaubnis Text -->
+    <string name="camera_permission_dialog_text"></string>
+
+    <!-- Check-Ins: Button Titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären -->
+    <string name="camera_permission_dialog_action"></string>
+
+    <!-- Check-Ins: Veranstaltung Titel Placeholder -->
+    <string name="web_generator_title_placeholder"></string>
+
+    <!-- Check-Ins: Veranstaltungen Titel Kategorie -->
+    <string name="web_generator_category_label"></string>
+
+    <!-- Check-Ins: Kategorie Andere -->
+    <string name="web_generator_category_other"></string>
+
+    <!-- Check-Ins: Kategorie Sitzungsraum -->
+    <string name="web_generator_category_meeting_room"></string>
+
+    <!-- Check-Ins: Kategorie Kafeteria -->
+    <string name="web_generator_category_cafeteria"></string>
+
+    <!-- Check-Ins: Kategorie Privater Event -->
+    <string name="web_generator_category_private_event"></string>
+
+    <!-- Check-Ins: Veranstaltungen Titel Titel -->
+    <string name="web_generator_title_label"></string>
+
+    <!-- Check-Ins: Veranstaltungen Detail PDF Button -->
+    <string name="show_pdf_button"></string>
+
+    <!-- Check-Ins: Kategorie Kantine -->
+    <string name="web_generator_category_canteen"></string>
+
+    <!-- Check-Ins: Kategorie Bibliothek -->
+    <string name="web_generator_category_library"></string>
+
+    <!-- Check-Ins: Kategorie Vorlesungssaal -->
+    <string name="web_generator_category_lecture_room"></string>
+
+    <!-- Check-Ins: Kategorie Laden -->
+    <string name="web_generator_category_shop"></string>
+
+    <!-- Check-Ins: Kategorie Fitnesscenter -->
+    <string name="web_generator_category_gym"></string>
+
+    <!-- Check-Ins: Kategorie Küchenbereich -->
+    <string name="web_generator_category_kitchen_area"></string>
+
+    <!-- Check-Ins: Kategorie Büroräume -->
+    <string name="web_generator_category_office_space"></string>
+    <string name="bottom_nav_tab_info"></string>
+    <string name="error_network_title"></string>
+    <string name="error_network_text"></string>
+    <string name="error_action_retry"></string>
+    <string name="error_notification_deactivated_title"></string>
+    <string name="error_notification_deactivated_text"></string>
+    <string name="error_action_change_settings"></string>
+    <string name="error_camera_permission_title"></string>
+    <string name="error_camera_permission_text"></string>
+    <string name="error_title"></string>
+    <string name="qr_scanner_error_code_not_yet_valid"></string>
+    <string name="qr_scanner_error_code_not_valid_anymore"></string>
+    <string name="error_already_checked_in"></string>
+    <string name="error_update_text"></string>
+    <string name="error_update_title"></string>
+    <string name="error_action_update"></string>
+    <string name="android_crowdnotifier_notification_channel_name"></string>
+    <string name="ongoing_notification_checkout_quick_action"></string>
+    <string name="reminder_notification_snooze_action"></string>
+    <string name="android_ongoing_checkin_notification_channel_name"></string>
+    <string name="ongoing_notification_title"></string>
 </resources>

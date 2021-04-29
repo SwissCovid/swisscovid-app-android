@@ -44,6 +44,8 @@ import org.dpppt.android.sdk.internal.logger.Logger;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment;
+import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
+import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
@@ -68,6 +70,7 @@ public class HomeFragment extends Fragment {
 
 	private static final String TAG = "HomeFragment";
 	private TracingViewModel tracingViewModel;
+	private CrowdNotifierViewModel crowdNotifierViewModel;
 	private HeaderView headerView;
 	private ScrollView scrollView;
 
@@ -102,6 +105,7 @@ public class HomeFragment extends Fragment {
 		secureStorage = SecureStorage.getInstance(getContext());
 
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
+		crowdNotifierViewModel = new ViewModelProvider(requireActivity()).get(CrowdNotifierViewModel.class);
 
 		getChildFragmentManager()
 				.beginTransaction()
@@ -365,21 +369,49 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupCheckinCard() {
-		checkinCard.setOnClickListener(
-				v -> requireActivity().getSupportFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, CheckinOverviewFragment.newInstance())
-						.addToBackStack(CheckinOverviewFragment.class.getCanonicalName())
-						.commit()
-		);
 
-		checkinCard.findViewById(R.id.checkin_scan).setOnClickListener(
-				v -> requireActivity().getSupportFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, CheckinOverviewFragment.newInstance())
-						.addToBackStack(CheckinOverviewFragment.class.getCanonicalName())
-						.commit()
-		);
+		checkinCard.setOnClickListener(v -> showCheckinOverviewFragment());
+
+		View checkinView = checkinCard.findViewById(R.id.checkin_view);
+		View checkoutView = checkinCard.findViewById(R.id.checkout_view);
+
+		crowdNotifierViewModel.isCheckedIn().observe(getViewLifecycleOwner(), isCheckedIn -> {
+			if (isCheckedIn) {
+				checkoutView.setVisibility(View.VISIBLE);
+				checkinView.setVisibility(View.GONE);
+				crowdNotifierViewModel.startCheckInTimer();
+			} else {
+				checkoutView.setVisibility(View.GONE);
+				checkinView.setVisibility(View.VISIBLE);
+			}
+		});
+
+		checkinCard.findViewById(R.id.checkin_button).setOnClickListener(v -> showQrCodeScannerFragment());
+		checkinCard.findViewById(R.id.checkout_button).setOnClickListener(v -> showCheckOutFragment());
+
+		TextView checkinTime = checkinCard.findViewById(R.id.checkin_time);
+		crowdNotifierViewModel.getTimeSinceCheckIn().observe(getViewLifecycleOwner(),
+				duration -> checkinTime.setText(StringUtil.getShortDurationString(duration)));
+	}
+
+	private void showCheckOutFragment() {
+		//TODO
+	}
+
+	private void showQrCodeScannerFragment() {
+		requireActivity().getSupportFragmentManager().beginTransaction()
+				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+				.replace(R.id.main_fragment_container, QrCodeScannerFragment.newInstance())
+				.addToBackStack(QrCodeScannerFragment.class.getCanonicalName())
+				.commit();
+	}
+
+	private void showCheckinOverviewFragment() {
+		requireActivity().getSupportFragmentManager().beginTransaction()
+				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+				.replace(R.id.main_fragment_container, CheckinOverviewFragment.newInstance())
+				.addToBackStack(CheckinOverviewFragment.class.getCanonicalName())
+				.commit();
 	}
 
 	private void setupTravelCard() {

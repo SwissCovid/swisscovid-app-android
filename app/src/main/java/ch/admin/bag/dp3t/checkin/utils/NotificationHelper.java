@@ -115,8 +115,8 @@ public class NotificationHelper {
 
 		Notification notification = getNotificationBuilder(CHANNEL_ID_EXPOSURE_NOTIFICATION)
 				.setContentIntent(createExposurePendingIntent(exposureId))
-				.setContentTitle(context.getString(R.string.exposure_notification_title))
-				.setContentText(context.getString(R.string.exposure_notification_body))
+				.setContentTitle(context.getString(R.string.push_exposed_title))
+				.setContentText(context.getString(R.string.push_exposed_text))
 				.build();
 
 		notificationManager.notify((int) exposureId, notification);

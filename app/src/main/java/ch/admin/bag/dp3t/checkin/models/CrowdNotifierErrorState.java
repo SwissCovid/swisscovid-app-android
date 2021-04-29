@@ -16,7 +16,9 @@ public enum CrowdNotifierErrorState {
 			R.drawable.ic_error),
 	QR_CODE_NOT_VALID_ANYMORE(R.string.error_title, R.string.qr_scanner_error_code_not_valid_anymore, R.string.android_button_ok,
 			R.drawable.ic_error),
-	ALREADY_CHECKED_IN(R.string.error_title, R.string.error_already_checked_in, R.string.android_button_ok, R.drawable.ic_error);
+	ALREADY_CHECKED_IN(R.string.error_title, R.string.error_already_checked_in, R.string.android_button_ok, R.drawable.ic_error),
+	UPDATE_REQUIRED(R.string.error_update_title, R.string.error_update_text, R.string.error_action_update,
+			R.drawable.ic_error);
 
 
 	@StringRes private int titleResId;

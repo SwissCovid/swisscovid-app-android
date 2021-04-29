@@ -1473,4 +1473,180 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Anzeige in der blauen Box im MeldungenDetail Screen, welche angibt dass in 1 Tag ein Test gemacht werden soll. -->
     <string name="meldungen_detail_free_test_tomorrow">"In 1 Tag"</string>
+
+    <!-- Check-Ins: Titel vom Reminder Push -->
+    <string name="checkout_reminder_title">"Check-out Erinnerung"</string>
+
+    <!-- Check-Ins: Check-out Reminder Push Text -->
+    <string name="checkout_reminder_text">"Möchten Sie auschecken?"</string>
+
+    <!-- Check-Ins: Auto-Checkout Push Titel -->
+    <string name="auto_checkout_title">"Automatischer Checkout"</string>
+
+    <!-- Check-Ins: Auto-checkout Push Text -->
+    <string name="auto_checkout_body">"Sie wurden automatisch ausgecheckt."</string>
+
+    <!-- Check-Ins: Qr-Scanner Text -->
+    <string name="qrscanner_scan_qr_text">"QR-Code scannen und einchecken"</string>
+
+    <!-- Check-Ins: Fehler beim QR-Code scannen -->
+    <string name="qrscanner_error">"Kein gültiger QR-Code!"</string>
+
+    <!-- Check-Ins: Anpassung Check-In Datumwahl von -->
+    <string name="datepicker_from">"Von"</string>
+
+    <!-- Check-Ins: Datumsauswahl bis -->
+    <string name="datepicker_to">"Bis"</string>
+
+    <!-- Check-Ins: Notiz hinzufügen zu Check-In -->
+    <string name="edit_mode_addcomment">"Notiz hinzufügen"</string>
+
+    <!-- Check-Ins: Notiz zu Check-In Placeholder Text -->
+    <string name="edit_mode_comment_placeholder">"zb. Mit wem waren Sie da?"</string>
+
+    <!-- Fertig Button Text -->
+    <string name="done_button">"Fertig"</string>
+
+    <!-- Check-Ins: Titel für Erinnerung -->
+    <string name="checkin_set_reminder">"Check-out Erinnerung"</string>
+
+    <!-- Check-Ins: Erinnerung Option Aus -->
+    <string name="reminder_option_off">"Aus"</string>
+
+    <!-- Check-Ins: Tagebuch Zugriff Text -->
+    <string name="authenticate_for_diary">"Authentifizieren Sie sich für den Zugriff auf das Tagebuch"</string>
+
+    <!-- Check-Ins: Errinnerungsoption Stunden -->
+    <string name="reminder_option_hours">"{HOURS} h"</string>
+
+    <!-- Check-Ins: Errinnerungsoption Minuten -->
+    <string name="reminder_option_minutes">"{MINUTES}'"</string>
+
+    <!-- Check-Ins: Fehler wenn Kamera-Erlaubnis nicht gegeben -->
+    <string name="qr_scanner_no_camera_permission">"Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können."</string>
+
+    <!-- Check-Ins: Tagebuch Titel -->
+    <string name="diary_title">"Tagebuch"</string>
+
+    <!-- Check-Ins: Button Titel zum Einchecken -->
+    <string name="checkin_button_title">"Check-in"</string>
+
+    <!-- Check-Ins: iOS Kamera Erlaubnis Text -->
+    <string name="NSCameraUsageDescription">"Die Kamera wird benötigt, um den QR-Code zu scannen."</string>
+
+    <!-- Check-Ins: FaceID Text um Tagebuch anzuschauen -->
+    <string name="NSFaceIDUsageDescription">"Erlauben Sie Face-ID, um sicher auf Ihr Tagebuch zuzugreifen."</string>
+
+    <!-- Check-Ins: Text der angezeigt wieso FaceId gebraucht wird -->
+    <string name="face_id_reason_text">"Authentifizieren Sie sich für den Zugriff auf das Tagebuch"</string>
+
+    <!-- Check-Ins: Check-Out Button Title -->
+    <string name="checkout_button_title">"Check-out"</string>
+
+    <!-- Check-Ins: Titel Modul auf Homescreen -->
+    <string name="module_checkins_title">"Check-Ins"</string>
+
+    <!-- Check-Ins: Titel vom Check-In Screen -->
+    <string name="checkin_title">"Check-In"</string>
+
+    <!-- Check-Ins: QR-Code erstellen Titel -->
+    <string name="checkins_create_qr_code">"QR-Code erstellen"</string>
+
+    <!-- Check-Ins: Veranstaltungen Titel -->
+    <string name="events_title">"Veranstaltungen"</string>
+
+    <!-- Check-Ins: Jetzt einchecken Button Titel -->
+    <string name="check_in_now_button_title">"Jetzt einchecken"</string>
+
+    <!-- Check-Ins: Reminder Fehlermeldung Titel -->
+    <string name="checkin_reminder_settings_alert_title">"Die Erinnerung konnte nicht gesetzt werden"</string>
+
+    <!-- Check-Ins: Erinnerungen Fehlermeldung Text -->
+    <string name="checkin_reminder_settings_alert_message">"Damit Sie Check-out Erinnerungen erhalten, müssen Sie \\"Mitteilungen\\" in den App-Einstellungen erlauben."</string>
+
+    <!-- Check-Ins: Reminder Popup Anpassen -->
+    <string name="checkin_reminder_option_open_settings">"Anpassen"</string>
+
+    <!-- Check-Ins: Bearbeiten von Check-Ins Titel -->
+    <string name="edit_controller_title">"Bearbeiten"</string>
+
+    <!-- Check-Ins: Tagebuch leeres Tagbuch Titel -->
+    <string name="empty_diary_title">"Noch keine Tagebucheinträge vorhanden"</string>
+
+    <!-- Check-Ins: Tagebuch leer, Text -->
+    <string name="empty_diary_text">"Die Veranstaltungen, die besucht wurden, erscheinen im Tagebuch nach dem Check-out."</string>
+
+    <!-- Check-Ins: Kamera Erlaubnis Text -->
+    <string name="camera_permission_dialog_text">"SwissCovid benötigt Zugriff auf die Kamera Ihres Gerätes. Die Kamera wird nur verwendet, um QR Codes zu scannen."</string>
+
+    <!-- Check-Ins: Button Titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären -->
+    <string name="camera_permission_dialog_action">"Kamera-Zugriff erlauben"</string>
+
+    <!-- Check-Ins: Veranstaltung Titel Placeholder -->
+    <!-- Fuzzy -->
+    <string name="web_generator_title_placeholder">"z.B. Raum- oder Eventname"</string>
+
+    <!-- Check-Ins: Veranstaltungen Titel Kategorie -->
+    <!-- Fuzzy -->
+    <string name="web_generator_category_label">"Kategorie"</string>
+
+    <!-- Check-Ins: Kategorie Andere -->
+    <string name="web_generator_category_other">"Andere"</string>
+
+    <!-- Check-Ins: Kategorie Sitzungsraum -->
+    <string name="web_generator_category_meeting_room">"Sitzungsraum"</string>
+
+    <!-- Check-Ins: Kategorie Kafeteria -->
+    <string name="web_generator_category_cafeteria">"Kafeteria"</string>
+
+    <!-- Check-Ins: Kategorie Privater Event -->
+    <string name="web_generator_category_private_event">"Privater Event"</string>
+
+    <!-- Check-Ins: Veranstaltungen Titel Titel -->
+    <string name="web_generator_title_label">"Titel"</string>
+
+    <!-- Check-Ins: Veranstaltungen Detail PDF Button -->
+    <string name="show_pdf_button">"Druck-PDF anzeigen"</string>
+
+    <!-- Check-Ins: Kategorie Kantine -->
+    <string name="web_generator_category_canteen">"Kantine"</string>
+
+    <!-- Check-Ins: Kategorie Bibliothek -->
+    <string name="web_generator_category_library">"Bibliothek"</string>
+
+    <!-- Check-Ins: Kategorie Vorlesungssaal -->
+    <string name="web_generator_category_lecture_room">"Vorlesungssaal"</string>
+
+    <!-- Check-Ins: Kategorie Laden -->
+    <string name="web_generator_category_shop">"Laden"</string>
+
+    <!-- Check-Ins: Kategorie Fitnesscenter -->
+    <string name="web_generator_category_gym">"Fitnesscenter"</string>
+
+    <!-- Check-Ins: Kategorie Küchenbereich -->
+    <string name="web_generator_category_kitchen_area">"Küchenbereich"</string>
+
+    <!-- Check-Ins: Kategorie Büroräume -->
+    <string name="web_generator_category_office_space">"Büroräume"</string>
+    <string name="bottom_nav_tab_info">"Info"</string>
+    <string name="error_network_title">"Netzwerk Fehler"</string>
+    <string name="error_network_text">"Überprüfen Sie Ihre Internet Verbindung."</string>
+    <string name="error_action_retry">"Erneut versuchen"</string>
+    <string name="error_notification_deactivated_title">"Mitteilungen deaktiviert"</string>
+    <string name="error_notification_deactivated_text">"Ändern Sie die Einstellungen, um bei einer Meldung direkt informiert zu werden."</string>
+    <string name="error_action_change_settings">"Einstellungen ändern"</string>
+    <string name="error_camera_permission_title">"Kein Zugriff auf Kamera"</string>
+    <string name="error_camera_permission_text">"Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können."</string>
+    <string name="error_title">"Fehler"</string>
+    <string name="qr_scanner_error_code_not_yet_valid">"QR-Code noch nicht gültig"</string>
+    <string name="qr_scanner_error_code_not_valid_anymore">"QR-Code nicht mehr gültig"</string>
+    <string name="error_already_checked_in">"Sie sind bereits eingecheckt."</string>
+    <string name="error_update_text">"Dieser QR Code ist nicht kompatibel mit der installierten App Version. Führen Sie ein Update der App durch, um den QR Code zu scannen."</string>
+    <string name="error_update_title">"Update benötigt"</string>
+    <string name="error_action_update">"Jetzt updaten"</string>
+    <string name="android_crowdnotifier_notification_channel_name">"CrowdNotifier Meldungen"</string>
+    <string name="ongoing_notification_checkout_quick_action">"Check out"</string>
+    <string name="reminder_notification_snooze_action">"Snooze"</string>
+    <string name="android_ongoing_checkin_notification_channel_name">"Permanente Checkin Meldung"</string>
+    <string name="ongoing_notification_title">"Sie sind eingecheckt seit {TIME} Uhr."</string>
 </resources>
