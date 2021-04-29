@@ -42,7 +42,7 @@ android {
 		minSdkVersion 23
 		targetSdkVersion 30
 		versionCode 15000
-		versionName "1.5"
+		versionName "1.5.0"
 		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr", "rm", "tr", "ti"
 
 		buildConfigField "long", "BUILD_TIME", readPropertyWithDefault('buildTimestamp', System.currentTimeMillis()) + 'L'
