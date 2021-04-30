@@ -74,8 +74,11 @@ public class TraceKeysRepository {
 
 	private List<ProblematicEventInfo> handleSuccessfulResponse(Response<ResponseBody> response) {
 		try {
-			long keyBundleTag = Long.parseLong(response.headers().get(KEY_BUNDLE_TAG_HEADER));
-			storage.setCrowdNotifierLastKeyBundleTag(keyBundleTag);
+			String keyBundleTag = response.headers().get(KEY_BUNDLE_TAG_HEADER);
+			if (keyBundleTag != null) {
+				long keyBundleTagValue = Long.parseLong(keyBundleTag);
+				storage.setCrowdNotifierLastKeyBundleTag(keyBundleTagValue);
+			}
 			Proto.ProblematicEventWrapper problematicEventWrapper =
 					Proto.ProblematicEventWrapper.parseFrom(response.body().byteStream());
 			ArrayList<ProblematicEventInfo> problematicEventInfos = new ArrayList<>();
