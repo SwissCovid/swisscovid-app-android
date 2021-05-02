@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.generateqrcode.GenerateQrCodeFragment
+import ch.admin.bag.dp3t.checkin.generateqrcode.QRCodeViewModel
 import ch.admin.bag.dp3t.databinding.FragmentEventsOverviewBinding
+import org.crowdnotifier.android.sdk.model.v3.ProtoV3
 
 class EventsOverviewFragment : Fragment() {
 
@@ -18,6 +22,7 @@ class EventsOverviewFragment : Fragment() {
 	}
 
 	private lateinit var binding: FragmentEventsOverviewBinding
+	private val qrCodeViewModel: QRCodeViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		super.onCreateView(inflater, container, savedInstanceState)
@@ -27,6 +32,11 @@ class EventsOverviewFragment : Fragment() {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
+
+		binding.eventsToolbar.setNavigationOnClickListener {
+			requireActivity().supportFragmentManager.popBackStack()
+		}
+
 		val adapter = QrCodeAdapter(object : OnClickListener {
 			override fun generateQrCode() {
 				requireActivity().supportFragmentManager.beginTransaction()
@@ -36,13 +46,18 @@ class EventsOverviewFragment : Fragment() {
 					.commit()
 			}
 
-			override fun onQrCodeClicked(qrCodeItem: QrCodeItem) {
-				TODO("Not yet implemented")
+			override fun onQrCodeClicked(qrCodeItem: ProtoV3.QRCodePayload) {
+				//TODO show qr code
 			}
 
 		})
 		binding.qrList.adapter = adapter
 		adapter.setItems(emptyList())
+		qrCodeViewModel.loadQrCodePayloads()
+		qrCodeViewModel.qrCodeListStateLiveData.observe(viewLifecycleOwner, Observer {
+			adapter.setItems(it)
+		})
+
 	}
 
 

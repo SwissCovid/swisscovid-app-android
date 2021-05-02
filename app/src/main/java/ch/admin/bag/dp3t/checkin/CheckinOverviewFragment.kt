@@ -38,7 +38,7 @@ class CheckinOverviewFragment : Fragment() {
 			requireActivity().supportFragmentManager.popBackStack()
 		}
 
-		binding.checkinOverviewScanQr.setOnClickListener {
+		binding.qrCodeGenerate.setOnClickListener {
 			requireActivity().supportFragmentManager.beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 				.replace(R.id.main_fragment_container, EventsOverviewFragment.newInstance())

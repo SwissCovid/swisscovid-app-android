@@ -219,6 +219,7 @@ dependencies {
 	implementation 'androidx.viewpager2:viewpager2:1.0.0'
 	implementation 'androidx.security:security-crypto:1.0.0-rc03'
 	implementation 'androidx.work:work-runtime-ktx:2.5.0'
+	implementation "androidx.datastore:datastore:1.0.0-beta01"
 
 	implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 	implementation 'io.reactivex.rxjava3:rxjava:3.0.0'

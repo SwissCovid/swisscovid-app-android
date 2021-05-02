@@ -27,6 +27,7 @@
 			android:orientation="vertical">
 
 			<TextView
+				android:id="@+id/generate_qr_code_cancel"
 				style="@style/NextStep.Text.Blue"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"

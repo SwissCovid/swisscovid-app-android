@@ -16,7 +16,7 @@
 	android:orientation="vertical">
 
 	<androidx.appcompat.widget.Toolbar
-		android:id="@+id/generate_qr_toolbar"
+		android:id="@+id/events_toolbar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		app:navigationContentDescription="@string/android_accessibility_back_button"

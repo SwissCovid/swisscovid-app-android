@@ -11,7 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import ch.admin.bag.dp3t.databinding.FragmentGenerateQrCodeBinding
+import org.crowdnotifier.android.sdk.model.v3.ProtoV3
 
 class GenerateQrCodeFragment : Fragment() {
 
@@ -22,6 +25,7 @@ class GenerateQrCodeFragment : Fragment() {
 	}
 
 	private lateinit var binding: FragmentGenerateQrCodeBinding
+	private val qrCodeViewModel: QRCodeViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		binding = FragmentGenerateQrCodeBinding.inflate(layoutInflater)
@@ -31,6 +35,10 @@ class GenerateQrCodeFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
+		binding.generateQrCodeCancel.setOnClickListener {
+			requireActivity().supportFragmentManager.popBackStack()
+		}
+
 		val events = arrayListOf(EventType.PRIVATE_EVENT, EventType.MEETING_ROOM, EventType.OFFICE, EventType.OTHERS)
 		for (event in events) {
 			val radioButton = RadioButton(requireContext())
@@ -38,6 +46,27 @@ class GenerateQrCodeFragment : Fragment() {
 			radioButton.setRadioButtonColor()
 			binding.generateQrCodeRadioGroup.addView(radioButton)
 		}
+
+		binding.qrCodeGenerate.setOnClickListener {
+			val trac = ProtoV3.TraceLocation.newBuilder().setDescription("mau").build()
+			val protobuff: ProtoV3.QRCodePayload =
+				ProtoV3.QRCodePayload.newBuilder().setVersion(3)
+					.setLocationData(trac).build()
+			//TODO PP-966  for saving a list, we need a superior class which contains an list of QRCodePayloads
+			//so we can use this approach https://stackoverflow.com/questions/64430872/how-to-save-a-list-of-objects-with-proto-datastore
+			qrCodeViewModel.saveQRCodePayload(protobuff)
+		}
+
+		qrCodeViewModel.qrCodeStateLiveData.observe(viewLifecycleOwner, Observer { state ->
+			when (state) {
+				is QrCodePayloadState.SUCCESS -> {
+					requireActivity().supportFragmentManager.popBackStack()
+				}
+				is QrCodePayloadState.ERROR -> {
+					//TODO PP-966 show error
+				}
+			}
+		})
 	}
 
 	enum class EventType(val value: String) {
