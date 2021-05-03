@@ -144,7 +144,6 @@ public class MainActivity extends FragmentActivity {
 		tracingViewModel = new ViewModelProvider(this).get(TracingViewModel.class);
 		crowdNotifierViewModel = new ViewModelProvider(this).get(CrowdNotifierViewModel.class);
 		tracingViewModel.sync();
-
 	}
 
 	@Override
@@ -286,7 +285,7 @@ public class MainActivity extends FragmentActivity {
 
 	private void showCheckinOverviewFragment() {
 		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.container, CheckinOverviewFragment.newInstance())
+				.replace(R.id.main_fragment_container, CheckinOverviewFragment.newInstance())
 				.addToBackStack(CheckinOverviewFragment.class.getCanonicalName())
 				.commit();
 	}
@@ -295,14 +294,14 @@ public class MainActivity extends FragmentActivity {
 		getSupportFragmentManager().beginTransaction()
 				.setCustomAnimations(R.anim.modal_slide_enter, R.anim.modal_slide_exit, R.anim.modal_pop_enter,
 						R.anim.modal_pop_exit)
-				.replace(R.id.container, CheckOutFragment.newInstance())
+				.replace(R.id.main_fragment_container, CheckOutFragment.newInstance())
 				.addToBackStack(CheckOutFragment.class.getCanonicalName())
 				.commit();
 	}
 
 	private void showCheckInScreen() {
 		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.container, CheckInFragment.newInstance())
+				.replace(R.id.main_fragment_container, CheckInFragment.newInstance())
 				.addToBackStack(CheckInFragment.class.getCanonicalName())
 				.commit();
 	}

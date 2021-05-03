@@ -33,6 +33,9 @@ message SwissCovidLocationData {
   uint32 version = 1;
   VenueType type = 2;
   string room = 3;
+  int64 checkoutWarningDelayMs = 4;
+  int64 automaticCheckoutDelaylMs = 5;
+  repeated int64 reminderDelayOptionsMs = 6;
 }
 
 enum VenueType {

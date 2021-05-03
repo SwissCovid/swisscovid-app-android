@@ -22,7 +22,7 @@
 		android:layout_height="wrap_content"
 		app:navigationContentDescription="@string/android_accessibility_back_button"
 		app:navigationIcon="@drawable/ic_arrow_back"
-		app:title="[TBT] Checkins" />
+		app:title="@string/module_checkins_title" />
 
 	<ScrollView
 		android:id="@+id/travel_scroll_view"
@@ -82,7 +82,7 @@
 							android:layout_height="wrap_content"
 							android:layout_marginVertical="@dimen/spacing_medium_large"
 							android:drawableStart="@drawable/ic_qr"
-							android:text="[TBT] Scan QR Code" />
+							android:text="@string/scan_qr_code_button_title" />
 
 					</LinearLayout>
 
@@ -112,6 +112,7 @@
 							tools:text="20:32" />
 
 						<TextView
+							android:id="@+id/checkin_place"
 							style="@style/NextStep.Text.Bold"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"

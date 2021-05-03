@@ -1610,4 +1610,20 @@ Atëherë kontaktoni qendrën telefonike të koronavirusit:"</string>
     <!-- Label im Checkin-Modul im eingecheckten Zustand -->
     <string name="checkin_checked_in"></string>
     <string name="checkout_from_to_date"></string>
+    <string name="inform_detail_covidcode_info_button"></string>
+
+    <!-- Check-Ins: Button Entfernen um Check-In zu löschen -->
+    <string name="remove_from_diary_button"></string>
+
+    <!-- Check-Ins: QR-Code löschen Titel Button -->
+    <string name="delete_button_title"></string>
+
+    <!-- Check-Ins: Teile QR-Code Button Titel -->
+    <string name="share_button_title"></string>
+
+    <!-- Check-Ins: Drucken Button auf PDF-Detailseite -->
+    <string name="print_button_title"></string>
+
+    <!-- Check-Ins: Beschreibung Modul auf Homescreen -->
+    <string name="module_checkins_description">"Check into various events and see your previous check-ins in your diary."</string>
 </resources>

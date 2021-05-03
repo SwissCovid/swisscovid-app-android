@@ -20,6 +20,7 @@
 		<item name="android:statusBarColor">@color/white</item>
 		<item name="toolbarStyle">@style/NextStep.Toolbar</item>
 		<item name="toolbarNavigationButtonStyle">@style/NextStep.Toolbar.Button.Navigation</item>
+		<item name="android:timePickerDialogTheme">@style/NextStep.TimePicker</item>
 	</style>
 
 	<!-- Text -->
@@ -331,6 +332,19 @@
 		<item name="buttonBarNegativeButtonStyle">@style/NextStep.Button.AlertDialog</item>
 		<item name="android:fontFamily">@font/inter_light</item>
 		<item name="fontFamily">@font/inter_light</item>
+	</style>
+
+	<style name="NextStep.TimePicker" parent="Theme.AppCompat.Light.Dialog">
+		<item name="colorAccent">@color/primary</item>
+		<item name="android:colorAccent">@color/primary</item>
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/primary</item>
+		<item name="buttonBarButtonStyle">@color/primary</item>
+		<item name="android:buttonBarButtonStyle">@style/NextStep.TimePicker.Button</item>
+	</style>
+
+	<style name="NextStep.TimePicker.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+		<item name="android:textColor">@color/primary</item>
 	</style>
 
 </resources>
