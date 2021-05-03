@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ch.admin.bag.dp3t.databinding.ItemGenerateQrCodeBinding
 import ch.admin.bag.dp3t.databinding.ItemQrCodeBinding
 import ch.admin.bag.dp3t.databinding.ItemQrCodeEmptyListBinding
-import org.crowdnotifier.android.sdk.model.v3.ProtoV3
+import org.crowdnotifier.android.sdk.model.VenueInfo
 
 class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter<QrCodeBaseViewHolder<*>>() {
 
@@ -18,7 +18,7 @@ class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter
 
 	private var items: List<Any> = emptyList()
 
-	fun setItems(qrCodes: List<ProtoV3.QRCodePayload>) {
+	fun setItems(qrCodes: List<VenueInfo>) {
 		val newItems: ArrayList<Any> = ArrayList()
 		newItems.add(GenerateQrCodeItem())
 		if (qrCodes.isEmpty()) {
@@ -54,7 +54,7 @@ class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter
 		val item = items[position]
 		when (holder) {
 			is GenerateQrCodeViewHolder -> holder.bind(item as GenerateQrCodeItem)
-			is QrCodeViewHolder -> holder.bind(item as ProtoV3.QRCodePayload)
+			is QrCodeViewHolder -> holder.bind(item as VenueInfo)
 			is QrCodeEmptyListViewHolder -> holder.bind(item as QrCodeEmptyListItem)
 			else -> throw  IllegalArgumentException()
 		}
@@ -62,7 +62,7 @@ class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter
 
 	override fun getItemViewType(position: Int): Int {
 		return when (items[position]) {
-			is ProtoV3.QRCodePayload -> TYPE_QR_CODE
+			is VenueInfo -> TYPE_QR_CODE
 			is GenerateQrCodeItem -> TYPE_GENERATE_QR_CODE
 			is QrCodeEmptyListItem -> TYPE_QR_EMPTY_LIST
 			else -> throw java.lang.IllegalArgumentException("Invalid type of data at position $position")
@@ -84,10 +84,10 @@ class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter
 	}
 
 	inner class QrCodeViewHolder(private val binding: ItemQrCodeBinding) :
-		QrCodeBaseViewHolder<ProtoV3.QRCodePayload>(binding.root) {
-		override fun bind(item: ProtoV3.QRCodePayload) {
-			binding.qrCodeName.text = item.locationData.description
-			binding.qrCodeLocation.text = item.countryData.toString()
+		QrCodeBaseViewHolder<VenueInfo>(binding.root) {
+		override fun bind(item: VenueInfo) {
+			binding.qrCodeName.text = item.title
+			binding.qrCodeLocation.text = "TODO"
 			binding.root.setOnClickListener { onClickListener.onQrCodeClicked(item) }
 		}
 
@@ -103,7 +103,7 @@ class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter
 
 interface OnClickListener {
 	fun generateQrCode()
-	fun onQrCodeClicked(qrCodeItem: ProtoV3.QRCodePayload)
+	fun onQrCodeClicked(qrCodeItem: VenueInfo)
 }
 
 

@@ -12,6 +12,8 @@ import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.UserAgentInterceptor;
 
 import ch.admin.bag.dp3t.BuildConfig;
+import ch.admin.bag.dp3t.checkin.models.ProblematicEvent;
+import ch.admin.bag.dp3t.checkin.models.ProblematicEventWrapper;
 import ch.admin.bag.dp3t.checkin.models.Proto;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import okhttp3.OkHttpClient;
@@ -80,10 +82,9 @@ public class TraceKeysRepository {
 				long keyBundleTagValue = Long.parseLong(keyBundleTag);
 				storage.setCrowdNotifierLastKeyBundleTag(keyBundleTagValue);
 			}
-			Proto.ProblematicEventWrapper problematicEventWrapper =
-					Proto.ProblematicEventWrapper.parseFrom(response.body().byteStream());
+			ProblematicEventWrapper problematicEventWrapper = ProblematicEventWrapper.parseFrom(response.body().byteStream());
 			ArrayList<ProblematicEventInfo> problematicEventInfos = new ArrayList<>();
-			for (Proto.ProblematicEvent event : problematicEventWrapper.getEventsList()) {
+			for (ProblematicEvent event : problematicEventWrapper.getEventsList()) {
 				problematicEventInfos.add(new ProblematicEventInfo(event.getIdentity().toByteArray(),
 						event.getSecretKeyForIdentity().toByteArray(),
 						event.getEncryptedAssociatedData().toByteArray(), event.getCipherTextNonce().toByteArray(),

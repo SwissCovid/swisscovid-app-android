@@ -6,12 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.generateqrcode.GenerateQrCodeFragment
 import ch.admin.bag.dp3t.checkin.generateqrcode.QRCodeViewModel
 import ch.admin.bag.dp3t.databinding.FragmentEventsOverviewBinding
-import org.crowdnotifier.android.sdk.model.v3.ProtoV3
+import org.crowdnotifier.android.sdk.model.VenueInfo
 
 class EventsOverviewFragment : Fragment() {
 
@@ -46,19 +45,16 @@ class EventsOverviewFragment : Fragment() {
 					.commit()
 			}
 
-			override fun onQrCodeClicked(qrCodeItem: ProtoV3.QRCodePayload) {
+			override fun onQrCodeClicked(qrCodeItem: VenueInfo) {
 				//TODO show qr code
 			}
 
 		})
 		binding.qrList.adapter = adapter
 		adapter.setItems(emptyList())
-		qrCodeViewModel.loadQrCodePayloads()
-		qrCodeViewModel.qrCodeListStateLiveData.observe(viewLifecycleOwner, Observer {
+		qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner, {
 			adapter.setItems(it)
 		})
-
 	}
-
 
 }
