@@ -84,7 +84,7 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 	@Override
 	public void onResume() {
 		if (goToHome) {
-			getActivity().getSupportFragmentManager().popBackStack();
+			requireActivity().getSupportFragmentManager().popBackStack();
 			goToHome = false;
 		} else {
 			isQRScanningEnabled = true;

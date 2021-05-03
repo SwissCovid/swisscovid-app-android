@@ -10,29 +10,37 @@ message ProblematicEvent {
   int32 version = 1;
   bytes identity = 2;
   bytes secretKeyForIdentity = 3;
-  int64 startTime = 4;
-  int64 endTime = 5;
-  bytes encryptedAssociatedData = 6;
-  bytes cipherTextNonce = 7;
+  int64 day = 4;
+  bytes encryptedAssociatedData = 5;
+  bytes cipherTextNonce = 6;
 }
+
 message AssociatedData {
   int32 version = 1;
   string message = 2;
-  bytes countryData = 3;
+  int64 startTime = 3;
+  int64 endTime = 4;
+  bytes countryData = 5;
 }
-message NotifyMeAssociatedData {
-  int32 version = 1;
-  EventCriticality criticality = 2;
-}
+
 enum EventCriticality {
   LOW = 0;
   HIGH = 1;
 }
 
+message SwissCovidAssociatedData {
+  int32 version = 1;
+  EventCriticality criticality = 2;
+}
+
+
 message SwissCovidLocationData {
   uint32 version = 1;
   VenueType type = 2;
   string room = 3;
+  int64 checkoutWarningDelayMs = 4;
+  int64 automaticCheckoutDelaylMs = 5;
+  repeated int64 reminderDelayOptionsMs = 6;
 }
 
 enum VenueType {

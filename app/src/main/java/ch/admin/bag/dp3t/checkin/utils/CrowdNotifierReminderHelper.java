@@ -14,7 +14,6 @@ import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
-import ch.admin.bag.dp3t.util.ReminderHelper;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
 
 public class CrowdNotifierReminderHelper extends BroadcastReceiver {
@@ -80,7 +79,7 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 	}
 
 	private static PendingIntent getPendingIntent(Context context, boolean eightHours) {
-		Intent intent = new Intent(context, ReminderHelper.class);
+		Intent intent = new Intent(context, CrowdNotifierReminderHelper.class);
 		if (eightHours) {
 			intent.setAction(ACTION_EIGHT_HOUR_REMINDER);
 			return PendingIntent.getBroadcast(context, EIGHT_HOUR_REMINDER_INTENT_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -91,7 +90,7 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 	}
 
 	private static PendingIntent getAutoCheckOutPendingIntent(Context context) {
-		Intent intent = new Intent(context, ReminderHelper.class);
+		Intent intent = new Intent(context, CrowdNotifierReminderHelper.class);
 		intent.setAction(ACTION_AUTO_CHECKOUT);
 		return PendingIntent.getBroadcast(context, AUTO_CHECK_OUT_INTENT_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 	}

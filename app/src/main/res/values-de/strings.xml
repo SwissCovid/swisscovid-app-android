@@ -1606,7 +1606,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <string name="web_generator_title_label">"Titel"</string>
 
     <!-- Check-Ins: Veranstaltungen Detail PDF Button -->
-    <string name="show_pdf_button">"Druck-PDF anzeigen"</string>
+    <string name="show_pdf_button">"PDF drucken"</string>
 
     <!-- Check-Ins: Kategorie Kantine -->
     <string name="web_generator_category_canteen">"Kantine"</string>
@@ -1649,4 +1649,45 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <string name="reminder_notification_snooze_action">"Snooze"</string>
     <string name="android_ongoing_checkin_notification_channel_name">"Permanente Checkin Meldung"</string>
     <string name="ongoing_notification_title">"Sie sind eingecheckt seit {TIME} Uhr."</string>
+
+    <!-- Check-Ins: Sichern Button bei Check-out -->
+    <string name="checkout_save_button_title">"Sichern"</string>
+
+    <!-- Check-Ins: QR-Code scannen Button -->
+    <!-- Fuzzy -->
+    <string name="scan_qr_code_button_title">"QR-Code scannen"</string>
+
+    <!-- Titel der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
+    <string name="checkin_ended_title">"Check-Ins deaktiviert"</string>
+
+    <!-- Text der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
+    <string name="checkin_ended_text">"Neue Check-Ins sind nicht möglich."</string>
+
+    <!-- Text im Check-Ins-Screen im nicht eingecheckten Zustand -->
+    <string name="checkin_detail_checked_out_text">"Schützen Sie sich und andere, indem Sie sich bei Events einchecken. Hier kommt wahrscheinlich noch mehr Text, der im Moment noch unklar ist."</string>
+
+    <!-- Text im Check-Ins-Screen, im Tagebuch-Modul -->
+    <string name="checkin_detail_diary_text">"Im Tagebuch werden all Ihre Check-Ins gespeichert. Sie können diese freiwillig teilen, falls Sie positiv getestet werden."</string>
+
+    <!-- Label im Checkin-Modul im eingecheckten Zustand -->
+    <!-- Fuzzy -->
+    <string name="checkin_checked_in">"Sie sind eingecheckt"</string>
+    <string name="checkout_from_to_date">"{DATE1} bis {DATE2}"</string>
+    <string name="inform_detail_covidcode_info_button">"Mehr zum Covidcode"</string>
+
+    <!-- Check-Ins: Button Entfernen um Check-In zu löschen -->
+    <string name="remove_from_diary_button">"Entfernen"</string>
+
+    <!-- Check-Ins: QR-Code löschen Titel Button -->
+    <string name="delete_button_title">"Löschen"</string>
+
+    <!-- Check-Ins: Teile QR-Code Button Titel -->
+    <!-- Fuzzy -->
+    <string name="share_button_title">"Teilen"</string>
+
+    <!-- Check-Ins: Drucken Button auf PDF-Detailseite -->
+    <string name="print_button_title">"Drucken"</string>
+
+    <!-- Check-Ins: Beschreibung Modul auf Homescreen -->
+    <string name="module_checkins_description">"Checken Sie bei Events ein und sehen Sie ihre vergangenen Check-Ins."</string>
 </resources>

@@ -54,20 +54,21 @@ public class CheckInFragment extends Fragment {
 	}
 
 	private void checkIfAutoCheckoutHappened() {
+		if (viewModel.getCheckInState() == null) {
+			popBackToHomeFragment();
+		}
 	}
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		TextView titleTextView = view.findViewById(R.id.check_in_fragment_title);
 		TextView subtitleTextView = view.findViewById(R.id.check_in_fragment_subtitle);
-		ImageView venueTypeIcon = view.findViewById(R.id.check_in_fragment_venue_type_icon);
 		View checkInButton = view.findViewById(R.id.check_in_fragment_check_in_button);
 		Toolbar toolbar = view.findViewById(R.id.check_in_fragment_toolbar);
 		MaterialButtonToggleGroup toggleGroup = view.findViewById(R.id.check_in_fragment_toggle_group);
 
 		titleTextView.setText(venueInfo.getTitle());
 		subtitleTextView.setText(VenueInfoExtensions.getSubtitle(venueInfo));
-		venueTypeIcon.setImageResource(VenueInfoExtensions.getVenueTypeDrawable(venueInfo));
 
 		checkInButton.setOnClickListener(v -> {
 			long checkInTime = System.currentTimeMillis();

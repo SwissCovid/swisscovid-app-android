@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.crowdnotifier.android.sdk.model.DayDate;
 import org.crowdnotifier.android.sdk.model.ProblematicEventInfo;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.UserAgentInterceptor;
@@ -74,15 +75,20 @@ public class TraceKeysRepository {
 
 	private List<ProblematicEventInfo> handleSuccessfulResponse(Response<ResponseBody> response) {
 		try {
-			long keyBundleTag = Long.parseLong(response.headers().get(KEY_BUNDLE_TAG_HEADER));
-			storage.setCrowdNotifierLastKeyBundleTag(keyBundleTag);
+			String keyBundleTag = response.headers().get(KEY_BUNDLE_TAG_HEADER);
+			if (keyBundleTag != null) {
+				long keyBundleTagValue = Long.parseLong(keyBundleTag);
+				storage.setCrowdNotifierLastKeyBundleTag(keyBundleTagValue);
+			}
 			Proto.ProblematicEventWrapper problematicEventWrapper =
 					Proto.ProblematicEventWrapper.parseFrom(response.body().byteStream());
 			ArrayList<ProblematicEventInfo> problematicEventInfos = new ArrayList<>();
 			for (Proto.ProblematicEvent event : problematicEventWrapper.getEventsList()) {
 				problematicEventInfos.add(new ProblematicEventInfo(event.getIdentity().toByteArray(),
-						event.getSecretKeyForIdentity().toByteArray(), event.getStartTime(), event.getEndTime(),
-						event.getEncryptedAssociatedData().toByteArray(), event.getCipherTextNonce().toByteArray()));
+						event.getSecretKeyForIdentity().toByteArray(),
+						event.getEncryptedAssociatedData().toByteArray(), event.getCipherTextNonce().toByteArray(),
+						new DayDate(event.getDay()))
+				);
 			}
 			return problematicEventInfos;
 		} catch (IOException e) {

@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
 import ch.admin.bag.dp3t.databinding.FragmentCheckinOverviewBinding
 import ch.admin.bag.dp3t.util.StringUtil
@@ -57,7 +58,11 @@ class CheckinOverviewFragment : Fragment() {
 	}
 
 	private fun showCheckOutFragment() {
-		//TODO
+		requireActivity().supportFragmentManager.beginTransaction()
+			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+			.replace(R.id.main_fragment_container, CheckOutFragment.newInstance())
+			.addToBackStack(CheckOutFragment::class.java.canonicalName)
+			.commit()
 	}
 
 	private fun showQrCodeScannerFragment() {

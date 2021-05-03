@@ -106,5 +106,8 @@
 	<dimen name="qr_scanner_indicator_stroke_width_inverse">-6dp</dimen>
 
 	<dimen name="button_height">72dp</dimen>
+	<dimen name="modal_elevation">11dp</dimen>
+	<dimen name="edit_text_stroke_width">2dp</dimen>
+	<dimen name="edit_text_radius">3dp</dimen>
 
 </resources>

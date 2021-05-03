@@ -5,6 +5,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:background="@color/white"
 	android:orientation="vertical">
 
 	<androidx.appcompat.widget.Toolbar
@@ -34,12 +35,11 @@
 				android:layout_weight="2" />
 
 			<ImageView
-				android:id="@+id/check_in_fragment_venue_type_icon"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center"
 				android:layout_marginTop="@dimen/spacing_large"
-				tools:src="@drawable/ic_tea" />
+				android:src="@drawable/ic_illu_check_in" />
 
 			<TextView
 				android:id="@+id/check_in_fragment_title"
@@ -87,15 +87,16 @@
 					android:layout_gravity="center"
 					android:layout_marginTop="@dimen/spacing_medium"
 					android:layout_marginBottom="@dimen/spacing_large"
+					app:checkedButton="@id/check_in_fragment_toggle_button_2"
 					app:selectionRequired="true"
 					app:singleSelection="true">
 
 					<com.google.android.material.button.MaterialButton
 						android:id="@+id/check_in_fragment_toggle_button_1"
 						style="@style/CrowdNotifier.ToggleButton"
-						android:textColorHighlight="@color/blue_main"
 						android:text="Off"
-						android:textAllCaps="true" />
+						android:textAllCaps="true"
+						android:textColorHighlight="@color/blue_main" />
 
 					<com.google.android.material.button.MaterialButton
 						android:id="@+id/check_in_fragment_toggle_button_2"
@@ -131,12 +132,12 @@
 
 	<Button
 		android:id="@+id/check_in_fragment_check_in_button"
-		style="@style/CrowdNotifier.Button"
-		android:layout_width="wrap_content"
+		style="@style/NextStep.Button"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center"
+		android:layout_marginHorizontal="@dimen/spacing_larger"
 		android:layout_marginVertical="@dimen/spacing_larger"
-		android:elevation="@dimen/card_elevation"
 		android:text="@string/check_in_now_button_title" />
 
 </LinearLayout>

@@ -45,6 +45,7 @@ import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment;
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
+import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment;
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.home.model.NotificationState;
@@ -395,7 +396,11 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void showCheckOutFragment() {
-		//TODO
+		requireActivity().getSupportFragmentManager().beginTransaction()
+				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+				.replace(R.id.main_fragment_container, CheckOutFragment.newInstance())
+				.addToBackStack(CheckOutFragment.class.getCanonicalName())
+				.commit();
 	}
 
 	private void showQrCodeScannerFragment() {

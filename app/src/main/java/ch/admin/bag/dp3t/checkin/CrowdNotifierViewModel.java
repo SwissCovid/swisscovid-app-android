@@ -58,6 +58,7 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 
 	public CrowdNotifierViewModel(@NonNull Application application) {
 		super(application);
+		refreshExposures();
 		storage = SecureStorage.getInstance(getApplication());
 		checkInState = storage.getCheckInState();
 		updateCheckedIn();

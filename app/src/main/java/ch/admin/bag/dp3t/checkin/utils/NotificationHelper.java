@@ -22,15 +22,17 @@ import static androidx.core.app.NotificationManagerCompat.IMPORTANCE_LOW;
 
 public class NotificationHelper {
 
-	public static final String ACTION_EXPOSURE_NOTIFICATION = BuildConfig.APPLICATION_ID + ".EXPOSURE_NOTIFICATION_ACTION";
-	public static final String ACTION_REMINDER_NOTIFICATION = BuildConfig.APPLICATION_ID + ".ACTION_REMINDER_NOTIFICATION";
+	public static final String ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION = BuildConfig.APPLICATION_ID +
+			".ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION";
+	public static final String ACTION_CROWDNOTIFIER_REMINDER_NOTIFICATION = BuildConfig.APPLICATION_ID +
+			".ACTION_CROWDNOTIFIER_REMINDER_NOTIFICATION";
 	public static final String ACTION_AUTO_CHECKOUT_NOTIFICATION = BuildConfig.APPLICATION_ID +
 			".ACTION_AUTO_CHECKOUT_NOTIFICATION";
 	public static final String ACTION_ONGOING_NOTIFICATION = BuildConfig.APPLICATION_ID + ".ACTION_ONGOING_NOTIFICATION";
 	public static final String ACTION_CHECK_OUT_NOW = BuildConfig.APPLICATION_ID + ".ACTION_CHECK_OUT_NOW";
 	public static final String ACTION_SNOOZE = BuildConfig.APPLICATION_ID + ".ACTION_SNOOZE";
 
-	public static final String EXPOSURE_ID_EXTRA = "EXPOSURE_ID";
+	public static final String CROWDNOTIFIER_EXPOSURE_ID_EXTRA = "CROWDNOTIFIER_EXPOSURE_ID";
 
 	private final String CHANNEL_ID_EXPOSURE_NOTIFICATION = "ExposureNotificaitons";
 	private final String CHANNEL_ID_REMINDER = "Reminders";
@@ -79,12 +81,12 @@ public class NotificationHelper {
 
 	private PendingIntent createExposurePendingIntent(long exposureId) {
 		Intent intent = new Intent(context, MainActivity.class);
-		intent.setAction(ACTION_EXPOSURE_NOTIFICATION);
-		intent.putExtra(EXPOSURE_ID_EXTRA, exposureId);
+		intent.setAction(ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION);
+		intent.putExtra(CROWDNOTIFIER_EXPOSURE_ID_EXTRA, exposureId);
 		intent.setAction(Long.toString(exposureId));
 		return TaskStackBuilder.create(context)
 				.addNextIntentWithParentStack(intent)
-				.getPendingIntent(ACTION_EXPOSURE_NOTIFICATION.hashCode(), PendingIntent.FLAG_ONE_SHOT);
+				.getPendingIntent(ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION.hashCode(), PendingIntent.FLAG_ONE_SHOT);
 	}
 
 	private NotificationCompat.Builder getNotificationBuilder(String channelId) {
@@ -133,7 +135,7 @@ public class NotificationHelper {
 				PendingIntent.FLAG_UPDATE_CURRENT);
 
 		Notification notification = getNotificationBuilder(CHANNEL_ID_REMINDER)
-				.setContentIntent(createBasicPendingIntent(ACTION_REMINDER_NOTIFICATION))
+				.setContentIntent(createBasicPendingIntent(ACTION_CROWDNOTIFIER_REMINDER_NOTIFICATION))
 				.setContentTitle(context.getString(R.string.checkout_reminder_title))
 				.setContentText(context.getString(R.string.checkout_reminder_text))
 				.addAction(R.drawable.ic_close,
