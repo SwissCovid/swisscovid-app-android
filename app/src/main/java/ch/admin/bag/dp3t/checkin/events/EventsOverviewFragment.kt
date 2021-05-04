@@ -32,29 +32,35 @@ class EventsOverviewFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		binding.eventsToolbar.setNavigationOnClickListener {
-			requireActivity().supportFragmentManager.popBackStack()
-		}
+		binding.eventsToolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 
 		val adapter = QrCodeAdapter(object : OnClickListener {
 			override fun generateQrCode() {
-				requireActivity().supportFragmentManager.beginTransaction()
-					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-					.replace(R.id.main_fragment_container, GenerateQrCodeFragment.newInstance())
-					.addToBackStack(GenerateQrCodeFragment::class.java.canonicalName)
-					.commit()
+				showGenerateQrCodeScreen()
 			}
 
 			override fun onQrCodeClicked(qrCodeItem: VenueInfo) {
 				//TODO show qr code
 			}
 
+			override fun onDeleteQrCodeClicked(qrCodeItem: VenueInfo) {
+				qrCodeViewModel.deleteQrCode(qrCodeItem)
+			}
+
 		})
+
 		binding.qrList.adapter = adapter
-		adapter.setItems(emptyList())
 		qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner, {
 			adapter.setItems(it)
 		})
+	}
+
+	private fun showGenerateQrCodeScreen() {
+		requireActivity().supportFragmentManager.beginTransaction()
+			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+			.replace(R.id.main_fragment_container, GenerateQrCodeFragment.newInstance())
+			.addToBackStack(GenerateQrCodeFragment::class.java.canonicalName)
+			.commit()
 	}
 
 }

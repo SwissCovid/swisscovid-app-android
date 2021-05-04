@@ -15,6 +15,7 @@ import ch.admin.bag.dp3t.checkin.utils.toVenueInfo
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.crowdnotifier.android.sdk.CrowdNotifier
+import org.crowdnotifier.android.sdk.model.VenueInfo
 import org.crowdnotifier.android.sdk.model.v3.QRCodePayload
 import org.crowdnotifier.android.sdk.utils.Base64Util
 import java.io.IOException
@@ -49,6 +50,16 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		wrapper.generatedQrCodesList.map { it.toVenueInfo() }
 	}.asLiveData()
 
+
+	fun deleteQrCode(venueInfo: VenueInfo) = viewModelScope.launch {
+		val builder = GeneratedQrCodesWrapper.newBuilder()
+		generatedQrCodesFlow.first().generatedQrCodesList.forEach {
+			if (venueInfo.toQrCodePayload() != it) {
+				builder.addGeneratedQrCodes(it)
+			}
+		}
+		saveGeneratedVenueInfo(builder.build())
+	}
 
 	fun generateAndSaveQrCode(description: String, venueType: VenueType) = viewModelScope.launch {
 

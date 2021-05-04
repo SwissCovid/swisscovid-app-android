@@ -14,7 +14,6 @@ import org.dpppt.android.sdk.backend.UserAgentInterceptor;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.checkin.models.ProblematicEvent;
 import ch.admin.bag.dp3t.checkin.models.ProblematicEventWrapper;
-import ch.admin.bag.dp3t.checkin.models.Proto;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;

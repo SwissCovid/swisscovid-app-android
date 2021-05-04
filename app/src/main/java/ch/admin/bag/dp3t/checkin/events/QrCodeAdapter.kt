@@ -86,11 +86,13 @@ class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter
 	inner class QrCodeViewHolder(private val binding: ItemQrCodeBinding) :
 		QrCodeBaseViewHolder<VenueInfo>(binding.root) {
 		override fun bind(item: VenueInfo) {
-			binding.qrCodeName.text = item.title
-			binding.qrCodeLocation.text = "TODO"
-			binding.root.setOnClickListener { onClickListener.onQrCodeClicked(item) }
+			binding.apply {
+				qrCodeName.text = item.title
+				qrCodeLocation.text = "TODO"
+				root.setOnClickListener { onClickListener.onQrCodeClicked(item) }
+				qrCodeDelete.setOnClickListener { onClickListener.onDeleteQrCodeClicked(item) }
+			}
 		}
-
 	}
 
 	inner class QrCodeEmptyListViewHolder(binding: ItemQrCodeEmptyListBinding) :
@@ -104,6 +106,7 @@ class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter
 interface OnClickListener {
 	fun generateQrCode()
 	fun onQrCodeClicked(qrCodeItem: VenueInfo)
+	fun onDeleteQrCodeClicked(qrCodeItem: VenueInfo)
 }
 
 
