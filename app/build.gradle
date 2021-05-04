@@ -239,6 +239,8 @@ dependencies {
 	//DO NOT UPDATE ZXING TO 3.4.0! (3.4.0 is not compatible with API Level 23 or lower)
 	implementation "com.google.zxing:core:3.3.0"
 
+	implementation 'androidx.biometric:biometric:1.1.0'
+
 	androidTestImplementation 'androidx.test.ext:junit:1.1.2'
 	androidTestImplementation 'androidx.test:runner:1.3.0'
 	androidTestImplementation 'androidx.test:core:1.3.0'

@@ -142,31 +142,72 @@
 					</LinearLayout>
 
 				</LinearLayout>
+
 			</androidx.cardview.widget.CardView>
 
 			<androidx.cardview.widget.CardView
-				android:id="@+id/checkin_overview_history"
+				android:id="@+id/checkin_overview_diary"
 				style="@style/NextStep.Card"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginStart="@dimen/spacing_medium_large"
 				android:layout_marginEnd="@dimen/spacing_medium_large"
-				android:layout_marginBottom="@dimen/spacing_medium_large">
+				android:layout_marginBottom="@dimen/spacing_medium_large"
+				android:foreground="?selectableItemBackground">
 
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:orientation="vertical">
 
-					<TextView
-						style="@style/NextStep.Text.Title"
+					<LinearLayout
+						android:id="@+id/contacts_header"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_marginTop="5dp"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:paddingBottom="5dp">
+
+						<TextView
+							style="@style/NextStep.Text.Title"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_marginStart="@dimen/spacing_medium"
+							android:layout_weight="1"
+							android:text="@string/diary_title" />
+
+						<ImageView
+							android:id="@+id/contacs_chevron"
+							android:layout_width="@dimen/chevron_size_title"
+							android:layout_height="@dimen/chevron_size_title"
+							android:layout_marginEnd="@dimen/spacing_small"
+							android:src="@drawable/ic_chevron_right"
+							android:tint="@color/dark_main" />
+
+					</LinearLayout>
+
+					<LinearLayout
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_marginLeft="@dimen/spacing_large"
-						android:layout_marginTop="@dimen/spacing_medium_large"
-						android:layout_marginRight="@dimen/spacing_large"
-						android:layout_marginBottom="@dimen/spacing_medium"
-						android:text="[TBT] history" />
+						android:layout_margin="@dimen/spacing_medium"
+						android:orientation="horizontal">
+
+						<TextView
+							style="@style/NextStep.Text"
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_marginEnd="@dimen/spacing_small"
+							android:layout_weight="1"
+							android:text="@string/checkin_detail_diary_text" />
+
+						<ImageView
+							android:layout_width="76dp"
+							android:layout_height="wrap_content"
+							android:scaleType="center"
+							android:src="@drawable/illu_diary" />
+
+					</LinearLayout>
 
 				</LinearLayout>
 
