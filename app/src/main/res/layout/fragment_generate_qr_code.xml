@@ -40,13 +40,13 @@
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal"
 				android:layout_marginVertical="@dimen/spacing_huge"
-				android:text="@string/qr_code_erstellen_title" />
+				android:text="@string/checkins_create_qr_code" />
 
 			<TextView
 				style="@style/NextStep.Text"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/generate_qr_code_kategorie_title"
+				android:text="@string/web_generator_category_label"
 				android:textAllCaps="true" />
 
 			<RadioGroup
@@ -60,7 +60,7 @@
 				style="@style/NextStep.Text"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/generate_qr_code_name_title"
+				android:text="@string/web_generator_title_label"
 				android:textAllCaps="true" />
 
 			<EditText
@@ -70,7 +70,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginVertical="@dimen/spacing_large"
 				android:backgroundTint="@color/blue_main"
-				android:hint="@string/generate_qr_code_name_hint"
+				android:hint="@string/web_generator_title_placeholder"
 				app:backgroundTint="@color/blue_main" />
 
 		</LinearLayout>
@@ -84,6 +84,6 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal|bottom"
 		android:layout_marginTop="@dimen/spacing_medium"
-		android:text="@string/qr_code_erstellen_button" />
+		android:text="@string/checkins_create_qr_code" />
 
 </LinearLayout>

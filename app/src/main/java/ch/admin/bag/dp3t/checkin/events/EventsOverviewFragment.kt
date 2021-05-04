@@ -21,39 +21,33 @@ class EventsOverviewFragment : Fragment() {
 		}
 	}
 
-	private lateinit var binding: FragmentEventsOverviewBinding
 	private val qrCodeViewModel: QRCodeViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		super.onCreateView(inflater, container, savedInstanceState)
-		binding = FragmentEventsOverviewBinding.inflate(layoutInflater)
-		return binding.root
-	}
+		return FragmentEventsOverviewBinding.inflate(layoutInflater).apply {
+			eventsToolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 
-	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-		super.onViewCreated(view, savedInstanceState)
+			val adapter = QrCodeAdapter(object : OnClickListener {
+				override fun generateQrCode() {
+					showGenerateQrCodeScreen()
+				}
 
-		binding.eventsToolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
+				override fun onQrCodeClicked(qrCodeItem: VenueInfo) {
+					showQrCodeFragment(qrCodeItem)
+				}
 
-		val adapter = QrCodeAdapter(object : OnClickListener {
-			override fun generateQrCode() {
-				showGenerateQrCodeScreen()
-			}
+				override fun onDeleteQrCodeClicked(qrCodeItem: VenueInfo) {
+					qrCodeViewModel.deleteQrCode(qrCodeItem)
+				}
 
-			override fun onQrCodeClicked(qrCodeItem: VenueInfo) {
-				showQrCodeFragment(qrCodeItem)
-			}
+			})
 
-			override fun onDeleteQrCodeClicked(qrCodeItem: VenueInfo) {
-				qrCodeViewModel.deleteQrCode(qrCodeItem)
-			}
+			qrList.adapter = adapter
+			qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner, {
+				adapter.setItems(it)
+			})
 
-		})
-
-		binding.qrList.adapter = adapter
-		qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner, {
-			adapter.setItems(it)
-		})
+		}.root
 	}
 
 	private fun showQrCodeFragment(venueInfo: VenueInfo) {

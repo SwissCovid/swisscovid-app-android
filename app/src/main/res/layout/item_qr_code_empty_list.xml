@@ -20,7 +20,7 @@
 		android:layout_gravity="center_horizontal"
 		android:gravity="center"
 		android:paddingVertical="20dp"
-		android:text="@string/qr_code_empty_list"
+		android:text="[TBT] Keine QR-Codes von Veranstaltungen erstellt"
 		android:textStyle="bold" />
 
 </LinearLayout>

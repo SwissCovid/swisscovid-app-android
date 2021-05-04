@@ -10,6 +10,7 @@ import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
 import androidx.lifecycle.*
+import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.checkin.models.GeneratedQrCodesWrapper
 import ch.admin.bag.dp3t.checkin.models.SwissCovidLocationData
 import ch.admin.bag.dp3t.checkin.models.VenueType
@@ -110,7 +111,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		val file = File(directory, QR_CODE_PDF_FILE_NAME)
 
 		val document = PdfDocument()
-		val pageInfo = PdfDocument.PageInfo.Builder(1240, 1748, 1).create()
+		val pageInfo = PdfDocument.PageInfo.Builder(1240, 1748, 1).create() // A4 size
 		val page = document.startPage(pageInfo)
 		val canvas = page.canvas
 
@@ -137,7 +138,9 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 	}
 
 	private fun generateQrCodeBitmap(venueInfo: VenueInfo) = viewModelScope.launch(Dispatchers.IO) {
-		selectedQrCodeBitmap.postValue(QrCode.create(venueInfo.toQrCodeString()).renderToBitmap(QR_CODE_PIXEL_SIZE))
+		selectedQrCodeBitmap.postValue(
+			QrCode.create(venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX)).renderToBitmap(QR_CODE_PIXEL_SIZE)
+		)
 	}
 
 }

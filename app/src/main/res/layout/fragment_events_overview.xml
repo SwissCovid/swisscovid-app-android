@@ -21,7 +21,7 @@
 		android:layout_height="wrap_content"
 		app:navigationContentDescription="@string/android_accessibility_back_button"
 		app:navigationIcon="@drawable/ic_arrow_back"
-		app:title="[TBT] Veranstaltungen" />
+		app:title="@string/events_title" />
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/qr_list"

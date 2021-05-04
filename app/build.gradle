@@ -207,7 +207,7 @@ dependencies {
 	prodImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	logImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 
-	implementation 'org.crowdnotifier:crowdnotifier-sdk-android:4.0-dev-6'
+	implementation 'org.crowdnotifier:crowdnotifier-sdk-android:4.0-dev-7'
 
 
 	implementation 'androidx.appcompat:appcompat:1.2.0'

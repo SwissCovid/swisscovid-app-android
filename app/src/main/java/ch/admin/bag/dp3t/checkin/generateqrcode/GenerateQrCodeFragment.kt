@@ -28,31 +28,28 @@ class GenerateQrCodeFragment : Fragment() {
 	private val qrCodeViewModel: QRCodeViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-		binding = FragmentGenerateQrCodeBinding.inflate(layoutInflater)
+		binding = FragmentGenerateQrCodeBinding.inflate(layoutInflater).apply {
+			generateQrCodeCancel.setOnClickListener { cancel() }
+
+			//TODO: Remove these hardcoded Events
+			val events = arrayListOf(EventType.PRIVATE_EVENT, EventType.MEETING_ROOM, EventType.OFFICE, EventType.OTHERS)
+			for (event in events) {
+				val radioButton = RadioButton(requireContext())
+				radioButton.text = event.value
+				radioButton.setRadioButtonColor()
+				generateQrCodeRadioGroup.addView(radioButton)
+			}
+			qrCodeGenerate.setOnClickListener {
+				//TODO: Set correct Venue Type
+				generateQrCode(titleEditText.text.toString(), VenueType.CAFETERIA)
+			}
+
+		}
 		return binding.root
 	}
 
-	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-		super.onViewCreated(view, savedInstanceState)
-
-		binding.generateQrCodeCancel.setOnClickListener { cancel() }
-
-		//TODO: Remove these hardcoded Events
-		val events = arrayListOf(EventType.PRIVATE_EVENT, EventType.MEETING_ROOM, EventType.OFFICE, EventType.OTHERS)
-		for (event in events) {
-			val radioButton = RadioButton(requireContext())
-			radioButton.text = event.value
-			radioButton.setRadioButtonColor()
-			binding.generateQrCodeRadioGroup.addView(radioButton)
-		}
-
-		binding.qrCodeGenerate.setOnClickListener { generateQrCode() }
-
-	}
-
-	private fun generateQrCode() {
-		//TODO: Set correct Venue Type
-		qrCodeViewModel.generateAndSaveQrCode(binding.titleEditText.text.toString(), VenueType.CAFETERIA)
+	private fun generateQrCode(title: String, venueType: VenueType) {
+		qrCodeViewModel.generateAndSaveQrCode(title, venueType)
 		cancel()
 	}
 

@@ -23,46 +23,39 @@ class CheckinOverviewFragment : Fragment() {
 		}
 	}
 
-	private lateinit var binding: FragmentCheckinOverviewBinding
-
 	private val crowdNotifierViewModel: CrowdNotifierViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		super.onCreateView(inflater, container, savedInstanceState)
-		binding = FragmentCheckinOverviewBinding.inflate(layoutInflater)
-		return binding.root
+		return FragmentCheckinOverviewBinding.inflate(layoutInflater).apply {
+			checkinOverviewToolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
+
+			qrCodeGenerate.setOnClickListener { showEventsOverviewFragment() }
+
+			checkinOverviewHistory.setOnClickListener { v: View? -> }
+
+			crowdNotifierViewModel.isCheckedIn.observe(viewLifecycleOwner, { isCheckedIn ->
+				checkoutView.isVisible = isCheckedIn
+				checkinView.isVisible = !isCheckedIn
+				if (isCheckedIn) {
+					crowdNotifierViewModel.startCheckInTimer()
+				}
+			})
+
+			checkinButton.setOnClickListener { showQrCodeScannerFragment() }
+			checkoutButton.setOnClickListener { showCheckOutFragment() }
+
+			crowdNotifierViewModel.timeSinceCheckIn.observe(viewLifecycleOwner) { duration ->
+				checkinTime.text = StringUtil.getShortDurationString(duration)
+			}
+		}.root
 	}
 
-	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-		binding.checkinOverviewToolbar.setNavigationOnClickListener { v ->
-			requireActivity().supportFragmentManager.popBackStack()
-		}
-
-		binding.qrCodeGenerate.setOnClickListener {
-			requireActivity().supportFragmentManager.beginTransaction()
-				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.main_fragment_container, EventsOverviewFragment.newInstance())
-				.addToBackStack(EventsOverviewFragment::class.java.canonicalName)
-				.commit()
-		}
-		binding.checkinOverviewHistory.setOnClickListener { v: View? -> }
-
-
-		crowdNotifierViewModel.isCheckedIn.observe(viewLifecycleOwner, { isCheckedIn ->
-			binding.checkoutView.isVisible = isCheckedIn
-			binding.checkinView.isVisible = !isCheckedIn
-			if (isCheckedIn) {
-				crowdNotifierViewModel.startCheckInTimer()
-			}
-		})
-
-		binding.checkinButton.setOnClickListener { v -> showQrCodeScannerFragment() }
-		binding.checkoutButton.setOnClickListener { v -> showCheckOutFragment() }
-
-
-		crowdNotifierViewModel.timeSinceCheckIn.observe(
-			viewLifecycleOwner,
-			{ duration -> binding.checkinTime.text = StringUtil.getShortDurationString(duration) })
+	private fun showEventsOverviewFragment() {
+		requireActivity().supportFragmentManager.beginTransaction()
+			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+			.replace(R.id.main_fragment_container, EventsOverviewFragment.newInstance())
+			.addToBackStack(EventsOverviewFragment::class.java.canonicalName)
+			.commit()
 	}
 
 	private fun showCheckOutFragment() {

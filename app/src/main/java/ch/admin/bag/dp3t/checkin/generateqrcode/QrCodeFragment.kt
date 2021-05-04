@@ -27,7 +27,6 @@ class QrCodeFragment : Fragment() {
 
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		super.onCreateView(inflater, container, savedInstanceState)
 		return FragmentQrCodeBinding.inflate(layoutInflater).apply {
 			cancelButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 			qrCodeViewModel.selectedQrCode?.let { venueInfo ->
