@@ -29,7 +29,7 @@ class GenerateQrCodeFragment : Fragment() {
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		binding = FragmentGenerateQrCodeBinding.inflate(layoutInflater).apply {
-			generateQrCodeCancel.setOnClickListener { cancel() }
+			generateQrCodeCancel.setOnClickListener { popFragmentAndHideKeyboard() }
 
 			//TODO: Remove these hardcoded Events
 			val events = arrayListOf(EventType.PRIVATE_EVENT, EventType.MEETING_ROOM, EventType.OFFICE, EventType.OTHERS)
@@ -50,10 +50,10 @@ class GenerateQrCodeFragment : Fragment() {
 
 	private fun generateQrCode(title: String, venueType: VenueType) {
 		qrCodeViewModel.generateAndSaveQrCode(title, venueType)
-		cancel()
+		popFragmentAndHideKeyboard()
 	}
 
-	private fun cancel() {
+	private fun popFragmentAndHideKeyboard() {
 		requireActivity().supportFragmentManager.popBackStack()
 		val inputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 		inputMethodManager.hideSoftInputFromWindow(binding.titleEditText.windowToken, 0)

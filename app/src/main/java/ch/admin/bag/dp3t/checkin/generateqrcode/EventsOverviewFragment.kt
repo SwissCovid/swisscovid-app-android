@@ -13,9 +13,7 @@ import org.crowdnotifier.android.sdk.model.VenueInfo
 class EventsOverviewFragment : Fragment() {
 
 	companion object {
-		fun newInstance(): EventsOverviewFragment {
-			return EventsOverviewFragment()
-		}
+		fun newInstance() = EventsOverviewFragment()
 	}
 
 	private val qrCodeViewModel: QRCodeViewModel by activityViewModels()
@@ -43,15 +41,13 @@ class EventsOverviewFragment : Fragment() {
 			qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner, {
 				adapter.setItems(it)
 			})
-
 		}.root
 	}
 
 	private fun showQrCodeFragment(venueInfo: VenueInfo) {
-		qrCodeViewModel.selectedQrCode = venueInfo
 		requireActivity().supportFragmentManager.beginTransaction()
 			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-			.replace(R.id.main_fragment_container, QrCodeFragment.newInstance())
+			.replace(R.id.main_fragment_container, QrCodeFragment.newInstance(venueInfo))
 			.addToBackStack(QrCodeFragment::class.java.canonicalName)
 			.commit()
 	}

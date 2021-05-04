@@ -44,7 +44,7 @@ private val Context.generatedQrCodesDataStore: DataStore<GeneratedQrCodesWrapper
 	serializer = GeneratedQrCodesSerializer
 )
 
-class QRCodeViewModel(application: Application) : AndroidViewModel(application) {
+class QRCodeViewModel(application: Application, private val state: SavedStateHandle) : AndroidViewModel(application) {
 
 	private val generatedQrCodesFlow = getApplication<Application>().generatedQrCodesDataStore.data.buffer(1).catch { exception ->
 		if (exception is IOException) {
@@ -58,14 +58,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		wrapper.generatedQrCodesList.map { it.toVenueInfo() }
 	}.asLiveData()
 
-	var selectedQrCode: VenueInfo? = null
-		set(value) {
-			selectedQrCodeBitmap.value = null
-			value?.let { generateQrCodeBitmap(it) }
-			field = value
-		}
-
-	val selectedQrCodeBitmap = MutableLiveData<Bitmap?>()
+	val selectedQrCodeBitmap = SingleLiveEvent<Bitmap>()
 	val selectedQrCodePdf = SingleLiveEvent<File>()
 
 	fun deleteQrCode(venueInfo: VenueInfo) = viewModelScope.launch {
@@ -105,7 +98,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		saveGeneratedQrCode(newWrapper)
 	}
 
-	fun createQrCodePdf() = viewModelScope.launch(Dispatchers.IO) {
+	fun createQrCodePdf(bitmap: Bitmap) = viewModelScope.launch(Dispatchers.IO) {
 
 		val directory = File(getApplication<Application>().externalCacheDir, "pdfs").apply { if (!exists()) mkdirs() }
 		val file = File(directory, QR_CODE_PDF_FILE_NAME)
@@ -115,9 +108,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		val page = document.startPage(pageInfo)
 		val canvas = page.canvas
 
-		selectedQrCodeBitmap.value?.let {
-			canvas.drawBitmap(it, 120f, 120f, Paint())
-		}
+		canvas.drawBitmap(bitmap, 120f, 120f, Paint())
 
 		document.finishPage(page)
 		FileOutputStream(file).use {
@@ -128,6 +119,11 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		selectedQrCodePdf.postValue(file)
 	}
 
+	fun generateQrCodeBitmap(venueInfo: VenueInfo) = viewModelScope.launch(Dispatchers.IO) {
+		selectedQrCodeBitmap.postValue(
+			QrCode.create(venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX)).renderToBitmap(QR_CODE_PIXEL_SIZE)
+		)
+	}
 
 	private suspend fun saveGeneratedQrCode(generatedQrCodesWrapper: GeneratedQrCodesWrapper) {
 		try {
@@ -135,12 +131,6 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		} catch (e: Exception) {
 			throw RuntimeException(e)
 		}
-	}
-
-	private fun generateQrCodeBitmap(venueInfo: VenueInfo) = viewModelScope.launch(Dispatchers.IO) {
-		selectedQrCodeBitmap.postValue(
-			QrCode.create(venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX)).renderToBitmap(QR_CODE_PIXEL_SIZE)
-		)
 	}
 
 }
