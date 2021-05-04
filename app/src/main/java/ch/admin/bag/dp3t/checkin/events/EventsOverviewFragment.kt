@@ -41,7 +41,7 @@ class EventsOverviewFragment : Fragment() {
 			}
 
 			override fun onQrCodeClicked(qrCodeItem: VenueInfo) {
-				showQrCodeFragment()
+				showQrCodeFragment(qrCodeItem)
 			}
 
 			override fun onDeleteQrCodeClicked(qrCodeItem: VenueInfo) {
@@ -56,7 +56,8 @@ class EventsOverviewFragment : Fragment() {
 		})
 	}
 
-	private fun showQrCodeFragment() {
+	private fun showQrCodeFragment(venueInfo: VenueInfo) {
+		qrCodeViewModel.selectedQrCode = venueInfo
 		requireActivity().supportFragmentManager.beginTransaction()
 			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 			.replace(R.id.main_fragment_container, QrCodeFragment.newInstance())

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -41,13 +42,31 @@
 				android:textStyle="normal"
 				tools:text="Office space" />
 
-			<ImageView
-				android:id="@+id/qr_code_imageview"
+			<androidx.constraintlayout.widget.ConstraintLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/spacing_larger"
-				android:adjustViewBounds="true"
-				tools:src="@drawable/ic_qr_code" />
+				android:layout_margin="@dimen/spacing_larger">
+
+				<ImageView
+					android:id="@+id/qr_code_imageview"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					app:layout_constraintDimensionRatio="H,1:1"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:src="@drawable/ic_qr_code" />
+
+				<ProgressBar
+					android:id="@+id/qrCodeLoadingProgressbar"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:visibility="gone"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
 
 			<Button
 				android:id="@+id/checkin_button"

@@ -2,6 +2,9 @@ package ch.admin.bag.dp3t.checkin.generateqrcode
 
 import android.app.Application
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Paint
+import android.graphics.pdf.PdfDocument
 import android.util.Base64
 import android.util.Log
 import androidx.datastore.core.DataStore
@@ -10,15 +13,18 @@ import androidx.lifecycle.*
 import ch.admin.bag.dp3t.checkin.models.GeneratedQrCodesWrapper
 import ch.admin.bag.dp3t.checkin.models.SwissCovidLocationData
 import ch.admin.bag.dp3t.checkin.models.VenueType
+import ch.admin.bag.dp3t.checkin.utils.SingleLiveEvent
 import ch.admin.bag.dp3t.checkin.utils.toQrCodePayload
 import ch.admin.bag.dp3t.checkin.utils.toVenueInfo
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.crowdnotifier.android.sdk.CrowdNotifier
 import org.crowdnotifier.android.sdk.model.VenueInfo
-import org.crowdnotifier.android.sdk.model.v3.QRCodePayload
-import org.crowdnotifier.android.sdk.utils.Base64Util
+import java.io.File
+import java.io.FileOutputStream
 import java.io.IOException
+
 
 private const val MASTER_PUBLIC_KEY_BASE64 =
 	"TqRYigTM6YVO7/UJQuu3199mRqj0cSTp4DXCFlxbz9UqDLrASr07C9HJVWYtl08V7xGEGSSXWbQSRfRt/bqqDK0HQQGnZ/VWZxToo88txtgQ1ij7pYJwaBHAGGndLICL"
@@ -29,6 +35,8 @@ private const val CHECKOUT_WARNING_DELAY_MS = 8 * ONE_HOUR_IN_MILLIS
 private const val SWISSCOVID_LOCATION_DATA_VERSION = 1
 private const val QR_CODE_VALIDITY_DURATION_MS = 10 * 365 * 24 * ONE_HOUR_IN_MILLIS // 10 years
 private val REMINDER_DELAY_OPTIONS_MS = listOf(30, 60, 120, 240).map { it * ONE_HOUR_IN_MILLIS } // 30, 60, 120 and 240 minutes
+private const val QR_CODE_PIXEL_SIZE = 1000
+const val QR_CODE_PDF_FILE_NAME = "swisscovid-qr-code.pdf"
 
 private val Context.generatedQrCodesDataStore: DataStore<GeneratedQrCodesWrapper> by dataStore(
 	fileName = "generatedQrCodes.pb",
@@ -36,7 +44,6 @@ private val Context.generatedQrCodesDataStore: DataStore<GeneratedQrCodesWrapper
 )
 
 class QRCodeViewModel(application: Application) : AndroidViewModel(application) {
-
 
 	private val generatedQrCodesFlow = getApplication<Application>().generatedQrCodesDataStore.data.buffer(1).catch { exception ->
 		if (exception is IOException) {
@@ -50,6 +57,15 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		wrapper.generatedQrCodesList.map { it.toVenueInfo() }
 	}.asLiveData()
 
+	var selectedQrCode: VenueInfo? = null
+		set(value) {
+			selectedQrCodeBitmap.value = null
+			value?.let { generateQrCodeBitmap(it) }
+			field = value
+		}
+
+	val selectedQrCodeBitmap = MutableLiveData<Bitmap?>()
+	val selectedQrCodePdf = SingleLiveEvent<File>()
 
 	fun deleteQrCode(venueInfo: VenueInfo) = viewModelScope.launch {
 		val builder = GeneratedQrCodesWrapper.newBuilder()
@@ -58,7 +74,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 				builder.addGeneratedQrCodes(it)
 			}
 		}
-		saveGeneratedVenueInfo(builder.build())
+		saveGeneratedQrCode(builder.build())
 	}
 
 	fun generateAndSaveQrCode(description: String, venueType: VenueType) = viewModelScope.launch {
@@ -85,23 +101,43 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 			.addAllGeneratedQrCodes(generatedQrCodesFlow.first().generatedQrCodesList)
 			.addGeneratedQrCodes(generatedVenueInfo.toQrCodePayload())
 			.build()
-		saveGeneratedVenueInfo(newWrapper)
-
+		saveGeneratedQrCode(newWrapper)
 	}
 
-	private suspend fun saveGeneratedVenueInfo(generatedQrCodesWrapper: GeneratedQrCodesWrapper) {
+	fun createQrCodePdf() = viewModelScope.launch(Dispatchers.IO) {
 
+		val directory = File(getApplication<Application>().externalCacheDir, "pdfs").apply { if (!exists()) mkdirs() }
+		val file = File(directory, QR_CODE_PDF_FILE_NAME)
+
+		val document = PdfDocument()
+		val pageInfo = PdfDocument.PageInfo.Builder(1240, 1748, 1).create()
+		val page = document.startPage(pageInfo)
+		val canvas = page.canvas
+
+		selectedQrCodeBitmap.value?.let {
+			canvas.drawBitmap(it, 120f, 120f, Paint())
+		}
+
+		document.finishPage(page)
+		FileOutputStream(file).use {
+			document.writeTo(it)
+			document.close()
+		}
+
+		selectedQrCodePdf.postValue(file)
+	}
+
+
+	private suspend fun saveGeneratedQrCode(generatedQrCodesWrapper: GeneratedQrCodesWrapper) {
 		try {
 			getApplication<Application>().generatedQrCodesDataStore.updateData { generatedQrCodesWrapper }
 		} catch (e: Exception) {
-			//TODO: Handle Error
+			throw RuntimeException(e)
 		}
-
 	}
 
-}
+	private fun generateQrCodeBitmap(venueInfo: VenueInfo) = viewModelScope.launch(Dispatchers.IO) {
+		selectedQrCodeBitmap.postValue(QrCode.create(venueInfo.toQrCodeString()).renderToBitmap(QR_CODE_PIXEL_SIZE))
+	}
 
-sealed class QrCodePayloadState {
-	data class SUCCESS(val qrCodePayload: QRCodePayload) : QrCodePayloadState()
-	data class ERROR(val exception: java.lang.Exception) : QrCodePayloadState()
 }
