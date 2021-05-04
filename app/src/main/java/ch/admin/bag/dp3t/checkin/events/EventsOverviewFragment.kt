@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.generateqrcode.GenerateQrCodeFragment
 import ch.admin.bag.dp3t.checkin.generateqrcode.QRCodeViewModel
+import ch.admin.bag.dp3t.checkin.generateqrcode.QrCodeFragment
 import ch.admin.bag.dp3t.databinding.FragmentEventsOverviewBinding
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
@@ -40,7 +41,7 @@ class EventsOverviewFragment : Fragment() {
 			}
 
 			override fun onQrCodeClicked(qrCodeItem: VenueInfo) {
-				//TODO show qr code
+				showQrCodeFragment()
 			}
 
 			override fun onDeleteQrCodeClicked(qrCodeItem: VenueInfo) {
@@ -53,6 +54,14 @@ class EventsOverviewFragment : Fragment() {
 		qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner, {
 			adapter.setItems(it)
 		})
+	}
+
+	private fun showQrCodeFragment() {
+		requireActivity().supportFragmentManager.beginTransaction()
+			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+			.replace(R.id.main_fragment_container, QrCodeFragment.newInstance())
+			.addToBackStack(QrCodeFragment::class.java.canonicalName)
+			.commit()
 	}
 
 	private fun showGenerateQrCodeScreen() {
