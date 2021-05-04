@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.checkin.events
+package ch.admin.bag.dp3t.checkin.generateqrcode
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

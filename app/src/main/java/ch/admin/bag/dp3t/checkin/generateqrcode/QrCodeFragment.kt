@@ -13,6 +13,11 @@ import androidx.core.content.FileProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
+import ch.admin.bag.dp3t.checkin.checkinflow.CheckInFragment
+import ch.admin.bag.dp3t.checkin.models.CheckInState
+import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.databinding.FragmentQrCodeBinding
 import java.io.File
 
@@ -24,6 +29,7 @@ class QrCodeFragment : Fragment() {
 	}
 
 	private val qrCodeViewModel: QRCodeViewModel by activityViewModels()
+	private val crowdNotifierViewModel: CrowdNotifierViewModel by activityViewModels()
 
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -51,6 +57,11 @@ class QrCodeFragment : Fragment() {
 				deleteButton.setOnClickListener {
 					qrCodeViewModel.deleteQrCode(venueInfo)
 					requireActivity().supportFragmentManager.popBackStack()
+				}
+				checkinButton.setOnClickListener {
+					crowdNotifierViewModel.checkInState =
+						CheckInState(false, venueInfo, System.currentTimeMillis(), System.currentTimeMillis(), ReminderOption.OFF)
+					showCheckInFragment()
 				}
 			}
 		}.root
@@ -90,4 +101,11 @@ class QrCodeFragment : Fragment() {
 		}
 	}
 
+	private fun showCheckInFragment() {
+		requireActivity().supportFragmentManager.beginTransaction()
+			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+			.replace(R.id.main_fragment_container, CheckInFragment.newInstance())
+			.addToBackStack(CheckInFragment::class.java.canonicalName)
+			.commitAllowingStateLoss()
+	}
 }

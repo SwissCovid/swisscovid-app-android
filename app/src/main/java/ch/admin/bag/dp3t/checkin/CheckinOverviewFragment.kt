@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
-import ch.admin.bag.dp3t.checkin.events.EventsOverviewFragment
+import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment
 import ch.admin.bag.dp3t.databinding.FragmentCheckinOverviewBinding
 import ch.admin.bag.dp3t.util.StringUtil
 

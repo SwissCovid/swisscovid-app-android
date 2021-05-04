@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.checkin.events
+package ch.admin.bag.dp3t.checkin.generateqrcode
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
-import ch.admin.bag.dp3t.checkin.generateqrcode.GenerateQrCodeFragment
-import ch.admin.bag.dp3t.checkin.generateqrcode.QRCodeViewModel
-import ch.admin.bag.dp3t.checkin.generateqrcode.QrCodeFragment
 import ch.admin.bag.dp3t.databinding.FragmentEventsOverviewBinding
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
