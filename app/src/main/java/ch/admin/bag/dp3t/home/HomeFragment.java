@@ -29,13 +29,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.helper.widget.Flow;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.TracingStatus;
@@ -57,13 +55,9 @@ import ch.admin.bag.dp3t.networking.models.InfoBoxModel;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.travel.TravelFragment;
-import ch.admin.bag.dp3t.travel.TravelUtils;
 import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 import ch.admin.bag.dp3t.whattodo.WtdInfolineAccessabilityDialogFragment;
-import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment;
-import ch.admin.bag.dp3t.whattodo.WtdSymptomsFragment;
 
 import static android.view.View.VISIBLE;
 
@@ -81,12 +75,7 @@ public class HomeFragment extends Fragment {
 	private View reportStatusBubble;
 	private View reportStatusView;
 	private View reportErrorView;
-	private View travelCard;
 	private View checkinCard;
-	private View cardSymptomsFrame;
-	private View cardTestFrame;
-	private View cardSymptoms;
-	private View cardTest;
 	private View loadingView;
 
 	private SecureStorage secureStorage;
@@ -122,14 +111,9 @@ public class HomeFragment extends Fragment {
 		reportStatusBubble = view.findViewById(R.id.report_status_bubble);
 		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
 		reportErrorView = reportStatusBubble.findViewById(R.id.report_errors);
-		travelCard = view.findViewById(R.id.card_travel);
 		checkinCard = view.findViewById(R.id.card_checkin);
 		headerView = view.findViewById(R.id.home_header_view);
 		scrollView = view.findViewById(R.id.home_scroll_view);
-		cardSymptoms = view.findViewById(R.id.card_what_to_do_symptoms);
-		cardSymptomsFrame = view.findViewById(R.id.frame_card_symptoms);
-		cardTest = view.findViewById(R.id.card_what_to_do_test);
-		cardTestFrame = view.findViewById(R.id.frame_card_test);
 		loadingView = view.findViewById(R.id.loading_view);
 
 		setupHeader();
@@ -137,8 +121,6 @@ public class HomeFragment extends Fragment {
 		setupTracingView();
 		setupNotification();
 		setupCheckinCard();
-		setupTravelCard();
-		setupWhatToDo();
 		setupNonProductionHint();
 		setupScrollBehavior();
 
@@ -246,14 +228,10 @@ public class HomeFragment extends Fragment {
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			if (tracingStatusInterface.isReportedAsInfected()) {
-				cardSymptomsFrame.setVisibility(View.GONE);
-				cardTestFrame.setVisibility(View.GONE);
 				tracingCard.findViewById(R.id.contacs_chevron).setVisibility(View.GONE);
 				tracingCard.setOnClickListener(null);
 				tracingCard.setForeground(null);
 			} else {
-				cardSymptomsFrame.setVisibility(VISIBLE);
-				cardTestFrame.setVisibility(VISIBLE);
 				tracingCard.findViewById(R.id.contacs_chevron).setVisibility(VISIBLE);
 				tracingCard.setOnClickListener(v -> showContactsFragment());
 			}
@@ -417,40 +395,6 @@ public class HomeFragment extends Fragment {
 				.replace(R.id.main_fragment_container, CheckinOverviewFragment.newInstance())
 				.addToBackStack(CheckinOverviewFragment.class.getCanonicalName())
 				.commit();
-	}
-
-	private void setupTravelCard() {
-		travelCard.setOnClickListener(
-				v -> requireActivity().getSupportFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, TravelFragment.newInstance())
-						.addToBackStack(TravelFragment.class.getCanonicalName())
-						.commit()
-		);
-
-		List<String> countries = secureStorage.getInteropCountries();
-		if (!countries.isEmpty()) {
-			travelCard.setVisibility(VISIBLE);
-			Flow flowConstraint = travelCard.findViewById(R.id.travel_flags_flow);
-			TravelUtils.inflateFlagFlow(flowConstraint, countries);
-		} else {
-			travelCard.setVisibility(View.GONE);
-		}
-	}
-
-	private void setupWhatToDo() {
-		cardSymptoms.setOnClickListener(
-				v -> requireActivity().getSupportFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, WtdSymptomsFragment.newInstance())
-						.addToBackStack(WtdSymptomsFragment.class.getCanonicalName())
-						.commit());
-		cardTest.setOnClickListener(
-				v -> requireActivity().getSupportFragmentManager().beginTransaction()
-						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, WtdPositiveTestFragment.newInstance())
-						.addToBackStack(WtdPositiveTestFragment.class.getCanonicalName())
-						.commit());
 	}
 
 	private void setupNonProductionHint() {
