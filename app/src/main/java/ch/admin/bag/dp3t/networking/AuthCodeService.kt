@@ -11,6 +11,7 @@ package ch.admin.bag.dp3t.networking
 
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel
+import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModelV2
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Headers
@@ -19,5 +20,10 @@ import retrofit2.http.POST
 interface AuthCodeService {
 	@Headers("accept: */*", "content-type: application/json")
 	@POST("v1/onset")
-	suspend fun getAccessToken(@Body code: AuthenticationCodeRequestModel): Response<AuthenticationCodeResponseModel>
+	suspend fun getAccessTokenV1(@Body code: AuthenticationCodeRequestModel): Response<AuthenticationCodeResponseModel>
+
+	@Headers("accept: */*", "content-type: application/json")
+	@POST("v2/onset")
+	suspend fun getAccessToken(@Body code: AuthenticationCodeRequestModel): AuthenticationCodeResponseModelV2
+
 }

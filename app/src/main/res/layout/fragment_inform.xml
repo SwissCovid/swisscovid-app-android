@@ -83,13 +83,13 @@
 				android:text="@string/inform_code_text" />
 
 			<ch.admin.bag.dp3t.inform.views.ChainedEditText
-				android:id="@+id/trigger_fragment_input"
+				android:id="@+id/covidcode_input"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_huge" />
 
 			<Button
-				android:id="@+id/trigger_fragment_button_trigger"
+				android:id="@+id/send_button"
 				style="@style/NextStep.Button.Purple"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
