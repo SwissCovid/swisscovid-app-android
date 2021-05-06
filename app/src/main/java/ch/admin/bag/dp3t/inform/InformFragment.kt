@@ -155,7 +155,7 @@ class InformFragment : Fragment() {
 	private fun handleInformExposedRequestError(throwable: Throwable) {
 		when (throwable) {
 			is ResponseError -> showErrorDialog(InformRequestError.RED_STATUS_ERROR, throwable.statusCode.toString())
-			is CancellationException -> showErrorDialog(InformRequestError.RED_USER_CANCELLED_SHARE)
+			is CancellationException -> showFragment(ReallyNotShareFragment.newInstance(), R.id.inform_fragment_container)
 			is ApiException -> showErrorDialog(InformRequestError.RED_EXPOSURE_API_ERROR, throwable.statusCode.toString())
 			else -> showErrorDialog(InformRequestError.RED_MISC_NETWORK_ERROR)
 		}

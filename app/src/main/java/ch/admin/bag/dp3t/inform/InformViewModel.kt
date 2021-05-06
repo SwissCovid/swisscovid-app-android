@@ -3,6 +3,7 @@ package ch.admin.bag.dp3t.inform
 import android.app.Activity
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import ch.admin.bag.dp3t.checkin.models.UserUploadPayload
 import ch.admin.bag.dp3t.checkin.networking.UserUploadRepository
@@ -20,6 +21,7 @@ import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.backend.ResponseCallback
 import org.dpppt.android.sdk.models.DayDate
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization
+import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
@@ -37,7 +39,7 @@ class InformViewModel(application: Application) : AndroidViewModel(application) 
 	private val secureStorage = SecureStorage.getInstance(application)
 
 	//TODO: Persist these Items for DKA cases
-	val selectableDiaryItems = diaryStorage.entries.map { SelectableCheckinItem(it, isSelected = false) }
+	var selectableCheckinItems = diaryStorage.entries.map { SelectableCheckinItem(it, isSelected = false) }
 
 	fun userUpload() = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
@@ -62,43 +64,19 @@ class InformViewModel(application: Application) : AndroidViewModel(application) 
 
 	fun authenticateInputAndGetDP3TAccessToken(authCode: String) = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
-		val lastTimestamp = secureStorage.lastInformRequestTime
-		val lastDP3TAuthToken = secureStorage.lastDP3TInformToken
-		if (System.currentTimeMillis() - lastTimestamp < TIMEOUT_VALID_CODE && lastDP3TAuthToken != null) {
-			emit(Resource.success(lastDP3TAuthToken))
-		} else {
-			try {
-				val accessTokens = authCodeRepository.getAccessToken(AuthenticationCodeRequestModel(authCode, 0))
-				secureStorage.saveInformTimeAndCodeAndToken(
-					authCode,
-					accessTokens.dp3TAccessToken.accessToken,
-					accessTokens.checkInAccessToken.accessToken
-				)
-				emit(Resource.success(data = accessTokens.dp3TAccessToken.accessToken))
-			} catch (exception: Exception) {
-				emit(Resource.error(data = null, exception = exception))
-			}
+		try {
+			emit(Resource.success(loadAccessToken(authCode, isCheckin = false)))
+		} catch (exception: Exception) {
+			emit(Resource.error(data = null, exception = exception))
 		}
 	}
 
 	fun authenticateInputAndGetCheckinAccessToken(authCode: String) = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
-		val lastTimestamp = secureStorage.lastInformRequestTime
-		val lastCheckinAuthToken = secureStorage.lastCheckinInformToken
-		if (System.currentTimeMillis() - lastTimestamp < TIMEOUT_VALID_CODE && lastCheckinAuthToken != null) {
-			emit(Resource.success(lastCheckinAuthToken))
-		} else {
-			try {
-				val accessTokens = authCodeRepository.getAccessToken(AuthenticationCodeRequestModel(authCode, 0))
-				secureStorage.saveInformTimeAndCodeAndToken(
-					authCode,
-					accessTokens.dp3TAccessToken.accessToken,
-					accessTokens.checkInAccessToken.accessToken
-				)
-				emit(Resource.success(data = accessTokens.checkInAccessToken.accessToken))
-			} catch (exception: Exception) {
-				emit(Resource.error(data = null, exception = exception))
-			}
+		try {
+			emit(Resource.success(loadAccessToken(authCode, isCheckin = true)))
+		} catch (exception: Exception) {
+			emit(Resource.error(data = null, exception = exception))
 		}
 	}
 
@@ -139,9 +117,30 @@ class InformViewModel(application: Application) : AndroidViewModel(application) 
 		result?.let { emit(it) }
 	}
 
+	private suspend fun loadAccessToken(authCode: String, isCheckin: Boolean): String {
+		val lastTimestamp = secureStorage.lastInformRequestTime
+		val authToken = if (isCheckin) secureStorage.lastCheckinInformToken else secureStorage.lastDP3TInformToken
+		if (System.currentTimeMillis() - lastTimestamp < TIMEOUT_VALID_CODE && authToken != null) {
+			return authToken
+		} else {
+			val accessTokens = authCodeRepository.getAccessToken(AuthenticationCodeRequestModel(authCode, 0))
+			secureStorage.saveInformTimeAndCodeAndToken(
+				authCode, accessTokens.dp3TAccessToken.accessToken, accessTokens.checkInAccessToken.accessToken
+			)
+			return if (isCheckin) accessTokens.checkInAccessToken.accessToken else accessTokens.dp3TAccessToken.accessToken
+		}
+	}
+
+	fun filterSelectableDiaryItems() {
+		selectableCheckinItems = selectableCheckinItems.filter {
+			Date(it.diaryEntry.departureTime).after(JwtUtil.getOnsetDate(secureStorage.lastCheckinInformToken))
+		}
+	}
+
+
 	private fun getUserUploadPayload(): UserUploadPayload {
 		val userUploadPayloadBuilder = UserUploadPayload.newBuilder().setVersion(USER_UPLOAD_VERSION)
-		selectableDiaryItems.filter {
+		selectableCheckinItems.filter {
 			it.isSelected
 		}.map {
 			CrowdNotifier.generateUserUploadInfo(it.diaryEntry.venueInfo, it.diaryEntry.arrivalTime, it.diaryEntry.departureTime)

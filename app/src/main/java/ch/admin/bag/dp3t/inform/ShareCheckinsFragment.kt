@@ -26,22 +26,24 @@ class ShareCheckinsFragment : Fragment() {
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		binding = FragmentShareCheckinsBinding.inflate(inflater).apply {
+			informViewModel.filterSelectableDiaryItems()
 			val adapter = CheckinAdapter()
 			checkinsRecyclerView.adapter = adapter
 			checkinsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-			adapter.setData(informViewModel.selectableDiaryItems)
+			adapter.setData(informViewModel.selectableCheckinItems)
 			adapter.itemSelectionListener { selectedItem, selected ->
-				informViewModel.selectableDiaryItems.find { it.diaryEntry == selectedItem }?.isSelected = selected
+				informViewModel.selectableCheckinItems.find { it.diaryEntry == selectedItem }?.isSelected = selected
 			}
 			selectAllCheckbox.setOnCheckedChangeListener { _, isChecked ->
-				informViewModel.selectableDiaryItems.forEach { it.isSelected = isChecked }
-				adapter.setData(informViewModel.selectableDiaryItems)
+				informViewModel.selectableCheckinItems.forEach { it.isSelected = isChecked }
+				adapter.setData(informViewModel.selectableCheckinItems)
 			}
 			dontSendButton.paintFlags = dontSendButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 			dontSendButton.setOnClickListener {
 
 			}
 			sendButton.setOnClickListener {
+				//TODO Use auth Token for user upload
 				informViewModel.userUpload().observe(viewLifecycleOwner) {
 					when (it.status) {
 						Status.LOADING -> {
@@ -59,5 +61,6 @@ class ShareCheckinsFragment : Fragment() {
 		}
 		return binding.root
 	}
+
 
 }
