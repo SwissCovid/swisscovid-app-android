@@ -24,7 +24,7 @@ import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
 import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper;
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper;
-import ch.admin.bag.dp3t.checkin.utils.VenueInfoExtensions;
+import ch.admin.bag.dp3t.checkin.utils.VenueInfoExtensionsKt;
 import ch.admin.bag.dp3t.util.StringUtil;
 
 public class CheckOutFragment extends Fragment {
@@ -87,7 +87,7 @@ public class CheckOutFragment extends Fragment {
 		dateTextView = view.findViewById(R.id.check_out_fragment_date);
 
 		titleTextView.setText(venueInfo.getTitle());
-		subtitleTextView.setText(VenueInfoExtensions.getSubtitle(venueInfo));
+		subtitleTextView.setText(VenueInfoExtensionsKt.getSubtitle(venueInfo));
 
 		checkInState.setCheckOutTime(System.currentTimeMillis());
 		refreshTimeTextViews();

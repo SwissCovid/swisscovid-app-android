@@ -1,5 +1,7 @@
 syntax = "proto3";
-package ch.admin.bag.dp3t.checkin.models;
+
+option java_package = "ch.admin.bag.dp3t.checkin.models";
+option java_multiple_files = true;
 
 message ProblematicEventWrapper {
   int32 version = 1;
@@ -13,14 +15,6 @@ message ProblematicEvent {
   int64 day = 4;
   bytes encryptedAssociatedData = 5;
   bytes cipherTextNonce = 6;
-}
-
-message AssociatedData {
-  int32 version = 1;
-  string message = 2;
-  int64 startTime = 3;
-  int64 endTime = 4;
-  bytes countryData = 5;
 }
 
 enum EventCriticality {

@@ -21,7 +21,7 @@ import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
 import ch.admin.bag.dp3t.checkin.models.ReminderOption;
 import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper;
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper;
-import ch.admin.bag.dp3t.checkin.utils.VenueInfoExtensions;
+import ch.admin.bag.dp3t.checkin.utils.VenueInfoExtensionsKt;
 
 public class CheckInFragment extends Fragment {
 
@@ -68,7 +68,7 @@ public class CheckInFragment extends Fragment {
 		MaterialButtonToggleGroup toggleGroup = view.findViewById(R.id.check_in_fragment_toggle_group);
 
 		titleTextView.setText(venueInfo.getTitle());
-		subtitleTextView.setText(VenueInfoExtensions.getSubtitle(venueInfo));
+		subtitleTextView.setText(VenueInfoExtensionsKt.getSubtitle(venueInfo));
 
 		checkInButton.setOnClickListener(v -> {
 			long checkInTime = System.currentTimeMillis();

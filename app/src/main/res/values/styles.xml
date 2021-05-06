@@ -247,7 +247,8 @@
 	</style>
 
 	<style name="NextStep.Button.Outlined">
-		<item name="android:textColor">@color/blue_main</item>
+		<item name="android:drawableTint">@drawable/outlined_button_text_color</item>
+		<item name="android:textColor">@drawable/outlined_button_text_color</item>
 		<item name="android:textAllCaps">true</item>
 		<item name="android:background">@drawable/bg_button_outlined</item>
 	</style>
