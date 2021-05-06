@@ -25,6 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import ch.admin.bag.dp3t.debug.DebugFragment;
 import ch.admin.bag.dp3t.home.HomeFragment;
 import ch.admin.bag.dp3t.html.HtmlFragment;
+import ch.admin.bag.dp3t.infotab.InfoTabFragment;
 import ch.admin.bag.dp3t.stats.StatsFragment;
 import ch.admin.bag.dp3t.stats.StatsViewModel;
 import ch.admin.bag.dp3t.util.AssetUtil;
@@ -112,7 +113,6 @@ public class TabbarHostFragment extends Fragment {
 			lastSelectedTab = item.getItemId();
 			lastTabSwitch = System.currentTimeMillis();
 
-			// Use a switch anyway, there may be more tabs in the future
 			switch (item.getItemId()) {
 				case R.id.bottom_nav_stats:
 					getChildFragmentManager().beginTransaction()
@@ -120,6 +120,11 @@ public class TabbarHostFragment extends Fragment {
 							.commit();
 
 					statsViewModel.loadStats();
+					break;
+				case R.id.bottom_nav_info:
+					getChildFragmentManager().beginTransaction()
+							.replace(R.id.tabs_fragment_container, InfoTabFragment.newInstance())
+							.commit();
 					break;
 				default:
 					getChildFragmentManager().beginTransaction()
