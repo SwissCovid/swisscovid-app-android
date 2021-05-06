@@ -18,6 +18,17 @@
 		<item name="cardBackgroundColor">@color/light_grey</item>
 	</style>
 
+	<style name="CrowdNotifier.Card.Small">
+		<item name="android:minHeight">0dp</item>
+		<item name="cardCornerRadius">@dimen/checkin_diary_entry_corner_radius</item>
+	</style>
+
+	<style name="CrowdNotifier.Card.Tertiary">
+		<item name="android:minHeight">0dp</item>
+		<item name="cardCornerRadius">@dimen/checkin_diary_entry_corner_radius</item>
+		<item name="cardBackgroundColor">@color/tertiary_light</item>
+	</style>
+
 	<style name="CrowdNotifier.Text" parent="TextAppearance.AppCompat">
 		<item name="android:textSize">@dimen/text_size_normal</item>
 		<item name="android:textColor">@color/main</item>

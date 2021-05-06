@@ -68,15 +68,15 @@ class CheckinOverviewFragment : Fragment() {
 	}
 
 	private fun authenticateAndShowDiary() {
-		val executor = ContextCompat.getMainExecutor(requireContext())
-		val biometricPrompt = BiometricPrompt(requireActivity(), executor, object : BiometricPrompt.AuthenticationCallback() {
-			override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-				showDiaryFragment()
-			}
-		})
-
-		if (BiometricManager.from(requireContext()).canAuthenticate(BiometricManager.Authenticators.DEVICE_CREDENTIAL or BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS
-		) {
+		val biometricState = BiometricManager.from(requireContext())
+			.canAuthenticate(BiometricManager.Authenticators.DEVICE_CREDENTIAL or BiometricManager.Authenticators.BIOMETRIC_WEAK)
+		if (biometricState == BiometricManager.BIOMETRIC_SUCCESS) {
+			val executor = ContextCompat.getMainExecutor(requireContext())
+			val biometricPrompt = BiometricPrompt(requireActivity(), executor, object : BiometricPrompt.AuthenticationCallback() {
+				override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+					showDiaryFragment()
+				}
+			})
 			val promptInfo = BiometricPrompt.PromptInfo.Builder()
 				.setTitle(getString(R.string.authenticate_for_diary))
 				.setAllowedAuthenticators(
