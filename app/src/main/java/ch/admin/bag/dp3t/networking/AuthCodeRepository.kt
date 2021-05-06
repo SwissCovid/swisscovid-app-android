@@ -17,6 +17,7 @@ import ch.admin.bag.dp3t.networking.errors.InvalidCodeError
 import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel
+import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModelV2
 import kotlinx.coroutines.*
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -61,43 +62,14 @@ class AuthCodeRepository(context: Context) {
 		authCodeService = retrofit.create(AuthCodeService::class.java)
 	}
 
-	fun getAccessToken(
-		authenticationCode: AuthenticationCodeRequestModel,
-		callbackListener: ResponseCallback<AuthenticationCodeResponseModel>,
-		lifecycleOwner: LifecycleOwner
-	) {
-		lifecycleOwner.lifecycleScope.launch {
-			withContext(Dispatchers.IO) {
-				try {
-					val response = authCodeService.getAccessToken(authenticationCode)
-					if (response.isSuccessful) {
-						withContext(Dispatchers.Main) {
-							callbackListener.onSuccess(response.body())
-						}
-					} else {
-						withContext(Dispatchers.Main) {
-							if (response.code() == 404) {
-								callbackListener.onError(InvalidCodeError())
-							} else {
-								callbackListener.onError(ResponseError(response.raw()))
-							}
-						}
-					}
-				} catch (e: Exception) {
-					withContext(Dispatchers.Main) {
-						Logger.e(TAG, "getAccessToken", e)
-						callbackListener.onError(e)
-					}
-				}
-			}
-		}
-	}
 
 	@Throws(IOException::class, ResponseError::class)
-	suspend fun getAccessTokenSync(authenticationCode: AuthenticationCodeRequestModel): AuthenticationCodeResponseModel =
+	suspend fun getAccessTokenSyncV1(authenticationCode: AuthenticationCodeRequestModel): AuthenticationCodeResponseModel =
 		withContext(Dispatchers.IO) {
-			val response = authCodeService.getAccessToken(authenticationCode)
+			val response = authCodeService.getAccessTokenV1(authenticationCode)
 			if (!response.isSuccessful) throw ResponseError(response.raw())
 			return@withContext response.body() ?: throw ResponseError(response.raw())
 		}
+
+	suspend fun getAccessToken(authCode: AuthenticationCodeRequestModel): AuthenticationCodeResponseModelV2 = authCodeService.getAccessToken(authCode)
 }

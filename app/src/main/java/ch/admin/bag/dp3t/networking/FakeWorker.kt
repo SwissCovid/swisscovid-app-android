@@ -145,7 +145,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 	private suspend fun executeFakeRequest(context: Context): Boolean {
 		return try {
 			val authCodeRepository = AuthCodeRepository(context)
-			val accessTokenResponse = authCodeRepository.getAccessTokenSync(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
+			val accessTokenResponse = authCodeRepository.getAccessTokenSyncV1(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
 			val accessToken = accessTokenResponse.accessToken
 			DP3TKotlin.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)))
 			true
