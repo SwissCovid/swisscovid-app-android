@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_marginTop="@dimen/spacing_very_large"
+	android:layout_marginBottom="@dimen/spacing_small">
+
+	<TextView
+		android:id="@+id/item_diary_day_header_text_view"
+		style="@style/CrowdNotifier.Text.Status.Small"
+		tools:text="4 days ago"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" />
+
+</LinearLayout>

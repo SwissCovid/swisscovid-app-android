@@ -19,7 +19,7 @@ fun VenueInfo.getSwissCovidLocationData(): SwissCovidLocationData {
 
 fun VenueInfo.getSubtitle(): String {
 	//TODO: This is to be defined what the subtitle will be for SwissCovid
-	return ""
+	return "*subtitle*"
 }
 
 fun VenueInfo.toQrCodePayload(): QRCodePayload {
