@@ -40,7 +40,7 @@ class ShareCheckinsFragment : Fragment() {
 			}
 			dontSendButton.paintFlags = dontSendButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 			dontSendButton.setOnClickListener {
-
+				//TODO: Implement
 			}
 			sendButton.setOnClickListener {
 				//TODO Use auth Token for user upload

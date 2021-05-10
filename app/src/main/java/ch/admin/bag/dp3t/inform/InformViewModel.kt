@@ -3,7 +3,6 @@ package ch.admin.bag.dp3t.inform
 import android.app.Activity
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import ch.admin.bag.dp3t.checkin.models.UserUploadPayload
 import ch.admin.bag.dp3t.checkin.networking.UserUploadRepository
@@ -66,7 +65,7 @@ class InformViewModel(application: Application) : AndroidViewModel(application) 
 		emit(Resource.loading(data = null))
 		try {
 			emit(Resource.success(loadAccessToken(authCode, isCheckin = false)))
-		} catch (exception: Exception) {
+		} catch (exception: Throwable) {
 			emit(Resource.error(data = null, exception = exception))
 		}
 	}

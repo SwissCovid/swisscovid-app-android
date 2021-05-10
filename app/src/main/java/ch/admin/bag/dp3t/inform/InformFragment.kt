@@ -40,7 +40,6 @@ class InformFragment : Fragment() {
 
 	private val tracingViewModel: TracingViewModel by activityViewModels()
 	private val informViewModel: InformViewModel by activityViewModels()
-	private lateinit var progressDialog: AlertDialog
 
 	private lateinit var binding: FragmentInformBinding
 
@@ -54,7 +53,6 @@ class InformFragment : Fragment() {
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		binding = FragmentInformBinding.inflate(inflater).apply {
 			(requireActivity() as InformActivity).allowBackButton(true)
-			progressDialog = AlertDialog.Builder(requireContext()).setView(R.layout.dialog_loading).create()
 			covidcodeInput.addTextChangedListener(object : ChainedEditTextListener {
 				override fun onTextChanged(input: String) {
 					sendButton.isEnabled = input.matches(REGEX_CODE_PATTERN.toRegex())
@@ -103,11 +101,11 @@ class InformFragment : Fragment() {
 		informViewModel.authenticateInputAndGetDP3TAccessToken(authCode).observe(viewLifecycleOwner) {
 			when (it.status) {
 				Status.LOADING -> {
-					setProgressDialogVisible(true)
+					setLoadingViewVisible(true)
 					binding.sendButton.isEnabled = false
 				}
 				Status.ERROR -> {
-					setProgressDialogVisible(false)
+					setLoadingViewVisible(false)
 					it.exception?.let { exception ->
 						handleAuthenticateRequestError(exception)
 					}
@@ -133,18 +131,18 @@ class InformFragment : Fragment() {
 		informViewModel.informExposed(accessToken, requireActivity()).observe(viewLifecycleOwner) {
 			when (it.status) {
 				Status.LOADING -> {
-					setProgressDialogVisible(true)
+					setLoadingViewVisible(true)
 					binding.sendButton.isEnabled = false
 				}
 				Status.ERROR -> {
-					setProgressDialogVisible(false)
+					setLoadingViewVisible(false)
 					it.exception?.let { exception ->
 						handleInformExposedRequestError(exception)
 					}
 					binding.sendButton.isEnabled = true
 				}
 				Status.SUCCESS -> {
-					setProgressDialogVisible(false)
+					setLoadingViewVisible(false)
 					showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
 					binding.sendButton.isEnabled = true
 				}
@@ -162,13 +160,8 @@ class InformFragment : Fragment() {
 		throwable.printStackTrace()
 	}
 
-	private fun setProgressDialogVisible(isVisible: Boolean) {
-		if (isVisible && !progressDialog.isShowing) {
-			progressDialog.show()
-		}
-		if (!isVisible && progressDialog.isShowing) {
-			progressDialog.dismiss()
-		}
+	private fun setLoadingViewVisible(isVisible: Boolean) {
+		binding.loadingView.isVisible = isVisible
 	}
 
 	private fun askUserToEnableTracing(authCode: String) {
@@ -199,7 +192,7 @@ class InformFragment : Fragment() {
 	private fun setInvalidCodeErrorVisible(visible: Boolean) {
 		binding.apply {
 			informInvalidCodeError.isVisible = visible
-			informInputText.isVisible = visible
+			informInputText.isVisible = !visible
 		}
 	}
 

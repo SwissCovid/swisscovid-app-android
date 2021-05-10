@@ -12,7 +12,7 @@ message ProblematicEvent {
   int32 version = 1;
   bytes identity = 2;
   bytes secretKeyForIdentity = 3;
-  int64 day = 4;
+  int64 day = 4; // in seconds
   bytes encryptedAssociatedData = 5;
   bytes cipherTextNonce = 6;
 }

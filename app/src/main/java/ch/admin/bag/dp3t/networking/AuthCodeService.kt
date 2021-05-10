@@ -24,6 +24,6 @@ interface AuthCodeService {
 
 	@Headers("accept: */*", "content-type: application/json")
 	@POST("v2/onset")
-	suspend fun getAccessToken(@Body code: AuthenticationCodeRequestModel): AuthenticationCodeResponseModelV2
+	suspend fun getAccessTokenV2(@Body code: AuthenticationCodeRequestModel): Response<AuthenticationCodeResponseModelV2>
 
 }
