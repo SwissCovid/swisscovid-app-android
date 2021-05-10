@@ -4,26 +4,46 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.core.view.isVisible
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentInformReallyNotShareBinding
 import ch.admin.bag.dp3t.util.showFragment
 
-class ReallyNotShareFragment : Fragment() {
+class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 
 	companion object {
 		fun newInstance() = ReallyNotShareFragment()
 	}
 
+	private lateinit var binding: FragmentInformReallyNotShareBinding
+
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		return FragmentInformReallyNotShareBinding.inflate(inflater).apply {
+		binding = FragmentInformReallyNotShareBinding.inflate(inflater).apply {
+			(requireActivity() as InformActivity).allowBackButton(false)
 			tryAgainButton.setOnClickListener {
-				//TODO: Implement sharing
+				informViewModel.getLastAuthCode()?.let { authenticateInputAndInformExposed(it) }
 			}
 			dontSendButton.setOnClickListener {
 				showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
 			}
-		}.root
+		}
+		return binding.root
+	}
+
+	override fun setLoadingViewVisible(isVisible: Boolean) {
+		binding.loadingView.isVisible = isVisible
+	}
+
+	override fun setSendButtonEnabled(isEnabled: Boolean) {
+		binding.tryAgainButton.isEnabled = isEnabled
+	}
+
+	override fun setInvalidCodeErrorVisible(isVisible: Boolean) {
+		// The Code must be valid in this fragment otherwise we cannot get here
+	}
+
+	override fun performNotShareAction() {
+		// stay on this screen
 	}
 
 }
