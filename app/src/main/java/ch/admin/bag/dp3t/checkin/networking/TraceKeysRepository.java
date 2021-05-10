@@ -88,7 +88,7 @@ public class TraceKeysRepository {
 				problematicEventInfos.add(new ProblematicEventInfo(event.getIdentity().toByteArray(),
 						event.getSecretKeyForIdentity().toByteArray(),
 						event.getEncryptedAssociatedData().toByteArray(), event.getCipherTextNonce().toByteArray(),
-						new DayDate(event.getDay()))
+						new DayDate(event.getDay() * 1000L))
 				);
 			}
 			return problematicEventInfos;
