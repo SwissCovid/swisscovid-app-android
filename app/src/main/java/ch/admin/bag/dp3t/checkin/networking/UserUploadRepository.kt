@@ -25,7 +25,8 @@ class UserUploadRepository {
 		userUploadService = retrofit.create(UserUploadService::class.java)
 	}
 
-	suspend fun userUpload(userUploadPayload: UserUploadPayload) = userUploadService.userUpload(userUploadPayload)
+	suspend fun userUpload(userUploadPayload: UserUploadPayload, authorizationHeader: String) =
+		userUploadService.userUpload(userUploadPayload, authorizationHeader)
 
 
 }

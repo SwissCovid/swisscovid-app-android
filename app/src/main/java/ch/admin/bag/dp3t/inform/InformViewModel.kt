@@ -3,6 +3,7 @@ package ch.admin.bag.dp3t.inform
 import android.app.Activity
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.liveData
 import ch.admin.bag.dp3t.checkin.models.UserUploadPayload
 import ch.admin.bag.dp3t.checkin.networking.UserUploadRepository
@@ -29,60 +30,53 @@ private const val USER_UPLOAD_VERSION = 3
 private const val TIMEOUT_VALID_CODE = 1000L * 60 * 5
 private const val MAX_EXPOSURE_AGE_MILLIS = 10 * 24 * 60 * 60 * 1000L
 private const val ISOLATION_DURATION_DAYS = 14L
+private const val KEY_HAS_SHARED_DP3T_KEYS = "KEY_HAS_SHARED_DP3T_KEYS"
 
-class InformViewModel(application: Application) : AndroidViewModel(application) {
+class InformViewModel(application: Application, private val state: SavedStateHandle) : AndroidViewModel(application) {
 
 	private val authCodeRepository = AuthCodeRepository(application)
 	private val userUploadRepository = UserUploadRepository()
 	private val diaryStorage = DiaryStorage.getInstance(application)
 	private val secureStorage = SecureStorage.getInstance(application)
 
-	//TODO: Persist these Items for DKA cases
 	var selectableCheckinItems = diaryStorage.entries.map { SelectableCheckinItem(it, isSelected = false) }
+	var hasSharedDP3TKeys: Boolean
+		get() = state.get<Boolean>(KEY_HAS_SHARED_DP3T_KEYS) ?: false
+		set(value) = state.set(KEY_HAS_SHARED_DP3T_KEYS, value)
 
 	fun userUpload() = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
 		try {
-			emit(Resource.success(data = userUploadRepository.userUpload(getUserUploadPayload())))
+			val authorizationHeader = getAuthorizationHeader(secureStorage.lastCheckinInformToken)
+			emit(Resource.success(data = userUploadRepository.userUpload(getUserUploadPayload(), authorizationHeader)))
 		} catch (exception: Exception) {
 			emit(Resource.error(data = null, exception = exception))
 		}
 	}
 
-	fun getLastAuthCode(): String? {
-		val lastCode = secureStorage.lastInformCode
-		val lastToken = secureStorage.lastDP3TInformToken
+	fun getLastCovidcode(): String? {
+		val lastCovidcode = secureStorage.lastInformCode
 
-		if (System.currentTimeMillis() - secureStorage.lastInformRequestTime < TIMEOUT_VALID_CODE) {
-			return lastCode
-		} else if (lastCode != null || lastToken != null) {
-			secureStorage.clearInformTimeAndCodeAndToken()
+		return if (System.currentTimeMillis() - secureStorage.lastInformRequestTime < TIMEOUT_VALID_CODE) {
+			lastCovidcode
+		} else {
+			null
 		}
-		return null
 	}
 
-	fun authenticateInputAndGetDP3TAccessToken(authCode: String) = liveData(Dispatchers.IO) {
+	fun authenticateCovidcode(covidcode: String) = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
 		try {
-			emit(Resource.success(loadAccessToken(authCode, isCheckin = false)))
+			emit(Resource.success(loadAccessTokens(covidcode)))
 		} catch (exception: Throwable) {
 			emit(Resource.error(data = null, exception = exception))
 		}
 	}
 
-	fun authenticateInputAndGetCheckinAccessToken(authCode: String) = liveData(Dispatchers.IO) {
+	fun informExposed(activity: Activity) = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
-		try {
-			emit(Resource.success(loadAccessToken(authCode, isCheckin = true)))
-		} catch (exception: Exception) {
-			emit(Resource.error(data = null, exception = exception))
-		}
-	}
-
-	fun informExposed(accessToken: String, activity: Activity) = liveData(Dispatchers.IO) {
-		emit(Resource.loading(data = null))
-		val authorizationHeader = getAuthorizationHeader(accessToken)
-		val onsetDate = JwtUtil.getOnsetDate(accessToken)
+		val authorizationHeader = getAuthorizationHeader(secureStorage.lastDP3TInformToken)
+		val onsetDate = JwtUtil.getOnsetDate(secureStorage.lastDP3TInformToken)
 
 		var result: Resource<Unit>? = null
 
@@ -104,6 +98,7 @@ class InformViewModel(application: Application) : AndroidViewModel(application) 
 							System.currentTimeMillis() + TimeUnit.DAYS.toMillis(ISOLATION_DURATION_DAYS)
 						secureStorage.isolationEndDialogTimestamp = isolationEndDialogTimestamp
 						result = Resource.success(Unit)
+						hasSharedDP3TKeys = true
 						continuation.resume(Unit)
 					}
 
@@ -116,17 +111,15 @@ class InformViewModel(application: Application) : AndroidViewModel(application) 
 		result?.let { emit(it) }
 	}
 
-	private suspend fun loadAccessToken(authCode: String, isCheckin: Boolean): String {
+	private suspend fun loadAccessTokens(covidcode: String) {
 		val lastTimestamp = secureStorage.lastInformRequestTime
-		val authToken = if (isCheckin) secureStorage.lastCheckinInformToken else secureStorage.lastDP3TInformToken
-		if (System.currentTimeMillis() - lastTimestamp < TIMEOUT_VALID_CODE && authToken != null) {
-			return authToken
-		} else {
-			val accessTokens = authCodeRepository.getAccessToken(AuthenticationCodeRequestModel(authCode, 0))
+		val accessToken = secureStorage.lastDP3TInformToken
+		val lastCovidcode = secureStorage.lastInformCode
+		if (!(System.currentTimeMillis() - lastTimestamp < TIMEOUT_VALID_CODE && accessToken != null) || covidcode != lastCovidcode) {
+			val accessTokens = authCodeRepository.getAccessToken(AuthenticationCodeRequestModel(covidcode, 0))
 			secureStorage.saveInformTimeAndCodeAndToken(
-				authCode, accessTokens.dp3TAccessToken.accessToken, accessTokens.checkInAccessToken.accessToken
+				covidcode, accessTokens.dp3TAccessToken.accessToken, accessTokens.checkInAccessToken.accessToken
 			)
-			return if (isCheckin) accessTokens.checkInAccessToken.accessToken else accessTokens.dp3TAccessToken.accessToken
 		}
 	}
 

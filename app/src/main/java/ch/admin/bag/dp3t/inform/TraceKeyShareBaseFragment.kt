@@ -6,6 +6,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
+import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
 import ch.admin.bag.dp3t.inform.models.Status
 import ch.admin.bag.dp3t.networking.errors.InvalidCodeError
 import ch.admin.bag.dp3t.networking.errors.ResponseError
@@ -39,7 +41,7 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 			return
 		}
 
-		informViewModel.authenticateInputAndGetDP3TAccessToken(authCode).observe(viewLifecycleOwner) {
+		informViewModel.authenticateCovidcode(authCode).observe(viewLifecycleOwner) {
 			when (it.status) {
 				Status.LOADING -> {
 					setLoadingViewVisible(true)
@@ -52,9 +54,7 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 					}
 					setSendButtonEnabled(true)
 				}
-				Status.SUCCESS -> {
-					it.data?.let { accessToken -> informExposed(accessToken) }
-				}
+				Status.SUCCESS -> informExposed()
 			}
 		}
 	}
@@ -68,8 +68,8 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 		throwable.printStackTrace()
 	}
 
-	private fun informExposed(accessToken: String) {
-		informViewModel.informExposed(accessToken, requireActivity()).observe(viewLifecycleOwner) {
+	private fun informExposed() {
+		informViewModel.informExposed(requireActivity()).observe(viewLifecycleOwner) {
 			when (it.status) {
 				Status.LOADING -> {
 					setLoadingViewVisible(true)
@@ -84,7 +84,13 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 				}
 				Status.SUCCESS -> {
 					setLoadingViewVisible(false)
-					showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
+					context?.let { context ->
+						if (DiaryStorage.getInstance(context).entries.isEmpty()) {
+							showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container)
+						} else {
+							showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
+						}
+					}
 					setSendButtonEnabled(true)
 				}
 			}
