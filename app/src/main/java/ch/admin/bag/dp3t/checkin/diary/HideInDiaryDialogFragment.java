@@ -15,8 +15,8 @@ import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
 
 public class HideInDiaryDialogFragment extends DialogFragment {
 
-	public final static String TAG = HideInDiaryDialogFragment.class.getCanonicalName();
-	private final static String ARG_DIARY_ENTRY_ID = "ARG_DIARY_ENTRY_ID";
+	public static final String TAG = HideInDiaryDialogFragment.class.getCanonicalName();
+	private static final String ARG_DIARY_ENTRY_ID = "ARG_DIARY_ENTRY_ID";
 
 	private DiaryStorage diaryStorage;
 	private DiaryEntry diaryEntry;

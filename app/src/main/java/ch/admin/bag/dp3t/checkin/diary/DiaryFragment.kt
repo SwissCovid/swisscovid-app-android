@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
-import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisit
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisitDayHeader
 import ch.admin.bag.dp3t.checkin.diary.items.VenueVisitRecyclerItem
@@ -79,7 +78,7 @@ class DiaryFragment : Fragment() {
 			requireActivity().supportFragmentManager.beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 				.replace(R.id.main_fragment_container, EditDiaryEntryFragment.newInstance(diaryEntry.id))
-				.addToBackStack(CheckOutFragment::class.java.canonicalName)
+				.addToBackStack(EditDiaryEntryFragment.TAG)
 				.commit()
 		}
 	}

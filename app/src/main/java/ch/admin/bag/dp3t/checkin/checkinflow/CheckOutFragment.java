@@ -29,9 +29,9 @@ import ch.admin.bag.dp3t.util.StringUtil;
 
 public class CheckOutFragment extends Fragment {
 
-	public final static String TAG = CheckOutFragment.class.getCanonicalName();
+	public static final String TAG = CheckOutFragment.class.getCanonicalName();
 
-	private final static long ONE_DAY_IN_MILLIS = 24 * 60 * 60 * 1000L;
+	private static final long ONE_DAY_IN_MILLIS = 24 * 60 * 60 * 1000L;
 
 	private CrowdNotifierViewModel viewModel;
 	private VenueInfo venueInfo;

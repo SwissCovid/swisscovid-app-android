@@ -21,10 +21,10 @@ import ch.admin.bag.dp3t.util.StringUtil;
 
 public class EditDiaryEntryFragment extends Fragment {
 
-	public final static String TAG = EditDiaryEntryFragment.class.getCanonicalName();
+	public static final String TAG = EditDiaryEntryFragment.class.getCanonicalName();
 
-	private final static long ONE_DAY_IN_MILLIS = 24 * 60 * 60 * 1000L;
-	private final static String ARG_DIARY_ENTRY_ID = "ARG_DIARY_ENTRY_ID";
+	private static final long ONE_DAY_IN_MILLIS = 24 * 60 * 60 * 1000L;
+	private static final String ARG_DIARY_ENTRY_ID = "ARG_DIARY_ENTRY_ID";
 
 	private DiaryStorage diaryStorage;
 	private DiaryEntry diaryEntry;
