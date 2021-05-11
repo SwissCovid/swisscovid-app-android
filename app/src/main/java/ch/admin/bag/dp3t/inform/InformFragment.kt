@@ -47,7 +47,7 @@ class InformFragment : TraceKeyShareBaseFragment() {
 				}
 			})
 
-			informViewModel.getLastAuthCode()?.let {
+			informViewModel.getLastCovidcode()?.let {
 				covidcodeInput.text = it
 			}
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
 import ch.admin.bag.dp3t.databinding.FragmentInformReallyNotShareBinding
 import ch.admin.bag.dp3t.util.showFragment
 
@@ -21,10 +22,14 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 		binding = FragmentInformReallyNotShareBinding.inflate(inflater).apply {
 			(requireActivity() as InformActivity).allowBackButton(false)
 			tryAgainButton.setOnClickListener {
-				informViewModel.getLastAuthCode()?.let { authenticateInputAndInformExposed(it) }
+				informViewModel.getLastCovidcode()?.let { authenticateInputAndInformExposed(it) }
 			}
 			dontSendButton.setOnClickListener {
-				showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
+				if (DiaryStorage.getInstance(requireContext()).entries.isNotEmpty()) {
+					showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
+				} else {
+					//TODO: Show "Thanks for nothing" Fragment
+				}
 			}
 		}
 		return binding.root
