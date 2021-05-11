@@ -16,6 +16,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -30,6 +32,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -353,12 +357,51 @@ public class HomeFragment extends Fragment {
 
 	private void setupCheckinCard() {
 
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
+			if (tracingStatusInterface.isReportedAsInfected()) {
+				setupCheckinCardIsolationMode();
+			} else {
+				setupCheckinCardNonIsolationMode();
+			}
+		});
+	}
+
+	private void setupCheckinCardIsolationMode() {
+		checkinCard.setOnClickListener(null);
+		checkinCard.setClickable(false);
+		View checkinView = checkinCard.findViewById(R.id.checkin_view);
+		View checkoutView = checkinCard.findViewById(R.id.checkout_view);
+		View isolationView = checkinCard.findViewById(R.id.isolation_view);
+
+		checkinView.setVisibility(View.GONE);
+		checkoutView.setVisibility(View.GONE);
+		isolationView.setVisibility(View.VISIBLE);
+
+		TextView title = checkinCard.findViewById(R.id.status_title);
+		title.setTextColor(ResourcesCompat.getColor(getResources(), R.color.purple_main, null));
+		title.setText(R.string.checkin_ended_title);
+
+		TextView subtitle = checkinCard.findViewById(R.id.status_text);
+		subtitle.setTextColor(ResourcesCompat.getColor(getResources(), R.color.purple_main, null));
+		subtitle.setText(R.string.checkin_ended_text);
+
+		checkinCard.findViewById(R.id.status_background)
+				.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(requireContext(), R.color.status_purple_bg)));
+
+		((ImageView) checkinCard.findViewById(R.id.status_icon)).setImageResource(R.drawable.ic_stopp);
+
+		((ImageView) checkinCard.findViewById(R.id.status_illustration)).setImageResource(R.drawable.ic_illu_checkin_ended);
+	}
+
+	private void setupCheckinCardNonIsolationMode() {
 		checkinCard.setOnClickListener(v -> showCheckinOverviewFragment());
 
 		View checkinView = checkinCard.findViewById(R.id.checkin_view);
 		View checkoutView = checkinCard.findViewById(R.id.checkout_view);
+		View isolationView = checkinCard.findViewById(R.id.isolation_view);
 		TextView checkinVenueTitle = checkinCard.findViewById(R.id.checkin_venue_title);
 
+		isolationView.setVisibility(View.GONE);
 		crowdNotifierViewModel.isCheckedIn().observe(getViewLifecycleOwner(), isCheckedIn -> {
 			if (isCheckedIn) {
 				checkoutView.setVisibility(View.VISIBLE);
@@ -380,18 +423,35 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupCovidCodeCard() {
+		Button covidCodeButton = covidCodeCard.findViewById(R.id.enter_covidcode_button);
+		TextView covidCodeText = covidCodeCard.findViewById(R.id.enter_covidcode_text);
 
-		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), (tracingStatusInterface) -> {
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			if (tracingStatusInterface.isReportedAsInfected()) {
-				covidCodeCard.setVisibility(View.GONE);
+				covidCodeButton.setText(R.string.delete_infection_button);
+				covidCodeText.setText(R.string.home_end_isolation_card_title);
+				covidCodeButton.setOnClickListener(v -> {
+					AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle);
+					builder.setMessage(R.string.delete_infection_dialog)
+							.setPositiveButton(R.string.delete_infection_dialog_finish_button, (dialog, id) -> {
+								tracingStatusInterface.resetInfectionStatus(getContext());
+								secureStorage.setIsolationEndDialogTimestamp(-1L);
+								secureStorage.setPositiveReportOldestSharedKey(-1L);
+							})
+							.setNegativeButton(R.string.cancel, (dialog, id) -> {
+								//do nothing
+							});
+					builder.create();
+					builder.show();
+				});
 			} else {
-				covidCodeCard.setVisibility(View.VISIBLE);
+				covidCodeButton.setText(R.string.inform_code_title);
+				covidCodeText.setText(R.string.home_covidcode_card_title);
+				covidCodeButton.setOnClickListener(v -> {
+					Intent intent = new Intent(getActivity(), InformActivity.class);
+					startActivity(intent);
+				});
 			}
-		});
-
-		covidCodeCard.findViewById(R.id.enter_covidcode_button).setOnClickListener(v -> {
-			Intent intent = new Intent(getActivity(), InformActivity.class);
-			startActivity(intent);
 		});
 	}
 

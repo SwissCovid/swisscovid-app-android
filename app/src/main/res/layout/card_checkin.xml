@@ -60,7 +60,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginVertical="@dimen/spacing_medium_large"
-				android:drawableStart="@drawable/ic_qr"
+				android:drawableEnd="@drawable/ic_qr"
 				android:text="@string/scan_qr_code_button_title" />
 
 		</LinearLayout>
@@ -109,6 +109,11 @@
 				android:textAllCaps="false" />
 
 		</LinearLayout>
+
+		<include
+			android:id="@+id/isolation_view"
+			layout="@layout/layout_status"
+			android:visibility="gone" />
 
 	</LinearLayout>
 
