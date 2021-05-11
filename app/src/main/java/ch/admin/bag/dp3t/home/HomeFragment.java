@@ -51,6 +51,7 @@ import ch.admin.bag.dp3t.home.model.NotificationStateError;
 import ch.admin.bag.dp3t.home.model.TracingState;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.home.views.HeaderView;
+import ch.admin.bag.dp3t.inform.InformActivity;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModel;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
@@ -77,6 +78,7 @@ public class HomeFragment extends Fragment {
 	private View reportErrorView;
 	private View checkinCard;
 	private View loadingView;
+	private View covidCodeCard;
 
 	private SecureStorage secureStorage;
 
@@ -115,6 +117,7 @@ public class HomeFragment extends Fragment {
 		headerView = view.findViewById(R.id.home_header_view);
 		scrollView = view.findViewById(R.id.home_scroll_view);
 		loadingView = view.findViewById(R.id.loading_view);
+		covidCodeCard = view.findViewById(R.id.card_covidcode);
 
 		setupHeader();
 		setupInfobox();
@@ -123,6 +126,7 @@ public class HomeFragment extends Fragment {
 		setupCheckinCard();
 		setupNonProductionHint();
 		setupScrollBehavior();
+		setupCovidCodeCard();
 
 		showEndIsolationDialogIfNecessary();
 	}
@@ -353,11 +357,13 @@ public class HomeFragment extends Fragment {
 
 		View checkinView = checkinCard.findViewById(R.id.checkin_view);
 		View checkoutView = checkinCard.findViewById(R.id.checkout_view);
+		TextView checkinVenueTitle = checkinCard.findViewById(R.id.checkin_venue_title);
 
 		crowdNotifierViewModel.isCheckedIn().observe(getViewLifecycleOwner(), isCheckedIn -> {
 			if (isCheckedIn) {
 				checkoutView.setVisibility(View.VISIBLE);
 				checkinView.setVisibility(View.GONE);
+				checkinVenueTitle.setText(crowdNotifierViewModel.getCheckInState().getVenueInfo().getTitle());
 				crowdNotifierViewModel.startCheckInTimer();
 			} else {
 				checkoutView.setVisibility(View.GONE);
@@ -371,6 +377,22 @@ public class HomeFragment extends Fragment {
 		TextView checkinTime = checkinCard.findViewById(R.id.checkin_time);
 		crowdNotifierViewModel.getTimeSinceCheckIn().observe(getViewLifecycleOwner(),
 				duration -> checkinTime.setText(StringUtil.getShortDurationString(duration)));
+	}
+
+	private void setupCovidCodeCard() {
+
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), (tracingStatusInterface) -> {
+			if (tracingStatusInterface.isReportedAsInfected()) {
+				covidCodeCard.setVisibility(View.GONE);
+			} else {
+				covidCodeCard.setVisibility(View.VISIBLE);
+			}
+		});
+
+		covidCodeCard.findViewById(R.id.enter_covidcode_button).setOnClickListener(v -> {
+			Intent intent = new Intent(getActivity(), InformActivity.class);
+			startActivity(intent);
+		});
 	}
 
 	private void showCheckOutFragment() {

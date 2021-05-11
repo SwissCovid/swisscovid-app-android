@@ -1629,4 +1629,7 @@ O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
 
     <!-- Remove from diary warning start text -->
     <string name="remove_diary_warning_star_text"></string>
+
+    <!-- Text auf der "CovidCode eingeben"-Card auf dem Home Screen -->
+    <string name="home_covidcode_card_title">"Tested positive? Please enter your CovidCode to warn others."</string>
 </resources>

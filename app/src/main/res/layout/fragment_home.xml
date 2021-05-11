@@ -51,6 +51,12 @@
 					tools:visibility="visible" />
 
 				<include
+					layout="@layout/card_notifications"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="@dimen/spacing_medium_large" />
+
+				<include
 					layout="@layout/card_checkin"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
@@ -63,7 +69,7 @@
 					android:layout_marginBottom="@dimen/spacing_medium_large" />
 
 				<include
-					layout="@layout/card_notifications"
+					layout="@layout/card_enter_covidcode"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginBottom="@dimen/spacing_medium_large" />
