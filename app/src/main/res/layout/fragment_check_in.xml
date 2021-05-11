@@ -9,7 +9,7 @@
 	android:orientation="vertical">
 
 	<androidx.appcompat.widget.Toolbar
-		android:id="@+id/check_in_fragment_toolbar"
+		android:id="@+id/toolbar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		app:navigationContentDescription="@string/android_accessibility_back_button"
@@ -42,7 +42,7 @@
 				android:src="@drawable/ic_illu_check_in" />
 
 			<TextView
-				android:id="@+id/check_in_fragment_title"
+				android:id="@+id/title_textview"
 				style="@style/CrowdNotifier.Text.Title"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
 				tools:text="Cyber Cafe SV" />
 
 			<TextView
-				android:id="@+id/check_in_fragment_subtitle"
+				android:id="@+id/subtitle_textview"
 				style="@style/CrowdNotifier.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
 				android:layout_weight="1" />
 
 			<LinearLayout
-				android:id="@+id/check_in_fragment_reminder_container"
+				android:id="@+id/reminder_container"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginHorizontal="@dimen/spacing_large"
@@ -81,42 +81,14 @@
 					android:text="@string/checkin_set_reminder" />
 
 				<com.google.android.material.button.MaterialButtonToggleGroup
-					android:id="@+id/check_in_fragment_toggle_group"
+					android:id="@+id/reminder_toggle_group"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
 					android:layout_marginTop="@dimen/spacing_medium"
 					android:layout_marginBottom="@dimen/spacing_large"
-					app:checkedButton="@id/check_in_fragment_toggle_button_2"
 					app:selectionRequired="true"
 					app:singleSelection="true">
-
-					<com.google.android.material.button.MaterialButton
-						android:id="@+id/check_in_fragment_toggle_button_1"
-						style="@style/CrowdNotifier.ToggleButton"
-						android:text="Off"
-						android:textAllCaps="true"
-						android:textColorHighlight="@color/blue_main" />
-
-					<com.google.android.material.button.MaterialButton
-						android:id="@+id/check_in_fragment_toggle_button_2"
-						style="@style/CrowdNotifier.ToggleButton"
-						android:text="30'" />
-
-					<com.google.android.material.button.MaterialButton
-						android:id="@+id/check_in_fragment_toggle_button_3"
-						style="@style/CrowdNotifier.ToggleButton"
-						android:text="1h" />
-
-					<com.google.android.material.button.MaterialButton
-						android:id="@+id/check_in_fragment_toggle_button_4"
-						style="@style/CrowdNotifier.ToggleButton"
-						android:text="2h" />
-
-					<com.google.android.material.button.MaterialButton
-						android:id="@+id/check_in_fragment_toggle_button_5"
-						style="@style/CrowdNotifier.ToggleButton"
-						android:text="4h" />
 
 				</com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -131,7 +103,7 @@
 	</ScrollView>
 
 	<Button
-		android:id="@+id/check_in_fragment_check_in_button"
+		android:id="@+id/check_in_button"
 		style="@style/NextStep.Button"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

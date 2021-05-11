@@ -24,7 +24,6 @@ import ch.admin.bag.dp3t.checkin.networking.TraceKeysRepository;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
 import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
-import ch.admin.bag.dp3t.checkin.models.ReminderOption;
 
 import static ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker.ACTION_NEW_EXPOSURE_NOTIFICATION;
 import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.ACTION_DID_AUTO_CHECKOUT;
@@ -175,12 +174,12 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 		return null;
 	}
 
-	public ReminderOption getSelectedReminderOption() {
-		return checkInState.getSelectedTimerOption();
+	public long getSelectedReminderDelay() {
+		return checkInState.getSelectedReminderDelay();
 	}
 
-	public void setSelectedReminderOption(ReminderOption selectedReminderOption) {
-		this.checkInState.setSelectedTimerOption(selectedReminderOption);
+	public void setSelectedReminderDelay(long selectedReminderDelay) {
+		this.checkInState.setSelectedTimerOption(selectedReminderDelay);
 		storage.setCheckInState(checkInState);
 	}
 

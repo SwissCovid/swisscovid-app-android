@@ -19,7 +19,6 @@ import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckInFragment
 import ch.admin.bag.dp3t.checkin.models.CheckInState
 import ch.admin.bag.dp3t.checkin.models.QRCodePayload
-import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.checkin.utils.toQrCodePayload
 import ch.admin.bag.dp3t.checkin.utils.toVenueInfo
 import ch.admin.bag.dp3t.databinding.FragmentQrCodeBinding
@@ -73,7 +72,7 @@ class QrCodeFragment : Fragment() {
 			}
 			checkinButton.setOnClickListener {
 				crowdNotifierViewModel.checkInState =
-					CheckInState(false, venueInfo, System.currentTimeMillis(), System.currentTimeMillis(), ReminderOption.OFF)
+					CheckInState(false, venueInfo, System.currentTimeMillis(), System.currentTimeMillis(), 0)
 				showCheckInFragment()
 			}
 		}.root
