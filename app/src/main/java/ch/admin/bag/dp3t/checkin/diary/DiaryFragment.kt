@@ -9,14 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
+import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisit
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisitDayHeader
 import ch.admin.bag.dp3t.checkin.diary.items.VenueVisitRecyclerItem
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
-import ch.admin.bag.dp3t.checkin.utils.DateTimeUtils
 import ch.admin.bag.dp3t.databinding.FragmentCheckinDiaryBinding
 import ch.admin.bag.dp3t.reports.ReportsFragment
+import ch.admin.bag.dp3t.util.StringUtil
 import org.crowdnotifier.android.sdk.model.ExposureEvent
 import java.util.*
 
@@ -48,7 +49,7 @@ class DiaryFragment : Fragment() {
 				checkinDiaryEmptyView.isVisible = isEmpty
 				var daysAgoString = ""
 				for (diaryEntry in diaryEntries) {
-					val newDaysAgoString: String = DateTimeUtils.getDaysAgoString(diaryEntry.getArrivalTime(), context)
+					val newDaysAgoString: String = StringUtil.getDaysAgoString(diaryEntry.getArrivalTime(), context)
 					if (newDaysAgoString != daysAgoString) {
 						daysAgoString = newDaysAgoString
 						items.add(ItemVenueVisitDayHeader(daysAgoString))
@@ -75,11 +76,11 @@ class DiaryFragment : Fragment() {
 				.addToBackStack(ReportsFragment::class.java.canonicalName)
 				.commit()
 		} else {
-			/*requireActivity().supportFragmentManager.beginTransaction()
+			requireActivity().supportFragmentManager.beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.main_fragment_container, EditDiaryEntryFragment.newInstance(true, diaryEntry.id))
-				.addToBackStack(EditDiaryEntryFragment::class.java.canonicalName)
-				.commit()*/
+				.replace(R.id.main_fragment_container, EditDiaryEntryFragment.newInstance(diaryEntry.id))
+				.addToBackStack(CheckOutFragment::class.java.canonicalName)
+				.commit()
 		}
 	}
 

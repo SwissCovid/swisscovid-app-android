@@ -17,8 +17,8 @@ import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisit;
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisitDayHeader;
 import ch.admin.bag.dp3t.checkin.diary.items.VenueVisitRecyclerItem;
-import ch.admin.bag.dp3t.checkin.utils.DateTimeUtils;
 import ch.admin.bag.dp3t.checkin.utils.VenueInfoExtensionsKt;
+import ch.admin.bag.dp3t.util.StringUtil;
 
 public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -109,8 +109,8 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 			VenueInfo venueInfo = item.getDiaryEntry().getVenueInfo();
 			nameTextView.setText(venueInfo.getTitle());
 			locationTextView.setText(VenueInfoExtensionsKt.getSubtitle(venueInfo));
-			String start = DateTimeUtils.getHourMinuteTimeString(item.getDiaryEntry().getArrivalTime(), ":");
-			String end = DateTimeUtils.getHourMinuteTimeString(item.getDiaryEntry().getDepartureTime(), ":");
+			String start = StringUtil.getHourMinuteTimeString(item.getDiaryEntry().getArrivalTime(), ":");
+			String end = StringUtil.getHourMinuteTimeString(item.getDiaryEntry().getDepartureTime(), ":");
 			timeTextView.setText(start + " — " + end);
 			if (item.getExposure() == null) {
 				infoBox.setVisibility(View.GONE);
