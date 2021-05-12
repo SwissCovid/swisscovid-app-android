@@ -51,7 +51,7 @@
 
 	<ScrollView
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		android:layout_height="match_parent">
 
 		<LinearLayout
 			android:layout_width="match_parent"
@@ -158,6 +158,17 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_small"
 				android:hint="@string/edit_mode_comment_placeholder" />
+
+			<Button
+				android:id="@+id/edit_diary_entry_hide_from_diary_button"
+				style="@style/CrowdNotifier.Button"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="@dimen/spacing_huge"
+				android:visibility="gone"
+				tools:visibility="visible"
+				android:text="@string/remove_from_diary_button" />
 
 		</LinearLayout>
 

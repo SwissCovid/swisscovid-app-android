@@ -1616,4 +1616,30 @@ Contacte con la Infoline del coronavirus:"</string>
 
     <!-- Check-Ins: Beschreibung Modul auf Homescreen -->
     <string name="module_checkins_description">"Check into various events and see your previous check-ins in your diary."</string>
+
+    <!-- Titel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
+    <string name="inform_share_checkins_title"></string>
+
+    <!-- Untertitel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
+    <string name="inform_share_checkins_subtitle">"You can choose to share your check-ins to warn others who were with you at the same events."</string>
+
+    <!-- Button text, um alle Checkins zu selektieren -->
+    <string name="inform_share_checkins_select_all"></string>
+    <string name="inform_dont_send_button_title"></string>
+    <string name="inform_try_again_button_title"></string>
+    <string name="inform_dont_share_button_title"></string>
+    <string name="inform_really_not_share_title"></string>
+    <string name="inform_really_not_share_subtitle"></string>
+
+    <!-- Remove from Diary Warning view title -->
+    <string name="remove_diary_warning_title"></string>
+
+    <!-- Remove from diary warning view explanation text -->
+    <string name="remove_diary_warning_text"></string>
+
+    <!-- Remove from diary warning view remove button title -->
+    <string name="remove_diary_remove_now_button"></string>
+
+    <!-- Remove from diary warning start text -->
+    <string name="remove_diary_warning_star_text"></string>
 </resources>

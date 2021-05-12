@@ -3,8 +3,8 @@ package ch.admin.bag.dp3t.checkin.checkinflow;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,9 +29,9 @@ import ch.admin.bag.dp3t.util.StringUtil;
 
 public class CheckOutFragment extends Fragment {
 
-	public final static String TAG = CheckOutFragment.class.getCanonicalName();
+	public static final String TAG = CheckOutFragment.class.getCanonicalName();
 
-	private final static long ONE_DAY_IN_MILLIS = 24 * 60 * 60 * 1000L;
+	private static final long ONE_DAY_IN_MILLIS = 24 * 60 * 60 * 1000L;
 
 	private CrowdNotifierViewModel viewModel;
 	private VenueInfo venueInfo;
@@ -45,8 +45,9 @@ public class CheckOutFragment extends Fragment {
 	private TextView fromTime;
 	private TextView toTime;
 	private TextView dateTextView;
+	private Button hideInDiaryButton;
 
-	public CheckOutFragment() { super(R.layout.fragment_check_out); }
+	public CheckOutFragment() { super(R.layout.fragment_check_out_and_edit); }
 
 	public static CheckOutFragment newInstance() {
 		return new CheckOutFragment();
@@ -85,6 +86,7 @@ public class CheckOutFragment extends Fragment {
 		fromTime = view.findViewById(R.id.check_out_fragment_from_text_view);
 		toTime = view.findViewById(R.id.check_out_fragment_to_text_view);
 		dateTextView = view.findViewById(R.id.check_out_fragment_date);
+		hideInDiaryButton = view.findViewById(R.id.edit_diary_entry_hide_from_diary_button);
 
 		titleTextView.setText(venueInfo.getTitle());
 		subtitleTextView.setText(VenueInfoExtensionsKt.getSubtitle(venueInfo));
@@ -94,6 +96,8 @@ public class CheckOutFragment extends Fragment {
 
 		fromTime.setOnClickListener(v -> showTimePicker(true));
 		toTime.setOnClickListener(v -> showTimePicker(false));
+
+		hideInDiaryButton.setVisibility(View.GONE);
 
 		doneButton.setOnClickListener(v -> {
 			CrowdNotifierReminderHelper.removeAllReminders(getContext());
@@ -114,7 +118,6 @@ public class CheckOutFragment extends Fragment {
 	}
 
 	private void showTimePicker(boolean isFromTime) {
-
 		Calendar time = Calendar.getInstance();
 		if (isFromTime) {
 			time.setTimeInMillis(checkInState.getCheckInTime());
