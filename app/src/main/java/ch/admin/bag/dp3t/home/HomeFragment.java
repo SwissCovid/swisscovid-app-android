@@ -367,8 +367,7 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void setupCheckinCardIsolationMode() {
-		checkinCard.setOnClickListener(null);
-		checkinCard.setClickable(false);
+		checkinCard.setOnClickListener(v -> showCheckinOverviewFragment());
 		View checkinView = checkinCard.findViewById(R.id.checkin_view);
 		View checkoutView = checkinCard.findViewById(R.id.checkout_view);
 		View isolationView = checkinCard.findViewById(R.id.isolation_view);

@@ -1658,4 +1658,10 @@ Contacte a linha de informação coronavírus:"</string>
 
     <!-- Text auf der "Isolation beenden"-Card auf dem Home Screen -->
     <string name="home_end_isolation_card_title">"You are in isolation mode because you tested positive to the virus."</string>
+
+    <!-- Check-Ins: Erinnerungsoption Stunden & Minuten -->
+    <string name="reminder_option_hours_minutes"></string>
+
+    <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer sich in Isolation befindet. -->
+    <string name="checkin_overview_isolation_text">"You can no longer check-in when you tested positive. More text more text more text more text more text more text more"</string>
 </resources>
