@@ -16,6 +16,7 @@ import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.checkin.utils.*
 import ch.admin.bag.dp3t.databinding.FragmentCheckInBinding
 import com.google.android.material.button.MaterialButton
+import org.crowdnotifier.android.sdk.model.VenueInfo
 
 class CheckInFragment : Fragment() {
 
@@ -53,14 +54,7 @@ class CheckInFragment : Fragment() {
 			titleTextview.text = venueInfo.title
 			subtitleTextview.text = venueInfo.getSubtitle()
 			checkInButton.setOnClickListener {
-				val checkInTime = System.currentTimeMillis()
-				viewModel.startCheckInTimer()
-				viewModel.setCheckedIn(true)
-				viewModel.checkInState.checkInTime = checkInTime
-				NotificationHelper.getInstance(context).startOngoingNotification(checkInTime, venueInfo)
-				CrowdNotifierReminderHelper.setCheckoutWarning(checkInTime, venueInfo.getCheckoutWarningDelay(), context)
-				CrowdNotifierReminderHelper.setAutoCheckOut(checkInTime, venueInfo.getAutoCheckoutDelay(), context)
-				CrowdNotifierReminderHelper.setReminder(checkInTime + viewModel.selectedReminderDelay, context)
+				performCheckIn(venueInfo)
 				popBackToHomeFragment()
 			}
 
@@ -86,6 +80,18 @@ class CheckInFragment : Fragment() {
 
 			toolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 		}.root
+	}
+
+	private fun performCheckIn(venueInfo: VenueInfo) {
+		val checkInTime = System.currentTimeMillis()
+		viewModel.startCheckInTimer()
+		viewModel.setCheckedIn(true)
+		viewModel.checkInState.checkInTime = checkInTime
+		NotificationHelper.getInstance(context).startOngoingNotification(checkInTime, venueInfo)
+		CrowdNotifierReminderHelper.setCheckoutWarning(checkInTime, venueInfo.getCheckoutWarningDelay(), context)
+		CrowdNotifierReminderHelper.setAutoCheckOut(checkInTime, venueInfo.getAutoCheckoutDelay(), context)
+		CrowdNotifierReminderHelper.setReminder(checkInTime + viewModel.selectedReminderDelay, context)
+
 	}
 
 	private fun popBackToHomeFragment() {

@@ -50,7 +50,7 @@ public class CheckInState {
 		this.checkOutTime = checkOutTime;
 	}
 
-	public void setSelectedTimerOption(long selectedReminderDelay) {
+	public void setSelectedReminderDelay(long selectedReminderDelay) {
 		this.selectedReminderDelay = selectedReminderDelay;
 	}
 

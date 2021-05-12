@@ -179,7 +179,7 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 	}
 
 	public void setSelectedReminderDelay(long selectedReminderDelay) {
-		this.checkInState.setSelectedTimerOption(selectedReminderDelay);
+		this.checkInState.setSelectedReminderDelay(selectedReminderDelay);
 		storage.setCheckInState(checkInState);
 	}
 
