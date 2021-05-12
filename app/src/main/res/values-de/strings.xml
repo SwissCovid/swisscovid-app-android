@@ -1716,4 +1716,16 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Remove from diary warning start text -->
     <string name="remove_diary_warning_star_text">"Die App speichert diesen Eintrag noch für 14 Tage verschlüsselt im Hintergrund, damit Sie bei einer möglichen Ansteckung trotzdem gewarnt werden können."</string>
+
+    <!-- Text auf der "CovidCode eingeben"-Card auf dem Home Screen -->
+    <string name="home_covidcode_card_title">"Positiv getestet? Bitte geben Sie Ihren CovidCode ein um andere zu warnen."</string>
+
+    <!-- Text auf der "Isolation beenden"-Card auf dem Home Screen -->
+    <string name="home_end_isolation_card_title">"Sie sind im Isolations-Modus weil Sie positiv getestet wurden."</string>
+
+    <!-- Check-Ins: Erinnerungsoption Stunden & Minuten -->
+    <string name="reminder_option_hours_minutes">"{HOURS} h {MINUTES}'"</string>
+
+    <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer sich in Isolation befindet. -->
+    <string name="checkin_overview_isolation_text">"Sie können nicht mehr einchecken, wenn Sie positiv getestet wurden."</string>
 </resources>

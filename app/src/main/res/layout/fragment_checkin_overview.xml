@@ -146,6 +146,42 @@
 			</androidx.cardview.widget.CardView>
 
 			<androidx.cardview.widget.CardView
+				android:id="@+id/checkin_overview_isolation"
+				style="@style/NextStep.Card"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/spacing_medium_large"
+				android:layout_marginEnd="@dimen/spacing_medium_large"
+				android:layout_marginBottom="@dimen/spacing_medium_large"
+				android:visibility="gone">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:foreground="?selectableItemBackground"
+					android:orientation="vertical">
+
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center_horizontal"
+						android:layout_marginVertical="@dimen/spacing_large"
+						android:src="@drawable/ic_illu_checkin_ended" />
+
+					<TextView
+						style="@style/NextStep.Text"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="@dimen/spacing_larger"
+						android:layout_marginBottom="@dimen/spacing_large"
+						android:gravity="center_horizontal"
+						android:text="@string/checkin_overview_isolation_text" />
+
+				</LinearLayout>
+
+			</androidx.cardview.widget.CardView>
+
+			<androidx.cardview.widget.CardView
 				android:id="@+id/checkin_overview_diary"
 				style="@style/NextStep.Card"
 				android:layout_width="match_parent"

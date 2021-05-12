@@ -16,6 +16,7 @@ import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
 import ch.admin.bag.dp3t.checkin.diary.DiaryFragment
 import ch.admin.bag.dp3t.databinding.FragmentCheckinOverviewBinding
 import ch.admin.bag.dp3t.util.StringUtil
+import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 
 class CheckinOverviewFragment : Fragment() {
 
@@ -27,12 +28,18 @@ class CheckinOverviewFragment : Fragment() {
 	}
 
 	private val crowdNotifierViewModel: CrowdNotifierViewModel by activityViewModels()
+	private val tracingViewModel: TracingViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		return FragmentCheckinOverviewBinding.inflate(layoutInflater).apply {
 			checkinOverviewToolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 
 			checkinOverviewDiary.setOnClickListener { authenticateAndShowDiary() }
+
+			tracingViewModel.appStatusLiveData.observe(viewLifecycleOwner) {
+				checkinOverviewIsolation.isVisible = it.isReportedAsInfected
+				checkinOverviewScanQr.isVisible = !it.isReportedAsInfected
+			}
 
 			crowdNotifierViewModel.isCheckedIn.observe(viewLifecycleOwner, { isCheckedIn ->
 				checkoutView.isVisible = isCheckedIn
