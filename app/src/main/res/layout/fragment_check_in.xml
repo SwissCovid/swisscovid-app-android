@@ -110,6 +110,7 @@
 		android:layout_gravity="center"
 		android:layout_marginHorizontal="@dimen/spacing_larger"
 		android:layout_marginVertical="@dimen/spacing_larger"
+		android:drawableEnd="@drawable/ic_check_in"
 		android:text="@string/check_in_now_button_title" />
 
 </LinearLayout>
