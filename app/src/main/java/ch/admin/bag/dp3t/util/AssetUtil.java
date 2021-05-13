@@ -91,7 +91,7 @@ public class AssetUtil {
 			String impressum = html.toString();
 			StringBuilder versionString = new StringBuilder(BuildConfig.VERSION_NAME)
 					.append(", ")
-					.append(org.dpppt.android.sdk.BuildConfig.VERSION_NAME);
+					.append(org.dpppt.android.sdk.BuildConfig.LIBRARY_VERSION_NAME);
 			StringBuilder buildString =
 					new StringBuilder(String.valueOf(BuildConfig.BUILD_TIME))
 							.append(" / ")

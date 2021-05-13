@@ -22,7 +22,8 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 		binding = FragmentInformReallyNotShareBinding.inflate(inflater).apply {
 			(requireActivity() as InformActivity).allowBackButton(false)
 			tryAgainButton.setOnClickListener {
-				informViewModel.getLastCovidcode()?.let { authenticateInputAndInformExposed(it) }
+				tryAgainButton.isEnabled = false
+				showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
 			}
 			dontSendButton.setOnClickListener {
 				if (DiaryStorage.getInstance(requireContext()).entries.isNotEmpty()) {
@@ -35,20 +36,27 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 		return binding.root
 	}
 
+	private fun onUserGrantedTEKSharing() {
+		informViewModel.hasSharedDP3TKeys = true
+		if (informViewModel.selectableCheckinItems.isEmpty()) {
+			performUpload(
+				onSuccess = { showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container) },
+				onInvalidCovidCode = {
+					//TODO: Handle Invalid Covidcode
+				})
+		} else {
+			showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
+		}
+	}
+
+	private fun onUserDidNotGrantTEKSharing() {
+		binding.tryAgainButton.isEnabled = true
+		showFragment(ReallyNotShareFragment.newInstance(), R.id.inform_fragment_container)
+	}
+
 	override fun setLoadingViewVisible(isVisible: Boolean) {
 		binding.loadingView.isVisible = isVisible
-	}
-
-	override fun setSendButtonEnabled(isEnabled: Boolean) {
-		binding.tryAgainButton.isEnabled = isEnabled
-	}
-
-	override fun setInvalidCodeErrorVisible(isVisible: Boolean) {
-		// The Code must be valid in this fragment otherwise we cannot get here
-	}
-
-	override fun performNotShareAction() {
-		// stay on this screen
+		binding.tryAgainButton.isEnabled = !isVisible
 	}
 
 }
