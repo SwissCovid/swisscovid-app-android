@@ -7,15 +7,15 @@ public class CheckInState {
 	private VenueInfo venueInfo;
 	private long checkInTime;
 	private long checkOutTime;
-	ReminderOption selectedTimerOption;
+	long selectedReminderDelay;
 
 	public CheckInState(boolean isCheckedIn, VenueInfo venueInfo, long checkInTime, long checkOutTime,
-			ReminderOption selectedTimerOption) {
+			long selectedReminderDelay) {
 		this.isCheckedIn = isCheckedIn;
 		this.venueInfo = venueInfo;
 		this.checkInTime = checkInTime;
 		this.checkOutTime = checkOutTime;
-		this.selectedTimerOption = selectedTimerOption;
+		this.selectedReminderDelay = selectedReminderDelay;
 	}
 
 	public boolean isCheckedIn() {
@@ -34,8 +34,8 @@ public class CheckInState {
 		return checkOutTime;
 	}
 
-	public ReminderOption getSelectedTimerOption() {
-		return selectedTimerOption;
+	public long getSelectedReminderDelay() {
+		return selectedReminderDelay;
 	}
 
 	public void setCheckedIn(boolean checkedIn) {
@@ -50,8 +50,8 @@ public class CheckInState {
 		this.checkOutTime = checkOutTime;
 	}
 
-	public void setSelectedTimerOption(ReminderOption selectedTimerOption) {
-		this.selectedTimerOption = selectedTimerOption;
+	public void setSelectedReminderDelay(long selectedReminderDelay) {
+		this.selectedReminderDelay = selectedReminderDelay;
 	}
 
 }

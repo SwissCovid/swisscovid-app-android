@@ -42,7 +42,6 @@ import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
 import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
-import ch.admin.bag.dp3t.checkin.models.ReminderOption;
 import ch.admin.bag.dp3t.checkin.utils.ErrorDialog;
 import ch.admin.bag.dp3t.checkin.utils.ErrorHelper;
 
@@ -190,8 +189,7 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 			VenueInfo venueInfo = CrowdNotifier.getVenueInfo(qrCodeData, BuildConfig.ENTRY_QR_CODE_PREFIX);
 			isQRScanningEnabled = false;
 			if (getActivity() != null) getActivity().runOnUiThread(() -> viewModel.setCheckInState(
-					new CheckInState(false, venueInfo, System.currentTimeMillis(), System.currentTimeMillis(),
-							ReminderOption.OFF)));
+					new CheckInState(false, venueInfo, System.currentTimeMillis(), System.currentTimeMillis(), 0)));
 			showCheckInFragment();
 			if (getActivity() != null) getActivity().runOnUiThread(() -> indicateInvalidQrCode(QRScannerState.VALID));
 		} catch (QrUtils.QRException e) {

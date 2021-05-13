@@ -34,8 +34,9 @@ private const val ONE_HOUR_IN_MILLIS = 60 * ONE_MINUTE_IN_MILLIS
 private const val AUTOMATIC_CHECKOUT_DELAY_MS = 12 * ONE_HOUR_IN_MILLIS
 private const val CHECKOUT_WARNING_DELAY_MS = 8 * ONE_HOUR_IN_MILLIS
 private const val SWISSCOVID_LOCATION_DATA_VERSION = 1
-private const val QR_CODE_VALIDITY_DURATION_MS = 10 * 365 * 24 * ONE_HOUR_IN_MILLIS // 10 years
-private val REMINDER_DELAY_OPTIONS_MS = listOf(30, 60, 120, 240).map { it * ONE_HOUR_IN_MILLIS } // 30, 60, 120 and 240 minutes
+private const val QR_CODE_VALIDITY_DURATION_MS = 100000 * 24 * ONE_HOUR_IN_MILLIS // 100'000 days
+private val REMINDER_DELAY_OPTIONS_MS =
+	listOf(if (BuildConfig.IS_FLAVOR_DEV) 1 else 30, 60, 120, 240).map { it * ONE_MINUTE_IN_MILLIS } // 30, 60, 120 and 240 minutes
 private const val QR_CODE_PIXEL_SIZE = 1000
 const val QR_CODE_PDF_FILE_NAME = "swisscovid-qr-code.pdf"
 
@@ -44,7 +45,7 @@ private val Context.generatedQrCodesDataStore: DataStore<GeneratedQrCodesWrapper
 	serializer = GeneratedQrCodesSerializer
 )
 
-class QRCodeViewModel(application: Application, private val state: SavedStateHandle) : AndroidViewModel(application) {
+class QRCodeViewModel(application: Application) : AndroidViewModel(application) {
 
 	private val generatedQrCodesFlow = getApplication<Application>().generatedQrCodesDataStore.data.buffer(1).catch { exception ->
 		if (exception is IOException) {

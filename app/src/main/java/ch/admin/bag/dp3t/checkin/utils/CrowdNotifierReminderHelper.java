@@ -21,16 +21,14 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 	public static final String ACTION_DID_AUTO_CHECKOUT = BuildConfig.APPLICATION_ID + ".ACTION_DID_AUTO_CHECKOUT";
 	private static final int REMINDER_INTENT_ID = 12;
 	private static final String ACTION_REMINDER = BuildConfig.APPLICATION_ID + ".ACTION_REMINDER";
-	private static final int EIGHT_HOUR_REMINDER_INTENT_ID = 13;
-	private static final String ACTION_EIGHT_HOUR_REMINDER = BuildConfig.APPLICATION_ID + ".ACTION_EIGHT_HOUR_REMINDER";
+	private static final int CHECKOUT_WARNING_INTENT_ID = 13;
+	private static final String ACTION_CHECKOUT_WARNING = BuildConfig.APPLICATION_ID + ".ACTION_CHECKOUT_WARNING";
 	private static final int AUTO_CHECK_OUT_INTENT_ID = 14;
 	private static final String ACTION_AUTO_CHECKOUT = BuildConfig.APPLICATION_ID + ".ACTION_AUTO_CHECKOUT";
-	private static final long EIGHT_HOURS = 1000L * 60 * 60 * 8;
-	public static final long TWELVE_HOURS = 1000L * 60 * 60 * 12;
 
 	public static void removeAllReminders(Context context) {
 		removeReminder(context);
-		remove8HourReminder(context);
+		removeCheckoutWarning(context);
 		removeAutoCheckOut(context);
 	}
 
@@ -44,19 +42,19 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 		setReminder(alarmTime, pendingIntent, context);
 	}
 
-	public static void set8HourReminder(long checkInTime, Context context) {
+	public static void setCheckoutWarning(long checkInTime, long delay, Context context) {
 		PendingIntent pendingIntent = getPendingIntent(context, true);
-		setReminder(checkInTime + EIGHT_HOURS, pendingIntent, context);
+		setReminder(checkInTime + delay, pendingIntent, context);
 	}
 
-	public static void remove8HourReminder(Context context) {
+	public static void removeCheckoutWarning(Context context) {
 		PendingIntent pendingIntent = getPendingIntent(context, true);
 		removeReminder(pendingIntent, context);
 	}
 
-	public static void setAutoCheckOut(long checkInTime, Context context) {
+	public static void setAutoCheckOut(long checkInTime, long delay, Context context) {
 		PendingIntent pendingIntent = getAutoCheckOutPendingIntent(context);
-		setReminder(checkInTime + TWELVE_HOURS, pendingIntent, context);
+		setReminder(checkInTime + delay, pendingIntent, context);
 	}
 
 	public static void removeAutoCheckOut(Context context) {
@@ -81,8 +79,8 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 	private static PendingIntent getPendingIntent(Context context, boolean eightHours) {
 		Intent intent = new Intent(context, CrowdNotifierReminderHelper.class);
 		if (eightHours) {
-			intent.setAction(ACTION_EIGHT_HOUR_REMINDER);
-			return PendingIntent.getBroadcast(context, EIGHT_HOUR_REMINDER_INTENT_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+			intent.setAction(ACTION_CHECKOUT_WARNING);
+			return PendingIntent.getBroadcast(context, CHECKOUT_WARNING_INTENT_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 		} else {
 			intent.setAction(ACTION_REMINDER);
 			return PendingIntent.getBroadcast(context, REMINDER_INTENT_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -99,7 +97,7 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		CheckInState checkInState = SecureStorage.getInstance(context).getCheckInState();
 		if (ACTION_REMINDER.equals(intent.getAction()) ||
-				ACTION_EIGHT_HOUR_REMINDER.equals(intent.getAction()) && checkInState != null) {
+				ACTION_CHECKOUT_WARNING.equals(intent.getAction()) && checkInState != null) {
 			NotificationHelper.getInstance(context).showReminderNotification();
 		} else if (ACTION_AUTO_CHECKOUT.equals(intent.getAction())) {
 			autoCheckoutIfNecessary(context, checkInState);
@@ -107,7 +105,11 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 	}
 
 	public static boolean autoCheckoutIfNecessary(Context context, CheckInState checkInState) {
-		if (checkInState == null || checkInState.getCheckInTime() > System.currentTimeMillis() - TWELVE_HOURS) {
+		if (checkInState == null) {
+			return false;
+		}
+		long autoCheckoutDelay = VenueInfoExtensionsKt.getAutoCheckoutDelay(checkInState.getVenueInfo());
+		if (checkInState.getCheckInTime() > System.currentTimeMillis() - autoCheckoutDelay) {
 			return false;
 		}
 
@@ -116,7 +118,7 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 		notificationHelper.removeReminderNotification();
 		notificationHelper.showAutoCheckoutNotification();
 		long checkIn = checkInState.getCheckInTime();
-		long checkOut = checkIn + TWELVE_HOURS;
+		long checkOut = checkIn + autoCheckoutDelay;
 		long id = CrowdNotifier.addCheckIn(checkIn, checkOut, checkInState.getVenueInfo(), context);
 		DiaryStorage.getInstance(context).addEntry(new DiaryEntry(id, checkIn, checkOut, checkInState.getVenueInfo(), ""));
 		SecureStorage storage = SecureStorage.getInstance(context);

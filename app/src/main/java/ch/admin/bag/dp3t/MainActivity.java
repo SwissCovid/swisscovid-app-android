@@ -36,7 +36,6 @@ import ch.admin.bag.dp3t.checkin.checkinflow.CheckInFragment;
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
 import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
-import ch.admin.bag.dp3t.checkin.models.ReminderOption;
 import ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker;
 import ch.admin.bag.dp3t.checkin.utils.ErrorDialog;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
@@ -218,7 +217,7 @@ public class MainActivity extends FragmentActivity {
 				new ErrorDialog(this, CrowdNotifierErrorState.ALREADY_CHECKED_IN).show();
 			} else {
 				crowdNotifierViewModel.setCheckInState(new CheckInState(false, venueInfo, System.currentTimeMillis(),
-						System.currentTimeMillis(), ReminderOption.OFF));
+						System.currentTimeMillis(), 0));
 				showCheckInScreen();
 			}
 		} catch (QrUtils.QRException e) {
