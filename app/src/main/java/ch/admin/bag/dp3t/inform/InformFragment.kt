@@ -25,8 +25,6 @@ private const val REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS +
 
 class InformFragment : TraceKeyShareBaseFragment() {
 
-	private lateinit var binding: FragmentInformBinding
-
 	companion object {
 		private const val TAG = "InformFragment"
 
@@ -34,12 +32,23 @@ class InformFragment : TraceKeyShareBaseFragment() {
 		fun newInstance() = InformFragment()
 	}
 
+	private lateinit var binding: FragmentInformBinding
+
+	override fun onResume() {
+		super.onResume()
+		binding.covidcodeInput.requestFocus()
+	}
+
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		binding = FragmentInformBinding.inflate(inflater).apply {
 			(requireActivity() as InformActivity).allowBackButton(true)
 			covidcodeInput.addTextChangedListener(object : ChainedEditTextListener {
 				override fun onTextChanged(input: String) {
-					sendButton.isEnabled = input.matches(REGEX_CODE_PATTERN.toRegex())
+					val matchesRegex = input.matches(REGEX_CODE_PATTERN.toRegex())
+					val matchesChecksum = input.matchesChecksum()
+
+					sendButton.isEnabled = matchesRegex && matchesChecksum
+					setInvalidCovidcodeErrorVisible(matchesRegex && !matchesChecksum)
 				}
 
 				override fun onEditorSendAction() {
@@ -57,12 +66,7 @@ class InformFragment : TraceKeyShareBaseFragment() {
 					covidcodeInput.text = covidCode
 				}
 			}
-			sendButton.setOnClickListener {
-				sendButton.isEnabled = false
-				setInvalidCodeErrorVisible(false)
-				val authCode = covidcodeInput.text
-				authenticateInputAndInformExposed(authCode)
-			}
+			sendButton.setOnClickListener { performContinueAction() }
 			cancelButton.setOnClickListener { requireActivity().finish() }
 			informInvalidCodeError.setOnClickListener { PhoneUtil.callAppHotline(it.context) }
 		}
@@ -70,30 +74,51 @@ class InformFragment : TraceKeyShareBaseFragment() {
 		return binding.root
 	}
 
-
-	override fun onResume() {
-		super.onResume()
-		binding.covidcodeInput.requestFocus()
-	}
-
-
-	override fun setLoadingViewVisible(isVisible: Boolean) {
-		binding.loadingView.isVisible = isVisible
-	}
-
-	override fun setSendButtonEnabled(isEnabled: Boolean) {
-		binding.sendButton.isEnabled = isEnabled
-	}
-
-	override fun setInvalidCodeErrorVisible(visible: Boolean) {
-		binding.apply {
-			informInvalidCodeError.isVisible = visible
-			informInputText.isVisible = !visible
+	private fun performContinueAction() {
+		binding.sendButton.isEnabled = false
+		setInvalidCovidcodeErrorVisible(false)
+		informViewModel.covidCode = binding.covidcodeInput.text
+		askUserToEnableTracingIfNecessary { tracingEnabled ->
+			if (tracingEnabled) {
+				showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
+			} else {
+				binding.sendButton.isEnabled = true
+			}
 		}
 	}
 
-	override fun performNotShareAction() {
+	private fun onUserGrantedTEKSharing() {
+		informViewModel.hasSharedDP3TKeys = true
+		if (informViewModel.selectableCheckinItems.isEmpty()) {
+			performUpload(onSuccess = {
+				showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container)
+			}, onInvalidCovidCode = {
+				setInvalidCovidcodeErrorVisible(true)
+			})
+		} else {
+			showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
+		}
+	}
+
+	private fun onUserDidNotGrantTEKSharing() {
 		showFragment(ReallyNotShareFragment.newInstance(), R.id.inform_fragment_container)
+	}
+
+	private fun String.matchesChecksum(): Boolean {
+		//TODO: Implement checksum check
+		return true
+	}
+
+	override fun setLoadingViewVisible(isVisible: Boolean) {
+		binding.loadingView.isVisible = isVisible
+		binding.sendButton.isEnabled = !isVisible
+	}
+
+	private fun setInvalidCovidcodeErrorVisible(isVisible: Boolean) {
+		binding.apply {
+			informInvalidCodeError.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
+			informInputText.visibility = if (!isVisible) View.VISIBLE else View.INVISIBLE
+		}
 	}
 
 }
