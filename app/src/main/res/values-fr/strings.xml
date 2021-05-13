@@ -1692,4 +1692,7 @@ Contactez l'infoline coronavirus :"</string>
 
     <!-- Veranstaltungen-Card Text im Infotab -->
     <string name="events_subtitle">"Protect yourself and others by generating QR codes for working spaces, meeting rooms or other private events."</string>
+
+    <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
+    <string name="delete_qr_code_dialog"></string>
 </resources>

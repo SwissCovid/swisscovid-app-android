@@ -1731,4 +1731,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Veranstaltungen-Card Text im Infotab -->
     <string name="events_subtitle">"Schützen Sie sich selber und andere indem Sie QR Codes für Arbeitsplätze, Konferenzräume oder andere private Events erstellen."</string>
+
+    <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
+    <string name="delete_qr_code_dialog">"Möchten Sie den QR Code wirklich löschen?"</string>
 </resources>

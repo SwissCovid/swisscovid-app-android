@@ -9,6 +9,7 @@ import android.print.PrintManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -67,8 +68,7 @@ class QrCodeFragment : Fragment() {
 			}
 			qrCodeViewModel.generateQrCodeBitmap(venueInfo)
 			deleteButton.setOnClickListener {
-				qrCodeViewModel.deleteQrCode(venueInfo)
-				requireActivity().supportFragmentManager.popBackStack()
+				showDeleteConfirmationDialog(venueInfo)
 			}
 			crowdNotifierViewModel.isCheckedIn.observe(viewLifecycleOwner) { isCheckedIn ->
 				checkinButton.isEnabled = !isCheckedIn
@@ -103,5 +103,16 @@ class QrCodeFragment : Fragment() {
 				startActivity(this)
 			}
 		}
+	}
+
+	private fun showDeleteConfirmationDialog(venueInfo: VenueInfo) {
+		AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+			.setMessage(R.string.delete_qr_code_dialog)
+			.setPositiveButton(R.string.delete_button_title) { _, _ ->
+				qrCodeViewModel.deleteQrCode(venueInfo)
+				requireActivity().supportFragmentManager.popBackStack()
+			}
+			.setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
+			.show()
 	}
 }

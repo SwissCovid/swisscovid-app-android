@@ -254,6 +254,7 @@
 	</style>
 
 	<style name="NextStep.Button.Outlined.Red">
+		<item name="android:drawableTint">@color/red_main</item>
 		<item name="android:textColor">@color/red_main</item>
 		<item name="android:background">@drawable/bg_button_outlined_red</item>
 	</style>

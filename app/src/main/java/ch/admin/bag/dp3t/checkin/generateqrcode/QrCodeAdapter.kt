@@ -3,6 +3,7 @@ package ch.admin.bag.dp3t.checkin.generateqrcode
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ch.admin.bag.dp3t.checkin.utils.getSubtitle
 import ch.admin.bag.dp3t.databinding.ItemGenerateQrCodeBinding
 import ch.admin.bag.dp3t.databinding.ItemQrCodeBinding
 import ch.admin.bag.dp3t.databinding.ItemQrCodeEmptyListBinding
@@ -88,7 +89,7 @@ class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter
 		override fun bind(item: VenueInfo) {
 			binding.apply {
 				qrCodeName.text = item.title
-				qrCodeLocation.text = "TODO"
+				qrCodeLocation.text = item.getSubtitle()
 				root.setOnClickListener { onClickListener.onQrCodeClicked(item) }
 				qrCodeDelete.setOnClickListener { onClickListener.onDeleteQrCodeClicked(item) }
 			}

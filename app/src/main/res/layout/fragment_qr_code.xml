@@ -100,7 +100,7 @@
 
 			<Button
 				android:id="@+id/delete_button"
-				style="@style/NextStep.Button.Transparent"
+				style="@style/NextStep.Button.Outlined.Red"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginHorizontal="@dimen/spacing_huger"

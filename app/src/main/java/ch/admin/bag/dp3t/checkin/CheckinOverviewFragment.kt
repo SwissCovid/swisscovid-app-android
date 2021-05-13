@@ -16,6 +16,7 @@ import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
 import ch.admin.bag.dp3t.checkin.diary.DiaryFragment
 import ch.admin.bag.dp3t.databinding.FragmentCheckinOverviewBinding
 import ch.admin.bag.dp3t.util.StringUtil
+import ch.admin.bag.dp3t.util.showFragment
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 
 class CheckinOverviewFragment : Fragment() {
@@ -31,7 +32,7 @@ class CheckinOverviewFragment : Fragment() {
 	private val tracingViewModel: TracingViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		return FragmentCheckinOverviewBinding.inflate(layoutInflater).apply {
+		return FragmentCheckinOverviewBinding.inflate(inflater).apply {
 			checkinOverviewToolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 
 			checkinOverviewDiary.setOnClickListener { authenticateAndShowDiary() }
@@ -49,29 +50,13 @@ class CheckinOverviewFragment : Fragment() {
 				}
 			})
 
-			checkinButton.setOnClickListener { showQrCodeScannerFragment() }
-			checkoutButton.setOnClickListener { showCheckOutFragment() }
+			checkinButton.setOnClickListener { showFragment(QrCodeScannerFragment.newInstance()) }
+			checkoutButton.setOnClickListener { showFragment(CheckOutFragment.newInstance()) }
 
 			crowdNotifierViewModel.timeSinceCheckIn.observe(viewLifecycleOwner) { duration ->
 				checkinTime.text = StringUtil.getShortDurationString(duration)
 			}
 		}.root
-	}
-
-	private fun showCheckOutFragment() {
-		requireActivity().supportFragmentManager.beginTransaction()
-			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-			.replace(R.id.main_fragment_container, CheckOutFragment.newInstance())
-			.addToBackStack(CheckOutFragment::class.java.canonicalName)
-			.commit()
-	}
-
-	private fun showQrCodeScannerFragment() {
-		requireActivity().supportFragmentManager.beginTransaction()
-			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-			.replace(R.id.main_fragment_container, QrCodeScannerFragment.newInstance())
-			.addToBackStack(QrCodeScannerFragment::class.java.canonicalName)
-			.commit()
 	}
 
 	private fun authenticateAndShowDiary() {
@@ -81,7 +66,7 @@ class CheckinOverviewFragment : Fragment() {
 			val executor = ContextCompat.getMainExecutor(requireContext())
 			val biometricPrompt = BiometricPrompt(requireActivity(), executor, object : BiometricPrompt.AuthenticationCallback() {
 				override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-					showDiaryFragment()
+					showFragment(DiaryFragment.newInstance())
 				}
 			})
 			val promptInfo = BiometricPrompt.PromptInfo.Builder()
@@ -92,15 +77,8 @@ class CheckinOverviewFragment : Fragment() {
 				.build()
 			biometricPrompt.authenticate(promptInfo)
 		} else {
-			showDiaryFragment()
+			showFragment(DiaryFragment.newInstance())
 		}
 	}
 
-	private fun showDiaryFragment() {
-		requireActivity().supportFragmentManager.beginTransaction()
-			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-			.replace(R.id.main_fragment_container, DiaryFragment.newInstance())
-			.addToBackStack(DiaryFragment::class.java.canonicalName)
-			.commit()
-	}
 }
