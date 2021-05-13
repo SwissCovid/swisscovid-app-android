@@ -14,14 +14,17 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckInFragment
 import ch.admin.bag.dp3t.checkin.models.CheckInState
 import ch.admin.bag.dp3t.checkin.models.QRCodePayload
+import ch.admin.bag.dp3t.checkin.utils.getSubtitle
 import ch.admin.bag.dp3t.checkin.utils.toQrCodePayload
 import ch.admin.bag.dp3t.checkin.utils.toVenueInfo
 import ch.admin.bag.dp3t.databinding.FragmentQrCodeBinding
+import ch.admin.bag.dp3t.util.showFragment
 import com.google.protobuf.ByteString
 import org.crowdnotifier.android.sdk.model.VenueInfo
 import java.io.File
@@ -45,7 +48,7 @@ class QrCodeFragment : Fragment() {
 			cancelButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 			val venueInfo = QRCodePayload.parseFrom(arguments?.get(KEY_VENUE_INFO) as ByteString).toVenueInfo()
 			titleTextview.text = venueInfo.title
-			subtitleTextview.text = "TODO"
+			subtitleTextview.text = venueInfo.getSubtitle()
 			qrCodeImageview.visibility = View.INVISIBLE
 			qrCodeLoadingProgressbar.isVisible = true
 			shareButton.isEnabled = false
@@ -59,7 +62,7 @@ class QrCodeFragment : Fragment() {
 			qrCodeViewModel.selectedQrCodePdf.observe(viewLifecycleOwner) { pdfFile ->
 				shareButton.isEnabled = true
 				printPdfButton.isEnabled = true
-				shareButton.setOnClickListener { sharePdf(pdfFile) }
+				shareButton.setOnClickListener { sharePdf(pdfFile, venueInfo) }
 				printPdfButton.setOnClickListener { printPdf(pdfFile) }
 			}
 			qrCodeViewModel.generateQrCodeBitmap(venueInfo)
@@ -73,7 +76,7 @@ class QrCodeFragment : Fragment() {
 			checkinButton.setOnClickListener {
 				crowdNotifierViewModel.checkInState =
 					CheckInState(false, venueInfo, System.currentTimeMillis(), System.currentTimeMillis(), 0)
-				showCheckInFragment()
+				showFragment(CheckInFragment.newInstance())
 			}
 		}.root
 	}
@@ -87,24 +90,18 @@ class QrCodeFragment : Fragment() {
 		}
 	}
 
-	private fun sharePdf(file: File) {
+	private fun sharePdf(file: File, venueInfo: VenueInfo) {
 		context?.let {
 			val pdfUri: Uri = FileProvider.getUriForFile(it, it.applicationContext.packageName.toString() + ".provider", file)
 
 			Intent().apply {
 				action = Intent.ACTION_SEND
 				type = "application/pdf"
+				putExtra(Intent.EXTRA_TEXT, venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX))
 				putExtra(Intent.EXTRA_STREAM, pdfUri)
+				addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 				startActivity(this)
 			}
 		}
-	}
-
-	private fun showCheckInFragment() {
-		requireActivity().supportFragmentManager.beginTransaction()
-			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-			.replace(R.id.main_fragment_container, CheckInFragment.newInstance())
-			.addToBackStack(CheckInFragment::class.java.canonicalName)
-			.commitAllowingStateLoss()
 	}
 }
