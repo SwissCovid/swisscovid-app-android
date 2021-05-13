@@ -1,5 +1,7 @@
 package ch.admin.bag.dp3t.infotab
 
+import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,13 +9,17 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment
 import ch.admin.bag.dp3t.databinding.FragmentInfoTabBinding
+import ch.admin.bag.dp3t.inform.InformActivity
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.travel.TravelFragment
 import ch.admin.bag.dp3t.travel.TravelUtils
+import ch.admin.bag.dp3t.util.UrlUtil
 import ch.admin.bag.dp3t.util.showFragment
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
+import ch.admin.bag.dp3t.whattodo.WtdInfolineAccessabilityDialogFragment
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment
 import ch.admin.bag.dp3t.whattodo.WtdSymptomsFragment
 
@@ -32,15 +38,71 @@ class InfoTabFragment : Fragment() {
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		binding = FragmentInfoTabBinding.inflate(inflater).apply {
 			frameCardSymptoms.root.setOnClickListener { showFragment(WtdSymptomsFragment.newInstance()) }
-			frameCardTest.root.setOnClickListener { showFragment(WtdPositiveTestFragment.newInstance()) }
 			tracingViewModel.appStatusLiveData.observe(viewLifecycleOwner) { tracingStatusInterface ->
-				frameCardSymptoms.root.isVisible = !tracingStatusInterface.isReportedAsInfected
 				frameCardTest.root.isVisible = !tracingStatusInterface.isReportedAsInfected
 			}
-			qrCodeGenerate.setOnClickListener { showFragment(EventsOverviewFragment.newInstance()) }
+			qrCodeGenerate.root.setOnClickListener { showFragment(EventsOverviewFragment.newInstance()) }
 		}
 		setupTravelCard()
+		setupPositiveTestCard()
 		return binding.root
+	}
+
+	private fun setupPositiveTestCard() {
+		fillContentFromConfigServer()
+		binding.frameCardTest.apply {
+			wtdMoreAboutCovidcodeButton.paintFlags = wtdMoreAboutCovidcodeButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+			wtdMoreAboutCovidcodeButton.setOnClickListener {
+				showFragment(WtdPositiveTestFragment.newInstance())
+			}
+			wtdInformButton.setOnClickListener {
+				startActivity(Intent(activity, InformActivity::class.java))
+			}
+		}
+	}
+
+	private fun fillContentFromConfigServer() {
+		val textModel = secureStorage.getWhatToDoPositiveTestTexts(getString(R.string.language_key)) ?: return
+		binding.frameCardTest.apply {
+			wtdInformBoxSupertitle.text = textModel.enterCovidcodeBoxSupertitle
+			wtdInformBoxTitle.text = textModel.enterCovidcodeBoxTitle
+			wtdInformBoxText.text = textModel.enterCovidcodeBoxText
+			wtdInformButton.text = textModel.enterCovidcodeBoxButtonTitle
+			wtdInformInfobox.isVisible = textModel.infoBox != null
+			textModel.infoBox?.let { infoBox ->
+				wtdInformInfoboxTitle.text = infoBox.title
+				wtdInformInfoboxMsg.text = infoBox.msg
+				if (infoBox.url != null && infoBox.urlTitle != null) {
+					wtdInformInfoboxLinkText.text = infoBox.urlTitle
+					wtdInformInfoboxLinkLayout.setOnClickListener { UrlUtil.openUrl(it.context, infoBox.url) }
+					wtdInformInfoboxLinkLayout.isVisible = true
+					if (infoBox.url.startsWith("tel://")) {
+						wtdInformInfoboxLinkIcon.setImageResource(R.drawable.ic_phone)
+					} else {
+						wtdInformInfoboxLinkIcon.setImageResource(R.drawable.ic_launch)
+					}
+				} else {
+					wtdInformInfoboxLinkLayout.isVisible = false
+				}
+				if (infoBox.hearingImpairedInfo != null) {
+					wtdInformInfoboxLinkIcon.setImageResource(R.drawable.ic_phone)
+					wtdInformInfoboxLinkHearingImpaired.setOnClickListener { showWtdInfolineAccessabilityDialogFragment(infoBox.hearingImpairedInfo) }
+					wtdInformInfoboxLinkHearingImpaired.isVisible = true
+				} else {
+					wtdInformInfoboxLinkIcon.setImageResource(R.drawable.ic_launch)
+					wtdInformInfoboxLinkHearingImpaired.isVisible = false
+				}
+			}
+		}
+	}
+
+	private fun showWtdInfolineAccessabilityDialogFragment(hearingImpairedInfo: String) {
+		requireActivity().supportFragmentManager.beginTransaction()
+			.add(
+				WtdInfolineAccessabilityDialogFragment.newInstance(hearingImpairedInfo),
+				WtdInfolineAccessabilityDialogFragment::class.java.canonicalName
+			)
+			.commit()
 	}
 
 

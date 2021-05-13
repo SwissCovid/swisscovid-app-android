@@ -259,6 +259,7 @@
 	</style>
 
 	<style name="NextStep.Button.Outlined.Purple">
+		<item name="android:drawableTint">@color/purple_main</item>
 		<item name="android:textColor">@color/purple_main</item>
 		<item name="android:background">@drawable/bg_button_outlined_purple</item>
 	</style>

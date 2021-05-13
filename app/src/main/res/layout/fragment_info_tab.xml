@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/infotab_scrollview"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
@@ -13,6 +14,20 @@
 		android:paddingVertical="@dimen/spacing_very_large">
 
 		<include
+			android:id="@+id/frame_card_test"
+			layout="@layout/card_what_to_do_test"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/spacing_medium" />
+
+		<include
+			android:id="@+id/frame_card_symptoms"
+			layout="@layout/card_what_to_do_symptoms"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/spacing_very_large" />
+
+		<include
 			android:id="@+id/card_travel"
 			layout="@layout/card_travel"
 			android:layout_width="match_parent"
@@ -20,42 +35,10 @@
 			android:layout_marginBottom="@dimen/spacing_very_large" />
 
 		<include
-			android:id="@+id/frame_card_symptoms"
-			layout="@layout/card_what_to_do_symptoms"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="@dimen/spacing_very_small" />
-
-		<include
-			android:id="@+id/frame_card_test"
-			layout="@layout/card_what_to_do_test"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="@dimen/spacing_very_large" />
-
-		<androidx.cardview.widget.CardView
 			android:id="@+id/qr_code_generate"
-			style="@style/NextStep.Card"
+			layout="@layout/card_generate_qr_code"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="@dimen/spacing_very_large">
-
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:orientation="vertical">
-
-				<TextView
-					style="@style/NextStep.Text.Title"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginHorizontal="@dimen/spacing_large"
-					android:layout_marginTop="@dimen/spacing_medium_large"
-					android:layout_marginBottom="@dimen/spacing_medium"
-					android:text="[TBT] QR Code Generieren" />
-
-			</LinearLayout>
-		</androidx.cardview.widget.CardView>
+			android:layout_height="wrap_content" />
 
 	</LinearLayout>
 
