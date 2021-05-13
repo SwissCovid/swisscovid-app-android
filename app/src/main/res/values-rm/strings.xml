@@ -1665,4 +1665,7 @@ Alura contactai la Infoline coronavirus:"</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
     <string name="delete_qr_code_dialog"></string>
+
+    <!-- Self-Check-In Button Titel im QR-Code Screen -->
+    <string name="self_checkin_button_title"></string>
 </resources>

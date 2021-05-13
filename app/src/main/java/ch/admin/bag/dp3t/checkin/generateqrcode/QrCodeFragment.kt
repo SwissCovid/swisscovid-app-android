@@ -25,7 +25,9 @@ import ch.admin.bag.dp3t.checkin.utils.getSubtitle
 import ch.admin.bag.dp3t.checkin.utils.toQrCodePayload
 import ch.admin.bag.dp3t.checkin.utils.toVenueInfo
 import ch.admin.bag.dp3t.databinding.FragmentQrCodeBinding
+import ch.admin.bag.dp3t.util.combineWith
 import ch.admin.bag.dp3t.util.showFragment
+import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 import com.google.protobuf.ByteString
 import org.crowdnotifier.android.sdk.model.VenueInfo
 import java.io.File
@@ -42,11 +44,12 @@ class QrCodeFragment : Fragment() {
 
 	private val qrCodeViewModel: QRCodeViewModel by activityViewModels()
 	private val crowdNotifierViewModel: CrowdNotifierViewModel by activityViewModels()
+	private val tracingViewModel: TracingViewModel by activityViewModels()
 
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		return FragmentQrCodeBinding.inflate(layoutInflater).apply {
-			cancelButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
+			toolbar.setNavigationOnClickListener { parentFragmentManager.popBackStack() }
 			val venueInfo = QRCodePayload.parseFrom(arguments?.get(KEY_VENUE_INFO) as ByteString).toVenueInfo()
 			titleTextview.text = venueInfo.title
 			subtitleTextview.text = venueInfo.getSubtitle()
@@ -70,8 +73,11 @@ class QrCodeFragment : Fragment() {
 			deleteButton.setOnClickListener {
 				showDeleteConfirmationDialog(venueInfo)
 			}
-			crowdNotifierViewModel.isCheckedIn.observe(viewLifecycleOwner) { isCheckedIn ->
-				checkinButton.isEnabled = !isCheckedIn
+			crowdNotifierViewModel.isCheckedIn.combineWith(tracingViewModel.appStatusLiveData) { isCheckedIn, appStatusInterface ->
+				// show self-checkin button only if user is not in isolation and is not checked in already
+				appStatusInterface?.isReportedAsInfected == false && isCheckedIn == false
+			}.observe(viewLifecycleOwner) { showCheckinButton ->
+				checkinButton.isVisible = showCheckinButton
 			}
 			checkinButton.setOnClickListener {
 				crowdNotifierViewModel.checkInState =

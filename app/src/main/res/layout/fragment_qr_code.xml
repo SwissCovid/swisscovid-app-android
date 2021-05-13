@@ -5,16 +5,15 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/white"
-	android:orientation="vertical"
-	android:padding="@dimen/spacing_large">
+	android:orientation="vertical">
 
-	<TextView
-		android:id="@+id/cancel_button"
-		style="@style/NextStep.Text.Blue"
-		android:layout_width="wrap_content"
+	<androidx.appcompat.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_gravity="end"
-		android:text="@string/cancel" />
+		app:layout_constraintTop_toTopOf="parent"
+		app:navigationContentDescription="@string/android_accessibility_back_button"
+		app:navigationIcon="@drawable/ic_arrow_back" />
 
 	<ScrollView
 		android:layout_width="match_parent"
@@ -23,7 +22,8 @@
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="vertical">
+			android:orientation="vertical"
+			android:padding="@dimen/spacing_large">
 
 			<TextView
 				android:id="@+id/title_textview"
@@ -76,7 +76,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginHorizontal="@dimen/spacing_huger"
 				android:drawableEnd="@drawable/ic_check_in"
-				android:text="@string/checkin_button_title" />
+				android:text="@string/self_checkin_button_title" />
 
 			<Button
 				android:id="@+id/share_button"
@@ -95,7 +95,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginHorizontal="@dimen/spacing_huger"
 				android:layout_marginTop="@dimen/spacing_medium_large"
-				android:drawableEnd="@drawable/ic_print_pdf"
+				android:drawableEnd="@drawable/ic_print"
 				android:text="@string/print_button_title" />
 
 			<Button
