@@ -1,8 +1,10 @@
 package ch.admin.bag.dp3t.checkin.utils
 
+import androidx.annotation.StringRes
 import ch.admin.bag.dp3t.checkin.models.QRCodePayload
 import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.checkin.models.SwissCovidLocationData
+import ch.admin.bag.dp3t.extensions.getNameRes
 import com.google.protobuf.InvalidProtocolBufferException
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
@@ -20,9 +22,9 @@ fun VenueInfo.getSwissCovidLocationData(): SwissCovidLocationData {
 	}
 }
 
-fun VenueInfo.getSubtitle(): String {
-	//TODO: This is to be defined what the subtitle will be for SwissCovid
-	return "*subtitle*"
+@StringRes
+fun VenueInfo.getSubtitle(): Int {
+	return getSwissCovidLocationData().type.getNameRes()
 }
 
 fun VenueInfo.toQrCodePayload(): QRCodePayload {

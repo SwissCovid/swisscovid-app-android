@@ -14,6 +14,7 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
 import ch.admin.bag.dp3t.checkin.diary.DiaryFragment
+import ch.admin.bag.dp3t.checkin.utils.getSubtitle
 import ch.admin.bag.dp3t.databinding.FragmentCheckinOverviewBinding
 import ch.admin.bag.dp3t.util.StringUtil
 import ch.admin.bag.dp3t.util.showFragment
@@ -46,7 +47,10 @@ class CheckinOverviewFragment : Fragment() {
 				checkoutView.isVisible = isCheckedIn
 				checkinView.isVisible = !isCheckedIn
 				if (isCheckedIn) {
+					val venueInfo = crowdNotifierViewModel.checkInState.venueInfo
 					crowdNotifierViewModel.startCheckInTimer()
+					checkinTitle.text = venueInfo.description
+					checkinSubtitle.setText(venueInfo.getSubtitle())
 				}
 			})
 

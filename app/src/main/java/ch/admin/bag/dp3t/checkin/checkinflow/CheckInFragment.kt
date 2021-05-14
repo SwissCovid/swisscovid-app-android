@@ -52,7 +52,7 @@ class CheckInFragment : Fragment() {
 			val venueInfo = viewModel.checkInState?.venueInfo ?: return root
 
 			titleTextview.text = venueInfo.title
-			subtitleTextview.text = venueInfo.getSubtitle()
+			subtitleTextview.setText(venueInfo.getSubtitle())
 			checkInButton.setOnClickListener {
 				performCheckIn(venueInfo)
 				popBackToHomeFragment()

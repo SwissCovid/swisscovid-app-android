@@ -12,11 +12,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.RadioButton
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.checkin.models.VenueType
 import ch.admin.bag.dp3t.databinding.FragmentGenerateQrCodeBinding
+import ch.admin.bag.dp3t.extensions.getNameRes
 
+private const val KEY_SELECTED_VENUE_TYPE = "KEY_SELECTED_VENUE_TYPE"
 
 class GenerateQrCodeFragment : Fragment() {
 
@@ -32,18 +35,22 @@ class GenerateQrCodeFragment : Fragment() {
 			generateQrCodeCancel.setOnClickListener { popFragmentAndHideKeyboard() }
 
 			//TODO: Remove these hardcoded Events
-			val events = arrayListOf(EventType.PRIVATE_EVENT, EventType.MEETING_ROOM, EventType.OFFICE, EventType.OTHERS)
-			for (event in events) {
+			val venueTypes = arrayListOf(VenueType.PRIVATE_EVENT, VenueType.MEETING_ROOM, VenueType.OFFICE_SPACE, VenueType.OTHER)
+			val selectedVenueType =
+				VenueType.forNumber(savedInstanceState?.getInt(KEY_SELECTED_VENUE_TYPE) ?: VenueType.PRIVATE_EVENT.number)
+			for (venueType in venueTypes) {
 				val radioButton = RadioButton(requireContext())
-				radioButton.text = event.value
+				radioButton.setText(venueType.getNameRes())
 				radioButton.setRadioButtonColor()
+				radioButton.tag = venueType.number
 				generateQrCodeRadioGroup.addView(radioButton)
+				if (venueType == selectedVenueType) generateQrCodeRadioGroup.check(radioButton.id)
 			}
 			qrCodeGenerate.setOnClickListener {
-				//TODO: Set correct Venue Type
-				generateQrCode(titleEditText.text.toString(), VenueType.CAFETERIA)
+				generateQrCode(titleEditText.text.toString(), getSelectedVenueType())
 			}
-
+			qrCodeGenerate.isEnabled = !titleEditText.text.isNullOrBlank()
+			titleEditText.doOnTextChanged { text, _, _, _ -> qrCodeGenerate.isEnabled = !text.isNullOrBlank() }
 		}
 		return binding.root
 	}
@@ -59,11 +66,13 @@ class GenerateQrCodeFragment : Fragment() {
 		inputMethodManager.hideSoftInputFromWindow(binding.titleEditText.windowToken, 0)
 	}
 
-	enum class EventType(val value: String) {
-		PRIVATE_EVENT("Privater Event"),
-		MEETING_ROOM("Sitzungsraum"),
-		OFFICE("Büroräume"),
-		OTHERS("Andere")
+	private fun getSelectedVenueType() =
+		VenueType.forNumber(binding.root.findViewById<View>(binding.generateQrCodeRadioGroup.checkedRadioButtonId).tag as Int)
+
+
+	override fun onSaveInstanceState(outState: Bundle) {
+		outState.putInt(KEY_SELECTED_VENUE_TYPE, getSelectedVenueType().number)
+		super.onSaveInstanceState(outState)
 	}
 }
 

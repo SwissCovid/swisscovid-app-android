@@ -89,7 +89,7 @@ class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter
 		override fun bind(item: VenueInfo) {
 			binding.apply {
 				qrCodeName.text = item.title
-				qrCodeLocation.text = item.getSubtitle()
+				qrCodeLocation.setText(item.getSubtitle())
 				root.setOnClickListener { onClickListener.onQrCodeClicked(item) }
 				qrCodeDelete.setOnClickListener { onClickListener.onDeleteQrCodeClicked(item) }
 			}
