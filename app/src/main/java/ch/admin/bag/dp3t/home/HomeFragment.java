@@ -11,7 +11,6 @@ package ch.admin.bag.dp3t.home;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -41,7 +40,6 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.TracingStatus;
-import org.dpppt.android.sdk.internal.logger.Logger;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
@@ -52,7 +50,6 @@ import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
-import ch.admin.bag.dp3t.home.model.TracingState;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.inform.InformActivity;
@@ -230,8 +227,7 @@ public class HomeFragment extends Fragment {
 
 	private void setupTracingView() {
 		TypedValue outValue = new TypedValue();
-		requireContext().getTheme().resolveAttribute(
-				android.R.attr.selectableItemBackground, outValue, true);
+		requireContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
 		tracingCard.setForeground(requireContext().getDrawable(outValue.resourceId));
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
@@ -291,14 +287,7 @@ public class HomeFragment extends Fragment {
 			}
 
 			TracingStatus.ErrorState errorState = tracingStatusInterface.getReportErrorState();
-			if (tracingStatusInterface.getTracingState().equals(TracingState.NOT_ACTIVE) &&
-					!tracingStatusInterface.isReportedAsInfected()) {
-				NotificationErrorStateHelper
-						.updateNotificationErrorView(reportErrorView, NotificationStateError.TRACING_DEACTIVATED);
-				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
-					enableTracing();
-				});
-			} else if (errorState != null) {
+			if (errorState != null) {
 				TracingErrorStateHelper
 						.updateErrorView(reportErrorView, errorState);
 				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
@@ -530,28 +519,6 @@ public class HomeFragment extends Fragment {
 		};
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), observer);
-	}
-
-	private void enableTracing() {
-		Activity activity = getActivity();
-		if (activity == null) {
-			return;
-		}
-
-		tracingViewModel.enableTracing(activity,
-				() -> { },
-				e -> {
-					String message = ENExceptionHelper.getErrorMessage(e, activity);
-					Logger.e(TAG, message);
-					new AlertDialog.Builder(activity, R.style.NextStep_AlertDialogStyle)
-							.setTitle(R.string.android_en_start_failure)
-							.setMessage(message)
-							.setPositiveButton(R.string.android_button_ok, (dialog, which) -> {})
-							.show();
-				},
-				() -> {
-					// cancelled
-				});
 	}
 
 }
