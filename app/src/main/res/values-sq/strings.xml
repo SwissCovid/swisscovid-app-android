@@ -1673,4 +1673,7 @@ Atëherë kontaktoni qendrën telefonike të koronavirusit:"</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
     <string name="self_checkin_button_title"></string>
+
+    <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer nicht eingecheckt ist. -->
+    <string name="checkin_overview_checkins_explanation"></string>
 </resources>

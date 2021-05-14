@@ -1737,4 +1737,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
     <string name="self_checkin_button_title">"Selbst einchecken"</string>
+
+    <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer nicht eingecheckt ist. -->
+    <string name="checkin_overview_checkins_explanation">"Schützen Sie sich und andere indem Sie bei Events ein- und auschecken."</string>
 </resources>

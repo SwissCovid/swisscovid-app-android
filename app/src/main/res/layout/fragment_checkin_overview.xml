@@ -73,7 +73,7 @@
 							android:layout_height="wrap_content"
 							android:layout_marginTop="@dimen/spacing_small"
 							android:gravity="center_horizontal"
-							android:text="[TBT] Hier wird eine Beschreibung sein." />
+							android:text="@string/checkin_overview_checkins_explanation" />
 
 						<Button
 							android:id="@+id/checkin_button"
@@ -100,7 +100,7 @@
 							android:layout_height="wrap_content"
 							android:layout_marginTop="@dimen/spacing_tiny_small"
 							android:gravity="center_horizontal"
-							android:text="[TBT] Sie sind eingecheckt." />
+							android:text="@string/checkin_checked_in" />
 
 						<TextView
 							android:id="@+id/checkin_time"
