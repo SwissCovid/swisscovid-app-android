@@ -1526,7 +1526,7 @@ Contatta la Infoline coronavirus:"</string>
     <!-- Check-Ins: QR-Code erstellen Titel -->
     <string name="checkins_create_qr_code"></string>
 
-    <!-- Check-Ins: Veranstaltungen Titel -->
+    <!-- Veranstaltungen-Card Titel im Infotab -->
     <string name="events_title"></string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
@@ -1697,4 +1697,7 @@ Contatta la Infoline coronavirus:"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer sich in Isolation befindet. -->
     <string name="checkin_overview_isolation_text">"You can no longer check-in when you tested positive. More text more text more text more text more text more text more"</string>
+
+    <!-- Veranstaltungen-Card Text im Infotab -->
+    <string name="events_subtitle">"Protect yourself and others by generating QR codes for working spaces, meeting rooms or other private events."</string>
 </resources>

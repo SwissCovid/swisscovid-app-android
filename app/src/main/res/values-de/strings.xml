@@ -1552,7 +1552,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <!-- Check-Ins: QR-Code erstellen Titel -->
     <string name="checkins_create_qr_code">"QR-Code erstellen"</string>
 
-    <!-- Check-Ins: Veranstaltungen Titel -->
+    <!-- Veranstaltungen-Card Titel im Infotab -->
     <string name="events_title">"Veranstaltungen"</string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
@@ -1728,4 +1728,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer sich in Isolation befindet. -->
     <string name="checkin_overview_isolation_text">"Sie können nicht mehr einchecken, wenn Sie positiv getestet wurden."</string>
+
+    <!-- Veranstaltungen-Card Text im Infotab -->
+    <string name="events_subtitle">"Schützen Sie sich selber und andere indem Sie QR Codes für Arbeitsplätze, Konferenzräume oder andere private Events erstellen."</string>
 </resources>
