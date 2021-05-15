@@ -3,8 +3,6 @@ package ch.admin.bag.dp3t.checkin.generateqrcode
 import android.app.Application
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.Paint
-import android.graphics.pdf.PdfDocument
 import android.util.Base64
 import android.util.Log
 import androidx.datastore.core.DataStore
@@ -37,7 +35,7 @@ private const val SWISSCOVID_LOCATION_DATA_VERSION = 1
 private const val QR_CODE_VALIDITY_DURATION_MS = 100000 * 24 * ONE_HOUR_IN_MILLIS // 100'000 days
 private val REMINDER_DELAY_OPTIONS_MS =
 	listOf(if (BuildConfig.IS_FLAVOR_DEV) 1 else 30, 60, 120, 240).map { it * ONE_MINUTE_IN_MILLIS } // 30, 60, 120 and 240 minutes
-private const val QR_CODE_PIXEL_SIZE = 1000
+private const val QR_CODE_PIXEL_SIZE = 500
 const val QR_CODE_PDF_FILE_NAME = "swisscovid-qr-code.pdf"
 
 private val Context.generatedQrCodesDataStore: DataStore<GeneratedQrCodesWrapper> by dataStore(
@@ -47,13 +45,15 @@ private val Context.generatedQrCodesDataStore: DataStore<GeneratedQrCodesWrapper
 
 class QRCodeViewModel(application: Application) : AndroidViewModel(application) {
 
-	private val generatedQrCodesFlow = getApplication<Application>().generatedQrCodesDataStore.data.buffer(1).catch { exception ->
+	private val generatedQrCodesFlow = application.generatedQrCodesDataStore.data.buffer(1).catch { exception ->
 		if (exception is IOException) {
 			Log.e("QRCodeViewModel", "Error reading generated QR Codes.", exception)
 		} else {
 			throw exception
 		}
 	}
+
+	private val pdfDirectory = File(application.externalCacheDir, "pdfs").apply { if (!exists()) mkdirs() }
 
 	val generatedQrCodesLiveData = generatedQrCodesFlow.map { wrapper ->
 		wrapper.generatedQrCodesList.map { it.toVenueInfo() }
@@ -99,19 +99,12 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		saveGeneratedQrCode(newWrapper)
 	}
 
-	fun createQrCodePdf(bitmap: Bitmap) = viewModelScope.launch(Dispatchers.IO) {
+	fun createQrCodePdf(venueInfo: VenueInfo, bitmap: Bitmap) = viewModelScope.launch(Dispatchers.IO) {
 
-		val directory = File(getApplication<Application>().externalCacheDir, "pdfs").apply { if (!exists()) mkdirs() }
-		val file = File(directory, QR_CODE_PDF_FILE_NAME)
+		val document = createEntryPdf(venueInfo, bitmap, getApplication())
 
-		val document = PdfDocument()
-		val pageInfo = PdfDocument.PageInfo.Builder(1240, 1748, 1).create() // A4 size
-		val page = document.startPage(pageInfo)
-		val canvas = page.canvas
+		val file = File(pdfDirectory, QR_CODE_PDF_FILE_NAME)
 
-		canvas.drawBitmap(bitmap, 120f, 120f, Paint())
-
-		document.finishPage(page)
 		FileOutputStream(file).use {
 			document.writeTo(it)
 			document.close()

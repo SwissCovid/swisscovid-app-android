@@ -61,7 +61,7 @@ class QrCodeFragment : Fragment() {
 				qrCodeImageview.visibility = View.VISIBLE
 				qrCodeLoadingProgressbar.isVisible = false
 				qrCodeImageview.setImageBitmap(it)
-				qrCodeViewModel.createQrCodePdf(it)
+				qrCodeViewModel.createQrCodePdf(venueInfo, it)
 			}
 			qrCodeViewModel.selectedQrCodePdf.observe(viewLifecycleOwner) { pdfFile ->
 				shareButton.isEnabled = true
