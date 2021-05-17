@@ -8,7 +8,6 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -132,13 +131,9 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 	}
 
 	public void refreshErrors() {
-		//TODO: Also check for disabled notification channels
-		boolean notificationsEnabled = NotificationManagerCompat.from(getApplication()).areNotificationsEnabled();
 
 		if (traceKeyLoadingState.getValue() == LoadingState.FAILURE) {
 			errorState.setValue(CrowdNotifierErrorState.NETWORK);
-		} else if (!notificationsEnabled) {
-			errorState.setValue(CrowdNotifierErrorState.NOTIFICATIONS_DISABLED);
 		} else {
 			errorState.setValue(null);
 		}
