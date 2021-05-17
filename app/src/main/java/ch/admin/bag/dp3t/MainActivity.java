@@ -163,7 +163,6 @@ public class MainActivity extends FragmentActivity {
 		super.onStart();
 		secureStorage.setAppOpenAfterNotificationPending(false);
 		crowdNotifierViewModel.refreshTraceKeys();
-		crowdNotifierViewModel.refreshErrors();
 		autoCheckoutIfNecessary(this, crowdNotifierViewModel.getCheckInState());
 	}
 

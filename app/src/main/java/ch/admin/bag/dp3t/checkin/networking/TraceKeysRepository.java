@@ -10,6 +10,7 @@ import org.crowdnotifier.android.sdk.model.DayDate;
 import org.crowdnotifier.android.sdk.model.ProblematicEventInfo;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.backend.UserAgentInterceptor;
+import org.jetbrains.annotations.NotNull;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.checkin.models.ProblematicEvent;
@@ -47,7 +48,7 @@ public class TraceKeysRepository {
 	public void loadTraceKeysAsync(Callback callback) {
 		traceKeysService.getTraceKeys(storage.getCrowdNotifierLastKeyBundleTag()).enqueue(new retrofit2.Callback<ResponseBody>() {
 			@Override
-			public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+			public void onResponse(@NotNull Call<ResponseBody> call, @NotNull Response<ResponseBody> response) {
 				if (response.isSuccessful()) {
 					callback.onTraceKeysLoaded(handleSuccessfulResponse(response));
 				} else {
@@ -56,7 +57,7 @@ public class TraceKeysRepository {
 			}
 
 			@Override
-			public void onFailure(Call<ResponseBody> call, Throwable t) {
+			public void onFailure(@NotNull Call<ResponseBody> call, @NotNull Throwable t) {
 				callback.onTraceKeysLoaded(null);
 			}
 		});

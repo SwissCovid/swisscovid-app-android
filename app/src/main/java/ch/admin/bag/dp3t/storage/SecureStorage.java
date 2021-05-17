@@ -74,6 +74,7 @@ public class SecureStorage {
 	private static final String KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY = "positive_report_oldest_shared_key";
 	private static final String KEY_CURRENT_CHECK_IN = "KEY_CURRENT_CHECK_IN";
 	private static final String KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG = "KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG";
+	private static final String KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD = "KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD";
 
 	private static SecureStorage instance;
 
@@ -160,6 +161,14 @@ public class SecureStorage {
 
 	public int getLastShownContactId() {
 		return prefs.getInt(KEY_LAST_SHOWN_CONTACT_ID, -1);
+	}
+
+	public void setLastSuccessfulCheckinDownload(long time) {
+		prefs.edit().putLong(KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD, time).apply();
+	}
+
+	public long getLastSuccesssfulCheckinDownload() {
+		return prefs.getLong(KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD, System.currentTimeMillis());
 	}
 
 	public void setLastShownContactId(int contactId) {

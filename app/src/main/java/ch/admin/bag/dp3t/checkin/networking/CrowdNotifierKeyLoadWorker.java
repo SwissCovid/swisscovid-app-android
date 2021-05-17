@@ -24,8 +24,8 @@ import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.autoCh
 
 public class CrowdNotifierKeyLoadWorker extends Worker {
 
-	public static final String ACTION_NEW_EXPOSURE_NOTIFICATION = BuildConfig.APPLICATION_ID + ".ACTION_NEW_EXPOSURE_NOTIFICATION";
-	private static final String WORK_TAG = "ch.ubique.notifyme.app.network.KeyLoadWorker";
+	public static final String ACTION_NEW_TRACE_KEY_SYNC = BuildConfig.APPLICATION_ID + ".ACTION_NEW_TRACE_KEY_SYNC";
+	private static final String WORK_TAG = "ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker";
 	private static final int DAYS_TO_KEEP_VENUE_VISITS = 14;
 	private static final int REPEAT_INTERVAL_MINUTES = 120;
 	private static final String LOG_TAG = "KeyLoadWorker";
@@ -57,6 +57,7 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 		List<ProblematicEventInfo> problematicEventInfos = new TraceKeysRepository(getApplicationContext()).loadTraceKeys();
 		if (problematicEventInfos == null) {
 			Log.d(LOG_TAG, "KeyLoadWorker failure");
+			LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(new Intent(ACTION_NEW_TRACE_KEY_SYNC));
 			return Result.retry();
 		}
 		List<ExposureEvent> exposures = CrowdNotifier.checkForMatches(problematicEventInfos, getApplicationContext());
@@ -64,11 +65,12 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 			for (ExposureEvent exposureEvent : exposures) {
 				NotificationHelper.getInstance(getApplicationContext()).showExposureNotification(exposureEvent.getId());
 			}
-			LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(new Intent(ACTION_NEW_EXPOSURE_NOTIFICATION));
 		}
 		cleanUpOldData(getApplicationContext());
 		autoCheckoutIfNecessary(getApplicationContext(), SecureStorage.getInstance(getApplicationContext()).getCheckInState());
 
+		SecureStorage.getInstance(getApplicationContext()).setLastSuccessfulCheckinDownload(System.currentTimeMillis());
+		LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(new Intent(ACTION_NEW_TRACE_KEY_SYNC));
 		Log.d(LOG_TAG, "KeyLoadWorker success");
 		return Result.success();
 	}

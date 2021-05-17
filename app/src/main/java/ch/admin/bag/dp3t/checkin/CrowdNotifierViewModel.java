@@ -22,18 +22,20 @@ import org.crowdnotifier.android.sdk.model.ExposureEvent;
 import ch.admin.bag.dp3t.checkin.networking.TraceKeysRepository;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
-import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
 
-import static ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker.ACTION_NEW_EXPOSURE_NOTIFICATION;
+import static ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker.ACTION_NEW_TRACE_KEY_SYNC;
 import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.ACTION_DID_AUTO_CHECKOUT;
+
 
 public class CrowdNotifierViewModel extends AndroidViewModel {
 
+	private static final long MAX_DURATION_WITHOUT_SUCCESSFUL_DOWNLOAD = 24 * 60 * 60 * 1000L;
 
 	private final MutableLiveData<List<ExposureEvent>> exposures = new MutableLiveData<>();
 	private final MutableLiveData<Long> timeSinceCheckIn = new MutableLiveData<>(0L);
 	private final MutableLiveData<LoadingState> traceKeyLoadingState = new MutableLiveData<>(LoadingState.SUCCESS);
-	private final MutableLiveData<CrowdNotifierErrorState> errorState = new MutableLiveData<>(null);
+	private final MutableLiveData<Boolean> hasTraceKeyDownloadError = new MutableLiveData<>(false);
+
 	private final MutableLiveData<Boolean> isCheckedIn = new MutableLiveData<>(false);
 	private CheckInState checkInState;
 
@@ -48,8 +50,9 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 		public void onReceive(Context context, Intent intent) {
 			if (ACTION_DID_AUTO_CHECKOUT.equals(intent.getAction())) {
 				setCheckInState(null);
-			} else if (ACTION_NEW_EXPOSURE_NOTIFICATION.equals(intent.getAction())) {
+			} else if (ACTION_NEW_TRACE_KEY_SYNC.equals(intent.getAction())) {
 				refreshExposures();
+				refreshTraceKeyLoadingError();
 			}
 		}
 	};
@@ -62,10 +65,9 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 		updateCheckedIn();
 		LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(application);
 		localBroadcastManager.registerReceiver(broadcastReceiver, new IntentFilter(ACTION_DID_AUTO_CHECKOUT));
-		localBroadcastManager.registerReceiver(broadcastReceiver, new IntentFilter(ACTION_NEW_EXPOSURE_NOTIFICATION));
-		traceKeyLoadingState.observeForever(loadingState -> { if (loadingState != LoadingState.LOADING) refreshErrors(); });
+		localBroadcastManager.registerReceiver(broadcastReceiver, new IntentFilter(ACTION_NEW_TRACE_KEY_SYNC));
+		refreshTraceKeyLoadingError();
 	}
-
 
 	public void startCheckInTimer() {
 		handler.removeCallbacks(timeUpdateRunnable);
@@ -109,9 +111,7 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 		return traceKeyLoadingState;
 	}
 
-	public LiveData<CrowdNotifierErrorState> getErrorState() {
-		return errorState;
-	}
+	public LiveData<Boolean> hasTraceKeyLoadingError() { return hasTraceKeyDownloadError; }
 
 	public LiveData<Boolean> isCheckedIn() {
 		return isCheckedIn;
@@ -123,19 +123,21 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 			if (traceKeys == null) {
 				traceKeyLoadingState.setValue(LoadingState.FAILURE);
 			} else {
+				SecureStorage.getInstance(getApplication()).setLastSuccessfulCheckinDownload(System.currentTimeMillis());
 				CrowdNotifier.checkForMatches(traceKeys, getApplication());
 				refreshExposures();
 				traceKeyLoadingState.setValue(LoadingState.SUCCESS);
 			}
+			refreshTraceKeyLoadingError();
 		});
 	}
 
-	public void refreshErrors() {
+	private void refreshTraceKeyLoadingError() {
 
-		if (traceKeyLoadingState.getValue() == LoadingState.FAILURE) {
-			errorState.setValue(CrowdNotifierErrorState.NETWORK);
+		if (storage.getLastSuccesssfulCheckinDownload() <= System.currentTimeMillis() - MAX_DURATION_WITHOUT_SUCCESSFUL_DOWNLOAD) {
+			hasTraceKeyDownloadError.setValue(true);
 		} else {
-			errorState.setValue(null);
+			hasTraceKeyDownloadError.setValue(false);
 		}
 	}
 

@@ -47,6 +47,7 @@ import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment;
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment;
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment;
+import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
@@ -262,55 +263,72 @@ public class HomeFragment extends Fragment {
 		cardNotifications.setOnClickListener(v -> showReportsFragment());
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
-			//update status view
-			if (loadingView.getVisibility() == VISIBLE) {
+			updateNotification(tracingStatusInterface, crowdNotifierViewModel.hasTraceKeyLoadingError().getValue());
+		});
+		crowdNotifierViewModel.hasTraceKeyLoadingError().observe(getViewLifecycleOwner(), hasTraceKeyLoadingError -> {
+			updateNotification(tracingViewModel.getAppStatusLiveData().getValue(), hasTraceKeyLoadingError);
+		});
+	}
+
+	private void updateNotification(TracingStatusInterface tracingStatusInterface, boolean hasTraceKeyLoadingError) {
+		//update status view
+		if (loadingView.getVisibility() == VISIBLE) {
+			loadingView.animate()
+					.setStartDelay(getResources().getInteger(android.R.integer.config_mediumAnimTime))
+					.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
+					.alpha(0f)
+					.setListener(new AnimatorListenerAdapter() {
+						@Override
+						public void onAnimationEnd(Animator animation) {
+							loadingView.setVisibility(View.GONE);
+						}
+					});
+		} else {
+			loadingView.setVisibility(View.GONE);
+		}
+		if (tracingStatusInterface.isReportedAsInfected()) {
+			NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.POSITIVE_TESTED);
+		} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
+			long daysSinceExposure = tracingStatusInterface.getDaysSinceExposure();
+			NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.EXPOSED, daysSinceExposure);
+		} else {
+			NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_REPORTS);
+		}
+
+		TracingStatus.ErrorState errorState = tracingStatusInterface.getReportErrorState();
+		if (errorState != null) {
+			TracingErrorStateHelper.updateErrorView(reportErrorView, errorState);
+			reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+				loadingView.setVisibility(VISIBLE);
 				loadingView.animate()
-						.setStartDelay(getResources().getInteger(android.R.integer.config_mediumAnimTime))
+						.alpha(1f)
 						.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
-						.alpha(0f)
 						.setListener(new AnimatorListenerAdapter() {
 							@Override
-							public void onAnimationEnd(Animator animation) {
-								loadingView.setVisibility(View.GONE);
-							}
+							public void onAnimationEnd(Animator animation) { tracingViewModel.sync(); }
 						});
-			} else {
-				loadingView.setVisibility(View.GONE);
-			}
-			if (tracingStatusInterface.isReportedAsInfected()) {
-				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.POSITIVE_TESTED);
-			} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
-				long daysSinceExposure = tracingStatusInterface.getDaysSinceExposure();
-				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.EXPOSED, daysSinceExposure);
-			} else {
-				NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_REPORTS);
-			}
-
-			TracingStatus.ErrorState errorState = tracingStatusInterface.getReportErrorState();
-			if (errorState != null) {
-				TracingErrorStateHelper
-						.updateErrorView(reportErrorView, errorState);
-				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
-					loadingView.setVisibility(VISIBLE);
-					loadingView.animate()
-							.alpha(1f)
-							.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
-							.setListener(new AnimatorListenerAdapter() {
-								@Override
-								public void onAnimationEnd(Animator animation) { tracingViewModel.sync(); }
-							});
-				});
-			} else if (!isNotificationChannelEnabled(getContext(), NotificationUtil.NOTIFICATION_CHANNEL_ID)) {
-				NotificationErrorStateHelper
-						.updateNotificationErrorView(reportErrorView, NotificationStateError.NOTIFICATION_STATE_ERROR);
-				reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
-					openChannelSettings(NotificationUtil.NOTIFICATION_CHANNEL_ID);
-				});
-			} else {
-				//hide errorview
-				TracingErrorStateHelper.updateErrorView(reportErrorView, null);
-			}
-		});
+			});
+		} else if (hasTraceKeyLoadingError) {
+			TracingErrorStateHelper.updateErrorView(reportErrorView, CrowdNotifierErrorState.NETWORK);
+			reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+				loadingView.setVisibility(VISIBLE);
+				loadingView.animate()
+						.alpha(1f)
+						.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime))
+						.setListener(new AnimatorListenerAdapter() {
+							@Override
+							public void onAnimationEnd(Animator animation) { crowdNotifierViewModel.refreshTraceKeys(); }
+						});
+			});
+		} else if (!isNotificationChannelEnabled(getContext(), NotificationUtil.NOTIFICATION_CHANNEL_ID)) {
+			NotificationErrorStateHelper
+					.updateNotificationErrorView(reportErrorView, NotificationStateError.NOTIFICATION_STATE_ERROR);
+			reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
+				openChannelSettings(NotificationUtil.NOTIFICATION_CHANNEL_ID);
+			});
+		} else {
+			TracingErrorStateHelper.hideErrorView(reportErrorView);
+		}
 	}
 
 	private void openChannelSettings(String channelId) {
