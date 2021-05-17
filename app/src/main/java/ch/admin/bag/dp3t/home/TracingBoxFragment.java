@@ -91,19 +91,17 @@ public class TracingBoxFragment extends Fragment {
 			} else if (tracingStatusInterface.isReportedAsInfected()) {
 				tracingStatusView.setVisibility(View.VISIBLE);
 				tracingErrorView.setVisibility(View.GONE);
-				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ENDED, isHomeFragment);
+				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ENDED);
 			} else if (!isTracing) {
 				tracingStatusView.setVisibility(View.GONE);
 				tracingErrorView.setVisibility(View.VISIBLE);
 				TracingStatusHelper.showTracingDeactivated(tracingErrorView, isHomeFragment);
 				TextView buttonView = tracingErrorView.findViewById(R.id.error_status_button);
-				buttonView.setOnClickListener(v -> {
-					enableTracing();
-				});
+				buttonView.setOnClickListener(v -> enableTracing());
 			} else {
 				tracingStatusView.setVisibility(View.VISIBLE);
 				tracingErrorView.setVisibility(View.GONE);
-				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE, isHomeFragment);
+				TracingStatusHelper.updateStatusView(tracingStatusView, TracingState.ACTIVE);
 			}
 		});
 	}
