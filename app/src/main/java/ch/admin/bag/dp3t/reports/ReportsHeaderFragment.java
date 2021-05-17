@@ -33,13 +33,13 @@ import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 public class ReportsHeaderFragment extends Fragment {
 
 	private static final String ARG_TYPE = "ARG_TYPE";
-	private static final String ARG_SHOWANIMATIONCONTROLS = "ARG_SHOWANIMATIONCONTROLS";
+	private static final String ARG_SHOW_ANIMATION_CONTROLS = "ARG_SHOW_ANIMATION_CONTROLS";
 
 	public static ReportsHeaderFragment newInstance(@NonNull Type type, boolean showAnimationControls) {
 		ReportsHeaderFragment reportsHeaderFragment = new ReportsHeaderFragment();
 		Bundle args = new Bundle();
 		args.putInt(ARG_TYPE, type.ordinal());
-		args.putBoolean(ARG_SHOWANIMATIONCONTROLS, showAnimationControls);
+		args.putBoolean(ARG_SHOW_ANIMATION_CONTROLS, showAnimationControls);
 		reportsHeaderFragment.setArguments(args);
 		return reportsHeaderFragment;
 	}
@@ -60,7 +60,7 @@ public class ReportsHeaderFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
 		type = Type.values()[getArguments().getInt(ARG_TYPE)];
-		showAnimationControls = getArguments().getBoolean(ARG_SHOWANIMATIONCONTROLS);
+		showAnimationControls = getArguments().getBoolean(ARG_SHOW_ANIMATION_CONTROLS);
 	}
 
 	@Nullable

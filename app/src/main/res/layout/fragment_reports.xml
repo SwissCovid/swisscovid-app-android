@@ -67,15 +67,6 @@
 				tools:visibility="visible" />
 
 			<include
-				android:id="@+id/reports_save_others"
-				layout="@layout/card_what_to_do_save_others"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/spacing_medium_large"
-				android:visibility="gone"
-				tools:visibility="visible" />
-
-			<include
 				android:id="@+id/reports_infected"
 				layout="@layout/card_what_to_do_self_isolation"
 				android:layout_width="match_parent"
