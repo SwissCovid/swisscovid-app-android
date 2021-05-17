@@ -5,17 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentShareCheckinsBinding
-import ch.admin.bag.dp3t.inform.models.Status
 import ch.admin.bag.dp3t.util.showFragment
-import retrofit2.HttpException
 
 class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 
@@ -28,6 +22,7 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		binding = FragmentShareCheckinsBinding.inflate(inflater).apply {
+			(requireActivity() as InformActivity).allowBackButton(false)
 			val adapter = CheckinAdapter()
 			checkinsRecyclerView.adapter = adapter
 			checkinsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -59,7 +54,7 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 		performUpload(onSuccess = {
 			showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container)
 		}, onInvalidCovidCode = {
-			//TODO: Handle invalid covidcode
+			showFragment(InformFragment.newInstance(isCovidCodeInvalidCase = true), R.id.inform_fragment_container)
 		})
 	}
 

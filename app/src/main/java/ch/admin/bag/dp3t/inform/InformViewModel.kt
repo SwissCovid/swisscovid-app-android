@@ -48,7 +48,7 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 	var selectableCheckinItems = diaryStorage.entries.map { SelectableCheckinItem(it, isSelected = false) }
 
 	var covidCode: String
-		get() = state.get<String>(KEY_COVIDCODE) ?: ""
+		get() = state.get<String>(KEY_COVIDCODE) ?: getLastCovidcode()
 		set(value) = state.set(KEY_COVIDCODE, value)
 
 	var hasSharedDP3TKeys: Boolean
@@ -99,13 +99,13 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		emit(Resource.success(data = null))
 	}
 
-	fun getLastCovidcode(): String? {
+	private fun getLastCovidcode(): String {
 		val lastCovidcode = secureStorage.lastInformCode
 
 		return if (System.currentTimeMillis() - secureStorage.lastInformRequestTime < TIMEOUT_VALID_CODE) {
-			lastCovidcode
+			lastCovidcode ?: ""
 		} else {
-			null
+			""
 		}
 	}
 

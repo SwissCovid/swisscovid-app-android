@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentInformBinding
@@ -22,6 +23,7 @@ import ch.admin.bag.dp3t.util.PhoneUtil
 import ch.admin.bag.dp3t.util.showFragment
 
 private const val REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}"
+private const val ARG_IS_COVID_CODE_INVALID_CASE = "ARG_IS_COVID_CODE_INVALID_CASE"
 
 class InformFragment : TraceKeyShareBaseFragment() {
 
@@ -29,7 +31,9 @@ class InformFragment : TraceKeyShareBaseFragment() {
 		private const val TAG = "InformFragment"
 
 		@JvmStatic
-		fun newInstance() = InformFragment()
+		fun newInstance(isCovidCodeInvalidCase: Boolean = false) = InformFragment().apply {
+			arguments = bundleOf(ARG_IS_COVID_CODE_INVALID_CASE to isCovidCodeInvalidCase)
+		}
 	}
 
 	private lateinit var binding: FragmentInformBinding
@@ -40,7 +44,8 @@ class InformFragment : TraceKeyShareBaseFragment() {
 	}
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-		binding = FragmentInformBinding.inflate(inflater).apply {
+		binding = FragmentInformBinding.inflate(inflater)
+		return binding.apply {
 			(requireActivity() as InformActivity).allowBackButton(true)
 			covidcodeInput.addTextChangedListener(object : ChainedEditTextListener {
 				override fun onTextChanged(input: String) {
@@ -56,9 +61,7 @@ class InformFragment : TraceKeyShareBaseFragment() {
 				}
 			})
 
-			informViewModel.getLastCovidcode()?.let {
-				covidcodeInput.text = it
-			}
+			covidcodeInput.text = informViewModel.covidCode
 
 			if (requireActivity().intent.extras != null) {
 				val covidCode = requireActivity().intent.extras?.getString(InformActivity.EXTRA_COVIDCODE)
@@ -66,12 +69,16 @@ class InformFragment : TraceKeyShareBaseFragment() {
 					covidcodeInput.text = covidCode
 				}
 			}
+
+			if (arguments?.getBoolean(ARG_IS_COVID_CODE_INVALID_CASE) == true) {
+				binding.sendButton.setText(R.string.inform_send_button_title)
+				setInvalidCovidcodeErrorVisible(true)
+			}
+
 			sendButton.setOnClickListener { performContinueAction() }
 			cancelButton.setOnClickListener { requireActivity().finish() }
 			informInvalidCodeError.setOnClickListener { PhoneUtil.callAppHotline(it.context) }
-		}
-
-		return binding.root
+		}.root
 	}
 
 	private fun performContinueAction() {
@@ -80,7 +87,11 @@ class InformFragment : TraceKeyShareBaseFragment() {
 		informViewModel.covidCode = binding.covidcodeInput.text
 		askUserToEnableTracingIfNecessary { tracingEnabled ->
 			if (tracingEnabled) {
-				showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
+				if (arguments?.getBoolean(ARG_IS_COVID_CODE_INVALID_CASE) == true) {
+					performUpload()
+				} else {
+					showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
+				}
 			} else {
 				binding.sendButton.isEnabled = true
 			}
@@ -90,14 +101,18 @@ class InformFragment : TraceKeyShareBaseFragment() {
 	private fun onUserGrantedTEKSharing() {
 		informViewModel.hasSharedDP3TKeys = true
 		if (informViewModel.selectableCheckinItems.isEmpty()) {
-			performUpload(onSuccess = {
-				showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container)
-			}, onInvalidCovidCode = {
-				setInvalidCovidcodeErrorVisible(true)
-			})
+			performUpload()
 		} else {
 			showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
 		}
+	}
+
+	private fun performUpload() {
+		performUpload(onSuccess = {
+			showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container)
+		}, onInvalidCovidCode = {
+			setInvalidCovidcodeErrorVisible(true)
+		})
 	}
 
 	private fun onUserDidNotGrantTEKSharing() {
