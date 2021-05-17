@@ -1,5 +1,6 @@
 package ch.admin.bag.dp3t.inform
 
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 				tryAgainButton.isEnabled = false
 				showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
 			}
+			dontSendButton.paintFlags = dontSendButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 			dontSendButton.setOnClickListener {
 				if (DiaryStorage.getInstance(requireContext()).entries.isNotEmpty()) {
 					showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
@@ -42,7 +44,7 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 			performUpload(
 				onSuccess = { showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container) },
 				onInvalidCovidCode = {
-					//TODO: Handle Invalid Covidcode
+					showFragment(InformFragment.newInstance(isCovidCodeInvalidCase = true), R.id.inform_fragment_container)
 				})
 		} else {
 			showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
@@ -51,7 +53,6 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 
 	private fun onUserDidNotGrantTEKSharing() {
 		binding.tryAgainButton.isEnabled = true
-		showFragment(ReallyNotShareFragment.newInstance(), R.id.inform_fragment_container)
 	}
 
 	override fun setLoadingViewVisible(isVisible: Boolean) {
