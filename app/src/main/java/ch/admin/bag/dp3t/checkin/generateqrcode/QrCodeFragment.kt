@@ -61,7 +61,6 @@ class QrCodeFragment : Fragment() {
 				qrCodeImageview.visibility = View.VISIBLE
 				qrCodeLoadingProgressbar.isVisible = false
 				qrCodeImageview.setImageBitmap(it)
-				qrCodeViewModel.createQrCodePdf(venueInfo, it)
 			}
 			qrCodeViewModel.selectedQrCodePdf.observe(viewLifecycleOwner) { pdfFile ->
 				shareButton.isEnabled = true
@@ -69,7 +68,9 @@ class QrCodeFragment : Fragment() {
 				shareButton.setOnClickListener { sharePdf(pdfFile) }
 				printPdfButton.setOnClickListener { printPdf(pdfFile) }
 			}
-			qrCodeViewModel.generateQrCodeBitmap(venueInfo)
+			qrCodeImageview.post {
+				qrCodeViewModel.generateQrCodeBitmapAndPdf(venueInfo, qrCodeImageview.width)
+			}
 			deleteButton.setOnClickListener {
 				showDeleteConfirmationDialog(venueInfo)
 			}

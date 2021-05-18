@@ -23,6 +23,7 @@ import org.crowdnotifier.android.sdk.model.VenueInfo
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import kotlin.math.max
 
 
 private const val MASTER_PUBLIC_KEY_BASE64 =
@@ -35,7 +36,7 @@ private const val SWISSCOVID_LOCATION_DATA_VERSION = 1
 private const val QR_CODE_VALIDITY_DURATION_MS = 100000 * 24 * ONE_HOUR_IN_MILLIS // 100'000 days
 private val REMINDER_DELAY_OPTIONS_MS =
 	listOf(if (BuildConfig.IS_FLAVOR_DEV) 1 else 30, 60, 120, 240).map { it * ONE_MINUTE_IN_MILLIS } // 30, 60, 120 and 240 minutes
-private const val QR_CODE_PIXEL_SIZE = 500
+private const val MAX_QR_CODE_PIXEL_SIZE = 1000
 const val QR_CODE_PDF_FILE_NAME = "swisscovid-qr-code.pdf"
 
 private val Context.generatedQrCodesDataStore: DataStore<GeneratedQrCodesWrapper> by dataStore(
@@ -72,7 +73,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		saveGeneratedQrCode(builder.build())
 	}
 
-	fun generateAndSaveQrCode(description: String, venueType: VenueType) = viewModelScope.launch {
+	fun generateAndSaveQrCode(description: String, venueType: VenueType) = viewModelScope.launch(Dispatchers.IO) {
 
 		val swissCovidLocationData = SwissCovidLocationData.newBuilder()
 			.setVersion(SWISSCOVID_LOCATION_DATA_VERSION)
@@ -99,24 +100,25 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		saveGeneratedQrCode(newWrapper)
 	}
 
-	fun createQrCodePdf(venueInfo: VenueInfo, bitmap: Bitmap) = viewModelScope.launch(Dispatchers.IO) {
-
-		val document = createEntryPdf(venueInfo, bitmap, getApplication())
-
-		val file = File(pdfDirectory, QR_CODE_PDF_FILE_NAME)
-
-		FileOutputStream(file).use {
-			document.writeTo(it)
-			document.close()
+	fun generateQrCodeBitmapAndPdf(venueInfo: VenueInfo, qrCodeSize: Int) = viewModelScope.launch(Dispatchers.IO) {
+		launch(Dispatchers.IO) {
+			selectedQrCodeBitmap.postValue(
+				QrCode.create(venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX))
+					.renderToBitmap(max(qrCodeSize, MAX_QR_CODE_PIXEL_SIZE))
+			)
 		}
+		launch(Dispatchers.IO) {
+			val document = createEntryPdf(venueInfo, getApplication())
 
-		selectedQrCodePdf.postValue(file)
-	}
+			val file = File(pdfDirectory, QR_CODE_PDF_FILE_NAME)
 
-	fun generateQrCodeBitmap(venueInfo: VenueInfo) = viewModelScope.launch(Dispatchers.IO) {
-		selectedQrCodeBitmap.postValue(
-			QrCode.create(venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX)).renderToBitmap(QR_CODE_PIXEL_SIZE)
-		)
+			FileOutputStream(file).use {
+				document.writeTo(it)
+				document.close()
+			}
+
+			selectedQrCodePdf.postValue(file)
+		}
 	}
 
 	private suspend fun saveGeneratedQrCode(generatedQrCodesWrapper: GeneratedQrCodesWrapper) {

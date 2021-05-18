@@ -6,23 +6,28 @@ import android.graphics.pdf.PdfDocument
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.ColorInt
+import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.utils.getSubtitle
 import ch.admin.bag.dp3t.databinding.PdfQrCodeBinding
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
 
-private const val PDF_WIDTH = 1240
-private const val PDF_HEIGHT = 1748
+private const val PDF_WIDTH = 595
+private const val PDF_HEIGHT = 842
+private const val PDF_QR_CODE_MAX_PIXEL_SIZE = 310
 
-fun createEntryPdf(venueInfo: VenueInfo, bitmap: Bitmap, context: Context): PdfDocument {
+fun createEntryPdf(venueInfo: VenueInfo, context: Context): PdfDocument {
+
+	val bitmap =
+		QrCode.create(venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX)).renderToMaxSizeBitmap(PDF_QR_CODE_MAX_PIXEL_SIZE)
 
 	val document = PdfDocument()
 	val pageInfo = PdfDocument.PageInfo.Builder(PDF_WIDTH, PDF_HEIGHT, 1).create() // A4 size
 	val page = document.startPage(pageInfo)
 	page.canvas.apply {
-		val indicatorOffset = 20f
-		val qrCodeY = 400f
+		val indicatorOffset = 15f
+		val qrCodeY = 150f
 		drawLinesAroundQrCode(
 			start = (PDF_WIDTH - bitmap.width) / 2f - indicatorOffset,
 			top = qrCodeY - indicatorOffset,
@@ -63,7 +68,7 @@ private val swissCovidBlue = Color.parseColor("#5094bf")
 private val blueCenteredBoldPaint = Paint().apply {
 	color = swissCovidBlue
 	textAlign = Paint.Align.CENTER
-	textSize = 30f
+	textSize = 13f
 	typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
 }
 
@@ -72,7 +77,7 @@ private fun drawLinesAroundQrCode(start: Float, top: Float, end: Float, bottom: 
 
 	val linePaint = Paint().apply {
 		color = strokeColor
-		strokeWidth = 8f
+		strokeWidth = 6f
 		style = Paint.Style.STROKE
 	}
 	canvas.apply {
