@@ -66,7 +66,7 @@ class QrCodeFragment : Fragment() {
 			qrCodeViewModel.selectedQrCodePdf.observe(viewLifecycleOwner) { pdfFile ->
 				shareButton.isEnabled = true
 				printPdfButton.isEnabled = true
-				shareButton.setOnClickListener { sharePdf(pdfFile, venueInfo) }
+				shareButton.setOnClickListener { sharePdf(pdfFile) }
 				printPdfButton.setOnClickListener { printPdf(pdfFile) }
 			}
 			qrCodeViewModel.generateQrCodeBitmap(venueInfo)
@@ -96,14 +96,13 @@ class QrCodeFragment : Fragment() {
 		}
 	}
 
-	private fun sharePdf(file: File, venueInfo: VenueInfo) {
+	private fun sharePdf(file: File) {
 		context?.let {
 			val pdfUri: Uri = FileProvider.getUriForFile(it, it.applicationContext.packageName.toString() + ".provider", file)
 
 			Intent().apply {
 				action = Intent.ACTION_SEND
 				type = "application/pdf"
-				putExtra(Intent.EXTRA_TEXT, venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX))
 				putExtra(Intent.EXTRA_STREAM, pdfUri)
 				addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 				startActivity(this)

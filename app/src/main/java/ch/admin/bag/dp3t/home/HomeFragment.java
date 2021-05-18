@@ -262,12 +262,10 @@ public class HomeFragment extends Fragment {
 	private void setupNotification() {
 		cardNotifications.setOnClickListener(v -> showReportsFragment());
 
-		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
-			updateNotification(tracingStatusInterface, crowdNotifierViewModel.hasTraceKeyLoadingError().getValue());
-		});
-		crowdNotifierViewModel.hasTraceKeyLoadingError().observe(getViewLifecycleOwner(), hasTraceKeyLoadingError -> {
-			updateNotification(tracingViewModel.getAppStatusLiveData().getValue(), hasTraceKeyLoadingError);
-		});
+		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface ->
+				updateNotification(tracingStatusInterface, crowdNotifierViewModel.hasTraceKeyLoadingError().getValue()));
+		crowdNotifierViewModel.hasTraceKeyLoadingError().observe(getViewLifecycleOwner(), hasTraceKeyLoadingError ->
+				updateNotification(tracingViewModel.getAppStatusLiveData().getValue(), hasTraceKeyLoadingError));
 	}
 
 	private void updateNotification(TracingStatusInterface tracingStatusInterface, boolean hasTraceKeyLoadingError) {
