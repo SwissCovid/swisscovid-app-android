@@ -133,9 +133,9 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 
 		camera.getCameraInfo().getTorchState().observe(getViewLifecycleOwner(), v -> {
 			if (v == TorchState.ON) {
-				flashButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_flash_off));
+				flashButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_light_off));
 			} else {
-				flashButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_flash_on));
+				flashButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_light_on));
 			}
 		});
 
