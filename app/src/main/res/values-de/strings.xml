@@ -1740,4 +1740,40 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer nicht eingecheckt ist. -->
     <string name="checkin_overview_checkins_explanation">"Schützen Sie sich und andere indem Sie bei Events ein- und auschecken."</string>
+
+    <!-- Popup Titel wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
+    <string name="checkout_overlapping_alert_title">"Sichern nicht möglich"</string>
+
+    <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
+    <string name="checkout_overlapping_alert_description">"Ihre gewählten Zeiten überschneiden sich mit anderen Check-Ins aus ihrem Tagebuch. Bitte überprüfen Sie nochmals Ihre Angabe."</string>
+
+    <!-- Informieren: Danke Text Checkins Teil -->
+    <string name="inform_send_thankyou_text_checkins">"Ihre ausgewählten Check-Ins wurden gesendet. Andere Leute, welche zur gleichen Zeit an den selben Events eingecheckt waren werden benachrichtigt."</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, titel -->
+    <string name="inform_are_you_sure_title">"Are you sure?"</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, text -->
+    <string name="inform_are_you_sure_text">"Sharing your random IDs helps “SwissCovid” to notify other potential infected people and avoid the further spreading of the pandemic. If you don’t share your random IDs no automatically recognized encounters can be notified. "</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, try agan button -->
+    <string name="inform_are_you_sure_try_again_button">"Try again"</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, dont send button -->
+    <string name="inform_are_you_sure_dont_send_button">"Don't share"</string>
+
+    <!-- SwissCovid QR Code PDF: Headline über dem Slogan -->
+    <string name="pdf_headline">"SwissCovid Check-Ins"</string>
+
+    <!-- SwissCovid QR Code PDF: Slogan -->
+    <string name="pdf_slogan">"Einchecken ohne Daten zu hinterlassen"</string>
+
+    <!-- SwissCovid QR Code PDF: Erklärungstext unter dem Slogan -->
+    <string name="pdf_explanation">"Mit der SwissCovid App können Sie sich bei uns einfach einchecken ohne Ihre Daten zu hinterlassen. Bei einer Risikosituation werden Sie in der App schnell informiert."</string>
+
+    <!-- SwissCovid QR Code PDF: App Bezeichnung neben dem App Icon -->
+    <string name="pdf_swisscovid_app">"SwissCovid App"</string>
+
+    <!-- SwissCovid QR Code PDF: Download Hinweis neben dem App Icon -->
+    <string name="pdf_download_app">"Jetzt downloaden"</string>
 </resources>

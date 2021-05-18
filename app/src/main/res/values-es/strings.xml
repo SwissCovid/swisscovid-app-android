@@ -1666,4 +1666,40 @@ Contacte con la Infoline del coronavirus:"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer nicht eingecheckt ist. -->
     <string name="checkin_overview_checkins_explanation"></string>
+
+    <!-- Popup Titel wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
+    <string name="checkout_overlapping_alert_title"></string>
+
+    <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
+    <string name="checkout_overlapping_alert_description"></string>
+
+    <!-- Informieren: Danke Text Checkins Teil -->
+    <string name="inform_send_thankyou_text_checkins">"Your selected check-in entries were sent. Other people who checked into the same  events and during the same period of time will be notified."</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, titel -->
+    <string name="inform_are_you_sure_title">"Are you sure?"</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, text -->
+    <string name="inform_are_you_sure_text">"Sharing your random IDs helps “SwissCovid” to notify other potential infected people and avoid the further spreading of the pandemic. If you don’t share your random IDs no automatically recognized encounters can be notified. "</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, try agan button -->
+    <string name="inform_are_you_sure_try_again_button">"Try again"</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, dont send button -->
+    <string name="inform_are_you_sure_dont_send_button">"Don't share"</string>
+
+    <!-- SwissCovid QR Code PDF: Headline über dem Slogan -->
+    <string name="pdf_headline"></string>
+
+    <!-- SwissCovid QR Code PDF: Slogan -->
+    <string name="pdf_slogan"></string>
+
+    <!-- SwissCovid QR Code PDF: Erklärungstext unter dem Slogan -->
+    <string name="pdf_explanation"></string>
+
+    <!-- SwissCovid QR Code PDF: App Bezeichnung neben dem App Icon -->
+    <string name="pdf_swisscovid_app"></string>
+
+    <!-- SwissCovid QR Code PDF: Download Hinweis neben dem App Icon -->
+    <string name="pdf_download_app"></string>
 </resources>

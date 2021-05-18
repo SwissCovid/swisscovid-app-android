@@ -3,40 +3,54 @@ package ch.admin.bag.dp3t.checkin.generateqrcode
 import android.content.Context
 import android.graphics.*
 import android.graphics.pdf.PdfDocument
+import android.view.LayoutInflater
+import android.view.View
 import androidx.annotation.ColorInt
-import androidx.core.content.ContextCompat
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.utils.getSubtitle
+import ch.admin.bag.dp3t.databinding.PdfQrCodeBinding
 import org.crowdnotifier.android.sdk.model.VenueInfo
+
 
 private const val PDF_WIDTH = 1240
 private const val PDF_HEIGHT = 1748
 
 fun createEntryPdf(venueInfo: VenueInfo, bitmap: Bitmap, context: Context): PdfDocument {
-	val w = PDF_WIDTH
-	val h = PDF_HEIGHT
 
 	val document = PdfDocument()
-	val pageInfo = PdfDocument.PageInfo.Builder(w, h, 1).create() // A4 size
+	val pageInfo = PdfDocument.PageInfo.Builder(PDF_WIDTH, PDF_HEIGHT, 1).create() // A4 size
 	val page = document.startPage(pageInfo)
 	page.canvas.apply {
-		drawText(venueInfo.description, w / 2f, 200f, titlePaint)
-		drawText(context.getString(venueInfo.getSubtitle()), w / 2f, 250f, subtitlePaint)
-
 		val indicatorOffset = 20f
 		val qrCodeY = 400f
 		drawLinesAroundQrCode(
-			start = (w - bitmap.width) / 2f - indicatorOffset,
+			start = (PDF_WIDTH - bitmap.width) / 2f - indicatorOffset,
 			top = qrCodeY - indicatorOffset,
-			end = w - (w - bitmap.width) / 2f + indicatorOffset,
+			end = PDF_WIDTH - (PDF_WIDTH - bitmap.width) / 2f + indicatorOffset,
 			bottom = qrCodeY + bitmap.height + indicatorOffset,
 			this,
-			ContextCompat.getColor(context, R.color.blue_main)
+			swissCovidBlue
 		)
-		drawBitmap(bitmap, (w - bitmap.width) / 2f, qrCodeY, Paint())
+		drawBitmap(bitmap, (PDF_WIDTH - bitmap.width) / 2f, qrCodeY, Paint())
 
-		//TODO: draw swisscovid logo and slogan...
+		drawText(
+			context.getString(R.string.check_in_now_button_title),
+			PDF_WIDTH / 2f,
+			qrCodeY + bitmap.height + 2 * indicatorOffset,
+			blueCenteredBoldPaint
+		)
 
+		val pdfView = PdfQrCodeBinding.inflate(LayoutInflater.from(context)).apply {
+			title.text = venueInfo.title
+			subtitle.text = context.getString(venueInfo.getSubtitle())
+		}.root
+
+		pdfView.measure(
+			View.MeasureSpec.makeMeasureSpec(PDF_WIDTH, View.MeasureSpec.EXACTLY),
+			View.MeasureSpec.makeMeasureSpec(PDF_HEIGHT, View.MeasureSpec.EXACTLY)
+		)
+		pdfView.layout(0, 0, PDF_WIDTH, PDF_HEIGHT)
+		pdfView.draw(this)
 	}
 
 	document.finishPage(page)
@@ -44,15 +58,13 @@ fun createEntryPdf(venueInfo: VenueInfo, bitmap: Bitmap, context: Context): PdfD
 
 }
 
-private val titlePaint = Paint().apply {
-	textAlign = Paint.Align.CENTER
-	textSize = 50f
-	typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-}
+private val swissCovidBlue = Color.parseColor("#5094bf")
 
-private val subtitlePaint = Paint().apply {
+private val blueCenteredBoldPaint = Paint().apply {
+	color = swissCovidBlue
 	textAlign = Paint.Align.CENTER
 	textSize = 30f
+	typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
 }
 
 private fun drawLinesAroundQrCode(start: Float, top: Float, end: Float, bottom: Float, canvas: Canvas, @ColorInt strokeColor: Int) {
