@@ -14,6 +14,7 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
 import ch.admin.bag.dp3t.checkin.diary.DiaryFragment
+import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment
 import ch.admin.bag.dp3t.checkin.utils.getSubtitle
 import ch.admin.bag.dp3t.databinding.FragmentCheckinOverviewBinding
 import ch.admin.bag.dp3t.util.StringUtil
@@ -60,6 +61,9 @@ class CheckinOverviewFragment : Fragment() {
 			crowdNotifierViewModel.timeSinceCheckIn.observe(viewLifecycleOwner) { duration ->
 				checkinTime.text = StringUtil.getShortDurationString(duration)
 			}
+
+			qrCodeGenerate.root.setOnClickListener { showFragment(EventsOverviewFragment.newInstance()) }
+
 		}.root
 	}
 

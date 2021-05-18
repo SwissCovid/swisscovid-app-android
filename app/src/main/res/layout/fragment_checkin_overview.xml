@@ -248,6 +248,14 @@
 
 			</androidx.cardview.widget.CardView>
 
+			<include
+				android:id="@+id/qr_code_generate"
+				layout="@layout/card_generate_qr_code"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_medium_large"
+				android:layout_marginBottom="@dimen/spacing_medium_large" />
+
 		</LinearLayout>
 
 	</ScrollView>

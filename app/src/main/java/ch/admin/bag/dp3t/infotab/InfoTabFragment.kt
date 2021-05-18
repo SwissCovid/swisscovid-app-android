@@ -10,7 +10,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
-import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment
 import ch.admin.bag.dp3t.databinding.FragmentInfoTabBinding
 import ch.admin.bag.dp3t.inform.InformActivity
 import ch.admin.bag.dp3t.storage.SecureStorage
@@ -41,7 +40,6 @@ class InfoTabFragment : Fragment() {
 			tracingViewModel.appStatusLiveData.observe(viewLifecycleOwner) { tracingStatusInterface ->
 				frameCardTest.root.isVisible = !tracingStatusInterface.isReportedAsInfected
 			}
-			qrCodeGenerate.root.setOnClickListener { showFragment(EventsOverviewFragment.newInstance()) }
 		}
 		setupTravelCard()
 		setupPositiveTestCard()
