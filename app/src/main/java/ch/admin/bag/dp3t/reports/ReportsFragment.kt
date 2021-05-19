@@ -13,12 +13,14 @@ import android.animation.ValueAnimator
 import android.app.NotificationManager
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.Paint
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
@@ -39,6 +41,7 @@ import ch.admin.bag.dp3t.util.*
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 import ch.admin.bag.dp3t.whattodo.WhereToTestDialogFragment
 import org.dpppt.android.sdk.models.DayDate
+import org.dpppt.android.sdk.models.ExposureDay
 import java.util.*
 import kotlin.math.min
 
@@ -79,6 +82,76 @@ class ReportsFragment : Fragment() {
 		}.root
 	}
 
+	private fun setupHeader(state: State) {
+		binding.apply {
+			val isReportsHeaderAnimationPending = secureStorage.isReportsHeaderAnimationPending
+			val exposureDays = tracingViewModel.appStatusLiveData.value?.exposureDays ?: listOf()
+			updateHeaderSize(isReportsHeaderAnimationPending, exposureDays.size)
+			if (isReportsHeaderAnimationPending) {
+				reportsScrollviewFirstChild.visibility = View.GONE
+			}
+			headerFragmentContainer.post { setupScrollBehavior() }
+
+			headerFragmentContainer.removeAllViews()
+			val layoutResource = when (state) {
+				State.NO_REPORTS -> R.layout.fragment_reports_header_no_reports
+				State.POSSIBLE_INFECTION -> R.layout.fragment_reports_header_possible_infection
+				State.POSITIVE_TESTED -> R.layout.fragment_reports_header_positive_tested
+			}
+			LayoutInflater.from(requireContext()).inflate(layoutResource, headerFragmentContainer, true)
+			if (state == State.NO_REPORTS || state == State.POSITIVE_TESTED) return
+
+			val date = headerFragmentContainer.findViewById<TextView>(R.id.fragment_reports_header_date)
+			val info = headerFragmentContainer.findViewById<View>(R.id.fragment_reports_header_info)
+			val image = headerFragmentContainer.findViewById<View>(R.id.fragment_reports_header_image)
+			val continueButton = headerFragmentContainer.findViewById<Button>(R.id.fragment_reports_header_continue_button)
+			val subtitle = headerFragmentContainer.findViewById<TextView>(R.id.fragment_reports_header_subtitle)
+			val showAllButton = headerFragmentContainer.findViewById<TextView>(R.id.fragment_reports_header_show_all_button)
+			val daysContainer = headerFragmentContainer.findViewById<ViewGroup>(R.id.fragment_reports_dates_container)
+			val daysContainerScrollview = headerFragmentContainer.findViewById<View>(R.id.fragment_reports_dates_scroll_view)
+			val titleTextView = headerFragmentContainer.findViewById<TextView>(R.id.fragment_reports_header_title)
+
+			if (exposureDays.isNotEmpty()) {
+				date.text = getDateString(exposureDays[exposureDays.size - 1], true)
+			}
+
+			daysContainer.removeAllViews()
+			for (exposureDay in exposureDays) {
+				val itemView = LayoutInflater.from(context).inflate(R.layout.item_reports_exposure_day, daysContainer, false)
+				val itemDate = itemView.findViewById<TextView>(R.id.exposure_day_textview)
+				itemDate.text = getDateString(exposureDay, false)
+				daysContainer.addView(itemView, 0)
+			}
+
+			showAllButton.isVisible = exposureDays.size > 1
+
+			showAllButton.setOnClickListener {
+				if (daysContainerScrollview.visibility == View.VISIBLE) {
+					subtitle.setText(R.string.meldung_detail_exposed_subtitle_last_encounter)
+					showAllButton.setText(R.string.meldung_detail_exposed_show_all_button)
+					animateHeaderHeight(false, exposureDays.size, daysContainerScrollview, date!!)
+				} else {
+					subtitle.setText(R.string.meldung_detail_exposed_subtitle_all_encounters)
+					showAllButton.setText(R.string.meldung_detail_exposed_show_less_button)
+					animateHeaderHeight(true, exposureDays.size, daysContainerScrollview, date!!)
+				}
+			}
+			showAllButton.paintFlags = showAllButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+
+
+			if (isReportsHeaderAnimationPending) {
+				info.visibility = View.GONE
+				showAllButton.visibility = View.GONE
+				image.visibility = View.VISIBLE
+				continueButton.visibility = View.VISIBLE
+				titleTextView.setText(R.string.meldung_detail_exposed_title)
+				continueButton.setOnClickListener {
+					doHeaderAnimation(info, image, continueButton, showAllButton, exposureDays.size)
+				}
+			}
+		}
+	}
+
 	private fun setupState(state: State, tracingStatusInterface: TracingStatusInterface) {
 
 		//TODO: Set up header
@@ -93,7 +166,6 @@ class ReportsFragment : Fragment() {
 					cardEncountersLink.setOnClickListener { openLink(R.string.no_meldungen_box_url) }
 					faqButton.setOnClickListener { showFaq() }
 				}
-				setupHeaderFragment(ReportsHeaderFragment.Type.NO_REPORTS, 0);
 			}
 			State.POSSIBLE_INFECTION -> {
 				binding.reportsLeitfaden.apply {
@@ -122,8 +194,6 @@ class ReportsFragment : Fragment() {
 					}
 					deleteReports.setOnClickListener { deleteNotifications(tracingStatusInterface) }
 				}
-				setupHeaderFragment(ReportsHeaderFragment.Type.POSSIBLE_INFECTION, tracingStatusInterface.exposureDays.size)
-
 			}
 			State.POSITIVE_TESTED -> {
 				val oldestSharedKeyDateMillis = secureStorage.positiveReportOldestSharedKey
@@ -138,11 +208,11 @@ class ReportsFragment : Fragment() {
 					deleteReports.setOnClickListener { showDeleteReportConfirmationDialog() }
 					deleteReports.isVisible = tracingStatusInterface.canInfectedStatusBeReset(requireContext())
 				}
-				setupHeaderFragment(ReportsHeaderFragment.Type.POSITIVE_TESTED, 0)
 			}
 		}
 		val notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 		notificationManager.cancel(NotificationUtil.NOTIFICATION_ID_CONTACT)
+		setupHeader(state)
 	}
 
 	private fun showDeleteReportConfirmationDialog() {
@@ -253,7 +323,7 @@ class ReportsFragment : Fragment() {
 		}
 	}
 
-	fun doHeaderAnimation(info: View, image: View, button: Button, showAllButton: View, numExposureDays: Int) {
+	private fun doHeaderAnimation(info: View, image: View, button: Button, showAllButton: View, numExposureDays: Int) {
 		secureStorage.isReportsHeaderAnimationPending = false
 		binding.apply {
 			reportsScrollviewFirstChild.updatePadding(top = root.height)
@@ -285,7 +355,7 @@ class ReportsFragment : Fragment() {
 		}
 	}
 
-	fun animateHeaderHeight(showAll: Boolean, numExposureDays: Int, exposureDaysContainer: View, dateTextView: View) {
+	private fun animateHeaderHeight(showAll: Boolean, numExposureDays: Int, exposureDaysContainer: View, dateTextView: View) {
 		val exposureDayItemHeight = resources.getDimensionPixelSize(R.dimen.header_reports_exposure_day_height)
 		val endExposureDayTopPadding: Int
 		val endHeaderHeight: Int
@@ -410,30 +480,22 @@ class ReportsFragment : Fragment() {
 		return min(scrollY, scrollRange) / scrollRange.toFloat()
 	}
 
-	private fun setupHeaderFragment(headerType: ReportsHeaderFragment.Type, numExposureDays: Int) {
-		binding.apply {
-			val isReportsHeaderAnimationPending = secureStorage.isReportsHeaderAnimationPending
-			updateHeaderSize(isReportsHeaderAnimationPending, numExposureDays)
-			if (isReportsHeaderAnimationPending) {
-				reportsScrollviewFirstChild.visibility = View.GONE
-			}
-			headerFragmentContainer.post { setupScrollBehavior() }
-			val header: Fragment = when (headerType) {
-				ReportsHeaderFragment.Type.NO_REPORTS -> ReportsHeaderFragment.newInstance(
-					ReportsHeaderFragment.Type.NO_REPORTS,
-					false
-				)
-				ReportsHeaderFragment.Type.POSSIBLE_INFECTION -> ReportsHeaderFragment
-					.newInstance(ReportsHeaderFragment.Type.POSSIBLE_INFECTION, isReportsHeaderAnimationPending)
-				ReportsHeaderFragment.Type.POSITIVE_TESTED -> ReportsHeaderFragment.newInstance(
-					ReportsHeaderFragment.Type.POSITIVE_TESTED,
-					false
-				)
-			}
-			childFragmentManager.beginTransaction()
-				.replace(R.id.header_fragment_container, header)
-				.commit()
+	private fun getDateString(exposureDay: ExposureDay, withDiff: Boolean): String {
+		val timestamp = exposureDay.exposedDate.getStartOfDay(TimeZone.getDefault())
+		if (!withDiff) {
+			return DateUtils.getFormattedDateWrittenMonth(timestamp)
 		}
+		var dateStr = getString(R.string.date_text_before_date).replace("{DATE}", DateUtils.getFormattedDate(timestamp))
+		dateStr += " / "
+		val daysDiff = DateUtils.getDaysDiff(timestamp)
+		dateStr += if (daysDiff == 0) {
+			getString(R.string.date_today)
+		} else if (daysDiff == 1) {
+			getString(R.string.date_one_day_ago)
+		} else {
+			getString(R.string.date_days_ago).replace("{COUNT}", daysDiff.toString())
+		}
+		return dateStr
 	}
 
 	enum class State {
