@@ -1468,7 +1468,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <!-- Check-Ins: QR-Code erstellen Titel -->
     <string name="checkins_create_qr_code"></string>
 
-    <!-- Veranstaltungen-Card Titel im Infotab -->
+    <!-- Veranstaltungen-Screen Titel -->
     <string name="events_title"></string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
@@ -1600,7 +1600,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="print_button_title"></string>
 
     <!-- Check-Ins: Beschreibung Modul auf Homescreen -->
-    <string name="module_checkins_description">"Check into various events and see your previous check-ins in your diary."</string>
+    <string name="module_checkins_description"></string>
 
     <!-- Titel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
     <string name="inform_share_checkins_title"></string>
@@ -1628,11 +1628,11 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <!-- Remove from diary warning start text -->
     <string name="remove_diary_warning_star_text"></string>
 
-    <!-- Text auf der "CovidCode eingeben"-Card auf dem Home Screen -->
-    <string name="home_covidcode_card_title">"Tested positive? Please enter your CovidCode to warn others."</string>
+    <!-- Titel auf der "CovidCode eingeben"-Card auf dem Home Screen -->
+    <string name="home_covidcode_card_title"></string>
 
     <!-- Text auf der "Isolation beenden"-Card auf dem Home Screen -->
-    <string name="home_end_isolation_card_title">"You are in isolation mode because you tested positive to the virus."</string>
+    <string name="home_end_isolation_card_text"></string>
 
     <!-- Check-Ins: Erinnerungsoption Stunden & Minuten -->
     <string name="reminder_option_hours_minutes"></string>
@@ -1641,7 +1641,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="checkin_overview_isolation_text">"You can no longer check-in when you tested positive. More text more text more text more text more text more text more"</string>
 
     <!-- Veranstaltungen-Card Text im Infotab -->
-    <string name="events_subtitle">"Protect yourself and others by generating QR codes for working spaces, meeting rooms or other private events."</string>
+    <string name="events_card_subtitle"></string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
     <string name="delete_qr_code_dialog"></string>
@@ -1687,4 +1687,30 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
 
     <!-- SwissCovid QR Code PDF: Download Hinweis neben dem App Icon -->
     <string name="pdf_download_app"></string>
+
+    <!-- Title im Check-Ins-Screen im nicht eingecheckten Zustand -->
+    <string name="checkin_detail_checked_out_title"></string>
+
+    <!-- Text auf der "CovidCode eingeben"-Card auf dem Home Screen -->
+    <string name="home_covidcode_card_text"></string>
+
+    <!-- Titel auf der "Isolation beenden"-Card auf dem Home Screen -->
+    <string name="home_end_isolation_card_title"></string>
+
+    <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. -->
+    <string name="events_card_title"></string>
+    <string name="checkin_footer_title1"></string>
+    <string name="checkin_footer_subtitle1"></string>
+    <string name="checkin_footer_title2"></string>
+    <string name="checkin_footer_subtitle2"></string>
+    <string name="events_empty_state_title"></string>
+    <string name="events_empty_state_subtitle"></string>
+    <string name="events_info_box_title"></string>
+    <string name="events_info_box_text"></string>
+    <string name="events_footer_title1"></string>
+    <string name="events_footer_title2"></string>
+    <string name="events_footer_title3"></string>
+    <string name="events_footer_subtitle1"></string>
+    <string name="events_footer_subtitle2"></string>
+    <string name="events_footer_subtitle3"></string>
 </resources>

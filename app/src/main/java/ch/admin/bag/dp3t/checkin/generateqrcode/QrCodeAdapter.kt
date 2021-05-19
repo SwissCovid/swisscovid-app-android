@@ -1,106 +1,89 @@
 package ch.admin.bag.dp3t.checkin.generateqrcode
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
+import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_EXPLANATION
+import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_EVENT
+import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_FOOTER
+import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_GENERATE_QR_CODE_BUTTON
 import ch.admin.bag.dp3t.checkin.utils.getSubtitle
-import ch.admin.bag.dp3t.databinding.ItemGenerateQrCodeBinding
-import ch.admin.bag.dp3t.databinding.ItemQrCodeBinding
-import ch.admin.bag.dp3t.databinding.ItemQrCodeEmptyListBinding
+import ch.admin.bag.dp3t.databinding.*
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
-class QrCodeAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter<QrCodeBaseViewHolder<*>>() {
+class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView.Adapter<QrCodeAdapter.QrCodeBaseViewHolder>() {
 
-	companion object {
-		private const val TYPE_GENERATE_QR_CODE = 0
-		private const val TYPE_QR_CODE = 1
-		private const val TYPE_QR_EMPTY_LIST = 2
-	}
+	private var items: List<EventOverviewItem> = emptyList()
 
-	private var items: List<Any> = emptyList()
-
-	fun setItems(qrCodes: List<VenueInfo>) {
-		val newItems: ArrayList<Any> = ArrayList()
-		newItems.add(GenerateQrCodeItem())
-		if (qrCodes.isEmpty()) {
-			newItems.add(QrCodeEmptyListItem())
-		} else {
-			newItems.addAll(qrCodes)
-		}
-		this.items = newItems
+	fun setItems(newItems: List<EventOverviewItem>) {
+		this.items = ArrayList<EventOverviewItem>().apply { addAll(newItems) }
 		notifyDataSetChanged()
 	}
 
-	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QrCodeBaseViewHolder<*> {
+	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QrCodeBaseViewHolder {
+		val inflater = LayoutInflater.from(parent.context)
 		return when (viewType) {
-			TYPE_GENERATE_QR_CODE -> {
-				val binding = ItemGenerateQrCodeBinding
-					.inflate(LayoutInflater.from(parent.context), parent, false)
-				return GenerateQrCodeViewHolder(binding)
-			}
-			TYPE_QR_CODE -> {
-				val binding = ItemQrCodeBinding
-					.inflate(LayoutInflater.from(parent.context), parent, false)
-				return QrCodeViewHolder(binding)
-			}
-			TYPE_QR_EMPTY_LIST -> {
-				val binding = ItemQrCodeEmptyListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-				return QrCodeEmptyListViewHolder(binding)
-			}
+			TYPE_GENERATE_QR_CODE_BUTTON -> GenerateQrCodeViewHolder(ItemGenerateQrCodeBinding.inflate(inflater, parent, false))
+			TYPE_EVENT -> EventViewHolder(ItemQrCodeBinding.inflate(inflater, parent, false))
+			TYPE_EXPLANATION -> ExplanationViewHolder(ItemEventsExplanationBinding.inflate(inflater, parent, false))
+			TYPE_FOOTER -> SimpleViewHolder(ItemEventsFooterBinding.inflate(inflater, parent, false))
 			else -> throw IllegalArgumentException("invalid view type")
 		}
 	}
 
-	override fun onBindViewHolder(holder: QrCodeBaseViewHolder<*>, position: Int) {
-		val item = items[position]
-		when (holder) {
-			is GenerateQrCodeViewHolder -> holder.bind(item as GenerateQrCodeItem)
-			is QrCodeViewHolder -> holder.bind(item as VenueInfo)
-			is QrCodeEmptyListViewHolder -> holder.bind(item as QrCodeEmptyListItem)
-			else -> throw  IllegalArgumentException()
-		}
+	override fun onBindViewHolder(holder: QrCodeBaseViewHolder, position: Int) {
+		holder.bind(items[position])
 	}
 
-	override fun getItemViewType(position: Int): Int {
-		return when (items[position]) {
-			is VenueInfo -> TYPE_QR_CODE
-			is GenerateQrCodeItem -> TYPE_GENERATE_QR_CODE
-			is QrCodeEmptyListItem -> TYPE_QR_EMPTY_LIST
-			else -> throw java.lang.IllegalArgumentException("Invalid type of data at position $position")
-		}
+	override fun getItemViewType(position: Int) = items[position].type
+
+	override fun getItemCount() = items.size
+
+
+	/*--------VIEW HOLDERS-------*/
+
+	abstract class QrCodeBaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+		abstract fun bind(item: EventOverviewItem)
 	}
 
-	override fun getItemCount(): Int {
-		return items.size
-	}
-
-	inner class GenerateQrCodeViewHolder(private val binding: ItemGenerateQrCodeBinding) :
-		QrCodeBaseViewHolder<GenerateQrCodeItem>(binding.root) {
-		override fun bind(item: GenerateQrCodeItem) {
-			binding.qrCodeGenerate.setOnClickListener {
-				onClickListener.generateQrCode()
-			}
+	inner class GenerateQrCodeViewHolder(private val binding: ItemGenerateQrCodeBinding) : QrCodeBaseViewHolder(binding.root) {
+		override fun bind(item: EventOverviewItem) {
+			binding.qrCodeGenerate.setOnClickListener { onClickListener.generateQrCode() }
 		}
 
 	}
 
-	inner class QrCodeViewHolder(private val binding: ItemQrCodeBinding) :
-		QrCodeBaseViewHolder<VenueInfo>(binding.root) {
-		override fun bind(item: VenueInfo) {
+	inner class EventViewHolder(private val binding: ItemQrCodeBinding) : QrCodeBaseViewHolder(binding.root) {
+		override fun bind(item: EventOverviewItem) {
+			item as EventItem
 			binding.apply {
-				qrCodeName.text = item.title
-				qrCodeLocation.setText(item.getSubtitle())
-				root.setOnClickListener { onClickListener.onQrCodeClicked(item) }
-				qrCodeDelete.setOnClickListener { onClickListener.onDeleteQrCodeClicked(item) }
+				qrCodeName.text = item.venueInfo.title
+				qrCodeLocation.setText(item.venueInfo.getSubtitle())
+				root.setOnClickListener { onClickListener.onQrCodeClicked(item.venueInfo) }
+				qrCodeDelete.setOnClickListener { onClickListener.onDeleteQrCodeClicked(item.venueInfo) }
 			}
 		}
 	}
 
-	inner class QrCodeEmptyListViewHolder(binding: ItemQrCodeEmptyListBinding) :
-		QrCodeBaseViewHolder<QrCodeEmptyListItem>(binding.root) {
-		override fun bind(item: QrCodeEmptyListItem) {
-
+	inner class ExplanationViewHolder(private val binding: ItemEventsExplanationBinding) : QrCodeBaseViewHolder(binding.root) {
+		override fun bind(item: EventOverviewItem) {
+			item as ExplanationItem
+			binding.apply {
+				illu.isVisible = !item.showOnlyInfobox
+				title.isVisible = !item.showOnlyInfobox
+				subtitle.isVisible = !item.showOnlyInfobox
+				heading.isVisible = !item.showOnlyInfobox
+				generateQrCodeButton.isVisible = !item.showOnlyInfobox
+				generateQrCodeButton.setOnClickListener { onClickListener.generateQrCode() }
+			}
 		}
+	}
+
+	inner class SimpleViewHolder(binding: ViewBinding) : QrCodeBaseViewHolder(binding.root) {
+		override fun bind(item: EventOverviewItem) {}
 	}
 }
 

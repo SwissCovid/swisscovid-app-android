@@ -40,9 +40,17 @@ class EventsOverviewFragment : Fragment() {
 			})
 
 			qrList.adapter = adapter
-			qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner, {
-				adapter.setItems(it)
-			})
+			qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner) { events ->
+				if (events.isEmpty()) {
+					adapter.setItems(listOf(ExplanationItem(showOnlyInfobox = false), FooterItem()))
+				} else {
+					adapter.setItems(events.map { EventItem(it) }.toMutableList<EventOverviewItem>().apply {
+						add(0, GenerateQrCodeButtonItem())
+						add(ExplanationItem(showOnlyInfobox = true))
+						add(FooterItem())
+					})
+				}
+			}
 		}.root
 	}
 

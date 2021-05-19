@@ -9,7 +9,6 @@
   -->
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/card_travel"
 	style="@style/NextStep.Card"
 	android:layout_width="match_parent"
@@ -57,7 +56,7 @@
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="@string/events_subtitle" />
+				android:text="@string/events_card_subtitle" />
 
 			<ImageView
 				android:layout_width="wrap_content"
