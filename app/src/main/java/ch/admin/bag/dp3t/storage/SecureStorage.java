@@ -167,7 +167,7 @@ public class SecureStorage {
 		prefs.edit().putLong(KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD, time).apply();
 	}
 
-	public long getLastSuccesssfulCheckinDownload() {
+	public long getLastSuccessfulCheckinDownload() {
 		return prefs.getLong(KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD, System.currentTimeMillis());
 	}
 

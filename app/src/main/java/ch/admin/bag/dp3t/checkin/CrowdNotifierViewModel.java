@@ -134,7 +134,7 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 
 	private void refreshTraceKeyLoadingError() {
 
-		if (storage.getLastSuccesssfulCheckinDownload() <= System.currentTimeMillis() - MAX_DURATION_WITHOUT_SUCCESSFUL_DOWNLOAD) {
+		if (storage.getLastSuccessfulCheckinDownload() <= System.currentTimeMillis() - MAX_DURATION_WITHOUT_SUCCESSFUL_DOWNLOAD) {
 			hasTraceKeyDownloadError.setValue(true);
 		} else {
 			hasTraceKeyDownloadError.setValue(false);

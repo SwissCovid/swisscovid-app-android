@@ -1584,7 +1584,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
 
     <!-- Check-Ins: Veranstaltung Titel Placeholder -->
     <!-- Fuzzy -->
-    <string name="web_generator_title_placeholder">"z.B. Raum- oder Eventname"</string>
+    <string name="web_generator_title_placeholder">"z.B. Raum oder Anlassname"</string>
 
     <!-- Check-Ins: Veranstaltungen Titel Kategorie -->
     <!-- Fuzzy -->
@@ -1818,4 +1818,28 @@ Mögliche Einsatzorte:
 – Zusammenkünfte im professionellen Umfeld wie z.B. Sitzungszimmer, Büroräume, Kantinen, etc."</string>
     <string name="events_footer_subtitle2">"Die Check-in-Funktion ohne Erfassung der Kontaktdaten erweitert die SwissCovid App. Sie berücksichtigt nicht nur enge Kontakte, sondern auch solche, die zum gleichen Zeitpunkt am gleichen Ort eingecheckt haben – unabhängig vom Abstand."</string>
     <string name="events_footer_subtitle3">"Nein, SwissCovid-Check-ins ersetzen die Pflicht zur Kontaktdatenerfassung, wie sie in der Covid-19-Verordnung festgehalten ist, nicht. Sie dienen lediglich als Ergänzung, um Teilnehmende rasch über eine mögliche Ansteckung zu informieren."</string>
+
+    <!-- Subtitle vom Meldungen Card in der Liste aller Meldungen. -->
+    <string name="meldung_detail_exposed_list_card_subtitle">"Mögliche Risikosituation:"</string>
+
+    <!-- Title vom Encounters Meldungen Card in der Liste aller Meldungen -->
+    <string name="meldung_detail_exposed_list_card_title_encounters">"Begegnungen"</string>
+
+    <!-- Title vom CheckIn Meldungen Card in der Liste aller Meldungen -->
+    <string name="meldung_detail_exposed_list_card_title_checkin">"Check-in"</string>
+
+    <!-- Was soll ich tun? Button im Meldungen Card in der Liste aller Meldungen -->
+    <string name="meldung_detail_exposed_list_card_whattodo_button">"Was soll ich tun?"</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: An einem Check-In einem positiven Kontakt ausgesetzt -->
+    <string name="debug_state_setting_option_checkin_exposed">"Positiver Check-in"</string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Auf verschiedener Weise einem positiven Kontakt ausgesetzt -->
+    <string name="debug_state_setting_option_mutiple_exposed">"Positive Check-ins / Kontakte"</string>
+
+    <!-- Anzeigename für User QR Codes -->
+    <string name="venue_type_user_qr_code">"User QR Code"</string>
+
+    <!-- Anzeigename für User QR Codes -->
+    <string name="venue_type_contact_tracing_qr_code">"Contact Tracing QR Code"</string>
 </resources>

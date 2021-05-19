@@ -1,10 +1,9 @@
-package ch.admin.bag.dp3t.checkin.utils
+package ch.admin.bag.dp3t.extensions
 
 import androidx.annotation.StringRes
 import ch.admin.bag.dp3t.checkin.models.QRCodePayload
 import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.checkin.models.SwissCovidLocationData
-import ch.admin.bag.dp3t.extensions.getNameRes
 import com.google.protobuf.InvalidProtocolBufferException
 import org.crowdnotifier.android.sdk.model.VenueInfo
 

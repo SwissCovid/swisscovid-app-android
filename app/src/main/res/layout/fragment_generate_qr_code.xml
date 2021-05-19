@@ -59,20 +59,6 @@
 				style="@style/NextStep.Text.Bold.Dark"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/web_generator_category_label"
-				android:textAllCaps="true" />
-
-			<RadioGroup
-				android:id="@+id/generate_qr_code_radio_group"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_large"
-				android:layout_marginBottom="@dimen/spacing_huger" />
-
-			<TextView
-				style="@style/NextStep.Text.Bold.Dark"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
 				android:text="@string/web_generator_title_label"
 				android:textAllCaps="true" />
 
@@ -110,7 +96,7 @@
 
 		<Button
 			android:id="@+id/qr_code_generate"
-			style="@style/NextStep.Button"
+			style="@style/NextStep.Button.AllCaps"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal|bottom"

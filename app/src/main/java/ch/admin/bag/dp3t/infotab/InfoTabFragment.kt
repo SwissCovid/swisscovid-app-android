@@ -16,7 +16,7 @@ import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.travel.TravelFragment
 import ch.admin.bag.dp3t.travel.TravelUtils
 import ch.admin.bag.dp3t.util.UrlUtil
-import ch.admin.bag.dp3t.util.showFragment
+import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 import ch.admin.bag.dp3t.whattodo.WtdInfolineAccessabilityDialogFragment
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment

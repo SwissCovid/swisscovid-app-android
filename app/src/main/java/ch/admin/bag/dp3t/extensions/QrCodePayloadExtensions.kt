@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.checkin.utils
+package ch.admin.bag.dp3t.extensions
 
 import ch.admin.bag.dp3t.checkin.models.QRCodePayload
 import org.crowdnotifier.android.sdk.model.VenueInfo

@@ -10,7 +10,7 @@ import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_EVENT
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_FOOTER
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_GENERATE_QR_CODE_BUTTON
-import ch.admin.bag.dp3t.checkin.utils.getSubtitle
+import ch.admin.bag.dp3t.extensions.getSubtitle
 import ch.admin.bag.dp3t.databinding.*
 import org.crowdnotifier.android.sdk.model.VenueInfo
 

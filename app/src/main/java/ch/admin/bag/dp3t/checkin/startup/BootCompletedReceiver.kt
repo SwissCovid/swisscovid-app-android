@@ -5,8 +5,8 @@ import android.content.Context
 import android.content.Intent
 import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper
-import ch.admin.bag.dp3t.checkin.utils.getAutoCheckoutDelay
-import ch.admin.bag.dp3t.checkin.utils.getCheckoutWarningDelay
+import ch.admin.bag.dp3t.extensions.getAutoCheckoutDelay
+import ch.admin.bag.dp3t.extensions.getCheckoutWarningDelay
 import ch.admin.bag.dp3t.storage.SecureStorage
 
 class BootCompletedReceiver : BroadcastReceiver() {

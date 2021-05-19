@@ -1738,4 +1738,28 @@ Atëherë kontaktoni qendrën telefonike të koronavirusit:"</string>
     <string name="events_footer_subtitle1"></string>
     <string name="events_footer_subtitle2"></string>
     <string name="events_footer_subtitle3"></string>
+
+    <!-- Subtitle vom Meldungen Card in der Liste aller Meldungen. -->
+    <string name="meldung_detail_exposed_list_card_subtitle"></string>
+
+    <!-- Title vom Encounters Meldungen Card in der Liste aller Meldungen -->
+    <string name="meldung_detail_exposed_list_card_title_encounters"></string>
+
+    <!-- Title vom CheckIn Meldungen Card in der Liste aller Meldungen -->
+    <string name="meldung_detail_exposed_list_card_title_checkin"></string>
+
+    <!-- Was soll ich tun? Button im Meldungen Card in der Liste aller Meldungen -->
+    <string name="meldung_detail_exposed_list_card_whattodo_button"></string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: An einem Check-In einem positiven Kontakt ausgesetzt -->
+    <string name="debug_state_setting_option_checkin_exposed"></string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Auf verschiedener Weise einem positiven Kontakt ausgesetzt -->
+    <string name="debug_state_setting_option_mutiple_exposed"></string>
+
+    <!-- Anzeigename für User QR Codes -->
+    <string name="venue_type_user_qr_code"></string>
+
+    <!-- Anzeigename für User QR Codes -->
+    <string name="venue_type_contact_tracing_qr_code"></string>
 </resources>

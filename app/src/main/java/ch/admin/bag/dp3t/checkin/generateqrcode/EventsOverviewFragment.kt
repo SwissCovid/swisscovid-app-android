@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentEventsOverviewBinding
-import ch.admin.bag.dp3t.util.showFragment
+import ch.admin.bag.dp3t.extensions.showFragment
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
 class EventsOverviewFragment : Fragment() {

@@ -12,6 +12,7 @@ import org.crowdnotifier.android.sdk.CrowdNotifier;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
+import ch.admin.bag.dp3t.extensions.VenueInfoExtensionsKt;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;

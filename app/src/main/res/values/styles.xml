@@ -226,7 +226,7 @@
 	</style>
 
 	<style name="NextStep.Button.AllCaps">
-		<item name="textAllCaps">true</item>
+		<item name="android:textAllCaps">true</item>
 	</style>
 
 	<style name="NextStep.Button.Purple">

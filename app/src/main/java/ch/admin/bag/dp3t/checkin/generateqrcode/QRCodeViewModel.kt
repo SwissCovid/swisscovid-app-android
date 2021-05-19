@@ -13,8 +13,8 @@ import ch.admin.bag.dp3t.checkin.models.GeneratedQrCodesWrapper
 import ch.admin.bag.dp3t.checkin.models.SwissCovidLocationData
 import ch.admin.bag.dp3t.checkin.models.VenueType
 import ch.admin.bag.dp3t.checkin.utils.SingleLiveEvent
-import ch.admin.bag.dp3t.checkin.utils.toQrCodePayload
-import ch.admin.bag.dp3t.checkin.utils.toVenueInfo
+import ch.admin.bag.dp3t.extensions.toQrCodePayload
+import ch.admin.bag.dp3t.extensions.toVenueInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -73,14 +73,14 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		saveGeneratedQrCode(builder.build())
 	}
 
-	fun generateAndSaveQrCode(description: String, venueType: VenueType) = viewModelScope.launch(Dispatchers.IO) {
+	fun generateAndSaveQrCode(description: String) = viewModelScope.launch(Dispatchers.IO) {
 
 		val swissCovidLocationData = SwissCovidLocationData.newBuilder()
 			.setVersion(SWISSCOVID_LOCATION_DATA_VERSION)
 			.setAutomaticCheckoutDelaylMs(AUTOMATIC_CHECKOUT_DELAY_MS)
 			.setCheckoutWarningDelayMs(CHECKOUT_WARNING_DELAY_MS)
 			.addAllReminderDelayOptionsMs(REMINDER_DELAY_OPTIONS_MS)
-			.setTypeValue(venueType.number)
+			.setType(VenueType.USER_QR_CODE)
 			.build()
 
 		val generatedVenueInfo = CrowdNotifier.generateVenueInfo(

@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.util
+package ch.admin.bag.dp3t.extensions
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
