@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.net.Uri;
-import android.os.Build;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,12 +16,13 @@ import ch.admin.bag.dp3t.util.UrlUtil;
 
 public class ErrorHelper {
 
-	public static void updateErrorView(View errorView, CrowdNotifierErrorState errorState, Runnable customButtonClickAction, Context context) {
+	public static void updateErrorView(View errorView, CrowdNotifierErrorState errorState, Runnable customButtonClickAction,
+			Context context) {
 		updateErrorView(errorView, errorState, customButtonClickAction, context, true);
 	}
 
-	public static void updateErrorView(View errorView, CrowdNotifierErrorState errorState, Runnable customButtonClickAction, Context context,
-			boolean showButton) {
+	public static void updateErrorView(View errorView, CrowdNotifierErrorState errorState, Runnable customButtonClickAction,
+			Context context, boolean showButton) {
 		((TextView) errorView.findViewById(R.id.error_status_title)).setText(errorState.getTitleResId());
 		((TextView) errorView.findViewById(R.id.error_status_text)).setText(errorState.getTextResId());
 		((ImageView) errorView.findViewById(R.id.error_status_image))
@@ -42,9 +42,6 @@ public class ErrorHelper {
 	private static void executeErrorAction(CrowdNotifierErrorState errorState, Runnable customButtonClickAction, Context context) {
 		if (customButtonClickAction != null) customButtonClickAction.run();
 		switch (errorState) {
-			case NOTIFICATIONS_DISABLED:
-				openNotificationSettings(context);
-				break;
 			case CAMERA_ACCESS_DENIED:
 				openApplicationSettings(context);
 				break;
@@ -63,18 +60,6 @@ public class ErrorHelper {
 		Uri uri = Uri.fromParts("package", context.getPackageName(), null);
 		intent.setData(uri);
 		context.startActivity(intent);
-	}
-
-	private static void openNotificationSettings(Context context) {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-			Intent intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
-			intent.putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
-			context.startActivity(intent);
-		} else {
-			Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-			intent.setData(Uri.parse("package:" + context.getPackageName()));
-			context.startActivity(intent);
-		}
 	}
 
 }

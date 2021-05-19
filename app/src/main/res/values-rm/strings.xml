@@ -1488,7 +1488,7 @@ Alura contactai la Infoline coronavirus:"</string>
     <!-- Check-Ins: QR-Code erstellen Titel -->
     <string name="checkins_create_qr_code"></string>
 
-    <!-- Veranstaltungen-Card Titel im Infotab -->
+    <!-- Veranstaltungen-Screen Titel -->
     <string name="events_title"></string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
@@ -1620,7 +1620,7 @@ Alura contactai la Infoline coronavirus:"</string>
     <string name="print_button_title"></string>
 
     <!-- Check-Ins: Beschreibung Modul auf Homescreen -->
-    <string name="module_checkins_description">"Check into various events and see your previous check-ins in your diary."</string>
+    <string name="module_checkins_description"></string>
 
     <!-- Titel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
     <string name="inform_share_checkins_title"></string>
@@ -1648,11 +1648,11 @@ Alura contactai la Infoline coronavirus:"</string>
     <!-- Remove from diary warning start text -->
     <string name="remove_diary_warning_star_text"></string>
 
-    <!-- Text auf der "CovidCode eingeben"-Card auf dem Home Screen -->
-    <string name="home_covidcode_card_title">"Tested positive? Please enter your CovidCode to warn others."</string>
+    <!-- Titel auf der "CovidCode eingeben"-Card auf dem Home Screen -->
+    <string name="home_covidcode_card_title"></string>
 
     <!-- Text auf der "Isolation beenden"-Card auf dem Home Screen -->
-    <string name="home_end_isolation_card_title">"You are in isolation mode because you tested positive to the virus."</string>
+    <string name="home_end_isolation_card_text"></string>
 
     <!-- Check-Ins: Erinnerungsoption Stunden & Minuten -->
     <string name="reminder_option_hours_minutes"></string>
@@ -1661,5 +1661,100 @@ Alura contactai la Infoline coronavirus:"</string>
     <string name="checkin_overview_isolation_text">"You can no longer check-in when you tested positive. More text more text more text more text more text more text more"</string>
 
     <!-- Veranstaltungen-Card Text im Infotab -->
-    <string name="events_subtitle">"Protect yourself and others by generating QR codes for working spaces, meeting rooms or other private events."</string>
+    <string name="events_card_subtitle"></string>
+
+    <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
+    <string name="delete_qr_code_dialog"></string>
+
+    <!-- Self-Check-In Button Titel im QR-Code Screen -->
+    <string name="self_checkin_button_title"></string>
+
+    <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer nicht eingecheckt ist. -->
+    <string name="checkin_overview_checkins_explanation"></string>
+
+    <!-- Popup Titel wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
+    <string name="checkout_overlapping_alert_title"></string>
+
+    <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
+    <string name="checkout_overlapping_alert_description"></string>
+
+    <!-- Informieren: Danke Text Checkins Teil -->
+    <string name="inform_send_thankyou_text_checkins">"Your selected check-in entries were sent. Other people who checked into the same  events and during the same period of time will be notified."</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, titel -->
+    <string name="inform_are_you_sure_title">"Are you sure?"</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, text -->
+    <string name="inform_are_you_sure_text">"Sharing your random IDs helps “SwissCovid” to notify other potential infected people and avoid the further spreading of the pandemic. If you don’t share your random IDs no automatically recognized encounters can be notified. "</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, try agan button -->
+    <string name="inform_are_you_sure_try_again_button">"Try again"</string>
+
+    <!-- Covidcode eingabe, are your sure not to share, dont send button -->
+    <string name="inform_are_you_sure_dont_send_button">"Don't share"</string>
+
+    <!-- SwissCovid QR Code PDF: Headline über dem Slogan -->
+    <string name="pdf_headline"></string>
+
+    <!-- SwissCovid QR Code PDF: Slogan -->
+    <string name="pdf_slogan"></string>
+
+    <!-- SwissCovid QR Code PDF: Erklärungstext unter dem Slogan -->
+    <string name="pdf_explanation"></string>
+
+    <!-- SwissCovid QR Code PDF: App Bezeichnung neben dem App Icon -->
+    <string name="pdf_swisscovid_app"></string>
+
+    <!-- SwissCovid QR Code PDF: Download Hinweis neben dem App Icon -->
+    <string name="pdf_download_app"></string>
+
+    <!-- Title im Check-Ins-Screen im nicht eingecheckten Zustand -->
+    <string name="checkin_detail_checked_out_title"></string>
+
+    <!-- Text auf der "CovidCode eingeben"-Card auf dem Home Screen -->
+    <string name="home_covidcode_card_text"></string>
+
+    <!-- Titel auf der "Isolation beenden"-Card auf dem Home Screen -->
+    <string name="home_end_isolation_card_title"></string>
+
+    <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. -->
+    <string name="events_card_title"></string>
+    <string name="checkin_footer_title1"></string>
+    <string name="checkin_footer_subtitle1"></string>
+    <string name="checkin_footer_title2"></string>
+    <string name="checkin_footer_subtitle2"></string>
+    <string name="events_empty_state_title"></string>
+    <string name="events_empty_state_subtitle"></string>
+    <string name="events_info_box_title"></string>
+    <string name="events_info_box_text"></string>
+    <string name="events_footer_title1"></string>
+    <string name="events_footer_title2"></string>
+    <string name="events_footer_title3"></string>
+    <string name="events_footer_subtitle1"></string>
+    <string name="events_footer_subtitle2"></string>
+    <string name="events_footer_subtitle3"></string>
+
+    <!-- Subtitle vom Meldungen Card in der Liste aller Meldungen. -->
+    <string name="meldung_detail_exposed_list_card_subtitle"></string>
+
+    <!-- Title vom Encounters Meldungen Card in der Liste aller Meldungen -->
+    <string name="meldung_detail_exposed_list_card_title_encounters"></string>
+
+    <!-- Title vom CheckIn Meldungen Card in der Liste aller Meldungen -->
+    <string name="meldung_detail_exposed_list_card_title_checkin"></string>
+
+    <!-- Was soll ich tun? Button im Meldungen Card in der Liste aller Meldungen -->
+    <string name="meldung_detail_exposed_list_card_whattodo_button"></string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: An einem Check-In einem positiven Kontakt ausgesetzt -->
+    <string name="debug_state_setting_option_checkin_exposed"></string>
+
+    <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Auf verschiedener Weise einem positiven Kontakt ausgesetzt -->
+    <string name="debug_state_setting_option_mutiple_exposed"></string>
+
+    <!-- Anzeigename für User QR Codes -->
+    <string name="venue_type_user_qr_code"></string>
+
+    <!-- Anzeigename für User QR Codes -->
+    <string name="venue_type_contact_tracing_qr_code"></string>
 </resources>

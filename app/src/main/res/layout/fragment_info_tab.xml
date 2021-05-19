@@ -34,12 +34,6 @@
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="@dimen/spacing_very_large" />
 
-		<include
-			android:id="@+id/qr_code_generate"
-			layout="@layout/card_generate_qr_code"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content" />
-
 	</LinearLayout>
 
 </ScrollView>

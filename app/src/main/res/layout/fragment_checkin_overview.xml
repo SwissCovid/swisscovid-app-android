@@ -73,7 +73,7 @@
 							android:layout_height="wrap_content"
 							android:layout_marginTop="@dimen/spacing_small"
 							android:gravity="center_horizontal"
-							android:text="[TBT] Hier wird eine Beschreibung sein." />
+							android:text="@string/checkin_overview_checkins_explanation" />
 
 						<Button
 							android:id="@+id/checkin_button"
@@ -100,7 +100,7 @@
 							android:layout_height="wrap_content"
 							android:layout_marginTop="@dimen/spacing_tiny_small"
 							android:gravity="center_horizontal"
-							android:text="[TBT] Sie sind eingecheckt." />
+							android:text="@string/checkin_checked_in" />
 
 						<TextView
 							android:id="@+id/checkin_time"
@@ -112,7 +112,7 @@
 							tools:text="20:32" />
 
 						<TextView
-							android:id="@+id/checkin_place"
+							android:id="@+id/checkin_title"
 							style="@style/NextStep.Text.Bold"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
@@ -121,6 +121,7 @@
 							tools:text="Reuss, Ubique" />
 
 						<TextView
+							android:id="@+id/checkin_subtitle"
 							style="@style/NextStep.Text"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
@@ -134,8 +135,6 @@
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
 							android:layout_marginVertical="@dimen/spacing_medium_large"
-							android:drawableStart="@drawable/ic_qr"
-							android:drawableTint="@color/blue_main"
 							android:text="@string/checkout_button_title"
 							android:textAllCaps="false" />
 
@@ -248,6 +247,75 @@
 				</LinearLayout>
 
 			</androidx.cardview.widget.CardView>
+
+			<include
+				android:id="@+id/qr_code_generate"
+				layout="@layout/card_generate_qr_code"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_medium_large"
+				android:layout_marginBottom="@dimen/spacing_medium_large" />
+
+			<TextView
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_medium_large"
+				android:layout_marginTop="@dimen/spacing_very_large"
+				android:layout_marginBottom="@dimen/spacing_small"
+				android:text="@string/checkin_footer_title1" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_medium_large"
+				android:orientation="horizontal">
+
+				<ImageView
+					android:layout_width="@dimen/icon_size"
+					android:layout_height="@dimen/icon_size"
+					android:layout_marginRight="@dimen/spacing_medium_large"
+					android:src="@drawable/ic_shield_checkmark"
+					android:tint="@color/blue_main" />
+
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/checkin_footer_subtitle1" />
+
+			</LinearLayout>
+
+			<TextView
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_medium_large"
+				android:layout_marginTop="@dimen/spacing_very_large"
+				android:layout_marginBottom="@dimen/spacing_small"
+				android:text="@string/checkin_footer_title2" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_medium_large"
+				android:layout_marginBottom="@dimen/spacing_large"
+				android:orientation="horizontal">
+
+				<ImageView
+					android:layout_width="@dimen/icon_size"
+					android:layout_height="@dimen/icon_size"
+					android:layout_marginRight="@dimen/spacing_medium_large"
+					android:src="@drawable/ic_shield_checkmark"
+					android:tint="@color/blue_main" />
+
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/checkin_footer_subtitle2" />
+
+			</LinearLayout>
 
 		</LinearLayout>
 

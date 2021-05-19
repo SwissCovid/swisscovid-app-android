@@ -1,5 +1,6 @@
-package ch.admin.bag.dp3t.checkin.utils
+package ch.admin.bag.dp3t.extensions
 
+import androidx.annotation.StringRes
 import ch.admin.bag.dp3t.checkin.models.QRCodePayload
 import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.checkin.models.SwissCovidLocationData
@@ -20,9 +21,9 @@ fun VenueInfo.getSwissCovidLocationData(): SwissCovidLocationData {
 	}
 }
 
-fun VenueInfo.getSubtitle(): String {
-	//TODO: This is to be defined what the subtitle will be for SwissCovid
-	return "*subtitle*"
+@StringRes
+fun VenueInfo.getSubtitle(): Int {
+	return getSwissCovidLocationData().type.getNameRes()
 }
 
 fun VenueInfo.toQrCodePayload(): QRCodePayload {

@@ -13,8 +13,28 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/white"
-	android:orientation="vertical"
-	android:padding="20dp">
+	android:orientation="vertical">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation">
+
+		<TextView
+			android:id="@+id/generate_qr_code_cancel"
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/cancel" />
+
+	</FrameLayout>
 
 	<ScrollView
 		android:layout_width="match_parent"
@@ -24,66 +44,66 @@
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="vertical">
-
-			<TextView
-				android:id="@+id/generate_qr_code_cancel"
-				style="@style/NextStep.Text.Blue"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="end"
-				android:text="@string/cancel" />
+			android:orientation="vertical"
+			android:padding="@dimen/spacing_large">
 
 			<TextView
 				style="@style/NextStep.Text.Title"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal"
-				android:layout_marginVertical="@dimen/spacing_huge"
+				android:layout_marginVertical="@dimen/spacing_very_large"
 				android:text="@string/checkins_create_qr_code" />
 
 			<TextView
-				style="@style/NextStep.Text"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/web_generator_category_label"
-				android:textAllCaps="true" />
-
-			<RadioGroup
-				android:id="@+id/generate_qr_code_radio_group"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_very_large"
-				android:layout_marginBottom="@dimen/spacing_huger" />
-
-			<TextView
-				style="@style/NextStep.Text"
+				style="@style/NextStep.Text.Bold.Dark"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:text="@string/web_generator_title_label"
 				android:textAllCaps="true" />
 
-			<EditText
-				android:id="@+id/title_edit_text"
-				style="@style/NextStep.Text.Bold.Blue"
+			<com.google.android.material.textfield.TextInputLayout
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginVertical="@dimen/spacing_large"
-				android:backgroundTint="@color/blue_main"
-				android:hint="@string/web_generator_title_placeholder"
-				app:backgroundTint="@color/blue_main" />
+				app:boxBackgroundColor="@color/light_grey"
+				app:boxStrokeWidth="0dp"
+				app:boxStrokeWidthFocused="0dp"
+				app:hintEnabled="false"
+				app:hintTextColor="@color/dark_main">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/title_edit_text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="@string/web_generator_title_placeholder"
+					android:inputType="textNoSuggestions"
+					android:textColor="@color/blue_main"
+					android:textStyle="bold" />
+
+			</com.google.android.material.textfield.TextInputLayout>
 
 		</LinearLayout>
 
 	</ScrollView>
 
-	<Button
-		android:id="@+id/qr_code_generate"
-		style="@style/NextStep.Button"
-		android:layout_width="wrap_content"
+	<FrameLayout
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal|bottom"
-		android:layout_marginTop="@dimen/spacing_medium"
-		android:text="@string/checkins_create_qr_code" />
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation">
+
+		<Button
+			android:id="@+id/qr_code_generate"
+			style="@style/NextStep.Button.AllCaps"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal|bottom"
+			android:layout_marginTop="@dimen/spacing_medium"
+			android:layout_marginBottom="@dimen/spacing_large"
+			android:text="@string/checkins_create_qr_code" />
+
+	</FrameLayout>
 
 </LinearLayout>

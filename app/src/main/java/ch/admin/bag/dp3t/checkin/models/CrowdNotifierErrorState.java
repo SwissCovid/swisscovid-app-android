@@ -7,8 +7,6 @@ import ch.admin.bag.dp3t.R;
 
 public enum CrowdNotifierErrorState {
 	NETWORK(R.string.error_network_title, R.string.error_network_text, R.string.error_action_retry, R.drawable.ic_error),
-	NOTIFICATIONS_DISABLED(R.string.error_notification_deactivated_title, R.string.error_notification_deactivated_text,
-			R.string.error_action_change_settings, R.drawable.ic_notification_off),
 	CAMERA_ACCESS_DENIED(R.string.error_camera_permission_title, R.string.error_camera_permission_text,
 			R.string.error_action_change_settings, R.drawable.ic_cam_off),
 	NO_VALID_QR_CODE(R.string.error_title, R.string.qrscanner_error, R.string.android_button_ok, R.drawable.ic_error),

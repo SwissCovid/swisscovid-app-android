@@ -15,6 +15,10 @@ import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
 import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.checkin.utils.*
 import ch.admin.bag.dp3t.databinding.FragmentCheckInBinding
+import ch.admin.bag.dp3t.extensions.getAutoCheckoutDelay
+import ch.admin.bag.dp3t.extensions.getCheckoutWarningDelay
+import ch.admin.bag.dp3t.extensions.getReminderDelayOptions
+import ch.admin.bag.dp3t.extensions.getSubtitle
 import com.google.android.material.button.MaterialButton
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
@@ -52,7 +56,7 @@ class CheckInFragment : Fragment() {
 			val venueInfo = viewModel.checkInState?.venueInfo ?: return root
 
 			titleTextview.text = venueInfo.title
-			subtitleTextview.text = venueInfo.getSubtitle()
+			subtitleTextview.setText(venueInfo.getSubtitle())
 			checkInButton.setOnClickListener {
 				performCheckIn(venueInfo)
 				popBackToHomeFragment()

@@ -16,7 +16,7 @@ import org.crowdnotifier.android.sdk.CrowdNotifier;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
-import ch.admin.bag.dp3t.checkin.utils.VenueInfoExtensionsKt;
+import ch.admin.bag.dp3t.extensions.VenueInfoExtensionsKt;
 import ch.admin.bag.dp3t.util.StringUtil;
 
 public class EditDiaryEntryFragment extends Fragment {
