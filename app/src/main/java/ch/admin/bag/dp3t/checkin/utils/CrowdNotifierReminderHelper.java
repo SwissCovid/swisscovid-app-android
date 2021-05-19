@@ -121,7 +121,7 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 		long checkIn = checkInState.getCheckInTime();
 		long checkOut = checkIn + autoCheckoutDelay;
 		long id = CrowdNotifier.addCheckIn(checkIn, checkOut, checkInState.getVenueInfo(), context);
-		DiaryStorage.getInstance(context).addEntry(new DiaryEntry(id, checkIn, checkOut, checkInState.getVenueInfo(), ""));
+		DiaryStorage.getInstance(context).addEntry(new DiaryEntry(id, checkIn, checkOut, checkInState.getVenueInfo()));
 		SecureStorage storage = SecureStorage.getInstance(context);
 		storage.setCheckInState(null);
 		LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(ACTION_DID_AUTO_CHECKOUT));

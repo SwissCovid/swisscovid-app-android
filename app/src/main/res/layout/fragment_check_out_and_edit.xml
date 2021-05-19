@@ -144,24 +144,9 @@
 
 			</LinearLayout>
 
-			<TextView
-				style="@style/CrowdNotifier.Text.Status.Small"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_medium"
-				android:text="@string/edit_mode_addcomment" />
-
-			<EditText
-				android:id="@+id/check_out_fragment_comment_edit_text"
-				style="@style/CrowdNotifier.EditText"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_small"
-				android:hint="@string/edit_mode_comment_placeholder" />
-
 			<Button
 				android:id="@+id/edit_diary_entry_hide_from_diary_button"
-				style="@style/CrowdNotifier.Button"
+				style="@style/NextStep.Button.Blue"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center"

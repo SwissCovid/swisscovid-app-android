@@ -3,7 +3,6 @@ package ch.admin.bag.dp3t.checkin.diary;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,7 +32,6 @@ public class EditDiaryEntryFragment extends Fragment {
 	private TextView subtitleTextView;
 	private View doneButton;
 	private View cancelButton;
-	private EditText commentEditText;
 	private TextView fromTime;
 	private TextView toTime;
 	private TextView dateTextView;
@@ -64,7 +62,6 @@ public class EditDiaryEntryFragment extends Fragment {
 		subtitleTextView = view.findViewById(R.id.check_out_fragment_subtitle);
 		doneButton = view.findViewById(R.id.check_out_fragment_done_button);
 		cancelButton = view.findViewById(R.id.check_out_fragment_cancel_button);
-		commentEditText = view.findViewById(R.id.check_out_fragment_comment_edit_text);
 		fromTime = view.findViewById(R.id.check_out_fragment_from_text_view);
 		toTime = view.findViewById(R.id.check_out_fragment_to_text_view);
 		dateTextView = view.findViewById(R.id.check_out_fragment_date);
@@ -77,7 +74,6 @@ public class EditDiaryEntryFragment extends Fragment {
 
 		fromTime.setOnClickListener(v -> showTimePicker(true));
 		toTime.setOnClickListener(v -> showTimePicker(false));
-		commentEditText.setText(diaryEntry.getComment());
 
 		hideInDiaryButton.setVisibility(View.VISIBLE);
 		hideInDiaryButton.setOnClickListener(v -> hideInDiary());
@@ -128,8 +124,6 @@ public class EditDiaryEntryFragment extends Fragment {
 	}
 
 	private void saveEntry() {
-		String comment = commentEditText.getText().toString();
-		diaryEntry.setComment(comment);
 		CrowdNotifier.updateCheckIn(diaryEntry.getId(), diaryEntry.getArrivalTime(), diaryEntry.getDepartureTime(),
 				diaryEntry.getVenueInfo(), getContext());
 		diaryStorage.updateEntry(diaryEntry);

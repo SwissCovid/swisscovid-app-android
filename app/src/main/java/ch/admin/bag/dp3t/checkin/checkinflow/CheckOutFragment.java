@@ -4,7 +4,6 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,7 +40,6 @@ public class CheckOutFragment extends Fragment {
 	private TextView subtitleTextView;
 	private View doneButton;
 	private View cancelButton;
-	private EditText commentEditText;
 	private TextView fromTime;
 	private TextView toTime;
 	private TextView dateTextView;
@@ -82,7 +80,6 @@ public class CheckOutFragment extends Fragment {
 		subtitleTextView = view.findViewById(R.id.check_out_fragment_subtitle);
 		doneButton = view.findViewById(R.id.check_out_fragment_done_button);
 		cancelButton = view.findViewById(R.id.check_out_fragment_cancel_button);
-		commentEditText = view.findViewById(R.id.check_out_fragment_comment_edit_text);
 		fromTime = view.findViewById(R.id.check_out_fragment_from_text_view);
 		toTime = view.findViewById(R.id.check_out_fragment_to_text_view);
 		dateTextView = view.findViewById(R.id.check_out_fragment_date);
@@ -149,9 +146,8 @@ public class CheckOutFragment extends Fragment {
 	private void saveEntry() {
 		long checkIn = checkInState.getCheckInTime();
 		long checkOut = checkInState.getCheckOutTime();
-		String comment = commentEditText.getText().toString();
 		long id = CrowdNotifier.addCheckIn(checkIn, checkOut, venueInfo, getContext());
-		DiaryStorage.getInstance(getContext()).addEntry(new DiaryEntry(id, checkIn, checkOut, venueInfo, comment));
+		DiaryStorage.getInstance(getContext()).addEntry(new DiaryEntry(id, checkIn, checkOut, venueInfo));
 		viewModel.setCheckInState(null);
 	}
 
