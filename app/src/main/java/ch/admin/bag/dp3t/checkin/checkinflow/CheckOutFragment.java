@@ -43,7 +43,7 @@ public class CheckOutFragment extends Fragment {
 	private TextView fromTime;
 	private TextView toTime;
 	private TextView dateTextView;
-	private Button hideInDiaryButton;
+	private Button actionButton;
 
 	public CheckOutFragment() { super(R.layout.fragment_check_out_and_edit); }
 
@@ -83,7 +83,7 @@ public class CheckOutFragment extends Fragment {
 		fromTime = view.findViewById(R.id.check_out_fragment_from_text_view);
 		toTime = view.findViewById(R.id.check_out_fragment_to_text_view);
 		dateTextView = view.findViewById(R.id.check_out_fragment_date);
-		hideInDiaryButton = view.findViewById(R.id.edit_diary_entry_hide_from_diary_button);
+		actionButton = view.findViewById(R.id.check_out_fragment_primary_button);
 
 		titleTextView.setText(venueInfo.getTitle());
 		subtitleTextView.setText(VenueInfoExtensionsKt.getSubtitle(venueInfo));
@@ -94,17 +94,11 @@ public class CheckOutFragment extends Fragment {
 		fromTime.setOnClickListener(v -> showTimePicker(true));
 		toTime.setOnClickListener(v -> showTimePicker(false));
 
-		hideInDiaryButton.setVisibility(View.GONE);
-
-		doneButton.setOnClickListener(v -> {
-			CrowdNotifierReminderHelper.removeAllReminders(getContext());
-			saveEntry();
-			NotificationHelper notificationHelper = NotificationHelper.getInstance(getContext());
-			notificationHelper.stopOngoingNotification();
-			notificationHelper.removeReminderNotification();
-			popBackToHomeFragment();
-		});
+		doneButton.setOnClickListener(v -> performCheckout());
 		cancelButton.setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
+
+		actionButton.setText(R.string.checkout_button_title);
+		actionButton.setOnClickListener(v -> performCheckout());
 	}
 
 	private void refreshTimeTextViews() {
@@ -141,6 +135,15 @@ public class CheckOutFragment extends Fragment {
 		}, hour, minute, true);
 
 		timePicker.show();
+	}
+
+	private void performCheckout() {
+		CrowdNotifierReminderHelper.removeAllReminders(getContext());
+		saveEntry();
+		NotificationHelper notificationHelper = NotificationHelper.getInstance(getContext());
+		notificationHelper.stopOngoingNotification();
+		notificationHelper.removeReminderNotification();
+		popBackToHomeFragment();
 	}
 
 	private void saveEntry() {

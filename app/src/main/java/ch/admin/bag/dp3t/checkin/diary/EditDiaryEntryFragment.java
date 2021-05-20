@@ -3,6 +3,7 @@ package ch.admin.bag.dp3t.checkin.diary;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,7 +36,7 @@ public class EditDiaryEntryFragment extends Fragment {
 	private TextView fromTime;
 	private TextView toTime;
 	private TextView dateTextView;
-	private View hideInDiaryButton;
+	private Button actionButton;
 
 
 	public EditDiaryEntryFragment() { super(R.layout.fragment_check_out_and_edit); }
@@ -65,7 +66,7 @@ public class EditDiaryEntryFragment extends Fragment {
 		fromTime = view.findViewById(R.id.check_out_fragment_from_text_view);
 		toTime = view.findViewById(R.id.check_out_fragment_to_text_view);
 		dateTextView = view.findViewById(R.id.check_out_fragment_date);
-		hideInDiaryButton = view.findViewById(R.id.edit_diary_entry_hide_from_diary_button);
+		actionButton = view.findViewById(R.id.check_out_fragment_primary_button);
 
 		titleTextView.setText(diaryEntry.getVenueInfo().getTitle());
 		subtitleTextView.setText(VenueInfoExtensionsKt.getSubtitle(diaryEntry.getVenueInfo()));
@@ -75,9 +76,6 @@ public class EditDiaryEntryFragment extends Fragment {
 		fromTime.setOnClickListener(v -> showTimePicker(true));
 		toTime.setOnClickListener(v -> showTimePicker(false));
 
-		hideInDiaryButton.setVisibility(View.VISIBLE);
-		hideInDiaryButton.setOnClickListener(v -> hideInDiary());
-
 		doneButton.setOnClickListener(v -> {
 			saveEntry();
 			requireActivity().getSupportFragmentManager().popBackStack();
@@ -85,6 +83,9 @@ public class EditDiaryEntryFragment extends Fragment {
 		cancelButton.setOnClickListener(v -> {
 			requireActivity().getSupportFragmentManager().popBackStack();
 		});
+
+		actionButton.setText(R.string.remove_from_diary_button);
+		actionButton.setOnClickListener(v -> hideInDiary());
 	}
 
 	private void refreshTimeTextViews() {

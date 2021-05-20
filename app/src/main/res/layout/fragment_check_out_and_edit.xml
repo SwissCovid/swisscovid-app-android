@@ -11,39 +11,25 @@
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="@color/light_grey">
+		android:paddingHorizontal="@dimen/spacing_medium_large">
 
 		<TextView
 			android:id="@+id/check_out_fragment_cancel_button"
-			style="@style/CrowdNotifier.Text.Status.Primary.Small.Thin"
+			style="@style/NextStep.Button.Transparent.Blue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
-			android:background="?selectableItemBackground"
-			android:padding="@dimen/spacing_large"
 			android:text="@string/cancel"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
-			style="@style/CrowdNotifier.Text.Status.Small"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/checkout_button_title"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
-
-		<TextView
 			android:id="@+id/check_out_fragment_done_button"
-			style="@style/CrowdNotifier.Text.Status.Primary.Small"
+			style="@style/NextStep.Button.Transparent.Blue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
-			android:background="?selectableItemBackground"
-			android:padding="@dimen/spacing_large"
-			android:text="@string/done_button"
+			android:text="@string/checkout_save_button_title"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,14 +37,14 @@
 
 	<ScrollView
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent"
+		android:fillViewport="true">
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
-			android:paddingHorizontal="@dimen/spacing_very_large"
-			android:paddingBottom="@dimen/spacing_large">
+			android:paddingHorizontal="@dimen/spacing_very_large">
 
 			<TextView
 				android:id="@+id/check_out_fragment_title"
@@ -144,16 +130,19 @@
 
 			</LinearLayout>
 
+			<Space
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:layout_weight="1" />
+
 			<Button
-				android:id="@+id/edit_diary_entry_hide_from_diary_button"
+				android:id="@+id/check_out_fragment_primary_button"
 				style="@style/NextStep.Button.Blue"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center"
-				android:layout_marginTop="@dimen/spacing_huge"
-				android:visibility="gone"
-				tools:visibility="visible"
-				android:text="@string/remove_from_diary_button" />
+				android:layout_margin="@dimen/spacing_huge"
+				tools:text="@string/remove_from_diary_button" />
 
 		</LinearLayout>
 
