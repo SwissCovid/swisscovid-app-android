@@ -133,14 +133,24 @@ class ReportsFragment : Fragment() {
 				} else {
 					if (exposureDays.isNotEmpty()) {
 						headerDate.text =
-							StringUtil.getReportDateString(exposureDays[exposureDays.size - 1].exposedDate, true, true, context)
+							StringUtil.getReportDateString(
+								exposureDays[exposureDays.size - 1].exposedDate.getStartOfDay(TimeZone.getDefault()),
+								true,
+								true,
+								context
+							)
 					}
 					datesContainer.removeAllViews()
 					for (exposureDay in exposureDays) {
 						val itemView = LayoutInflater.from(context)
 							.inflate(R.layout.item_reports_exposure_day, datesContainer, false)
 						val itemDate = itemView.findViewById<TextView>(R.id.exposure_day_textview)
-						itemDate.text = StringUtil.getReportDateString(exposureDay.exposedDate, false, true, context)
+						itemDate.text = StringUtil.getReportDateString(
+							exposureDay.exposedDate.getStartOfDay(TimeZone.getDefault()),
+							false,
+							true,
+							context
+						)
 						datesContainer.addView(itemView, 0)
 					}
 

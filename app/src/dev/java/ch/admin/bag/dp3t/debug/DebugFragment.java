@@ -37,7 +37,6 @@ import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
 import ch.admin.bag.dp3t.checkin.models.SwissCovidAssociatedData;
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
@@ -50,7 +49,6 @@ public class DebugFragment extends Fragment {
 	public static final boolean EXISTS = true;
 
 	private TracingViewModel tracingViewModel;
-	private CrowdNotifierViewModel crowdNotifierViewModel;
 
 	public static void startDebugFragment(FragmentManager parentFragmentManager) {
 		parentFragmentManager.beginTransaction()
@@ -72,7 +70,6 @@ public class DebugFragment extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
-		crowdNotifierViewModel = new ViewModelProvider(requireActivity()).get(CrowdNotifierViewModel.class);
 	}
 
 	@Override
@@ -163,8 +160,8 @@ public class DebugFragment extends Fragment {
 	}
 
 	private void showExposureDaysInputDialogs() {
-		showInputDialog(getString(R.string.number_of_exposure_days), "0", (tracingExposures) ->
-				showInputDialog("How many Checkin Exposures should be simulated?", "1", (checkinExposures) ->
+		showInputDialog(getString(R.string.number_of_exposure_days), "2", (tracingExposures) ->
+				showInputDialog("How many Checkin Exposures should be simulated?", "2", (checkinExposures) ->
 						exposeMyself(tracingExposures, checkinExposures)));
 	}
 
@@ -182,7 +179,7 @@ public class DebugFragment extends Fragment {
 		ExposureStorage exposureStorage = ExposureStorage.getInstance(requireContext());
 		exposureStorage.clear();
 		for (int i = 0; i < numberOfCheckins; i++) {
-			long exposureStart = new DayDate().subtractDays(i).getStartOfDay(TimeZone.getDefault()) + 1000L * 60 * 60 * 12;
+			long exposureStart = new DayDate().subtractDays(i).getStartOfDay(TimeZone.getDefault());
 			long exposureEnd = exposureStart + 1000L * 60 * 60;
 			exposureStorage.addEntry(new ExposureEvent(-i, exposureStart, exposureEnd, "debug message",
 					SwissCovidAssociatedData.getDefaultInstance().toByteArray()));

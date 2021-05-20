@@ -11,6 +11,8 @@ import ch.admin.bag.dp3t.extensions.getDetailsString
 import ch.admin.bag.dp3t.util.StringUtil
 import org.crowdnotifier.android.sdk.model.ExposureEvent
 import org.dpppt.android.sdk.models.ExposureDay
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ReportsRecyclerAdapter : RecyclerView.Adapter<ReportsRecyclerAdapter.ReportViewHolder>() {
 
@@ -47,7 +49,12 @@ class ReportsRecyclerAdapter : RecyclerView.Adapter<ReportsRecyclerAdapter.Repor
 					is ProximityTracingReportItem -> {
 						reportType.setText(R.string.meldung_detail_exposed_list_card_title_encounters)
 						reportDetails.text = item.exposures.joinToString("\n") {
-							StringUtil.getReportDateString(it.exposedDate, true, false, root.context)
+							StringUtil.getReportDateString(
+								it.exposedDate.getStartOfDay(TimeZone.getDefault()),
+								true,
+								false,
+								root.context
+							)
 						}
 					}
 					is CheckinReportItem -> {

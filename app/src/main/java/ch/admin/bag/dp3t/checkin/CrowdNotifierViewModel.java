@@ -187,7 +187,7 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 	public long getDaysSinceExposure() {
 		ExposureEvent latestExposure = getLatestExposure();
 		if (latestExposure == null) return -1;
-		return DateUtils.getDaysDiff(getLatestExposure().getEndTime());
+		return Math.max(0, DateUtils.getDaysDiff(getLatestExposure().getEndTime()));
 	}
 
 	public long getSelectedReminderDelay() {
