@@ -20,7 +20,7 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentThankYouBinding
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.DateUtils
-import ch.admin.bag.dp3t.util.showFragment
+import ch.admin.bag.dp3t.extensions.showFragment
 import java.util.*
 
 class ThankYouFragment : Fragment() {

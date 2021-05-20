@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentShareCheckinsBinding
-import ch.admin.bag.dp3t.util.showFragment
+import ch.admin.bag.dp3t.extensions.showFragment
 
 class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 
@@ -25,7 +25,6 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 			(requireActivity() as InformActivity).allowBackButton(false)
 			val adapter = CheckinAdapter()
 			checkinsRecyclerView.adapter = adapter
-			checkinsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 			adapter.setData(informViewModel.selectableCheckinItems)
 			adapter.itemSelectionListener { selectedItem, selected ->
 				informViewModel.selectableCheckinItems.find { it.diaryEntry == selectedItem }?.isSelected = selected
@@ -39,7 +38,7 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 				if (informViewModel.hasSharedDP3TKeys) {
 					upload()
 				} else {
-					//TODO: Show "Thanks for nothing" Fragment
+					showFragment(NotThankYouFragment.newInstance(), R.id.inform_fragment_container)
 				}
 			}
 			sendButton.setOnClickListener {
@@ -51,11 +50,7 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 	}
 
 	private fun upload() {
-		performUpload(onSuccess = {
-			showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container)
-		}, onInvalidCovidCode = {
-			showFragment(InformFragment.newInstance(isCovidCodeInvalidCase = true), R.id.inform_fragment_container)
-		})
+		performUpload(onSuccess = { showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container) })
 	}
 
 	override fun setLoadingViewVisible(isVisible: Boolean) {

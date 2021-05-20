@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.liveData
+import ch.admin.bag.dp3t.checkin.models.UploadVenueInfo
 import ch.admin.bag.dp3t.checkin.models.UserUploadPayload
 import ch.admin.bag.dp3t.checkin.networking.UserUploadRepository
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
@@ -17,9 +18,10 @@ import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.JwtUtil
 import ch.admin.bag.dp3t.util.toUploadVenueInfo
 import com.google.android.gms.common.api.ApiException
+import com.google.protobuf.ByteString
 import kotlinx.coroutines.Dispatchers
 import org.crowdnotifier.android.sdk.CrowdNotifier
-import org.dpppt.android.sdk.DP3T
+import org.dpppt.android.sdk.PendingUploadTask
 import org.dpppt.android.sdk.backend.ResponseCallback
 import org.dpppt.android.sdk.models.DayDate
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization
@@ -37,6 +39,8 @@ private const val ISOLATION_DURATION_DAYS = 14L
 private const val KEY_COVIDCODE = "KEY_COVIDCODE"
 private const val KEY_HAS_SHARED_DP3T_KEYS = "KEY_HAS_SHARED_DP3T_KEYS"
 private const val KEY_HAS_SHARED_CHECKINS = "KEY_HAS_SHARED_CHECKINS"
+private const val KEY_PENDING_UPLOAD_TASK = "KEY_PENDING_UPLOAD_TASK"
+private const val USER_UPLOAD_SIZE = 1000
 
 class InformViewModel(application: Application, private val state: SavedStateHandle) : AndroidViewModel(application) {
 
@@ -44,6 +48,7 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 	private val userUploadRepository = UserUploadRepository()
 	private val diaryStorage = DiaryStorage.getInstance(application)
 	private val secureStorage = SecureStorage.getInstance(application)
+	private val random = Random()
 
 	var selectableCheckinItems = diaryStorage.entries.map { SelectableCheckinItem(it, isSelected = false) }
 
@@ -59,6 +64,10 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		get() = state.get<Boolean>(KEY_HAS_SHARED_CHECKINS) ?: false
 		set(value) = state.set(KEY_HAS_SHARED_CHECKINS, value)
 
+	var pendingUploadTask: PendingUploadTask?
+		get() = state.get<PendingUploadTask?>(KEY_PENDING_UPLOAD_TASK)
+		set(value) = state.set(KEY_PENDING_UPLOAD_TASK, value)
+
 	fun performUpload() = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
 		try {
@@ -71,30 +80,31 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 			}
 			return@liveData
 		}
-		try {
-			if (hasSharedDP3TKeys) {
+		if (hasSharedDP3TKeys) {
+			try {
 				uploadTEKs()
+			} catch (exception: Throwable) {
+				when (exception) {
+					is ResponseError -> emit(Resource.error(InformRequestError.RED_STATUS_ERROR, exception))
+					is CancellationException -> emit(Resource.error(InformRequestError.RED_USER_CANCELLED_SHARE, exception))
+					is ApiException -> emit(Resource.error(InformRequestError.RED_EXPOSURE_API_ERROR, exception))
+					else -> emit(Resource.error(InformRequestError.RED_MISC_NETWORK_ERROR, exception))
+				}
+				return@liveData
 			}
-		} catch (exception: Throwable) {
-			when (exception) {
-				is ResponseError -> emit(Resource.error(InformRequestError.RED_STATUS_ERROR, exception))
-				is CancellationException -> emit(Resource.error(InformRequestError.RED_USER_CANCELLED_SHARE, exception))
-				is ApiException -> emit(Resource.error(InformRequestError.RED_EXPOSURE_API_ERROR, exception))
-				else -> emit(Resource.error(InformRequestError.RED_MISC_NETWORK_ERROR, exception))
-			}
-			return@liveData
 		}
-		try {
-			if (hasSharedCheckins) {
+		if (hasSharedCheckins) {
+			try {
 				val authorizationHeader = getAuthorizationHeader(secureStorage.lastCheckinInformToken)
 				userUploadRepository.userUpload(getUserUploadPayload(), authorizationHeader)
+
+			} catch (exception: Throwable) {
+				when (exception) {
+					is HttpException -> emit(Resource.error(InformRequestError.USER_UPLOAD_NETWORK_ERROR, exception))
+					else -> emit(Resource.error(InformRequestError.USER_UPLOAD_UNKONWN_ERROR, exception))
+				}
+				return@liveData
 			}
-		} catch (exception: Throwable) {
-			when (exception) {
-				is HttpException -> emit(Resource.error(InformRequestError.USER_UPLOAD_NETWORK_ERROR, exception))
-				else -> emit(Resource.error(InformRequestError.USER_UPLOAD_UNKONWN_ERROR, exception))
-			}
-			return@liveData
 		}
 		emit(Resource.success(data = null))
 	}
@@ -117,7 +127,7 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 
 		// Wrapping traditional callback in a suspendCoroutine
 		suspendCoroutine<Unit> { continuation ->
-			DP3T.uploadTEKs(getApplication(), onsetDate, ExposeeAuthMethodAuthorization(authorizationHeader),
+			pendingUploadTask?.performUpload(getApplication(), onsetDate, ExposeeAuthMethodAuthorization(authorizationHeader),
 				object : ResponseCallback<DayDate> {
 					override fun onSuccess(oldestSharedKeyDayDate: DayDate) {
 
@@ -158,7 +168,6 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 	}
 
 	private fun getUserUploadPayload(): UserUploadPayload {
-		//TODO: Pad with fake Payloads
 		val userUploadPayloadBuilder = UserUploadPayload.newBuilder().setVersion(USER_UPLOAD_VERSION)
 		selectableCheckinItems.filter {
 			it.isSelected
@@ -167,7 +176,29 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		}.flatten().forEach {
 			userUploadPayloadBuilder.addVenueInfos(it.toUploadVenueInfo())
 		}
+
+		for (i in userUploadPayloadBuilder.venueInfosCount until USER_UPLOAD_SIZE) {
+			userUploadPayloadBuilder.addVenueInfos(getRandomFakeVenueInfo())
+		}
 		return userUploadPayloadBuilder.build()
+	}
+
+	private fun getRandomFakeVenueInfo(): UploadVenueInfo {
+		return UploadVenueInfo.newBuilder()
+			.setPreId(ByteString.copyFrom(getRandomByteArray(32)))
+			.setTimeKey(ByteString.copyFrom(getRandomByteArray(32)))
+			.setNotificationKey(ByteString.copyFrom(getRandomByteArray(32)))
+			.setIntervalStartMs(random.nextLong())
+			.setIntervalEndMs(random.nextLong())
+			.setFake(true)
+			.build()
+
+	}
+
+	private fun getRandomByteArray(size: Int): ByteArray {
+		return ByteArray(size).apply {
+			random.nextBytes(this)
+		}
 	}
 
 	private fun getAuthorizationHeader(accessToken: String): String {

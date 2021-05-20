@@ -257,9 +257,9 @@ public class HomeFragment extends Fragment {
 		int checkinReports = crowdNotifierViewModel.getExposures().getValue().size();
 		int tracingReports = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays().size();
 		if (((checkinReports > 0 && tracingReports > 0) || checkinReports > 1)) {
-			FragmentExtensionsKt.showFragment(this, ReportsOverviewFragment.newInstance(), true);
+			FragmentExtensionsKt.showFragment(this, ReportsOverviewFragment.newInstance(), R.id.main_fragment_container, true);
 		} else {
-			FragmentExtensionsKt.showFragment(this, ReportsFragment.newInstance(null), true);
+			FragmentExtensionsKt.showFragment(this, ReportsFragment.newInstance(null), R.id.main_fragment_container, true);
 		}
 	}
 

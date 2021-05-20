@@ -1750,4 +1750,15 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="checkin_report_subtitle1"></string>
     <string name="checkin_report_subtitle2"></string>
     <string name="checkin_report_subtitle3"></string>
+
+    <!-- Titel von CheckIn Meldungen Screen. -->
+    <string name="meldung_detail_checkin_title"></string>
+
+    <!-- SubTitel von CheckIn Meldungen Screen. -->
+    <string name="meldung_detail_checkin_subtitle"></string>
+    <string name="not_thank_you_screen_title"></string>
+    <string name="not_thank_you_screen_text1"></string>
+    <string name="not_thank_you_screen_back_button"></string>
+    <string name="not_thank_you_screen_dont_send_button"></string>
+    <string name="not_thank_you_screen_text2"></string>
 </resources>
