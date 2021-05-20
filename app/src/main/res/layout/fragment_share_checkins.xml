@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
@@ -57,28 +58,38 @@
 			android:clipChildren="false"
 			android:clipToPadding="false"
 			android:paddingHorizontal="@dimen/spacing_medium_large"
-			android:paddingBottom="@dimen/spacing_larger" />
+			android:paddingBottom="@dimen/spacing_larger"
+			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-		<Button
-			android:id="@+id/send_button"
-			style="@style/NextStep.Button.Purple"
-			android:layout_width="wrap_content"
+		<LinearLayout
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
-			android:layout_marginVertical="@dimen/spacing_medium_large"
-			android:text="@string/inform_send_button_title" />
+			android:background="@color/white"
+			android:elevation="@dimen/spacing_small"
+			android:orientation="vertical">
 
-		<TextView
-			android:id="@+id/dont_send_button"
-			style="@style/NextStep.Text.Bold"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
-			android:layout_marginBottom="@dimen/spacing_medium_large"
-			android:background="?selectableItemBackground"
-			android:padding="@dimen/spacing_small"
-			android:text="@string/inform_dont_send_button_title"
-			android:visibility="visible" />
+			<Button
+				android:id="@+id/send_button"
+				style="@style/NextStep.Button.Purple"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginVertical="@dimen/spacing_medium_large"
+				android:text="@string/inform_send_button_title" />
+
+			<TextView
+				android:id="@+id/dont_send_button"
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginBottom="@dimen/spacing_medium_large"
+				android:background="?selectableItemBackground"
+				android:padding="@dimen/spacing_small"
+				android:text="@string/inform_dont_send_button_title"
+				android:visibility="visible" />
+
+		</LinearLayout>
 
 	</LinearLayout>
 

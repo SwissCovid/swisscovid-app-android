@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
 import ch.admin.bag.dp3t.databinding.FragmentInformReallyNotShareBinding
-import ch.admin.bag.dp3t.util.showFragment
+import ch.admin.bag.dp3t.extensions.showFragment
 
 class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 
@@ -31,7 +31,7 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 				if (DiaryStorage.getInstance(requireContext()).entries.isNotEmpty()) {
 					showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
 				} else {
-					//TODO: Show "Thanks for nothing" Fragment
+					showFragment(NotThankYouFragment.newInstance(), R.id.inform_fragment_container)
 				}
 			}
 		}
@@ -41,11 +41,7 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 	private fun onUserGrantedTEKSharing() {
 		informViewModel.hasSharedDP3TKeys = true
 		if (informViewModel.selectableCheckinItems.isEmpty()) {
-			performUpload(
-				onSuccess = { showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container) },
-				onInvalidCovidCode = {
-					showFragment(InformFragment.newInstance(isCovidCodeInvalidCase = true), R.id.inform_fragment_container)
-				})
+			performUpload(onSuccess = { showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container) })
 		} else {
 			showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)
 		}

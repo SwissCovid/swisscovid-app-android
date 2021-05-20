@@ -14,6 +14,7 @@ import ch.admin.bag.dp3t.util.ENExceptionHelper
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 import com.google.android.gms.common.api.ApiException
 import org.dpppt.android.sdk.DP3T
+import org.dpppt.android.sdk.PendingUploadTask
 import org.dpppt.android.sdk.backend.ResponseCallback
 import org.dpppt.android.sdk.internal.logger.Logger
 
@@ -30,8 +31,9 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 	abstract fun setLoadingViewVisible(isVisible: Boolean)
 
 	protected fun showShareTEKsPopup(onSuccess: () -> Unit, onError: () -> Unit) {
-		DP3T.showShareTEKsPopup(requireActivity(), object : ResponseCallback<Void> {
-			override fun onSuccess(p0: Void?) {
+		DP3T.showShareTEKsPopup(requireActivity(), object : ResponseCallback<PendingUploadTask> {
+			override fun onSuccess(pendingUploadTask: PendingUploadTask) {
+				informViewModel.pendingUploadTask = pendingUploadTask
 				onSuccess()
 			}
 
@@ -50,7 +52,7 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 		}
 	}
 
-	protected fun performUpload(onSuccess: () -> Unit, onInvalidCovidCode: () -> Unit) {
+	protected fun performUpload(onSuccess: () -> Unit) {
 		informViewModel.performUpload().observe(viewLifecycleOwner) {
 			when (it.status) {
 				Status.LOADING -> {
@@ -58,7 +60,7 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 				}
 				Status.ERROR -> {
 					setLoadingViewVisible(false)
-					handleUploadException(it, onInvalidCovidCode)
+					handleUploadException(it)
 				}
 				Status.SUCCESS -> {
 					setLoadingViewVisible(false)
@@ -68,12 +70,12 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 		}
 	}
 
-	private fun handleUploadException(error: Resource<InformRequestError?>, onInvalidCovidCode: () -> Unit) {
+	private fun handleUploadException(error: Resource<InformRequestError?>) {
 		if (error.data == null) return
 		when (error.exception) {
-			is InvalidCodeError -> onInvalidCovidCode()
 			is ResponseError -> showErrorDialog(error.data, error.exception.statusCode.toString())
 			is ApiException -> showErrorDialog(error.data, error.exception.statusCode.toString())
+			is InvalidCodeError -> showErrorDialog(error.data)
 			else -> showErrorDialog(error.data)
 		}
 		error.exception?.printStackTrace()

@@ -200,7 +200,7 @@ dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 	implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 
-	def dp3t_sdk_version = '2.2.0'
+	def dp3t_sdk_version = '2.3.0-dev-6'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
 	teschtImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"

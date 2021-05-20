@@ -58,7 +58,7 @@ public class InformIntroFragment extends Fragment {
 			getParentFragmentManager()
 					.beginTransaction()
 					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-					.replace(R.id.inform_fragment_container, InformFragment.newInstance(false))
+					.replace(R.id.inform_fragment_container, InformFragment.newInstance())
 					.addToBackStack(InformFragment.class.getCanonicalName())
 					.commit();
 		});

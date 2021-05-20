@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.databinding.ItemSelectableCheckinBinding
+import ch.admin.bag.dp3t.extensions.getSubtitle
 import ch.admin.bag.dp3t.inform.models.SelectableCheckinItem
+import ch.admin.bag.dp3t.util.StringUtil
 
 class CheckinAdapter : RecyclerView.Adapter<CheckinAdapter.CheckinViewHolder>() {
 
@@ -26,8 +28,9 @@ class CheckinAdapter : RecyclerView.Adapter<CheckinAdapter.CheckinViewHolder>() 
 		fun bind(selectableCheckinItem: SelectableCheckinItem) {
 			binding.apply {
 				checkinTitle.text = selectableCheckinItem.diaryEntry.venueInfo.title
-				checkinDetail1.text = "TODO"
-				checkinDetail2.text = "TODO"
+				checkinDetail1.setText(selectableCheckinItem.diaryEntry.venueInfo.getSubtitle())
+				checkinDetail2.text =
+					StringUtil.getReportDateString(selectableCheckinItem.diaryEntry.departureTime, true, true, root.context)
 				checkbox.isChecked = selectableCheckinItem.isSelected
 				checkbox.setOnCheckedChangeListener { _, isChecked ->
 					selectableCheckinItem.isSelected = isChecked

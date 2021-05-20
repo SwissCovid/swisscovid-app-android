@@ -1856,4 +1856,20 @@ oder Ihren Anlass näher beschreibt."</string>
     <string name="checkin_report_subtitle1">"Sie könnten bereits ansteckend sein, ohne es zu merken. Beachten Sie die geltenden Hygiene- und Schutz-massnahmen und schützen Sie Ihre Familie, Ihre Freunde und Ihr Umfeld."</string>
     <string name="checkin_report_subtitle2">"Überwachen Sie Ihren Gesundheitszustand und lassen Sie sich beim Auftreten von Symptomen sofort testen."</string>
     <string name="checkin_report_subtitle3">"Auch wenn keine Symptome auftreten, ist ein Corona-Test sinnvoll und empfohlen (ab dem 5. Tag nach dem angezeigten Kontaktdatum)."</string>
+
+    <!-- Titel von CheckIn Meldungen Screen. -->
+    <!-- Fuzzy -->
+    <string name="meldung_detail_checkin_title">"Check-In"</string>
+
+    <!-- SubTitel von CheckIn Meldungen Screen. -->
+    <string name="meldung_detail_checkin_subtitle"></string>
+    <string name="not_thank_you_screen_title">"Keine Daten gesendet"</string>
+
+    <!-- Fuzzy -->
+    <string name="not_thank_you_screen_text1">"Es wurden keine privaten Schlüssel gesendet."</string>
+    <string name="not_thank_you_screen_back_button">"Zurück"</string>
+    <string name="not_thank_you_screen_dont_send_button">"Keine Daten senden"</string>
+
+    <!-- Fuzzy -->
+    <string name="not_thank_you_screen_text2">"Es wurden keine Check-In-Einträge gesendet. Es wird niemand benachrichtigt."</string>
 </resources>
