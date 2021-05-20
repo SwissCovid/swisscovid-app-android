@@ -160,8 +160,8 @@ public class DebugFragment extends Fragment {
 	}
 
 	private void showExposureDaysInputDialogs() {
-		showInputDialog(getString(R.string.number_of_exposure_days), "2", (tracingExposures) ->
-				showInputDialog("How many Checkin Exposures should be simulated?", "2", (checkinExposures) ->
+		showInputDialog(getString(R.string.number_of_exposure_days), "2", tracingExposures ->
+				showInputDialog("How many Checkin Exposures should be simulated?", "2", checkinExposures ->
 						exposeMyself(tracingExposures, checkinExposures)));
 	}
 

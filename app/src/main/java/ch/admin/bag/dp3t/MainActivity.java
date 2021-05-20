@@ -191,7 +191,7 @@ public class MainActivity extends FragmentActivity {
 			showReportsFragment();
 		} else if (ACTION_EXPOSED_GOTO_REPORTS.equals(intentAction)) {
 			if (tracingViewModel.getTracingStatusInterface().wasContactReportedAsExposed() ||
-					crowdNotifierViewModel.getExposures().getValue().size() > 0) {
+					!crowdNotifierViewModel.getExposures().getValue().isEmpty()) {
 				showReportsFragment();
 			}
 		} else if (ACTION_ACTIVATE_TRACING.equals(intentAction)) {
