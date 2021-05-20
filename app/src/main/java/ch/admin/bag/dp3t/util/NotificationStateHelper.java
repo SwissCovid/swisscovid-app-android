@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.util;
 
 import android.content.Context;
@@ -75,8 +74,8 @@ public class NotificationStateHelper {
 			triangle.setVisibility(View.VISIBLE);
 			triangle.setImageResource(R.drawable.triangle_status_exposed);
 			infoContainer.setVisibility(View.VISIBLE);
-			infoText.setText(R.string.exposed_info_answer_questions_in_leitfaden);
-			infoTel.setText(R.string.exposed_info_swisscovid_leitfaden);
+			infoText.setVisibility(View.GONE);
+			infoTel.setVisibility(View.GONE);
 			infoSince.setVisibility(View.VISIBLE);
 			if (daySinceExposed == 0) {
 				String string = context.getString(R.string.date_today);

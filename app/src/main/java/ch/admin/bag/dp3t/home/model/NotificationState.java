@@ -60,7 +60,7 @@ public enum NotificationState {
 	@ColorRes public static int getTitleTextColor(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
-				return R.color.green_main;
+				return R.color.blue_main;
 			case EXPOSED:
 				return R.color.white;
 			case POSITIVE_TESTED:
@@ -84,7 +84,7 @@ public enum NotificationState {
 	@ColorRes public static int getBackgroundColor(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
-				return R.color.status_green_bg;
+				return R.color.status_blue_bg;
 			case EXPOSED:
 				return R.color.blue_main;
 			case POSITIVE_TESTED:

@@ -21,6 +21,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -43,6 +44,7 @@ import ch.admin.bag.dp3t.inform.InformActivity;
 import ch.admin.bag.dp3t.networking.ConfigWorker;
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
+import ch.admin.bag.dp3t.reports.ReportsOverviewFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.updateboarding.UpdateBoardingActivity;
 import ch.admin.bag.dp3t.util.UrlUtil;
@@ -53,7 +55,6 @@ import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.ACTION
 import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.autoCheckoutIfNecessary;
 import static ch.admin.bag.dp3t.checkin.utils.NotificationHelper.ACTION_CHECK_OUT_NOW;
 import static ch.admin.bag.dp3t.checkin.utils.NotificationHelper.ACTION_CROWDNOTIFIER_REMINDER_NOTIFICATION;
-import static ch.admin.bag.dp3t.checkin.utils.NotificationHelper.ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION;
 import static ch.admin.bag.dp3t.checkin.utils.NotificationHelper.ACTION_ONGOING_NOTIFICATION;
 import static ch.admin.bag.dp3t.inform.InformActivity.EXTRA_COVIDCODE;
 import static ch.admin.bag.dp3t.updateboarding.UpdateBoardingActivity.UPDATE_BOARDING_VERSION;
@@ -162,7 +163,6 @@ public class MainActivity extends FragmentActivity {
 	protected void onStart() {
 		super.onStart();
 		secureStorage.setAppOpenAfterNotificationPending(false);
-		crowdNotifierViewModel.refreshTraceKeys();
 		autoCheckoutIfNecessary(this, crowdNotifierViewModel.getCheckInState());
 	}
 
@@ -190,7 +190,8 @@ public class MainActivity extends FragmentActivity {
 			secureStorage.setReportsHeaderAnimationPending(false);
 			showReportsFragment();
 		} else if (ACTION_EXPOSED_GOTO_REPORTS.equals(intentAction)) {
-			if (tracingViewModel.getTracingStatusInterface().wasContactReportedAsExposed()) {
+			if (tracingViewModel.getTracingStatusInterface().wasContactReportedAsExposed() ||
+					crowdNotifierViewModel.getExposures().getValue().size() > 0) {
 				showReportsFragment();
 			}
 		} else if (ACTION_ACTIVATE_TRACING.equals(intentAction)) {
@@ -200,8 +201,6 @@ public class MainActivity extends FragmentActivity {
 			showCheckinOverviewFragment();
 		} else if (ACTION_CHECK_OUT_NOW.equals(intentAction) && crowdNotifierViewModel.isCheckedIn().getValue()) {
 			showCheckOutFragment();
-		} else if (ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION.equals(intentAction)) {
-			showReportsFragment();
 		} else if (getIntent().getData() != null) {
 			checkValidCovidcodeIntent();
 			checkValidCheckInIntent();
@@ -274,10 +273,19 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	private void showReportsFragment() {
+		int checkinReports = crowdNotifierViewModel.getExposures().getValue().size();
+		int tracingReports = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays().size();
+		Fragment reportsFragment;
+		if (((checkinReports > 0 && tracingReports > 0) || checkinReports > 1)) {
+			reportsFragment = ReportsOverviewFragment.newInstance();
+		} else {
+			reportsFragment = ReportsFragment.newInstance(null);
+		}
+
 		getSupportFragmentManager()
 				.beginTransaction()
-				.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
-				.addToBackStack(ReportsFragment.class.getCanonicalName())
+				.replace(R.id.main_fragment_container, reportsFragment)
+				.addToBackStack(reportsFragment.getClass().getCanonicalName())
 				.commit();
 	}
 

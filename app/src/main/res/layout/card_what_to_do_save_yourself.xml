@@ -31,7 +31,7 @@
 
 			<TextView
 				android:id="@+id/card_encounters_subtitle"
-				style="@style/NextStep.Text.SubTitle"
+				style="@style/NextStep.Text.SubTitle.Blue"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_medium_large"
@@ -92,10 +92,10 @@
 						android:layout_height="@dimen/icon_size"
 						android:layout_marginRight="@dimen/spacing_small"
 						android:src="@drawable/ic_launch"
-						android:tint="@color/green_main" />
+						android:tint="@color/blue_main" />
 
 					<TextView
-						style="@style/NextStep.Text.Bold.Green"
+						style="@style/NextStep.Text.Bold.Blue"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:text="@string/no_meldungen_box_link" />

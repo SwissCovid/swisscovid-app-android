@@ -17,7 +17,7 @@ import org.crowdnotifier.android.sdk.model.ProblematicEventInfo;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.checkin.utils.NotificationHelper;
+import ch.admin.bag.dp3t.util.NotificationUtil;
 
 import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.autoCheckoutIfNecessary;
 
@@ -29,7 +29,6 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 	private static final int DAYS_TO_KEEP_VENUE_VISITS = 14;
 	private static final int REPEAT_INTERVAL_MINUTES = 120;
 	private static final String LOG_TAG = "KeyLoadWorker";
-
 
 	public static void startKeyLoadWorker(Context context) {
 		Constraints constraints = new Constraints.Builder()
@@ -62,9 +61,7 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 		}
 		List<ExposureEvent> exposures = CrowdNotifier.checkForMatches(problematicEventInfos, getApplicationContext());
 		if (!exposures.isEmpty()) {
-			for (ExposureEvent exposureEvent : exposures) {
-				NotificationHelper.getInstance(getApplicationContext()).showExposureNotification(exposureEvent.getId());
-			}
+			showExposureNotification();
 		}
 		cleanUpOldData(getApplicationContext());
 		autoCheckoutIfNecessary(getApplicationContext(), SecureStorage.getInstance(getApplicationContext()).getCheckInState());
@@ -73,6 +70,13 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 		LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(new Intent(ACTION_NEW_TRACE_KEY_SYNC));
 		Log.d(LOG_TAG, "KeyLoadWorker success");
 		return Result.success();
+	}
+
+	private void showExposureNotification() {
+		SecureStorage secureStorage = SecureStorage.getInstance(getApplicationContext());
+		NotificationUtil.generateContactNotification(getApplicationContext());
+		secureStorage.setAppOpenAfterNotificationPending(true);
+		secureStorage.setReportsHeaderAnimationPending(true);
 	}
 
 	public static void cleanUpOldData(Context context) {

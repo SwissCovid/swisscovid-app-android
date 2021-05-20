@@ -1762,4 +1762,17 @@ Atëherë kontaktoni qendrën telefonike të koronavirusit:"</string>
 
     <!-- Anzeigename für User QR Codes -->
     <string name="venue_type_contact_tracing_qr_code"></string>
+
+    <!-- Text der Module im Check-ins Screen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
+    <string name="checkin_ended_text_detailed"></string>
+
+    <!-- Check-Ins: QR-Code erstellen subtitel -->
+    <string name="checkins_create_qr_code_subtitle"></string>
+    <string name="checkin_report_heading"></string>
+    <string name="checkin_report_title1"></string>
+    <string name="checkin_report_title2"></string>
+    <string name="checkin_report_title3"></string>
+    <string name="checkin_report_subtitle1"></string>
+    <string name="checkin_report_subtitle2"></string>
+    <string name="checkin_report_subtitle3"></string>
 </resources>

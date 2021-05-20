@@ -22,6 +22,7 @@ import org.crowdnotifier.android.sdk.model.ExposureEvent;
 import ch.admin.bag.dp3t.checkin.networking.TraceKeysRepository;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
+import ch.admin.bag.dp3t.util.DateUtils;
 
 import static ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker.ACTION_NEW_TRACE_KEY_SYNC;
 import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.ACTION_DID_AUTO_CHECKOUT;
@@ -169,6 +170,24 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 			}
 		}
 		return null;
+	}
+
+	public ExposureEvent getLatestExposure() {
+		List<ExposureEvent> exposureEvents = exposures.getValue();
+		if (exposureEvents == null || exposureEvents.isEmpty()) return null;
+		ExposureEvent latestExposureEvent = exposureEvents.get(0);
+		for (ExposureEvent exposureEvent : exposureEvents) {
+			if (exposureEvent.getEndTime() > latestExposureEvent.getEndTime()) {
+				latestExposureEvent = exposureEvent;
+			}
+		}
+		return latestExposureEvent;
+	}
+
+	public long getDaysSinceExposure() {
+		ExposureEvent latestExposure = getLatestExposure();
+		if (latestExposure == null) return -1;
+		return DateUtils.getDaysDiff(getLatestExposure().getEndTime());
 	}
 
 	public long getSelectedReminderDelay() {

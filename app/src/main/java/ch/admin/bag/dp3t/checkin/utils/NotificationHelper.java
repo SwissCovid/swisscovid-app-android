@@ -23,8 +23,6 @@ import static androidx.core.app.NotificationManagerCompat.IMPORTANCE_LOW;
 
 public class NotificationHelper {
 
-	public static final String ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION = BuildConfig.APPLICATION_ID +
-			".ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION";
 	public static final String ACTION_CROWDNOTIFIER_REMINDER_NOTIFICATION = BuildConfig.APPLICATION_ID +
 			".ACTION_CROWDNOTIFIER_REMINDER_NOTIFICATION";
 	public static final String ACTION_AUTO_CHECKOUT_NOTIFICATION = BuildConfig.APPLICATION_ID +
@@ -33,9 +31,6 @@ public class NotificationHelper {
 	public static final String ACTION_CHECK_OUT_NOW = BuildConfig.APPLICATION_ID + ".ACTION_CHECK_OUT_NOW";
 	public static final String ACTION_SNOOZE = BuildConfig.APPLICATION_ID + ".ACTION_SNOOZE";
 
-	public static final String CROWDNOTIFIER_EXPOSURE_ID_EXTRA = "CROWDNOTIFIER_EXPOSURE_ID";
-
-	private final String CHANNEL_ID_EXPOSURE_NOTIFICATION = "ExposureNotificaitons";
 	private final String CHANNEL_ID_REMINDER = "Reminders";
 	private final String CHANNEL_ID_ONGOING_CHECK_IN = "Ongoing Check In";
 
@@ -80,16 +75,6 @@ public class NotificationHelper {
 				.getPendingIntent(notificationAction.hashCode(), PendingIntent.FLAG_UPDATE_CURRENT);
 	}
 
-	private PendingIntent createExposurePendingIntent(long exposureId) {
-		Intent intent = new Intent(context, MainActivity.class);
-		intent.setAction(ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION);
-		intent.putExtra(CROWDNOTIFIER_EXPOSURE_ID_EXTRA, exposureId);
-		intent.setAction(Long.toString(exposureId));
-		return TaskStackBuilder.create(context)
-				.addNextIntentWithParentStack(intent)
-				.getPendingIntent(ACTION_CROWDNOTIFIER_EXPOSURE_NOTIFICATION.hashCode(), PendingIntent.FLAG_ONE_SHOT);
-	}
-
 	private NotificationCompat.Builder getNotificationBuilder(String channelId) {
 		return new NotificationCompat.Builder(context, channelId)
 				.setAutoCancel(true)
@@ -109,20 +94,6 @@ public class NotificationHelper {
 				.build();
 
 		notificationManager.notify(AUTO_CHECKOUT_NOTIFICATION_ID, notification);
-	}
-
-	public void showExposureNotification(long exposureId) {
-
-		createNotificationChannel(CHANNEL_ID_EXPOSURE_NOTIFICATION,
-				context.getString(R.string.android_crowdnotifier_notification_channel_name), false, IMPORTANCE_HIGH);
-
-		Notification notification = getNotificationBuilder(CHANNEL_ID_EXPOSURE_NOTIFICATION)
-				.setContentIntent(createExposurePendingIntent(exposureId))
-				.setContentTitle(context.getString(R.string.push_exposed_title))
-				.setContentText(context.getString(R.string.push_exposed_text))
-				.build();
-
-		notificationManager.notify((int) exposureId, notification);
 	}
 
 	public void showReminderNotification() {

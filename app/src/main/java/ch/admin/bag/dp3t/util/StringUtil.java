@@ -25,6 +25,8 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+import org.dpppt.android.sdk.models.DayDate;
+
 import ch.admin.bag.dp3t.R;
 
 public class StringUtil {
@@ -133,6 +135,30 @@ public class StringUtil {
 						.replace("{COUNT}", String.valueOf(daysAgo));
 			}
 		}
+	}
+
+	public static String getReportDateString(DayDate exposedDate, boolean withDiff, boolean withPrefix, Context context) {
+		long timestamp = exposedDate.getStartOfDayTimestamp();
+		if (!withDiff) {
+			return DateUtils.getFormattedDateWrittenMonth(timestamp);
+		}
+		String dateStr;
+		if (withPrefix) {
+			dateStr = context.getString(R.string.date_text_before_date).replace("{DATE}", DateUtils.getFormattedDate(timestamp));
+		} else {
+			dateStr = DateUtils.getFormattedDate(timestamp);
+		}
+		dateStr += " / ";
+		int daysDiff = DateUtils.getDaysDiff(timestamp);
+
+		if (daysDiff == 0) {
+			dateStr += context.getString(R.string.date_today);
+		} else if (daysDiff == 1) {
+			dateStr += context.getString(R.string.date_one_day_ago);
+		} else {
+			dateStr += context.getString(R.string.date_days_ago).replace("{COUNT}", String.valueOf(daysDiff));
+		}
+		return dateStr;
 	}
 
 	private static Date getStartOfDay() {

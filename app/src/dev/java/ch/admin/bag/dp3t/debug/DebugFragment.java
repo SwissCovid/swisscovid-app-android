@@ -26,7 +26,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.util.Arrays;
+import java.util.TimeZone;
 
+import org.crowdnotifier.android.sdk.model.ExposureEvent;
+import org.crowdnotifier.android.sdk.storage.ExposureStorage;
 import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.internal.nearby.ExposureWindowMatchingWorker;
 import org.dpppt.android.sdk.internal.storage.ExposureDayStorage;
@@ -34,9 +37,12 @@ import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
+import ch.admin.bag.dp3t.checkin.models.SwissCovidAssociatedData;
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
 import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.util.NotificationUtil;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class DebugFragment extends Fragment {
@@ -44,6 +50,7 @@ public class DebugFragment extends Fragment {
 	public static final boolean EXISTS = true;
 
 	private TracingViewModel tracingViewModel;
+	private CrowdNotifierViewModel crowdNotifierViewModel;
 
 	public static void startDebugFragment(FragmentManager parentFragmentManager) {
 		parentFragmentManager.beginTransaction()
@@ -65,6 +72,7 @@ public class DebugFragment extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
+		crowdNotifierViewModel = new ViewModelProvider(requireActivity()).get(CrowdNotifierViewModel.class);
 	}
 
 	@Override
@@ -137,23 +145,30 @@ public class DebugFragment extends Fragment {
 		updateRadioGroup(optionsGroup);
 
 		view.findViewById(R.id.debug_button_testmeldung).setOnClickListener(v -> {
-			showExposureDaysInputDialog();
+			showExposureDaysInputDialogs();
 		});
 	}
 
-	private void showExposureDaysInputDialog() {
+
+	private void showInputDialog(String title, String defaultInput, InputDialogCallback callback) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-		builder.setTitle(getString(R.string.number_of_exposure_days));
+		builder.setTitle(title);
 		final EditText input = new EditText(getContext());
-		input.setText("2");
+		input.setText(defaultInput);
 		input.setInputType(InputType.TYPE_NUMBER_FLAG_SIGNED | InputType.TYPE_CLASS_NUMBER);
 		builder.setView(input);
 		builder.setPositiveButton(R.string.android_button_ok,
-				(a, b) -> exposeMyself(Integer.parseInt(input.getText().toString())));
+				(a, b) -> callback.onResult(Integer.parseInt(input.getText().toString())));
 		builder.show();
 	}
 
-	private void exposeMyself(int numberOfDays) {
+	private void showExposureDaysInputDialogs() {
+		showInputDialog(getString(R.string.number_of_exposure_days), "0", (tracingExposures) ->
+				showInputDialog("How many Checkin Exposures should be simulated?", "1", (checkinExposures) ->
+						exposeMyself(tracingExposures, checkinExposures)));
+	}
+
+	private void exposeMyself(int numberOfDays, int numberOfCheckins) {
 
 		ExposureDayStorage eds = ExposureDayStorage.getInstance(requireContext());
 		eds.clear();
@@ -162,6 +177,21 @@ public class DebugFragment extends Fragment {
 			DayDate dayOfExposure = new DayDate().subtractDays(i);
 			ExposureDay exposureDay = new ExposureDay(i, dayOfExposure, System.currentTimeMillis());
 			eds.addExposureDays(requireContext(), Arrays.asList(exposureDay));
+		}
+
+		ExposureStorage exposureStorage = ExposureStorage.getInstance(requireContext());
+		exposureStorage.clear();
+		for (int i = 0; i < numberOfCheckins; i++) {
+			long exposureStart = new DayDate().subtractDays(i).getStartOfDay(TimeZone.getDefault()) + 1000L * 60 * 60 * 12;
+			long exposureEnd = exposureStart + 1000L * 60 * 60;
+			exposureStorage.addEntry(new ExposureEvent(-i, exposureStart, exposureEnd, "debug message",
+					SwissCovidAssociatedData.getDefaultInstance().toByteArray()));
+		}
+		if (numberOfCheckins > 0) {
+			SecureStorage secureStorage = SecureStorage.getInstance(requireContext());
+			NotificationUtil.generateContactNotification(requireContext());
+			secureStorage.setAppOpenAfterNotificationPending(true);
+			secureStorage.setReportsHeaderAnimationPending(true);
 		}
 		getActivity().finish();
 	}
@@ -191,6 +221,11 @@ public class DebugFragment extends Fragment {
 
 	public void setDebugAppState(DebugAppState debugAppState) {
 		((TracingStatusWrapper) tracingViewModel.getTracingStatusInterface()).setDebugAppState(getContext(), debugAppState);
+	}
+
+	private interface InputDialogCallback {
+		void onResult(int selectedNumber);
+
 	}
 
 }
