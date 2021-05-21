@@ -7,7 +7,7 @@ public class CheckInState {
 	private VenueInfo venueInfo;
 	private long checkInTime;
 	private long checkOutTime;
-	long selectedReminderDelay;
+	private long selectedReminderDelay;
 
 	public CheckInState(boolean isCheckedIn, VenueInfo venueInfo, long checkInTime, long checkOutTime,
 			long selectedReminderDelay) {

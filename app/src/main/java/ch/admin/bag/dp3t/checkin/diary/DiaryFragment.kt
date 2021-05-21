@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisit
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisitDayHeader
@@ -15,6 +14,7 @@ import ch.admin.bag.dp3t.checkin.diary.items.VenueVisitRecyclerItem
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
 import ch.admin.bag.dp3t.databinding.FragmentCheckinDiaryBinding
+import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.reports.ReportsFragment
 import ch.admin.bag.dp3t.util.StringUtil
 import org.crowdnotifier.android.sdk.model.ExposureEvent
@@ -62,24 +62,15 @@ class DiaryFragment : Fragment() {
 		}.root
 	}
 
-
 	private fun getExposureWithId(exposures: List<ExposureEvent>, id: Long): ExposureEvent? {
 		return exposures.firstOrNull { it.id == id }
 	}
 
 	private fun onDiaryEntryClicked(diaryEntry: DiaryEntry, exposureEvent: ExposureEvent?) {
 		if (exposureEvent != null) {
-			requireActivity().supportFragmentManager.beginTransaction()
-				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
-				.addToBackStack(ReportsFragment::class.java.canonicalName)
-				.commit()
+			showFragment(ReportsFragment.newInstance())
 		} else {
-			requireActivity().supportFragmentManager.beginTransaction()
-				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.main_fragment_container, EditDiaryEntryFragment.newInstance(diaryEntry.id))
-				.addToBackStack(EditDiaryEntryFragment.TAG)
-				.commit()
+			showFragment(EditDiaryEntryFragment.newInstance(diaryEntry.id))
 		}
 	}
 
