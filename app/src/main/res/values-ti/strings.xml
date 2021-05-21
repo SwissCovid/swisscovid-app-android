@@ -1769,4 +1769,5 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="onboarding_checkin_heading"></string>
     <string name="onboarding_checkin_text1"></string>
     <string name="onboarding_checkin_text2"></string>
+    <string name="checkin_updateboarding_text"></string>
 </resources>

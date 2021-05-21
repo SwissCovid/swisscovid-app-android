@@ -1880,4 +1880,5 @@ oder Ihren Anlass näher beschreibt."</string>
     <string name="onboarding_checkin_heading">"Check-ins"</string>
     <string name="onboarding_checkin_text1">"Mit SwissCovid-Check-ins können Sie sich mit der App an einem Ort oder bei einem Treffen einchecken."</string>
     <string name="onboarding_checkin_text2">"Ihre Anwesenheit wird nur in der App gespeichert. Sie müssen keine persönlichen Daten in der App hinterlassen."</string>
+    <string name="checkin_updateboarding_text">"Mit SwissCovid-Check-ins können Sie sich mit der App vor Ort einchecken. Ihre Anwesenheit wird nur in der App gespeichert. Sie müssen keine persönlichen Daten in der App hinterlassen. Dazu wurden die Nutzungsbedingungen und Datenschutzerklärung aktualisiert."</string>
 </resources>
