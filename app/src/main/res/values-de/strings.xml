@@ -350,7 +350,7 @@ Schritt voraus"</string>
     <string name="onboarding_privacy_text2">"Die gespeicherten zufälligen IDs bleiben auf Ihrem Mobiltelefon und werden nach 14 Tagen gelöscht."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"Wie funktioniert die App?"</string>
+    <string name="onboarding_begegnungen_heading">"Begegnungen"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"Begegnungen erkennen
@@ -1876,4 +1876,8 @@ oder Ihren Anlass näher beschreibt."</string>
     <!-- Button text, um ausgewählte Checkins zu senden -->
     <string name="inform_share_checkins_send_button_title">"Auswahl teilen"</string>
     <string name="inform_share_checkins_not_send_button">"Nichts teilen"</string>
+    <string name="onboarding_checkin_title">"Einchecken ohne Daten zu hinterlassen"</string>
+    <string name="onboarding_checkin_heading">"Check-ins"</string>
+    <string name="onboarding_checkin_text1">"Mit SwissCovid-Check-ins können Sie sich mit der App an einem Ort oder bei einem Treffen einchecken."</string>
+    <string name="onboarding_checkin_text2">"Ihre Anwesenheit wird nur in der App gespeichert. Sie müssen keine persönlichen Daten in der App hinterlassen."</string>
 </resources>
