@@ -260,7 +260,7 @@ Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
     <string name="meldung_detail_positive_test_box_text">"Befolgen Sie die erhaltenen Anweisungen zur Isolation"</string>
-    <string name="tracing_ended_title">"Tracing deaktiviert"</string>
+    <string name="tracing_ended_title">"Tracing und Check-ins deaktiviert"</string>
     <string name="tracing_ended_text">"Es werden keine Begegnungen mehr gespeichert."</string>
     <string name="exposed_info_contact_hotline">"Kontaktieren Sie die"</string>
     <string name="meldung_homescreen_positive_info_line1">"Befolgen Sie die"</string>
@@ -658,7 +658,7 @@ Damit erfahren andere SwissCovid App Nutzer, dass die Möglichkeit einer Ansteck
     <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/de/categories/swisscovid-app"</string>
 
     <!-- Informieren Flow: Titel erster Screen -->
-    <string name="inform_code_intro_title">"Wichtiger Hinweis"</string>
+    <string name="inform_code_intro_title">"Information zur Eingabe"</string>
 
     <!-- Informieren-Flow: Erster Screen Text -->
     <string name="inform_code_intro_text">"Obwohl keine Daten zu Ihrer Person gesendet werden, kann es sein, dass sich jemand anhand des Datums an die Begegnung erinnern kann."</string>
@@ -1298,9 +1298,9 @@ Damit auch Reisende aus dem Ausland gewarnt werden können, geschieht das unabh�
     <string name="delete_infection_dialog_finish_button">"Beenden"</string>
 
     <!-- Text der nach der Eingabe des Covidcodes angezeigt wird. -->
-    <string name="tracing_ended_info">"Es werden keine Begegnungen mehr gespeichert.
+    <string name="tracing_ended_info">"Es werden keine neuen Begegnungen mehr gespeichert und neue Check-ins sind derzeit nicht möglich.
 
-Das Tracing kann nach der Isolation wieder aktiviert werden."</string>
+Beide Funktionen können nach der Isolation wieder aktiviert werden."</string>
     <string name="testlocation_url_canton_aargau">"https://www.ag.ch/de/themen_1/coronavirus_2/coronavirus.jsp"</string>
     <string name="testlocation_url_canton_appenzell_ausserrhoden">"https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/"</string>
     <string name="testlocation_url_canton_appenzell_innerrhoden">"https://www.ai.ch/themen/gesundheit-alter-und-soziales/gesundheitsfoerderung-und-praevention/uebertragbare-krankheiten/coronavirus"</string>
@@ -1435,7 +1435,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – heute"</string>
 
     <!-- Informieren: Danke Text Abschluss -->
-    <string name="inform_send_thankyou_text_stop_infection_chains">"Damit helfen Sie mit, Infektionsketten zu stoppen."</string>
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Auf diese Weise helfen Sie, Infektionsketten zu durchbrechen."</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
     <string name="inform_send_thankyou_text_onsetdate_info">"Die privaten Schlüssel Ihrer App wurden für den folgenden Zeitraum gesendet:"</string>
@@ -1692,18 +1692,18 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <string name="module_checkins_description">"Scannen Sie einen SwissCovid-QR-Code, um sich vor Ort einzuchecken."</string>
 
     <!-- Titel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
-    <string name="inform_share_checkins_title">"Check-Ins teilen"</string>
+    <string name="inform_share_checkins_title">"Check-in-Einträge teilen"</string>
 
     <!-- Untertitel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
-    <string name="inform_share_checkins_subtitle">"Sie können Events teilen um andere zu warnen, welche mit Ihnen am selben Event waren."</string>
+    <string name="inform_share_checkins_subtitle">"Wenn Sie Ihre Check-in-Einträge teilen, kann die App Personen benachrichtigen, die zum gleichen Zeitpunkt am gleichen Ort eingecheckt haben."</string>
 
     <!-- Button text, um alle Checkins zu selektieren -->
     <string name="inform_share_checkins_select_all">"Alle wählen"</string>
     <string name="inform_dont_send_button_title">"Nicht senden"</string>
     <string name="inform_try_again_button_title">"Erneut versuchen"</string>
     <string name="inform_dont_share_button_title">"Nicht teilen"</string>
-    <string name="inform_really_not_share_title">"Sind Sie sicher?"</string>
-    <string name="inform_really_not_share_subtitle">"[TBT] Sharing your random IDs helps “SwissCovid” to notify other potential infected people and avoid the further spreading of the pandemic. If you don’t share your random IDs no automatically recognized encounters can be notified."</string>
+    <string name="inform_really_not_share_title">"Wirklich nicht teilen?"</string>
+    <string name="inform_really_not_share_subtitle">"Das Teilen Ihrer privaten Schlüssel hilft «SwissCovid», andere potenziell infizierte Personen zu benachrichtigen und die weitere Ausbreitung des Virus zu verhindern. Wenn Sie Ihre privaten Schlüssel nicht teilen, werden keine potenziell infizierten Personen benachrichtigt."</string>
 
     <!-- Remove from Diary Warning view title -->
     <string name="remove_diary_warning_title">"Achtung"</string>
@@ -1749,7 +1749,7 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <string name="checkout_overlapping_alert_description">"Ihre gewählten Zeiten überschneiden sich mit anderen Check-Ins aus ihrem Tagebuch. Bitte überprüfen Sie nochmals Ihre Angabe."</string>
 
     <!-- Informieren: Danke Text Checkins Teil -->
-    <string name="inform_send_thankyou_text_checkins">"Ihre ausgewählten Check-Ins wurden gesendet. Andere Leute, welche zur gleichen Zeit an den selben Events eingecheckt waren werden benachrichtigt."</string>
+    <string name="inform_send_thankyou_text_checkins">"Ihre ausgewählten Check-In-Einträge wurden gesendet. Alle Personen, die zum gleichen Zeitpunkt am gleichen Ort eingecheckt haben, werden benachrichtigt."</string>
 
     <!-- Covidcode eingabe, are your sure not to share, titel -->
     <string name="inform_are_you_sure_title">"Are you sure?"</string>
@@ -1872,4 +1872,8 @@ oder Ihren Anlass näher beschreibt."</string>
 
     <!-- Fuzzy -->
     <string name="not_thank_you_screen_text2">"Es wurden keine Check-In-Einträge gesendet. Es wird niemand benachrichtigt."</string>
+
+    <!-- Button text, um ausgewählte Checkins zu senden -->
+    <string name="inform_share_checkins_send_button_title">"Auswahl teilen"</string>
+    <string name="inform_share_checkins_not_send_button">"Nichts teilen"</string>
 </resources>

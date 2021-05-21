@@ -1626,7 +1626,7 @@ Alura contactai la Infoline coronavirus:"</string>
     <string name="inform_share_checkins_title"></string>
 
     <!-- Untertitel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
-    <string name="inform_share_checkins_subtitle">"You can choose to share your check-ins to warn others who were with you at the same events."</string>
+    <string name="inform_share_checkins_subtitle"></string>
 
     <!-- Button text, um alle Checkins zu selektieren -->
     <string name="inform_share_checkins_select_all"></string>
@@ -1679,7 +1679,7 @@ Alura contactai la Infoline coronavirus:"</string>
     <string name="checkout_overlapping_alert_description"></string>
 
     <!-- Informieren: Danke Text Checkins Teil -->
-    <string name="inform_send_thankyou_text_checkins">"Your selected check-in entries were sent. Other people who checked into the same  events and during the same period of time will be notified."</string>
+    <string name="inform_send_thankyou_text_checkins"></string>
 
     <!-- Covidcode eingabe, are your sure not to share, titel -->
     <string name="inform_are_you_sure_title">"Are you sure?"</string>
@@ -1781,4 +1781,8 @@ Alura contactai la Infoline coronavirus:"</string>
     <string name="not_thank_you_screen_back_button"></string>
     <string name="not_thank_you_screen_dont_send_button"></string>
     <string name="not_thank_you_screen_text2"></string>
+
+    <!-- Button text, um ausgewählte Checkins zu senden -->
+    <string name="inform_share_checkins_send_button_title"></string>
+    <string name="inform_share_checkins_not_send_button"></string>
 </resources>

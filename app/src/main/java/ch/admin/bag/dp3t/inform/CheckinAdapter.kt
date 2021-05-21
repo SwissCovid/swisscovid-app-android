@@ -3,6 +3,7 @@ package ch.admin.bag.dp3t.inform
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.databinding.ItemSelectableCheckinBinding
 import ch.admin.bag.dp3t.extensions.getSubtitle
@@ -32,10 +33,25 @@ class CheckinAdapter : RecyclerView.Adapter<CheckinAdapter.CheckinViewHolder>() 
 				checkinDetail2.text =
 					StringUtil.getReportDateString(selectableCheckinItem.diaryEntry.departureTime, true, true, root.context)
 				checkbox.isChecked = selectableCheckinItem.isSelected
+				setStroke(selectableCheckinItem.isSelected)
+
 				checkbox.setOnCheckedChangeListener { _, isChecked ->
 					selectableCheckinItem.isSelected = isChecked
+					setStroke(isChecked)
 					itemSelectionListener?.invoke(selectableCheckinItem.diaryEntry, isChecked)
 				}
+				root.setOnClickListener { checkbox.isChecked = !checkbox.isChecked }
+			}
+		}
+
+		private fun setStroke(isSelected: Boolean) {
+			binding.apply {
+				if (isSelected) {
+					root.strokeWidth = root.context.resources.getDimensionPixelSize(R.dimen.stroke_width_default)
+				} else {
+					root.strokeWidth = 0
+				}
+				root.requestLayout()
 			}
 		}
 	}
