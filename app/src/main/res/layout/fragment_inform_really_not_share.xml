@@ -40,7 +40,7 @@
 				android:layout_gravity="center_horizontal"
 				android:layout_marginTop="@dimen/spacing_huge"
 				android:layout_marginBottom="@dimen/spacing_medium_large"
-				android:text="@string/inform_try_again_button_title" />
+				android:text="@string/share_button_title" />
 
 			<TextView
 				android:id="@+id/dont_send_button"
@@ -51,7 +51,7 @@
 				android:layout_marginBottom="@dimen/spacing_medium_large"
 				android:background="?selectableItemBackground"
 				android:padding="@dimen/spacing_small"
-				android:text="@string/inform_dont_send_button_title"
+				android:text="@string/inform_dont_share_button_title"
 				android:visibility="visible" />
 
 		</LinearLayout>

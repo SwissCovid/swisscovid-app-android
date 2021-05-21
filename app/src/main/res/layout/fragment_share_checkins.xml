@@ -46,7 +46,8 @@
 			<com.google.android.material.checkbox.MaterialCheckBox
 				android:id="@+id/select_all_checkbox"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" />
+				android:layout_height="wrap_content"
+				android:buttonTint="@color/purple_main" />
 
 		</LinearLayout>
 
@@ -75,7 +76,7 @@
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal"
 				android:layout_marginVertical="@dimen/spacing_medium_large"
-				android:text="@string/inform_send_button_title" />
+				android:text="@string/inform_share_checkins_send_button_title" />
 
 			<TextView
 				android:id="@+id/dont_send_button"
@@ -86,7 +87,7 @@
 				android:layout_marginBottom="@dimen/spacing_medium_large"
 				android:background="?selectableItemBackground"
 				android:padding="@dimen/spacing_small"
-				android:text="@string/inform_dont_send_button_title"
+				android:text="@string/inform_share_checkins_not_send_button"
 				android:visibility="visible" />
 
 		</LinearLayout>
