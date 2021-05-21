@@ -10,9 +10,11 @@
 package ch.admin.bag.dp3t.onboarding;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -35,6 +37,7 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 
 	private Button activateButton;
 	private Button continueButton;
+	private TextView dontActivateButton;
 
 	private AlertDialog playServicesUpdateDialog;
 
@@ -68,6 +71,9 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 		continueButton.setOnClickListener(v -> {
 			((OnboardingActivity) requireActivity()).continueToNextPage();
 		});
+		dontActivateButton = view.findViewById(R.id.dont_activate_button);
+		dontActivateButton.setPaintFlags(dontActivateButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+		dontActivateButton.setOnClickListener(v -> ((OnboardingActivity) requireActivity()).continueToNextPage());
 	}
 
 	@Override
@@ -153,6 +159,7 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 			PermissionButtonUtil.setButtonDefault(activateButton, R.string.onboarding_gaen_button_activate);
 		}
 		continueButton.setVisibility(activated || wasUserActive ? View.VISIBLE : View.GONE);
+		dontActivateButton.setVisibility(activated || wasUserActive ? View.GONE : View.VISIBLE);
 	}
 
 }

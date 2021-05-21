@@ -1772,4 +1772,5 @@ O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
     <string name="onboarding_checkin_text1"></string>
     <string name="onboarding_checkin_text2"></string>
     <string name="checkin_updateboarding_text"></string>
+    <string name="onboarding_gaen_button_dont_activate"></string>
 </resources>
