@@ -92,7 +92,7 @@
 
 			<TextView
 				android:id="@+id/checkin_time"
-				style="@style/NextStep.Text.SplashTitle.Dark"
+				style="@style/NextStep.Text.SplashTitle"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_very_small"
