@@ -20,10 +20,6 @@ import retrofit2.http.POST
 
 interface AuthCodeService {
 	@Headers("accept: */*", "content-type: application/json")
-	@POST("v1/onset")
-	suspend fun getAccessTokenV1(@Body code: AuthenticationCodeRequestModel): Response<AuthenticationCodeResponseModel>
-
-	@Headers("accept: */*", "content-type: application/json")
 	@POST("v2/onset")
 	suspend fun getAccessTokenV2(@Body code: AuthenticationCodeRequestModel): Response<AuthenticationCodeResponseModelV2>
 

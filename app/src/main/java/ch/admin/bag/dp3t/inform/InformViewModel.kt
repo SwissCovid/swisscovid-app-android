@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.liveData
 import ch.admin.bag.dp3t.checkin.models.UploadVenueInfo
-import ch.admin.bag.dp3t.checkin.models.UserUploadPayload
 import ch.admin.bag.dp3t.checkin.networking.UserUploadRepository
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
 import ch.admin.bag.dp3t.inform.models.Resource
@@ -18,7 +17,6 @@ import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.JwtUtil
 import ch.admin.bag.dp3t.util.toUploadVenueInfo
 import com.google.android.gms.common.api.ApiException
-import com.google.protobuf.ByteString
 import kotlinx.coroutines.Dispatchers
 import org.crowdnotifier.android.sdk.CrowdNotifier
 import org.dpppt.android.sdk.DP3TKotlin
@@ -34,7 +32,6 @@ import java.util.concurrent.TimeUnit
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-private const val USER_UPLOAD_VERSION = 3
 private const val TIMEOUT_VALID_CODE = 1000L * 60 * 5
 private const val MAX_EXPOSURE_AGE_MILLIS = 10 * 24 * 60 * 60 * 1000L
 private const val ISOLATION_DURATION_DAYS = 14L
@@ -44,7 +41,6 @@ private const val KEY_HAS_SHARED_CHECKINS = "KEY_HAS_SHARED_CHECKINS"
 private const val KEY_PENDING_UPLOAD_TASK = "KEY_PENDING_UPLOAD_TASK"
 private const val KEY_SELECTED_DIARY_ENTRIES = "KEY_SELECTED_DIARY_ENTRIES"
 private const val KEY_ONSET_DATE = "KEY_ONSET_DATE"
-private const val USER_UPLOAD_SIZE = 1000
 
 class InformViewModel(application: Application, private val state: SavedStateHandle) : AndroidViewModel(application) {
 
@@ -52,7 +48,6 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 	private val userUploadRepository = UserUploadRepository()
 	private val diaryStorage = DiaryStorage.getInstance(application)
 	private val secureStorage = SecureStorage.getInstance(application)
-	private val random = Random()
 
 	private var selectedDiaryEntryIds: LongArray
 		get() = state.get<LongArray>(KEY_SELECTED_DIARY_ENTRIES) ?: longArrayOf()
@@ -195,7 +190,11 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 
 	private suspend fun performCheckinsUpload(isFake: Boolean) {
 		val authorizationHeader = getAuthorizationHeader(secureStorage.lastCheckinInformToken)
-		userUploadRepository.userUpload(getUserUploadPayload(isFake), authorizationHeader)
+		if (isFake) {
+			userUploadRepository.fakeUserUpload(authorizationHeader)
+		} else {
+			userUploadRepository.userUpload(getUploadVenueInfos(), authorizationHeader)
+		}
 	}
 
 	private suspend fun loadOnsetDate(covidcode: String) {
@@ -216,40 +215,15 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		}
 	}
 
-	private fun getUserUploadPayload(isFake: Boolean): UserUploadPayload {
-		val userUploadPayloadBuilder = UserUploadPayload.newBuilder().setVersion(USER_UPLOAD_VERSION)
-		if (!isFake) {
-			getSelectableCheckinItems().filter {
-				it.isSelected
-			}.map {
-				CrowdNotifier.generateUserUploadInfo(
-					it.diaryEntry.venueInfo, it.diaryEntry.arrivalTime, it.diaryEntry.departureTime
-				)
-			}.flatten().forEach {
-				userUploadPayloadBuilder.addVenueInfos(it.toUploadVenueInfo())
-			}
-		}
-		for (i in userUploadPayloadBuilder.venueInfosCount until USER_UPLOAD_SIZE) {
-			userUploadPayloadBuilder.addVenueInfos(getRandomFakeVenueInfo())
-		}
-		return userUploadPayloadBuilder.build()
-	}
-
-	private fun getRandomFakeVenueInfo(): UploadVenueInfo {
-		return UploadVenueInfo.newBuilder()
-			.setPreId(ByteString.copyFrom(getRandomByteArray(32)))
-			.setTimeKey(ByteString.copyFrom(getRandomByteArray(32)))
-			.setNotificationKey(ByteString.copyFrom(getRandomByteArray(32)))
-			.setIntervalStartMs(random.nextLong())
-			.setIntervalEndMs(random.nextLong())
-			.setFake(true)
-			.build()
-
-	}
-
-	private fun getRandomByteArray(size: Int): ByteArray {
-		return ByteArray(size).apply {
-			random.nextBytes(this)
+	private fun getUploadVenueInfos(): List<UploadVenueInfo> {
+		return getSelectableCheckinItems().filter {
+			it.isSelected
+		}.map {
+			CrowdNotifier.generateUserUploadInfo(
+				it.diaryEntry.venueInfo, it.diaryEntry.arrivalTime, it.diaryEntry.departureTime
+			)
+		}.flatten().map {
+			it.toUploadVenueInfo()
 		}
 	}
 

@@ -12,6 +12,7 @@ package ch.admin.bag.dp3t.networking
 import android.content.Context
 import androidx.work.*
 import ch.admin.bag.dp3t.BuildConfig
+import ch.admin.bag.dp3t.checkin.networking.UserUploadRepository
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.ExponentialDistribution
@@ -145,11 +146,22 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 	private suspend fun executeFakeRequest(context: Context): Boolean {
 		return try {
 			val authCodeRepository = AuthCodeRepository(context)
-			val accessTokenResponse = authCodeRepository.getAccessTokenSyncV1(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
-			val accessToken = accessTokenResponse.accessToken
-			DP3TKotlin.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)))
+
+			//Execute Onset Date Request
+			authCodeRepository.getOnsetDate(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
+
+			//TODO: Insert Delay
+
+			//Execute Access Token Request
+			val accessTokenResponse = authCodeRepository.getAccessToken(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
+			val dp3tAccessToken = accessTokenResponse.dp3TAccessToken.accessToken
+			//Execute DP3T Infected Request
+			DP3TKotlin.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(dp3tAccessToken)))
+			//Execute Checkin UserUpload Request
+			val checkinAccessToken = accessTokenResponse.checkInAccessToken.accessToken
+			UserUploadRepository().fakeUserUpload(getAuthorizationHeader(checkinAccessToken))
 			true
-		} catch (e: Exception) {
+		} catch (e: Throwable) {
 			Logger.e(TAG, "fake request failed", e)
 			false
 		}

@@ -9,4 +9,7 @@ data class AuthenticationCodeResponseModelV2(
 	val dp3TAccessToken: AuthenticationCodeResponseModel
 )
 
+class AuthenticationCodeResponseModel(val accessToken: String)
+
+
 data class OnsetResponse(val onset: String?)

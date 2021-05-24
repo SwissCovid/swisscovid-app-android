@@ -14,7 +14,6 @@ import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.networking.errors.InvalidCodeError
 import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
-import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModel
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModelV2
 import kotlinx.coroutines.*
 import okhttp3.Cache
@@ -24,7 +23,6 @@ import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.backend.UserAgentInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
 
 class AuthCodeRepository(context: Context) {
 
@@ -57,15 +55,6 @@ class AuthCodeRepository(context: Context) {
 			.build()
 		authCodeService = retrofit.create(AuthCodeService::class.java)
 	}
-
-
-	@Throws(IOException::class, ResponseError::class)
-	suspend fun getAccessTokenSyncV1(authenticationCode: AuthenticationCodeRequestModel): AuthenticationCodeResponseModel =
-		withContext(Dispatchers.IO) {
-			val response = authCodeService.getAccessTokenV1(authenticationCode)
-			if (!response.isSuccessful) throw ResponseError(response.raw())
-			return@withContext response.body() ?: throw ResponseError(response.raw())
-		}
 
 	suspend fun getAccessToken(authCode: AuthenticationCodeRequestModel): AuthenticationCodeResponseModelV2 =
 		withContext(Dispatchers.IO) {
