@@ -47,13 +47,6 @@ public class WtdPositiveTestFragment extends Fragment {
 		view.findViewById(R.id.wtd_inform_faq_button).setOnClickListener(v -> {
 			UrlUtil.openUrl(getContext(), getString(R.string.faq_button_url));
 		});
-
-		View oldCallButton = view.findViewById(R.id.wtd_inform_call_infoline_coronavirus);
-		if (oldCallButton != null) {
-			oldCallButton.setOnClickListener(v -> {
-				PhoneUtil.callInfolineCoronavirus(v.getContext());
-			});
-		}
 	}
 
 	private void fillContentFromConfigServer(View view) {

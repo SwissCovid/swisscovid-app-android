@@ -443,12 +443,14 @@ public class HomeFragment extends Fragment {
 
 	private void setupCovidCodeCard() {
 		Button covidCodeButton = covidCodeCard.findViewById(R.id.enter_covidcode_button);
+		TextView covidCodeTitle = covidCodeCard.findViewById(R.id.enter_covidcode_title);
 		TextView covidCodeText = covidCodeCard.findViewById(R.id.enter_covidcode_text);
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				covidCodeButton.setText(R.string.delete_infection_button);
-				covidCodeText.setText(R.string.home_end_isolation_card_title);
+				covidCodeTitle.setText(R.string.home_end_isolation_card_title);
+				covidCodeText.setText(R.string.home_end_isolation_card_text);
 				covidCodeButton.setOnClickListener(v -> {
 					AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle);
 					builder.setMessage(R.string.delete_infection_dialog)
@@ -465,7 +467,8 @@ public class HomeFragment extends Fragment {
 				});
 			} else {
 				covidCodeButton.setText(R.string.inform_code_title);
-				covidCodeText.setText(R.string.home_covidcode_card_title);
+				covidCodeTitle.setText(R.string.home_covidcode_card_title);
+				covidCodeText.setText(R.string.home_covidcode_card_text);
 				covidCodeButton.setOnClickListener(v -> {
 					Intent intent = new Intent(getActivity(), InformActivity.class);
 					startActivity(intent);
