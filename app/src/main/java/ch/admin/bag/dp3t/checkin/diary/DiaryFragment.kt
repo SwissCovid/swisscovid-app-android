@@ -40,15 +40,15 @@ class DiaryFragment : Fragment() {
 			checkinDiaryRecyclerView.adapter = recyclerAdapter
 
 			crowdNotifierViewModel.exposures.observe(viewLifecycleOwner) { exposures ->
-				val items: ArrayList<VenueVisitRecyclerItem> = ArrayList<VenueVisitRecyclerItem>()
-				val diaryEntries: List<DiaryEntry> = DiaryStorage.getInstance(context).entries.sortedByDescending {
+				val items = ArrayList<VenueVisitRecyclerItem>()
+				val diaryEntries = DiaryStorage.getInstance(context).entries.sortedByDescending {
 					it.arrivalTime
 				}
 				val isEmpty = diaryEntries.isEmpty()
 				checkinDiaryEmptyView.isVisible = isEmpty
 				var daysAgoString = ""
 				for (diaryEntry in diaryEntries) {
-					val newDaysAgoString: String = StringUtil.getDaysAgoString(diaryEntry.getArrivalTime(), context)
+					val newDaysAgoString: String = StringUtil.getDaysAgoString(diaryEntry.arrivalTime, context)
 					if (newDaysAgoString != daysAgoString) {
 						daysAgoString = newDaysAgoString
 						items.add(ItemVenueVisitDayHeader(daysAgoString))
