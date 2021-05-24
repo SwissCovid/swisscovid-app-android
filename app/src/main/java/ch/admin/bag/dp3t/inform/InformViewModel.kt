@@ -21,6 +21,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.protobuf.ByteString
 import kotlinx.coroutines.Dispatchers
 import org.crowdnotifier.android.sdk.CrowdNotifier
+import org.dpppt.android.sdk.DP3TKotlin
 import org.dpppt.android.sdk.PendingUploadTask
 import org.dpppt.android.sdk.backend.ResponseCallback
 import org.dpppt.android.sdk.models.DayDate
@@ -98,32 +99,32 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 			}
 			return@liveData
 		}
-		if (hasSharedDP3TKeys) {
-			try {
+		try {
+			if (hasSharedDP3TKeys) {
 				uploadTEKs()
-			} catch (exception: Throwable) {
-				when (exception) {
-					is ResponseError -> emit(Resource.error(InformRequestError.RED_STATUS_ERROR, exception))
-					is CancellationException -> emit(Resource.error(InformRequestError.RED_USER_CANCELLED_SHARE, exception))
-					is ApiException -> emit(Resource.error(InformRequestError.RED_EXPOSURE_API_ERROR, exception))
-					else -> emit(Resource.error(InformRequestError.RED_MISC_NETWORK_ERROR, exception))
-				}
-				return@liveData
+			} else {
+				performFakeTEKUpload()
 			}
+		} catch (exception: Throwable) {
+			when (exception) {
+				is ResponseError -> emit(Resource.error(InformRequestError.RED_STATUS_ERROR, exception))
+				is CancellationException -> emit(Resource.error(InformRequestError.RED_USER_CANCELLED_SHARE, exception))
+				is ApiException -> emit(Resource.error(InformRequestError.RED_EXPOSURE_API_ERROR, exception))
+				else -> emit(Resource.error(InformRequestError.RED_MISC_NETWORK_ERROR, exception))
+			}
+			return@liveData
 		}
-		if (hasSharedCheckins) {
-			try {
-				val authorizationHeader = getAuthorizationHeader(secureStorage.lastCheckinInformToken)
-				userUploadRepository.userUpload(getUserUploadPayload(), authorizationHeader)
 
-			} catch (exception: Throwable) {
-				when (exception) {
-					is HttpException -> emit(Resource.error(InformRequestError.USER_UPLOAD_NETWORK_ERROR, exception))
-					else -> emit(Resource.error(InformRequestError.USER_UPLOAD_UNKONWN_ERROR, exception))
-				}
-				return@liveData
+		try {
+			performCheckinsUpload(isFake = !hasSharedCheckins)
+		} catch (exception: Throwable) {
+			when (exception) {
+				is HttpException -> emit(Resource.error(InformRequestError.USER_UPLOAD_NETWORK_ERROR, exception))
+				else -> emit(Resource.error(InformRequestError.USER_UPLOAD_UNKONWN_ERROR, exception))
 			}
+			return@liveData
 		}
+
 		emit(Resource.success(data = null))
 	}
 
@@ -149,6 +150,11 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		} else {
 			""
 		}
+	}
+
+	private suspend fun performFakeTEKUpload() {
+		val authorizationHeader = ExposeeAuthMethodAuthorization(getAuthorizationHeader(secureStorage.lastDP3TInformToken))
+		DP3TKotlin.sendFakeInfectedRequest(getApplication(), authorizationHeader)
 	}
 
 	private suspend fun uploadTEKs() {
@@ -187,6 +193,11 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		error?.let { throw(it) }
 	}
 
+	private suspend fun performCheckinsUpload(isFake: Boolean) {
+		val authorizationHeader = getAuthorizationHeader(secureStorage.lastCheckinInformToken)
+		userUploadRepository.userUpload(getUserUploadPayload(isFake), authorizationHeader)
+	}
+
 	private suspend fun loadOnsetDate(covidcode: String) {
 		val onsetResponse = authCodeRepository.getOnsetDate(AuthenticationCodeRequestModel(covidcode, 0))
 		if (onsetResponse.onset == null) throw InvalidCodeError()
@@ -205,16 +216,19 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		}
 	}
 
-	private fun getUserUploadPayload(): UserUploadPayload {
+	private fun getUserUploadPayload(isFake: Boolean): UserUploadPayload {
 		val userUploadPayloadBuilder = UserUploadPayload.newBuilder().setVersion(USER_UPLOAD_VERSION)
-		getSelectableCheckinItems().filter {
-			it.isSelected
-		}.map {
-			CrowdNotifier.generateUserUploadInfo(it.diaryEntry.venueInfo, it.diaryEntry.arrivalTime, it.diaryEntry.departureTime)
-		}.flatten().forEach {
-			userUploadPayloadBuilder.addVenueInfos(it.toUploadVenueInfo())
+		if (!isFake) {
+			getSelectableCheckinItems().filter {
+				it.isSelected
+			}.map {
+				CrowdNotifier.generateUserUploadInfo(
+					it.diaryEntry.venueInfo, it.diaryEntry.arrivalTime, it.diaryEntry.departureTime
+				)
+			}.flatten().forEach {
+				userUploadPayloadBuilder.addVenueInfos(it.toUploadVenueInfo())
+			}
 		}
-
 		for (i in userUploadPayloadBuilder.venueInfosCount until USER_UPLOAD_SIZE) {
 			userUploadPayloadBuilder.addVenueInfos(getRandomFakeVenueInfo())
 		}
