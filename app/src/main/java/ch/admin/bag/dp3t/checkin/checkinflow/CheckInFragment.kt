@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
+import ch.admin.bag.dp3t.checkin.generateqrcode.QrCodeFragment
 import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.checkin.utils.*
 import ch.admin.bag.dp3t.databinding.FragmentCheckInBinding
@@ -99,7 +101,13 @@ class CheckInFragment : Fragment() {
 	}
 
 	private fun popBackToHomeFragment() {
-		requireActivity().supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+		val fm = requireActivity().supportFragmentManager
+		val backStackEntry = if (fm.backStackEntryCount >= 2) fm.getBackStackEntryAt(fm.backStackEntryCount - 2) else null
+		if (backStackEntry?.name == QrCodeFragment::class.java.canonicalName) {
+			fm.popBackStack(CheckinOverviewFragment::class.java.canonicalName, 0)
+		} else {
+			fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+		}
 	}
 
 }
