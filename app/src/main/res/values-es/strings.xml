@@ -1516,47 +1516,8 @@ Contacte con la Infoline del coronavirus:"</string>
     <!-- Check-Ins: Veranstaltung Titel Placeholder -->
     <string name="web_generator_title_placeholder"></string>
 
-    <!-- Check-Ins: Veranstaltungen Titel Kategorie -->
-    <string name="web_generator_category_label"></string>
-
-    <!-- Check-Ins: Kategorie Andere -->
-    <string name="web_generator_category_other"></string>
-
-    <!-- Check-Ins: Kategorie Sitzungsraum -->
-    <string name="web_generator_category_meeting_room"></string>
-
-    <!-- Check-Ins: Kategorie Kafeteria -->
-    <string name="web_generator_category_cafeteria"></string>
-
-    <!-- Check-Ins: Kategorie Privater Event -->
-    <string name="web_generator_category_private_event"></string>
-
-    <!-- Check-Ins: Veranstaltungen Titel Titel -->
-    <string name="web_generator_title_label"></string>
-
     <!-- Check-Ins: Veranstaltungen Detail PDF Button -->
     <string name="show_pdf_button"></string>
-
-    <!-- Check-Ins: Kategorie Kantine -->
-    <string name="web_generator_category_canteen"></string>
-
-    <!-- Check-Ins: Kategorie Bibliothek -->
-    <string name="web_generator_category_library"></string>
-
-    <!-- Check-Ins: Kategorie Vorlesungssaal -->
-    <string name="web_generator_category_lecture_room"></string>
-
-    <!-- Check-Ins: Kategorie Laden -->
-    <string name="web_generator_category_shop"></string>
-
-    <!-- Check-Ins: Kategorie Fitnesscenter -->
-    <string name="web_generator_category_gym"></string>
-
-    <!-- Check-Ins: Kategorie Küchenbereich -->
-    <string name="web_generator_category_kitchen_area"></string>
-
-    <!-- Check-Ins: Kategorie Büroräume -->
-    <string name="web_generator_category_office_space"></string>
     <string name="bottom_nav_tab_info"></string>
     <string name="error_network_title"></string>
     <string name="error_network_text"></string>
@@ -1573,7 +1534,6 @@ Contacte con la Infoline del coronavirus:"</string>
     <string name="error_update_text"></string>
     <string name="error_update_title"></string>
     <string name="error_action_update"></string>
-    <string name="android_crowdnotifier_notification_channel_name"></string>
     <string name="ongoing_notification_checkout_quick_action"></string>
     <string name="reminder_notification_snooze_action"></string>
     <string name="android_ongoing_checkin_notification_channel_name"></string>
@@ -1640,8 +1600,8 @@ Contacte con la Infoline del coronavirus:"</string>
     <!-- Remove from diary warning view remove button title -->
     <string name="remove_diary_remove_now_button"></string>
 
-    <!-- Remove from diary warning start text -->
-    <string name="remove_diary_warning_star_text"></string>
+    <!-- Hide from diary warning title -->
+    <string name="remove_diary_warning_hide_title"></string>
 
     <!-- Titel auf der "CovidCode eingeben"-Card auf dem Home Screen -->
     <string name="home_covidcode_card_title"></string>
@@ -1724,10 +1684,8 @@ Contacte con la Infoline del coronavirus:"</string>
     <string name="events_info_box_text"></string>
     <string name="events_footer_title1"></string>
     <string name="events_footer_title2"></string>
-    <string name="events_footer_title3"></string>
     <string name="events_footer_subtitle1"></string>
     <string name="events_footer_subtitle2"></string>
-    <string name="events_footer_subtitle3"></string>
 
     <!-- Subtitle vom Meldungen Card in der Liste aller Meldungen. -->
     <string name="meldung_detail_exposed_list_card_subtitle"></string>
@@ -1780,4 +1738,27 @@ Contacte con la Infoline del coronavirus:"</string>
     <!-- Button text, um ausgewählte Checkins zu senden -->
     <string name="inform_share_checkins_send_button_title"></string>
     <string name="inform_share_checkins_not_send_button"></string>
+    <string name="onboarding_checkin_title"></string>
+    <string name="onboarding_checkin_heading"></string>
+    <string name="onboarding_checkin_text1"></string>
+    <string name="onboarding_checkin_text2"></string>
+    <string name="checkin_updateboarding_text"></string>
+    <string name="onboarding_gaen_button_dont_activate"></string>
+
+    <!-- Hide from diary warning text -->
+    <string name="remove_diary_warning_hide_text"></string>
+
+    <!-- CheckIn ausblenden -->
+    <string name="remove_diary_warning_hide_button"></string>
+    <string name="checkin_set_reminder_explanation"></string>
+
+    <!-- Remove from diary warning title -->
+    <string name="remove_diary_remove_now_title"></string>
+
+    <!-- Remove from diary warning text -->
+    <string name="remove_diary_remove_now_text"></string>
+    <string name="not_thank_you_screen_text3"></string>
+
+    <!-- Link Text zu Informationen übers Testen -->
+    <string name="checkin_report_link"></string>
 </resources>

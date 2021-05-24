@@ -61,6 +61,15 @@
 					android:paddingHorizontal="@dimen/spacing_huge"
 					android:text="@string/not_thank_you_screen_text2" />
 
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_large"
+					android:gravity="center_horizontal"
+					android:paddingHorizontal="@dimen/spacing_huge"
+					android:text="@string/not_thank_you_screen_text3" />
+
 				<Space
 					android:layout_width="match_parent"
 					android:layout_height="0dp"
