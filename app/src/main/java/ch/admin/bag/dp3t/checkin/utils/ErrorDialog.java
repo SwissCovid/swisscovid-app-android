@@ -24,6 +24,7 @@ public class ErrorDialog extends AlertDialog {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dialog_error);
+		findViewById(R.id.dialog_error_container).setBackgroundResource(R.color.white);
 		View closeButton = findViewById(R.id.dialog_error_close_button);
 
 		closeButton.setOnClickListener(v -> dismiss());
