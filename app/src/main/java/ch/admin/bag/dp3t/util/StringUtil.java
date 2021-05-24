@@ -121,17 +121,14 @@ public class StringUtil {
 	}
 
 	public static String getDaysAgoString(long timeStamp, Context context) {
-		final long diff = DateUtils.getDaysDiff(timeStamp);
-		if (diff < 0) {
+		final long daysAgo = DateUtils.getDaysDiff(timeStamp);
+		if (daysAgo <= 0) {
 			return context.getResources().getString(R.string.date_today);
+		} else if (daysAgo == 1) {
+			return context.getResources().getString(R.string.date_one_day_ago);
 		} else {
-			long daysAgo = TimeUnit.MILLISECONDS.toDays(diff) + 1;
-			if (daysAgo == 1) {
-				return context.getResources().getString(R.string.date_one_day_ago);
-			} else {
-				return context.getResources().getString(R.string.date_days_ago)
-						.replace("{COUNT}", String.valueOf(daysAgo));
-			}
+			return context.getResources().getString(R.string.date_days_ago)
+					.replace("{COUNT}", String.valueOf(daysAgo));
 		}
 	}
 
