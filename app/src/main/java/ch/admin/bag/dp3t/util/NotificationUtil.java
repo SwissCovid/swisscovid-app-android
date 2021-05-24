@@ -20,8 +20,13 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.TaskStackBuilder;
 
+import org.dpppt.android.sdk.internal.history.HistoryDatabase;
+import org.dpppt.android.sdk.internal.history.HistoryEntry;
+import org.dpppt.android.sdk.internal.history.HistoryEntryType;
+
 import ch.admin.bag.dp3t.MainActivity;
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.debug.DebugFragment;
 
 public class NotificationUtil {
 
@@ -59,6 +64,14 @@ public class NotificationUtil {
 
 		NotificationManager notificationManager =
 				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		if(DebugFragment.EXISTS){
+			HistoryDatabase.getInstance(context).addEntry(
+					new HistoryEntry(
+							HistoryEntryType.NOTIFICATION, "Showing new message notification", false,
+							System.currentTimeMillis()
+					)
+			);
+		}
 		notificationManager.notify(NOTIFICATION_ID_CONTACT, notification);
 
 		NotificationRepeatWorker.startWorker(context);
@@ -73,7 +86,14 @@ public class NotificationUtil {
 		String message = context.getString(R.string.tracing_reminder_notification_subtitle);
 
 		Notification notification = createNotification(title, message, pendingIntent, CHANNEL_ID_REMINDER, context);
-		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);if(DebugFragment.EXISTS){
+			HistoryDatabase.getInstance(context).addEntry(
+					new HistoryEntry(
+							HistoryEntryType.SYNC, "Showing activate tracing notification", false,
+							System.currentTimeMillis()
+					)
+			);
+		}
 		notificationManager.notify(message.hashCode(), notification);
 	}
 
