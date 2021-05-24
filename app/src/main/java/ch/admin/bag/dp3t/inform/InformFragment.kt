@@ -17,6 +17,7 @@ import androidx.core.view.isVisible
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentInformBinding
 import ch.admin.bag.dp3t.extensions.showFragment
+import ch.admin.bag.dp3t.inform.models.Status
 import ch.admin.bag.dp3t.inform.views.ChainedEditText
 import ch.admin.bag.dp3t.inform.views.ChainedEditText.ChainedEditTextListener
 import ch.admin.bag.dp3t.util.PhoneUtil
@@ -64,29 +65,39 @@ class InformFragment : TraceKeyShareBaseFragment() {
 				}
 			}
 
-			sendButton.setOnClickListener { performContinueAction() }
+			sendButton.setOnClickListener { onContinueClicked() }
 			cancelButton.setOnClickListener { requireActivity().finish() }
 			informInvalidCodeError.setOnClickListener { PhoneUtil.callAppHotline(it.context) }
 		}.root
 	}
 
-	private fun performContinueAction() {
+	private fun onContinueClicked() {
 		binding.sendButton.isEnabled = false
 		setInvalidCovidcodeErrorVisible(false)
 		informViewModel.covidCode = binding.covidcodeInput.text
 		askUserToEnableTracingIfNecessary { tracingEnabled ->
 			if (tracingEnabled) {
-				//TODO: Do onsetDate Request here
-				showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
+				loadOnsetDate()
 			} else {
 				binding.sendButton.isEnabled = true
 			}
 		}
 	}
 
+	private fun loadOnsetDate() {
+		informViewModel.loadOnsetDate().observe(viewLifecycleOwner) {
+			setLoadingViewVisible(it.status == Status.LOADING)
+			if (it.status == Status.SUCCESS) {
+				showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
+			} else if (it.status == Status.ERROR) {
+				setInvalidCovidcodeErrorVisible(true)
+			}
+		}
+	}
+
 	private fun onUserGrantedTEKSharing() {
 		informViewModel.hasSharedDP3TKeys = true
-		if (informViewModel.selectableCheckinItems.isEmpty()) {
+		if (informViewModel.getSelectableCheckinItems().isEmpty()) {
 			performUpload()
 		} else {
 			showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)

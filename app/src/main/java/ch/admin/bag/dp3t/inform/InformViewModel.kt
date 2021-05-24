@@ -26,6 +26,7 @@ import org.dpppt.android.sdk.backend.ResponseCallback
 import org.dpppt.android.sdk.models.DayDate
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization
 import retrofit2.HttpException
+import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.CancellationException
 import java.util.concurrent.TimeUnit
@@ -40,6 +41,8 @@ private const val KEY_COVIDCODE = "KEY_COVIDCODE"
 private const val KEY_HAS_SHARED_DP3T_KEYS = "KEY_HAS_SHARED_DP3T_KEYS"
 private const val KEY_HAS_SHARED_CHECKINS = "KEY_HAS_SHARED_CHECKINS"
 private const val KEY_PENDING_UPLOAD_TASK = "KEY_PENDING_UPLOAD_TASK"
+private const val KEY_SELECTED_DIARY_ENTRIES = "KEY_SELECTED_DIARY_ENTRIES"
+private const val KEY_ONSET_DATE = "KEY_ONSET_DATE"
 private const val USER_UPLOAD_SIZE = 1000
 
 class InformViewModel(application: Application, private val state: SavedStateHandle) : AndroidViewModel(application) {
@@ -50,7 +53,9 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 	private val secureStorage = SecureStorage.getInstance(application)
 	private val random = Random()
 
-	var selectableCheckinItems = diaryStorage.entries.map { SelectableCheckinItem(it, isSelected = false) }
+	private var selectedDiaryEntryIds: LongArray
+		get() = state.get<LongArray>(KEY_SELECTED_DIARY_ENTRIES) ?: longArrayOf()
+		set(value) = state.set(KEY_SELECTED_DIARY_ENTRIES, value)
 
 	var covidCode: String
 		get() = state.get<String>(KEY_COVIDCODE) ?: getLastCovidcode()
@@ -67,6 +72,19 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 	var pendingUploadTask: PendingUploadTask?
 		get() = state.get<PendingUploadTask?>(KEY_PENDING_UPLOAD_TASK)
 		set(value) = state.set(KEY_PENDING_UPLOAD_TASK, value)
+
+	private var onsetDate: Long?
+		get() = state.get<Long>(KEY_ONSET_DATE)
+		set(value) = state.set(KEY_ONSET_DATE, value)
+
+	fun loadOnsetDate() = liveData(Dispatchers.IO) {
+		emit(Resource.loading(data = null))
+		try {
+			emit(Resource.success(loadOnsetDate(covidCode)))
+		} catch (exception: Throwable) {
+			emit(Resource.error(data = null, exception = exception))
+		}
+	}
 
 	fun performUpload() = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
@@ -107,6 +125,20 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 			}
 		}
 		emit(Resource.success(data = null))
+	}
+
+	fun getSelectableCheckinItems(): List<SelectableCheckinItem> {
+		return diaryStorage.entries.filter {
+			it.departureTime >= onsetDate ?: 0
+		}.map {
+			SelectableCheckinItem(it, isSelected = selectedDiaryEntryIds.contains(it.id))
+		}
+	}
+
+	fun setDiaryItemSelected(itemId: Long, isSelected: Boolean) {
+		selectedDiaryEntryIds = selectedDiaryEntryIds.toMutableList().apply {
+			if (isSelected) add(itemId) else remove(itemId)
+		}.distinct().toLongArray()
 	}
 
 	private fun getLastCovidcode(): String {
@@ -155,6 +187,12 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		error?.let { throw(it) }
 	}
 
+	private suspend fun loadOnsetDate(covidcode: String) {
+		val onsetResponse = authCodeRepository.getOnsetDate(AuthenticationCodeRequestModel(covidcode, 0))
+		if (onsetResponse.onset == null) throw InvalidCodeError()
+		onsetDate = SimpleDateFormat("yyyy-MM-dd").parse(onsetResponse.onset)?.time
+	}
+
 	private suspend fun loadAccessTokens(covidcode: String) {
 		val lastTimestamp = secureStorage.lastInformRequestTime
 		val accessToken = secureStorage.lastDP3TInformToken
@@ -169,7 +207,7 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 
 	private fun getUserUploadPayload(): UserUploadPayload {
 		val userUploadPayloadBuilder = UserUploadPayload.newBuilder().setVersion(USER_UPLOAD_VERSION)
-		selectableCheckinItems.filter {
+		getSelectableCheckinItems().filter {
 			it.isSelected
 		}.map {
 			CrowdNotifier.generateUserUploadInfo(it.diaryEntry.venueInfo, it.diaryEntry.arrivalTime, it.diaryEntry.departureTime)

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentShareCheckinsBinding
 import ch.admin.bag.dp3t.extensions.showFragment
@@ -25,13 +24,15 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 			(requireActivity() as InformActivity).allowBackButton(false)
 			val adapter = CheckinAdapter()
 			checkinsRecyclerView.adapter = adapter
-			adapter.setData(informViewModel.selectableCheckinItems)
+			adapter.setData(informViewModel.getSelectableCheckinItems())
 			adapter.itemSelectionListener { selectedItem, selected ->
-				informViewModel.selectableCheckinItems.find { it.diaryEntry == selectedItem }?.isSelected = selected
+				informViewModel.setDiaryItemSelected(selectedItem.id, selected)
 			}
 			selectAllCheckbox.setOnCheckedChangeListener { _, isChecked ->
-				informViewModel.selectableCheckinItems.forEach { it.isSelected = isChecked }
-				adapter.setData(informViewModel.selectableCheckinItems)
+				informViewModel.getSelectableCheckinItems().forEach {
+					informViewModel.setDiaryItemSelected(it.diaryEntry.id, isChecked)
+				}
+				adapter.setData(informViewModel.getSelectableCheckinItems())
 			}
 			dontSendButton.paintFlags = dontSendButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 			dontSendButton.setOnClickListener {

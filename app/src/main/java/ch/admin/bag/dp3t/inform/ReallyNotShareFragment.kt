@@ -40,7 +40,7 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 
 	private fun onUserGrantedTEKSharing() {
 		informViewModel.hasSharedDP3TKeys = true
-		if (informViewModel.selectableCheckinItems.isEmpty()) {
+		if (informViewModel.getSelectableCheckinItems().isEmpty()) {
 			performUpload(onSuccess = { showFragment(ThankYouFragment.newInstance(), R.id.inform_fragment_container) })
 		} else {
 			showFragment(ShareCheckinsFragment.newInstance(), R.id.inform_fragment_container)

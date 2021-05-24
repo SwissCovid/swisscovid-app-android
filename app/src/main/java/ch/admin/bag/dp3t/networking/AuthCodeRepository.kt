@@ -80,4 +80,5 @@ class AuthCodeRepository(context: Context) {
 			return@withContext response.body() ?: throw ResponseError(response.raw())
 		}
 
+	suspend fun getOnsetDate(authCode: AuthenticationCodeRequestModel) = authCodeService.getOnsetDate(authCode)
 }
