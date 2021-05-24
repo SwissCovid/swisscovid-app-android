@@ -5,8 +5,8 @@ import ch.admin.bag.dp3t.util.StringUtil
 import org.crowdnotifier.android.sdk.model.ExposureEvent
 
 fun ExposureEvent.getDetailsString(context: Context): String {
-	return "${StringUtil.getReportDateString(endTime, true, false, context)}\n${
-		StringUtil.getHourMinuteTimeString(startTime, ":")
-	} - ${StringUtil.getHourMinuteTimeString(endTime, ":")}"
-
+	val dateString = StringUtil.getReportDateString(endTime, true, false, context)
+	val startTimeString = StringUtil.getHourMinuteTimeString(startTime, ":")
+	val endTimeString = StringUtil.getHourMinuteTimeString(endTime, ":")
+	return "$dateString\n$startTimeString - $endTimeString"
 }
