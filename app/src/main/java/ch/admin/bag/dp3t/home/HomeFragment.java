@@ -256,7 +256,8 @@ public class HomeFragment extends Fragment {
 	private void showReportsFragment() {
 		int checkinReports = crowdNotifierViewModel.getExposures().getValue().size();
 		int tracingReports = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays().size();
-		if (((checkinReports > 0 && tracingReports > 0) || checkinReports > 1)) {
+		boolean isReportedPositive = tracingViewModel.getTracingStatusInterface().isReportedAsInfected();
+		if (((checkinReports > 0 && tracingReports > 0) || checkinReports > 1) && !isReportedPositive) {
 			FragmentExtensionsKt.showFragment(this, ReportsOverviewFragment.newInstance(), true);
 		} else {
 			FragmentExtensionsKt.showFragment(this, ReportsFragment.newInstance(null), true);

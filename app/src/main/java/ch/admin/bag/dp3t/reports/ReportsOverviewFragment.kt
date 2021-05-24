@@ -15,6 +15,8 @@ import ch.admin.bag.dp3t.databinding.FragmentReportsOverviewBinding
 import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
+import org.crowdnotifier.android.sdk.model.ExposureEvent
+import org.dpppt.android.sdk.models.ExposureDay
 
 class ReportsOverviewFragment : Fragment() {
 
@@ -29,31 +31,41 @@ class ReportsOverviewFragment : Fragment() {
 	private val secureStorage by lazy { SecureStorage.getInstance(requireContext()) }
 
 	private lateinit var binding: FragmentReportsOverviewBinding
+	private val recyclerAdapter = ReportsRecyclerAdapter()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		binding = FragmentReportsOverviewBinding.inflate(inflater)
 		return binding.apply {
 			reportsToolbar.setNavigationOnClickListener { parentFragmentManager.popBackStack() }
-			val adapter = ReportsRecyclerAdapter()
-			reportsRecyclerView.adapter = adapter
-			crowdNotifierViewModel.exposures.observe(viewLifecycleOwner) { checkinExposures ->
+			reportsRecyclerView.adapter = recyclerAdapter
 
-				adapter.setItems(checkinExposures.map {
-					CheckinReportItem(it, diaryStorage.getDiaryEntryWithId(it.id))
-				}.toMutableList<ReportItem>().apply {
-					val tracingExposureDays = tracingViewModel.tracingStatusInterface.exposureDays.reversed()
-					if (tracingExposureDays.isNotEmpty()) {
-						add(0, ProximityTracingReportItem(tracingExposureDays))
-					}
-				})
+			crowdNotifierViewModel.exposures.observe(viewLifecycleOwner) {
+				updateRecyclerList(it, tracingViewModel.tracingStatusInterface.exposureDays)
 			}
-			adapter.setOnClickListener {
+			tracingViewModel.tracingStatusLiveData.observe(viewLifecycleOwner) { tracingStatus ->
+				updateRecyclerList(crowdNotifierViewModel.exposures.value ?: listOf(), tracingStatus.exposureDays)
+			}
+			recyclerAdapter.setOnClickListener {
 				showFragment(ReportsFragment.newInstance(it))
 			}
 			if (secureStorage.isReportsHeaderAnimationPending) {
 				setupSplashScreen()
 			}
 		}.root
+	}
+
+	private fun updateRecyclerList(checkinExposures: List<ExposureEvent>, tracingExposureDays: List<ExposureDay>) {
+		val items = checkinExposures.map {
+			CheckinReportItem(it, diaryStorage.getDiaryEntryWithId(it.id))
+		}.toMutableList<ReportItem>().apply {
+			if (tracingExposureDays.isNotEmpty()) {
+				add(0, ProximityTracingReportItem(tracingExposureDays))
+			}
+		}
+		if (items.isEmpty()) {
+			parentFragmentManager.popBackStack()
+		}
+		recyclerAdapter.setItems(items)
 	}
 
 	private fun setupSplashScreen() {
