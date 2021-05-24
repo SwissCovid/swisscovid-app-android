@@ -52,6 +52,8 @@ public class HistoryViewHolder extends RecyclerView.ViewHolder {
 				return R.string.synchronizations_view_sync_via_fake_request;
 			case NEXT_DAY_KEY_UPLOAD_REQUEST:
 				return R.string.synchronizations_view_sync_via_next_day_key_upload;
+			case NOTIFICATION:
+				return R.string.synchronizations_view_notification;
 			default:
 				throw new IllegalArgumentException("Unknown HistoryEntryType: " + type);
 		}

@@ -15,4 +15,5 @@
 	<string name="synchronizations_view_sync_via_scheduled" translatable="false">"  • Scheduled"</string>
 	<string name="synchronizations_view_sync_via_fake_request" translatable="false">"  • Fake Report"</string>
 	<string name="synchronizations_view_sync_via_next_day_key_upload" translatable="false">"  • Pending Upload"</string>
+	<string name="synchronizations_view_notification" translatable="false">"  • Notification"</string>
 </resources>
