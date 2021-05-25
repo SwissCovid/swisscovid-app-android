@@ -65,30 +65,28 @@
 				tools:text="Lausanne" />
 
 			<TextView
-				android:id="@+id/checkout_date"
-				style="@style/CrowdNotifier.Text.Subtitle"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"
-				android:layout_marginTop="@dimen/spacing_huge"
-				android:gravity="center"
-				tools:text="Thursday, October 22" />
-
-			<TextView
 				style="@style/CrowdNotifier.Text.Status.Small"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_huge"
 				android:text="@string/datepicker_from" />
 
-
+			<ch.admin.bag.dp3t.view.DateTimePicker
+				android:id="@+id/checkout_time_arrival"
+				android:layout_width="match_parent"
+				android:layout_height="132dp" />
 
 			<TextView
 				style="@style/CrowdNotifier.Text.Status.Small"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_medium"
 				android:text="@string/datepicker_to" />
 
-
+			<ch.admin.bag.dp3t.view.DateTimePicker
+				android:id="@+id/checkout_time_departure"
+				android:layout_width="match_parent"
+				android:layout_height="132dp" />
 
 			<Space
 				android:layout_width="0dp"

@@ -363,4 +363,16 @@
 		<item name="android:textColor">@color/primary</item>
 	</style>
 
+	<style name="NextStep.DateTimePicker" parent="android:Widget">
+		<item name="android:textSize">@dimen/text_size_normal</item>
+		<item name="colorControlNormal">@color/red_main</item>
+		<item name="android:textColorPrimary">@color/dark_main</item>
+		<item name="np_textSize">@dimen/text_size_normal</item>
+		<item name="np_selectedTextSize">@dimen/text_size_normal</item>
+		<item name="np_textColor">@color/dark_main</item>
+		<item name="np_selectedTextColor">@color/dark_main</item>
+		<item name="np_dividerColor">@color/blue_main</item>
+		<item name="np_wheelItemCount">3</item>
+	</style>
+
 </resources>

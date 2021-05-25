@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
+import ch.admin.bag.dp3t.checkin.diary.CheckinTimeHelper
 import ch.admin.bag.dp3t.checkin.models.CheckInState
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
@@ -68,6 +69,12 @@ class CheckOutFragment : Fragment() {
 	}
 
 	private fun performCheckout() {
+		val hasOverlapWithOtherCheckin = CheckinTimeHelper.checkForOverlap(checkInState.checkInTime, checkInState.checkOutTime, requireContext())
+		if (hasOverlapWithOtherCheckin) {
+			CheckinTimeHelper.showOverlapDialog(requireContext())
+			return
+		}
+
 		CrowdNotifierReminderHelper.removeAllReminders(context)
 		saveEntry()
 		val notificationHelper = NotificationHelper.getInstance(context)

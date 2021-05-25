@@ -52,6 +52,12 @@ class EditDiaryEntryFragment : Fragment() {
 	}
 
 	private fun performSave() {
+		val hasOverlapWithOtherCheckin = CheckinTimeHelper.checkForOverlap(diaryEntry, requireContext())
+		if (hasOverlapWithOtherCheckin) {
+			CheckinTimeHelper.showOverlapDialog(requireContext())
+			return
+		}
+
 		saveEntry()
 		requireActivity().supportFragmentManager.popBackStack()
 	}
