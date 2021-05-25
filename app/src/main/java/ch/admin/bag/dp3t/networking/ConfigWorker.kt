@@ -79,6 +79,8 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 				secureStorage.hasInfobox = false
 			}
 
+			secureStorage.setTestInformationUrls(config.testInformationUrls)
+
 			secureStorage.testLocations = config.testLocations
 			secureStorage.interopCountries = config.interOpsCountries
 

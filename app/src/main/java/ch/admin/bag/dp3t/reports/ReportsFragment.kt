@@ -45,17 +45,11 @@ import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.*
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 import ch.admin.bag.dp3t.whattodo.WhereToTestDialogFragment
-import org.dpppt.android.sdk.models.DayDate
 import java.util.*
 import kotlin.math.min
 
-private const val DAYS_TO_STAY_IN_QUARANTINE = 10
-private const val MAX_EXPOSURE_AGE_TO_DO_A_TEST = 10
-private const val MIN_EXPOSURE_AGE_TO_DO_A_TEST = 5
-private const val ONE_DAY_IN_MILLIS = 24L * 60 * 60 * 1000
 private const val ARG_CHECK_IN_ID = "ARG_CHECK_IN_ID"
 private const val ARG_SHOW_TRACING_REPORT_DETAILS = "ARG_SHOW_TRACING_REPORT_DETAILS"
-
 
 class ReportsFragment : Fragment() {
 
@@ -203,28 +197,18 @@ class ReportsFragment : Fragment() {
 			}
 			State.POSSIBLE_INFECTION_TRACING_REPORTS -> {
 				binding.reportsLeitfaden.apply {
-					itemCallHotlineLayout.setOnClickListener { callHotline() }
+					reportFurtherInformation.itemCallHotlineLayout.setOnClickListener { callHotline() }
+					reportFurtherInformation.testsExternalLink.setOnClickListener { showTestInformation() }
 					faqButton.setOnClickListener { showFaq() }
 					val isOpenLeitfadenPending = secureStorage.isOpenLeitfadenPending
 					fillLeitfadenNowButton.isVisible = isOpenLeitfadenPending
 					zumLeitfadenButton.isVisible = !isOpenLeitfadenPending
-					xDaysLeftTextview.isVisible = !isOpenLeitfadenPending
-					setupFreeTestInfoBox(tracingStatusInterface)
 					if (isOpenLeitfadenPending) {
 						fillLeitfadenNowButton.setOnClickListener { openSwissCovidLeitfaden() }
 						leitfadenInfoButton.setOnClickListener { showLeitfadenInfo(fillLeitfadenNowButton.text.toString()) }
 					} else {
 						zumLeitfadenButton.setOnClickListener { openSwissCovidLeitfaden() }
 						leitfadenInfoButton.setOnClickListener { showLeitfadenInfo(zumLeitfadenButton.text.toString()) }
-					}
-
-					val daysLeft = DAYS_TO_STAY_IN_QUARANTINE - tracingStatusInterface.daysSinceExposure.toInt()
-					if (daysLeft > DAYS_TO_STAY_IN_QUARANTINE || daysLeft <= 0) {
-						xDaysLeftTextview.isVisible = false
-					} else if (daysLeft == 1) {
-						xDaysLeftTextview.setText(R.string.date_in_one_day)
-					} else {
-						xDaysLeftTextview.text = getString(R.string.date_in_days).replace("{COUNT}", daysLeft.toString())
 					}
 					deleteReports.setOnClickListener { deleteNotifications(tracingStatusInterface) }
 				}
@@ -256,7 +240,8 @@ class ReportsFragment : Fragment() {
 
 					}
 					faqButton.setOnClickListener { showFaq() }
-					testlocationsLink.setOnClickListener { showWhereToTestDialog() }
+					reportFurtherInformation.testsExternalLink.setOnClickListener { showTestInformation() }
+					reportFurtherInformation.phoneSection.isVisible = false
 				}
 			}
 		}
@@ -295,40 +280,6 @@ class ReportsFragment : Fragment() {
 			.show()
 	}
 
-	private fun setupFreeTestInfoBox(tracingStatusInterface: TracingStatusInterface) {
-		binding.reportsLeitfaden.viewFreeTestInfoBox.apply {
-			testlocationsLink.setOnClickListener { showWhereToTestDialog() }
-			val today = DayDate()
-			if (tracingStatusInterface.exposureDays.filter {
-					it.exposedDate.addDays(MIN_EXPOSURE_AGE_TO_DO_A_TEST).isBeforeOrEquals(today)
-				}.find {
-					!it.exposedDate.addDays(MAX_EXPOSURE_AGE_TO_DO_A_TEST).isBefore(today)
-				} != null) {
-				testCountdownTextview.setText(R.string.meldungen_detail_free_test_now)
-				return
-			}
-
-			// This oldest exposure that is newer than MIN_EXPOSURE_AGE_TO_DO_A_TEST
-			val oldestExposure = tracingStatusInterface.exposureDays.filter {
-				!it.exposedDate.addDays(MIN_EXPOSURE_AGE_TO_DO_A_TEST).isBeforeOrEquals(today)
-			}.minOf { it.exposedDate }
-
-			testCountdownTextview.isVisible = oldestExposure != null
-
-			if (oldestExposure != null) {
-				val daysSinceFirstExposure =
-					((today.startOfDayTimestamp - oldestExposure.startOfDayTimestamp) / ONE_DAY_IN_MILLIS).toInt()
-				val daysUntilTest = MIN_EXPOSURE_AGE_TO_DO_A_TEST - daysSinceFirstExposure
-				if (daysUntilTest == 1) {
-					testCountdownTextview.setText(R.string.meldungen_detail_free_test_tomorrow)
-				} else {
-					testCountdownTextview.text = getString(R.string.meldungen_detail_free_test_in_x_tagen)
-						.replace("{COUNT}", daysUntilTest.toString())
-				}
-			}
-		}
-	}
-
 	private fun showWhereToTestDialog() {
 		requireActivity().supportFragmentManager.beginTransaction()
 			.add(WhereToTestDialogFragment.newInstance(), WhereToTestDialogFragment::class.java.canonicalName)
@@ -363,6 +314,10 @@ class ReportsFragment : Fragment() {
 			SimpleDismissableDialog.newInstance(title, subtitle),
 			ReactivateTracingReminderDialog::class.java.canonicalName
 		).commit()
+	}
+
+	private fun showTestInformation() {
+		UrlUtil.openUrl(context, secureStorage.getTestInformationUrl(getString(R.string.language_key)))
 	}
 
 	private fun callHotline() {

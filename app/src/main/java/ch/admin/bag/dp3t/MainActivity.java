@@ -275,8 +275,9 @@ public class MainActivity extends FragmentActivity {
 	private void showReportsFragment() {
 		int checkinReports = crowdNotifierViewModel.getExposures().getValue().size();
 		int tracingReports = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays().size();
+		boolean isReportedPositive = tracingViewModel.getTracingStatusInterface().isReportedAsInfected();
 		Fragment reportsFragment;
-		if (((checkinReports > 0 && tracingReports > 0) || checkinReports > 1)) {
+		if (((checkinReports > 0 && tracingReports > 0) || checkinReports > 1) && !isReportedPositive) {
 			reportsFragment = ReportsOverviewFragment.newInstance();
 		} else {
 			reportsFragment = ReportsFragment.newInstance(null);
@@ -307,7 +308,7 @@ public class MainActivity extends FragmentActivity {
 
 	private void showCheckInScreen() {
 		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.main_fragment_container, CheckInFragment.newInstance())
+				.replace(R.id.main_fragment_container, CheckInFragment.newInstance(false))
 				.addToBackStack(CheckInFragment.class.getCanonicalName())
 				.commit();
 	}

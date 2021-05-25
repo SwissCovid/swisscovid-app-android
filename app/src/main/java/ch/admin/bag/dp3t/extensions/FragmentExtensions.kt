@@ -7,11 +7,22 @@ import ch.admin.bag.dp3t.R
 fun Fragment.showFragment(
 	fragment: Fragment,
 	@IdRes container: Int = R.id.main_fragment_container,
-	addToBackStack: Boolean = true
+	addToBackStack: Boolean = true,
+	modalAnimation: Boolean = false
 ) {
 	requireActivity().supportFragmentManager.beginTransaction()
-		.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+		.apply {
+			if (modalAnimation) {
+				this.setCustomAnimations(
+					R.anim.modal_slide_enter, R.anim.modal_slide_exit, R.anim.modal_pop_enter, R.anim.modal_pop_exit
+				)
+			} else {
+				this.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+			}
+			if (addToBackStack) {
+				this.addToBackStack(fragment::class.java.canonicalName)
+			}
+		}
 		.replace(container, fragment)
-		.apply { if (addToBackStack) this.addToBackStack(fragment::class.java.canonicalName) }
 		.commit()
 }

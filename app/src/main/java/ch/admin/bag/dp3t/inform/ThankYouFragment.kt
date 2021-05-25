@@ -37,6 +37,10 @@ class ThankYouFragment : Fragment() {
 		return FragmentThankYouBinding.inflate(inflater).apply {
 			(requireActivity() as InformActivity).allowBackButton(false)
 
+			informThankYouTextCheckins.isVisible = informViewModel.hasSharedCheckins
+			informThankYouTextInfo.isVisible = informViewModel.hasSharedDP3TKeys
+			informThankYouTextOnsetdate.isVisible = informViewModel.hasSharedDP3TKeys
+
 			// Show the onset date in the thank you message
 			val oldestSharedKeyDateMillis = secureStorage.positiveReportOldestSharedKey
 			if (oldestSharedKeyDateMillis > 0L) {
@@ -45,14 +49,11 @@ class ThankYouFragment : Fragment() {
 					getString(R.string.inform_send_thankyou_text_onsetdate).replace("{ONSET_DATE}", formattedDate)
 				informThankYouTextInfo.setText(R.string.inform_send_thankyou_text_onsetdate_info)
 				informThankYouTextOnsetdate.text = formattedOnsetDateText
-				informThankYouTextStopInfectionChains.setText(R.string.inform_send_thankyou_text_stop_infection_chains)
 			} else {
 				informThankYouTextInfo.setText(R.string.inform_send_thankyou_text)
 				informThankYouTextOnsetdate.visibility = View.GONE
 				informThankYouTextStopInfectionChains.visibility = View.GONE
 			}
-
-			informThankYouTextCheckins.isVisible = informViewModel.hasSharedCheckins
 
 			informThankYouButtonContinue.setOnClickListener {
 				showFragment(TracingStoppedFragment.newInstance(), R.id.inform_fragment_container)

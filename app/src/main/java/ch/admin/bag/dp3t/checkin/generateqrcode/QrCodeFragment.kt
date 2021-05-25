@@ -25,7 +25,6 @@ import ch.admin.bag.dp3t.extensions.toQrCodePayload
 import ch.admin.bag.dp3t.extensions.toVenueInfo
 import ch.admin.bag.dp3t.databinding.FragmentQrCodeBinding
 import ch.admin.bag.dp3t.extensions.combineWith
-import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 import com.google.protobuf.ByteString
 import org.crowdnotifier.android.sdk.model.VenueInfo
@@ -48,7 +47,7 @@ class QrCodeFragment : Fragment() {
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		return FragmentQrCodeBinding.inflate(layoutInflater).apply {
-			toolbar.setNavigationOnClickListener { parentFragmentManager.popBackStack() }
+			cancelButton.setOnClickListener { parentFragmentManager.popBackStack() }
 			val venueInfo = QRCodePayload.parseFrom(arguments?.get(KEY_VENUE_INFO) as ByteString).toVenueInfo()
 			titleTextview.text = venueInfo.title
 			subtitleTextview.setText(venueInfo.getSubtitle())
@@ -79,12 +78,18 @@ class QrCodeFragment : Fragment() {
 			}.observe(viewLifecycleOwner) { showCheckinButton ->
 				checkinButton.isVisible = showCheckinButton
 			}
-			checkinButton.setOnClickListener {
-				crowdNotifierViewModel.checkInState =
-					CheckInState(false, venueInfo, System.currentTimeMillis(), System.currentTimeMillis(), 0)
-				showFragment(CheckInFragment.newInstance())
-			}
+			checkinButton.setOnClickListener { showCheckInFragment(venueInfo) }
 		}.root
+	}
+
+	private fun showCheckInFragment(venueInfo: VenueInfo) {
+		crowdNotifierViewModel.checkInState =
+			CheckInState(false, venueInfo, System.currentTimeMillis(), System.currentTimeMillis(), 0)
+		requireActivity().supportFragmentManager.beginTransaction()
+			.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.modal_pop_enter, R.anim.modal_pop_exit)
+			.replace(R.id.main_fragment_container, CheckInFragment.newInstance(isSelfCheckin = true))
+			.addToBackStack(CheckInFragment::class.java.canonicalName)
+			.commit()
 	}
 
 	private fun printPdf(file: File) {

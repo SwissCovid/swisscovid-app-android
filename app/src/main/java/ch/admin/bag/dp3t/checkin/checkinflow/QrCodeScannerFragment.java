@@ -260,7 +260,7 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 	private void showCheckInFragment() {
 		requireActivity().getSupportFragmentManager().beginTransaction()
 				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.main_fragment_container, CheckInFragment.newInstance())
+				.replace(R.id.main_fragment_container, CheckInFragment.newInstance(false))
 				.addToBackStack(CheckInFragment.class.getCanonicalName())
 				.commitAllowingStateLoss();
 	}

@@ -76,6 +76,7 @@ public class SecureStorage {
 	private static final String KEY_CURRENT_CHECK_IN = "KEY_CURRENT_CHECK_IN";
 	private static final String KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG = "KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG";
 	private static final String KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD = "KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD";
+	private static final String KEY_CONFIG_TEST_INFORMATION_URLS = "testinformation_urls";
 
 	private static SecureStorage instance;
 
@@ -226,6 +227,24 @@ public class SecureStorage {
 
 	public InfoBoxModelCollection getInfoBoxCollection() {
 		return gson.fromJson(prefs.getString(KEY_CONFIG_INFOBOX_COLLECTION, "null"), InfoBoxModelCollection.class);
+	}
+
+	public void setTestInformationUrls(Map<String, String> testInformationUrls) {
+		prefs.edit().putString(KEY_CONFIG_TEST_INFORMATION_URLS, gson.toJson(testInformationUrls)).apply();
+	}
+
+	public String getTestInformationUrl(String languageKey) {
+		String defaultUrl = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/" +
+				"aktuelle-ausbrueche-epidemien/novel-cov/testen.html";
+
+		Type testInformationsType = new TypeToken<Map<String, String>>() { }.getType();
+		Map<String, String> testInfoMap =
+				gson.fromJson(prefs.getString(KEY_CONFIG_TEST_INFORMATION_URLS, "null"), testInformationsType);
+		if (testInfoMap == null || !testInfoMap.containsKey(languageKey)) {
+			return defaultUrl;
+		} else {
+			return testInfoMap.get(languageKey);
+		}
 	}
 
 	public boolean isUserNotInPilotGroup() {

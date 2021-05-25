@@ -589,14 +589,6 @@ Nga kjo, konsumi i baterisë rritet vetëm pak."</string>
 
 Në rast infeksioni të mundshëm informoheni me një mesazh në ekranin e mbyllur."</string>
 
-    <!-- Meldungen: Keine Meldungen FAQ Titel -->
-    <string name="meldungen_nomeldungen_faq2_titel">"Çfarë do të thotë infeksion i mundshëm?"</string>
-
-    <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"Aplikacioni nuk kontrollon vetëm nëse ka pasur kontakt me persona të infektuar, por edhe se për sa kohë dhe në çfarë distance ishin këta persona.
-
-Përdoruesi informohet vetëm nëse dyshimi për një infeksion të mundshëm është mjaft i madh."</string>
-
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"Infoline SwissCovid ju këshillon për mundësinë e një testi falas."</string>
 
@@ -1771,4 +1763,10 @@ Atëherë kontaktoni qendrën telefonike të koronavirusit:"</string>
 
     <!-- Link Text zu Informationen übers Testen -->
     <string name="checkin_report_link"></string>
+    <string name="instant_app_install_action"></string>
+    <string name="partial_onboarding_box_text"></string>
+    <string name="partial_onboarding_box_action"></string>
+    <string name="partial_onboarding_done_title"></string>
+    <string name="partial_onboarding_done_text"></string>
+    <string name="web_slogan"></string>
 </resources>

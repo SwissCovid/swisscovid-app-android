@@ -576,14 +576,6 @@ Bunlar cep telefonunda kaydedilmekte ve 14 gün sonra silinmektedir."</string>
     <string name="meldungen_nomeldungen_faq1_text">"Uygulama düzenli olarak temas ettiğiniz kişilerin pozitif bir test sonucu bildirip bildirmediğini kontrol eder.
 Olası bir enfeksiyon riskinde kilit ekranında bir mesaj ile bilgilendirileceksiniz."</string>
 
-    <!-- Meldungen: Keine Meldungen FAQ Titel -->
-    <string name="meldungen_nomeldungen_faq2_titel">"Enfeksiyon riski ne anlama gelmektedir?"</string>
-
-    <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"Uygulama yalnızca enfekte kişiler temaz olup olmadığını değil, temasların ne kadar sürdüğünü ve ne kadar yakın olduklarını da takip eder.
-
-Yalnızca bulaşma riski yeterince büyük ise bilgilendirilirsiniz."</string>
-
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"SwissCovid Bilgi Hattı sizi ücretsiz testler konusunda bilgilendirir."</string>
 
@@ -1748,4 +1740,10 @@ O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
 
     <!-- Link Text zu Informationen übers Testen -->
     <string name="checkin_report_link"></string>
+    <string name="instant_app_install_action"></string>
+    <string name="partial_onboarding_box_text"></string>
+    <string name="partial_onboarding_box_action"></string>
+    <string name="partial_onboarding_done_title"></string>
+    <string name="partial_onboarding_done_text"></string>
+    <string name="web_slogan"></string>
 </resources>

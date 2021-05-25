@@ -592,14 +592,6 @@ Il consumo della batteria aumenta soltanto leggermente."</string>
 
 In caso di possibile contagio viene visualizzato un messaggio sulla schermata di blocco."</string>
 
-    <!-- Meldungen: Keine Meldungen FAQ Titel -->
-    <string name="meldungen_nomeldungen_faq2_titel">"Cosa significa possibile contagio?"</string>
-
-    <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"L'app non controlla solo se ci sono stati incontri con persone infette, ma anche a quale distanza e per quanto tempo.
-
-L'utente viene informato soltanto se la possibilità di un contagio è sufficientemente fondata."</string>
-
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"La Infoline SwissCovid ti offre consulenza sulla possibilità di fare un test gratuito."</string>
 
@@ -1804,4 +1796,10 @@ Contatta la Infoline coronavirus:"</string>
 
     <!-- Link Text zu Informationen übers Testen -->
     <string name="checkin_report_link"></string>
+    <string name="instant_app_install_action"></string>
+    <string name="partial_onboarding_box_text"></string>
+    <string name="partial_onboarding_box_action"></string>
+    <string name="partial_onboarding_done_title"></string>
+    <string name="partial_onboarding_done_text"></string>
+    <string name="web_slogan"></string>
 </resources>

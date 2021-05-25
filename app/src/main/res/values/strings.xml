@@ -588,14 +588,6 @@ They are saved locally on the smartphones and then deleted 14 days later."</stri
 
 If it is possible that you have been infected, you will receive a message on your lock screen."</string>
 
-    <!-- Meldungen: Keine Meldungen FAQ Titel -->
-    <string name="meldungen_nomeldungen_faq2_titel">"What is a potential infection?"</string>
-
-    <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"The app not only checks whether you have had encounters with infected persons, but how long and how close these were. 
-
-You will only be notified if there is sufficient likelihood that you have been infected."</string>
-
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"The infoline SwissCovid will advise you on getting a free test."</string>
 
@@ -1793,4 +1785,10 @@ If so, contact the Coronavirus Infoline:"</string>
 
     <!-- Link Text zu Informationen übers Testen -->
     <string name="checkin_report_link"></string>
+    <string name="instant_app_install_action"></string>
+    <string name="partial_onboarding_box_text"></string>
+    <string name="partial_onboarding_box_action"></string>
+    <string name="partial_onboarding_done_title"></string>
+    <string name="partial_onboarding_done_text"></string>
+    <string name="web_slogan"></string>
 </resources>

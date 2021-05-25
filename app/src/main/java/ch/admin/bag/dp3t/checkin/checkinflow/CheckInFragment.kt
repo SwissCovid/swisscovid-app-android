@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
+import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
-import ch.admin.bag.dp3t.checkin.generateqrcode.QrCodeFragment
+import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment
 import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.checkin.utils.*
 import ch.admin.bag.dp3t.databinding.FragmentCheckInBinding
@@ -24,15 +26,18 @@ import ch.admin.bag.dp3t.extensions.getSubtitle
 import com.google.android.material.button.MaterialButton
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
+private const val ARG_IS_SELF_CHECKIN = "ARG_IS_SELF_CHECKIN"
+
 class CheckInFragment : Fragment() {
 
 	companion object {
 		val TAG = CheckInFragment::class.java.canonicalName
 
 		@JvmStatic
-		fun newInstance(): CheckInFragment {
-			return CheckInFragment()
+		fun newInstance(isSelfCheckin: Boolean = false) = CheckInFragment().apply {
+			arguments = bundleOf(ARG_IS_SELF_CHECKIN to isSelfCheckin)
 		}
+
 	}
 
 	private val viewModel: CrowdNotifierViewModel by activityViewModels()
@@ -85,6 +90,11 @@ class CheckInFragment : Fragment() {
 			}
 
 			toolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
+			cancelButton.setOnClickListener {
+				requireActivity().supportFragmentManager.popBackStack(EventsOverviewFragment::class.java.canonicalName, 0)
+			}
+			selfCheckinToolbar.isVisible = requireArguments().getBoolean(ARG_IS_SELF_CHECKIN)
+			toolbar.isVisible = !requireArguments().getBoolean(ARG_IS_SELF_CHECKIN)
 		}.root
 	}
 
@@ -101,12 +111,10 @@ class CheckInFragment : Fragment() {
 	}
 
 	private fun popBackToHomeFragment() {
-		val fm = requireActivity().supportFragmentManager
-		val backStackEntry = if (fm.backStackEntryCount >= 2) fm.getBackStackEntryAt(fm.backStackEntryCount - 2) else null
-		if (backStackEntry?.name == QrCodeFragment::class.java.canonicalName) {
-			fm.popBackStack(CheckinOverviewFragment::class.java.canonicalName, 0)
+		if (requireArguments().getBoolean(ARG_IS_SELF_CHECKIN)) {
+			requireActivity().supportFragmentManager.popBackStack(CheckinOverviewFragment::class.java.canonicalName, 0)
 		} else {
-			fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+			requireActivity().supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
 		}
 	}
 

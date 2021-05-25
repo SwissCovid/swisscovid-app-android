@@ -20,17 +20,17 @@ class EventsOverviewFragment : Fragment() {
 
 	private val qrCodeViewModel: QRCodeViewModel by activityViewModels()
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		return FragmentEventsOverviewBinding.inflate(layoutInflater).apply {
 			eventsToolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 
 			val adapter = QrCodeAdapter(object : OnClickListener {
 				override fun generateQrCode() {
-					showFragment(GenerateQrCodeFragment.newInstance())
+					showFragment(GenerateQrCodeFragment.newInstance(), modalAnimation = true)
 				}
 
 				override fun onQrCodeClicked(qrCodeItem: VenueInfo) {
-					showFragment(QrCodeFragment.newInstance(qrCodeItem))
+					showFragment(QrCodeFragment.newInstance(qrCodeItem), modalAnimation = true)
 				}
 
 				override fun onDeleteQrCodeClicked(qrCodeItem: VenueInfo) {
