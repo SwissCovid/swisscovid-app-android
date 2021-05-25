@@ -69,7 +69,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="@dimen/spacing_medium_large"
 		android:layout_marginBottom="@dimen/spacing_small"
-		android:text="@string/events_footer_title3" />
+		android:text="TODO" />
 
 	<LinearLayout
 		android:layout_width="match_parent"
@@ -88,7 +88,7 @@
 			style="@style/NextStep.Text"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="@string/events_footer_subtitle3" />
+			android:text="TODO" />
 
 	</LinearLayout>
 

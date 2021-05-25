@@ -9,6 +9,6 @@ fun VenueType.getNameRes(): Int {
 	return when (this) {
 		VenueType.USER_QR_CODE -> R.string.venue_type_user_qr_code
 		VenueType.CONTACT_TRACING_QR_CODE -> R.string.venue_type_contact_tracing_qr_code
-		else -> R.string.web_generator_category_other
+		else -> 0
 	}
 }
