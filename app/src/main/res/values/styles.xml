@@ -134,6 +134,10 @@
 		<item name="android:textColor">@color/blue_main</item>
 	</style>
 
+	<style name="NextStep.Text.Title.Dark.Huge">
+		<item name="android:textSize">@dimen/text_size_splash_title</item>
+	</style>
+
 	<style name="NextStep.Text.Title.Dark.Mega">
 		<item name="android:textSize">@dimen/text_size_title_mega</item>
 	</style>

@@ -1723,13 +1723,13 @@ Dann kontaktieren Sie die Infoline Coronavirus:"</string>
     <string name="inform_are_you_sure_dont_send_button">"Don't share"</string>
 
     <!-- SwissCovid QR Code PDF: Headline über dem Slogan -->
-    <string name="pdf_headline">"SwissCovid Check-Ins"</string>
+    <string name="pdf_headline">"SwissCovid-Check-in"</string>
 
     <!-- SwissCovid QR Code PDF: Slogan -->
     <string name="pdf_slogan">"Einchecken ohne Daten zu hinterlassen"</string>
 
     <!-- SwissCovid QR Code PDF: Erklärungstext unter dem Slogan -->
-    <string name="pdf_explanation">"Mit der SwissCovid App können Sie sich bei uns einfach einchecken ohne Ihre Daten zu hinterlassen. Bei einer Risikosituation werden Sie in der App schnell informiert."</string>
+    <string name="pdf_explanation">"Mit der SwissCovid App können Sie sich bei uns einfach einchecken, ohne Ihre Daten zu hinterlassen. Bei einer Risikosituation werden Sie in der App schnell informiert."</string>
 
     <!-- SwissCovid QR Code PDF: App Bezeichnung neben dem App Icon -->
     <string name="pdf_swisscovid_app">"SwissCovid App"</string>
@@ -1855,4 +1855,10 @@ Dieser Titel wird beim Check-in angezeigt."</string>
 
     <!-- Link Text zu Informationen übers Testen -->
     <string name="checkin_report_link">"Was muss ich übers Testen wissen?"</string>
+    <string name="instant_app_install_action">"App installieren und einchecken"</string>
+    <string name="partial_onboarding_box_text">"Schliessen Sie die App-Konfiguration ab, um die Tracing-Funktion verwenden zu können."</string>
+    <string name="partial_onboarding_box_action">"Jetzt abschliessen"</string>
+    <string name="partial_onboarding_done_title">"Konfiguration abgeschlossen"</string>
+    <string name="partial_onboarding_done_text">"Vielen Dank, dass Sie mithelfen, die Verbreitung des Coronavirus einzudämmen."</string>
+    <string name="web_slogan">"Bei einem Ansteckungsrisiko schnell informiert."</string>
 </resources>
