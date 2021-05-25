@@ -19,9 +19,11 @@ import ch.admin.bag.dp3t.util.toUploadVenueInfo
 import com.google.android.gms.common.api.ApiException
 import kotlinx.coroutines.Dispatchers
 import org.crowdnotifier.android.sdk.CrowdNotifier
+import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.DP3TKotlin
 import org.dpppt.android.sdk.PendingUploadTask
 import org.dpppt.android.sdk.backend.ResponseCallback
+import org.dpppt.android.sdk.internal.AppConfigManager
 import org.dpppt.android.sdk.models.DayDate
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization
 import retrofit2.HttpException
@@ -120,6 +122,10 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 			return@liveData
 		}
 
+		val appConfigManager = AppConfigManager.getInstance(getApplication())
+		appConfigManager.iAmInfected = true
+		appConfigManager.iAmInfectedIsResettable = true
+		DP3T.stop(getApplication())
 		emit(Resource.success(data = null))
 	}
 

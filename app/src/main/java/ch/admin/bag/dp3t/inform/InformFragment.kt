@@ -75,20 +75,20 @@ class InformFragment : TraceKeyShareBaseFragment() {
 		binding.sendButton.isEnabled = false
 		setInvalidCovidcodeErrorVisible(false)
 		informViewModel.covidCode = binding.covidcodeInput.text
-		askUserToEnableTracingIfNecessary { tracingEnabled ->
-			if (tracingEnabled) {
-				loadOnsetDate()
-			} else {
-				binding.sendButton.isEnabled = true
-			}
-		}
+		loadOnsetDate()
 	}
 
 	private fun loadOnsetDate() {
 		informViewModel.loadOnsetDate().observe(viewLifecycleOwner) {
 			setLoadingViewVisible(it.status == Status.LOADING)
 			if (it.status == Status.SUCCESS) {
-				showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
+				askUserToEnableTracingIfNecessary { tracingEnabled ->
+					if (tracingEnabled) {
+						showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
+					} else {
+						showFragment(ReallyNotShareFragment.newInstance(), R.id.inform_fragment_container)
+					}
+				}
 			} else if (it.status == Status.ERROR) {
 				setInvalidCovidcodeErrorVisible(true)
 			}

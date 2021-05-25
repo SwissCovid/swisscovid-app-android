@@ -20,19 +20,22 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 	private lateinit var binding: FragmentShareCheckinsBinding
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		binding = FragmentShareCheckinsBinding.inflate(inflater).apply {
+		binding = FragmentShareCheckinsBinding.inflate(inflater)
+		return binding.apply {
 			(requireActivity() as InformActivity).allowBackButton(false)
 			val adapter = CheckinAdapter()
 			checkinsRecyclerView.adapter = adapter
 			adapter.setData(informViewModel.getSelectableCheckinItems())
 			adapter.itemSelectionListener { selectedItem, selected ->
 				informViewModel.setDiaryItemSelected(selectedItem.id, selected)
+				refreshSendButtonEnabled()
 			}
 			selectAllCheckbox.setOnCheckedChangeListener { _, isChecked ->
 				informViewModel.getSelectableCheckinItems().forEach {
 					informViewModel.setDiaryItemSelected(it.diaryEntry.id, isChecked)
 				}
 				adapter.setData(informViewModel.getSelectableCheckinItems())
+				refreshSendButtonEnabled()
 			}
 			dontSendButton.paintFlags = dontSendButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 			dontSendButton.setOnClickListener {
@@ -46,8 +49,12 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 				informViewModel.hasSharedCheckins = true
 				upload()
 			}
-		}
-		return binding.root
+			refreshSendButtonEnabled()
+		}.root
+	}
+
+	private fun refreshSendButtonEnabled() {
+		binding.sendButton.isEnabled = informViewModel.getSelectableCheckinItems().find { it.isSelected } != null
 	}
 
 	private fun upload() {
