@@ -121,7 +121,7 @@ public class StringUtil {
 	}
 
 	public static String getDaysAgoString(long timeStamp, Context context) {
-		final long diff = getStartOfDay().getTime() - timeStamp;
+		final long diff = DateUtils.getDaysDiff(timeStamp);
 		if (diff < 0) {
 			return context.getResources().getString(R.string.date_today);
 		} else {
@@ -135,14 +135,27 @@ public class StringUtil {
 		}
 	}
 
-	private static Date getStartOfDay() {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
-		calendar.set(Calendar.HOUR_OF_DAY, 0);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
-		return calendar.getTime();
+	public static String getReportDateString(long timestamp, boolean withDiff, boolean withPrefix, Context context) {
+		if (!withDiff) {
+			return DateUtils.getFormattedDateWrittenMonth(timestamp);
+		}
+		String dateStr;
+		if (withPrefix) {
+			dateStr = context.getString(R.string.date_text_before_date).replace("{DATE}", DateUtils.getFormattedDate(timestamp));
+		} else {
+			dateStr = DateUtils.getFormattedDate(timestamp);
+		}
+		dateStr += " / ";
+		int daysDiff = DateUtils.getDaysDiff(timestamp);
+
+		if (daysDiff == 0) {
+			dateStr += context.getString(R.string.date_today);
+		} else if (daysDiff == 1) {
+			dateStr += context.getString(R.string.date_one_day_ago);
+		} else {
+			dateStr += context.getString(R.string.date_days_ago).replace("{COUNT}", String.valueOf(daysDiff));
+		}
+		return dateStr;
 	}
 
 }

@@ -49,6 +49,7 @@ import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment;
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment;
 import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
+import ch.admin.bag.dp3t.extensions.FragmentExtensionsKt;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
@@ -57,6 +58,7 @@ import ch.admin.bag.dp3t.inform.InformActivity;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModel;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.reports.ReportsFragment;
+import ch.admin.bag.dp3t.reports.ReportsOverviewFragment;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.*;
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
@@ -252,11 +254,14 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void showReportsFragment() {
-		requireActivity().getSupportFragmentManager().beginTransaction()
-				.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-				.replace(R.id.main_fragment_container, ReportsFragment.newInstance())
-				.addToBackStack(ReportsFragment.class.getCanonicalName())
-				.commit();
+		int checkinReports = crowdNotifierViewModel.getExposures().getValue().size();
+		int tracingReports = tracingViewModel.getAppStatusLiveData().getValue().getExposureDays().size();
+		boolean isReportedPositive = tracingViewModel.getTracingStatusInterface().isReportedAsInfected();
+		if (((checkinReports > 0 && tracingReports > 0) || checkinReports > 1) && !isReportedPositive) {
+			FragmentExtensionsKt.showFragment(this, ReportsOverviewFragment.newInstance(), true);
+		} else {
+			FragmentExtensionsKt.showFragment(this, ReportsFragment.newInstance(null), true);
+		}
 	}
 
 	private void setupNotification() {
@@ -286,8 +291,16 @@ public class HomeFragment extends Fragment {
 		}
 		if (tracingStatusInterface.isReportedAsInfected()) {
 			NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.POSITIVE_TESTED);
-		} else if (tracingStatusInterface.wasContactReportedAsExposed()) {
-			long daysSinceExposure = tracingStatusInterface.getDaysSinceExposure();
+		} else if (tracingStatusInterface.wasContactReportedAsExposed() ||
+				!crowdNotifierViewModel.getExposures().getValue().isEmpty()) {
+			long daysSinceExposureTracing = tracingStatusInterface.getDaysSinceExposure();
+			long daysSinceExposureCheckin = crowdNotifierViewModel.getDaysSinceExposure();
+			long daysSinceExposure;
+			if (daysSinceExposureTracing >= 0 && daysSinceExposureCheckin >= 0) {
+				daysSinceExposure = Math.min(daysSinceExposureTracing, daysSinceExposureCheckin);
+			} else {
+				daysSinceExposure = Math.max(daysSinceExposureTracing, daysSinceExposureCheckin);
+			}
 			NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.EXPOSED, daysSinceExposure);
 		} else {
 			NotificationStateHelper.updateStatusView(reportStatusView, NotificationState.NO_REPORTS);

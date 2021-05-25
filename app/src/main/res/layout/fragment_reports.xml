@@ -23,7 +23,7 @@
 		app:navigationIcon="@drawable/ic_arrow_back"
 		app:title="@string/reports_title_homescreen" />
 
-	<androidx.fragment.app.FragmentContainerView
+	<FrameLayout
 		android:id="@+id/header_fragment_container"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -67,8 +67,8 @@
 				tools:visibility="visible" />
 
 			<include
-				android:id="@+id/reports_save_others"
-				layout="@layout/card_what_to_do_save_others"
+				android:id="@+id/reports_checkin_report"
+				layout="@layout/card_what_to_do_checkin_report"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/spacing_medium_large"

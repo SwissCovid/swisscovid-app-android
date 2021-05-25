@@ -184,7 +184,7 @@
 		</LinearLayout>
 
 		<Button
-			android:id="@+id/card_encounters_faq_button"
+			android:id="@+id/faq_button"
 			style="@style/NextStep.Button.Outlined.Purple"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
