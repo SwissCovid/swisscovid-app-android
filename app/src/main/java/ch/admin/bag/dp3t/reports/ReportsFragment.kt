@@ -50,9 +50,6 @@ import kotlin.math.min
 
 private const val ARG_CHECK_IN_ID = "ARG_CHECK_IN_ID"
 private const val ARG_SHOW_TRACING_REPORT_DETAILS = "ARG_SHOW_TRACING_REPORT_DETAILS"
-private const val TESTING_EXTERNAL_LINK =
-	"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"
-
 
 class ReportsFragment : Fragment() {
 
@@ -320,7 +317,7 @@ class ReportsFragment : Fragment() {
 	}
 
 	private fun showTestInformation() {
-		UrlUtil.openUrl(context, TESTING_EXTERNAL_LINK)
+		UrlUtil.openUrl(context, secureStorage.getTestInformationUrl(getString(R.string.language_key)))
 	}
 
 	private fun callHotline() {

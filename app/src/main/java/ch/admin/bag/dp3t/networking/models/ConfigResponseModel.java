@@ -20,6 +20,7 @@ public class ConfigResponseModel {
 	private SdkConfigModel androidGaenSdkConfig;
 	private Map<String, List<TestLocationModel>> testLocations;
 	private List<String> interOpsCountries;
+	private Map<String, String> testInformationUrls;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -48,6 +49,10 @@ public class ConfigResponseModel {
 
 	public List<String> getInterOpsCountries() {
 		return interOpsCountries;
+	}
+
+	public Map<String, String> getTestInformationUrls() {
+		return testInformationUrls;
 	}
 
 }
