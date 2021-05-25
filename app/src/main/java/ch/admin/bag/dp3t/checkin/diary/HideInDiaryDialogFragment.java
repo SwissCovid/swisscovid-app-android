@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import org.crowdnotifier.android.sdk.CrowdNotifier;
+
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
@@ -70,8 +72,8 @@ public class HideInDiaryDialogFragment extends DialogFragment {
 	}
 
 	private void nukeNow() {
-		// TODO: use correct delete function
 		diaryStorage.removeEntry(diaryEntry.getId());
+		CrowdNotifier.deleteCheckIn(diaryEntry.getId(), requireContext());
 		dismiss();
 		requireActivity().getSupportFragmentManager().popBackStack();
 	}
