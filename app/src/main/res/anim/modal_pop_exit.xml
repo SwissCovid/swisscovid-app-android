@@ -5,6 +5,7 @@
 		android:duration="200"
 		android:fillAfter="true"
 		android:fromYDelta="0%p"
+		android:interpolator="@android:anim/accelerate_interpolator"
 		android:toYDelta="100%p" />
 
 </set>

@@ -7,13 +7,27 @@
 	android:background="@color/white"
 	android:orientation="vertical">
 
-	<androidx.appcompat.widget.Toolbar
-		android:id="@+id/toolbar"
+	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:layout_constraintTop_toTopOf="parent"
-		app:navigationContentDescription="@string/android_accessibility_back_button"
-		app:navigationIcon="@drawable/ic_arrow_back" />
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation">
+
+		<TextView
+			android:id="@+id/cancel_button"
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/cancel" />
+
+	</FrameLayout>
+
 
 	<ScrollView
 		android:layout_width="match_parent"

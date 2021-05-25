@@ -307,7 +307,7 @@ public class MainActivity extends FragmentActivity {
 
 	private void showCheckInScreen() {
 		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.main_fragment_container, CheckInFragment.newInstance())
+				.replace(R.id.main_fragment_container, CheckInFragment.newInstance(false))
 				.addToBackStack(CheckInFragment.class.getCanonicalName())
 				.commit();
 	}
