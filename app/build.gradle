@@ -70,7 +70,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-d.bfs.admin.ch/"'
-			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.todo.ch"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://app-dev-ws.notify-me.ch/"'
 			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-d.swisscovid.ch"'
 			buildConfigField "String", "TRACE_QR_CODE_PREFIX", '"https://upload-dev.notify-me.ch"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.dev.CONFIG_CERTIFICATE}\""
@@ -84,7 +84,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-t.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-t.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-t.bfs.admin.ch/"'
-			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.todo.ch"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://app-dev-ws.notify-me.ch/"'
 			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-t.swisscovid.ch"'
 			buildConfigField "String", "TRACE_QR_CODE_PREFIX", '"https://upload-dev.notify-me.ch"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.test.CONFIG_CERTIFICATE}\""
@@ -98,7 +98,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-a.bfs.admin.ch/"'
-			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.todo.ch"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://app-dev-ws.notify-me.ch/"'
 			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-a.swisscovid.ch"'
 			buildConfigField "String", "TRACE_QR_CODE_PREFIX", '"https://upload-dev.notify-me.ch"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.abnahme.CONFIG_CERTIFICATE}\""
@@ -112,7 +112,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt.bfs.admin.ch/"'
-			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.todo.ch"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://app-dev-ws.notify-me.ch/"'
 			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
 			buildConfigField "String", "TRACE_QR_CODE_PREFIX", '"https://upload-dev.notify-me.ch"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
@@ -125,7 +125,7 @@ android {
 			buildConfigField 'String', 'BUCKET_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt.bfs.admin.ch/"'
-			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.todo.ch"'
+			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://app-dev-ws.notify-me.ch/"'
 			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
 			buildConfigField "String", "TRACE_QR_CODE_PREFIX", '"https://upload-dev.notify-me.ch"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
@@ -200,14 +200,14 @@ dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 	implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 
-	def dp3t_sdk_version = '2.2.0'
+	def dp3t_sdk_version = '2.3.0-dev-6'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
 	teschtImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	prodImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	logImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 
-	implementation 'org.crowdnotifier:crowdnotifier-sdk-android:4.0-dev-7'
+	implementation 'org.crowdnotifier:crowdnotifier-sdk-android:4.0-dev-9'
 
 
 	implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -227,7 +227,7 @@ dependencies {
 	implementation 'com.google.android.material:material:1.2.1'
 	implementation 'com.google.android.gms:play-services-base:17.5.0'
 	implementation 'com.google.protobuf:protobuf-lite:3.0.1'
-
+	implementation('com.squareup.retrofit2:converter-protobuf:2.9.0') { transitive = false }
 	implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 	implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 

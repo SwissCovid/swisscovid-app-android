@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.crowdnotifier.android.sdk.CrowdNotifier
 import org.crowdnotifier.android.sdk.model.VenueInfo
+import org.crowdnotifier.android.sdk.utils.Base64Util
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -27,7 +28,7 @@ import kotlin.math.max
 
 
 private const val MASTER_PUBLIC_KEY_BASE64 =
-	"TqRYigTM6YVO7/UJQuu3199mRqj0cSTp4DXCFlxbz9UqDLrASr07C9HJVWYtl08V7xGEGSSXWbQSRfRt/bqqDK0HQQGnZ/VWZxToo88txtgQ1ij7pYJwaBHAGGndLICL"
+	"lW5voTRVR-jgYMiWLd04hjvyyFQG7QOyBLw0D7XbASlqlg0AviQMqgjbABZk9PcCip27szrqFyv_1YtKZE8eyzt7vtN4qKfJdWrItLRzRtjb83piN3cDt_yNo7siohQV"
 private const val ONE_MINUTE_IN_MILLIS = 60 * 1000L
 private const val ONE_HOUR_IN_MILLIS = 60 * ONE_MINUTE_IN_MILLIS
 private const val AUTOMATIC_CHECKOUT_DELAY_MS = 12 * ONE_HOUR_IN_MILLIS
@@ -89,7 +90,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 			swissCovidLocationData.toByteArray(),
 			System.currentTimeMillis() / 1000,
 			(System.currentTimeMillis() + QR_CODE_VALIDITY_DURATION_MS) / 1000,
-			Base64.decode(MASTER_PUBLIC_KEY_BASE64, Base64.DEFAULT)
+			Base64Util.fromBase64(MASTER_PUBLIC_KEY_BASE64)
 		)
 
 
