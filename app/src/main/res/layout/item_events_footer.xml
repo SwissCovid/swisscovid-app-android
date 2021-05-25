@@ -23,8 +23,7 @@
 			android:layout_width="@dimen/icon_size"
 			android:layout_height="@dimen/icon_size"
 			android:layout_marginEnd="@dimen/spacing_medium_large"
-			android:src="@drawable/ic_shield_checkmark"
-			android:tint="@color/blue_main" />
+			android:src="@drawable/ic_location_pin" />
 
 		<TextView
 			style="@style/NextStep.Text"
@@ -52,8 +51,7 @@
 			android:layout_width="@dimen/icon_size"
 			android:layout_height="@dimen/icon_size"
 			android:layout_marginEnd="@dimen/spacing_medium_large"
-			android:src="@drawable/ic_shield_checkmark"
-			android:tint="@color/blue_main" />
+			android:src="@drawable/ic_stopwatch" />
 
 		<TextView
 			style="@style/NextStep.Text"
