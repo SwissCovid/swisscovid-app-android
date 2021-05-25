@@ -52,6 +52,7 @@ import ch.admin.bag.dp3t.contacts.ContactsFragment;
 import ch.admin.bag.dp3t.extensions.FragmentExtensionsKt;
 import ch.admin.bag.dp3t.home.model.NotificationState;
 import ch.admin.bag.dp3t.home.model.NotificationStateError;
+import ch.admin.bag.dp3t.home.model.TracingState;
 import ch.admin.bag.dp3t.home.model.TracingStatusInterface;
 import ch.admin.bag.dp3t.home.views.HeaderView;
 import ch.admin.bag.dp3t.inform.InformActivity;
@@ -273,7 +274,7 @@ public class HomeFragment extends Fragment {
 				updateNotification(tracingViewModel.getAppStatusLiveData().getValue(), hasTraceKeyLoadingError));
 	}
 
-	private void updateNotification(TracingStatusInterface tracingStatusInterface, boolean hasTraceKeyLoadingError) {
+	private void updateNotification(TracingStatusInterface tracingStatusInterface, boolean hasCheckinKeyLoadingError) {
 		//update status view
 		if (loadingView.getVisibility() == VISIBLE) {
 			loadingView.animate()
@@ -307,7 +308,8 @@ public class HomeFragment extends Fragment {
 		}
 
 		TracingStatus.ErrorState errorState = tracingStatusInterface.getReportErrorState();
-		if (errorState != null) {
+
+		if (errorState != null && tracingStatusInterface.getTracingState().equals(TracingState.ACTIVE)) {
 			TracingErrorStateHelper.updateErrorView(reportErrorView, errorState);
 			reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
 				loadingView.setVisibility(VISIBLE);
@@ -319,7 +321,7 @@ public class HomeFragment extends Fragment {
 							public void onAnimationEnd(Animator animation) { tracingViewModel.sync(); }
 						});
 			});
-		} else if (hasTraceKeyLoadingError) {
+		} else if (hasCheckinKeyLoadingError) {
 			TracingErrorStateHelper.updateErrorView(reportErrorView, CrowdNotifierErrorState.NETWORK);
 			reportErrorView.findViewById(R.id.error_status_button).setOnClickListener(v -> {
 				loadingView.setVisibility(VISIBLE);
@@ -441,12 +443,14 @@ public class HomeFragment extends Fragment {
 
 	private void setupCovidCodeCard() {
 		Button covidCodeButton = covidCodeCard.findViewById(R.id.enter_covidcode_button);
+		TextView covidCodeTitle = covidCodeCard.findViewById(R.id.enter_covidcode_title);
 		TextView covidCodeText = covidCodeCard.findViewById(R.id.enter_covidcode_text);
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			if (tracingStatusInterface.isReportedAsInfected()) {
 				covidCodeButton.setText(R.string.delete_infection_button);
-				covidCodeText.setText(R.string.home_end_isolation_card_title);
+				covidCodeTitle.setText(R.string.home_end_isolation_card_title);
+				covidCodeText.setText(R.string.home_end_isolation_card_text);
 				covidCodeButton.setOnClickListener(v -> {
 					AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle);
 					builder.setMessage(R.string.delete_infection_dialog)
@@ -463,7 +467,8 @@ public class HomeFragment extends Fragment {
 				});
 			} else {
 				covidCodeButton.setText(R.string.inform_code_title);
-				covidCodeText.setText(R.string.home_covidcode_card_title);
+				covidCodeTitle.setText(R.string.home_covidcode_card_title);
+				covidCodeText.setText(R.string.home_covidcode_card_text);
 				covidCodeButton.setOnClickListener(v -> {
 					Intent intent = new Intent(getActivity(), InformActivity.class);
 					startActivity(intent);

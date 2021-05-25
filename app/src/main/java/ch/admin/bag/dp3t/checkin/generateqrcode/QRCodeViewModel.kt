@@ -74,7 +74,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 		saveGeneratedQrCode(builder.build())
 	}
 
-	fun generateAndSaveQrCode(description: String) = viewModelScope.launch(Dispatchers.IO) {
+	fun generateAndSaveQrCode(description: String) = liveData(Dispatchers.IO) {
 
 		val swissCovidLocationData = SwissCovidLocationData.newBuilder()
 			.setVersion(SWISSCOVID_LOCATION_DATA_VERSION)
@@ -99,6 +99,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 			.addGeneratedQrCodes(generatedVenueInfo.toQrCodePayload())
 			.build()
 		saveGeneratedQrCode(newWrapper)
+		emit(generatedVenueInfo)
 	}
 
 	fun generateQrCodeBitmapAndPdf(venueInfo: VenueInfo, qrCodeSize: Int) = viewModelScope.launch(Dispatchers.IO) {

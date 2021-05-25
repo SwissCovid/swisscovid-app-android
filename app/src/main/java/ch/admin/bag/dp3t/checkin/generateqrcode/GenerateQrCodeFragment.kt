@@ -10,6 +10,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.databinding.FragmentGenerateQrCodeBinding
+import ch.admin.bag.dp3t.extensions.showFragment
 
 class GenerateQrCodeFragment : Fragment() {
 
@@ -32,8 +33,9 @@ class GenerateQrCodeFragment : Fragment() {
 	}
 
 	private fun generateQrCode(title: String) {
-		qrCodeViewModel.generateAndSaveQrCode(title)
-		popFragmentAndHideKeyboard()
+		qrCodeViewModel.generateAndSaveQrCode(title).observe(viewLifecycleOwner) {
+			showFragment(QrCodeFragment.newInstance(it), addToBackStack = false)
+		}
 	}
 
 	private fun popFragmentAndHideKeyboard() {

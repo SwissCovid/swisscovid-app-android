@@ -80,6 +80,14 @@
 					android:gravity="center"
 					android:text="@string/checkin_set_reminder" />
 
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_small"
+					android:gravity="center"
+					android:text="@string/checkin_set_reminder_explanation" />
+
 				<com.google.android.material.button.MaterialButtonToggleGroup
 					android:id="@+id/reminder_toggle_group"
 					android:layout_width="match_parent"
@@ -111,6 +119,6 @@
 		android:layout_marginHorizontal="@dimen/spacing_larger"
 		android:layout_marginVertical="@dimen/spacing_larger"
 		android:drawableEnd="@drawable/ic_check_in"
-		android:text="@string/check_in_now_button_title" />
+		android:text="@string/checkin_button_title" />
 
 </LinearLayout>

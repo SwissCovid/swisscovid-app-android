@@ -137,7 +137,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="@dimen/spacing_medium"
-					android:text="@string/test_location_popup_title" />
+					android:text="@string/checkin_report_link" />
 			</LinearLayout>
 
 			<View

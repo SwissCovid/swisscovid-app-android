@@ -51,7 +51,6 @@ class CheckinOverviewFragment : Fragment() {
 					val venueInfo = crowdNotifierViewModel.checkInState.venueInfo
 					crowdNotifierViewModel.startCheckInTimer()
 					checkinTitle.text = venueInfo.description
-					checkinSubtitle.setText(venueInfo.getSubtitle())
 				}
 			})
 

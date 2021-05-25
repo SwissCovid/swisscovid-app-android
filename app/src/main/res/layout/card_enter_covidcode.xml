@@ -12,11 +12,18 @@
 		android:orientation="vertical">
 
 		<TextView
+			android:id="@+id/enter_covidcode_title"
+			style="@style/NextStep.Text.Title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/home_covidcode_card_title" />
+
+		<TextView
 			android:id="@+id/enter_covidcode_text"
 			style="@style/NextStep.Text"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="@string/home_covidcode_card_title" />
+			android:text="@string/home_covidcode_card_text" />
 
 		<Button
 			android:id="@+id/enter_covidcode_button"

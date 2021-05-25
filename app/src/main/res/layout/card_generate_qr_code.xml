@@ -24,7 +24,6 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_marginTop="5dp"
-			android:gravity="center_vertical"
 			android:orientation="horizontal"
 			android:paddingBottom="5dp">
 
@@ -34,7 +33,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginStart="@dimen/spacing_medium"
 				android:layout_weight="1"
-				android:text="@string/events_title" />
+				android:text="@string/events_card_title" />
 
 			<ImageView
 				android:layout_width="@dimen/chevron_size_title"

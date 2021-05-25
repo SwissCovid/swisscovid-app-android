@@ -63,16 +63,28 @@
 						android:id="@+id/checkin_view"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_marginHorizontal="@dimen/spacing_small"
+						android:layout_marginHorizontal="@dimen/spacing_medium_large"
 						android:orientation="vertical"
-						android:visibility="gone">
+						android:visibility="gone"
+						tools:visibility="visible">
+
+						<TextView
+							style="@style/NextStep.Text.Bold.Blue"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/module_checkins_title" />
+
+						<TextView
+							style="@style/NextStep.Text.Title"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/pdf_slogan" />
 
 						<TextView
 							style="@style/NextStep.Text"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_small"
-							android:gravity="center_horizontal"
+							android:layout_marginTop="@dimen/spacing_medium_large"
 							android:text="@string/checkin_overview_checkins_explanation" />
 
 						<Button
@@ -81,7 +93,7 @@
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
 							android:layout_marginVertical="@dimen/spacing_medium_large"
-							android:drawableStart="@drawable/ic_qr"
+							android:drawableEnd="@drawable/ic_qr"
 							android:text="@string/scan_qr_code_button_title" />
 
 					</LinearLayout>
@@ -92,7 +104,8 @@
 						android:layout_height="wrap_content"
 						android:layout_marginHorizontal="@dimen/spacing_small"
 						android:orientation="vertical"
-						android:visibility="visible">
+						android:visibility="visible"
+						tools:visibility="gone">
 
 						<TextView
 							style="@style/NextStep.Text"
@@ -101,15 +114,6 @@
 							android:layout_marginTop="@dimen/spacing_tiny_small"
 							android:gravity="center_horizontal"
 							android:text="@string/checkin_checked_in" />
-
-						<TextView
-							android:id="@+id/checkin_time"
-							style="@style/NextStep.Text.SplashTitle.Dark"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_small"
-							android:gravity="center_horizontal"
-							tools:text="20:32" />
 
 						<TextView
 							android:id="@+id/checkin_title"
@@ -121,13 +125,13 @@
 							tools:text="Reuss, Ubique" />
 
 						<TextView
-							android:id="@+id/checkin_subtitle"
-							style="@style/NextStep.Text"
+							android:id="@+id/checkin_time"
+							style="@style/NextStep.Text.SplashTitle"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
-							android:layout_marginTop="@dimen/spacing_tiny_small"
+							android:layout_marginTop="@dimen/spacing_small"
 							android:gravity="center_horizontal"
-							tools:text="Büroräumlichkeiten" />
+							tools:text="20:32" />
 
 						<Button
 							android:id="@+id/checkout_button"
@@ -149,14 +153,16 @@
 				style="@style/NextStep.Card"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginStart="@dimen/spacing_medium_large"
-				android:layout_marginEnd="@dimen/spacing_medium_large"
+				android:layout_marginHorizontal="@dimen/spacing_medium_large"
 				android:layout_marginBottom="@dimen/spacing_medium_large"
-				android:visibility="gone">
+				android:visibility="gone"
+				tools:visibility="visible">
 
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
+					android:layout_marginHorizontal="@dimen/spacing_medium_large"
+					android:layout_marginBottom="@dimen/spacing_medium_large"
 					android:foreground="?selectableItemBackground"
 					android:orientation="vertical">
 
@@ -168,13 +174,23 @@
 						android:src="@drawable/ic_illu_checkin_ended" />
 
 					<TextView
+						style="@style/NextStep.Text.Bold.Purple"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/module_checkins_title" />
+
+					<TextView
+						style="@style/NextStep.Text.Title"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/checkin_ended_title" />
+
+					<TextView
 						style="@style/NextStep.Text"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_marginHorizontal="@dimen/spacing_larger"
-						android:layout_marginBottom="@dimen/spacing_large"
-						android:gravity="center_horizontal"
-						android:text="@string/checkin_overview_isolation_text" />
+						android:layout_marginTop="@dimen/spacing_medium_large"
+						android:text="@string/checkin_ended_text_detailed" />
 
 				</LinearLayout>
 
@@ -225,7 +241,9 @@
 					<LinearLayout
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_margin="@dimen/spacing_medium"
+						android:layout_marginHorizontal="@dimen/spacing_medium_large"
+						android:layout_marginTop="@dimen/spacing_small"
+						android:layout_marginBottom="@dimen/spacing_medium_large"
 						android:orientation="horizontal">
 
 						<TextView

@@ -132,7 +132,7 @@ public class NotificationHelper {
 				.setSmallIcon(R.drawable.ic_notification)
 				.setContentTitle(context.getString(R.string.ongoing_notification_title)
 						.replace("{TIME}", StringUtil.getHourMinuteTimeString(startTime, ":")))
-				.setContentText(venueInfo.getTitle() + "\n" + VenueInfoExtensionsKt.getSubtitle(venueInfo))
+				.setContentText(venueInfo.getTitle())
 				.setPriority(NotificationCompat.PRIORITY_LOW)
 				.setOngoing(true)
 				.addAction(R.drawable.ic_close,

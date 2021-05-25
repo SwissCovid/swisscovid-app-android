@@ -161,6 +161,10 @@
 		<item name="android:textSize">@dimen/text_size_splash_title</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">@color/dark_main</item>
+	</style>
+
+	<style name="NextStep.Text.SplashTitle.White">
 		<item name="android:textColor">@color/white</item>
 	</style>
 
