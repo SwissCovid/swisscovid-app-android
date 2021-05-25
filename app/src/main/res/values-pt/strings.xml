@@ -590,14 +590,6 @@ Isto aumenta muito pouco o consumo da bateria."</string>
 
 Em caso de possível contágio, receberá uma notificação no ecrã de bloqueio."</string>
 
-    <!-- Meldungen: Keine Meldungen FAQ Titel -->
-    <string name="meldungen_nomeldungen_faq2_titel">"O que significa um possível contágio?"</string>
-
-    <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"A app não só verifica se houve contactos com pessoas infetadas, mas também quanto tempo e quão perto esteve dessas pessoas. 
-
-Só será notificado se houver uma probabilidade razoável de contágio."</string>
-
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"A linha informativa SwissCovid aconselha-o sobre um possível teste gratuito."</string>
 
@@ -1771,4 +1763,10 @@ Contacte a linha de informação coronavírus:"</string>
 
     <!-- Link Text zu Informationen übers Testen -->
     <string name="checkin_report_link"></string>
+    <string name="instant_app_install_action"></string>
+    <string name="partial_onboarding_box_text"></string>
+    <string name="partial_onboarding_box_action"></string>
+    <string name="partial_onboarding_done_title"></string>
+    <string name="partial_onboarding_done_text"></string>
+    <string name="web_slogan"></string>
 </resources>

@@ -576,12 +576,6 @@
     <string name="meldungen_nomeldungen_faq1_text">"እቲ ኣፕ ክልኦት ዝተራኸብኩሞም ተጠቀምቲ  ብመርመራ ፖዚቲቭ ከምዝኾኑ ሓቢሮም እንተኾይኖም ቀጻሊ ይምርምር። 
 ተኽእሎ ምልካፍ ብሕማም ምስዝህሉ ብመነግዲ መልእኽቲ ኣብ ዕጹው ስክሪን ሞባይል ክትሕበሩ ኢኹም።  "</string>
 
-    <!-- Meldungen: Keine Meldungen FAQ Titel -->
-    <string name="meldungen_nomeldungen_faq2_titel">"ተኽእሎ ምልካፍ ብሕማም እንታይ ማለት እዩ፧"</string>
-
-    <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"እቲ ኣፕ ርክብ ምስ ዝተለኸፉ ሰባት ኣጓኒፉ እንተኾይኑ ጥራይ ዘይኮነስ ንውሒ ግዜን  ዓቐን ናይቲ ቅርበትን እዩ ዝምርምር።  ቡቑዕ ተኽእሎ ናይ መልከፍቲ ምስዝህሉ ጥራይ ኢኹም ትሕበሩ።"</string>
-
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"መስመር ሓበሬታ ስዊስኮቪድ ብዛዕባ  ተኽእሎ ካብ ክፍሊት ነጻ ናይ ዝኾነ መርመራ የማኽረኩም።  "</string>
 
@@ -1746,4 +1740,10 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
 
     <!-- Link Text zu Informationen übers Testen -->
     <string name="checkin_report_link"></string>
+    <string name="instant_app_install_action"></string>
+    <string name="partial_onboarding_box_text"></string>
+    <string name="partial_onboarding_box_action"></string>
+    <string name="partial_onboarding_done_title"></string>
+    <string name="partial_onboarding_done_text"></string>
+    <string name="web_slogan"></string>
 </resources>

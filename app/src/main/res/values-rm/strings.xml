@@ -586,14 +586,6 @@ ll diever da la battaria s'augmenta qua tras mo levamain."</string>
 
 En cas d'ina eventuala infecziun vegnis Vus orientada/orientà cun ina communicaziun sin il visur bloccà."</string>
 
-    <!-- Meldungen: Keine Meldungen FAQ Titel -->
-    <string name="meldungen_nomeldungen_faq2_titel">"Tge vul dir eventuala infecziun?"</string>
-
-    <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"L'app n'examinescha betg sulettamain, sch'i ha dà inscunters cun persunas infectadas, mabain er quant ditg ch'els han durà e quant damanaivel che Vus essas stada/stà a questas persunas.
-
-Vus vegnis infurmada/infurmà mo, sche la pussaivladad d'esser infectada/infectà è gronda avunda."</string>
-
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"L'infoline SwissCovid As cusseglia davart la pussaivladad d'in test gratuit."</string>
 
@@ -1766,4 +1758,10 @@ Alura contactai la Infoline coronavirus:"</string>
 
     <!-- Link Text zu Informationen übers Testen -->
     <string name="checkin_report_link"></string>
+    <string name="instant_app_install_action"></string>
+    <string name="partial_onboarding_box_text"></string>
+    <string name="partial_onboarding_box_action"></string>
+    <string name="partial_onboarding_done_title"></string>
+    <string name="partial_onboarding_done_text"></string>
+    <string name="web_slogan"></string>
 </resources>

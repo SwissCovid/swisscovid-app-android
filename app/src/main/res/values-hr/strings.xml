@@ -588,14 +588,6 @@ Time se potrošnja baterije samo neznatno povećava."</string>
 
 U slučaju moguće infekcije, dobićete obaveštenje na zaključanom ekranu."</string>
 
-    <!-- Meldungen: Keine Meldungen FAQ Titel -->
-    <string name="meldungen_nomeldungen_faq2_titel">"Šta je moguća infekcija?"</string>
-
-    <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq2_text">"Aplikacija ne samo da proverava da li ste imali kontakte sa inficiranim osobama, već i koliko dugo su oni trajali i koliko bliski su bili.
-
-Bićete obavešteni samo ako postoji dovoljno velika mogućnost infekcije."</string>
-
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"Preko info linije aplikacije SwissCovid možete da dobijete savete o mogućnosti besplatnog testiranja."</string>
 
@@ -1766,4 +1758,10 @@ U tom slučaju kontaktirajte Infoline Coronavirus:"</string>
 
     <!-- Link Text zu Informationen übers Testen -->
     <string name="checkin_report_link"></string>
+    <string name="instant_app_install_action"></string>
+    <string name="partial_onboarding_box_text"></string>
+    <string name="partial_onboarding_box_action"></string>
+    <string name="partial_onboarding_done_title"></string>
+    <string name="partial_onboarding_done_text"></string>
+    <string name="web_slogan"></string>
 </resources>
