@@ -1,5 +1,6 @@
 package ch.admin.bag.dp3t.checkin.diary;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
+import org.crowdnotifier.android.sdk.CrowdNotifier;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
@@ -45,26 +48,32 @@ public class HideInDiaryDialogFragment extends DialogFragment {
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-		View closeButton = view.findViewById(R.id.remove_diary_entry_dialog_close_button);
-		View hideButton = view.findViewById(R.id.hide_diary_entry_dialog_hide_button);
-		TextView explanationText = view.findViewById(R.id.hide_diary_entry_dialog_text);
+		View closeButton = view.findViewById(R.id.checkin_remove_close_button);
+		View hideButton = view.findViewById(R.id.checkin_remove_hide_button);
+		TextView nukeButton = view.findViewById(R.id.checkin_remove_nuke_button);
 
-		String locationInfo = diaryEntry.getVenueInfo().getDescription() + ", " + diaryEntry.getVenueInfo().getAddress();
-		explanationText.setText(getString(R.string.remove_diary_warning_text).replace("{LOCATION_INFO}", locationInfo));
+		nukeButton.setPaintFlags(nukeButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
 		closeButton.setOnClickListener(v -> dismiss());
 		hideButton.setOnClickListener(v -> hideNow());
+		nukeButton.setOnClickListener(v -> nukeNow());
 	}
 
 	@Override
 	public void onResume() {
 		getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-		getDialog().getWindow().setBackgroundDrawableResource(R.drawable.dialog_background);
-
 		super.onResume();
 	}
 
 	private void hideNow() {
 		diaryStorage.removeEntry(diaryEntry.getId());
+		dismiss();
+		requireActivity().getSupportFragmentManager().popBackStack();
+	}
+
+	private void nukeNow() {
+		diaryStorage.removeEntry(diaryEntry.getId());
+		CrowdNotifier.deleteCheckIn(diaryEntry.getId(), requireContext());
 		dismiss();
 		requireActivity().getSupportFragmentManager().popBackStack();
 	}

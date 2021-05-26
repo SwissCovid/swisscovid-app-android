@@ -11,39 +11,25 @@
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="@color/light_grey">
+		android:paddingHorizontal="@dimen/spacing_medium_large">
 
 		<TextView
-			android:id="@+id/check_out_fragment_cancel_button"
-			style="@style/CrowdNotifier.Text.Status.Primary.Small.Thin"
+			android:id="@+id/toolbar_cancel_button"
+			style="@style/NextStep.Button.Transparent.Blue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
-			android:background="?selectableItemBackground"
-			android:padding="@dimen/spacing_large"
 			android:text="@string/cancel"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
-			style="@style/CrowdNotifier.Text.Status.Small"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/checkout_button_title"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
-
-		<TextView
-			android:id="@+id/check_out_fragment_done_button"
-			style="@style/CrowdNotifier.Text.Status.Primary.Small"
+			android:id="@+id/toolbar_done_button"
+			style="@style/NextStep.Button.Transparent.Blue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
-			android:background="?selectableItemBackground"
-			android:padding="@dimen/spacing_large"
-			android:text="@string/done_button"
+			android:text="@string/checkout_save_button_title"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,17 +37,17 @@
 
 	<ScrollView
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent"
+		android:fillViewport="true">
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
-			android:paddingHorizontal="@dimen/spacing_very_large"
-			android:paddingBottom="@dimen/spacing_large">
+			android:paddingHorizontal="@dimen/spacing_very_large">
 
 			<TextView
-				android:id="@+id/check_out_fragment_title"
+				android:id="@+id/checkout_title"
 				style="@style/CrowdNotifier.Text.Title"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -70,7 +56,7 @@
 				tools:text="Cyber Cafe SV" />
 
 			<TextView
-				android:id="@+id/check_out_fragment_subtitle"
+				android:id="@+id/checkout_subtitle"
 				style="@style/CrowdNotifier.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -79,96 +65,42 @@
 				tools:text="Lausanne" />
 
 			<TextView
-				android:id="@+id/check_out_fragment_date"
-				style="@style/CrowdNotifier.Text.Subtitle"
-				android:layout_width="wrap_content"
+				style="@style/CrowdNotifier.Text.Status.Small"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_gravity="center"
 				android:layout_marginTop="@dimen/spacing_huge"
-				android:gravity="center"
-				tools:text="Thursday, October 22" />
+				android:text="@string/datepicker_from" />
 
-			<LinearLayout
+			<ch.admin.bag.dp3t.view.DateTimePicker
+				android:id="@+id/checkout_time_arrival"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_large"
-				android:orientation="horizontal">
-
-				<TextView
-					style="@style/CrowdNotifier.Text.Status.Small"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					android:text="@string/datepicker_from" />
-
-				<TextView
-					style="@style/CrowdNotifier.Text.Status.Small"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					android:text="@string/datepicker_to" />
-
-			</LinearLayout>
-
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_small"
-				android:orientation="horizontal">
-
-				<TextView
-					android:id="@+id/check_out_fragment_from_text_view"
-					style="@style/CrowdNotifier.Text.Status.Primary"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_marginEnd="@dimen/spacing_tiny_small"
-					android:layout_weight="1"
-					android:background="@color/light_grey"
-					android:foreground="?android:selectableItemBackground"
-					android:gravity="center"
-					android:paddingVertical="@dimen/spacing_medium"
-					tools:text="07  :  56" />
-
-				<TextView
-					android:id="@+id/check_out_fragment_to_text_view"
-					style="@style/CrowdNotifier.Text.Status.Primary"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="@dimen/spacing_tiny_small"
-					android:layout_weight="1"
-					android:background="@color/light_grey"
-					android:foreground="?android:selectableItemBackground"
-					android:gravity="center"
-					android:paddingVertical="@dimen/spacing_medium"
-					tools:text="08  :  13" />
-
-			</LinearLayout>
+				android:layout_height="108dp" />
 
 			<TextView
 				style="@style/CrowdNotifier.Text.Status.Small"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_medium"
-				android:text="@string/edit_mode_addcomment" />
-
-			<EditText
-				android:id="@+id/check_out_fragment_comment_edit_text"
-				style="@style/CrowdNotifier.EditText"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_small"
-				android:hint="@string/edit_mode_comment_placeholder" />
+				android:layout_marginTop="@dimen/spacing_medium"
+				android:text="@string/datepicker_to" />
+
+			<ch.admin.bag.dp3t.view.DateTimePicker
+				android:id="@+id/checkout_time_departure"
+				android:layout_width="match_parent"
+				android:layout_height="108dp" />
+
+			<Space
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:layout_weight="1" />
 
 			<Button
-				android:id="@+id/edit_diary_entry_hide_from_diary_button"
-				style="@style/CrowdNotifier.Button"
+				android:id="@+id/checkout_primary_button"
+				style="@style/NextStep.Button.Blue"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center"
-				android:layout_marginTop="@dimen/spacing_huge"
-				android:visibility="gone"
-				tools:visibility="visible"
-				android:text="@string/remove_from_diary_button" />
+				android:layout_margin="@dimen/spacing_huge"
+				tools:text="@string/remove_from_diary_button" />
 
 		</LinearLayout>
 

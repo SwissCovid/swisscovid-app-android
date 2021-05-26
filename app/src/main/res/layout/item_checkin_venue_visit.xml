@@ -5,7 +5,7 @@
 	style="@style/CrowdNotifier.Card.Small"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:layout_marginVertical="@dimen/spacing_tiny_small">
+	android:layout_marginVertical="@dimen/spacing_very_small">
 
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
@@ -26,8 +26,8 @@
 			android:id="@+id/item_diary_entry_status_icon"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:src="@drawable/ic_info"
-			android:tint="@color/red_main"
+			android:src="@drawable/ic_warning_round"
+			android:tint="@color/blue_main"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
 
