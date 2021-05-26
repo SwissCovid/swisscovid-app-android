@@ -76,6 +76,7 @@ android {
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.dev.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.dev.BUCKET_PUBLIC_KEY}\""
 			applicationIdSuffix '.dev'
+			manifestPlaceholders = [qrCodeHostName: "qr-d.swisscovid.ch"]
 		}
 		tescht {
 			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
@@ -90,6 +91,7 @@ android {
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.test.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.test.BUCKET_PUBLIC_KEY}\""
 			applicationIdSuffix '.test'
+			manifestPlaceholders = [qrCodeHostName: "qr-t.swisscovid.ch"]
 		}
 		abnahme {
 			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
@@ -104,6 +106,7 @@ android {
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.abnahme.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.abnahme.BUCKET_PUBLIC_KEY}\""
 			applicationIdSuffix '.abnahme'
+			manifestPlaceholders = [qrCodeHostName: "qr-a.swisscovid.ch"]
 		}
 		prod {
 			buildConfigField 'boolean', 'DEV_HISTORY', 'false'
@@ -117,6 +120,7 @@ android {
 			buildConfigField "String", "TRACE_QR_CODE_PREFIX", '"https://upload-dev.notify-me.ch"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
+			manifestPlaceholders = [qrCodeHostName: "qr.swisscovid.ch"]
 		}
 		log {
 			buildConfigField 'boolean', 'DEV_HISTORY', 'true'
@@ -130,6 +134,7 @@ android {
 			buildConfigField "String", "TRACE_QR_CODE_PREFIX", '"https://upload-dev.notify-me.ch"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
+			manifestPlaceholders = [qrCodeHostName: "qr.swisscovid.ch"]
 		}
 	}
 
