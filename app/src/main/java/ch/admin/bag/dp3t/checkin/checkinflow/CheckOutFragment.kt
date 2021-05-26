@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
 import ch.admin.bag.dp3t.checkin.diary.CheckinTimeHelper
@@ -26,19 +26,16 @@ class CheckOutFragment : Fragment() {
 		private val TAG = CheckOutFragment::class.java.canonicalName
 
 		@JvmStatic
-		fun newInstance(): CheckOutFragment {
-			return CheckOutFragment()
-		}
+		fun newInstance() = CheckOutFragment()
 	}
 
-	private lateinit var viewModel: CrowdNotifierViewModel
+	private val viewModel: CrowdNotifierViewModel by activityViewModels()
 
 	private lateinit var venueInfo: VenueInfo
 	private lateinit var checkInState: CheckInState
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		viewModel = ViewModelProvider(requireActivity()).get(CrowdNotifierViewModel::class.java)
 		checkIfAutoCheckoutHappened()
 		checkInState = viewModel.checkInState?.copy(checkOutTime = System.currentTimeMillis()) ?: return
 		venueInfo = checkInState.venueInfo
@@ -85,7 +82,8 @@ class CheckOutFragment : Fragment() {
 			}
 		}
 
-		val hasOverlapWithOtherCheckin = CheckinTimeHelper.checkForOverlap(checkInState.checkInTime, checkInState.checkOutTime, requireContext())
+		val hasOverlapWithOtherCheckin =
+			CheckinTimeHelper.checkForOverlap(checkInState.checkInTime, checkInState.checkOutTime, requireContext())
 		if (hasOverlapWithOtherCheckin) {
 			CheckinTimeHelper.showOverlapDialog(requireContext())
 			return

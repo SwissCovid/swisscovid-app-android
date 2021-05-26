@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
@@ -20,12 +21,8 @@ class EditDiaryEntryFragment : Fragment() {
 		private const val ARG_DIARY_ENTRY_ID = "ARG_DIARY_ENTRY_ID"
 
 		@JvmStatic
-		fun newInstance(diaryEntryId: Long): EditDiaryEntryFragment {
-			val fragment = EditDiaryEntryFragment()
-			val args = Bundle()
-			args.putLong(ARG_DIARY_ENTRY_ID, diaryEntryId)
-			fragment.arguments = args
-			return fragment
+		fun newInstance(diaryEntryId: Long) = EditDiaryEntryFragment().apply {
+			arguments = bundleOf(ARG_DIARY_ENTRY_ID to diaryEntryId)
 		}
 	}
 

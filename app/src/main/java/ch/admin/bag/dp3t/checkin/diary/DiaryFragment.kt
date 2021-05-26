@@ -15,6 +15,7 @@ import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
 import ch.admin.bag.dp3t.databinding.FragmentCheckinDiaryBinding
 import ch.admin.bag.dp3t.extensions.showFragment
+import ch.admin.bag.dp3t.reports.CheckinReportItem
 import ch.admin.bag.dp3t.reports.ReportsFragment
 import ch.admin.bag.dp3t.util.StringUtil
 import org.crowdnotifier.android.sdk.model.ExposureEvent
@@ -25,9 +26,7 @@ class DiaryFragment : Fragment() {
 	private val crowdNotifierViewModel: CrowdNotifierViewModel by activityViewModels()
 
 	companion object {
-		fun newInstance(): DiaryFragment {
-			return DiaryFragment()
-		}
+		fun newInstance() = DiaryFragment()
 	}
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -68,7 +67,7 @@ class DiaryFragment : Fragment() {
 
 	private fun onDiaryEntryClicked(diaryEntry: DiaryEntry, exposureEvent: ExposureEvent?) {
 		if (exposureEvent != null) {
-			showFragment(ReportsFragment.newInstance())
+			showFragment(ReportsFragment.newInstance(reportItem = CheckinReportItem(exposureEvent, diaryEntry)))
 		} else {
 			showFragment(EditDiaryEntryFragment.newInstance(diaryEntry.id))
 		}
