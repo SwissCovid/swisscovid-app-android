@@ -48,10 +48,27 @@ class EditDiaryEntryFragment : Fragment() {
 			toolbarCancelButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 			checkoutPrimaryButton.setText(R.string.remove_from_diary_button)
 			checkoutPrimaryButton.setOnClickListener { hideInDiary() }
+
+			checkoutTimeArrival.setDateTime(diaryEntry.arrivalTime)
+			checkoutTimeArrival.setOnDateTimeChangedListener {
+				diaryEntry.arrivalTime = checkoutTimeArrival.getSelectedUnixTimestamp()
+			}
+
+			checkoutTimeDeparture.setDateTime(diaryEntry.departureTime)
+			checkoutTimeDeparture.setOnDateTimeChangedListener {
+				diaryEntry.departureTime = checkoutTimeDeparture.getSelectedUnixTimestamp()
+			}
 		}.root
 	}
 
 	private fun performSave() {
+		diaryEntry.run {
+			if (arrivalTime > departureTime) {
+				// swap arrival and departure time
+				arrivalTime = departureTime.also { departureTime = arrivalTime }
+			}
+		}
+
 		val hasOverlapWithOtherCheckin = CheckinTimeHelper.checkForOverlap(diaryEntry, requireContext())
 		if (hasOverlapWithOtherCheckin) {
 			CheckinTimeHelper.showOverlapDialog(requireContext())

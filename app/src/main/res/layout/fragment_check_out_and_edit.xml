@@ -74,7 +74,7 @@
 			<ch.admin.bag.dp3t.view.DateTimePicker
 				android:id="@+id/checkout_time_arrival"
 				android:layout_width="match_parent"
-				android:layout_height="132dp" />
+				android:layout_height="108dp" />
 
 			<TextView
 				style="@style/CrowdNotifier.Text.Status.Small"
@@ -86,7 +86,7 @@
 			<ch.admin.bag.dp3t.view.DateTimePicker
 				android:id="@+id/checkout_time_departure"
 				android:layout_width="match_parent"
-				android:layout_height="132dp" />
+				android:layout_height="108dp" />
 
 			<Space
 				android:layout_width="0dp"

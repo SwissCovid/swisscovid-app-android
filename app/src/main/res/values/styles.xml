@@ -372,6 +372,7 @@
 		<item name="np_textColor">@color/dark_main</item>
 		<item name="np_selectedTextColor">@color/dark_main</item>
 		<item name="np_dividerColor">@color/blue_main</item>
+		<item name="np_dividerDistance">36sp</item>
 		<item name="np_wheelItemCount">3</item>
 	</style>
 

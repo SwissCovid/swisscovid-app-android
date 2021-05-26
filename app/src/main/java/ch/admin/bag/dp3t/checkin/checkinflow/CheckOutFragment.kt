@@ -40,8 +40,7 @@ class CheckOutFragment : Fragment() {
 		super.onCreate(savedInstanceState)
 		viewModel = ViewModelProvider(requireActivity()).get(CrowdNotifierViewModel::class.java)
 		checkIfAutoCheckoutHappened()
-		checkInState = viewModel.checkInState ?: return
-		checkInState.checkOutTime = System.currentTimeMillis()
+		checkInState = viewModel.checkInState?.copy(checkOutTime = System.currentTimeMillis()) ?: return
 		venueInfo = checkInState.venueInfo
 	}
 
@@ -65,10 +64,27 @@ class CheckOutFragment : Fragment() {
 			toolbarCancelButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 			checkoutPrimaryButton.setText(R.string.checkout_button_title)
 			checkoutPrimaryButton.setOnClickListener { performCheckout() }
+
+			checkoutTimeArrival.setDateTime(checkInState.checkInTime)
+			checkoutTimeArrival.setOnDateTimeChangedListener {
+				checkInState.checkInTime = checkoutTimeArrival.getSelectedUnixTimestamp()
+			}
+
+			checkoutTimeDeparture.setDateTime(checkInState.checkOutTime)
+			checkoutTimeDeparture.setOnDateTimeChangedListener {
+				checkInState.checkOutTime = checkoutTimeDeparture.getSelectedUnixTimestamp()
+			}
 		}.root
 	}
 
 	private fun performCheckout() {
+		checkInState.run {
+			if (checkInTime > checkOutTime) {
+				// swap arrival and departure time
+				checkInTime = checkOutTime.also { checkOutTime = checkInTime }
+			}
+		}
+
 		val hasOverlapWithOtherCheckin = CheckinTimeHelper.checkForOverlap(checkInState.checkInTime, checkInState.checkOutTime, requireContext())
 		if (hasOverlapWithOtherCheckin) {
 			CheckinTimeHelper.showOverlapDialog(requireContext())

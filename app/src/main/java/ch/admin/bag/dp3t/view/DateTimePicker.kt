@@ -9,6 +9,7 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.ViewDatetimePickerBinding
 import ch.admin.bag.dp3t.util.DateUtils
 import com.shawnlin.numberpicker.NumberPicker
+import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.temporal.ChronoUnit
@@ -24,7 +25,7 @@ class DateTimePicker @JvmOverloads constructor(
 	private val now = LocalDateTime.now()
 	private var previousDateTime = now
 
-	private val daysInPast = 7
+	private val daysInPast = 180
 	private val daysInFuture = 0
 
 	private lateinit var dateFormatter: NumberPicker.Formatter
@@ -99,7 +100,15 @@ class DateTimePicker @JvmOverloads constructor(
 		}
 	}
 
-	fun setPreviousDateTime(previousDateTime: LocalDateTime) {
+	fun setDateTime(unixTimestamp: Long) {
+		setDateTime(
+			Instant.ofEpochMilli(unixTimestamp)
+				.atZone(zoneId)
+				.toLocalDateTime()
+		)
+	}
+
+	fun setDateTime(previousDateTime: LocalDateTime) {
 		this.previousDateTime = previousDateTime
 		updatePickerValues()
 	}
@@ -113,6 +122,10 @@ class DateTimePicker @JvmOverloads constructor(
 		val hourValue = binding.hourPicker.value
 		val minuteValue = binding.minutePicker.value
 		return now.plusDays(dateValue.toLong()).withHour(hourValue).withMinute(minuteValue)
+	}
+
+	fun getSelectedUnixTimestamp(): Long {
+		return getSelectedDateTime().atZone(zoneId).toEpochSecond() * 1000L
 	}
 
 	private fun updatePickerValues() {
