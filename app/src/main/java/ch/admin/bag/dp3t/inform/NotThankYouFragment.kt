@@ -23,7 +23,7 @@ class NotThankYouFragment : TraceKeyShareBaseFragment() {
 		return binding.apply {
 			(requireActivity() as InformActivity).allowBackButton(false)
 			dontSendButton.setOnClickListener {
-				performUpload(onSuccess = { requireActivity().finish() })
+				performUpload(onSuccess = { showFragment(TracingStoppedFragment.newInstance(), R.id.inform_fragment_container) })
 			}
 			dontSendButton.paintFlags = dontSendButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 			backButton.setOnClickListener { showFragment(ReallyNotShareFragment.newInstance(), R.id.inform_fragment_container) }
