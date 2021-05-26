@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -8,32 +7,39 @@
 	android:elevation="@dimen/modal_elevation"
 	android:orientation="vertical">
 
-	<androidx.constraintlayout.widget.ConstraintLayout
+	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:paddingHorizontal="@dimen/spacing_medium_large">
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation">
 
 		<TextView
 			android:id="@+id/toolbar_cancel_button"
-			style="@style/NextStep.Button.Transparent.Blue"
+			style="@style/NextStep.Text.Blue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_gravity="end"
-			android:text="@string/cancel"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
+			android:layout_gravity="start"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/cancel" />
 
 		<TextView
 			android:id="@+id/toolbar_done_button"
-			style="@style/NextStep.Button.Transparent.Blue"
+			style="@style/NextStep.Text.Bold.Blue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
-			android:text="@string/checkout_save_button_title"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/checkout_save_button_title" />
 
-	</androidx.constraintlayout.widget.ConstraintLayout>
+	</FrameLayout>
 
 	<ScrollView
 		android:layout_width="match_parent"
@@ -80,7 +86,7 @@
 				style="@style/CrowdNotifier.Text.Status.Small"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_medium"
+				android:layout_marginTop="@dimen/spacing_large"
 				android:text="@string/datepicker_to" />
 
 			<ch.admin.bag.dp3t.view.DateTimePicker

@@ -69,7 +69,7 @@ class DiaryFragment : Fragment() {
 		if (exposureEvent != null) {
 			showFragment(ReportsFragment.newInstance(reportItem = CheckinReportItem(exposureEvent, diaryEntry)))
 		} else {
-			showFragment(EditDiaryEntryFragment.newInstance(diaryEntry.id))
+			showFragment(EditDiaryEntryFragment.newInstance(diaryEntry.id), modalAnimation = true)
 		}
 	}
 

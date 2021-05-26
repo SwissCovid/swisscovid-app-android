@@ -55,7 +55,7 @@ class CheckinOverviewFragment : Fragment() {
 			})
 
 			checkinButton.setOnClickListener { showFragment(QrCodeScannerFragment.newInstance()) }
-			checkoutButton.setOnClickListener { showFragment(CheckOutFragment.newInstance()) }
+			checkoutButton.setOnClickListener { showFragment(CheckOutFragment.newInstance(), modalAnimation = true) }
 
 			crowdNotifierViewModel.timeSinceCheckIn.observe(viewLifecycleOwner) { duration ->
 				checkinTime.text = StringUtil.getShortDurationString(duration)

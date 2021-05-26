@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.protobuf.ProtoConverterFactory
 import java.util.*
 
-private const val USER_UPLOAD_SIZE = 1000
+private const val USER_UPLOAD_SIZE = 1024
 private const val USER_UPLOAD_VERSION = 3
 
 class UserUploadRepository {
