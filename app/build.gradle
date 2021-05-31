@@ -71,6 +71,7 @@ android {
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-d.swisscovid.ch"'
+			buildConfigField "String", "QR_MASTER_PUBLIC_KEY_BASE_64", '"lW5voTRVR-jgYMiWLd04hjvyyFQG7QOyBLw0D7XbASlqlg0AviQMqgjbABZk9PcCip27szrqFyv_1YtKZE8eyzt7vtN4qKfJdWrItLRzRtjb83piN3cDt_yNo7siohQV"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.dev.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.dev.BUCKET_PUBLIC_KEY}\""
 			applicationIdSuffix '.dev'
@@ -85,6 +86,7 @@ android {
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.pt-a.bfs.admin.ch/"'
 			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-a.swisscovid.ch"'
+			buildConfigField "String", "QR_MASTER_PUBLIC_KEY_BASE_64", '"lW5voTRVR-jgYMiWLd04hjvyyFQG7QOyBLw0D7XbASlqlg0AviQMqgjbABZk9PcCip27szrqFyv_1YtKZE8eyzt7vtN4qKfJdWrItLRzRtjb83piN3cDt_yNo7siohQV"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.abnahme.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.abnahme.BUCKET_PUBLIC_KEY}\""
 			applicationIdSuffix '.abnahme'
@@ -99,6 +101,7 @@ android {
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
+			buildConfigField "String", "QR_MASTER_PUBLIC_KEY_BASE_64", '"lW5voTRVR-jgYMiWLd04hjvyyFQG7QOyBLw0D7XbASlqlg0AviQMqgjbABZk9PcCip27szrqFyv_1YtKZE8eyzt7vtN4qKfJdWrItLRzRtjb83piN3cDt_yNo7siohQV"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
 			manifestPlaceholders = [qrCodeHostName: "qr.swisscovid.ch"]
@@ -112,6 +115,7 @@ android {
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
+			buildConfigField "String", "QR_MASTER_PUBLIC_KEY_BASE_64", '"lW5voTRVR-jgYMiWLd04hjvyyFQG7QOyBLw0D7XbASlqlg0AviQMqgjbABZk9PcCip27szrqFyv_1YtKZE8eyzt7vtN4qKfJdWrItLRzRtjb83piN3cDt_yNo7siohQV"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
 			manifestPlaceholders = [qrCodeHostName: "qr.swisscovid.ch"]
