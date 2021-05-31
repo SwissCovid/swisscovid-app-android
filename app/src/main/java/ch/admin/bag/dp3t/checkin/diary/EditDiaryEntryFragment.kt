@@ -11,6 +11,8 @@ import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
 import ch.admin.bag.dp3t.databinding.FragmentCheckOutAndEditBinding
 import ch.admin.bag.dp3t.extensions.getSubtitle
+import ch.admin.bag.dp3t.extensions.getSwissCovidLocationData
+import ch.admin.bag.dp3t.util.StringUtil
 import org.crowdnotifier.android.sdk.CrowdNotifier
 
 class EditDiaryEntryFragment : Fragment() {
@@ -68,7 +70,19 @@ class EditDiaryEntryFragment : Fragment() {
 
 		val hasOverlapWithOtherCheckin = CheckinTimeHelper.checkForOverlap(diaryEntry, requireContext())
 		if (hasOverlapWithOtherCheckin) {
-			CheckinTimeHelper.showOverlapDialog(requireContext())
+			CheckinTimeHelper.showSavingNotPossibleDialog(
+				getString(R.string.checkout_overlapping_alert_description),
+				requireContext()
+			)
+			return
+		}
+
+		val checkinDuration = diaryEntry.departureTime - diaryEntry.arrivalTime
+		val maxCheckinTime = diaryEntry.venueInfo.getSwissCovidLocationData().automaticCheckoutDelaylMs
+		if (checkinDuration > maxCheckinTime) {
+			val maxDurationString = StringUtil.getShortDurationStringWithUnits(checkinDuration, requireContext())
+			val dialogText = getString(R.string.checkout_too_long_alert_text).replace("{DURATION}", maxDurationString)
+			CheckinTimeHelper.showSavingNotPossibleDialog(dialogText, requireContext())
 			return
 		}
 

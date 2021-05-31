@@ -44,7 +44,6 @@ import ch.admin.bag.dp3t.home.model.TracingStatusInterface
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.*
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
-import ch.admin.bag.dp3t.whattodo.WhereToTestDialogFragment
 import java.util.*
 import kotlin.math.min
 
@@ -129,9 +128,9 @@ class ReportsFragment : Fragment() {
 						headerDate.text =
 							StringUtil.getReportDateString(
 								exposureDays[exposureDays.size - 1].exposedDate.getStartOfDay(TimeZone.getDefault()),
-								true,
-								true,
-								context
+								withDiff = true,
+								withPrefix = true,
+								requireContext()
 							)
 					}
 					datesContainer.removeAllViews()
@@ -141,9 +140,9 @@ class ReportsFragment : Fragment() {
 						val itemDate = itemView.findViewById<TextView>(R.id.exposure_day_textview)
 						itemDate.text = StringUtil.getReportDateString(
 							exposureDay.exposedDate.getStartOfDay(TimeZone.getDefault()),
-							false,
-							true,
-							context
+							withDiff = false,
+							withPrefix = true,
+							requireContext()
 						)
 						datesContainer.addView(itemView, 0)
 					}
