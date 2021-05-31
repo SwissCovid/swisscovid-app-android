@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	style="@style/CrowdNotifier.Card.Small"
+	style="@style/NextStep.Card"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginVertical="@dimen/spacing_very_small">
@@ -43,14 +43,14 @@
 
 			<TextView
 				android:id="@+id/item_diary_entry_name"
-				style="@style/CrowdNotifier.Text.Subtitle"
+				style="@style/NextStep.Text.Bold"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				tools:text="Meeting Room IP32" />
 
 			<TextView
 				android:id="@+id/item_diary_entry_location"
-				style="@style/CrowdNotifier.Text"
+				style="@style/NextStep.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_tiny_small"
@@ -58,46 +58,13 @@
 
 			<TextView
 				android:id="@+id/item_diary_entry_time"
-				style="@style/CrowdNotifier.Text"
+				style="@style/NextStep.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_tiny_small"
 				tools:text="10:01 - 11:35" />
 
 		</LinearLayout>
-
-		<androidx.cardview.widget.CardView
-			android:id="@+id/item_diary_entry_infobox"
-			style="@style/CrowdNotifier.Card.Tertiary"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/spacing_large"
-			app:layout_constraintTop_toBottomOf="@id/item_diary_entry_info_container">
-
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="@dimen/spacing_medium"
-				android:orientation="vertical">
-
-				<TextView
-					android:id="@+id/item_diary_entry_infobox_header"
-					style="@style/CrowdNotifier.Text.Status.Tertiary"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="[TBT] report_information_button_title" />
-
-				<TextView
-					android:id="@+id/item_diary_entry_infobox_text"
-					style="@style/CrowdNotifier.Text"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_very_small"
-					tools:text="Please call the EPFL-Infoline to receive further instructions." />
-
-			</LinearLayout>
-
-		</androidx.cardview.widget.CardView>
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 

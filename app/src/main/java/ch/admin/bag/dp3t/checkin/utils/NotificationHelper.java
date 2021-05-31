@@ -15,7 +15,6 @@ import org.crowdnotifier.android.sdk.model.VenueInfo;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.MainActivity;
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.extensions.VenueInfoExtensionsKt;
 import ch.admin.bag.dp3t.util.StringUtil;
 
 import static androidx.core.app.NotificationManagerCompat.IMPORTANCE_HIGH;

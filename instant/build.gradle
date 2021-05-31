@@ -1,0 +1,73 @@
+plugins {
+	id 'com.android.application'
+	id 'kotlin-android'
+}
+
+android {
+	compileSdkVersion 30
+
+	defaultConfig {
+		applicationId "ch.admin.bag.dp3t"
+		minSdkVersion 23
+		targetSdkVersion 30
+		versionCode 1
+		versionName "2.0.0"
+		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr", "rm", "tr", "ti"
+
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+	}
+
+	productFlavors {
+		dev {
+			manifestPlaceholders = [qrCodeHostName: "qr-d.swisscovid.ch"]
+			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-d.swisscovid.ch"'
+			applicationIdSuffix '.dev'
+		}
+		abnahme {
+			manifestPlaceholders = [qrCodeHostName: "qr-a.swisscovid.ch"]
+			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-a.swisscovid.ch"'
+			applicationIdSuffix '.abnahme'
+		}
+		prod {
+			manifestPlaceholders = [qrCodeHostName: "qr.swisscovid.ch"]
+			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
+		}
+		log {
+			manifestPlaceholders = [qrCodeHostName: "qr.swisscovid.ch"]
+			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
+		}
+	}
+
+	flavorDimensions "version"
+
+	compileOptions {
+		sourceCompatibility = 1.8
+		targetCompatibility = 1.8
+	}
+
+
+	kotlinOptions {
+		jvmTarget = "1.8"
+	}
+
+	buildFeatures {
+		viewBinding true
+	}
+
+}
+
+dependencies {
+
+	implementation project(path: ':common')
+
+	implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+	implementation 'androidx.core:core-ktx:1.5.0'
+	implementation 'androidx.appcompat:appcompat:1.3.0'
+	implementation 'com.google.android.material:material:1.3.0'
+	testImplementation 'junit:junit:4.+'
+	androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+	androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+	implementation 'org.crowdnotifier:crowdnotifier-sdk-android:4.0-dev-10'
+
+}

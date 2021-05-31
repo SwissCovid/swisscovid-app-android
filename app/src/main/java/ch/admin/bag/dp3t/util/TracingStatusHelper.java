@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
 import ch.admin.bag.dp3t.home.model.TracingState;
 
 public class TracingStatusHelper {
@@ -74,6 +75,16 @@ public class TracingStatusHelper {
 		} else {
 			backgroundTracingInfo.setVisibility(View.GONE);
 		}
+	}
+
+	public static void showFinishPartialOnboarding(View tracingErrorView) {
+		tracingErrorView.setBackgroundResource(R.color.dark_main);
+		TracingErrorStateHelper.updateErrorView(tracingErrorView, CrowdNotifierErrorState.ONLY_INSTANT_ONBOARDING_DONE);
+		int white = ContextCompat.getColor(tracingErrorView.getContext(), R.color.white);
+		((TextView) tracingErrorView.findViewById(R.id.error_status_title)).setTextColor(white);
+		((TextView) tracingErrorView.findViewById(R.id.error_status_text)).setTextColor(white);
+		((TextView) tracingErrorView.findViewById(R.id.error_status_button)).setTextColor(white);
+		tracingErrorView.findViewById(R.id.error_status_code).setVisibility(View.GONE);
 	}
 
 	public static void showTracingDeactivated(View tracingErrorView, boolean isHomeFragment) {

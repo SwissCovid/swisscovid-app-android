@@ -52,7 +52,7 @@ class DiaryFragment : Fragment() {
 						daysAgoString = newDaysAgoString
 						items.add(ItemVenueVisitDayHeader(daysAgoString))
 					}
-					items.add(ItemVenueVisit(getExposureWithId(exposures, diaryEntry.id), diaryEntry) { v ->
+					items.add(ItemVenueVisit(getExposureWithId(exposures, diaryEntry.id), diaryEntry) {
 						onDiaryEntryClicked(diaryEntry, getExposureWithId(exposures, diaryEntry.id))
 					})
 				}

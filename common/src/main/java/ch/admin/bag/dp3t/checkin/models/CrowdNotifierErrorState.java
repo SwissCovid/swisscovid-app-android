@@ -16,7 +16,9 @@ public enum CrowdNotifierErrorState {
 			R.drawable.ic_error),
 	ALREADY_CHECKED_IN(R.string.error_title, R.string.error_already_checked_in, R.string.android_button_ok, R.drawable.ic_error),
 	UPDATE_REQUIRED(R.string.error_update_title, R.string.error_update_text, R.string.error_action_update,
-			R.drawable.ic_error);
+			R.drawable.ic_error),
+	ONLY_INSTANT_ONBOARDING_DONE(R.string.tracing_turned_off_title, R.string.partial_onboarding_box_text,
+			R.string.partial_onboarding_box_action, R.drawable.ic_info);
 
 
 	@StringRes private int titleResId;
@@ -24,7 +26,8 @@ public enum CrowdNotifierErrorState {
 	@StringRes private int actionResId;
 	@DrawableRes private int imageResId;
 
-	CrowdNotifierErrorState(@StringRes int titleResId, @StringRes int textResId, @StringRes int actionResId, @DrawableRes int imageResId) {
+	CrowdNotifierErrorState(@StringRes int titleResId, @StringRes int textResId, @StringRes int actionResId,
+			@DrawableRes int imageResId) {
 		this.titleResId = titleResId;
 		this.textResId = textResId;
 		this.actionResId = actionResId;

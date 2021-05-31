@@ -54,7 +54,7 @@
 
 			<TextView
 				android:id="@+id/checkout_title"
-				style="@style/CrowdNotifier.Text.Title"
+				style="@style/NextStep.Text.SplashTitle"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_larger"
@@ -63,7 +63,7 @@
 
 			<TextView
 				android:id="@+id/checkout_subtitle"
-				style="@style/CrowdNotifier.Text"
+				style="@style/NextStep.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_very_small"
@@ -71,11 +71,12 @@
 				tools:text="Lausanne" />
 
 			<TextView
-				style="@style/CrowdNotifier.Text.Status.Small"
+				style="@style/NextStep.Text.Bold"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_huge"
-				android:text="@string/datepicker_from" />
+				android:text="@string/datepicker_from"
+				android:textAllCaps="true" />
 
 			<ch.admin.bag.dp3t.view.DateTimePicker
 				android:id="@+id/checkout_time_arrival"
@@ -83,11 +84,12 @@
 				android:layout_height="108dp" />
 
 			<TextView
-				style="@style/CrowdNotifier.Text.Status.Small"
+				style="@style/NextStep.Text.Bold"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_large"
-				android:text="@string/datepicker_to" />
+				android:text="@string/datepicker_to"
+				android:textAllCaps="true" />
 
 			<ch.admin.bag.dp3t.view.DateTimePicker
 				android:id="@+id/checkout_time_departure"

@@ -66,7 +66,7 @@
 
 			<TextView
 				android:id="@+id/title_textview"
-				style="@style/CrowdNotifier.Text.Title"
+				style="@style/NextStep.Text.SplashTitle"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_medium"
@@ -75,7 +75,7 @@
 
 			<TextView
 				android:id="@+id/subtitle_textview"
-				style="@style/CrowdNotifier.Text"
+				style="@style/NextStep.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_very_small"
@@ -97,11 +97,12 @@
 				android:paddingBottom="@dimen/button_radius">
 
 				<TextView
-					style="@style/CrowdNotifier.Text.Status.Primary.Small"
+					style="@style/NextStep.Text.Bold"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:gravity="center"
-					android:text="@string/checkin_set_reminder" />
+					android:text="@string/checkin_set_reminder"
+					android:textAllCaps="true" />
 
 				<TextView
 					style="@style/NextStep.Text"
