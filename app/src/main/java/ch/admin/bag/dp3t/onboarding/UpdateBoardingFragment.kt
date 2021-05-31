@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.updateboarding
+package ch.admin.bag.dp3t.onboarding
 
 import android.os.Bundle
 import android.text.Html
@@ -14,7 +14,7 @@ import ch.admin.bag.dp3t.util.AssetUtil
 import ch.admin.bag.dp3t.util.UlTagHandler
 import ch.admin.bag.dp3t.util.UrlUtil
 
-class UpdateBoardingFragment : Fragment(R.layout.fragment_update_boarding) {
+class UpdateBoardingFragment : Fragment() {
 
 
 	companion object {
@@ -22,7 +22,7 @@ class UpdateBoardingFragment : Fragment(R.layout.fragment_update_boarding) {
 	}
 
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		return FragmentUpdateBoardingBinding.inflate(inflater).apply {
 			termsOfUseTextview.text = Html.fromHtml(AssetUtil.getTermsOfUse(context), null, UlTagHandler())
 			dataProtectionTextview.text = Html.fromHtml(AssetUtil.getDataProtection(context), null, UlTagHandler())
@@ -54,7 +54,7 @@ class UpdateBoardingFragment : Fragment(R.layout.fragment_update_boarding) {
 			}
 			dataProtectionToOnlineVersionButton.setOnClickListener { openOnlineVersion() }
 			termsOfUseToOnlineVersionButton.setOnClickListener { openOnlineVersion() }
-			updateboardingOkButton.setOnClickListener { (activity as UpdateBoardingActivity).finishUpdateBoarding() }
+			updateboardingOkButton.setOnClickListener { (activity as OnboardingActivity).continueToNextPage() }
 
 		}.root
 	}

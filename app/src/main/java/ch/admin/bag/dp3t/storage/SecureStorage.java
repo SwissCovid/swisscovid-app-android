@@ -60,6 +60,7 @@ public class SecureStorage {
 	private static final String KEY_CONFIG_FORCE_UPDATE = "config_do_force_update";
 	private static final String KEY_CONFIG_HAS_INFOBOX = "has_ghettobox_v2";
 	private static final String KEY_CONFIG_INFOBOX_COLLECTION = "ghettobox_collection";
+	private static final String KEY_CONFIG_TEST_INFORMATION_URLS = "testinformation_urls";
 	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS = "last_config_load_success";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION = "last_config_load_success_app_version";
@@ -76,7 +77,7 @@ public class SecureStorage {
 	private static final String KEY_CURRENT_CHECK_IN = "KEY_CURRENT_CHECK_IN";
 	private static final String KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG = "KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG";
 	private static final String KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD = "KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD";
-	private static final String KEY_CONFIG_TEST_INFORMATION_URLS = "testinformation_urls";
+	private static final String KEY_ONLY_PARTIAL_ONBOARDING_DONE = "KEY_ONLY_PARTIAL_ONBOARDING_DONE";
 
 	private static SecureStorage instance;
 
@@ -157,6 +158,14 @@ public class SecureStorage {
 
 	public void setOnboardingCompleted(boolean completed) {
 		prefs.edit().putBoolean(KEY_ONBOARDING_COMPLETED, completed).apply();
+	}
+
+	public boolean getOnlyPartialOnboardingCompleted() {
+		return prefs.getBoolean(KEY_ONLY_PARTIAL_ONBOARDING_DONE, false);
+	}
+
+	public void setOnlyPartialOnboardingCompleted(boolean completed) {
+		prefs.edit().putBoolean(KEY_ONLY_PARTIAL_ONBOARDING_DONE, completed).apply();
 	}
 
 	public int getLastShownUpdateBoardingVersion() {

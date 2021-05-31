@@ -15,7 +15,6 @@ import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
 import ch.admin.bag.dp3t.checkin.diary.DiaryFragment
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment
-import ch.admin.bag.dp3t.extensions.getSubtitle
 import ch.admin.bag.dp3t.databinding.FragmentCheckinOverviewBinding
 import ch.admin.bag.dp3t.util.StringUtil
 import ch.admin.bag.dp3t.extensions.showFragment

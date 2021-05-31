@@ -235,7 +235,7 @@ public class HomeFragment extends Fragment {
 		tracingCard.setForeground(requireContext().getDrawable(outValue.resourceId));
 
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
-			if (tracingStatusInterface.isReportedAsInfected()) {
+			if (tracingStatusInterface.isReportedAsInfected() || secureStorage.getOnlyPartialOnboardingCompleted()) {
 				tracingCard.findViewById(R.id.contacs_chevron).setVisibility(View.GONE);
 				tracingCard.setOnClickListener(null);
 				tracingCard.setForeground(null);

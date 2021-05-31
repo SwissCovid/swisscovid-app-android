@@ -27,8 +27,11 @@ import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.logger.Logger;
 
+import ch.admin.bag.dp3t.MainActivity;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.home.model.TracingState;
+import ch.admin.bag.dp3t.onboarding.OnboardingType;
+import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.DeviceFeatureHelper;
 import ch.admin.bag.dp3t.util.ENExceptionHelper;
 import ch.admin.bag.dp3t.util.TracingErrorStateHelper;
@@ -49,7 +52,6 @@ public class TracingBoxFragment extends Fragment {
 
 	private View tracingErrorView;
 	private boolean isHomeFragment;
-	private View tracingLoadingView;
 
 	public TracingBoxFragment() {
 		super(R.layout.fragment_tracing_box);
@@ -76,17 +78,23 @@ public class TracingBoxFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		tracingStatusView = view.findViewById(R.id.tracing_status);
 		tracingErrorView = view.findViewById(R.id.tracing_error);
-		tracingLoadingView = view.findViewById(R.id.tracing_loading_view);
 
 		showStatus();
 	}
 
 	private void showStatus() {
+
 		tracingViewModel.getAppStatusLiveData().observe(getViewLifecycleOwner(), tracingStatusInterface -> {
 			boolean isTracing = tracingStatusInterface.getTracingState().equals(TracingState.ACTIVE);
 
 			TracingStatus.ErrorState errorState = tracingStatusInterface.getTracingErrorState();
-			if (isTracing && errorState != null) {
+			if (SecureStorage.getInstance(requireContext()).getOnlyPartialOnboardingCompleted()) {
+				tracingStatusView.setVisibility(View.GONE);
+				tracingErrorView.setVisibility(View.VISIBLE);
+				TracingStatusHelper.showFinishPartialOnboarding(tracingErrorView);
+				tracingErrorView.findViewById(R.id.error_status_button).setOnClickListener(
+						v -> ((MainActivity) requireActivity()).launchOnboarding(OnboardingType.NON_INSTANT_PART, null));
+			} else if (isTracing && errorState != null) {
 				handleErrorState(errorState);
 			} else if (tracingStatusInterface.isReportedAsInfected()) {
 				tracingStatusView.setVisibility(View.VISIBLE);

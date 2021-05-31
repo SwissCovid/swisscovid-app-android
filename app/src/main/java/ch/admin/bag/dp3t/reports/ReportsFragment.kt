@@ -280,12 +280,6 @@ class ReportsFragment : Fragment() {
 			.show()
 	}
 
-	private fun showWhereToTestDialog() {
-		requireActivity().supportFragmentManager.beginTransaction()
-			.add(WhereToTestDialogFragment.newInstance(), WhereToTestDialogFragment::class.java.canonicalName)
-			.commit()
-	}
-
 	private fun openLink(@StringRes stringRes: Int) {
 		UrlUtil.openUrl(context, getString(stringRes))
 	}

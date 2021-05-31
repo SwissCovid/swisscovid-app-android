@@ -35,7 +35,8 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 		switch (type) {
 			case DAY_HEADER:
 				return new DayHeaderViewHolder(
-						LayoutInflater.from(parent.getContext()).inflate(R.layout.item_checkin_venue_visits_day_header, parent, false));
+						LayoutInflater.from(parent.getContext())
+								.inflate(R.layout.item_checkin_venue_visits_day_header, parent, false));
 			case VENUE:
 				return new VenueVisitViewHolder(
 						LayoutInflater.from(parent.getContext()).inflate(R.layout.item_checkin_venue_visit, parent, false));
@@ -92,8 +93,6 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 		private final TextView nameTextView;
 		private final TextView locationTextView;
 		private final ImageView statusIcon;
-		private final View infoBox;
-		private final TextView infoBoxText;
 
 		public VenueVisitViewHolder(View itemView) {
 			super(itemView);
@@ -101,8 +100,6 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 			this.nameTextView = itemView.findViewById(R.id.item_diary_entry_name);
 			this.locationTextView = itemView.findViewById(R.id.item_diary_entry_location);
 			this.statusIcon = itemView.findViewById(R.id.item_diary_entry_status_icon);
-			this.infoBox = itemView.findViewById(R.id.item_diary_entry_infobox);
-			this.infoBoxText = itemView.findViewById(R.id.item_diary_entry_infobox_text);
 		}
 
 		public void bind(ItemVenueVisit item) {
@@ -113,15 +110,8 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 			String end = StringUtil.getHourMinuteTimeString(item.getDiaryEntry().getDepartureTime(), ":");
 			timeTextView.setText(start + " — " + end);
 			if (item.getExposure() == null) {
-				infoBox.setVisibility(View.GONE);
 				statusIcon.setVisibility(View.GONE);
 			} else {
-				if (item.getExposure().getMessage() != null && !item.getExposure().getMessage().isEmpty()) {
-					infoBox.setVisibility(View.VISIBLE);
-					infoBoxText.setText(item.getExposure().getMessage());
-				} else {
-					infoBox.setVisibility(View.GONE);
-				}
 				statusIcon.setVisibility(View.VISIBLE);
 			}
 			itemView.setOnClickListener(item.getOnClickListener());

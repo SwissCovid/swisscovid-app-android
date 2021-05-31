@@ -65,7 +65,7 @@ class CheckInFragment : Fragment() {
 			titleTextview.text = venueInfo.title
 			subtitleTextview.setText(venueInfo.getSubtitle())
 			checkInButton.setOnClickListener {
-				performCheckIn(venueInfo)
+				viewModel.performCheckinAndSetReminders(venueInfo, viewModel.selectedReminderDelay)
 				popBackToHomeFragment()
 			}
 
@@ -74,7 +74,7 @@ class CheckInFragment : Fragment() {
 			reminderOptions.add(0, ReminderOption(0L))
 			for (option in reminderOptions) {
 				val toggleButton =
-					MaterialButton(ContextThemeWrapper(requireContext(), R.style.CrowdNotifier_ToggleButton), null, 0)
+					MaterialButton(ContextThemeWrapper(requireContext(), R.style.NextStep_ToggleButton), null, 0)
 				toggleButton.text = option.getDisplayString(requireContext())
 				toggleButton.tag = option.delayMillis
 				reminderToggleGroup.addView(toggleButton, LinearLayout.LayoutParams(0, WRAP_CONTENT, 1f))
@@ -96,18 +96,6 @@ class CheckInFragment : Fragment() {
 			selfCheckinToolbar.isVisible = requireArguments().getBoolean(ARG_IS_SELF_CHECKIN)
 			toolbar.isVisible = !requireArguments().getBoolean(ARG_IS_SELF_CHECKIN)
 		}.root
-	}
-
-	private fun performCheckIn(venueInfo: VenueInfo) {
-		val checkInTime = System.currentTimeMillis()
-		viewModel.startCheckInTimer()
-		viewModel.setCheckedIn(true)
-		viewModel.checkInState.checkInTime = checkInTime
-		NotificationHelper.getInstance(context).startOngoingNotification(checkInTime, venueInfo)
-		CrowdNotifierReminderHelper.setCheckoutWarning(checkInTime, venueInfo.getCheckoutWarningDelay(), context)
-		CrowdNotifierReminderHelper.setAutoCheckOut(checkInTime, venueInfo.getAutoCheckoutDelay(), context)
-		CrowdNotifierReminderHelper.setReminder(checkInTime + viewModel.selectedReminderDelay, context)
-
 	}
 
 	private fun popBackToHomeFragment() {

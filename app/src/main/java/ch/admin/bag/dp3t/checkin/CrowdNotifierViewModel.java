@@ -18,8 +18,12 @@ import java.util.List;
 
 import org.crowdnotifier.android.sdk.CrowdNotifier;
 import org.crowdnotifier.android.sdk.model.ExposureEvent;
+import org.crowdnotifier.android.sdk.model.VenueInfo;
 
 import ch.admin.bag.dp3t.checkin.networking.TraceKeysRepository;
+import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper;
+import ch.admin.bag.dp3t.checkin.utils.NotificationHelper;
+import ch.admin.bag.dp3t.extensions.VenueInfoExtensionsKt;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
 import ch.admin.bag.dp3t.util.DateUtils;
@@ -197,6 +201,18 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 	public void setSelectedReminderDelay(long selectedReminderDelay) {
 		this.checkInState.setSelectedReminderDelay(selectedReminderDelay);
 		storage.setCheckInState(checkInState);
+	}
+
+	public void performCheckinAndSetReminders(VenueInfo venueInfo, long selectedReminderDelay) {
+		long currentTime = System.currentTimeMillis();
+		setCheckInState(new CheckInState(true, venueInfo, currentTime, currentTime, selectedReminderDelay));
+		startCheckInTimer();
+		NotificationHelper.getInstance(getApplication()).startOngoingNotification(currentTime, venueInfo);
+		CrowdNotifierReminderHelper
+				.setCheckoutWarning(currentTime, VenueInfoExtensionsKt.getCheckoutWarningDelay(venueInfo), getApplication());
+		CrowdNotifierReminderHelper
+				.setAutoCheckOut(currentTime, VenueInfoExtensionsKt.getAutoCheckoutDelay(venueInfo), getApplication());
+		CrowdNotifierReminderHelper.setReminder(currentTime + selectedReminderDelay, getApplication());
 	}
 
 	@Override

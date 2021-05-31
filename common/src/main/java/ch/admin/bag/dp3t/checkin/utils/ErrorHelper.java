@@ -1,5 +1,6 @@
 package ch.admin.bag.dp3t.checkin.utils;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -8,11 +9,11 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
-import ch.admin.bag.dp3t.util.UrlUtil;
 
 public class ErrorHelper {
 
@@ -52,7 +53,13 @@ public class ErrorHelper {
 	}
 
 	private static void updateApp(Context context) {
-		UrlUtil.openUrl(context, "market://details?id=" + context.getPackageName());
+		Intent intent = new Intent(Intent.ACTION_VIEW);
+		intent.setData(Uri.parse("market://details?id=" + context.getPackageName()));
+		try {
+			context.startActivity(intent);
+		} catch (ActivityNotFoundException e) {
+			Toast.makeText(context, "No browser installed", Toast.LENGTH_LONG).show();
+		}
 	}
 
 	private static void openApplicationSettings(Context context) {
