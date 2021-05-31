@@ -32,14 +32,23 @@ class UserUploadRepository {
 		userUploadService = retrofit.create(UserUploadService::class.java)
 	}
 
-	suspend fun userUpload(uploadVenueInfos: List<UploadVenueInfo>, authorizationHeader: String) =
-		userUploadService.userUpload(getUserUploadPayload(uploadVenueInfos), authorizationHeader)
+	suspend fun userUpload(
+		uploadVenueInfos: List<UploadVenueInfo>,
+		timeBetweenOnsetAndUploadRequest: Int,
+		authorizationHeader: String
+	) =
+		userUploadService.userUpload(getUserUploadPayload(uploadVenueInfos, timeBetweenOnsetAndUploadRequest), authorizationHeader)
 
-	suspend fun fakeUserUpload(authorizationHeader: String) =
-		userUploadService.userUpload(getUserUploadPayload(listOf()), authorizationHeader)
+	suspend fun fakeUserUpload(timeBetweenOnsetAndUploadRequest: Int, authorizationHeader: String) =
+		userUploadService.userUpload(getUserUploadPayload(listOf(), timeBetweenOnsetAndUploadRequest), authorizationHeader)
 
-	private fun getUserUploadPayload(uploadVenueInfos: List<UploadVenueInfo>): UserUploadPayload {
-		val userUploadPayloadBuilder = UserUploadPayload.newBuilder().setVersion(USER_UPLOAD_VERSION)
+	private fun getUserUploadPayload(
+		uploadVenueInfos: List<UploadVenueInfo>,
+		timeBetweenOnsetAndUploadRequest: Int
+	): UserUploadPayload {
+		val userUploadPayloadBuilder = UserUploadPayload.newBuilder()
+			.setVersion(USER_UPLOAD_VERSION)
+			.setUserInteractionDurationMs(timeBetweenOnsetAndUploadRequest)
 		userUploadPayloadBuilder.addAllVenueInfos(uploadVenueInfos)
 		for (i in userUploadPayloadBuilder.venueInfosCount until USER_UPLOAD_SIZE) {
 			userUploadPayloadBuilder.addVenueInfos(getRandomFakeVenueInfo())

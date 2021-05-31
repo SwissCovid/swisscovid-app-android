@@ -18,6 +18,7 @@ import ch.admin.bag.dp3t.util.JwtUtil
 import ch.admin.bag.dp3t.util.toUploadVenueInfo
 import com.google.android.gms.common.api.ApiException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import org.crowdnotifier.android.sdk.CrowdNotifier
 import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.DP3TKotlin
@@ -37,12 +38,14 @@ import kotlin.coroutines.suspendCoroutine
 private const val TIMEOUT_VALID_CODE = 1000L * 60 * 5
 private const val MAX_EXPOSURE_AGE_MILLIS = 10 * 24 * 60 * 60 * 1000L
 private const val ISOLATION_DURATION_DAYS = 14L
+private const val UPLOAD_REQUEST_TIME_PADDING = 5000L
 private const val KEY_COVIDCODE = "KEY_COVIDCODE"
 private const val KEY_HAS_SHARED_DP3T_KEYS = "KEY_HAS_SHARED_DP3T_KEYS"
 private const val KEY_HAS_SHARED_CHECKINS = "KEY_HAS_SHARED_CHECKINS"
 private const val KEY_PENDING_UPLOAD_TASK = "KEY_PENDING_UPLOAD_TASK"
 private const val KEY_SELECTED_DIARY_ENTRIES = "KEY_SELECTED_DIARY_ENTRIES"
 private const val KEY_ONSET_DATE = "KEY_ONSET_DATE"
+private const val KEY_ONSET_REQUEST_TIME = "KEY_ONSET_REQUEST_TIME"
 
 class InformViewModel(application: Application, private val state: SavedStateHandle) : AndroidViewModel(application) {
 
@@ -75,10 +78,15 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		get() = state.get<Long>(KEY_ONSET_DATE)
 		set(value) = state.set(KEY_ONSET_DATE, value)
 
+	private var onsetResponseTime: Long?
+		get() = state.get<Long>(KEY_ONSET_REQUEST_TIME)
+		set(value) = state.set(KEY_ONSET_REQUEST_TIME, value)
+
 	fun loadOnsetDate() = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
 		try {
 			emit(Resource.success(loadOnsetDate(covidCode)))
+			onsetResponseTime = System.currentTimeMillis()
 		} catch (exception: Throwable) {
 			emit(Resource.error(data = null, exception = exception))
 		}
@@ -86,6 +94,9 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 
 	fun performUpload() = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
+		val onsetResponseTime = onsetResponseTime ?: System.currentTimeMillis()
+		val timeBetweenOnsetAndUploadRequest = (System.currentTimeMillis() - onsetResponseTime).toInt()
+		delay(UPLOAD_REQUEST_TIME_PADDING - (System.currentTimeMillis() - onsetResponseTime) % UPLOAD_REQUEST_TIME_PADDING)
 		try {
 			loadAccessTokens(covidCode)
 		} catch (exception: Throwable) {
@@ -113,7 +124,7 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		}
 
 		try {
-			performCheckinsUpload(isFake = !hasSharedCheckins)
+			performCheckinsUpload(timeBetweenOnsetAndUploadRequest, isFake = !hasSharedCheckins)
 		} catch (exception: Throwable) {
 			when (exception) {
 				is HttpException -> emit(Resource.error(InformRequestError.USER_UPLOAD_NETWORK_ERROR, exception))
@@ -194,12 +205,12 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		error?.let { throw(it) }
 	}
 
-	private suspend fun performCheckinsUpload(isFake: Boolean) {
+	private suspend fun performCheckinsUpload(timeBetweenOnsetAndUploadRequest: Int, isFake: Boolean) {
 		val authorizationHeader = getAuthorizationHeader(secureStorage.lastCheckinInformToken)
 		if (isFake) {
-			userUploadRepository.fakeUserUpload(authorizationHeader)
+			userUploadRepository.fakeUserUpload(timeBetweenOnsetAndUploadRequest, authorizationHeader)
 		} else {
-			userUploadRepository.userUpload(getUploadVenueInfos(), authorizationHeader)
+			userUploadRepository.userUpload(getUploadVenueInfos(), timeBetweenOnsetAndUploadRequest, authorizationHeader)
 		}
 	}
 
