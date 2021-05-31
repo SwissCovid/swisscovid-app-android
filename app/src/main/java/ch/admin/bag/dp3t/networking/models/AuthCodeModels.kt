@@ -12,4 +12,4 @@ data class AuthenticationCodeResponseModelV2(
 class AuthenticationCodeResponseModel(val accessToken: String)
 
 
-data class OnsetResponse(val onset: String?)
+data class OnsetResponse(val onset: String)

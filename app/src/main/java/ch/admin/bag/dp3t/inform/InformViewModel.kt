@@ -85,10 +85,15 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 	fun loadOnsetDate() = liveData(Dispatchers.IO) {
 		emit(Resource.loading(data = null))
 		try {
-			emit(Resource.success(loadOnsetDate(covidCode)))
+			loadOnsetDate(covidCode)
+			emit(Resource.success(data = null))
 			onsetResponseTime = System.currentTimeMillis()
 		} catch (exception: Throwable) {
-			emit(Resource.error(data = null, exception = exception))
+			when (exception) {
+				is InvalidCodeError -> emit(Resource.error(InformRequestError.BLACK_INVALID_AUTH_RESPONSE_FORM, exception))
+				is ResponseError -> emit(Resource.error(InformRequestError.BLACK_STATUS_ERROR, exception))
+				else -> emit(Resource.error(InformRequestError.BLACK_MISC_NETWORK_ERROR, exception))
+			}
 		}
 	}
 
@@ -216,7 +221,6 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 
 	private suspend fun loadOnsetDate(covidcode: String) {
 		val onsetResponse = authCodeRepository.getOnsetDate(AuthenticationCodeRequestModel(covidcode, 0))
-		if (onsetResponse.onset == null) throw InvalidCodeError()
 		onsetDate = SimpleDateFormat("yyyy-MM-dd").parse(onsetResponse.onset)?.time
 	}
 
