@@ -5,8 +5,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.liveData
 import ch.admin.bag.dp3t.checkin.models.UploadVenueInfo
+import ch.admin.bag.dp3t.checkin.models.VenueType
 import ch.admin.bag.dp3t.checkin.networking.UserUploadRepository
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
+import ch.admin.bag.dp3t.extensions.getSwissCovidLocationData
 import ch.admin.bag.dp3t.inform.models.Resource
 import ch.admin.bag.dp3t.inform.models.SelectableCheckinItem
 import ch.admin.bag.dp3t.networking.AuthCodeRepository
@@ -147,7 +149,7 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 
 	fun getSelectableCheckinItems(): List<SelectableCheckinItem> {
 		return diaryStorage.entries.filter {
-			it.departureTime >= onsetDate ?: 0
+			it.venueInfo.getSwissCovidLocationData().type == VenueType.USER_QR_CODE && it.departureTime >= onsetDate ?: 0
 		}.map {
 			SelectableCheckinItem(it, isSelected = selectedDiaryEntryIds.contains(it.id))
 		}
