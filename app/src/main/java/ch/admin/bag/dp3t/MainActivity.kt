@@ -118,7 +118,7 @@ class MainActivity : FragmentActivity() {
 		tracingViewModel.sync()
 	}
 
-	public fun launchOnboarding(onboardingType: OnboardingType, instantAppQrCodeUrl: String? = null) {
+	fun launchOnboarding(onboardingType: OnboardingType, instantAppQrCodeUrl: String? = null) {
 		val intent = Intent(this, OnboardingActivity::class.java).apply {
 			putExtra(OnboardingActivity.ARG_ONBOARDING_TYPE, onboardingType)
 		}
@@ -229,7 +229,7 @@ class MainActivity : FragmentActivity() {
 				showFragmentWithoutAnimation(CheckInFragment.newInstance(false))
 			}
 		} catch (e: QRException) {
-			handleInvalidQRCodeExceptions(qrCodeData, e)
+			handleInvalidQRCodeExceptions(e)
 		}
 	}
 
@@ -242,11 +242,11 @@ class MainActivity : FragmentActivity() {
 				crowdNotifierViewModel.performCheckinAndSetReminders(venueInfo, 0)
 			}
 		} catch (e: QRException) {
-			handleInvalidQRCodeExceptions(qrCodeUrl, e)
+			handleInvalidQRCodeExceptions(e)
 		}
 	}
 
-	private fun handleInvalidQRCodeExceptions(qrCodeData: String, e: QRException) {
+	private fun handleInvalidQRCodeExceptions(e: QRException) {
 		if (e is InvalidQRCodeVersionException) {
 			ErrorDialog(this, CrowdNotifierErrorState.UPDATE_REQUIRED).show()
 		} else if (e is NotYetValidException) {
@@ -254,12 +254,7 @@ class MainActivity : FragmentActivity() {
 		} else if (e is NotValidAnymoreException) {
 			ErrorDialog(this, CrowdNotifierErrorState.QR_CODE_NOT_VALID_ANYMORE).show()
 		} else {
-			if (qrCodeData.startsWith(BuildConfig.TRACE_QR_CODE_PREFIX)) {
-				val openBrowserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(qrCodeData))
-				startActivity(openBrowserIntent)
-			} else {
-				ErrorDialog(this, CrowdNotifierErrorState.NO_VALID_QR_CODE).show()
-			}
+			ErrorDialog(this, CrowdNotifierErrorState.NO_VALID_QR_CODE).show()
 		}
 	}
 

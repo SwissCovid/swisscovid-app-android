@@ -63,7 +63,6 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 	private View bottomLeftIndicator;
 	private View errorView;
 	private View mainView;
-	private boolean goToHome = false;
 	private boolean isQRScanningEnabled = true;
 	private long lastUIErrorUpdate = 0L;
 
@@ -82,12 +81,7 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 
 	@Override
 	public void onResume() {
-		if (goToHome) {
-			requireActivity().getSupportFragmentManager().popBackStack();
-			goToHome = false;
-		} else {
-			isQRScanningEnabled = true;
-		}
+		isQRScanningEnabled = true;
 		super.onResume();
 	}
 
@@ -211,14 +205,7 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 		} else if (e instanceof QrUtils.NotValidAnymoreException) {
 			if (getActivity() != null) getActivity().runOnUiThread(() -> indicateInvalidQrCode(QRScannerState.NOT_VALID_ANYMORE));
 		} else {
-			if (qrCodeData.startsWith(BuildConfig.TRACE_QR_CODE_PREFIX)) {
-				isQRScanningEnabled = false;
-				Intent openBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(qrCodeData));
-				startActivity(openBrowserIntent);
-				goToHome = true;
-			} else {
-				if (getActivity() != null) getActivity().runOnUiThread(() -> indicateInvalidQrCode(QRScannerState.INVALID_FORMAT));
-			}
+			if (getActivity() != null) getActivity().runOnUiThread(() -> indicateInvalidQrCode(QRScannerState.INVALID_FORMAT));
 		}
 	}
 

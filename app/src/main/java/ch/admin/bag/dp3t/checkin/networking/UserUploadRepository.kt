@@ -25,7 +25,7 @@ class UserUploadRepository {
 		okHttpBuilder.addInterceptor(UserAgentInterceptor(DP3T.getUserAgent()))
 
 		val retrofit = Retrofit.Builder()
-			.baseUrl(BuildConfig.PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL)
+			.baseUrl(BuildConfig.REPORT_URL)
 			.client(okHttpBuilder.build())
 			.addConverterFactory(ProtoConverterFactory.create())
 			.build()
