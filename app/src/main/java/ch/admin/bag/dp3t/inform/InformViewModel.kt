@@ -35,7 +35,9 @@ import java.util.*
 import java.util.concurrent.CancellationException
 import java.util.concurrent.TimeUnit
 import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
+import kotlin.math.max
 
 private const val TIMEOUT_VALID_CODE = 1000L * 60 * 5
 private const val MAX_EXPOSURE_AGE_MILLIS = 10 * 24 * 60 * 60 * 1000L
@@ -104,6 +106,8 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		val onsetResponseTime = onsetResponseTime ?: System.currentTimeMillis()
 		val timeBetweenOnsetAndUploadRequest = (System.currentTimeMillis() - onsetResponseTime).toInt()
 		delay(UPLOAD_REQUEST_TIME_PADDING - (System.currentTimeMillis() - onsetResponseTime) % UPLOAD_REQUEST_TIME_PADDING)
+		var oldestSharedKey: Long? = null
+		var oldestSharedCheckin: Long? = null
 		try {
 			loadAccessTokens(covidCode)
 		} catch (exception: Throwable) {
@@ -116,7 +120,7 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		}
 		try {
 			if (hasSharedDP3TKeys) {
-				uploadTEKs()
+				oldestSharedKey = uploadTEKs()
 			} else {
 				performFakeTEKUpload()
 			}
@@ -131,7 +135,11 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		}
 
 		try {
-			performCheckinsUpload(timeBetweenOnsetAndUploadRequest, isFake = !hasSharedCheckins)
+			if (hasSharedCheckins) {
+				oldestSharedCheckin = performCheckinsUpload(timeBetweenOnsetAndUploadRequest)
+			} else {
+				performFakeCheckinsUpload(timeBetweenOnsetAndUploadRequest)
+			}
 		} catch (exception: Throwable) {
 			when (exception) {
 				is HttpException -> emit(Resource.error(InformRequestError.USER_UPLOAD_NETWORK_ERROR, exception))
@@ -144,12 +152,14 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		appConfigManager.iAmInfected = true
 		appConfigManager.iAmInfectedIsResettable = true
 		DP3T.stop(getApplication())
+		secureStorage.positiveReportOldestSharedKeyOrCheckin = listOfNotNull(oldestSharedKey, oldestSharedCheckin).minOrNull() ?: -1
 		emit(Resource.success(data = null))
 	}
 
 	fun getSelectableCheckinItems(): List<SelectableCheckinItem> {
 		return diaryStorage.entries.filter {
 			it.venueInfo.getSwissCovidLocationData().type == VenueType.USER_QR_CODE && it.departureTime >= onsetDate ?: 0
+					&& it.departureTime > System.currentTimeMillis() - MAX_EXPOSURE_AGE_MILLIS
 		}.map {
 			SelectableCheckinItem(it, isSelected = selectedDiaryEntryIds.contains(it.id))
 		}
@@ -176,20 +186,21 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		DP3TKotlin.sendFakeInfectedRequest(getApplication(), authorizationHeader)
 	}
 
-	private suspend fun uploadTEKs() {
+	/**
+	 * Returns the oldestSharedKeyDate
+	 */
+	private suspend fun uploadTEKs(): Long {
 		val authorizationHeader = getAuthorizationHeader(secureStorage.lastDP3TInformToken)
 		val onsetDate = JwtUtil.getOnsetDate(secureStorage.lastDP3TInformToken)
 
-		var error: Throwable? = null
-
 		// Wrapping traditional callback in a suspendCoroutine
-		suspendCoroutine<Unit> { continuation ->
+		return suspendCoroutine { continuation ->
 			pendingUploadTask?.performUpload(getApplication(), onsetDate, ExposeeAuthMethodAuthorization(authorizationHeader),
 				object : ResponseCallback<DayDate> {
 					override fun onSuccess(oldestSharedKeyDayDate: DayDate) {
 
 						// Store the oldest shared Key date of this report (but at least now-MAX_EXPOSURE_AGE_MILLIS)
-						val oldestSharedKeyDate = Math.max(
+						val oldestSharedKeyDate = max(
 							oldestSharedKeyDayDate.startOfDayTimestamp,
 							System.currentTimeMillis() - MAX_EXPOSURE_AGE_MILLIS
 						)
@@ -200,25 +211,29 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 							System.currentTimeMillis() + TimeUnit.DAYS.toMillis(ISOLATION_DURATION_DAYS)
 						secureStorage.isolationEndDialogTimestamp = isolationEndDialogTimestamp
 						hasSharedDP3TKeys = true
-						continuation.resume(Unit)
+						continuation.resume(oldestSharedKeyDate)
 					}
 
 					override fun onError(throwable: Throwable) {
-						error = throwable
-						continuation.resume(Unit)
+						continuation.resumeWithException(throwable)
 					}
 				})
 		}
-		error?.let { throw(it) }
 	}
 
-	private suspend fun performCheckinsUpload(timeBetweenOnsetAndUploadRequest: Int, isFake: Boolean) {
+	/**
+	 * Returns oldest shared Checkin
+	 */
+	private suspend fun performCheckinsUpload(timeBetweenOnsetAndUploadRequest: Int): Long? {
 		val authorizationHeader = getAuthorizationHeader(secureStorage.lastCheckinInformToken)
-		if (isFake) {
-			userUploadRepository.fakeUserUpload(timeBetweenOnsetAndUploadRequest, authorizationHeader)
-		} else {
-			userUploadRepository.userUpload(getUploadVenueInfos(), timeBetweenOnsetAndUploadRequest, authorizationHeader)
-		}
+		val uploadVenueInfos = getUploadVenueInfos()
+		userUploadRepository.userUpload(uploadVenueInfos, timeBetweenOnsetAndUploadRequest, authorizationHeader)
+		return uploadVenueInfos.minOfOrNull { it.intervalStartMs }
+	}
+
+	private suspend fun performFakeCheckinsUpload(timeBetweenOnsetAndUploadRequest: Int) {
+		val authorizationHeader = getAuthorizationHeader(secureStorage.lastCheckinInformToken)
+		userUploadRepository.fakeUserUpload(timeBetweenOnsetAndUploadRequest, authorizationHeader)
 	}
 
 	private suspend fun loadOnsetDate(covidcode: String) {

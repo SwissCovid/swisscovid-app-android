@@ -64,7 +64,6 @@ class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView
 			item as EventItem
 			binding.apply {
 				qrCodeName.text = item.venueInfo.title
-				qrCodeLocation.setText(item.venueInfo.getSubtitle())
 				root.setOnClickListener { onClickListener.onQrCodeClicked(item.venueInfo) }
 			}
 		}

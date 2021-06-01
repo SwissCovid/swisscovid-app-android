@@ -81,6 +81,7 @@
 					android:layout_height="wrap_content"
 					android:hint="@string/web_generator_title_placeholder"
 					android:inputType="textNoSuggestions"
+					android:maxLength="60"
 					android:textColor="@color/blue_main"
 					android:textStyle="bold" />
 

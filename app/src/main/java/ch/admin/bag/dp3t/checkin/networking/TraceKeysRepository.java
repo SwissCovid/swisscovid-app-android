@@ -3,13 +3,16 @@ package ch.admin.bag.dp3t.checkin.networking;
 import android.content.Context;
 
 import java.io.IOException;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.crowdnotifier.android.sdk.model.DayDate;
 import org.crowdnotifier.android.sdk.model.ProblematicEventInfo;
 import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.backend.SignatureVerificationInterceptor;
 import org.dpppt.android.sdk.backend.UserAgentInterceptor;
+import org.dpppt.android.sdk.util.SignatureUtil;
 import org.jetbrains.annotations.NotNull;
 
 import ch.admin.bag.dp3t.BuildConfig;
@@ -36,6 +39,10 @@ public class TraceKeysRepository {
 
 		OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
 		okHttpBuilder.networkInterceptors().add(new UserAgentInterceptor(DP3T.getUserAgent()));
+
+		PublicKey signaturePublicKey = SignatureUtil.getPublicKeyFromBase64OrThrow(BuildConfig.BUCKET_PUBLIC_KEY);
+		okHttpBuilder.addInterceptor(new SignatureVerificationInterceptor(signaturePublicKey));
+
 
 		Retrofit bucketRetrofit = new Retrofit.Builder()
 				.baseUrl(baseUrl)

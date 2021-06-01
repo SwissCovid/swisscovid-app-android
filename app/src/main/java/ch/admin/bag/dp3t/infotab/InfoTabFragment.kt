@@ -6,24 +6,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
+import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.databinding.FragmentInfoTabBinding
+import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.inform.InformActivity
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.travel.TravelFragment
 import ch.admin.bag.dp3t.travel.TravelUtils
 import ch.admin.bag.dp3t.util.UrlUtil
-import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 import ch.admin.bag.dp3t.whattodo.WtdInfolineAccessabilityDialogFragment
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment
 import ch.admin.bag.dp3t.whattodo.WtdSymptomsFragment
 
 class InfoTabFragment : Fragment() {
-
 
 	companion object {
 		@JvmStatic
@@ -33,6 +35,7 @@ class InfoTabFragment : Fragment() {
 	private lateinit var binding: FragmentInfoTabBinding
 	private val secureStorage by lazy { SecureStorage.getInstance(requireContext()) }
 	private val tracingViewModel: TracingViewModel by activityViewModels()
+	private val crowdNotifierViewModel: CrowdNotifierViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		binding = FragmentInfoTabBinding.inflate(inflater).apply {
@@ -54,9 +57,30 @@ class InfoTabFragment : Fragment() {
 				showFragment(WtdPositiveTestFragment.newInstance())
 			}
 			wtdInformButton.setOnClickListener {
-				startActivity(Intent(activity, InformActivity::class.java))
+				if (crowdNotifierViewModel.isCheckedIn.value == true) {
+					showCannotEnterCovidcodeWhileCheckedInDialog()
+				} else {
+					startActivity(Intent(activity, InformActivity::class.java))
+				}
 			}
 		}
+	}
+
+	private fun showCannotEnterCovidcodeWhileCheckedInDialog() {
+		AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
+			.setMessage(R.string.error_cannot_enter_covidcode_while_checked_in)
+			.setPositiveButton(R.string.checkout_button_title) { dialog, id -> showCheckOutFragment() }
+			.setNegativeButton(R.string.cancel) { dialog, id -> dialog.dismiss() }
+			.create()
+			.show()
+	}
+
+	private fun showCheckOutFragment() {
+		requireActivity().supportFragmentManager.beginTransaction()
+			.setCustomAnimations(R.anim.modal_slide_enter, R.anim.modal_slide_exit, R.anim.modal_pop_enter, R.anim.modal_pop_exit)
+			.replace(R.id.main_fragment_container, CheckOutFragment.newInstance())
+			.addToBackStack(CheckOutFragment::class.java.canonicalName)
+			.commit()
 	}
 
 	private fun fillContentFromConfigServer() {
