@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	android:orientation="vertical">
+
+	<FrameLayout
+		android:id="@+id/self_checkin_toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation"
+		android:visibility="gone">
+
+		<TextView
+			android:id="@+id/cancel_button"
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/cancel" />
+
+	</FrameLayout>
+
+	<androidx.appcompat.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:navigationContentDescription="@string/android_accessibility_back_button"
+		app:navigationIcon="@drawable/ic_arrow_back"
+		app:title="@string/checkin_title" />
+
+	<ScrollView
+		android:id="@+id/check_in_fragment_venue_info_scrollview"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:fillViewport="true"
+		android:scrollbars="none">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<Space
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="2" />
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:src="@drawable/ic_illu_check_in" />
+
+			<TextView
+				android:id="@+id/title_textview"
+				style="@style/NextStep.Text.SplashTitle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_medium"
+				android:gravity="center"
+				tools:text="Cyber Cafe SV" />
+
+			<TextView
+				android:id="@+id/subtitle_textview"
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				android:gravity="center"
+				tools:text="Lausanne" />
+
+			<Space
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1" />
+
+			<LinearLayout
+				android:id="@+id/reminder_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_large"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:orientation="vertical"
+				android:paddingBottom="@dimen/button_radius">
+
+				<TextView
+					style="@style/NextStep.Text.Bold"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/checkin_set_reminder"
+					android:textAllCaps="true" />
+
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_small"
+					android:gravity="center"
+					android:text="@string/checkin_set_reminder_explanation" />
+
+				<com.google.android.material.button.MaterialButtonToggleGroup
+					android:id="@+id/reminder_toggle_group"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginTop="@dimen/spacing_medium"
+					android:layout_marginBottom="@dimen/spacing_large"
+					app:selectionRequired="true"
+					app:singleSelection="true">
+
+				</com.google.android.material.button.MaterialButtonToggleGroup>
+
+			</LinearLayout>
+
+			<Space
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="2" />
+
+		</LinearLayout>
+	</ScrollView>
+
+	<Button
+		android:id="@+id/check_in_button"
+		style="@style/NextStep.Button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginHorizontal="@dimen/spacing_larger"
+		android:layout_marginVertical="@dimen/spacing_larger"
+		android:drawableEnd="@drawable/ic_check_in"
+		android:text="@string/checkin_button_title" />
+
+</LinearLayout>

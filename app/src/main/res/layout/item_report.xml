@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/card_view"
+		style="@style/NextStep.Card"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:foreground="?selectableItemBackground"
+		android:layout_marginHorizontal="@dimen/spacing_medium_large"
+		android:layout_marginVertical="@dimen/spacing_small"
+		android:clickable="true"
+		android:focusable="true">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				style="@style/NextStep.Text.Bold.Blue"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_large"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:text="@string/meldung_detail_exposed_list_card_subtitle" />
+
+			<TextView
+				android:id="@+id/report_type"
+				style="@style/NextStep.Text.Title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_large"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				tools:text="@string/meldung_detail_exposed_list_card_title_checkin" />
+
+			<TextView
+				android:id="@+id/report_details"
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_large"
+				android:lineSpacingExtra="@dimen/spacing_very_small"
+				tools:text="20.10.2020 / vor 2 Tagen \n22.10.2020 / vor 4 Tagen" />
+
+			<TextView
+				android:id="@+id/place"
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_large"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				tools:text="Reuss Ubique" />
+
+			<LinearLayout
+				android:id="@+id/what_to_do_button"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_medium_large"
+				android:layout_marginTop="@dimen/spacing_medium"
+				android:layout_marginBottom="@dimen/spacing_medium_large"
+				android:orientation="horizontal"
+				android:padding="@dimen/spacing_small">
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_link_internal" />
+
+				<TextView
+					style="@style/NextStep.Text.Bold.Blue"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="@dimen/spacing_medium"
+					android:text="@string/meldung_detail_exposed_list_card_whattodo_button" />
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+</FrameLayout>

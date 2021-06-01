@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+option java_package = "ch.admin.bag.dp3t.checkin.models";
+option java_multiple_files = true;
+
+message GeneratedQrCodesWrapper{
+  repeated QRCodePayload generatedQrCodes = 1;
+}
+
+message QRCodePayload {
+  uint32 version = 1;
+  TraceLocation locationData = 2;
+  CrowdNotifierData crowdNotifierData = 3;
+
+  bytes countryData = 4;
+}
+
+message TraceLocation {
+  uint32 version = 1;
+
+  // max. 100 characters
+  string description = 2;
+
+  // max. 100 characters
+  string address = 3;
+
+  // UNIX timestamp (in seconds)
+  uint64 startTimestamp = 4;
+
+  // UNIX timestamp (in seconds)
+  uint64 endTimestamp = 5;
+}
+
+message CrowdNotifierData {
+  uint32 version = 1;
+  bytes publicKey = 2;
+  bytes cryptographicSeed = 3;
+
+  // Ignore ;)
+  uint32 type = 4; // exact semantic tbd
+}
+
+message AssociatedData {
+  int32 version = 1;
+  string message = 2;
+  int64 startTimestamp = 3;
+  int64 endTimestamp = 4;
+  bytes countryData = 5;
+}
+
+message UserUploadPayload {
+  int32 version = 1;
+  repeated UploadVenueInfo venueInfos = 2;
+  fixed32 userInteractionDurationMs = 3;
+}
+message UploadVenueInfo {
+  bytes preId = 1;
+  bytes timeKey = 2;
+  int64 intervalStartMs = 3;
+  int64 intervalEndMs = 4;
+  bytes notificationKey = 5;
+  bool fake = 6;
+}
+

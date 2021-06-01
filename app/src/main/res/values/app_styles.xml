@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="NextStep.DateTimePicker" parent="android:Widget">
+		<item name="android:textSize">@dimen/text_size_normal</item>
+		<item name="colorControlNormal">@color/red_main</item>
+		<item name="android:textColorPrimary">@color/dark_main</item>
+		<item name="np_textSize">@dimen/text_size_normal</item>
+		<item name="np_selectedTextSize">@dimen/text_size_normal</item>
+		<item name="np_textColor">@color/dark_main</item>
+		<item name="np_selectedTextColor">@color/dark_main</item>
+		<item name="np_dividerColor">@color/blue_main</item>
+		<item name="np_dividerDistance">36sp</item>
+		<item name="np_wheelItemCount">3</item>
+	</style>
+
+	<style name="NextStep.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+		<item name="background">@color/bottom_navigation_background</item>
+		<item name="itemIconTint">@color/selector_bottom_navigation_item</item>
+		<item name="itemTextColor">@color/selector_bottom_navigation_item</item>
+		<item name="itemRippleColor">?android:attr/colorControlHighlight</item>
+		<item name="itemTextAppearanceActive">@style/NextStep.Text.BottomNavigationViewTextStyle</item>
+		<item name="itemTextAppearanceInactive">@style/NextStep.Text.BottomNavigationViewTextStyle</item>
+	</style>
+
+	<style name="NextStep.Card" parent="CardView">
+		<item name="cardBackgroundColor">@color/white</item>
+		<item name="cardCornerRadius">@dimen/card_border_radius</item>
+	</style>
+
+	<style name="NextStep.ToggleButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:textAllCaps">false</item>
+		<item name="android:paddingEnd">0dp</item>
+		<item name="android:paddingStart">0dp</item>
+		<item name="android:backgroundTint">@drawable/reminder_toggle_background_color</item>
+		<item name="strokeColor">@drawable/reminder_toggle_text_color</item>
+		<item name="android:textColor">@drawable/reminder_toggle_text_color</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:minWidth">0dp</item>
+	</style>
+
+	<style name="NextStep.RadioButton.Reminder" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+		<item name="android:textSize">@dimen/text_size_normal</item>
+		<item name="android:textColor">@color/dark_main</item>
+		<item name="android:layout_height">48dp</item>
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:paddingStart">@dimen/spacing_small</item>
+		<item name="android:paddingEnd">@dimen/spacing_small</item>
+		<item name="android:drawablePadding">@dimen/spacing_medium</item>
+		<item name="android:background">@null</item>
+		<item name="android:foreground">?android:selectableItemBackground</item>
+		<item name="android:button">@null</item>
+		<item name="android:drawableStart">@drawable/ic_radio_button</item>
+	</style>
+
+	<style name="NextStep.AlertDialogStyle" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+		<item name="android:colorAccent">@color/blue_main</item>
+		<item name="android:textColor">@color/dark_main</item>
+		<item name="android:textColorPrimary">@color/dark_main</item>
+		<item name="buttonBarPositiveButtonStyle">@style/NextStep.Button.AlertDialog</item>
+		<item name="buttonBarNegativeButtonStyle">@style/NextStep.Button.AlertDialog</item>
+		<item name="android:fontFamily">@font/inter_light</item>
+		<item name="fontFamily">@font/inter_light</item>
+	</style>
+
+	<style name="NextStep.Switch" parent="Widget.AppCompat.CompoundButton.Switch">
+		<item name="android:thumbTint">@color/switch_tint_selector</item>
+		<item name="android:trackTint">@color/switch_tint_selector</item>
+	</style>
+
+	<style name="NextStep.RadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+		<item name="android:textAppearance">@style/NextStep.Text</item>
+		<item name="android:textColor">@color/dark_main</item>
+		<item name="android:paddingStart">@dimen/spacing_medium</item>
+	</style>
+
+	<style name="NextStep.Button.AlertDialog" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+		<item name="android:textSize">@dimen/text_size_button</item>
+		<item name="android:textColor">@color/blue_main</item>
+		<item name="android:fontFamily">@font/inter_bold</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textAllCaps">false</item>
+		<item name="rippleColor">@color/grey_dark</item>
+	</style>
+
+</resources>

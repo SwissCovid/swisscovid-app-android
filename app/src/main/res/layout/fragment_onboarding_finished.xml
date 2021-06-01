@@ -19,14 +19,14 @@
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:clipChildren="false"
+			android:clipToPadding="false"
 			android:gravity="center_horizontal"
 			android:orientation="vertical"
 			android:paddingStart="@dimen/spacing_huge"
 			android:paddingTop="@dimen/spacing_huge"
 			android:paddingEnd="@dimen/spacing_huge"
-			android:paddingBottom="@dimen/spacing_large"
-			android:clipChildren="false"
-			android:clipToPadding="false">
+			android:paddingBottom="@dimen/spacing_large">
 
 			<ImageView
 				android:id="@+id/onboarding_illustration"
@@ -48,13 +48,14 @@
 				android:text="@string/onboarding_go_title" />
 
 			<TextView
+				android:id="@+id/onboarding_text"
 				style="@style/NextStep.Text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:breakStrategy="high_quality"
-				android:hyphenationFrequency="full"
 				android:layout_marginBottom="@dimen/spacing_very_large"
+				android:breakStrategy="high_quality"
 				android:gravity="center_horizontal"
+				android:hyphenationFrequency="full"
 				android:text="@string/onboarding_go_text" />
 
 			<Button

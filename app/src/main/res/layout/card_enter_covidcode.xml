@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/NextStep.Card"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<LinearLayout
+		android:id="@+id/card_covidcode"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="@dimen/spacing_medium_large"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/enter_covidcode_title"
+			style="@style/NextStep.Text.Title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/home_covidcode_card_title" />
+
+		<TextView
+			android:id="@+id/enter_covidcode_text"
+			style="@style/NextStep.Text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/home_covidcode_card_text" />
+
+		<Button
+			android:id="@+id/enter_covidcode_button"
+			style="@style/NextStep.Button.Outlined.Purple"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_medium"
+			android:text="@string/inform_code_title" />
+
+	</LinearLayout>
+
+</androidx.cardview.widget.CardView>

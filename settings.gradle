@@ -10,3 +10,5 @@
 
 rootProject.name='dp3t-android-app'
 include ':app'
+include ':instant'
+include ':common'

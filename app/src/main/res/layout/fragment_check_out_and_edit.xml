@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	android:elevation="@dimen/modal_elevation"
+	android:orientation="vertical">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation">
+
+		<TextView
+			android:id="@+id/toolbar_cancel_button"
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/cancel" />
+
+		<TextView
+			android:id="@+id/toolbar_done_button"
+			style="@style/NextStep.Text.Bold.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/checkout_save_button_title" />
+
+	</FrameLayout>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fillViewport="true">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingHorizontal="@dimen/spacing_very_large">
+
+			<TextView
+				android:id="@+id/checkout_title"
+				style="@style/NextStep.Text.SplashTitle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_larger"
+				android:gravity="center"
+				tools:text="Cyber Cafe SV" />
+
+			<TextView
+				android:id="@+id/checkout_subtitle"
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				android:gravity="center"
+				tools:text="Lausanne" />
+
+			<TextView
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_huge"
+				android:text="@string/datepicker_from"
+				android:textAllCaps="true" />
+
+			<ch.admin.bag.dp3t.view.DateTimePicker
+				android:id="@+id/checkout_time_arrival"
+				android:layout_width="match_parent"
+				android:layout_height="108dp" />
+
+			<TextView
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:text="@string/datepicker_to"
+				android:textAllCaps="true" />
+
+			<ch.admin.bag.dp3t.view.DateTimePicker
+				android:id="@+id/checkout_time_departure"
+				android:layout_width="match_parent"
+				android:layout_height="108dp" />
+
+			<Space
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:layout_weight="1" />
+
+			<Button
+				android:id="@+id/checkout_primary_button"
+				style="@style/NextStep.Button.Blue"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_margin="@dimen/spacing_huge"
+				tools:text="@string/remove_from_diary_button" />
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>

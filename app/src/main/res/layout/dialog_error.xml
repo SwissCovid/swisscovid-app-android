@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	style="@style/NextStep.Card"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="@dimen/spacing_medium"
+	android:clickable="false"
+	android:focusable="false">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<ImageButton
+			android:id="@+id/dialog_error_close_button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end"
+			android:layout_marginTop="@dimen/spacing_small"
+			android:layout_marginEnd="@dimen/spacing_small"
+			android:background="@drawable/ripple_rounded"
+			android:clickable="true"
+			android:focusable="true"
+			android:padding="@dimen/spacing_medium_large"
+			android:src="@drawable/ic_close"
+			android:tint="@color/blue_main"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<include
+			android:id="@+id/dialog_error_container"
+			layout="@layout/item_error_status"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginBottom="@dimen/spacing_very_small"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/dialog_error_close_button" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

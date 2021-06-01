@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				style="@style/NextStep.Text.Title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_huge"
+				android:gravity="bottom|center_horizontal"
+				android:text="@string/inform_really_not_share_title" />
+
+			<TextView
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_medium_large"
+				android:gravity="center_horizontal"
+				android:paddingStart="@dimen/spacing_huge"
+				android:paddingEnd="@dimen/spacing_huge"
+				android:text="@string/inform_really_not_share_subtitle" />
+
+			<Button
+				android:id="@+id/try_again_button"
+				style="@style/NextStep.Button.Purple"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="@dimen/spacing_huge"
+				android:layout_marginBottom="@dimen/spacing_medium_large"
+				android:text="@string/share_button_title" />
+
+			<TextView
+				android:id="@+id/dont_send_button"
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginBottom="@dimen/spacing_medium_large"
+				android:background="?selectableItemBackground"
+				android:padding="@dimen/spacing_small"
+				android:text="@string/inform_dont_share_button_title"
+				android:visibility="visible" />
+
+		</LinearLayout>
+
+		<FrameLayout
+			android:id="@+id/loading_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/transparent_milk"
+			android:visibility="gone">
+
+			<ProgressBar
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center" />
+
+		</FrameLayout>
+
+	</FrameLayout>
+
+</ScrollView>

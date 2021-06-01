@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	android:orientation="vertical">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation">
+
+		<TextView
+			android:id="@+id/cancel_button"
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/cancel" />
+
+	</FrameLayout>
+
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="@dimen/spacing_large">
+
+			<TextView
+				android:id="@+id/title_textview"
+				style="@style/NextStep.Text.SplashTitle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				tools:text="Reuss Ubique" />
+
+			<TextView
+				android:id="@+id/subtitle_textview"
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:gravity="center_horizontal"
+				android:textStyle="normal"
+				tools:text="Office space" />
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="@dimen/spacing_larger">
+
+				<ImageView
+					android:id="@+id/qr_code_imageview"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					app:layout_constraintDimensionRatio="H,1:1"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:src="@drawable/ic_qr_code" />
+
+				<ProgressBar
+					android:id="@+id/qrCodeLoadingProgressbar"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:visibility="gone"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<Button
+				android:id="@+id/checkin_button"
+				style="@style/NextStep.Button.Outlined"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_huger"
+				android:drawableEnd="@drawable/ic_check_in"
+				android:text="@string/self_checkin_button_title" />
+
+			<Button
+				android:id="@+id/share_button"
+				style="@style/NextStep.Button"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_huger"
+				android:layout_marginTop="@dimen/spacing_huge"
+				android:drawableEnd="@drawable/ic_share"
+				android:text="@string/share_button_title" />
+
+			<Button
+				android:id="@+id/print_pdf_button"
+				style="@style/NextStep.Button"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_huger"
+				android:layout_marginTop="@dimen/spacing_medium_large"
+				android:drawableEnd="@drawable/ic_print"
+				android:text="@string/print_button_title" />
+
+			<Button
+				android:id="@+id/delete_button"
+				style="@style/NextStep.Button.Outlined.Red"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_huger"
+				android:layout_marginTop="@dimen/spacing_medium_large"
+				android:drawableEnd="@drawable/ic_delete"
+				android:text="@string/delete_button_title"
+				android:textColor="@color/red_main" />
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_package = "ch.admin.bag.dp3t.checkin.models";
+option java_multiple_files = true;
+
+message ProblematicEventWrapper {
+  int32 version = 1;
+  repeated ProblematicEvent events = 2;
+}
+
+message ProblematicEvent {
+  int32 version = 1;
+  bytes identity = 2;
+  bytes secretKeyForIdentity = 3;
+  int64 day = 4; // in seconds
+  bytes encryptedAssociatedData = 5;
+  bytes cipherTextNonce = 6;
+}
+
+enum EventCriticality {
+  LOW = 0;
+  HIGH = 1;
+}
+
+message SwissCovidAssociatedData {
+  int32 version = 1;
+  EventCriticality criticality = 2;
+}
+
+
+message SwissCovidLocationData {
+  uint32 version = 1;
+  VenueType type = 2;
+  string room = 3;
+  int64 checkoutWarningDelayMs = 4;
+  int64 automaticCheckoutDelaylMs = 5;
+  repeated int64 reminderDelayOptionsMs = 6;
+}
+
+enum VenueType {
+  USER_QR_CODE = 0;
+  CONTACT_TRACING_QR_CODE = 1;
+}

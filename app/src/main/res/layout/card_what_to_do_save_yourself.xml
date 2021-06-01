@@ -31,7 +31,7 @@
 
 			<TextView
 				android:id="@+id/card_encounters_subtitle"
-				style="@style/NextStep.Text.SubTitle"
+				style="@style/NextStep.Text.SubTitle.Blue"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_medium_large"
@@ -92,10 +92,10 @@
 						android:layout_height="@dimen/icon_size"
 						android:layout_marginRight="@dimen/spacing_small"
 						android:src="@drawable/ic_launch"
-						android:tint="@color/green_main" />
+						android:tint="@color/blue_main" />
 
 					<TextView
-						style="@style/NextStep.Text.Bold.Green"
+						style="@style/NextStep.Text.Bold.Blue"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:text="@string/no_meldungen_box_link" />
@@ -142,36 +142,8 @@
 
 		</LinearLayout>
 
-		<TextView
-			style="@style/NextStep.Text.Bold"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="@dimen/spacing_small"
-			android:layout_marginTop="@dimen/spacing_very_large"
-			android:text="@string/meldungen_nomeldungen_faq2_titel" />
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
-
-			<ImageView
-				android:layout_width="@dimen/icon_size"
-				android:layout_height="@dimen/icon_size"
-				android:layout_marginRight="@dimen/spacing_medium_large"
-				android:src="@drawable/ic_begegnungen"
-				android:tint="@color/blue_main" />
-
-			<TextView
-				style="@style/NextStep.Text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="@string/meldungen_nomeldungen_faq2_text" />
-
-		</LinearLayout>
-
 		<Button
-			android:id="@+id/card_encounters_faq_button"
+			android:id="@+id/faq_button"
 			style="@style/NextStep.Button.Outlined"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

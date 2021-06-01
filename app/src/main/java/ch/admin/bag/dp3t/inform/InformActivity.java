@@ -20,7 +20,7 @@ import ch.admin.bag.dp3t.R;
 
 public class InformActivity extends FragmentActivity {
 
-	private boolean allowed = true;
+	private boolean backpressAllowed = true;
 	public static final String EXTRA_COVIDCODE = "EXTRA_COVIDCODE";
 
 	@Override
@@ -38,13 +38,13 @@ public class InformActivity extends FragmentActivity {
 
 	@Override
 	public void onBackPressed() {
-		if (allowed) {
+		if (backpressAllowed) {
 			super.onBackPressed();
 		}
 	}
 
 	public void allowBackButton(boolean allowed) {
-		this.allowed = allowed;
+		this.backpressAllowed = allowed;
 	}
 
 	@Override

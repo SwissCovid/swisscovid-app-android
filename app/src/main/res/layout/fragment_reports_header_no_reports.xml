@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
   ~
   ~ This Source Code Form is subject to the terms of the Mozilla Public
@@ -11,7 +10,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@color/status_green_bg">
+	android:background="@color/status_blue_bg">
 
 	<LinearLayout
 		android:layout_width="match_parent"
@@ -25,16 +24,15 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
-			android:src="@drawable/ic_check_circle_large" />
+			android:src="@drawable/ic_check_circle" />
 
 		<TextView
-			style="@style/NextStep.Text.Title"
+			style="@style/NextStep.Text.Title.Blue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
 			android:layout_marginTop="@dimen/spacing_small"
-			android:text="@string/meldungen_no_meldungen_title"
-			android:textColor="@color/green_main" />
+			android:text="@string/meldungen_no_meldungen_title" />
 
 		<TextView
 			style="@style/NextStep.Text"

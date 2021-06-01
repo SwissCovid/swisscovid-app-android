@@ -100,8 +100,7 @@
 						android:layout_height="wrap_content"
 						android:layout_gravity="center_horizontal"
 						android:layout_marginTop="@dimen/spacing_very_large"
-						android:text="@string/symptom_detail_box_button"
-						android:textAllCaps="true" />
+						android:text="@string/symptom_detail_box_button" />
 
 				</LinearLayout>
 

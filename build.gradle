@@ -19,14 +19,16 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:4.1.0'
+		classpath 'com.android.tools.build:gradle:4.1.3'
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+		classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.12'
 	}
 }
 
 allprojects {
 	repositories {
 		google()
+		jcenter()
 		mavenCentral()
 	}
 }
