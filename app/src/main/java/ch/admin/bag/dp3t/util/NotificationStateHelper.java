@@ -33,10 +33,9 @@ public class NotificationStateHelper {
 		TextView textView = statusView.findViewById(R.id.status_text);
 		ImageView illustrationView = statusView.findViewById(R.id.status_illustration);
 		int titleColor = ContextCompat.getColor(context, NotificationState.getTitleTextColor(state));
-		int textColor = ContextCompat.getColor(context, NotificationState.geTextColor(state));
+		int textColor = ContextCompat.getColor(context, NotificationState.getTextColor(state));
 		titleView.setTextColor(titleColor);
 		textView.setTextColor(textColor);
-		iconView.setImageTintList(ColorStateList.valueOf(titleColor));
 
 		if (NotificationState.getTitle(state) != -1) {
 			titleView.setText(NotificationState.getTitle(state));
@@ -53,6 +52,13 @@ public class NotificationStateHelper {
 		if (NotificationState.getIcon(state) != -1) {
 			iconView.setImageResource(NotificationState.getIcon(state));
 			iconView.setVisibility(View.VISIBLE);
+
+			Integer iconColor = NotificationState.getIconColor(state);
+			if (iconColor != null) {
+				iconView.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, iconColor)));
+			} else {
+				iconView.setImageTintList(null);
+			}
 		} else {
 			iconView.setVisibility(View.GONE);
 		}
