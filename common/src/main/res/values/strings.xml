@@ -740,8 +740,8 @@ Other symptoms may include:
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
     <string name="delete_infection_button">"End isolation?"</string>
 
-    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
-    <string name="delete_infection_dialog">"Do you really want to delete the notification? "</string>
+    <!-- Meldung im Löschen Dialog nach Isolation-Beenden, kommt auch auf Homescreen-Popup -->
+    <string name="delete_infection_dialog">"Do you really want to end the isolation?"</string>
     <string name="android_onboarding_battery_permission_title">"Ignore battery optimisation"</string>
     <string name="android_onboarding_battery_permission_text">"For the app to work, battery optimisation must be switched off."</string>
     <string name="android_onboarding_battery_permission_button">"Allow"</string>
@@ -942,12 +942,6 @@ To enable travellers from abroad to also receive alerts, this happens regardless
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.5 -->
-    <string name="tracing_setting_text_ios_13_5"></string>
-
-    <!-- Text beim Bluetooth Control iOS 13.6 -->
-    <string name="tracing_setting_text_ios_13_6"></string>
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
@@ -1740,9 +1734,6 @@ Possible locations:
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
-
-    <!-- SubTitel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_subtitle"></string>
     <string name="not_thank_you_screen_title">"No data sent"</string>
     <string name="not_thank_you_screen_text1">"No private key was sent."</string>
     <string name="not_thank_you_screen_back_button">"Back"</string>
@@ -1785,5 +1776,5 @@ Possible locations:
     <!-- Info URL for testing -->
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
-    <string name="checkout_too_long_alert_text"></string>
+    <string name="checkout_too_long_alert_text">"For this check-in a maximum check-in duration of {DURATION} applies. Please check your input again."</string>
 </resources>

@@ -760,7 +760,7 @@ Zudem sind folgende Symptome möglich:
     <!-- Fuzzy -->
     <string name="delete_infection_button">"Isolation beenden"</string>
 
-    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <!-- Meldung im Löschen Dialog nach Isolation-Beenden, kommt auch auf Homescreen-Popup -->
     <!-- Fuzzy -->
     <string name="delete_infection_dialog">"Möchten Sie die Isolation wirklich beenden?"</string>
     <string name="android_onboarding_battery_permission_title">"Akku-Optimierung ignorieren"</string>
@@ -969,12 +969,6 @@ Damit auch Reisende aus dem Ausland gewarnt werden können, geschieht das unabh�
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.5 -->
-    <string name="tracing_setting_text_ios_13_5">"COVID-19-Kontaktmitteilungen"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.6 -->
-    <string name="tracing_setting_text_ios_13_6">"COVID-19-Begegnungsmitteilungen"</string>
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <!-- Fuzzy -->
@@ -1795,9 +1789,6 @@ Dieser Titel wird beim Check-in angezeigt."</string>
     <!-- Titel von CheckIn Meldungen Screen. -->
     <!-- Fuzzy -->
     <string name="meldung_detail_checkin_title">"Check-In"</string>
-
-    <!-- SubTitel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_subtitle"></string>
     <string name="not_thank_you_screen_title">"Keine Daten gesendet"</string>
 
     <!-- Fuzzy -->

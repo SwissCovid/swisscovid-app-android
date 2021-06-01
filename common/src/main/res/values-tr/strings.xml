@@ -101,7 +101,7 @@
     <string name="meldungen_meldung_title">"Olası enfeksiyon"</string>
 
     <!-- Text im Meldung Detail -->
-    <string name="meldungen_meldung_text">"Enfeksiyon olasılığı mevcuttur."</string>
+    <string name="meldungen_meldung_text">"Hastalık size bulaşmış olabilir"</string>
 
     <!-- Titel ob Tracing aktiv -->
     <string name="tracing_active_title">"Uygulama etkindir"</string>
@@ -191,7 +191,7 @@
     <string name="inform_detail_box_subtitle">"Kovid kodu ile..."</string>
 
     <!-- Inform Detai Weisse Box Titel -->
-    <string name="inform_detail_box_title">"Enfeksiyon zincirini kır"</string>
+    <string name="inform_detail_box_title">"Olası bulaşmalara karşı uyar"</string>
 
     <!-- Inform Detail Weisse Box Button -->
     <string name="inform_detail_box_button">"Kovid kodu gir"</string>
@@ -224,8 +224,8 @@
     <string name="symptom_detail_navigation_title">"Semptomlar"</string>
     <string name="tracing_turned_off_title">"Takip devre dışı bırakıldı"</string>
     <string name="tracing_turned_off_text">"Uygulamanın çalışabilmesi için takibi etkinleştirin."</string>
-    <string name="bluetooth_turned_off_title">"Bluetooth'u kapat"</string>
-    <string name="bluetooth_turned_off_text">"Takibin çalışabilmesi için cep telefonunuzun Bluetooth özelliğini etkinleştirin."</string>
+    <string name="bluetooth_turned_off_title">"Bluetooth kapalı"</string>
+    <string name="bluetooth_turned_off_text">"Anonim takibin çalışabilmesi için cep telefonunuzun Bluetooth özelliğini etkinleştirin."</string>
     <string name="bluetooth_turn_on_button_title">"Bluetooth'u ektinleştirin"</string>
     <string name="bluetooth_permission_error_title">"Bluetooth kullanımı rededildi"</string>
     <string name="bluetooth_permission_error_text">"Takibin çalışabilmesi için Bluetooth kullanımına izin verin."</string>
@@ -257,11 +257,11 @@
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
     <string name="meldung_detail_positive_test_box_text">"İzolasyona ilişkin size bildirilen talimatlara uyun"</string>
-    <string name="tracing_ended_title">"Takip sonlandırıldı"</string>
-    <string name="tracing_ended_text">"Temaslarınız artık kaydedilmiyor."</string>
+    <string name="tracing_ended_title">"Temaslar ve Check-in devre dışı"</string>
+    <string name="tracing_ended_text">"Temaslar kaydedilmiyor"</string>
     <string name="exposed_info_contact_hotline">"... ile iletişime girin"</string>
     <string name="meldung_homescreen_positive_info_line1">"...'lere/lara uyun"</string>
-    <string name="meldung_homescreen_positive_info_line2">"Kendini İzole Etme Talimatları"</string>
+    <string name="meldung_homescreen_positive_info_line2">"İzolasyon Talimatları"</string>
 
     <!-- Meldung Detail Exposed Neue Meldung -->
     <string name="meldung_detail_exposed_new_meldung">"Yeni bildirim"</string>
@@ -271,7 +271,7 @@
     <string name="meldung_homescreen_positiv_title">"Testiniz pozitif"</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
-    <string name="meldung_detail_exposed_subtitle">"Enfeksiyon riski bulunmaktadır."</string>
+    <string name="meldung_detail_exposed_subtitle">"Hastalık size bulaşmış olabilir"</string>
 
     <!-- Meldung auf Homescreen: Positiv getestet -->
     <string name="meldung_homescreen_positiv_text">"Korona virüsü testiniz pozitiftir."</string>
@@ -325,7 +325,7 @@
     <string name="onboarding_prinzip_text1">"SwissCovid uygulaması ile Korona virüsünün yayılımını sınırlandırmaya yardımcı olabilirsiniz."</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text2">"Korona virüsü ile potansiyel temaslarda uygulama sizi bilgilendirir."</string>
+    <string name="onboarding_prinzip_text2">"Korona virüsü ile potansiyel temaslarda uygulama sizi uyarır."</string>
 
     <!-- Onboarding Privacy: Titel oben -->
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
@@ -340,7 +340,7 @@
     <string name="onboarding_privacy_text2">"Rastgele ID'ler telefonunuza kaydedilir ve 14 gün sonra silinir."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"Uygulama nasıl çalışır?"</string>
+    <string name="onboarding_begegnungen_heading">"Temaslar"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"Bluetooth sayesinde temasların tespit edilmesi"</string>
@@ -358,7 +358,7 @@
     <string name="onboarding_meldung_title">"Enfeksiyon riskinde dair bildirim"</string>
 
     <!-- Onboarding Meldung: Text -->
-    <string name="onboarding_meldung_text1">"Uygulama, potansiyel olarak Korona virüsü ile temasınız olduğunda sizi uyarır."</string>
+    <string name="onboarding_meldung_text1">"Korona virüsü ile potansiyel temaslarda uygulama sizi uyarır."</string>
 
     <!-- Onboarding Meldung: Text -->
     <string name="onboarding_meldung_text2">"Doğru davranışlarla enfeksiyon zincirlerini kırabilir ve diğer insanları koruyabilirsiniz."</string>
@@ -391,7 +391,7 @@
     <string name="onboarding_push_title">"Mesajlara izin ver"</string>
 
     <!-- Onboarding Mitteilungen: Text -->
-    <string name="onboarding_push_text">"Uygulamanın sizi bilgilendirebilmesi için mesajlara izin vermeniz gerekmektedir."</string>
+    <string name="onboarding_push_text">"Uygulamanın sizi uyarabilmesi için bildirimlere izin vermeniz gerekir."</string>
 
     <!-- Onboarding Mitteilungen: Button -->
     <string name="onboarding_push_button">"Mesajlara izin ver"</string>
@@ -412,7 +412,7 @@
     <string name="onboarding_go_title">"Uygulama kuruldu"</string>
 
     <!-- Text auf dem letzten Onboarding Screen -->
-    <string name="onboarding_go_text">"Enfeksiyon zincirlerini kırmaya yardımcı olduğunuz için teşekkür ederiz."</string>
+    <string name="onboarding_go_text">"Korona virüsün yayılmasını önlemeye yardımcı olduğunuz için teşekkür ederiz."</string>
 
     <!-- Button-Label auf dem letzten Onboarding screen -->
     <string name="onboarding_go_button">"Başlat"</string>
@@ -439,7 +439,7 @@
     <string name="meldung_detail_new_contact_title">"Yeni şüphe"</string>
 
     <!-- Meldungen Detail: Text -->
-    <string name="meldung_detail_new_contact_subtitle">"Bir enfeksiyon şüphesi vardır."</string>
+    <string name="meldung_detail_new_contact_subtitle">"Hastalık size bulaşmış olabilir"</string>
 
     <!-- Fehler mit Uhrzeit Titel -->
     <string name="time_inconsistency_title">"Saat hatası"</string>
@@ -573,8 +573,9 @@ Bunlar cep telefonunda kaydedilmekte ve 14 gün sonra silinmektedir."</string>
     <string name="meldungen_nomeldungen_faq1_title">"Bildirimler nedir?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq1_text">"Uygulama düzenli olarak temas ettiğiniz kişilerin pozitif bir test sonucu bildirip bildirmediğini kontrol eder.
-Olası bir enfeksiyon riskinde kilit ekranında bir mesaj ile bilgilendirileceksiniz."</string>
+    <string name="meldungen_nomeldungen_faq1_text">"Uygulama düzenli olarak, temas ettiğiniz veya sizinle aynı yerde bulunan diğer kullanıcıların pozitif bir test sonucu bildirip bildirmediğini kontrol eder.
+
+Olası bir bulaşma durumunda kilit ekranındaki gösterilecek bir bildirim ile bilgilendirilirsiniz."</string>
 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"SwissCovid Bilgi Hattı sizi ücretsiz testler konusunda bilgilendirir."</string>
@@ -610,8 +611,9 @@ Böylece uygulama üzerinden yalnızca onaylı vakaların bildirilmesi sağlanı
     <string name="inform_detail_faq2_title">"Neler iletilir?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Şahsi bilgileriniz değil, uygulamanızın yalnızca özel kodları iletilir. 
-Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşma riski olabileceğini öğenir."</string>
+    <string name="inform_detail_faq2_text">"Şahsi verileriniz değil, sadece uygulamanızın özel kodları ve yaptığınız Check-in’lerin şifrelenmiş ID’leri iletilir.
+
+ Bu şekilde diğer SwissCovid uygulaması kullanıcıları bir bulaşma riski söz konusu olabileceğini öğrenir."</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -620,10 +622,10 @@ Bu şekilde diğer SwissCovid uygulaması kullanıcıları yalnızca bir bulaşm
     <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/de/categories/swisscovid-app"</string>
 
     <!-- Informieren Flow: Titel erster Screen -->
-    <string name="inform_code_intro_title">"Önemli Bilgiler"</string>
+    <string name="inform_code_intro_title">"Girişler Hakkında Bilgiler"</string>
 
     <!-- Informieren-Flow: Erster Screen Text -->
-    <string name="inform_code_intro_text">"Kişisel bilgileriniz iletilmese dahi, bazı kişiler tarihler temelinde sizinle olan teması hatırlayabilirler."</string>
+    <string name="inform_code_intro_text">"Kişisel bilgileriniz iletilmezse dahi, bir kişini tarihi dikkate alarak sizinle temas ettiğini hatırlayabilir."</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
     <string name="inform_code_intro_button">"Kabul ediyorum"</string>
@@ -654,7 +656,7 @@ Ayrıca bu semptomlar görülebilir:
     <string name="meldungen_positive_tested_faq1_title">"İzleme neden devre dışı bırakıldı?"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Text -->
-    <string name="meldungen_positive_tested_faq1_text">"Pozitif bir testten sonra uygulamadaki izleme otomatik olarak devre dışı bırakılır. İzolasyonu sona erdiğirdiğiniz anda, izleme yeniden etkinleştirilebilir."</string>
+    <string name="meldungen_positive_tested_faq1_text">"Pozitif bir test sonucundan sonra uygulamadaki takip otomatik olarak devre dışı bırakılır. İzolasyonu sona erdirdiğiniz andan itibaren, takip fonksiyonu yeniden etkinleştirilebilir."</string>
 
     <!-- Sprache Abkürzung (BITTE NICHT ÄNDERN) -->
     <string name="language_key">"tr"</string>
@@ -694,7 +696,7 @@ Ayrıca bu semptomlar görülebilir:
     <string name="onboarding_gaen_title">"Takibi etkinleştir"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
-    <string name="onboarding_gaen_text_ios">"Uygulamayı kullanabilmek için KOVİD-19 temas bildirimlerini etkinleştirmiş olmalısınız."</string>
+    <string name="onboarding_gaen_text_ios">"Temasların algılanabilmesi için takip fonksiyonunun etkinleştirilmiş olması gerekmektedir."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Etkinleştir"</string>
@@ -723,10 +725,10 @@ Ayrıca bu semptomlar görülebilir:
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
     <string name="delete_infection_button">"İzolasyonu sona erdir"</string>
 
-    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <!-- Meldung im Löschen Dialog nach Isolation-Beenden, kommt auch auf Homescreen-Popup -->
     <string name="delete_infection_dialog">"Bildirimi gerçekten silmek mi istiyorsunuz?"</string>
     <string name="android_onboarding_battery_permission_title">"Pil optimizasyonunu yoksay"</string>
-    <string name="android_onboarding_battery_permission_text">"Temasların her zaman takip edebilebilmesi için pil optimizasyonunun bu uygulama için devre dışı bırakılması gerekmektedir."</string>
+    <string name="android_onboarding_battery_permission_text">"Uygulamanın düzgün çalışabilmesi için pil optimizasyonunun bu uygulama için devre dışı bırakılmış olması gerekir."</string>
     <string name="android_onboarding_battery_permission_button">"İzin ver"</string>
     <string name="android_onboarding_battery_permission_button_deactivated">"OK"</string>
     <string name="android_onboarding_battery_permission_info_1_title">"Yalnızca bu uygulama için"</string>
@@ -748,7 +750,7 @@ Ayrıca bu semptomlar görülebilir:
     <string name="tracing_permission_error_title_ios">"KOVİD-19 temas mesajları devre dışı bırakıldı"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
-    <string name="tracing_permission_error_text_ios">"Takibin çalışabilmesi için KOVİD-19 iletişim mesajlarının etkinleştirilmesi gerekmektedir."</string>
+    <string name="tracing_permission_error_text_ios">"Anonim takibin çalışabilmesi için {TRACING_SETTING_TEXT}’i etkinleştirin."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Mesaj iletilemedi. Lütfen rastgele ID'lerinizin SwissCovid uygulaması ile paylaşılmasına izin verin."</string>
@@ -790,8 +792,9 @@ Ayrıca bu semptomlar görülebilir:
     <string name="tracing_active_tracking_always_info">"SwissCovid uygulama kapatıldığında da aktiftir."</string>
 
     <!-- title in splash screen of onboarding -->
-    <string name="oboarding_splashscreen_title">"SwissCovid enfeksiyon zincirlerini kırar."</string>
-    <string name="inform_detail_faq3_text">"Kişisel bilgileriniz iletilmese dahi, bazı kişiler tarihler temelinde sizinle olan teması hatırlayabilirler."</string>
+    <string name="oboarding_splashscreen_title">"SwissCovid –
+bir bulaş riski durumunda hızlıca bilgi sahibi olun."</string>
+    <string name="inform_detail_faq3_text">"Evet, ancak kişisel bilgileriniz iletilmezse dahi, bazı kişiler tarihler temelinde sizinle olan teması hatırlayabilirler."</string>
     <string name="inform_detail_faq3_title">"Bilgilerim anonim mi?"</string>
 
     <!-- Meldung Detail Weiss Box unten -->
@@ -801,7 +804,7 @@ Ayrıca bu semptomlar görülebilir:
     <string name="tracing_setting_text_android">"KOVİD-19 Bildirimleri"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
-    <string name="onboarding_gaen_text_android">"Uygulamanın kullanılabilmesi için KOVİD-19 bildirimlerinin etkinleştirilmiş olması gerekmektedir."</string>
+    <string name="onboarding_gaen_text_android">"Temasların algılanabilmesi için takip fonksiyonunun etkinleştirilmiş olması gerekmektedir."</string>
 
     <!-- Onboarding Disclaimer Screen: AppName Title -->
     <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
@@ -894,7 +897,7 @@ Schwarzenburgstrasse 157
     <string name="travel_title">"Seyahatler"</string>
 
     <!-- Info text that is displayed  on the Home Travel Card. -->
-    <string name="travel_home_description">"SwissCovid şu ülkelerde çalışır:"</string>
+    <string name="travel_home_description">"SwissCovid temas takibi şu ülkelerde çalışır:"</string>
 
     <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_1">"Bunun anlamı nedir?"</string>
@@ -923,12 +926,6 @@ Yurt dışı seyahatlerinden gelen kişilerin de uyarılabilmesi için bu, sizin
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.5 -->
-    <string name="tracing_setting_text_ios_13_5"></string>
-
-    <!-- Text beim Bluetooth Control iOS 13.6 -->
-    <string name="tracing_setting_text_ios_13_6"></string>
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Maruz Kalma Bildirimleri"</string>
@@ -1211,9 +1208,9 @@ Yurt dışı seyahatlerinden gelen kişilerin de uyarılabilmesi için bu, sizin
     <string name="delete_infection_dialog_finish_button">"Sona erdir"</string>
 
     <!-- Text der nach der Eingabe des Covidcodes angezeigt wird. -->
-    <string name="tracing_ended_info">"Temaslar artık kaydedilmeyecek.
+    <string name="tracing_ended_info">"Artık temaslar kaydedilmiyor ve yeni Check-in’ler yapmak de artık mümkün değil.
 
-İzolasyondan sonra izleme yeniden etkinleştirilebilir."</string>
+ Her iki fonksiyon da İzolasyon sona erdikten sonra yeniden etkinleştirilebilir."</string>
     <string name="testlocation_url_canton_aargau">"https://www.ag.ch/de/themen_1/coronavirus_2/coronavirus.jsp"</string>
     <string name="testlocation_url_canton_appenzell_ausserrhoden">"https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/"</string>
     <string name="testlocation_url_canton_appenzell_innerrhoden">"https://www.ai.ch/themen/gesundheit-alter-und-soziales/gesundheitsfoerderung-und-praevention/uebertragbare-krankheiten/coronavirus"</string>
@@ -1245,9 +1242,9 @@ Yurt dışı seyahatlerinden gelen kişilerin de uyarılabilmesi için bu, sizin
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
 
     <!-- text for info box pop up for the hearing impaired -->
-    <string name="hearing_impaired_info">"İşitmiyor veya işitme özürlü müsünüz ve Koronavirüs bilgi hattını arayamıyor musunuz?
+    <string name="hearing_impaired_info">"İşitme sorununuz var veya işitme engellisiniz ve telefon edemiyor musunuz?
 
-O halde covid-support@medgate.ch adresine bir e-posta gönderiniz"</string>
+ O halde covid-support@medgate.ch adresine bir e-posta gönderin."</string>
 
     <!-- Überschrift des Covidcodes-Statistik-Moduls -->
     <string name="stats_covidcodes_title">"Covid kodları"</string>
@@ -1301,7 +1298,7 @@ Zaman, Koronavirüs ile mücadelede en önemli faktördür: Semptom başlangıc�
 
     <!-- Inform Detail: Infobox Text -->
     <string name="inform_detail_infobox1_text">"Testiniz pozitif çıktı (PCR testi veya hızlı antijen testi) ve 4 saat sonra halen bir Covid kodu almadınız mı?
-O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
+O halde şu numarayı arayın:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Covid kodunu henüz almadınız mı?"</string>
@@ -1325,7 +1322,7 @@ O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
     <string name="travel_screen_compatible_countries">"Uyumlu ülkeler:"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"Yurt dışı seyahatlerinden dönen kişilere de uyarıda bulunulabilmesi için, özel kodlar uyumlu ülkelerin Korona uygulamalarıyla paylaşılır."</string>
+    <string name="inform_code_travel_text">"Yurt dışından gelen ziyaretçilerin de bir temastan sonra uyarılabilmesi için kişiye özel kodlar uygulamaları uyumlu olan ülkelerin korona uygulamalarıyla paylaşılır."</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"Toplam"</string>
@@ -1340,13 +1337,13 @@ O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
     <string name="meldungen_positive_tested_faq2_title">"Kimlere haber verilir?"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_text">"Mesafe ve süre nedeniyle bir bulaşma olasılığı mevcut ise {ONSET_DATE} gününden başlamak üzere, Covid kodunuzun girilmesine kadar, bulaşma döneminizin aralığındaki tüm temaslılara haber verilir."</string>
+    <string name="meldungen_positive_tested_faq2_text">"Mesafe ve süre nedeniyle veya aynı yere Check-in yapmış olmanız nedeniyle bir bulaşma riski söz konusu olduğunda {ONSET_DATE} tarihinden başlamak üzere, Covid kodunuzun girilmesine kadar geçen sürede temas ettiğiniz herkes durum hakkında bilgilendirilir."</string>
 
     <!-- Informieren: Danke Text Onset Date -->
     <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – bugün"</string>
 
     <!-- Informieren: Danke Text Abschluss -->
-    <string name="inform_send_thankyou_text_stop_infection_chains">"Bu sayede enfeksiyon zincirlerinin durdurulması için yardımcı olacaksınız."</string>
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Bu şekilde diğer kişilerin olası bir bulaşmaya karşı uyarılmasına yardım etmiş olursunuz."</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
     <string name="inform_send_thankyou_text_onsetdate_info">"Uygulamanızın özel anahtarları şu zaman aralığı için gönderildi:"</string>
@@ -1385,46 +1382,46 @@ O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
     <string name="meldungen_detail_free_test_tomorrow">"1 gün sonra"</string>
 
     <!-- Check-Ins: Titel vom Reminder Push -->
-    <string name="checkout_reminder_title">"Check-out reminder"</string>
+    <string name="checkout_reminder_title">"Check-out hatırlatması"</string>
 
     <!-- Check-Ins: Check-out Reminder Push Text -->
-    <string name="checkout_reminder_text">"Do you want to check out?"</string>
+    <string name="checkout_reminder_text">"Çıkış yapmak mı istiyorsunuz?"</string>
 
     <!-- Check-Ins: Auto-Checkout Push Titel -->
-    <string name="auto_checkout_title">"Automatic check-out"</string>
+    <string name="auto_checkout_title">"Otomatik Check-out"</string>
 
     <!-- Check-Ins: Auto-checkout Push Text -->
-    <string name="auto_checkout_body">"You were checked out automatically."</string>
+    <string name="auto_checkout_body">"Çıkış işleminiz otomatik olarak yapıldı."</string>
 
     <!-- Check-Ins: Qr-Scanner Text -->
-    <string name="qrscanner_scan_qr_text">"Scan QR code and check in"</string>
+    <string name="qrscanner_scan_qr_text">"Kare kodu okutun ve giriş yapın"</string>
 
     <!-- Check-Ins: Fehler beim QR-Code scannen -->
-    <string name="qrscanner_error">"No valid QR code!"</string>
+    <string name="qrscanner_error">"Geçerli kare kod yok!"</string>
 
     <!-- Check-Ins: Anpassung Check-In Datumwahl von -->
-    <string name="datepicker_from">"From"</string>
+    <string name="datepicker_from">"Başlangıç tarihi"</string>
 
     <!-- Check-Ins: Datumsauswahl bis -->
-    <string name="datepicker_to">"To"</string>
+    <string name="datepicker_to">"Bitiş tarihi"</string>
 
     <!-- Check-Ins: Notiz hinzufügen zu Check-In -->
-    <string name="edit_mode_addcomment">"Add note"</string>
+    <string name="edit_mode_addcomment">"Not ekle"</string>
 
     <!-- Check-Ins: Notiz zu Check-In Placeholder Text -->
-    <string name="edit_mode_comment_placeholder">"e.g. who were you with?"</string>
+    <string name="edit_mode_comment_placeholder">"Örn. kiminle oradaydınız?"</string>
 
     <!-- Fertig Button Text -->
-    <string name="done_button">"Done"</string>
+    <string name="done_button">"Bitti"</string>
 
     <!-- Check-Ins: Titel für Erinnerung -->
-    <string name="checkin_set_reminder">"Check-out reminder"</string>
+    <string name="checkin_set_reminder">"Check-out hatırlatması"</string>
 
     <!-- Check-Ins: Erinnerung Option Aus -->
-    <string name="reminder_option_off">"Off"</string>
+    <string name="reminder_option_off">"Kapalı"</string>
 
     <!-- Check-Ins: Tagebuch Zugriff Text -->
-    <string name="authenticate_for_diary">"Authentication needed to access the diary"</string>
+    <string name="authenticate_for_diary">"Günlüğe erişim için kendinizi yetkilendirin"</string>
 
     <!-- Check-Ins: Errinnerungsoption Stunden -->
     <string name="reminder_option_hours">"{HOURS} h"</string>
@@ -1433,25 +1430,25 @@ O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
     <string name="reminder_option_minutes">"{MINUTES}'"</string>
 
     <!-- Check-Ins: Fehler wenn Kamera-Erlaubnis nicht gegeben -->
-    <string name="qr_scanner_no_camera_permission">"The app needs to access the camera to be able to scan the QR code."</string>
+    <string name="qr_scanner_no_camera_permission">"Uygulamanın kare kodu tarayabilmek için kamera erişimine ihtiyacı var."</string>
 
     <!-- Check-Ins: Tagebuch Titel -->
-    <string name="diary_title">"My check-ins"</string>
+    <string name="diary_title">"Check-in’lerim"</string>
 
     <!-- Check-Ins: Button Titel zum Einchecken -->
     <string name="checkin_button_title">"Check-in"</string>
 
     <!-- Check-Ins: iOS Kamera Erlaubnis Text -->
-    <string name="NSCameraUsageDescription">"The camera is needed to scan the QR code."</string>
+    <string name="NSCameraUsageDescription">"Kare kodu taramak için kameraya ihtiyaç duyuluyor."</string>
 
     <!-- Check-Ins: FaceID Text um Tagebuch anzuschauen -->
-    <string name="NSFaceIDUsageDescription">"Allow Face ID to securely access your diary."</string>
+    <string name="NSFaceIDUsageDescription">"Günlüğünüze güvenli bir şekilde erişebilmek için Face-ID’ye izin verin."</string>
 
     <!-- Check-Ins: Text der angezeigt wieso FaceId gebraucht wird -->
-    <string name="face_id_reason_text">"Authentication needed to access the diary"</string>
+    <string name="face_id_reason_text">"Günlüğe erişim için kendinizi yetkilendirin"</string>
 
     <!-- Check-Ins: Check-Out Button Title -->
-    <string name="checkout_button_title">"Check-out"</string>
+    <string name="checkout_button_title">"Check out"</string>
 
     <!-- Check-Ins: Titel Modul auf Homescreen -->
     <string name="module_checkins_title">"Check-in"</string>
@@ -1460,288 +1457,286 @@ O halde koronavirüz danışma hattıyla iletişim kurun:"</string>
     <string name="checkin_title">"Check-in"</string>
 
     <!-- Check-Ins: QR-Code erstellen Titel -->
-    <string name="checkins_create_qr_code">"Generate QR code"</string>
+    <string name="checkins_create_qr_code">"Kare kod oluşturun"</string>
 
     <!-- Veranstaltungen-Screen Titel -->
-    <string name="events_title">"Offer check-ins?"</string>
+    <string name="events_title">"Check-in’leri öner?"</string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
-    <string name="check_in_now_button_title">"Check in now"</string>
+    <string name="check_in_now_button_title">"Şimdi check-in yap"</string>
 
     <!-- Check-Ins: Reminder Fehlermeldung Titel -->
-    <string name="checkin_reminder_settings_alert_title">"The reminder could not be set"</string>
+    <string name="checkin_reminder_settings_alert_title">"Hatırlatma oluşturulamadı"</string>
 
     <!-- Check-Ins: Erinnerungen Fehlermeldung Text -->
-    <string name="checkin_reminder_settings_alert_message">"To receive check-out reminders, you need to allow \\"notifications\\" in the app settings."</string>
+    <string name="checkin_reminder_settings_alert_message">"Check-out hatırlatmasını alabilmeniz için uygulama ayarlarında \”Bildirimler\”e izin verin."</string>
 
     <!-- Check-Ins: Reminder Popup Anpassen -->
-    <string name="checkin_reminder_option_open_settings">"Customise"</string>
+    <string name="checkin_reminder_option_open_settings">"Uyarla"</string>
 
     <!-- Check-Ins: Bearbeiten von Check-Ins Titel -->
-    <string name="edit_controller_title">"Edit"</string>
+    <string name="edit_controller_title">"Düzenle"</string>
 
     <!-- Check-Ins: Tagebuch leeres Tagbuch Titel -->
-    <string name="empty_diary_title">"No entries available yet"</string>
+    <string name="empty_diary_title">"Henüz giriş yok"</string>
 
     <!-- Check-Ins: Tagebuch leer, Text -->
-    <string name="empty_diary_text">"If you scan a SwissCovid QR code to check in on site, an entry will automatically be created here."</string>
+    <string name="empty_diary_text">"Bir yere check-in yapmak için bir SwissCovid kare kodunu taradığınızda buraya otomatik olarak bir kayıt oluşturulur."</string>
 
     <!-- Check-Ins: Kamera Erlaubnis Text -->
-    <string name="camera_permission_dialog_text">"SwissCovid needs to access your device's camera. The camera is only used to scan QR codes."</string>
+    <string name="camera_permission_dialog_text">"SwissCovid’in cihazınızın kamerasına erişimine sahip olması gerekiyor. Kamera sadece kare kodları taramak için kullanılacaktır."</string>
 
     <!-- Check-Ins: Button Titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären -->
-    <string name="camera_permission_dialog_action">"Allow access to camera"</string>
+    <string name="camera_permission_dialog_action">"Kamera erişimine izin ver"</string>
 
     <!-- Check-Ins: Veranstaltung Titel Placeholder -->
-    <string name="web_generator_title_placeholder">"e.g. room or event name"</string>
+    <string name="web_generator_title_placeholder">"Örn. Oda veya etkinlik adı"</string>
 
     <!-- Check-Ins: Veranstaltungen Detail PDF Button -->
-    <string name="show_pdf_button">"Print PDF"</string>
-    <string name="bottom_nav_tab_info">"Info"</string>
-    <string name="error_network_title">"Network error"</string>
-    <string name="error_network_text">"Check your internet connection."</string>
-    <string name="error_action_retry">"Try again"</string>
-    <string name="error_notification_deactivated_title">"Notifications deactivated"</string>
-    <string name="error_notification_deactivated_text">"Modify your settings to be informed straight away if you receive a notification."</string>
-    <string name="error_action_change_settings">"Modify settings"</string>
-    <string name="error_camera_permission_title">"No access to camera"</string>
-    <string name="error_camera_permission_text">"The app needs to access the camera to be able to scan the QR code."</string>
-    <string name="error_title">"Error"</string>
-    <string name="qr_scanner_error_code_not_yet_valid">"QR code not yet valid"</string>
-    <string name="qr_scanner_error_code_not_valid_anymore">"QR code no longer valid"</string>
-    <string name="error_already_checked_in">"You are already checked in."</string>
-    <string name="error_update_text">"This QR code is not compatible with the installed version of the app. Please update the app to continue."</string>
-    <string name="error_update_title">"Update required"</string>
-    <string name="error_action_update">"Update now"</string>
+    <string name="show_pdf_button">"PDF yazdır"</string>
+    <string name="bottom_nav_tab_info">"Bilgi"</string>
+    <string name="error_network_title">"Ağ hatası"</string>
+    <string name="error_network_text">"İnternet bağlantısını kontrol edin."</string>
+    <string name="error_action_retry">"Yeniden dene"</string>
+    <string name="error_notification_deactivated_title">"Bildirimler devre dışı"</string>
+    <string name="error_notification_deactivated_text">"Bir bildirim ile doğrudan bilgi alabilmek için ayarları değiştirin."</string>
+    <string name="error_action_change_settings">"Ayarları değiştir"</string>
+    <string name="error_camera_permission_title">"Kamera erişimi yok"</string>
+    <string name="error_camera_permission_text">"Uygulamanın kare kodu tarayabilmek için kamera erişimine ihtiyacı var."</string>
+    <string name="error_title">"Hata"</string>
+    <string name="qr_scanner_error_code_not_yet_valid">"Kare kod henüz geçerli değil"</string>
+    <string name="qr_scanner_error_code_not_valid_anymore">"Kare kod artık geçerli değil"</string>
+    <string name="error_already_checked_in">"Zaten check-in yaptınız."</string>
+    <string name="error_update_text">"Bu kare kod artık kurulu olan uygulama sürümü ile uyumlu değil. Lütfen işleme devam edebilmek için uygulamayı güncelleyin."</string>
+    <string name="error_update_title">"Güncelleme gerekiyor"</string>
+    <string name="error_action_update">"Şimdi güncelleyin"</string>
     <string name="ongoing_notification_checkout_quick_action">"Check out"</string>
-    <string name="reminder_notification_snooze_action">"Snooze"</string>
-    <string name="android_ongoing_checkin_notification_channel_name">"Permanent check-in notification"</string>
-    <string name="ongoing_notification_title">"You have been checked in since {TIME}."</string>
+    <string name="reminder_notification_snooze_action">"Sustur"</string>
+    <string name="android_ongoing_checkin_notification_channel_name">"Kalıcı Check-in Bildirimi"</string>
+    <string name="ongoing_notification_title">"Saat {TIME}’den beri check-in yapmış durumdasınız."</string>
 
     <!-- Check-Ins: Sichern Button bei Check-out -->
-    <string name="checkout_save_button_title">"Save"</string>
+    <string name="checkout_save_button_title">"Emniyete al"</string>
 
     <!-- Check-Ins: QR-Code scannen Button -->
-    <string name="scan_qr_code_button_title">"Scan QR code"</string>
+    <string name="scan_qr_code_button_title">"Kare kod tara"</string>
 
     <!-- Titel der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
-    <string name="checkin_ended_title">"Check-in deactivated"</string>
+    <string name="checkin_ended_title">"Check-in devre dışı"</string>
 
     <!-- Text der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
-    <string name="checkin_ended_text">"Check-in is not possible at the moment"</string>
+    <string name="checkin_ended_text">"Şu anda check-in yapılamıyor"</string>
 
     <!-- Text im Check-Ins-Screen im nicht eingecheckten Zustand -->
-    <string name="checkin_detail_checked_out_text">"Scan a SwissCovid QR code to check in on site."</string>
+    <string name="checkin_detail_checked_out_text">"Bulunduğunuz yere check-in yapmak için bir SwissCovid kare kodunu tarayın."</string>
 
     <!-- Text im Check-Ins-Screen, im Tagebuch-Modul -->
-    <string name="checkin_detail_diary_text">"If you scan a SwissCovid QR code to check in on site, an entry will automatically be created here."</string>
+    <string name="checkin_detail_diary_text">"Bir yere check-in yapmak için bir Swiss-Covid kare kodunu taradığınızda buraya otomatik olarak bir kayıt oluşturulur."</string>
 
     <!-- Label im Checkin-Modul im eingecheckten Zustand -->
-    <string name="checkin_checked_in">"You're checked in"</string>
-    <string name="checkout_from_to_date">"{DATE1} to {DATE2}"</string>
-    <string name="inform_detail_covidcode_info_button">"More about the Covidcode"</string>
+    <string name="checkin_checked_in">"Check-in yaptınız"</string>
+    <string name="checkout_from_to_date">"{DATE1} ile {DATE2} arasında"</string>
+    <string name="inform_detail_covidcode_info_button">"Covid kodu hakkında daha fazla bilgi"</string>
 
     <!-- Check-Ins: Button Entfernen um Check-In zu löschen -->
-    <string name="remove_from_diary_button">"Remove entry"</string>
+    <string name="remove_from_diary_button">"Kaydı sil"</string>
 
     <!-- Check-Ins: QR-Code löschen Titel Button -->
-    <string name="delete_button_title">"Delete"</string>
+    <string name="delete_button_title">"Sil"</string>
 
     <!-- Check-Ins: Teile QR-Code Button Titel -->
-    <string name="share_button_title">"Share"</string>
+    <string name="share_button_title">"Paylaş"</string>
 
     <!-- Check-Ins: Drucken Button auf PDF-Detailseite -->
-    <string name="print_button_title">"Print"</string>
+    <string name="print_button_title">"Yazdır"</string>
 
     <!-- Check-Ins: Beschreibung Modul auf Homescreen -->
-    <string name="module_checkins_description">"Scan a SwissCovid QR code to check in on site."</string>
+    <string name="module_checkins_description">"Bulunduğunuz yere check-in yapmak için bir SwissCovid kare kodunu tarayın."</string>
 
     <!-- Titel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
-    <string name="inform_share_checkins_title">"Share check-in entries"</string>
+    <string name="inform_share_checkins_title">"Check-in kayıtlarını paylaş"</string>
 
     <!-- Untertitel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
-    <string name="inform_share_checkins_subtitle">"If you share check-in entries, the app can notify people who were checked in at the same location at the same time."</string>
+    <string name="inform_share_checkins_subtitle">"Check-in kayıtlarınızı paylaştığınızda, uygulama aynı zaman aralığında aynı yerde check-in yapmış olan kişileri bu durum hakkında bilgilendirebilir."</string>
 
     <!-- Button text, um alle Checkins zu selektieren -->
-    <string name="inform_share_checkins_select_all">"Select all"</string>
-    <string name="inform_dont_send_button_title">"Don't send"</string>
-    <string name="inform_dont_share_button_title">"Don't share"</string>
-    <string name="inform_really_not_share_title">"Are you sure you don't want to share?"</string>
-    <string name="inform_really_not_share_subtitle">"Sharing your private key helps SwissCovid to notify other people who may be infected and to stop the virus spreading. If you don't share your private key, people who may be infected will not be notified."</string>
+    <string name="inform_share_checkins_select_all">"Tümünü seç"</string>
+    <string name="inform_dont_send_button_title">"Gönderme"</string>
+    <string name="inform_dont_share_button_title">"Paylaşma"</string>
+    <string name="inform_really_not_share_title">"Gerçekten paylaşılmasın mı?"</string>
+    <string name="inform_really_not_share_subtitle">"Özel kodlarınızın paylaşılması «SwissCovid»’e, hastalığın bulaşmış olabileceği kişileri durumdan haberdar etmesi ve böylece virüsün daha da fazla yayılmasının önlenmesine yardımcı olur. Özel kodlarınızı paylaşmadığınızda hastalığın bulaşmış olması potansiyeli olan kişiler bu durumdan haberdar edilmez."</string>
 
     <!-- Remove from Diary Warning view title -->
-    <string name="remove_diary_warning_title">"Remove entry"</string>
+    <string name="remove_diary_warning_title">"Kaydı sil"</string>
 
     <!-- Remove from diary warning view explanation text -->
-    <string name="remove_diary_warning_text">"Your entry will be permanently removed from the list."</string>
+    <string name="remove_diary_warning_text">"Kaydınız kalıcı olarak listeden silinecektir."</string>
 
     <!-- Remove from diary warning view remove button title -->
-    <string name="remove_diary_remove_now_button">"Completely remove"</string>
+    <string name="remove_diary_remove_now_button">"Kalıcı olarak sil"</string>
 
     <!-- Hide from diary warning title -->
-    <string name="remove_diary_warning_hide_title">"Only hide and keep receiving notifications?"</string>
+    <string name="remove_diary_warning_hide_title">"Sadece gizleyip bildirimleri almaya devam et?"</string>
 
     <!-- Titel auf der "CovidCode eingeben"-Card auf dem Home Screen -->
-    <string name="home_covidcode_card_title">"Tested positive?"</string>
+    <string name="home_covidcode_card_title">"Testiniz pozitif mi sonuçlandı?"</string>
 
     <!-- Text auf der "Isolation beenden"-Card auf dem Home Screen -->
-    <string name="home_end_isolation_card_text">"Reactivate encounters and check-in"</string>
+    <string name="home_end_isolation_card_text">"Temasları ve Check-in’i yeniden aktif et."</string>
 
     <!-- Check-Ins: Erinnerungsoption Stunden & Minuten -->
     <string name="reminder_option_hours_minutes">"{HOURS} h {MINUTES}'"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer sich in Isolation befindet. -->
-    <string name="checkin_overview_isolation_text">"You can no longer check in if you have tested positive."</string>
+    <string name="checkin_overview_isolation_text">"Test sonucunuz pozitif ise artık check-in yapamazsınız."</string>
 
     <!-- Veranstaltungen-Card Text im Infotab -->
-    <string name="events_card_subtitle">"Generate a QR code that people can use to check in on site."</string>
+    <string name="events_card_subtitle">"Kişilerin ilgili yere check-in yapabileceği bir kare kod oluşturun."</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
-    <string name="delete_qr_code_dialog">"Are you sure you want to delete the QR code?"</string>
+    <string name="delete_qr_code_dialog">"Kare kodu gerçekten silmek istiyor musunuz?"</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
-    <string name="self_checkin_button_title">"Self check-in"</string>
+    <string name="self_checkin_button_title">"Kendi kendine check-in"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer nicht eingecheckt ist. -->
-    <string name="checkin_overview_checkins_explanation">"Scan a SwissCovid QR code to check in on site."</string>
+    <string name="checkin_overview_checkins_explanation">"Bulunduğunuz yere check-in yapmak için bir SwissCovid kare kodunu tarayın."</string>
 
     <!-- Popup Titel wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
-    <string name="checkout_overlapping_alert_title">"Saving not possible"</string>
+    <string name="checkout_overlapping_alert_title">"Emniyete alınamıyor"</string>
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
-    <string name="checkout_overlapping_alert_description">"The times you selected clash with other check-ins in your diary. Please check your entry."</string>
+    <string name="checkout_overlapping_alert_description">"Seçmiş olduğunuz zaman aralıkları günlüğünüzde bulunan diğer check-in’ler ile kesişiyor. Lütfen bilgileri bir kez daha kontrol edin."</string>
 
     <!-- Informieren: Danke Text Checkins Teil -->
-    <string name="inform_send_thankyou_text_checkins">"The check-in entries you selected have been sent. Everyone who was checked in at the same location at the same time will be notified."</string>
+    <string name="inform_send_thankyou_text_checkins">"Seçmiş olduğunuz check-in kayıtlarınız gönderildi. Aynı zaman aralığında aynı yere check-in yapmış olan tüm kişilere bilgi verilecek."</string>
 
     <!-- SwissCovid QR Code PDF: Headline über dem Slogan -->
-    <string name="pdf_headline">"SwissCovid check-in"</string>
+    <string name="pdf_headline">"SwissCovid-Check-in"</string>
 
     <!-- SwissCovid QR Code PDF: Slogan -->
-    <string name="pdf_slogan">"Check in without leaving any data"</string>
+    <string name="pdf_slogan">"Kayıtlı veri bırakmadan check-in yap"</string>
 
     <!-- SwissCovid QR Code PDF: Erklärungstext unter dem Slogan -->
-    <string name="pdf_explanation">"The SwissCovid app lets you simply check in with us without leaving behind your data. If there is a risk of infection, you will be rapidly notified in the app."</string>
+    <string name="pdf_explanation">"SwissCovid uygulaması ile kayıtlı veri bırakmadan kolayca check-in yapabilirsiniz. Bir risk durumunda uygulama üzerinden hızlıca bilgilendirilirsiniz."</string>
 
     <!-- SwissCovid QR Code PDF: App Bezeichnung neben dem App Icon -->
-    <string name="pdf_swisscovid_app">"SwissCovid app"</string>
+    <string name="pdf_swisscovid_app">"SwissCovid Uygulaması"</string>
 
     <!-- SwissCovid QR Code PDF: Download Hinweis neben dem App Icon -->
-    <string name="pdf_download_app">"Download now"</string>
+    <string name="pdf_download_app">"Şimdi indir"</string>
 
     <!-- Title im Check-Ins-Screen im nicht eingecheckten Zustand -->
-    <string name="checkin_detail_checked_out_title">"Check in without leaving 
-data"</string>
+    <string name="checkin_detail_checked_out_title">"Kayıtlı veri 
+bırakmadan check-in yap"</string>
 
     <!-- Text auf der "CovidCode eingeben"-Card auf dem Home Screen -->
-    <string name="home_covidcode_card_text">"Enter your Covidcode here to alert others."</string>
+    <string name="home_covidcode_card_text">"Başkalarını uyarmak için covid kodunuzu buraya girin."</string>
 
     <!-- Titel auf der "Isolation beenden"-Card auf dem Home Screen -->
-    <string name="home_end_isolation_card_title">"Isolation ended?"</string>
+    <string name="home_end_isolation_card_title">"İzolasyonu sonlandır?"</string>
 
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. -->
-    <string name="events_card_title">"Do you want to offer check-ins?"</string>
-    <string name="checkin_footer_title1">"Why a check-in function?"</string>
-    <string name="checkin_footer_subtitle1">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert people who were checked in at the same location at the same time, as well as close contacts."</string>
-    <string name="checkin_footer_title2">"No central data storage"</string>
-    <string name="checkin_footer_subtitle2">"For the SwissCovid check-ins, you don't have to enter personal details, such as name, address or phone number, and no GPS location data is recorded. The list of check-ins is stored locally on your device. The local data is deleted after 14 days. "</string>
-    <string name="events_empty_state_title">"Generate a QR code"</string>
-    <string name="events_empty_state_subtitle">"Using a SwissCovid QR code, people can check in on site without leaving their data."</string>
-    <string name="events_info_box_title">"No substitute for mandatory recording of contact details"</string>
-    <string name="events_info_box_text">"SwissCovid check-ins are no substitute for the obligation to record contact details provided for in the COVID-19 Ordinance Special Situation. "</string>
-    <string name="events_footer_title1">"Where can check-ins be used?"</string>
-    <string name="events_footer_title2">"Why a check-in function?"</string>
-    <string name="events_footer_subtitle1">"SwissCovid check-ins can be used where people gather but where there is no obligation to record contact details. 
+    <string name="events_card_title">"Check-in’leri önermek mi istiyorsunuz?"</string>
+    <string name="checkin_footer_title1">"Bir check-in uygulaması neden gerekli?"</string>
+    <string name="checkin_footer_subtitle1">"İletişim verileri olmadan çalışan check-in fonksiyonu SwissCovid uygulamasının kapsamını genişletiyor. Bu fonksiyon ile testinizin pozitif sonuçlanması halinde sadece yakın temasta bulunduğunuz kişileri değil, aynı zaman aralığında aynı yerde check-in yapmış olan kişileri de uyarabilirsiniz."</string>
+    <string name="checkin_footer_title2">"Merkezi veri kaydı yok"</string>
+    <string name="checkin_footer_subtitle2">"SwissCovid-Check-in’leri için isim, adres veya telefon numarası gibi kişisel verilerin belirtilmesi gerekmez ve GPS konum bilgileri de kayıt edilmez. Check-in’lerin listesi yerel olarak cep telefonunuza kayıt edilir. 14 gün sonra bu yerel veriler yeniden cihazınızdan silinir."</string>
+    <string name="events_empty_state_title">"Bir kare kod oluşturun."</string>
+    <string name="events_empty_state_subtitle">"Bir SwissCode kare kodu ile kişiler bir yere, geride kayıtlı herhangi bir veri bırakmadan check-in yapabilir."</string>
+    <string name="events_info_box_title">"Zorunlu olan iletişim bilgileri kaydının ikamesi değildir"</string>
+    <string name="events_info_box_text">"SwissCovid-Check-in’leri «Covid-19-Düzenlemesi Özel Durum» kapsamında talep edilen iletişim bilgileri kaydı yükümlülüğünü ikame etmez."</string>
+    <string name="events_footer_title1">"Check-in’ler nerede kullanılabilir?"</string>
+    <string name="events_footer_title2">"Bir check-in uygulaması neden gerekli?"</string>
+    <string name="events_footer_subtitle1">"SwissCovid-Check-in’leri insanların bir araya geldiği ancak iletişim bilgileri kaydı zorunluluğunun olmadığı yerlerde kullanılabilir.
 
-Possible locations:
-– Private events
-– Club meetings or events
-– Gatherings in professional settings, e.g. meeting rooms, offices, canteens"</string>
-    <string name="events_footer_subtitle2">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert people who were checked in at the same location at the same time, as well as close contacts."</string>
+ Olası kullanım yerleri: 
+– Özel etkinlikler
+– Dernek etkinlikleri
+– örneğin toplantı odaları, ofis alanları, yemekhaneler, vs. gibi bir araya gelinebilen profesyonel ortamlar."</string>
+    <string name="events_footer_subtitle2">"İletişim verileri olmadan çalışan check-in fonksiyonu SwissCovid uygulamasının kapsamını genişletiyor. Bu fonksiyon ile testinizin pozitif sonuçlanması halinde sadece yakın temasta bulunduğunuz kişileri değil, aynı zaman aralığında aynı yerde check-in yapmış olan kişileri de uyarabilirsiniz."</string>
 
     <!-- Subtitle vom Meldungen Card in der Liste aller Meldungen. -->
-    <string name="meldung_detail_exposed_list_card_subtitle">"Risk situation"</string>
+    <string name="meldung_detail_exposed_list_card_subtitle">"Risk durumu"</string>
 
     <!-- Title vom Encounters Meldungen Card in der Liste aller Meldungen -->
-    <string name="meldung_detail_exposed_list_card_title_encounters">"Encounters"</string>
+    <string name="meldung_detail_exposed_list_card_title_encounters">"Temaslar"</string>
 
     <!-- Title vom CheckIn Meldungen Card in der Liste aller Meldungen -->
     <string name="meldung_detail_exposed_list_card_title_checkin">"Check-in"</string>
 
     <!-- Was soll ich tun? Button im Meldungen Card in der Liste aller Meldungen -->
-    <string name="meldung_detail_exposed_list_card_whattodo_button">"What should I do?"</string>
+    <string name="meldung_detail_exposed_list_card_whattodo_button">"Ne yapmalıyım?"</string>
 
     <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: An einem Check-In einem positiven Kontakt ausgesetzt -->
-    <string name="debug_state_setting_option_checkin_exposed">"Positive check-in"</string>
+    <string name="debug_state_setting_option_checkin_exposed">"Pozitif check-in"</string>
 
     <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Auf verschiedener Weise einem positiven Kontakt ausgesetzt -->
-    <string name="debug_state_setting_option_mutiple_exposed">"Positive check-ins/contacts"</string>
+    <string name="debug_state_setting_option_mutiple_exposed">"Pozitif check-in’ler / temaslar"</string>
 
     <!-- Anzeigename für User QR Codes -->
-    <string name="venue_type_user_qr_code">"User QR code"</string>
+    <string name="venue_type_user_qr_code">"User QR Code"</string>
 
     <!-- Anzeigename für User QR Codes -->
-    <string name="venue_type_contact_tracing_qr_code">"Contact tracing QR code"</string>
+    <string name="venue_type_contact_tracing_qr_code">"Contact Tracing QR Code"</string>
 
     <!-- Text der Module im Check-ins Screen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
-    <string name="checkin_ended_text_detailed">"The check-in function is automatically deactivated after a positive test result. It can be reactivated after the end of isolation."</string>
+    <string name="checkin_ended_text_detailed">"Pozitif bir test sonucundan sonra check-in fonksiyonu otomatik olarak devre dışı bırakılır. İzolasyon sürenizin dolmasının ardından yeniden aktif edilebilir."</string>
 
     <!-- Check-Ins: QR-Code erstellen subtitel -->
-    <string name="checkins_create_qr_code_subtitle">"Enter a title that describes the location or your event in more detail. This title will be displayed on check-in."</string>
-    <string name="checkin_report_heading">"What can you do?"</string>
-    <string name="checkin_report_title1">"Protect your contacts"</string>
-    <string name="checkin_report_title2">"Look out for symptoms"</string>
-    <string name="checkin_report_title3">"Get tested"</string>
-    <string name="checkin_report_subtitle1">"You may already be infectious without realising it. Follow the rules on hygiene and social distancing and protect your loved ones and those around you."</string>
-    <string name="checkin_report_subtitle2">"Monitor your state of health."</string>
-    <string name="checkin_report_subtitle3">"If you develop symptoms, get tested immediately. Even if you don't have symptoms, a coronavirus test is advisable and recommended."</string>
+    <string name="checkins_create_qr_code_subtitle">"Yeri veya etkinliği daha yakından tanımlayan bir başlık belirleyin.
+Bu başlık check-in sırasında gösterilir."</string>
+    <string name="checkin_report_heading">"Ne yapabilirsiniz?"</string>
+    <string name="checkin_report_title1">"Temaslıları koruyun"</string>
+    <string name="checkin_report_title2">"Semptomlara dikkat edin"</string>
+    <string name="checkin_report_title3">"Test yaptırın"</string>
+    <string name="checkin_report_subtitle1">"Henüz kendiniz fark etmeden de hastalığı bulaştırabilirsiniz. Geçerli hijyen ve koruma önlemlerini dikkate alın ve ailenizi, arkadaşlarınızı ve çevrenizi koruyun."</string>
+    <string name="checkin_report_subtitle2">"Sağlık durumunuzu gözetim altında tutun."</string>
+    <string name="checkin_report_subtitle3">"Kendinizde semptomların varlığını gözlemlediğinizde hemen test yaptırın. Semptomlar olmadığında da bir korona testi mantıklıdır ve tavsiye edilmektedir."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
-
-    <!-- SubTitel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_subtitle"></string>
-    <string name="not_thank_you_screen_title">"No data sent"</string>
-    <string name="not_thank_you_screen_text1">"No private key was sent."</string>
-    <string name="not_thank_you_screen_back_button">"Back"</string>
-    <string name="not_thank_you_screen_dont_send_button">"Don't send data"</string>
-    <string name="not_thank_you_screen_text2">"No check-in entries were sent."</string>
+    <string name="not_thank_you_screen_title">"Gönderilen veri yok"</string>
+    <string name="not_thank_you_screen_text1">"Gönderilen özel kod yok."</string>
+    <string name="not_thank_you_screen_back_button">"Geri"</string>
+    <string name="not_thank_you_screen_dont_send_button">"Veri gönderme"</string>
+    <string name="not_thank_you_screen_text2">"Check-in kayıtları gönderilmedi."</string>
 
     <!-- Button text, um ausgewählte Checkins zu senden -->
-    <string name="inform_share_checkins_send_button_title">"Share selection"</string>
-    <string name="inform_share_checkins_not_send_button">"Don't share anything"</string>
-    <string name="onboarding_checkin_title">"Check in without leaving data"</string>
-    <string name="onboarding_checkin_heading">"Check-ins"</string>
-    <string name="onboarding_checkin_text1">"With SwissCovid check-ins you can check in to a location or meeting using the app."</string>
-    <string name="onboarding_checkin_text2">"Your presence is only stored in the app. You don’t have to leave behind any personal data. "</string>
-    <string name="checkin_updateboarding_text">"With SwissCovid check-ins you can check in to a location or meeting using the app. Your presence is only stored in the app. You don't have to leave behind any personal data. The terms of use and privacy policy have been updated."</string>
-    <string name="onboarding_gaen_button_dont_activate">"Skip"</string>
+    <string name="inform_share_checkins_send_button_title">"Seçimi paylaş"</string>
+    <string name="inform_share_checkins_not_send_button">"Hiçbir şey paylaşma"</string>
+    <string name="onboarding_checkin_title">"Kayıtlı veri bırakmadan check-in yap"</string>
+    <string name="onboarding_checkin_heading">"Check-in’ler"</string>
+    <string name="onboarding_checkin_text1">"SwissCovid-Check-in’leri ile uygulama ile bir yerde veya bir buluşmada check-in yapabilirsiniz."</string>
+    <string name="onboarding_checkin_text2">"Orada bulunduğunuz sadece uygulama içinde kayıt edilir. Uygulama içinde kayıtlı kişisel veri bırakmanıza gerek yoktur."</string>
+    <string name="checkin_updateboarding_text">"SwissCovid-Check-in’leri ile uygulama ile bir yerde veya bir buluşmada check-in yapabilirsiniz. Orada bulunduğunuz sadece uygulama içinde kayıt edilir. Uygulama içinde kayıtlı kişisel veri bırakmanıza gerek yoktur. Bunun için kullanım koşulları ve kişisel verilen korunması beyanı güncellenmiştir."</string>
+    <string name="onboarding_gaen_button_dont_activate">"Atla"</string>
 
     <!-- Hide from diary warning text -->
-    <string name="remove_diary_warning_hide_text">"The entry is stored in encrypted form in the background of the app for 14 days. This means that you can still be notified if there is a possibility of infection."</string>
+    <string name="remove_diary_warning_hide_text">"Kayıt 14 gün boyunca şifrelenmiş olarak uygulamanın arka planında saklanır. Olası bir bulaşma durumunda bu sayede yine de bilgilendirilebilirsiniz."</string>
 
     <!-- CheckIn ausblenden -->
-    <string name="remove_diary_warning_hide_button">"Hide only"</string>
-    <string name="checkin_set_reminder_explanation">"The app can remind you to check out at the right time."</string>
+    <string name="remove_diary_warning_hide_button">"Sadece gizle"</string>
+    <string name="checkin_set_reminder_explanation">"Uygulama size doğru zamanda check-out, yani çıkış yapmanızı hatırlatabilir."</string>
 
     <!-- Remove from diary warning title -->
-    <string name="remove_diary_remove_now_title">"Or remove completely?"</string>
+    <string name="remove_diary_remove_now_title">"Veya kalıcı olarak sil?"</string>
 
     <!-- Remove from diary warning text -->
-    <string name="remove_diary_remove_now_text">"The entry was removed completely. You can no longer be alerted."</string>
-    <string name="not_thank_you_screen_text3">"Nobody will be notified."</string>
+    <string name="remove_diary_remove_now_text">"Kayıt kalıcı olarak silinir. Artık size uyarılar gönderilemez."</string>
+    <string name="not_thank_you_screen_text3">"Kimseye haber verilmez."</string>
 
     <!-- Link Text zu Informationen übers Testen -->
-    <string name="checkin_report_link">"What do I need to know about testing?"</string>
-    <string name="instant_app_install_action">"Install app and check in"</string>
-    <string name="partial_onboarding_box_text">"Complete the app configuration to be able to use the tracing function."</string>
-    <string name="partial_onboarding_box_action">"Complete now"</string>
-    <string name="partial_onboarding_done_title">"Configuration complete"</string>
-    <string name="partial_onboarding_done_text">"Thank you for helping stop the spread of coronavirus."</string>
-    <string name="web_slogan">"Find out fast if you're at risk of infection."</string>
+    <string name="checkin_report_link">"Test yaptırmak hakkında bilmem gerekenler nelerdir?"</string>
+    <string name="instant_app_install_action">"Uygulamayı yükle ve check-in yap"</string>
+    <string name="partial_onboarding_box_text">"Takip fonksiyonunu yeniden kullanabilmek için uygulama yapılandırmasını tamamlayın."</string>
+    <string name="partial_onboarding_box_action">"Şimdi tamamla"</string>
+    <string name="partial_onboarding_done_title">"Yapılandırma tamamlandı"</string>
+    <string name="partial_onboarding_done_text">"Korona virüsün yayılmasını önlemeye yardımcı olduğunuz için teşekkür ederiz."</string>
+    <string name="web_slogan">"Bir bulaş riski durumunda hızlıca bilgi sahibi olun."</string>
 
     <!-- Info URL for testing -->
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
-    <string name="checkout_too_long_alert_text"></string>
+    <string name="checkout_too_long_alert_text">"For this check-in a maximum check-in duration of {DURATION} applies. Please check your input again."</string>
 </resources>

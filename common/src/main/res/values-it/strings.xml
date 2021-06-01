@@ -745,7 +745,7 @@ viene disattivato automaticamente. Il tracciamento può essere riattivato al ter
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
     <string name="delete_infection_button">"Isolamento concluso"</string>
 
-    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <!-- Meldung im Löschen Dialog nach Isolation-Beenden, kommt auch auf Homescreen-Popup -->
     <string name="delete_infection_dialog">"Eliminare la segnalazione?"</string>
     <string name="android_onboarding_battery_permission_title">"Ignora l'ottimizzazione della batteria"</string>
     <string name="android_onboarding_battery_permission_text">"Per utilizzare l'app è necessario disattivare l'ottimizzazione della batteria."</string>
@@ -949,12 +949,6 @@ Affinché anche i viaggiatori all'estero possano essere avvisati, la condivision
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.5 -->
-    <string name="tracing_setting_text_ios_13_5"></string>
-
-    <!-- Text beim Bluetooth Control iOS 13.6 -->
-    <string name="tracing_setting_text_ios_13_6"></string>
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Notifiche di esposizione"</string>
@@ -1751,9 +1745,6 @@ Possibili luoghi d'impiego:
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
-
-    <!-- SubTitel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_subtitle"></string>
     <string name="not_thank_you_screen_title">"Nessun dato inviato"</string>
     <string name="not_thank_you_screen_text1">"Nessuna chiave privata inviata"</string>
     <string name="not_thank_you_screen_back_button">"Indietro"</string>
@@ -1796,5 +1787,5 @@ Possibili luoghi d'impiego:
     <!-- Info URL for testing -->
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
-    <string name="checkout_too_long_alert_text"></string>
+    <string name="checkout_too_long_alert_text">"For this check-in a maximum check-in duration of {DURATION} applies. Please check your input again."</string>
 </resources>

@@ -193,7 +193,7 @@ Time nam pomažete u prekidanju lanca širenja infekcije."</string>
     <string name="inform_detail_box_subtitle">"Sa Covid šifrom..."</string>
 
     <!-- Inform Detai Weisse Box Titel -->
-    <string name="inform_detail_box_title">"Zaustavljanje lanca širenja infekcije"</string>
+    <string name="inform_detail_box_title">"Upozorenje u slučaju moguće infekcije"</string>
 
     <!-- Inform Detail Weisse Box Button -->
     <string name="inform_detail_box_button">"Unos Covid šifre"</string>
@@ -227,7 +227,7 @@ Time nam pomažete u prekidanju lanca širenja infekcije."</string>
     <string name="tracing_turned_off_title">"Praćenje je deaktivirano"</string>
     <string name="tracing_turned_off_text">"Aktivirajte praćenje da bi aplikacija radila."</string>
     <string name="bluetooth_turned_off_title">"Bluetooth isključen"</string>
-    <string name="bluetooth_turned_off_text">"Uključite Bluetooth na vašem uređaju da bi praćenje radilo."</string>
+    <string name="bluetooth_turned_off_text">"Uključite Bluetooth na vašem uređaju, kako bi funkcionisalo anonomno praćenje."</string>
     <string name="bluetooth_turn_on_button_title">"Uključi Bluetooth"</string>
     <string name="bluetooth_permission_error_title">"Korišćenje Bluetooth-a odbijeno"</string>
     <string name="bluetooth_permission_error_text">"Dozvolite korišćenje Bluetooth-a da bi praćenje radilo."</string>
@@ -259,8 +259,8 @@ Time nam pomažete u prekidanju lanca širenja infekcije."</string>
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
     <string name="meldung_detail_positive_test_box_text">"Sledite uputstva za izolaciju koja ste dobili"</string>
-    <string name="tracing_ended_title">"Praćenje završeno"</string>
-    <string name="tracing_ended_text">"Dalji kontakti se više ne čuvaju."</string>
+    <string name="tracing_ended_title">"Deaktivirani kontakti i prijave "</string>
+    <string name="tracing_ended_text">"Dalji kontakti se više ne čuvaju"</string>
     <string name="exposed_info_contact_hotline">"Obratite se"</string>
     <string name="meldung_homescreen_positive_info_line1">"Sledite"</string>
     <string name="meldung_homescreen_positive_info_line2">"Uputstva za samoizolaciju"</string>
@@ -273,7 +273,7 @@ Time nam pomažete u prekidanju lanca širenja infekcije."</string>
     <string name="meldung_homescreen_positiv_title">"Testiran pozitivno"</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
-    <string name="meldung_detail_exposed_subtitle">"Postoji mogućnost infekcije."</string>
+    <string name="meldung_detail_exposed_subtitle">"Postoji mogućnost infekcije"</string>
 
     <!-- Meldung auf Homescreen: Positiv getestet -->
     <string name="meldung_homescreen_positiv_text">"Testirani ste pozitivno na virus korona."</string>
@@ -330,7 +330,7 @@ ispred virusa"</string>
     <string name="onboarding_prinzip_text1">"Pomoću aplikacije Swiss Covid svi možemo da pomognemo u suzbijanju širenja virusa korona."</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text2">"Aplikacija vas obaveštava ako postoji sumnja na to da ste zaraženi virusom korona."</string>
+    <string name="onboarding_prinzip_text2">"Aplikacija vas obaveštava ako postoji sumnja na to da ste zaraženi virusom korone."</string>
 
     <!-- Onboarding Privacy: Titel oben -->
     <string name="onboarding_privacy_heading">"Privacy by Design"</string>
@@ -345,7 +345,7 @@ ispred virusa"</string>
     <string name="onboarding_privacy_text2">"Sačuvani nasumični ID-ovi se čuvaju na vašem mobilnom telefonu i brišu se nakon 14 dana."</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"Kako funkcioniše aplikacija?"</string>
+    <string name="onboarding_begegnungen_heading">"Kontakti"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"Prepoznavanje kontakta
@@ -421,7 +421,7 @@ Pridržavajte se dobijenih uputstava o izolaciji."</string>
     <string name="onboarding_go_title">"Aplikacija je spremna"</string>
 
     <!-- Text auf dem letzten Onboarding Screen -->
-    <string name="onboarding_go_text">"Hvala vam što pomažete u prekidanju lanca širenja infekcije."</string>
+    <string name="onboarding_go_text">"Hvala vam što pomažete u suzbijanju širenja virusa korone."</string>
 
     <!-- Button-Label auf dem letzten Onboarding screen -->
     <string name="onboarding_go_button">"Pokreni"</string>
@@ -448,7 +448,7 @@ Pridržavajte se dobijenih uputstava o izolaciji."</string>
     <string name="meldung_detail_new_contact_title">"Moguća infekcija"</string>
 
     <!-- Meldungen Detail: Text -->
-    <string name="meldung_detail_new_contact_subtitle">"Postoji sumnja na moguću infekciju."</string>
+    <string name="meldung_detail_new_contact_subtitle">"Postoji sumnja da ste se inficirali."</string>
 
     <!-- Fehler mit Uhrzeit Titel -->
     <string name="time_inconsistency_title">"Vremenska greška"</string>
@@ -584,7 +584,7 @@ Time se potrošnja baterije samo neznatno povećava."</string>
     <string name="meldungen_nomeldungen_faq1_title">"Šta su poruke?"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq1_text">"Aplikacija redovno proverava da li su drugi korisnici sa kojima ste bili u kontaktu prijavili pozitivan test.
+    <string name="meldungen_nomeldungen_faq1_text">"Aplikacija redovno proverava da li su drugi korisnici, sa kojima ste bili u kontaktu, prijavili pozitivan test.
 
 U slučaju moguće infekcije, dobićete obaveštenje na zaključanom ekranu."</string>
 
@@ -625,7 +625,7 @@ Time se obezbeđuje da samo potvrđeni slučajevi budu prijavljeni preko aplikac
     <string name="inform_detail_faq2_title">"Šta se šalje?"</string>
 
     <!-- Inform Detail FAQ Text -->
-    <string name="inform_detail_faq2_text">"Šalju se samo privatni identifikacioni ključevi iz vaše aplikacije, a ne šalju se lični podaci.
+    <string name="inform_detail_faq2_text">"Šalju se samo privatni ključevi iz vaše aplikacije i šifrovani ID podaci vaših prijava, a ne šalju se lični podaci.
 
 Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost infekcije."</string>
 
@@ -636,7 +636,7 @@ Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost
     <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/de/categories/swisscovid-app"</string>
 
     <!-- Informieren Flow: Titel erster Screen -->
-    <string name="inform_code_intro_title">"Važna napomena"</string>
+    <string name="inform_code_intro_title">"Informacije za korišćenje "</string>
 
     <!-- Informieren-Flow: Erster Screen Text -->
     <string name="inform_code_intro_text">"Iako se lični podaci koji se odnose na vas ne šalju, možda se neko seća svog kontakta sa vama na osnovu datuma."</string>
@@ -710,7 +710,7 @@ Osim toga, mogući su sledeći simptomi:
     <string name="onboarding_gaen_title">"Aktiviraj praćenje"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
-    <string name="onboarding_gaen_text_ios">"Da biste mogli da koristite aplikaciju, morate da aktivirate obavijesti o izloženosti bolesti COVID-19."</string>
+    <string name="onboarding_gaen_text_ios">"Za identifikaciju kontakata, mora biti aktivirana funkcija praćenja."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Aktiviraj"</string>
@@ -739,10 +739,10 @@ Osim toga, mogući su sledeći simptomi:
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
     <string name="delete_infection_button">"Da li želite da završite fazu izolacije?"</string>
 
-    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <!-- Meldung im Löschen Dialog nach Isolation-Beenden, kommt auch auf Homescreen-Popup -->
     <string name="delete_infection_dialog">"Da li ste sigurni da želite da obrišete poruku?"</string>
     <string name="android_onboarding_battery_permission_title">"Ignoriši optimizaciju baterije"</string>
-    <string name="android_onboarding_battery_permission_text">"Da biste uvek mogli da prepoznate kontakte, optimizacija baterije za ovu aplikaciju mora biti isključena."</string>
+    <string name="android_onboarding_battery_permission_text">"Kako bi aplikacija funkcionisala, optimizacija baterije mora biti isključena."</string>
     <string name="android_onboarding_battery_permission_button">"Dozvoli"</string>
     <string name="android_onboarding_battery_permission_button_deactivated">"OK"</string>
     <string name="android_onboarding_battery_permission_info_1_title">"Samo za ovu aplikaciju"</string>
@@ -764,7 +764,7 @@ Osim toga, mogući su sledeći simptomi:
     <string name="tracing_permission_error_title_ios">"COVID-19: obavještenja deaktivirano"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
-    <string name="tracing_permission_error_text_ios">"Aktivirajte Obavijesti o izloženosti bolesti COVID-19 da bi praćenje radilo."</string>
+    <string name="tracing_permission_error_text_ios">"Aktivirajte funkciju  {TRACING_SETTING_TEXT}, kako bi  funkcionisalo anonimno praćenje."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Slanje poruke nije uspelo. Dozvolite deljenje nasumičnog ID-a sa aplikacijom SwissCovid."</string>
@@ -806,9 +806,8 @@ Ako trenutno na uređaju nije dostupno ažuriranje, probajte kasnije ponovo."</s
     <string name="tracing_active_tracking_always_info">"Aplikacija SwissCovid ostaje aktivna čak i kad se zatvori."</string>
 
     <!-- title in splash screen of onboarding -->
-    <string name="oboarding_splashscreen_title">"SwissCovid 
-prekida lanac 
-širenja infekcije."</string>
+    <string name="oboarding_splashscreen_title">"SwissCovid - brze informacije u slučaju rizika od zaraze. 
+"</string>
     <string name="inform_detail_faq3_text">"Iako se lični podaci koji se odnose na vas ne šalju, možda se neko seća svog kontakta sa vama na osnovu datuma."</string>
     <string name="inform_detail_faq3_title">"Da li ostajem anoniman?"</string>
 
@@ -819,7 +818,7 @@ prekida lanac
     <string name="tracing_setting_text_android">"Obavijesti o izloženosti bolesti COVID-19"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
-    <string name="onboarding_gaen_text_android">"Da biste mogli da koristite aplikaciju, morate da aktivirate obavijesti o izloženosti bolesti COVID-19."</string>
+    <string name="onboarding_gaen_text_android">"Za identifikaciju kontakata, mora biti aktivirana funkcija praćenja."</string>
 
     <!-- Onboarding Disclaimer Screen: AppName Title -->
     <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
@@ -912,7 +911,7 @@ Schwarzenburgstrasse 157
     <string name="travel_title">"Putovanja"</string>
 
     <!-- Info text that is displayed  on the Home Travel Card. -->
-    <string name="travel_home_description">"SwissCovid funkcijoniše u sledećim državama:"</string>
+    <string name="travel_home_description">"SwissCovid-kontakti funkcionišu u sledećim državama:"</string>
 
     <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_1">"Šta to znači?"</string>
@@ -941,12 +940,6 @@ Da bi putnici u inostranstvu mogli da se upozore, to se dešava nezavisno od tog
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.5 -->
-    <string name="tracing_setting_text_ios_13_5"></string>
-
-    <!-- Text beim Bluetooth Control iOS 13.6 -->
-    <string name="tracing_setting_text_ios_13_6"></string>
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
@@ -1229,9 +1222,9 @@ Da bi putnici u inostranstvu mogli da se upozore, to se dešava nezavisno od tog
     <string name="delete_infection_dialog_finish_button">"Beenden (završi)"</string>
 
     <!-- Text der nach der Eingabe des Covidcodes angezeigt wird. -->
-    <string name="tracing_ended_info">"Kontakti više neće da se čuvaju.
+    <string name="tracing_ended_info">"Kontakti se više neće čuvati i nove prijave nisu više moguće.
 
-Praćenje može ponovo da se aktivira po završetku izolacije."</string>
+Ove dve funkcije mogu se ponovo aktivirati po završetku izolacije."</string>
     <string name="testlocation_url_canton_aargau">"https://www.ag.ch/de/themen_1/coronavirus_2/coronavirus.jsp"</string>
     <string name="testlocation_url_canton_appenzell_ausserrhoden">"https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/"</string>
     <string name="testlocation_url_canton_appenzell_innerrhoden">"https://www.ai.ch/themen/gesundheit-alter-und-soziales/gesundheitsfoerderung-und-praevention/uebertragbare-krankheiten/coronavirus"</string>
@@ -1263,7 +1256,7 @@ Praćenje može ponovo da se aktivira po završetku izolacije."</string>
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
 
     <!-- text for info box pop up for the hearing impaired -->
-    <string name="hearing_impaired_info">"Da li ste bez sluha ili imate smetnju sluha i ne možete nazvati Infoline Coronavirus?
+    <string name="hearing_impaired_info">"Da li ste bez sluha ili imate oštećenje sluha i ne možete nazvati?
 
 Onda pošaljite e-mail na covid-support@medgate.ch"</string>
 
@@ -1318,8 +1311,8 @@ Vreme je odlučujući faktor u suzbijanju Corona virusa: što je vreme između p
     <string name="stats_cases_current_description">"Grafika pokazuje prijavljene nove infekcije poslednjih 28 dana. Time imate pregled o aktuelnom razvoju."</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"Pozitivno ste testirani (PCR test ili antigen brzi test) i ni posle 4 sata niste dobili kovid šifru?
-U tom slučaju kontaktirajte Infoline Coronavirus:"</string>
+    <string name="inform_detail_infobox1_text">"Pozitivno ste testirani (PCR test ili brzi antigen test) i ni posle 4 sata niste dobili Covid kod?
+U tom slučaju kontaktirajte nas ovde:"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"Još niste dobili Covid šifru?"</string>
@@ -1358,13 +1351,13 @@ U tom slučaju kontaktirajte Infoline Coronavirus:"</string>
     <string name="meldungen_positive_tested_faq2_title">"Ko se obaveštava"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_text">"Obaveštavaju se svi kontakti u periodu vaše faze zaražavanja od {ONSET_DATE} do unosa kovid šifre, ukoliko je na osnovu distance i trajanja postojala mogućnost zaraze."</string>
+    <string name="meldungen_positive_tested_faq2_text">"Obaveštavaju se svi kontakti u periodu vaše faze infekcioznosti od {ONSET_DATE} do unosa Covid koda, ukoliko je na osnovu distance i trajanja ili zbog prijave na istoj lokaciji postojala mogućnost zaraze."</string>
 
     <!-- Informieren: Danke Text Onset Date -->
     <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – danas"</string>
 
     <!-- Informieren: Danke Text Abschluss -->
-    <string name="inform_send_thankyou_text_stop_infection_chains">"Na taj način pomažete u zaustavljanju lanca zaraze."</string>
+    <string name="inform_send_thankyou_text_stop_infection_chains">"Na taj način pomažete da se upozore drugi o mogućosti zaraze."</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
     <string name="inform_send_thankyou_text_onsetdate_info">"Privatni ključevi vaše aplikacije poslati su za sledeći period:"</string>
@@ -1403,363 +1396,359 @@ U tom slučaju kontaktirajte Infoline Coronavirus:"</string>
     <string name="meldungen_detail_free_test_tomorrow">"Za 1 dan"</string>
 
     <!-- Check-Ins: Titel vom Reminder Push -->
-    <string name="checkout_reminder_title">"Check-out reminder"</string>
+    <string name="checkout_reminder_title">"Podsećanje na prijavu"</string>
 
     <!-- Check-Ins: Check-out Reminder Push Text -->
-    <string name="checkout_reminder_text">"Do you want to check out?"</string>
+    <string name="checkout_reminder_text">"Želite li da se odjavite?"</string>
 
     <!-- Check-Ins: Auto-Checkout Push Titel -->
-    <string name="auto_checkout_title">"Automatic check-out"</string>
+    <string name="auto_checkout_title">"Automatska odjava"</string>
 
     <!-- Check-Ins: Auto-checkout Push Text -->
-    <string name="auto_checkout_body">"You were checked out automatically."</string>
+    <string name="auto_checkout_body">"Automatski ste odjavljeni."</string>
 
     <!-- Check-Ins: Qr-Scanner Text -->
-    <string name="qrscanner_scan_qr_text">"Scan QR code and check in"</string>
+    <string name="qrscanner_scan_qr_text">"Skenirati QR kod i prijaviti se"</string>
 
     <!-- Check-Ins: Fehler beim QR-Code scannen -->
-    <string name="qrscanner_error">"No valid QR code!"</string>
+    <string name="qrscanner_error">"Nevažeći QR kod!"</string>
 
     <!-- Check-Ins: Anpassung Check-In Datumwahl von -->
-    <string name="datepicker_from">"From"</string>
+    <string name="datepicker_from">"Od"</string>
 
     <!-- Check-Ins: Datumsauswahl bis -->
-    <string name="datepicker_to">"To"</string>
+    <string name="datepicker_to">"Do"</string>
 
     <!-- Check-Ins: Notiz hinzufügen zu Check-In -->
-    <string name="edit_mode_addcomment">"Add note"</string>
+    <string name="edit_mode_addcomment">"Dodati zabelešku"</string>
 
     <!-- Check-Ins: Notiz zu Check-In Placeholder Text -->
-    <string name="edit_mode_comment_placeholder">"e.g. who were you with?"</string>
+    <string name="edit_mode_comment_placeholder">"npr. S kim ste bili tamo?"</string>
 
     <!-- Fertig Button Text -->
-    <string name="done_button">"Done"</string>
+    <string name="done_button">"Gotovo"</string>
 
     <!-- Check-Ins: Titel für Erinnerung -->
-    <string name="checkin_set_reminder">"Check-out reminder"</string>
+    <string name="checkin_set_reminder">"Podsećanje na prijavu"</string>
 
     <!-- Check-Ins: Erinnerung Option Aus -->
-    <string name="reminder_option_off">"Off"</string>
+    <string name="reminder_option_off">"Isključeno"</string>
 
     <!-- Check-Ins: Tagebuch Zugriff Text -->
-    <string name="authenticate_for_diary">"Authentication needed to access the diary"</string>
+    <string name="authenticate_for_diary">"Identifikujte se, kako biste pristupili dnevniku"</string>
 
     <!-- Check-Ins: Errinnerungsoption Stunden -->
-    <string name="reminder_option_hours">"{HOURS} h"</string>
+    <string name="reminder_option_hours">"časovi {HOURS} h"</string>
 
     <!-- Check-Ins: Errinnerungsoption Minuten -->
-    <string name="reminder_option_minutes">"{MINUTES}'"</string>
+    <string name="reminder_option_minutes">"minute {MINUTES}'"</string>
 
     <!-- Check-Ins: Fehler wenn Kamera-Erlaubnis nicht gegeben -->
-    <string name="qr_scanner_no_camera_permission">"The app needs to access the camera to be able to scan the QR code."</string>
+    <string name="qr_scanner_no_camera_permission">"Aplikaciji je potreban pristup kameri, da bi se skenirao QR kod."</string>
 
     <!-- Check-Ins: Tagebuch Titel -->
-    <string name="diary_title">"My check-ins"</string>
+    <string name="diary_title">"Moje prijave"</string>
 
     <!-- Check-Ins: Button Titel zum Einchecken -->
-    <string name="checkin_button_title">"Check-in"</string>
+    <string name="checkin_button_title">"Prijava"</string>
 
     <!-- Check-Ins: iOS Kamera Erlaubnis Text -->
-    <string name="NSCameraUsageDescription">"The camera is needed to scan the QR code."</string>
+    <string name="NSCameraUsageDescription">"Kamera je potrebna, kako bi se skenirao QR kod."</string>
 
     <!-- Check-Ins: FaceID Text um Tagebuch anzuschauen -->
-    <string name="NSFaceIDUsageDescription">"Allow Face ID to securely access your diary."</string>
+    <string name="NSFaceIDUsageDescription">"Dozvolite identifikaciju lica, da biste mogli bezbedno pristupiti vašem dnevniku."</string>
 
     <!-- Check-Ins: Text der angezeigt wieso FaceId gebraucht wird -->
-    <string name="face_id_reason_text">"Authentication needed to access the diary"</string>
+    <string name="face_id_reason_text">"Identifikujte se za pristup dnevniku"</string>
 
     <!-- Check-Ins: Check-Out Button Title -->
-    <string name="checkout_button_title">"Check-out"</string>
+    <string name="checkout_button_title">"Odjava "</string>
 
     <!-- Check-Ins: Titel Modul auf Homescreen -->
-    <string name="module_checkins_title">"Check-in"</string>
+    <string name="module_checkins_title">"Prijava"</string>
 
     <!-- Check-Ins: Titel vom Check-In Screen -->
-    <string name="checkin_title">"Check-in"</string>
+    <string name="checkin_title">"Prijava"</string>
 
     <!-- Check-Ins: QR-Code erstellen Titel -->
-    <string name="checkins_create_qr_code">"Generate QR code"</string>
+    <string name="checkins_create_qr_code">"Napraviti QR kod"</string>
 
     <!-- Veranstaltungen-Screen Titel -->
-    <string name="events_title">"Offer check-ins?"</string>
+    <string name="events_title">"Ponuditi prijave?"</string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
-    <string name="check_in_now_button_title">"Check in now"</string>
+    <string name="check_in_now_button_title">"Sada se prijaviti"</string>
 
     <!-- Check-Ins: Reminder Fehlermeldung Titel -->
-    <string name="checkin_reminder_settings_alert_title">"The reminder could not be set"</string>
+    <string name="checkin_reminder_settings_alert_title">"Podsećanje nije uspelo da se unese"</string>
 
     <!-- Check-Ins: Erinnerungen Fehlermeldung Text -->
-    <string name="checkin_reminder_settings_alert_message">"To receive check-out reminders, you need to allow \\"notifications\\" in the app settings."</string>
+    <string name="checkin_reminder_settings_alert_message">"Da biste dobijali podsetnike za odjavu, morate da dozvolite \ \"Obaveštenja \\" u podešavanjima aplikacije."</string>
 
     <!-- Check-Ins: Reminder Popup Anpassen -->
-    <string name="checkin_reminder_option_open_settings">"Customise"</string>
+    <string name="checkin_reminder_option_open_settings">"Prilagoditi"</string>
 
     <!-- Check-Ins: Bearbeiten von Check-Ins Titel -->
-    <string name="edit_controller_title">"Edit"</string>
+    <string name="edit_controller_title">"Urediti"</string>
 
     <!-- Check-Ins: Tagebuch leeres Tagbuch Titel -->
-    <string name="empty_diary_title">"No entries available yet"</string>
+    <string name="empty_diary_title">"Još nema unosa"</string>
 
     <!-- Check-Ins: Tagebuch leer, Text -->
-    <string name="empty_diary_text">"If you scan a SwissCovid QR code to check in on site, an entry will automatically be created here."</string>
+    <string name="empty_diary_text">"Ako skenirate SwissCovid-QR kod, da biste se prijavili na nekoj lokaciji, ovde se automatski uređuje unos."</string>
 
     <!-- Check-Ins: Kamera Erlaubnis Text -->
-    <string name="camera_permission_dialog_text">"SwissCovid needs to access your device's camera. The camera is only used to scan QR codes."</string>
+    <string name="camera_permission_dialog_text">"SwissCovid-u treba pristup kameri na vašem aparatu. Kamera se koristi, kako bi se skenirao QR kod."</string>
 
     <!-- Check-Ins: Button Titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären -->
-    <string name="camera_permission_dialog_action">"Allow access to camera"</string>
+    <string name="camera_permission_dialog_action">"Dozvoliti pristup kameri"</string>
 
     <!-- Check-Ins: Veranstaltung Titel Placeholder -->
-    <string name="web_generator_title_placeholder">"e.g. room or event name"</string>
+    <string name="web_generator_title_placeholder">"npr. soba ili naziv događaja"</string>
 
     <!-- Check-Ins: Veranstaltungen Detail PDF Button -->
-    <string name="show_pdf_button">"Print PDF"</string>
-    <string name="bottom_nav_tab_info">"Info"</string>
-    <string name="error_network_title">"Network error"</string>
-    <string name="error_network_text">"Check your internet connection."</string>
-    <string name="error_action_retry">"Try again"</string>
-    <string name="error_notification_deactivated_title">"Notifications deactivated"</string>
-    <string name="error_notification_deactivated_text">"Modify your settings to be informed straight away if you receive a notification."</string>
-    <string name="error_action_change_settings">"Modify settings"</string>
-    <string name="error_camera_permission_title">"No access to camera"</string>
-    <string name="error_camera_permission_text">"The app needs to access the camera to be able to scan the QR code."</string>
-    <string name="error_title">"Error"</string>
-    <string name="qr_scanner_error_code_not_yet_valid">"QR code not yet valid"</string>
-    <string name="qr_scanner_error_code_not_valid_anymore">"QR code no longer valid"</string>
-    <string name="error_already_checked_in">"You are already checked in."</string>
-    <string name="error_update_text">"This QR code is not compatible with the installed version of the app. Please update the app to continue."</string>
-    <string name="error_update_title">"Update required"</string>
-    <string name="error_action_update">"Update now"</string>
-    <string name="ongoing_notification_checkout_quick_action">"Check out"</string>
-    <string name="reminder_notification_snooze_action">"Snooze"</string>
-    <string name="android_ongoing_checkin_notification_channel_name">"Permanent check-in notification"</string>
-    <string name="ongoing_notification_title">"You have been checked in since {TIME}."</string>
+    <string name="show_pdf_button">"Odštampati PDF"</string>
+    <string name="bottom_nav_tab_info">"Informacija"</string>
+    <string name="error_network_title">"Mrežna greška"</string>
+    <string name="error_network_text">"Proverite vašu vezu sa internetom "</string>
+    <string name="error_action_retry">"Pokušajte ponovo"</string>
+    <string name="error_notification_deactivated_title">"Deaktivirati obaveštenja"</string>
+    <string name="error_notification_deactivated_text">"Promenite podešavanja, kako biste bili direktno bili obavešteni o prijavi."</string>
+    <string name="error_action_change_settings">"Promenite podešavanja"</string>
+    <string name="error_camera_permission_title">"Nema pristupa kameri"</string>
+    <string name="error_camera_permission_text">"Aplikaciji je potreban pristup kameri, kako bi se mogao skenirati QR kod."</string>
+    <string name="error_title">"Greška"</string>
+    <string name="qr_scanner_error_code_not_yet_valid">"QR kod je još nevažeći"</string>
+    <string name="qr_scanner_error_code_not_valid_anymore">"QR kod je nevažeći "</string>
+    <string name="error_already_checked_in">"Upravo ste prijavljeni."</string>
+    <string name="error_update_text">"Ovaj QR kod nije kompatibilan sa instaliranom verzijom aplikacije. Ažurirajte aplikaciju, da biste nastavili korišćenje."</string>
+    <string name="error_update_title">"Potrebno ažuriranje"</string>
+    <string name="error_action_update">"Sada ažurirati"</string>
+    <string name="ongoing_notification_checkout_quick_action">"Odjava "</string>
+    <string name="reminder_notification_snooze_action">"Snooze mirovanje"</string>
+    <string name="android_ongoing_checkin_notification_channel_name">"Poruka o trajnom prijavljivanju"</string>
+    <string name="ongoing_notification_title">"Prijavljeni ste {TIME} časova."</string>
 
     <!-- Check-Ins: Sichern Button bei Check-out -->
-    <string name="checkout_save_button_title">"Save"</string>
+    <string name="checkout_save_button_title">"Osigurati"</string>
 
     <!-- Check-Ins: QR-Code scannen Button -->
-    <string name="scan_qr_code_button_title">"Scan QR code"</string>
+    <string name="scan_qr_code_button_title">"Skenirati QR kod"</string>
 
     <!-- Titel der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
-    <string name="checkin_ended_title">"Check-in deactivated"</string>
+    <string name="checkin_ended_title">"Deaktivirano prijavljivanje"</string>
 
     <!-- Text der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
-    <string name="checkin_ended_text">"Check-in is not possible at the moment"</string>
+    <string name="checkin_ended_text">"Trenutno nije moguća prijava"</string>
 
     <!-- Text im Check-Ins-Screen im nicht eingecheckten Zustand -->
-    <string name="checkin_detail_checked_out_text">"Scan a SwissCovid QR code to check in on site."</string>
+    <string name="checkin_detail_checked_out_text">"Skenirajte SwissCovid-QR kod, kako biste se prijavili na nekoj lokaciji."</string>
 
     <!-- Text im Check-Ins-Screen, im Tagebuch-Modul -->
-    <string name="checkin_detail_diary_text">"If you scan a SwissCovid QR code to check in on site, an entry will automatically be created here."</string>
+    <string name="checkin_detail_diary_text">"Ako skenirate Swiss-Covid-QR kod, da biste se prijavili na nekoj lokaciji, ovde se automatski uređuje unos."</string>
 
     <!-- Label im Checkin-Modul im eingecheckten Zustand -->
-    <string name="checkin_checked_in">"You're checked in"</string>
-    <string name="checkout_from_to_date">"{DATE1} to {DATE2}"</string>
-    <string name="inform_detail_covidcode_info_button">"More about the Covidcode"</string>
+    <string name="checkin_checked_in">"Prijavljeni ste"</string>
+    <string name="checkout_from_to_date">"{DATE1} do {DATE2}"</string>
+    <string name="inform_detail_covidcode_info_button">"Više o Covid kodu"</string>
 
     <!-- Check-Ins: Button Entfernen um Check-In zu löschen -->
-    <string name="remove_from_diary_button">"Remove entry"</string>
+    <string name="remove_from_diary_button">"Ukloniti unos"</string>
 
     <!-- Check-Ins: QR-Code löschen Titel Button -->
-    <string name="delete_button_title">"Delete"</string>
+    <string name="delete_button_title">"Izbrisati"</string>
 
     <!-- Check-Ins: Teile QR-Code Button Titel -->
-    <string name="share_button_title">"Share"</string>
+    <string name="share_button_title">"Podeliti"</string>
 
     <!-- Check-Ins: Drucken Button auf PDF-Detailseite -->
-    <string name="print_button_title">"Print"</string>
+    <string name="print_button_title">"Štampati"</string>
 
     <!-- Check-Ins: Beschreibung Modul auf Homescreen -->
-    <string name="module_checkins_description">"Scan a SwissCovid QR code to check in on site."</string>
+    <string name="module_checkins_description">"Skenirajte SwissCovid-QR kod, kako biste se prijavili na nekoj lokaciji."</string>
 
     <!-- Titel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
-    <string name="inform_share_checkins_title">"Share check-in entries"</string>
+    <string name="inform_share_checkins_title">"Deliti unose o prijavama"</string>
 
     <!-- Untertitel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
-    <string name="inform_share_checkins_subtitle">"If you share check-in entries, the app can notify people who were checked in at the same location at the same time."</string>
+    <string name="inform_share_checkins_subtitle">"Kada delite unose prijave, aplikacija može istovremeno da obavesti lica, koja su se prijavila na istoj lokaciji."</string>
 
     <!-- Button text, um alle Checkins zu selektieren -->
-    <string name="inform_share_checkins_select_all">"Select all"</string>
-    <string name="inform_dont_send_button_title">"Don't send"</string>
-    <string name="inform_dont_share_button_title">"Don't share"</string>
-    <string name="inform_really_not_share_title">"Are you sure you don't want to share?"</string>
-    <string name="inform_really_not_share_subtitle">"Sharing your private key helps SwissCovid to notify other people who may be infected and to stop the virus spreading. If you don't share your private key, people who may be infected will not be notified."</string>
+    <string name="inform_share_checkins_select_all">"Izabrati sve"</string>
+    <string name="inform_dont_send_button_title">"Ne slati"</string>
+    <string name="inform_dont_share_button_title">"Ne deliti"</string>
+    <string name="inform_really_not_share_title">"Zaista ne deliti?"</string>
+    <string name="inform_really_not_share_subtitle">"Deljenje privatnog ključa pomaže «SvissCovid» da obavesti druge potencijalno zaražene ljude i spreči dalje širenje virusa. Ako ne delite privatne ključeve, potencijalno zaražene osobe neće biti obaveštene."</string>
 
     <!-- Remove from Diary Warning view title -->
-    <string name="remove_diary_warning_title">"Remove entry"</string>
+    <string name="remove_diary_warning_title">"Ukloniti unos"</string>
 
     <!-- Remove from diary warning view explanation text -->
-    <string name="remove_diary_warning_text">"Your entry will be permanently removed from the list."</string>
+    <string name="remove_diary_warning_text">"Vaš unos će biti neopozivo uklonjen sa liste."</string>
 
     <!-- Remove from diary warning view remove button title -->
-    <string name="remove_diary_remove_now_button">"Completely remove"</string>
+    <string name="remove_diary_remove_now_button">"Ukoniti u potpunosti"</string>
 
     <!-- Hide from diary warning title -->
-    <string name="remove_diary_warning_hide_title">"Only hide and keep receiving notifications?"</string>
+    <string name="remove_diary_warning_hide_title">"Samo sakriti i nastaviti da budete obaveštavani?"</string>
 
     <!-- Titel auf der "CovidCode eingeben"-Card auf dem Home Screen -->
-    <string name="home_covidcode_card_title">"Tested positive?"</string>
+    <string name="home_covidcode_card_title">"Test pozitivan?"</string>
 
     <!-- Text auf der "Isolation beenden"-Card auf dem Home Screen -->
-    <string name="home_end_isolation_card_text">"Reactivate encounters and check-in"</string>
+    <string name="home_end_isolation_card_text">"Kontakte i prijave ponovo aktivirati. "</string>
 
     <!-- Check-Ins: Erinnerungsoption Stunden & Minuten -->
-    <string name="reminder_option_hours_minutes">"{HOURS} h {MINUTES}'"</string>
+    <string name="reminder_option_hours_minutes">"časovi {HOURS} h minute {MINUTES}'"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer sich in Isolation befindet. -->
-    <string name="checkin_overview_isolation_text">"You can no longer check in if you have tested positive."</string>
+    <string name="checkin_overview_isolation_text">"Ne možete ponovo da se prijavite ako imate pozitivan test."</string>
 
     <!-- Veranstaltungen-Card Text im Infotab -->
-    <string name="events_card_subtitle">"Generate a QR code that people can use to check in on site."</string>
+    <string name="events_card_subtitle">"Napravite QR kod, pomoću kojeg lica mogu da se prijave na lokaciji."</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
-    <string name="delete_qr_code_dialog">"Are you sure you want to delete the QR code?"</string>
+    <string name="delete_qr_code_dialog">"Želite li zaista da izbrišete QR kod? "</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
-    <string name="self_checkin_button_title">"Self check-in"</string>
+    <string name="self_checkin_button_title">"Samostalno prijavljivanje"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer nicht eingecheckt ist. -->
-    <string name="checkin_overview_checkins_explanation">"Scan a SwissCovid QR code to check in on site."</string>
+    <string name="checkin_overview_checkins_explanation">"Skenirajte SwissCovid-QR kod, kako biste se prijavili na lokaciji."</string>
 
     <!-- Popup Titel wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
-    <string name="checkout_overlapping_alert_title">"Saving not possible"</string>
+    <string name="checkout_overlapping_alert_title">"Nije moguće obezbeđenje"</string>
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
-    <string name="checkout_overlapping_alert_description">"The times you selected clash with other check-ins in your diary. Please check your entry."</string>
+    <string name="checkout_overlapping_alert_description">"Odabrana vremena se preklapaju sa ostalim prijavama iz vašeg dnevnika. Molimo vas da ponovo proverite svoje podatke."</string>
 
     <!-- Informieren: Danke Text Checkins Teil -->
-    <string name="inform_send_thankyou_text_checkins">"The check-in entries you selected have been sent. Everyone who was checked in at the same location at the same time will be notified."</string>
+    <string name="inform_send_thankyou_text_checkins">"Vaši odabrani unosi za prijavu su poslati. Biće obaveštena sva lica koja su se istovremeno prijavili na istom mestu."</string>
 
     <!-- SwissCovid QR Code PDF: Headline über dem Slogan -->
-    <string name="pdf_headline">"SwissCovid check-in"</string>
+    <string name="pdf_headline">"SwissCovid prijava
+
+"</string>
 
     <!-- SwissCovid QR Code PDF: Slogan -->
-    <string name="pdf_slogan">"Check in without leaving any data"</string>
+    <string name="pdf_slogan">"Prijaviti se bez ostavljanja podataka"</string>
 
     <!-- SwissCovid QR Code PDF: Erklärungstext unter dem Slogan -->
-    <string name="pdf_explanation">"The SwissCovid app lets you simply check in with us without leaving behind your data. If there is a risk of infection, you will be rapidly notified in the app."</string>
+    <string name="pdf_explanation">"Pomoći aplikacije SwissCovid možete jednostavno da se prijavite kod nas ne ostavljajući svoje podatke. U slučaju rizične situacije, brzo ćete biti obavešteni u aplikaciji."</string>
 
     <!-- SwissCovid QR Code PDF: App Bezeichnung neben dem App Icon -->
-    <string name="pdf_swisscovid_app">"SwissCovid app"</string>
+    <string name="pdf_swisscovid_app">"SwissCovid aplikacija"</string>
 
     <!-- SwissCovid QR Code PDF: Download Hinweis neben dem App Icon -->
-    <string name="pdf_download_app">"Download now"</string>
+    <string name="pdf_download_app">"Sada preuzeti"</string>
 
     <!-- Title im Check-Ins-Screen im nicht eingecheckten Zustand -->
-    <string name="checkin_detail_checked_out_title">"Check in without leaving 
-data"</string>
+    <string name="checkin_detail_checked_out_title">"Prijaviti se bez ostavljanja podataka"</string>
 
     <!-- Text auf der "CovidCode eingeben"-Card auf dem Home Screen -->
-    <string name="home_covidcode_card_text">"Enter your Covidcode here to alert others."</string>
+    <string name="home_covidcode_card_text">"Ovde unesite svoj Covid kod, kako biste upozorili druge."</string>
 
     <!-- Titel auf der "Isolation beenden"-Card auf dem Home Screen -->
-    <string name="home_end_isolation_card_title">"Isolation ended?"</string>
+    <string name="home_end_isolation_card_title">"Kraj izolacije?"</string>
 
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. -->
-    <string name="events_card_title">"Do you want to offer check-ins?"</string>
-    <string name="checkin_footer_title1">"Why a check-in function?"</string>
-    <string name="checkin_footer_subtitle1">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert people who were checked in at the same location at the same time, as well as close contacts."</string>
-    <string name="checkin_footer_title2">"No central data storage"</string>
-    <string name="checkin_footer_subtitle2">"For the SwissCovid check-ins, you don't have to enter personal details, such as name, address or phone number, and no GPS location data is recorded. The list of check-ins is stored locally on your device. The local data is deleted after 14 days. "</string>
-    <string name="events_empty_state_title">"Generate a QR code"</string>
-    <string name="events_empty_state_subtitle">"Using a SwissCovid QR code, people can check in on site without leaving their data."</string>
-    <string name="events_info_box_title">"No substitute for mandatory recording of contact details"</string>
-    <string name="events_info_box_text">"SwissCovid check-ins are no substitute for the obligation to record contact details provided for in the COVID-19 Ordinance Special Situation. "</string>
-    <string name="events_footer_title1">"Where can check-ins be used?"</string>
-    <string name="events_footer_title2">"Why a check-in function?"</string>
-    <string name="events_footer_subtitle1">"SwissCovid check-ins can be used where people gather but where there is no obligation to record contact details. 
-
-Possible locations:
-– Private events
-– Club meetings or events
-– Gatherings in professional settings, e.g. meeting rooms, offices, canteens"</string>
-    <string name="events_footer_subtitle2">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert people who were checked in at the same location at the same time, as well as close contacts."</string>
+    <string name="events_card_title">"Želite da ponudite prijave?"</string>
+    <string name="checkin_footer_title1">"Čemu služi funkcija prijave?"</string>
+    <string name="checkin_footer_subtitle1">"Funkcija prijave bez unošenja podataka o kontaktima povećava funkcije aplikacije SwissCovid. Pomoću ove funkcije, u slučaju pozitivnog testa, možete ne samo da upozorite bliske kontakte, već i lica koja su se istovremeno prijavila na istom mestu."</string>
+    <string name="checkin_footer_title2">"Nema centralnog čuvanja podataka"</string>
+    <string name="checkin_footer_subtitle2">"Za SwissCovid prijave ne treba unositi lične podatke kao što su ime, adresa ili telefonski broj i ne beleže se GPS podaci o lokaciji. Spisak prijava čuva se lokalno na vašem mobilnom telefonu. Lokalni podaci će se izbrisati nakon 14 dana."</string>
+    <string name="events_empty_state_title">"Napravite QR kod"</string>
+    <string name="events_empty_state_subtitle">"Sa SwissCovid-QR kodom mogu se na licu mjesta prijaviti lica, a da ne ostavljaju svoje podatke.  "</string>
+    <string name="events_info_box_title">"To nije zamena za obavezni unos kontakt podataka"</string>
+    <string name="events_info_box_text">"SwissCovid prijave nisu zamena za obavezu evidenciju kontakt podataka utvrđenu u „Pravilniku Covid 19 za posebne situacije“."</string>
+    <string name="events_footer_title1">"Gde se mogu koristiti prijave?"</string>
+    <string name="events_footer_title2">"Zašto služi funkcija prijave?"</string>
+    <string name="events_footer_subtitle1">"SwissCovid prijave se mogu koristiti tamo gde se ljudi sastaju, ali ne postoji obaveza beleženja podataka o kontaktima.                                                                 Moguće lokacije:
+- Privatni događaji
+- Događaji u klubovima
+- Sastanci u profesionalnom okruženju kao što su sale za sastanke, kancelarije, menze itd. \""</string>
+    <string name="events_footer_subtitle2">"Funkcija prijave bez unošenja podataka o kontaktima proširuje funkcije aplikacije. Pomoću ove funkcije, u slučaju pozitivnog testa, možete ne samo da upozorite bliske kontakte, već i lica koja su se istovremeno prijavila na istoj lokaciji."</string>
 
     <!-- Subtitle vom Meldungen Card in der Liste aller Meldungen. -->
-    <string name="meldung_detail_exposed_list_card_subtitle">"Risk situation"</string>
+    <string name="meldung_detail_exposed_list_card_subtitle">"Rizična situacija"</string>
 
     <!-- Title vom Encounters Meldungen Card in der Liste aller Meldungen -->
-    <string name="meldung_detail_exposed_list_card_title_encounters">"Encounters"</string>
+    <string name="meldung_detail_exposed_list_card_title_encounters">"Kontakti"</string>
 
     <!-- Title vom CheckIn Meldungen Card in der Liste aller Meldungen -->
-    <string name="meldung_detail_exposed_list_card_title_checkin">"Check-in"</string>
+    <string name="meldung_detail_exposed_list_card_title_checkin">"Prijava"</string>
 
     <!-- Was soll ich tun? Button im Meldungen Card in der Liste aller Meldungen -->
-    <string name="meldung_detail_exposed_list_card_whattodo_button">"What should I do?"</string>
+    <string name="meldung_detail_exposed_list_card_whattodo_button">"Šta treba da uradima?"</string>
 
     <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: An einem Check-In einem positiven Kontakt ausgesetzt -->
-    <string name="debug_state_setting_option_checkin_exposed">"Positive check-in"</string>
+    <string name="debug_state_setting_option_checkin_exposed">"Pozitivna prijava"</string>
 
     <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Auf verschiedener Weise einem positiven Kontakt ausgesetzt -->
-    <string name="debug_state_setting_option_mutiple_exposed">"Positive check-ins/contacts"</string>
+    <string name="debug_state_setting_option_mutiple_exposed">"Pozitivne prijave / kontakti"</string>
 
     <!-- Anzeigename für User QR Codes -->
-    <string name="venue_type_user_qr_code">"User QR code"</string>
+    <string name="venue_type_user_qr_code">"QR kod korisnika"</string>
 
     <!-- Anzeigename für User QR Codes -->
-    <string name="venue_type_contact_tracing_qr_code">"Contact tracing QR code"</string>
+    <string name="venue_type_contact_tracing_qr_code">"QR kod za praćenje kontakata"</string>
 
     <!-- Text der Module im Check-ins Screen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
-    <string name="checkin_ended_text_detailed">"The check-in function is automatically deactivated after a positive test result. It can be reactivated after the end of isolation."</string>
+    <string name="checkin_ended_text_detailed">"Ako je rezultat testa pozitivan, funkcija prijave se automatski deaktivira. Može se ponovo aktivirati nakon završetka izolacije."</string>
 
     <!-- Check-Ins: QR-Code erstellen subtitel -->
-    <string name="checkins_create_qr_code_subtitle">"Enter a title that describes the location or your event in more detail. This title will be displayed on check-in."</string>
-    <string name="checkin_report_heading">"What can you do?"</string>
-    <string name="checkin_report_title1">"Protect your contacts"</string>
-    <string name="checkin_report_title2">"Look out for symptoms"</string>
-    <string name="checkin_report_title3">"Get tested"</string>
-    <string name="checkin_report_subtitle1">"You may already be infectious without realising it. Follow the rules on hygiene and social distancing and protect your loved ones and those around you."</string>
-    <string name="checkin_report_subtitle2">"Monitor your state of health."</string>
-    <string name="checkin_report_subtitle3">"If you develop symptoms, get tested immediately. Even if you don't have symptoms, a coronavirus test is advisable and recommended."</string>
+    <string name="checkins_create_qr_code_subtitle">"Dodelite naziv, koji detaljnije opisuje lokaciju ili vaš događaj.                                            Ovaj naziv će biti prikazan prilikom prijave."</string>
+    <string name="checkin_report_heading">"Šta možete da uradite?"</string>
+    <string name="checkin_report_title1">"Zaštititi kontakte"</string>
+    <string name="checkin_report_title2">"Obratiti pažnju na simptome"</string>
+    <string name="checkin_report_title3">"Vršiti testiranje"</string>
+    <string name="checkin_report_subtitle1">"Mogli biste biti zarazni, a da to ne primetite. Pridržavajte se važećih higijenskih i zaštitnih mera i zaštitite svoju porodicu, prijatelje i okolinu."</string>
+    <string name="checkin_report_subtitle2">"Proveravajte svoje zdravsveno stanje."</string>
+    <string name="checkin_report_subtitle3">"Odmah se testirajte ako imate simptome. Čak i ako nema simptoma, test korone je važan i  preporučuje se."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_title">"Check-in"</string>
-
-    <!-- SubTitel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_subtitle"></string>
-    <string name="not_thank_you_screen_title">"No data sent"</string>
-    <string name="not_thank_you_screen_text1">"No private key was sent."</string>
-    <string name="not_thank_you_screen_back_button">"Back"</string>
-    <string name="not_thank_you_screen_dont_send_button">"Don't send data"</string>
-    <string name="not_thank_you_screen_text2">"No check-in entries were sent."</string>
+    <string name="meldung_detail_checkin_title">"Prijava"</string>
+    <string name="not_thank_you_screen_title">"Podaci nisu poslati"</string>
+    <string name="not_thank_you_screen_text1">"Nisu poslati privatni ključevi."</string>
+    <string name="not_thank_you_screen_back_button">"Nazad"</string>
+    <string name="not_thank_you_screen_dont_send_button">"Ne slati nikakve podatke"</string>
+    <string name="not_thank_you_screen_text2">"Nisu poslati unosi za prijavu."</string>
 
     <!-- Button text, um ausgewählte Checkins zu senden -->
-    <string name="inform_share_checkins_send_button_title">"Share selection"</string>
-    <string name="inform_share_checkins_not_send_button">"Don't share anything"</string>
-    <string name="onboarding_checkin_title">"Check in without leaving data"</string>
-    <string name="onboarding_checkin_heading">"Check-ins"</string>
-    <string name="onboarding_checkin_text1">"With SwissCovid check-ins you can check in to a location or meeting using the app."</string>
-    <string name="onboarding_checkin_text2">"Your presence is only stored in the app. You don’t have to leave behind any personal data. "</string>
-    <string name="checkin_updateboarding_text">"With SwissCovid check-ins you can check in to a location or meeting using the app. Your presence is only stored in the app. You don't have to leave behind any personal data. The terms of use and privacy policy have been updated."</string>
-    <string name="onboarding_gaen_button_dont_activate">"Skip"</string>
+    <string name="inform_share_checkins_send_button_title">"Deliti izbor"</string>
+    <string name="inform_share_checkins_not_send_button">"Ne deliti"</string>
+    <string name="onboarding_checkin_title">"Prijaviti se bez unošenja podataka"</string>
+    <string name="onboarding_checkin_heading">"Prijave"</string>
+    <string name="onboarding_checkin_text1">"Sa SwissCovid prijavama možete da koristite aplikaciju za prijavu na nekoj lokaciji ili prilikom sastanka."</string>
+    <string name="onboarding_checkin_text2">"Vaše prisustvo se memoriše samo u aplikaciji. Ne morate da ostavljate lične podatke u aplikaciji."</string>
+    <string name="checkin_updateboarding_text">"Sa SwissCovid prijavama možete da koristite aplikaciju za prijavu na nekoj lokaciji ili prilikom sastanka. Vaše prisustvo se memoriše samo u aplikaciji. Ne morate da ostavljate lične podatke u aplikaciji. U ove svrhe ažurirani su uslovi korišćenja i izjava o zaštiti podataka."</string>
+    <string name="onboarding_gaen_button_dont_activate">"Preskočiti"</string>
 
     <!-- Hide from diary warning text -->
-    <string name="remove_diary_warning_hide_text">"The entry is stored in encrypted form in the background of the app for 14 days. This means that you can still be notified if there is a possibility of infection."</string>
+    <string name="remove_diary_warning_hide_text">"Šifrovani unos čuva se u pozadini aplikacije 14 dana. U slučaju moguće infekcije, i dalje možete biti obavešteni."</string>
 
     <!-- CheckIn ausblenden -->
-    <string name="remove_diary_warning_hide_button">"Hide only"</string>
-    <string name="checkin_set_reminder_explanation">"The app can remind you to check out at the right time."</string>
+    <string name="remove_diary_warning_hide_button">"Sada sakriti"</string>
+    <string name="checkin_set_reminder_explanation">"Aplikacija vas može podsetiti da se odjavite u pravo vreme."</string>
 
     <!-- Remove from diary warning title -->
-    <string name="remove_diary_remove_now_title">"Or remove completely?"</string>
+    <string name="remove_diary_remove_now_title">"Ili potpuno ukloniti?"</string>
 
     <!-- Remove from diary warning text -->
-    <string name="remove_diary_remove_now_text">"The entry was removed completely. You can no longer be alerted."</string>
-    <string name="not_thank_you_screen_text3">"Nobody will be notified."</string>
+    <string name="remove_diary_remove_now_text">"Unos je potpuno uklonjen. Više ne možete biti upozoreni."</string>
+    <string name="not_thank_you_screen_text3">"Niko neće biti obavešten."</string>
 
     <!-- Link Text zu Informationen übers Testen -->
-    <string name="checkin_report_link">"What do I need to know about testing?"</string>
-    <string name="instant_app_install_action">"Install app and check in"</string>
-    <string name="partial_onboarding_box_text">"Complete the app configuration to be able to use the tracing function."</string>
-    <string name="partial_onboarding_box_action">"Complete now"</string>
-    <string name="partial_onboarding_done_title">"Configuration complete"</string>
-    <string name="partial_onboarding_done_text">"Thank you for helping stop the spread of coronavirus."</string>
-    <string name="web_slogan">"Find out fast if you're at risk of infection."</string>
+    <string name="checkin_report_link">"Šta treba da znam o testiranju?"</string>
+    <string name="instant_app_install_action">"Instalirati aplikaciju i prijavite se"</string>
+    <string name="partial_onboarding_box_text">"Završite konfiguraciju aplikacije, kako biste mogli da koristite funkciju praćenja."</string>
+    <string name="partial_onboarding_box_action">"Završiti sada"</string>
+    <string name="partial_onboarding_done_title">"Konfiguracija završena"</string>
+    <string name="partial_onboarding_done_text">"Hvala vam što pomažete u suzbijanju širenja virusa korone."</string>
+    <string name="web_slogan">"Brze informacije u slučaju rizika od zaraze. "</string>
 
     <!-- Info URL for testing -->
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
-    <string name="checkout_too_long_alert_text"></string>
+    <string name="checkout_too_long_alert_text">"For this check-in a maximum check-in duration of {DURATION} applies. Please check your input again."</string>
 </resources>

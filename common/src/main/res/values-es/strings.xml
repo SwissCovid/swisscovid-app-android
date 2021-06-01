@@ -173,7 +173,7 @@ De esta forma, está ayudando a parar las cadenas de contagio."</string>
     <string name="tab_tracing_title">"Rastreo"</string>
 
     <!-- Titel auf Homescreen für Was tun Section -->
-    <string name="whattodo_title_symptoms">"Síntomas de la enfermedad"</string>
+    <string name="whattodo_title_symptoms">"tengo síntomas de la enfermedad"</string>
 
     <!-- Subtitel auf Homescreen für Was Tun Section -->
     <string name="whattodo_subtitle_symptoms">"¿Qué hacer si…"</string>
@@ -732,7 +732,7 @@ Pueden aparecer también los síntomas siguientes:
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
     <string name="delete_infection_button">"Finalizar el aislamiento."</string>
 
-    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <!-- Meldung im Löschen Dialog nach Isolation-Beenden, kommt auch auf Homescreen-Popup -->
     <string name="delete_infection_dialog">"¿De verdad quiere eliminar esta notificación?"</string>
     <string name="android_onboarding_battery_permission_title">"Ignorar optimización de la batería"</string>
     <string name="android_onboarding_battery_permission_text">"La aplicación solo funciona si la optimización de la batería está desconectada."</string>
@@ -935,12 +935,6 @@ Al fin de poder alertar también a los viajeros del extranjero, esto ocurre inde
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.5 -->
-    <string name="tracing_setting_text_ios_13_5"></string>
-
-    <!-- Text beim Bluetooth Control iOS 13.6 -->
-    <string name="tracing_setting_text_ios_13_6"></string>
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
@@ -1708,9 +1702,6 @@ Posibles utilizaciones:
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
-
-    <!-- SubTitel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_subtitle"></string>
     <string name="not_thank_you_screen_title">"No se han enviado datos"</string>
     <string name="not_thank_you_screen_text1">"No se han enviado claves privadas."</string>
     <string name="not_thank_you_screen_back_button">"Volver"</string>
@@ -1753,5 +1744,5 @@ Posibles utilizaciones:
     <!-- Info URL for testing -->
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
-    <string name="checkout_too_long_alert_text"></string>
+    <string name="checkout_too_long_alert_text">"For this check-in a maximum check-in duration of {DURATION} applies. Please check your input again."</string>
 </resources>

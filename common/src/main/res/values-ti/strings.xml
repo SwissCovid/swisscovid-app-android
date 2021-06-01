@@ -103,7 +103,7 @@
     <string name="meldungen_meldung_title">"ብሕማም  ናይ ምልካፍ ተኽእሎ"</string>
 
     <!-- Text im Meldung Detail -->
-    <string name="meldungen_meldung_text">"ብሕማም  ናይ ምልካፍ ተኽእሎ ኣሎ።"</string>
+    <string name="meldungen_meldung_text">"ልበዳ ተለኪፍኩም ትኾኑ"</string>
 
     <!-- Titel ob Tracing aktiv -->
     <string name="tracing_active_title">"ኣፕ ይሰርሕ ኣሎ"</string>
@@ -193,7 +193,7 @@
     <string name="inform_detail_box_subtitle">"ብኮቪድኮድ"</string>
 
     <!-- Inform Detai Weisse Box Titel -->
-    <string name="inform_detail_box_title">"ሰንሰለት ለበዳ ሕማም ምቁራጽ"</string>
+    <string name="inform_detail_box_title">"ካብ ክፍጸሙ ዝኽእሉ ልበዳታት ምጥንቃቕ"</string>
 
     <!-- Inform Detail Weisse Box Button -->
     <string name="inform_detail_box_button">"ኮቪድኮድ ኣእትው"</string>
@@ -227,7 +227,7 @@
     <string name="tracing_turned_off_title">"ኣገልግሎት ምክትታል ኣይሰርሕን ኣሎ (ጠፊኡ ኣሎ)"</string>
     <string name="tracing_turned_off_text">"እቲ ኣፕ ክሰርሕ ምእንታን ነቲ ኣገልግሎት ምክትታል ከም ዝሰርሕ ግበርዎ (ወልዕዎ)። "</string>
     <string name="bluetooth_turned_off_title">"ብሉቱዝ ጠፊኡ ኣሎ"</string>
-    <string name="bluetooth_turned_off_text">"ኣገልግሎት ምክትታል ክስርሕ ምእንታን ኣብ ሞባይልኩም ብሉቱዝ ክፈቱ።"</string>
+    <string name="bluetooth_turned_off_text">"ኣገልግሎት ስመ-ስውር ምክትታል ክስርሕ ምእንታን ኣብ ሞባይልኩም ብሉቱዝ ክፈቱ።"</string>
     <string name="bluetooth_turn_on_button_title">"ብሉቱዝ ክፈትዎ"</string>
     <string name="bluetooth_permission_error_title">"ምጥቃም ብሉቱዝ ተነጺጉ"</string>
     <string name="bluetooth_permission_error_text">"ኣገልግሎት ምክትታል ክስርሕ ምእንታን ብሉቱዝ ምጥቃም ኣፍቅዱ።  "</string>
@@ -259,11 +259,11 @@
 
     <!-- Meldung Detail Positiv Getestet Weisse Box Text -->
     <string name="meldung_detail_positive_test_box_text">"ንምግላል ዝምልከት ዝተወሃበኩም መምርሒታት ተኸታተሉ። "</string>
-    <string name="tracing_ended_title">"ምክትታል ተወዲኡ"</string>
-    <string name="tracing_ended_text">"ካብ ሕጂ ንንዮ ርክባት ኣይዕቀቡን እዮም። "</string>
+    <string name="tracing_ended_title">"ምርኽኻብን ቸክ-ኢንን ተዓጽዩ ኣሎ"</string>
+    <string name="tracing_ended_text">"ዝኾነ ምርኽኻብ ኣይክዕቀብን እዩ"</string>
     <string name="exposed_info_contact_hotline">"ን…..ተወከሱ"</string>
     <string name="meldung_homescreen_positive_info_line1">"ን……..ተኸታተሉ"</string>
-    <string name="meldung_homescreen_positive_info_line2">"ባዕልኻ ነብስኻ ንምግላል ዝምልከት መምርሒታት "</string>
+    <string name="meldung_homescreen_positive_info_line2">"ንምግላል ዝምልከት መምርሒታት"</string>
 
     <!-- Meldung Detail Exposed Neue Meldung -->
     <string name="meldung_detail_exposed_new_meldung">"ሓድሽ ሓበሬታ"</string>
@@ -273,7 +273,7 @@
     <string name="meldung_homescreen_positiv_title">"ውጽኢት መርመራ ፖዚቲቭ ኮይኑ"</string>
 
     <!-- Meldung Detail Exposed Subtitel -->
-    <string name="meldung_detail_exposed_subtitle">"ተኽእሎ ናይ ለበዳ ሕማም ኣሎ። "</string>
+    <string name="meldung_detail_exposed_subtitle">"ልበዳ ተለኪፍኩም ትኾኑ"</string>
 
     <!-- Meldung auf Homescreen: Positiv getestet -->
     <string name="meldung_homescreen_positiv_text">"ዝገበርካዮ መርመራ ንኮሮናቫይረስ ውጽኢቱ ፖዚቲቭ ኮይኑ ተረኺቡ።"</string>
@@ -342,7 +342,7 @@
     <string name="onboarding_privacy_text2">"እቶም ዝተዓቀቡ ብግምት ዝተሰርዑ መለልዪ ቁጽርታት ኣብ ሞባይልኩም ጸኒሖም ድሕሪ 14 መዓልቲ ይስረዙ።"</string>
 
     <!-- Onboarding Begegnungen: Titel oben -->
-    <string name="onboarding_begegnungen_heading">"እቲ ኣፕ ከምይ ይሰርሕ፧"</string>
+    <string name="onboarding_begegnungen_heading">"ምርኽኻብ"</string>
 
     <!-- Onboarding Begegnungen: Titel -->
     <string name="onboarding_begegnungen_title">"ሳላ ብሉቱዝ ርክባት ምልላይ "</string>
@@ -414,7 +414,7 @@
     <string name="onboarding_go_title">"እቲ ኣፕ ተዳልዩ ኣሎ።"</string>
 
     <!-- Text auf dem letzten Onboarding Screen -->
-    <string name="onboarding_go_text">"ሰንሰለት ለበዳ ሕማም ንምቁራጽ ምትሕግጋዝኩም ኣዚና ነመስግነኩም።"</string>
+    <string name="onboarding_go_text">"ምዝርጋሕ ኮሮናቫይረስ ንምድራት እትገብሩ ምትሕብባር ነመስግነኩም ኢና።"</string>
 
     <!-- Button-Label auf dem letzten Onboarding screen -->
     <string name="onboarding_go_button">"ምጅማር"</string>
@@ -441,7 +441,7 @@
     <string name="meldung_detail_new_contact_title">"ከምብሓድሽ ጥርጠራ"</string>
 
     <!-- Meldungen Detail: Text -->
-    <string name="meldung_detail_new_contact_subtitle">"ተኽእሎ ናይ ምልካፍ ብሕማም ኣሎ።"</string>
+    <string name="meldung_detail_new_contact_subtitle">"ልበዳ ተለኪፍኩም ትኾኑ"</string>
 
     <!-- Fehler mit Uhrzeit Titel -->
     <string name="time_inconsistency_title">"ናይ ሰዓት ጌጋ"</string>
@@ -573,8 +573,9 @@
     <string name="meldungen_nomeldungen_faq1_title">"ሓበሬታ ክብሃል ከሎ እንታይ ማለት እዩ፧"</string>
 
     <!-- Meldungen: Keine Meldungen FAQ Text -->
-    <string name="meldungen_nomeldungen_faq1_text">"እቲ ኣፕ ክልኦት ዝተራኸብኩሞም ተጠቀምቲ  ብመርመራ ፖዚቲቭ ከምዝኾኑ ሓቢሮም እንተኾይኖም ቀጻሊ ይምርምር። 
-ተኽእሎ ምልካፍ ብሕማም ምስዝህሉ ብመነግዲ መልእኽቲ ኣብ ዕጹው ስክሪን ሞባይል ክትሕበሩ ኢኹም።  "</string>
+    <string name="meldungen_nomeldungen_faq1_text">"እቲ ኣፕ ክልኦት ዝተራኸብኩሞም ተጠቀምቲ  ብመርመራ ፖዚቲቭ ከምዝኾኑ ሓቢሮም እንተኾይኖም ቀጻሊ ይምርምር።
+
+ኣብ ክፍጸም ዝኽእል ልበዳ ብመልእኽቲ ኣብ መዕጸዊ ስክሪን ክትሕበሩ ኢኹም።"</string>
 
     <!-- Meldungen Detail Weisse Box Texte Unten -->
     <string name="meldungen_detail_explanation_text3">"መስመር ሓበሬታ ስዊስኮቪድ ብዛዕባ  ተኽእሎ ካብ ክፍሊት ነጻ ናይ ዝኾነ መርመራ የማኽረኩም።  "</string>
@@ -611,8 +612,8 @@
 
     <!-- Inform Detail FAQ Text -->
     <string name="inform_detail_faq2_text">"ውልቃዊ ሓበሬታ ዘይኮነ፣ ጥራይ እቶም ግላውያን መፋትሕ እዮም ዝስደዱ።
-  
-ብኸምዚ መንገዲ ካልኦት ተጠቀምቲ ስዊስኮቪድ ተኽእሎ መልከፍቲ ሕማም ከምዘሎ ይፈልጡ።"</string>
+
+ተኽእሎ ናይ ምልከፍቲ ከምዘሎ እቶም ተጠቀምቲ ስዊስ ኮቪድ ኣፕ (SwissCovid App) ክፈልጡ ይኽእሉ።"</string>
 
     <!-- Telefonnummer der Infoline -->
     <string name="infoline_tel_number">"+41 58 387 77 78"</string>
@@ -621,10 +622,10 @@
     <string name="faq_button_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/faq-kontakte-downloads/haeufig-gestellte-fragen.html?faq-url=/de/categories/swisscovid-app"</string>
 
     <!-- Informieren Flow: Titel erster Screen -->
-    <string name="inform_code_intro_title">"ኣገዳሲ ሓበሬታ"</string>
+    <string name="inform_code_intro_title">"ሓበሬታ ብዛዕባ ምእትታው"</string>
 
     <!-- Informieren-Flow: Erster Screen Text -->
-    <string name="inform_code_intro_text">"ዝኾነ ሓበሬታ ብዛዕባኹም ዋላኳ እንተዘይተሰደደ: ዝኾነ ሰብ በቲ ዕለት ጌሩ ምርኻብኩም ክዝክሮ ይኽእል እዩ። "</string>
+    <string name="inform_code_intro_text">"ዝኾነ ሓበሬታ ብዛዕባኹም ዋላኳ እንተዘይተሰደደ: ዝኾነ ሰብ በቲ ዕለት ጌሩ ምርኻብኩም ክዝክሮ ይኽእል እዩ።"</string>
 
     <!-- Inform-Flow: Erster Screen Button -->
     <string name="inform_code_intro_button">"ተሰማሚዐ"</string>
@@ -696,7 +697,7 @@
     <string name="onboarding_gaen_title">"ኣገልግሎት ምክትታል ከም ዝሰርሕ ግበርዎ (ወልዕዎ)"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
-    <string name="onboarding_gaen_text_ios">"ኣፕ ምጥቃም ንምኽኣል ናይ ኮቪድ-19 መልእኽትታት ናይ ርክባት ከጅመሩ (ከም ዝሰርሑ ክግበሩ) ኣለዎም።"</string>
+    <string name="onboarding_gaen_text_ios">"እቲ ናይ ምክትታል ኣገባብ ክውላዕ ኣለዎ፣ ምርኽኻብ ክረጋገጽ መታን ክከኣል።"</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"ምውላዕ (ከም ዝሰርሕ ምግባር)"</string>
@@ -725,10 +726,10 @@
     <!-- Code-Eingabe in der App löschen, wenn infiziert -->
     <string name="delete_infection_button">"ግለላ ምዝዛም"</string>
 
-    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <!-- Meldung im Löschen Dialog nach Isolation-Beenden, kommt auch auf Homescreen-Popup -->
     <string name="delete_infection_dialog">"ሓበሬታ ናይ ብሓቂ  ክትድምስስዎ ደሊኹም ዶ፧"</string>
     <string name="android_onboarding_battery_permission_title">"ኣገልግሎት ምምሕያሽ ባትሪ (ኣኩ) ሸለል ምባል"</string>
-    <string name="android_onboarding_battery_permission_text">"ርክባት ኩልግዜ ምልላይ ንምኽኣል: ኣገልግሎት ምምሕያሽ ባትሪ (ኣኩ)ናይዚ ኣፕ ዕጹው ክኸውን ኣለዎ።  "</string>
+    <string name="android_onboarding_battery_permission_text">"ዝኾነ ምቍጣብ ባትሪ ዘልዕል ኣገባብ ኣብቲ ሞባይል ክጠፍእ ኣለዎ፣ እቲ ኤፕ መታን ጽቡቕ ክሰርሕ።"</string>
     <string name="android_onboarding_battery_permission_button">"ምፍቃድ (ሐራይ ምባል)"</string>
     <string name="android_onboarding_battery_permission_button_deactivated">"ሐራይ"</string>
     <string name="android_onboarding_battery_permission_info_1_title">"ነዚ ኣፕ ጥራይ"</string>
@@ -750,7 +751,7 @@
     <string name="tracing_permission_error_title_ios">"መልእኽትታት ርክባት ኮቪድ-19 ኣይሰርሕን ኣሎ (ዕጹው ኣሎ) "</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
-    <string name="tracing_permission_error_text_ios">"ምክትታል ክሰርሕ ምእንቲ  መልእኽትታት ርክባት ኮቪድ-19 ከምዝሰርሕ ግበርዎ (ወልዕዎ)። "</string>
+    <string name="tracing_permission_error_text_ios">"ን {TRACING_SETTING_TEXT} ወልዕዎ፣ እቲ ስመ-ስውር ምክትታል ክሰርሕ ምእንቲ ክኽእል።"</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"መልእኽቲ ክስደድ ኣይክኣለን። ብግምት ዝተሰርዑ መለልዪ ቁጽርታትኩም ብስዊስኮቪድ ኣፕ ንኽከፋፈል ኣፍቅዱ። "</string>
@@ -791,7 +792,8 @@
     <string name="tracing_active_tracking_always_info">"እቲ ኣፕ ዋላ እንተተዓጽወ ስዊስኮቪድ ይስርሕ እዩ።"</string>
 
     <!-- title in splash screen of onboarding -->
-    <string name="oboarding_splashscreen_title">"ስዊስኮቪድ ንሰነሰለት ለበዳ ሕማም የቋርጾ"</string>
+    <string name="oboarding_splashscreen_title">"SwissCovid -
+ኣብ ርከሳ ልበዳ ብቕልጡፍ ትሕበሩ።"</string>
     <string name="inform_detail_faq3_text">"ዋላኳ  ዝኾነ ሓበሬታ ብዛዕባኹም እንተዘይተሰደደ ዝኾነ ሰብ በቲ ዕለት ጌሩ ምርኻብኩም ክዝክሮ ይኽእል እዩ። "</string>
     <string name="inform_detail_faq3_title">"ስቱር ድዩ፧"</string>
 
@@ -802,7 +804,7 @@
     <string name="tracing_setting_text_android">" መልእኽትታት ኮቪድ-19 "</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
-    <string name="onboarding_gaen_text_android">"ኣፕ ምጥቃም ንኽክኣል መልእኽትታት ናይ ኮቪድ-19 ክኽፈቱ ወይ ከም ዝሰርሑ ክግብሩ ኣለዎም።"</string>
+    <string name="onboarding_gaen_text_android">"እቲ ናይ ምክትታል ኣገባብ ክውላዕ ኣለዎ፣ ምርኽኻብ ክረጋገጽ መታን ክከኣል።"</string>
 
     <!-- Onboarding Disclaimer Screen: AppName Title -->
     <string name="onboarding_disclaimer_heading">"ስዊዝኮቪድ"</string>
@@ -895,7 +897,7 @@ Schwarzenburgstrasse 157
     <string name="travel_title">"መገሻታት"</string>
 
     <!-- Info text that is displayed  on the Home Travel Card. -->
-    <string name="travel_home_description">"SwissCovid ኣብ ዝስዕቡ ሃገራት ይሰርሕ፥"</string>
+    <string name="travel_home_description">"ምርኽኻብ SwissCovid ኣብ ዝስዕቡ ሃገራት ይሰርሕ፥"</string>
 
     <!-- First title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_1">"እዚ እንታይ ማለት፧"</string>
@@ -924,12 +926,6 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.5 -->
-    <string name="tracing_setting_text_ios_13_5"></string>
-
-    <!-- Text beim Bluetooth Control iOS 13.6 -->
-    <string name="tracing_setting_text_ios_13_6"></string>
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
@@ -1212,9 +1208,9 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="delete_infection_dialog_finish_button">"ተዛዘመ"</string>
 
     <!-- Text der nach der Eingabe des Covidcodes angezeigt wird. -->
-    <string name="tracing_ended_info">"ምዕቃብ ዝኾነ ምርኽኻብ ተገዲፉ።
+    <string name="tracing_ended_info">"ዝኾነ ሓድሽ ምርኽኻብ ካብ ምዕቃብ ክቋረጽ እዩ ከምኡ ድማ ሓድሽ ቸክ-ኢን ክግበር ኣይክእልን።
 
-እቲ ምክትታል ድሕሪ ግለላ ምሊሱ ክውላዕ ይከኣል።"</string>
+እቲ ግለላ ምስተወድአ ክልተኦም ኣገባባት እንደገና ክውላዑ ይከኣሉ።"</string>
     <string name="testlocation_url_canton_aargau">"https://www.ag.ch/de/themen_1/coronavirus_2/coronavirus.jsp"</string>
     <string name="testlocation_url_canton_appenzell_ausserrhoden">"https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/"</string>
     <string name="testlocation_url_canton_appenzell_innerrhoden">"https://www.ai.ch/themen/gesundheit-alter-und-soziales/gesundheitsfoerderung-und-praevention/uebertragbare-krankheiten/coronavirus"</string>
@@ -1246,7 +1242,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="testlocation_url_country_liechtenstein">"https://www.llv.li/inhalt/118724/amtsstellen/coronavirus"</string>
 
     <!-- text for info box pop up for the hearing impaired -->
-    <string name="hearing_impaired_info">"ክትሰምዑ ኣይትኽእሉን ወይ ናይ ምስማዕ ስንክልና ስለዘለና ነቲ ሓበሬታ ስልኪ ኮሮናቫይረስ ክትድውሉ ኣይትኽእሉን፧
+    <string name="hearing_impaired_info">"ክትሰምዑ ኣይትኽእሉን ወይ ናይ ምስማዕ ስንክልና ኣለኩም ከምኡ ድማ ክትድውሉ ኣይትኽእሉን፧
 
 ሽዑ ኢመይል ናብ covid-support@medgate.ch ስደዱ ኢኹም"</string>
 
@@ -1301,7 +1297,8 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="stats_cases_current_description">"እቲ ስእሊ ነቶም ዝተሓበሩ ሓድሽቲ ልበዳታት ኣብ ዝሓለፉ 28 መዓልትታት የርኢ። እዚ ሓፈሻዊ ሓበሬታ ብዛዕባ ግዝያዊ ምዕባለ ይህብ።"</string>
 
     <!-- Inform Detail: Infobox Text -->
-    <string name="inform_detail_infobox1_text">"ፖዚቲቭ ተመርሚርኩም (ናይ PCR መርመራ ወይ ቅልጡፍ መርመራ ጸረ-ፈርዒ) ከምኡ'ውን ድሕሪ 4 ሰዓት ገና ናይ ኮቪድ ኮድ ኣይተወሃብኩምን፧ ሽዑ እቲ ኢንፎላይን ኮሮናቫይረስ ርኸቡ ኢኹም፥"</string>
+    <string name="inform_detail_infobox1_text">"ፖዚቲቭ ተመርሚርኩም (ናይ PCR መርመራ ወይ ቅልጡፍ መርመራ ጸረ-ፈርዒ) ከምኡ'ውን ድሕሪ 4 ሰዓት ገና ናይ ኮቪድ ኮድ ኣይተወሃብኩምን፧
+ሽዑ ናብዚ ደውሉ ኢኹም፥"</string>
 
     <!-- Inform Detail: Infobox Title -->
     <string name="inform_detail_infobox1_title">"ናይ ኮቪድ ኮድ ገና የብልኩምን፧"</string>
@@ -1325,7 +1322,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="travel_screen_compatible_countries">"ተቓደውቲ ሃገራት፥"</string>
 
     <!-- Informieren Flow: Erster Screen Reise-Infotext -->
-    <string name="inform_code_travel_text">"ገየሽቲ ካብ ወጻኢ ውን መታን ክጥንቀቑ፣ እቶም ግላውያን መፋትሕ ምስቶም ኮሮና ኤፕስ ናይቶም ተቓደውቲ ሃገራት ክካፈሉ እዮም።"</string>
+    <string name="inform_code_travel_text">"ገየሽቲ ካብ ወጻኢ ውን ድሕሪ ምርኽኻብ መጠንቀቕታ መታን ክወሃቡ፣ እቶም ግላውያን መፋትሕ ምስቶም ኮሮና ኤፕስ ናይቶም ተቓደውቲ ሃገራት ክካፈሉ እዮም።"</string>
 
     <!-- Überschrift der "eingegebene Covidcodes" Statistikbox -->
     <string name="stats_covidcodes_total_header">"ጥቕላላ"</string>
@@ -1340,13 +1337,13 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="meldungen_positive_tested_faq2_title">"መን ክሕበር እዩ፧"</string>
 
     <!-- Meldungen: Positiv getestet FAQ 2 Text (Benachrichtigung) -->
-    <string name="meldungen_positive_tested_faq2_text">"ኩሎም ኣብ እዋንኩም መልከፍቲ ካብ {ONSET_DATE} ክሳብ ምእታው ኮቪድ-ኮድ ዝነበረኩም ርክባት ክሕበሩ እዮም፣ ብምኽንያት ርሕቐትን እዋንን ኣማራጺ ልበዳ እንድሕር ኔሩ።"</string>
+    <string name="meldungen_positive_tested_faq2_text">"ኩሎም ኣብ እዋንኩም መልከፍቲ ካብ {ONSET_DATE} ክሳብ ምእታው ኮቪድ-ኮድ ዝነበረኩም ርክባት ክሕበሩ እዮም፣ ብምኽንያት ርሕቐትን እዋንን ናይ ልበዳ ርከሳ እንድሕር ኔሩ ወይ ኣብ ማዕረ ቦታ ብችክ-ኢን እድንድሕር ተመዝጊብኩም ኔርኩም።"</string>
 
     <!-- Informieren: Danke Text Onset Date -->
     <string name="inform_send_thankyou_text_onsetdate">"{ONSET_DATE} – ሎሚ"</string>
 
     <!-- Informieren: Danke Text Abschluss -->
-    <string name="inform_send_thankyou_text_stop_infection_chains">"ሽዑ ናይ ልበዳ ሰንሰለታት ንክቋረጹ ትሐባበሩ ኢኹም።"</string>
+    <string name="inform_send_thankyou_text_stop_infection_chains">"በዚ መንገዲ‘ዚ ካልኦት ሰባት ካብ ክፍጸም ዝኽእል ልበዳ ንክጥንቀቑ ትሕግዙ ኣለኹ።"</string>
 
     <!-- Informieren: Danke Text Onset Date Einleitung -->
     <string name="inform_send_thankyou_text_onsetdate_info">"ግላውያን መፋትሕ ናይ ኤፕኩም ንዝስዕብ እዋን ተሰዲዶም ኔሮም፥"</string>
@@ -1385,46 +1382,46 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="meldungen_detail_free_test_tomorrow">"ኣብ 1 መዓልቲ"</string>
 
     <!-- Check-Ins: Titel vom Reminder Push -->
-    <string name="checkout_reminder_title">"Check-out reminder"</string>
+    <string name="checkout_reminder_title">"ናይ ቸክ-ኣውት/መውጽኢ መዘኻኸሪ"</string>
 
     <!-- Check-Ins: Check-out Reminder Push Text -->
-    <string name="checkout_reminder_text">"Do you want to check out?"</string>
+    <string name="checkout_reminder_text">"ክትወጹ ደሊኹም ዶ፧"</string>
 
     <!-- Check-Ins: Auto-Checkout Push Titel -->
-    <string name="auto_checkout_title">"Automatic check-out"</string>
+    <string name="auto_checkout_title">"ኣውቶማቲካሊ ቸክ-ኣውት"</string>
 
     <!-- Check-Ins: Auto-checkout Push Text -->
-    <string name="auto_checkout_body">"You were checked out automatically."</string>
+    <string name="auto_checkout_body">"ብኣውቶማቲካሊ ከም ትወጹ ተገሩ።"</string>
 
     <!-- Check-Ins: Qr-Scanner Text -->
-    <string name="qrscanner_scan_qr_text">"Scan QR code and check in"</string>
+    <string name="qrscanner_scan_qr_text">"ኮድ Code ስኬን ምግባርን ምእታውን"</string>
 
     <!-- Check-Ins: Fehler beim QR-Code scannen -->
-    <string name="qrscanner_error">"No valid QR code!"</string>
+    <string name="qrscanner_error">"ብቑዕ QR-ኮድ ኣይኮነን!"</string>
 
     <!-- Check-Ins: Anpassung Check-In Datumwahl von -->
-    <string name="datepicker_from">"From"</string>
+    <string name="datepicker_from">"ካብ"</string>
 
     <!-- Check-Ins: Datumsauswahl bis -->
-    <string name="datepicker_to">"To"</string>
+    <string name="datepicker_to">"ክሳብ"</string>
 
     <!-- Check-Ins: Notiz hinzufügen zu Check-In -->
-    <string name="edit_mode_addcomment">"Add note"</string>
+    <string name="edit_mode_addcomment">"ምልክታ ምውሳኽ"</string>
 
     <!-- Check-Ins: Notiz zu Check-In Placeholder Text -->
-    <string name="edit_mode_comment_placeholder">"e.g. who were you with?"</string>
+    <string name="edit_mode_comment_placeholder">"ንኣ. ምስ መን ኔርኩም፧"</string>
 
     <!-- Fertig Button Text -->
-    <string name="done_button">"Done"</string>
+    <string name="done_button">"ተፈጺሙ"</string>
 
     <!-- Check-Ins: Titel für Erinnerung -->
-    <string name="checkin_set_reminder">"Check-out reminder"</string>
+    <string name="checkin_set_reminder">"ናይ ቸክ-ኣውት/መውጽኢ መዘኻኸሪ"</string>
 
     <!-- Check-Ins: Erinnerung Option Aus -->
-    <string name="reminder_option_off">"Off"</string>
+    <string name="reminder_option_off">"ወጽአ"</string>
 
     <!-- Check-Ins: Tagebuch Zugriff Text -->
-    <string name="authenticate_for_diary">"Authentication needed to access the diary"</string>
+    <string name="authenticate_for_diary">"መዝገበ-ዕለት ንክትረኽቡ ፍቓድ መእተዊ ኣምጽኡ።"</string>
 
     <!-- Check-Ins: Errinnerungsoption Stunden -->
     <string name="reminder_option_hours">"{HOURS} h"</string>
@@ -1433,315 +1430,313 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="reminder_option_minutes">"{MINUTES}'"</string>
 
     <!-- Check-Ins: Fehler wenn Kamera-Erlaubnis nicht gegeben -->
-    <string name="qr_scanner_no_camera_permission">"The app needs to access the camera to be able to scan the QR code."</string>
+    <string name="qr_scanner_no_camera_permission">"እቲ ኤፕ ርክብ ምስቲ ካመራ ክህልዎ ኣለዎ፣ ነቲ ኮድ QR ስኬን ክገብር መታን ክኽእል።"</string>
 
     <!-- Check-Ins: Tagebuch Titel -->
-    <string name="diary_title">"My check-ins"</string>
+    <string name="diary_title">"ናተይ ቸክ-ኢን"</string>
 
     <!-- Check-Ins: Button Titel zum Einchecken -->
-    <string name="checkin_button_title">"Check-in"</string>
+    <string name="checkin_button_title">"ቸክ-ኢን"</string>
 
     <!-- Check-Ins: iOS Kamera Erlaubnis Text -->
-    <string name="NSCameraUsageDescription">"The camera is needed to scan the QR code."</string>
+    <string name="NSCameraUsageDescription">"ካሜራ ነቲ ኮድ QR ስኬን ንክትገብር፣ ተድልያ።"</string>
 
     <!-- Check-Ins: FaceID Text um Tagebuch anzuschauen -->
-    <string name="NSFaceIDUsageDescription">"Allow Face ID to securely access your diary."</string>
+    <string name="NSFaceIDUsageDescription">"ነቲ ናይ ገጽ ኣይ.ዲ. ኣፍቅዱ፣ ንመዝገበ-ዕለትኩም ብርጉጽ ንክትረኽብዎ።"</string>
 
     <!-- Check-Ins: Text der angezeigt wieso FaceId gebraucht wird -->
-    <string name="face_id_reason_text">"Authentication needed to access the diary"</string>
+    <string name="face_id_reason_text">"መዝገበ-ዕለት ንክትረኽቡ ፍቓድ መእተዊ ኣምጽኡ።"</string>
 
     <!-- Check-Ins: Check-Out Button Title -->
-    <string name="checkout_button_title">"Check-out"</string>
+    <string name="checkout_button_title">"ቸክ-ኣውት"</string>
 
     <!-- Check-Ins: Titel Modul auf Homescreen -->
-    <string name="module_checkins_title">"Check-in"</string>
+    <string name="module_checkins_title">"ቸክ-ኢን"</string>
 
     <!-- Check-Ins: Titel vom Check-In Screen -->
-    <string name="checkin_title">"Check-in"</string>
+    <string name="checkin_title">"ቸክ-ኢን"</string>
 
     <!-- Check-Ins: QR-Code erstellen Titel -->
-    <string name="checkins_create_qr_code">"Generate QR code"</string>
+    <string name="checkins_create_qr_code">"QR-ኮድ ምፍጣር"</string>
 
     <!-- Veranstaltungen-Screen Titel -->
-    <string name="events_title">"Offer check-ins?"</string>
+    <string name="events_title">"ቸክ-ኢን ምቕራብ"</string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
-    <string name="check_in_now_button_title">"Check in now"</string>
+    <string name="check_in_now_button_title">"ሕጂ ቸክ-ኢን ምእታው"</string>
 
     <!-- Check-Ins: Reminder Fehlermeldung Titel -->
-    <string name="checkin_reminder_settings_alert_title">"The reminder could not be set"</string>
+    <string name="checkin_reminder_settings_alert_title">"እቲ መዘኻኸሪ ክዕቀብ ኣይከኣለን"</string>
 
     <!-- Check-Ins: Erinnerungen Fehlermeldung Text -->
-    <string name="checkin_reminder_settings_alert_message">"To receive check-out reminders, you need to allow \\"notifications\\" in the app settings."</string>
+    <string name="checkin_reminder_settings_alert_message">"ናይ ቸክ-ኣውት መዘኻኸሪታት መታን ክትቕበሉ \\"Mitteilungen/መልእኽትታት\\" ኣብቲ ምስትኽኽእል ኤፕ ከተፍቕዱ ኣለኩም።"</string>
 
     <!-- Check-Ins: Reminder Popup Anpassen -->
-    <string name="checkin_reminder_option_open_settings">"Customise"</string>
+    <string name="checkin_reminder_option_open_settings">"ምስናድ"</string>
 
     <!-- Check-Ins: Bearbeiten von Check-Ins Titel -->
-    <string name="edit_controller_title">"Edit"</string>
+    <string name="edit_controller_title">"ምስራሕ"</string>
 
     <!-- Check-Ins: Tagebuch leeres Tagbuch Titel -->
-    <string name="empty_diary_title">"No entries available yet"</string>
+    <string name="empty_diary_title">"ገና መዝገባት የለውን"</string>
 
     <!-- Check-Ins: Tagebuch leer, Text -->
-    <string name="empty_diary_text">"If you scan a SwissCovid QR code to check in on site, an entry will automatically be created here."</string>
+    <string name="empty_diary_text">"ናይ ስዊዝ ኮቪድ ኮድ QR ኣብቲ ቦታ ንክትኣትዉ ስከን እንተገበርክኩም፣ ኣውቶማቲካሊ መዝገብ ክዕቀብ እዩ።"</string>
 
     <!-- Check-Ins: Kamera Erlaubnis Text -->
-    <string name="camera_permission_dialog_text">"SwissCovid needs to access your device's camera. The camera is only used to scan QR codes."</string>
+    <string name="camera_permission_dialog_text">"SwissCovid ምምርኽኻብ ምስ ካመራ ኣብ መሳርሒኹም የድሊ። እታ ካሜራ ጥራይ ኮድ QR ስኬን ንምግባር ትጥቀም እያ።"</string>
 
     <!-- Check-Ins: Button Titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären -->
-    <string name="camera_permission_dialog_action">"Allow access to camera"</string>
+    <string name="camera_permission_dialog_action">"መርከቢ ካመራ ምፍቓድ"</string>
 
     <!-- Check-Ins: Veranstaltung Titel Placeholder -->
-    <string name="web_generator_title_placeholder">"e.g. room or event name"</string>
+    <string name="web_generator_title_placeholder">"ንኣ. ክፍሊ ወይ ቦታ ፍጻሜ"</string>
 
     <!-- Check-Ins: Veranstaltungen Detail PDF Button -->
-    <string name="show_pdf_button">"Print PDF"</string>
-    <string name="bottom_nav_tab_info">"Info"</string>
-    <string name="error_network_title">"Network error"</string>
-    <string name="error_network_text">"Check your internet connection."</string>
-    <string name="error_action_retry">"Try again"</string>
-    <string name="error_notification_deactivated_title">"Notifications deactivated"</string>
-    <string name="error_notification_deactivated_text">"Modify your settings to be informed straight away if you receive a notification."</string>
-    <string name="error_action_change_settings">"Modify settings"</string>
-    <string name="error_camera_permission_title">"No access to camera"</string>
-    <string name="error_camera_permission_text">"The app needs to access the camera to be able to scan the QR code."</string>
-    <string name="error_title">"Error"</string>
-    <string name="qr_scanner_error_code_not_yet_valid">"QR code not yet valid"</string>
-    <string name="qr_scanner_error_code_not_valid_anymore">"QR code no longer valid"</string>
-    <string name="error_already_checked_in">"You are already checked in."</string>
-    <string name="error_update_text">"This QR code is not compatible with the installed version of the app. Please update the app to continue."</string>
-    <string name="error_update_title">"Update required"</string>
-    <string name="error_action_update">"Update now"</string>
-    <string name="ongoing_notification_checkout_quick_action">"Check out"</string>
-    <string name="reminder_notification_snooze_action">"Snooze"</string>
-    <string name="android_ongoing_checkin_notification_channel_name">"Permanent check-in notification"</string>
-    <string name="ongoing_notification_title">"You have been checked in since {TIME}."</string>
+    <string name="show_pdf_button">"PDF ፕሪንት ምግባር"</string>
+    <string name="bottom_nav_tab_info">"ሓበሬታ"</string>
+    <string name="error_network_title">"ጉድለት መርበብ"</string>
+    <string name="error_network_text">"ምትእስሳር ኢንተርነትኩም ኣረጋግጹ ኢኹም"</string>
+    <string name="error_action_retry">"ብሓድሽ ምፍታን"</string>
+    <string name="error_notification_deactivated_title">"መልእኽትታት ጠፊኦም"</string>
+    <string name="error_notification_deactivated_text">"ኣብ ሓደ መልእኽቲ ብቐጥታ መታን ክትሕበሩ ነቲ ምስትኽኻል ቀይሩ ኢኹም።"</string>
+    <string name="error_action_change_settings">"ምስትኽኻል ምቕያር"</string>
+    <string name="error_camera_permission_title">"ካመራ ክትርከብ ኣይከኣለትን"</string>
+    <string name="error_camera_permission_text">"እቲ ኤፕ ርክብ ምስቲ ካመራ ክህልዎ ኣለዎ፣ ነቲ ኮድ QR ስኬን ክገብር መታን ክኽእል።"</string>
+    <string name="error_title">"ጉድለት"</string>
+    <string name="qr_scanner_error_code_not_yet_valid">"QR-ኮድ ገና ብቑዕ ኣይኮነን"</string>
+    <string name="qr_scanner_error_code_not_valid_anymore">"ብቕዓት QR-Code ሓሊፉ"</string>
+    <string name="error_already_checked_in">"ድሮ ኣቲኹም ዲኹም፧"</string>
+    <string name="error_update_text">"እዚ ኮድ QR ምስቲ ዝተተከለ ቨርዝዮን ኤፕ ኣይሰርሕን እዩ። ነቲ ኤፕ ኣሕድስዎ ብኽብረትኩም መታን ክትቕጸሉ።"</string>
+    <string name="error_update_title">"ምምሕዳስ የድሊ"</string>
+    <string name="error_action_update">"ሕጂ ምምሕዳስ"</string>
+    <string name="ongoing_notification_checkout_quick_action">"ቸክ-ኣውት"</string>
+    <string name="reminder_notification_snooze_action">"ስኑዝ"</string>
+    <string name="android_ongoing_checkin_notification_channel_name">"ዝተደጋጋሚ መሓበሪ ቸክ-ኢን"</string>
+    <string name="ongoing_notification_title">"ኣቲኹም ኢኹም ካብ ሰዓት {TIME}።"</string>
 
     <!-- Check-Ins: Sichern Button bei Check-out -->
-    <string name="checkout_save_button_title">"Save"</string>
+    <string name="checkout_save_button_title">"ምርግጋጽ"</string>
 
     <!-- Check-Ins: QR-Code scannen Button -->
-    <string name="scan_qr_code_button_title">"Scan QR code"</string>
+    <string name="scan_qr_code_button_title">"QR-ኮድ ስከን ምግባር"</string>
 
     <!-- Titel der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
-    <string name="checkin_ended_title">"Check-in deactivated"</string>
+    <string name="checkin_ended_title">"Check-In ተዓጽዩ"</string>
 
     <!-- Text der Infobox auf dem Homescreen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
-    <string name="checkin_ended_text">"Check-in is not possible at the moment"</string>
+    <string name="checkin_ended_text">"ሕጂ Check-in ዝከኣል ኣይኮነን"</string>
 
     <!-- Text im Check-Ins-Screen im nicht eingecheckten Zustand -->
-    <string name="checkin_detail_checked_out_text">"Scan a SwissCovid QR code to check in on site."</string>
+    <string name="checkin_detail_checked_out_text">"ሓደ ናይ SwissCovid QR ኮድ ስከን ግበሩ ኣብቲ ቦታ ምእንቲ ብቸክ-ኢን ክትኣትው።"</string>
 
     <!-- Text im Check-Ins-Screen, im Tagebuch-Modul -->
-    <string name="checkin_detail_diary_text">"If you scan a SwissCovid QR code to check in on site, an entry will automatically be created here."</string>
+    <string name="checkin_detail_diary_text">"ናይ ስዊዝ ኮቪድ ኮድ QR ኣብቲ ቦታ ንክትኣትዉ ስከን እንተገበርክኩም፣ ኣብዚ ኣውቶማቲካሊ መዝገብ ክዕቀብ እዩ።"</string>
 
     <!-- Label im Checkin-Modul im eingecheckten Zustand -->
-    <string name="checkin_checked_in">"You're checked in"</string>
-    <string name="checkout_from_to_date">"{DATE1} to {DATE2}"</string>
-    <string name="inform_detail_covidcode_info_button">"More about the Covidcode"</string>
+    <string name="checkin_checked_in">"ኣቲኹም ዲኹም።"</string>
+    <string name="checkout_from_to_date">"{DATE1} ክሳብ {DATE2}"</string>
+    <string name="inform_detail_covidcode_info_button">"ዝያዳ ብዛዕባ ኮድ ኮቪድ"</string>
 
     <!-- Check-Ins: Button Entfernen um Check-In zu löschen -->
-    <string name="remove_from_diary_button">"Remove entry"</string>
+    <string name="remove_from_diary_button">"መዝገብ ምድምሳስ"</string>
 
     <!-- Check-Ins: QR-Code löschen Titel Button -->
-    <string name="delete_button_title">"Delete"</string>
+    <string name="delete_button_title">"ምድምሳስ"</string>
 
     <!-- Check-Ins: Teile QR-Code Button Titel -->
-    <string name="share_button_title">"Share"</string>
+    <string name="share_button_title">"ምክፍፋል"</string>
 
     <!-- Check-Ins: Drucken Button auf PDF-Detailseite -->
-    <string name="print_button_title">"Print"</string>
+    <string name="print_button_title">"ፕሪንት ምግባር"</string>
 
     <!-- Check-Ins: Beschreibung Modul auf Homescreen -->
-    <string name="module_checkins_description">"Scan a SwissCovid QR code to check in on site."</string>
+    <string name="module_checkins_description">"ሓደ ናይ SwissCovid QR ኮድ ስከን ግበሩ ኣብቲ ቦታ ምእንቲ ብቸክ-ኢን ክትኣትው።"</string>
 
     <!-- Titel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
-    <string name="inform_share_checkins_title">"Share check-in entries"</string>
+    <string name="inform_share_checkins_title">"ቸክ-ኢን መዝገበኣት ምክፍፋል"</string>
 
     <!-- Untertitel im "Covidcode flow", wo man check ins wählen kann, welche geshared werden sollen. -->
-    <string name="inform_share_checkins_subtitle">"If you share check-in entries, the app can notify people who were checked in at the same location at the same time."</string>
+    <string name="inform_share_checkins_subtitle">"ናይ ቸክ-ኢን መዝገባትኩም እንድሕር ኣካፊልኩም፣ እቲ ኤፕ ኣብ ማዕረ ግዜ ኣብ ሽዑ ቦታ ኔሮም ዝነበሩ ሰባት ክሕብሮም ይኽእል።"</string>
 
     <!-- Button text, um alle Checkins zu selektieren -->
-    <string name="inform_share_checkins_select_all">"Select all"</string>
-    <string name="inform_dont_send_button_title">"Don't send"</string>
-    <string name="inform_dont_share_button_title">"Don't share"</string>
-    <string name="inform_really_not_share_title">"Are you sure you don't want to share?"</string>
-    <string name="inform_really_not_share_subtitle">"Sharing your private key helps SwissCovid to notify other people who may be infected and to stop the virus spreading. If you don't share your private key, people who may be infected will not be notified."</string>
+    <string name="inform_share_checkins_select_all">"ኩሉ ምምራጽ"</string>
+    <string name="inform_dont_send_button_title">"ኣይትስደድ"</string>
+    <string name="inform_dont_share_button_title">"ዘይምክፍፋል"</string>
+    <string name="inform_really_not_share_title">"ናይ ብሓቂ ብዘይ ምክፍፋል፧"</string>
+    <string name="inform_really_not_share_subtitle">"ምክፍፋል ግላውያን መፋትሕኩም ን«SwissCovid» ይሕግዝ፣ ኣብ ምሕባር ናብ ካልእ ተለቢዶም ዝኾኑ ሰባት ከምኡ ድማ ቀጻሊ ምዝርጋሕ እዚ ቫይረስ ንክውገድ። ምክፍፋል ግላውያን መፋትሕኩም ዘይትገብሩ እንተኾይንኩም፣ ተለቢዶም ዝኾኑ ሰባት ኣይክሕበሩን እዮም።"</string>
 
     <!-- Remove from Diary Warning view title -->
-    <string name="remove_diary_warning_title">"Remove entry"</string>
+    <string name="remove_diary_warning_title">"መዝገብ ምድምሳስ"</string>
 
     <!-- Remove from diary warning view explanation text -->
-    <string name="remove_diary_warning_text">"Your entry will be permanently removed from the list."</string>
+    <string name="remove_diary_warning_text">"መዝገብኩም ሓንሳዕ ንሓዋሩ ካብቲ ዝርዝር ክድምሰስ እዩ።"</string>
 
     <!-- Remove from diary warning view remove button title -->
-    <string name="remove_diary_remove_now_button">"Completely remove"</string>
+    <string name="remove_diary_remove_now_button">"ብምልኡ ምልጋስ"</string>
 
     <!-- Hide from diary warning title -->
-    <string name="remove_diary_warning_hide_title">"Only hide and keep receiving notifications?"</string>
+    <string name="remove_diary_warning_hide_title">"ጥራይ ምሕባእ ከምኡ‘ውን ንቀጻሊ ክሕበር ይግባእ፧"</string>
 
     <!-- Titel auf der "CovidCode eingeben"-Card auf dem Home Screen -->
-    <string name="home_covidcode_card_title">"Tested positive?"</string>
+    <string name="home_covidcode_card_title">"ፖዚቲቭች ተመርሚርካ/ኪ፧"</string>
 
     <!-- Text auf der "Isolation beenden"-Card auf dem Home Screen -->
-    <string name="home_end_isolation_card_text">"Reactivate encounters and check-in"</string>
+    <string name="home_end_isolation_card_text">"ምርኽኻብን ቸክ-ኢንን እንደገና ምውላዕ።"</string>
 
     <!-- Check-Ins: Erinnerungsoption Stunden & Minuten -->
     <string name="reminder_option_hours_minutes">"{HOURS} h {MINUTES}'"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer sich in Isolation befindet. -->
-    <string name="checkin_overview_isolation_text">"You can no longer check in if you have tested positive."</string>
+    <string name="checkin_overview_isolation_text">"ፖዚቲቭ ቸክ-ኢን እንድሕር ጌርኩም፣ ክትኣትዉ ኣይትኽእሉን ኢኹም።"</string>
 
     <!-- Veranstaltungen-Card Text im Infotab -->
-    <string name="events_card_subtitle">"Generate a QR code that people can use to check in on site."</string>
+    <string name="events_card_subtitle">"ኮድ QR ምስፈጠርካዮ ብእኡ ሰባት ኣብቲ ቦታ ክኣትዉ ይኽእሉ።"</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
-    <string name="delete_qr_code_dialog">"Are you sure you want to delete the QR code?"</string>
+    <string name="delete_qr_code_dialog">"ነቲ ኮድ QR ናይብሓቂ ክትድምሥዎ ደሊኹም ዶ፧"</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
-    <string name="self_checkin_button_title">"Self check-in"</string>
+    <string name="self_checkin_button_title">"ባዕልኻ እትገብር ቸክ-ኢን"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer nicht eingecheckt ist. -->
-    <string name="checkin_overview_checkins_explanation">"Scan a SwissCovid QR code to check in on site."</string>
+    <string name="checkin_overview_checkins_explanation">"ሓደ ናይ SwissCovid QR ኮድ ስከን ግበሩ ኣብቲ ቦታ ምእንቲ ብቸክ-ኢን ክትኣትው።"</string>
 
     <!-- Popup Titel wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
-    <string name="checkout_overlapping_alert_title">"Saving not possible"</string>
+    <string name="checkout_overlapping_alert_title">"ምዕቃብ ዝከኣል ኣይኮነን"</string>
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns sich die neu gewählte Zeit mit vorhandenen aus dem Tagebuch überschneidet -->
-    <string name="checkout_overlapping_alert_description">"The times you selected clash with other check-ins in your diary. Please check your entry."</string>
+    <string name="checkout_overlapping_alert_description">"ዝመረጽኩሞም ግዜታት ምስቶም ካልኦት ካብቲ መዝገበ-ዕለትኩም ዝመጽኡ ቸክ-ኢናት ኣይሰማምዑን እዮም። ሓበሬታኹም እንደገና ኣቈጻጸሩ ብኽበርትኩም።"</string>
 
     <!-- Informieren: Danke Text Checkins Teil -->
-    <string name="inform_send_thankyou_text_checkins">"The check-in entries you selected have been sent. Everyone who was checked in at the same location at the same time will be notified."</string>
+    <string name="inform_send_thankyou_text_checkins">"ዝመረጽኩሞም ቸክ-ኢን ተሰዲዶም ኔሮም። ኣብ ማዕረ ግዜ ኣብ ሽዑ ቦታ ኣትዮም ዝነበሩ ሰባት ክሕበሩ እዮም።"</string>
 
     <!-- SwissCovid QR Code PDF: Headline über dem Slogan -->
-    <string name="pdf_headline">"SwissCovid check-in"</string>
+    <string name="pdf_headline">"SwissCovid-Check-in"</string>
 
     <!-- SwissCovid QR Code PDF: Slogan -->
-    <string name="pdf_slogan">"Check in without leaving any data"</string>
+    <string name="pdf_slogan">"ምእታው ብዘይ ምግዳፍ ሓበሬታ/ዳታ"</string>
 
     <!-- SwissCovid QR Code PDF: Erklärungstext unter dem Slogan -->
-    <string name="pdf_explanation">"The SwissCovid app lets you simply check in with us without leaving behind your data. If there is a risk of infection, you will be rapidly notified in the app."</string>
+    <string name="pdf_explanation">"ምስቲ ናይ SwissCovid ኤፕ ኣባና ብቐሊል ብቸክ-ኢን ክትኣትዉ ትኽእሉ ሓበሬታይ ብዘይምግዳፍ። ኩነተ ርከሳ እንተሎ በቲ ኤፕ ቀልጢፍኩም ክትሕበሩ ኢኹም።"</string>
 
     <!-- SwissCovid QR Code PDF: App Bezeichnung neben dem App Icon -->
-    <string name="pdf_swisscovid_app">"SwissCovid app"</string>
+    <string name="pdf_swisscovid_app">"ኤፕ SwissCovid"</string>
 
     <!-- SwissCovid QR Code PDF: Download Hinweis neben dem App Icon -->
-    <string name="pdf_download_app">"Download now"</string>
+    <string name="pdf_download_app">"ሕጂ ምምጻእ ብዳውንሎድ"</string>
 
     <!-- Title im Check-Ins-Screen im nicht eingecheckten Zustand -->
-    <string name="checkin_detail_checked_out_title">"Check in without leaving 
-data"</string>
+    <string name="checkin_detail_checked_out_title">"ቸክ-ኢን ብዘይ ሓበሬታ
+ምግዳፍ"</string>
 
     <!-- Text auf der "CovidCode eingeben"-Card auf dem Home Screen -->
-    <string name="home_covidcode_card_text">"Enter your Covidcode here to alert others."</string>
+    <string name="home_covidcode_card_text">"ኣብዚ ኮቪድ ኮድኩም ኣእትዉ ንካልኦት መታን ከተጠንቅቕዎም።"</string>
 
     <!-- Titel auf der "Isolation beenden"-Card auf dem Home Screen -->
-    <string name="home_end_isolation_card_title">"Isolation ended?"</string>
+    <string name="home_end_isolation_card_title">"ግላለ ምዝዛም፧"</string>
 
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. -->
-    <string name="events_card_title">"Do you want to offer check-ins?"</string>
-    <string name="checkin_footer_title1">"Why a check-in function?"</string>
-    <string name="checkin_footer_subtitle1">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert people who were checked in at the same location at the same time, as well as close contacts."</string>
-    <string name="checkin_footer_title2">"No central data storage"</string>
-    <string name="checkin_footer_subtitle2">"For the SwissCovid check-ins, you don't have to enter personal details, such as name, address or phone number, and no GPS location data is recorded. The list of check-ins is stored locally on your device. The local data is deleted after 14 days. "</string>
-    <string name="events_empty_state_title">"Generate a QR code"</string>
-    <string name="events_empty_state_subtitle">"Using a SwissCovid QR code, people can check in on site without leaving their data."</string>
-    <string name="events_info_box_title">"No substitute for mandatory recording of contact details"</string>
-    <string name="events_info_box_text">"SwissCovid check-ins are no substitute for the obligation to record contact details provided for in the COVID-19 Ordinance Special Situation. "</string>
-    <string name="events_footer_title1">"Where can check-ins be used?"</string>
-    <string name="events_footer_title2">"Why a check-in function?"</string>
-    <string name="events_footer_subtitle1">"SwissCovid check-ins can be used where people gather but where there is no obligation to record contact details. 
+    <string name="events_card_title">"ቸክ-ኢን ከተቕርቡ ደሊኹም ዶ፧"</string>
+    <string name="checkin_footer_title1">"ስለምንታይ ናይ ቸክ-ኢን ኣገባብ፧"</string>
+    <string name="checkin_footer_subtitle1">"ናይ ቸክ-ኢን ኣገባብ ብዘይ ምሓዝ ሓበሬታ ርክብ ነቲ SwissCovid ኤፕ ይውስኾ። ምስዚ ኣገባብ‘ዚ ፖዚቲቭ እንተ ደኣ ተመርሚርኩም፣ ጥራይ ቀረባ ርክባት ዘይኮነ ዋላ ውን ኣብ ማዕረ ግዜን ማዕረ ቦታን ኣትዮም ዝነበርይ ሰባት ከተጠንቅቕዎም ትኽእሉ።"</string>
+    <string name="checkin_footer_title2">"ማእከላዊ ዕቃበ ዳታ የለን"</string>
+    <string name="checkin_footer_subtitle2">"ነቲ ናይ SwissCovid-ቸክ-ኢን ግላዊ ዳታ ከም ስም፣ ኣድራሻ ወይ ቁጽሪ ተሌፎን ክወሃብ ኣየድልን ከምኡ‘ውን ናይ GPS ሓበሬታ ቦታ ውን ኣይክተሓዝን እዩ። ዝርዝር ቸክ-ኢን ብዘይ ኢንተርነት ኣብ ሞባይልኩም ክዕቀብ እዩ። ድሕሪ 14 መዓልትታት እቶም ኣብ ሞባይልኩም ዘሎ ሓበሬታ ክድምሰስ እዩ።"</string>
+    <string name="events_empty_state_title">"ኮድ QR ፈጥሩ"</string>
+    <string name="events_empty_state_subtitle">"ምስ ሓደ SwissCovid-QR-ኮድ ሰባት ኣብቲ ቦታ ሓበሬታኦም ብዘይምግዳፍ ቸክ-ኢን ክገብሩ ይኽእሉ።"</string>
+    <string name="events_info_box_title">"ነቲ ግድነታዊ ምልዓል ዳታ ርክብ መተካእታ የለን"</string>
+    <string name="events_info_box_text">"ቸክ-ኢን SwissCovid መተካእታ ንኣብ «ኮቪድ-19-መትከል ፍሉይ ኩነት» ዝተኣዘዘ ግዴታ ምልዓል ዳታ ርክብ ኣይኮነን።"</string>
+    <string name="events_footer_title1">"እዚኦም Check-ins ኣበይ ክጥቀሙ ይከኣሉ፧"</string>
+    <string name="events_footer_title2">"ስለምንታይ ናይ ቸክ-ኢን ኣገባብ፧"</string>
+    <string name="events_footer_subtitle1">"ኣብ ሰብ ዝራኸቡ ቦታ እቲ ስዊዝ ቸክ-ኢን ውን ክጥቐም ይኽእል፣ ግና ግዴታ ናይ ምልዓል ዳታ ርክብ የለን።
 
-Possible locations:
-– Private events
-– Club meetings or events
-– Gatherings in professional settings, e.g. meeting rooms, offices, canteens"</string>
-    <string name="events_footer_subtitle2">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert people who were checked in at the same location at the same time, as well as close contacts."</string>
+ዝኾኑ ቦታታት ስራሕ፤
+– ግላውያን ፍጻሜታት
+– ፍጻሜታት ማሕበር
+– ኣኼባታት ኣብ ሞያዊ ከባቢ ከም ንኣ. ክፍሊ ዋዕላ፣ ክፍሊ ቤትጽሕፈት፣ ካንቲናታት፣ ወዘተ"</string>
+    <string name="events_footer_subtitle2">"ናይ ቸክ-ኢን ኣገባብ ብዘይ ምሓዝ ሓበሬታ ርክብ ነቲ SwissCovid ኤፕ ይውስኾ። ምስዚ ኣገባብ‘ዚ ፖዚቲቭ እንተ ደኣ ተመርሚርኩም፣ ጥራይ ቀረባ ርክባት ዘይኮነ ዋላ ውን ኣብ ማዕረ ግዜን ማዕረ ቦታን ኣትዮም ዝነበርይ ሰባት ከተጠንቅቕዎም ትኽእሉ።"</string>
 
     <!-- Subtitle vom Meldungen Card in der Liste aller Meldungen. -->
-    <string name="meldung_detail_exposed_list_card_subtitle">"Risk situation"</string>
+    <string name="meldung_detail_exposed_list_card_subtitle">"ኩነት ርከሳ"</string>
 
     <!-- Title vom Encounters Meldungen Card in der Liste aller Meldungen -->
-    <string name="meldung_detail_exposed_list_card_title_encounters">"Encounters"</string>
+    <string name="meldung_detail_exposed_list_card_title_encounters">"ምርኽኻብ"</string>
 
     <!-- Title vom CheckIn Meldungen Card in der Liste aller Meldungen -->
-    <string name="meldung_detail_exposed_list_card_title_checkin">"Check-in"</string>
+    <string name="meldung_detail_exposed_list_card_title_checkin">"ቸክ-ኢን"</string>
 
     <!-- Was soll ich tun? Button im Meldungen Card in der Liste aller Meldungen -->
-    <string name="meldung_detail_exposed_list_card_whattodo_button">"What should I do?"</string>
+    <string name="meldung_detail_exposed_list_card_whattodo_button">"እንታይ ክገብር ኣለኒ፧"</string>
 
     <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: An einem Check-In einem positiven Kontakt ausgesetzt -->
-    <string name="debug_state_setting_option_checkin_exposed">"Positive check-in"</string>
+    <string name="debug_state_setting_option_checkin_exposed">"ኣወንታዊ Check-in"</string>
 
     <!-- Debug: Einstellungs-Option zum überschreiben des App-Zustands: Auf verschiedener Weise einem positiven Kontakt ausgesetzt -->
-    <string name="debug_state_setting_option_mutiple_exposed">"Positive check-ins/contacts"</string>
+    <string name="debug_state_setting_option_mutiple_exposed">"ኣወንታዊ Check-ins / ርክባት"</string>
 
     <!-- Anzeigename für User QR Codes -->
-    <string name="venue_type_user_qr_code">"User QR code"</string>
+    <string name="venue_type_user_qr_code">"User QR Code"</string>
 
     <!-- Anzeigename für User QR Codes -->
-    <string name="venue_type_contact_tracing_qr_code">"Contact tracing QR code"</string>
+    <string name="venue_type_contact_tracing_qr_code">"Contact Tracing QR Code"</string>
 
     <!-- Text der Module im Check-ins Screen, wenn aufgrund von Isolation keine Checkins mehr möglich sind -->
-    <string name="checkin_ended_text_detailed">"The check-in function is automatically deactivated after a positive test result. It can be reactivated after the end of isolation."</string>
+    <string name="checkin_ended_text_detailed">"ድሕሪ ሓደ ኣወንታዊ ውጽኢት መርመራ ናይ ቸክ-ኢን ኣገባብ ኣውቶማቲካሊ ተዓጽዩ እዩ። ድሕሪ ምድጻም ግላለኹም እንደገና ክውላዕ ይከኣል።"</string>
 
     <!-- Check-Ins: QR-Code erstellen subtitel -->
-    <string name="checkins_create_qr_code_subtitle">"Enter a title that describes the location or your event in more detail. This title will be displayed on check-in."</string>
-    <string name="checkin_report_heading">"What can you do?"</string>
-    <string name="checkin_report_title1">"Protect your contacts"</string>
-    <string name="checkin_report_title2">"Look out for symptoms"</string>
-    <string name="checkin_report_title3">"Get tested"</string>
-    <string name="checkin_report_subtitle1">"You may already be infectious without realising it. Follow the rules on hygiene and social distancing and protect your loved ones and those around you."</string>
-    <string name="checkin_report_subtitle2">"Monitor your state of health."</string>
-    <string name="checkin_report_subtitle3">"If you develop symptoms, get tested immediately. Even if you don't have symptoms, a coronavirus test is advisable and recommended."</string>
+    <string name="checkins_create_qr_code_subtitle">"እቲ ቦታ ወይ ፍጻሜኹም ብቀረባ ዝገልጽ ኣርእስቲ ወይ ስም ሃቡ ኢኹም።
+እዚ ኣርእስቲ ኣብ Check-in ክረአ እዩ።"</string>
+    <string name="checkin_report_heading">"እንታይ ክትገብሩ ትኽእሉ፧"</string>
+    <string name="checkin_report_title1">"ርክባት ምክልኻል"</string>
+    <string name="checkin_report_title2">"ምልክታት ምጥንቃቕ"</string>
+    <string name="checkin_report_title3">"ምምርማር"</string>
+    <string name="checkin_report_subtitle1">"ድሮ ተላጋቢ ክትኮኑ ትኽእሉ ከይተገንዘብኩም። እቶም ብቑዓት ናይ ጽሬትን ምክልኻልን ስጉምትታት ተኸተሉ ከምኡውን ስድራኹምን ኣዕሩኽትኹምን ከባብኹምን ኣስተውዕሉ።"</string>
+    <string name="checkin_report_subtitle2">"መርገጽ ጥዕናኹም ተኸታተሉ።"</string>
+    <string name="checkin_report_subtitle3">"ኣብ ምቕልቓል ምልክታት ብዝቐልጠፈ ተመርመሩ። ዋላ ምልክታት ዘይቕልቀሉ እንተኾይኖም፣ መርመራ ኮሮና ጤቓምን ዝምረጽን እዩ።"</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_title">"Check-in"</string>
-
-    <!-- SubTitel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_subtitle"></string>
-    <string name="not_thank_you_screen_title">"No data sent"</string>
-    <string name="not_thank_you_screen_text1">"No private key was sent."</string>
-    <string name="not_thank_you_screen_back_button">"Back"</string>
-    <string name="not_thank_you_screen_dont_send_button">"Don't send data"</string>
-    <string name="not_thank_you_screen_text2">"No check-in entries were sent."</string>
+    <string name="meldung_detail_checkin_title">"ቸክ-ኢን"</string>
+    <string name="not_thank_you_screen_title">"ዝኾነ ዳታ ኣይተሰደደን"</string>
+    <string name="not_thank_you_screen_text1">"ዝኾነ ግላዊ መፍትሕ ኣይተሰደደን።"</string>
+    <string name="not_thank_you_screen_back_button">"ተመለስ"</string>
+    <string name="not_thank_you_screen_dont_send_button">"ዝኾነ ዳታ ዘይምስዳድ"</string>
+    <string name="not_thank_you_screen_text2">"ቸክ-ኢን መዝገባት ኣይተሰደዱን።"</string>
 
     <!-- Button text, um ausgewählte Checkins zu senden -->
-    <string name="inform_share_checkins_send_button_title">"Share selection"</string>
-    <string name="inform_share_checkins_not_send_button">"Don't share anything"</string>
-    <string name="onboarding_checkin_title">"Check in without leaving data"</string>
+    <string name="inform_share_checkins_send_button_title">"ምክፍፋል መርጫ"</string>
+    <string name="inform_share_checkins_not_send_button">"ዋላሓደ ዘይምክፋል"</string>
+    <string name="onboarding_checkin_title">"ምእታው ብዘይ ምግዳፍ ሓበሬታ/ዳታ"</string>
     <string name="onboarding_checkin_heading">"Check-ins"</string>
-    <string name="onboarding_checkin_text1">"With SwissCovid check-ins you can check in to a location or meeting using the app."</string>
-    <string name="onboarding_checkin_text2">"Your presence is only stored in the app. You don’t have to leave behind any personal data. "</string>
-    <string name="checkin_updateboarding_text">"With SwissCovid check-ins you can check in to a location or meeting using the app. Your presence is only stored in the app. You don't have to leave behind any personal data. The terms of use and privacy policy have been updated."</string>
-    <string name="onboarding_gaen_button_dont_activate">"Skip"</string>
+    <string name="onboarding_checkin_text1">"ምስቲ SwissCovid-ቸክ-ኢን ምስቲ ኤፕ ኣብ ሓደ ቦታ ወይ ኣብ ሓደ ምርኽኻብ ክትኣትዉ ትኽእሉ ኢኹም።"</string>
+    <string name="onboarding_checkin_text2">"ህላወኹም ጥራይ ኣብቲ ኤፕ እዩ ዝዕቀብ። ዝኾነ ግላዊ ሓበሬታ ኣብቲ ኤፕ ክትገድፉ ኣየድልየኩምን።"</string>
+    <string name="checkin_updateboarding_text">"ምስቲ SwissCovid-ቸክ-ኢን ምስቲ ኤፕ ኣብ ሓደ ቦታ ወይ ኣብ ሓደ ምርኽኻብ ክትኣትዉ ትኽእሉ ኢኹም። ህላወኹም ጥራይ ኣብቲ ኤፕ እዩ ዝዕቀብ። ዝኾነ ግላዊ ሓበሬታ ኣብቲ ኤፕ ክትገድፉ ኣየድልየኩምን። ሽዑ እቶም ናይ ኣጠቓቕማ ኩነታት ከምኡ'ውን ስምምዕ ምክልኻል ዳታ ክሕደሱ እዮም።"</string>
+    <string name="onboarding_gaen_button_dont_activate">"ገዲፍካ ምቕጻል"</string>
 
     <!-- Hide from diary warning text -->
-    <string name="remove_diary_warning_hide_text">"The entry is stored in encrypted form in the background of the app for 14 days. This means that you can still be notified if there is a possibility of infection."</string>
+    <string name="remove_diary_warning_hide_text">"እቲ መዝገብ ን14 መዓልታት ዝተመስጠረ ኣብቲ ዳሕረዋይ ኤፕ ክዕቀብ እዩ። ኣብ ክኸውን ዝኽእል ልበዳ ብዝኾነ ክትሕበሩ ትኽእሉ ኢኹም።"</string>
 
     <!-- CheckIn ausblenden -->
-    <string name="remove_diary_warning_hide_button">"Hide only"</string>
-    <string name="checkin_set_reminder_explanation">"The app can remind you to check out at the right time."</string>
+    <string name="remove_diary_warning_hide_button">"ጥራይ ምሕባእ"</string>
+    <string name="checkin_set_reminder_explanation">"እቲ ኤፕ ንልክዕ ግዜ ክትወጽኡ ከዘክረኩም ይኽእል።"</string>
 
     <!-- Remove from diary warning title -->
-    <string name="remove_diary_remove_now_title">"Or remove completely?"</string>
+    <string name="remove_diary_remove_now_title">"ወይ ብምልኡ ምድምሳስ፧"</string>
 
     <!-- Remove from diary warning text -->
-    <string name="remove_diary_remove_now_text">"The entry was removed completely. You can no longer be alerted."</string>
-    <string name="not_thank_you_screen_text3">"Nobody will be notified."</string>
+    <string name="remove_diary_remove_now_text">"እቲ መዝገብ ብምልኡ ክድምሰስ እዩ። ክትጥንቀቑ ኣይትኽእሉን ኢኹም።"</string>
+    <string name="not_thank_you_screen_text3">"ማንም ሰብ ኣይክሕበርን እዩ።"</string>
 
     <!-- Link Text zu Informationen übers Testen -->
-    <string name="checkin_report_link">"What do I need to know about testing?"</string>
-    <string name="instant_app_install_action">"Install app and check in"</string>
-    <string name="partial_onboarding_box_text">"Complete the app configuration to be able to use the tracing function."</string>
-    <string name="partial_onboarding_box_action">"Complete now"</string>
-    <string name="partial_onboarding_done_title">"Configuration complete"</string>
-    <string name="partial_onboarding_done_text">"Thank you for helping stop the spread of coronavirus."</string>
-    <string name="web_slogan">"Find out fast if you're at risk of infection."</string>
+    <string name="checkin_report_link">"ብዛዕባ ምምርማር እንታይ ክፈልጥ ኣለኒ፧"</string>
+    <string name="instant_app_install_action">"ኤፕ ምትካልን ምእታውን"</string>
+    <string name="partial_onboarding_box_text">"እቲ ምስትኽኻል ኤፕ ወድእዎ፣ መታን ኣገባብ ምክትታል ክትጥቐመሉ።"</string>
+    <string name="partial_onboarding_box_action">"ሕጂ ምውዳእ"</string>
+    <string name="partial_onboarding_done_title">"ምስትኽኻል ምውዳእ"</string>
+    <string name="partial_onboarding_done_text">"ምዝርጋሕ ኮሮናቫይረስ ንምድራት እትገብሩ ምትሕብባር ነመስግነኩም ኢና።"</string>
+    <string name="web_slogan">"ኣብ ርከሳ ልበዳ ብቕልጡፍ ተሓቢርኩም።"</string>
 
     <!-- Info URL for testing -->
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
-    <string name="checkout_too_long_alert_text"></string>
+    <string name="checkout_too_long_alert_text">"For this check-in a maximum check-in duration of {DURATION} applies. Please check your input again."</string>
 </resources>
