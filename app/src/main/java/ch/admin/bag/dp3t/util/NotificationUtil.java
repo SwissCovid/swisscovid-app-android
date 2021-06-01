@@ -64,7 +64,7 @@ public class NotificationUtil {
 
 		NotificationManager notificationManager =
 				(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-		if(DebugFragment.EXISTS){
+		if (DebugFragment.EXISTS) {
 			HistoryDatabase.getInstance(context).addEntry(
 					new HistoryEntry(
 							HistoryEntryType.NOTIFICATION, "Showing new message notification", false,
@@ -76,6 +76,7 @@ public class NotificationUtil {
 
 		NotificationRepeatWorker.startWorker(context);
 	}
+
 	public static void showReminderNotification(Context context) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			createNotificationChannel(CHANNEL_ID_REMINDER, context.getString(R.string.android_reminder_channel_name),
@@ -86,10 +87,11 @@ public class NotificationUtil {
 		String message = context.getString(R.string.tracing_reminder_notification_subtitle);
 
 		Notification notification = createNotification(title, message, pendingIntent, CHANNEL_ID_REMINDER, context);
-		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);if(DebugFragment.EXISTS){
+		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		if (DebugFragment.EXISTS) {
 			HistoryDatabase.getInstance(context).addEntry(
 					new HistoryEntry(
-							HistoryEntryType.SYNC, "Showing activate tracing notification", false,
+							HistoryEntryType.NOTIFICATION, "Showing activate tracing notification", false,
 							System.currentTimeMillis()
 					)
 			);
