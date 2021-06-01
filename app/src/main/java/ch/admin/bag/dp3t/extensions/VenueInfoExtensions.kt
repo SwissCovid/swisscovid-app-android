@@ -1,5 +1,6 @@
 package ch.admin.bag.dp3t.extensions
 
+import android.content.Context
 import ch.admin.bag.dp3t.checkin.models.QRCodePayload
 import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import com.google.protobuf.InvalidProtocolBufferException
@@ -19,12 +20,19 @@ fun VenueInfo.getAutoCheckoutDelay() = getSwissCovidLocationData().automaticChec
 
 fun VenueInfo.getCheckoutWarningDelay() = getSwissCovidLocationData().checkoutWarningDelayMs
 
-fun VenueInfo.getReminderDelayOptions(): List<ReminderOption> {
-	if (getSwissCovidLocationData().reminderDelayOptionsMsList.size == 0) {
+fun VenueInfo.getReminderDelayOptions(context: Context): List<ReminderOption> {
+	val filteredResult = getSwissCovidLocationData().reminderDelayOptionsMsList.asSequence()
+		.filter { it >= ONE_MINUTE_IN_MILLIS && it < getAutoCheckoutDelay() }
+		.sorted()
+		.map { ReminderOption(it) }
+		.distinctBy { it.getDisplayString(context) }
+		.take(4)
+		.toList()
+	return if (filteredResult.isEmpty()) {
 		//Fallback if reminderDelayOptionsMsList is empty (30, 60, 120 and 240 minutes)
-		return listOf(30, 60, 120, 240).map { ReminderOption(it * ONE_MINUTE_IN_MILLIS) }
+		listOf(30, 60, 120, 240).map { ReminderOption(it * ONE_MINUTE_IN_MILLIS) }
+	} else {
+		filteredResult
 	}
-	return getSwissCovidLocationData().reminderDelayOptionsMsList.asSequence().distinct().filter { it > 0 }.sorted()
-		.map { ReminderOption(it) }.take(4).toList()
 }
 

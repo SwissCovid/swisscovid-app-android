@@ -66,7 +66,7 @@ class CheckInFragment : Fragment() {
 			}
 
 			reminderToggleGroup.removeAllViews()
-			val reminderOptions = venueInfo.getReminderDelayOptions().toMutableList()
+			val reminderOptions = venueInfo.getReminderDelayOptions(requireContext()).toMutableList()
 			reminderOptions.add(0, ReminderOption(0L))
 			for (option in reminderOptions) {
 				val toggleButton =
