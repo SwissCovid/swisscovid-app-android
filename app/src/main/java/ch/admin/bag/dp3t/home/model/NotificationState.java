@@ -11,6 +11,7 @@ package ch.admin.bag.dp3t.home.model;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 import ch.admin.bag.dp3t.R;
@@ -50,13 +51,27 @@ public enum NotificationState {
 	public static int getIcon(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
-				return R.drawable.ic_check;
+				return R.drawable.ic_check_circle;
 			case EXPOSED:
 				return R.drawable.ic_warning_round;
 			case POSITIVE_TESTED:
 				return R.drawable.ic_info;
 		}
 		return -1;
+	}
+
+	@ColorRes
+	@Nullable
+	public static Integer getIconColor(NotificationState notificationState) {
+		switch (notificationState) {
+			case NO_REPORTS:
+				return null;
+			case EXPOSED:
+				return R.color.white;
+			case POSITIVE_TESTED:
+				return R.color.white;
+		}
+		return null;
 	}
 
 	@ColorRes
@@ -73,7 +88,7 @@ public enum NotificationState {
 	}
 
 	@ColorRes
-	public static int geTextColor(NotificationState notificationState) {
+	public static int getTextColor(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
 				return R.color.dark_main;

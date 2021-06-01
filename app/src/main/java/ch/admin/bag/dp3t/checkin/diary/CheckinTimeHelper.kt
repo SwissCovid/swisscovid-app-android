@@ -1,12 +1,11 @@
 package ch.admin.bag.dp3t.checkin.diary
 
 import android.content.Context
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
-import ch.admin.bag.dp3t.extensions.getSwissCovidLocationData
+import ch.admin.bag.dp3t.util.StringUtil
 
 object CheckinTimeHelper {
 
@@ -32,5 +31,9 @@ object CheckinTimeHelper {
 			.show()
 	}
 
+	fun getMaxCheckinTimeExceededMessage(maxCheckinTime: Long, context: Context): String {
+		val maxDurationString = StringUtil.getShortDurationStringWithUnits(maxCheckinTime, context)
+		return context.getString(R.string.checkout_too_long_alert_text).replace("{DURATION}", maxDurationString)
+	}
 
 }
