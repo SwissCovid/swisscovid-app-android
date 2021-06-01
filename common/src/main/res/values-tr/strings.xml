@@ -1418,7 +1418,7 @@ O halde şu numarayı arayın:"</string>
     <string name="checkin_set_reminder">"Check-out hatırlatması"</string>
 
     <!-- Check-Ins: Erinnerung Option Aus -->
-    <string name="reminder_option_off">"Kapalı"</string>
+    <string name="reminder_option_off">"Off"</string>
 
     <!-- Check-Ins: Tagebuch Zugriff Text -->
     <string name="authenticate_for_diary">"Günlüğe erişim için kendinizi yetkilendirin"</string>

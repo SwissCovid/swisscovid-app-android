@@ -1435,7 +1435,7 @@ Atëherë na telefononi këtu:"</string>
     <string name="checkin_set_reminder">"Kujtesa e Check-out"</string>
 
     <!-- Check-Ins: Erinnerung Option Aus -->
-    <string name="reminder_option_off">"Fikur"</string>
+    <string name="reminder_option_off">"Off"</string>
 
     <!-- Check-Ins: Tagebuch Zugriff Text -->
     <string name="authenticate_for_diary">"Autentifikohuni për aksesin në ditar"</string>

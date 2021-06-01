@@ -1432,7 +1432,7 @@ U tom slučaju kontaktirajte nas ovde:"</string>
     <string name="checkin_set_reminder">"Podsećanje na prijavu"</string>
 
     <!-- Check-Ins: Erinnerung Option Aus -->
-    <string name="reminder_option_off">"Isključeno"</string>
+    <string name="reminder_option_off">"Off"</string>
 
     <!-- Check-Ins: Tagebuch Zugriff Text -->
     <string name="authenticate_for_diary">"Identifikujte se, kako biste pristupili dnevniku"</string>

@@ -1468,7 +1468,7 @@ Chiama il seguente numero:"</string>
     <string name="checkin_set_reminder">"Promemoria check-out"</string>
 
     <!-- Check-Ins: Erinnerung Option Aus -->
-    <string name="reminder_option_off">"Disattiva"</string>
+    <string name="reminder_option_off">"Off"</string>
 
     <!-- Check-Ins: Tagebuch Zugriff Text -->
     <string name="authenticate_for_diary">"Autenticati per accedere al diario"</string>
