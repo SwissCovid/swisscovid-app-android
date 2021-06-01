@@ -37,6 +37,7 @@ import org.dpppt.android.sdk.models.DayDate;
 import org.dpppt.android.sdk.models.ExposureDay;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
 import ch.admin.bag.dp3t.checkin.models.SwissCovidAssociatedData;
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
@@ -106,6 +107,13 @@ public class DebugFragment extends Fragment {
 
 		view.findViewById(R.id.debug_button_reset_update_boarding).setOnClickListener(v -> {
 			SecureStorage.getInstance(requireContext()).setLastShownUpdateBoardingVersion(0);
+			getActivity().finish();
+		});
+
+		view.findViewById(R.id.debug_button_simulate_from_instant_app).setOnClickListener(v -> {
+			setDebugAppState(DebugAppState.NONE);
+			tracingViewModel.resetSdk();
+			SecureStorage.getInstance(requireContext()).setOnlyPartialOnboardingCompleted(true);
 			getActivity().finish();
 		});
 
