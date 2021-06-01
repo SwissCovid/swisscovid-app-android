@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<androidx.cardview.widget.CardView
+		style="@style/NextStep.Card"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				style="@style/NextStep.Text.Bold.Blue"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_larger"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:text="@string/meldung_detail_exposed_list_card_subtitle" />
+
+			<TextView
+				style="@style/NextStep.Text.Title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_larger"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				android:text="@string/meldung_detail_exposed_list_card_title_checkin" />
+
+			<TextView
+				android:id="@+id/report_details"
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_larger"
+				android:lineSpacingExtra="@dimen/spacing_very_small"
+				tools:text="20.10.2020 / vor 2 Tagen \n22.10.2020 / vor 4 Tagen" />
+
+			<TextView
+				android:id="@+id/place"
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_larger"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				tools:text="Reuss Ubique" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/separator_height"
+				android:layout_marginTop="@dimen/spacing_medium_large"
+				android:background="@color/grey_light" />
+
+			<TextView
+				style="@style/NextStep.Text.Bold.Blue"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_larger"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:layout_marginBottom="@dimen/spacing_small"
+				android:text="@string/checkin_report_heading" />
+
+			<include
+				android:id="@+id/report_further_information"
+				layout="@layout/view_report_details" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:background="@color/grey_light" />
+
+			<TextView
+				android:id="@+id/delete_report"
+				style="@style/NextStep.Button.Transparent"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="10dp"
+				android:gravity="center"
+				android:paddingTop="15dp"
+				android:paddingBottom="10dp"
+				android:text="@string/delete_reports_button"
+				android:textColor="@color/blue_main" />
+
+		</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+	<Button
+		android:id="@+id/faq_button"
+		style="@style/NextStep.Button.Outlined"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="@dimen/spacing_medium"
+		android:layout_marginVertical="@dimen/spacing_huger"
+		android:drawableEnd="@drawable/ic_launch_blue"
+		android:paddingStart="@dimen/padding_start_icon_button"
+		android:text="@string/faq_button_title" />
+
+</LinearLayout>

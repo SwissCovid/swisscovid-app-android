@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.home.model;
 
 import androidx.annotation.ColorRes;
@@ -21,7 +20,8 @@ public enum NotificationState {
 	EXPOSED,
 	POSITIVE_TESTED;
 
-	@StringRes public static int getTitle(NotificationState notificationState) {
+	@StringRes
+	public static int getTitle(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
 				return R.string.meldungen_no_meldungen_title;
@@ -33,7 +33,8 @@ public enum NotificationState {
 		return -1;
 	}
 
-	@StringRes public static int getText(NotificationState notificationState) {
+	@StringRes
+	public static int getText(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
 				return R.string.meldungen_no_meldungen_subtitle;
@@ -45,22 +46,24 @@ public enum NotificationState {
 		return -1;
 	}
 
-	@DrawableRes public static int getIcon(NotificationState notificationState) {
+	@DrawableRes
+	public static int getIcon(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
 				return R.drawable.ic_check;
 			case EXPOSED:
-				return R.drawable.ic_info;
+				return R.drawable.ic_warning_round;
 			case POSITIVE_TESTED:
 				return R.drawable.ic_info;
 		}
 		return -1;
 	}
 
-	@ColorRes public static int getTitleTextColor(NotificationState notificationState) {
+	@ColorRes
+	public static int getTitleTextColor(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
-				return R.color.green_main;
+				return R.color.blue_main;
 			case EXPOSED:
 				return R.color.white;
 			case POSITIVE_TESTED:
@@ -69,7 +72,8 @@ public enum NotificationState {
 		return -1;
 	}
 
-	@ColorRes public static int geTextColor(NotificationState notificationState) {
+	@ColorRes
+	public static int geTextColor(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
 				return R.color.dark_main;
@@ -81,10 +85,11 @@ public enum NotificationState {
 		return -1;
 	}
 
-	@ColorRes public static int getBackgroundColor(NotificationState notificationState) {
+	@ColorRes
+	public static int getBackgroundColor(NotificationState notificationState) {
 		switch (notificationState) {
 			case NO_REPORTS:
-				return R.color.status_green_bg;
+				return R.color.status_blue_bg;
 			case EXPOSED:
 				return R.color.blue_main;
 			case POSITIVE_TESTED:

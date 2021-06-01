@@ -141,16 +141,10 @@ public class HeaderView extends ConstraintLayout {
 						iconRes = R.drawable.ic_warning;
 				}
 			} else {
-				if (state.getTracingState() == TracingState.ACTIVE) {
-					iconRes = R.drawable.ic_begegnungen;
-					iconTintColor = R.color.white;
-					iconBgRes = R.drawable.bg_header_icon_on;
-					backgroundColor = getResources().getColor(R.color.header_bg_on, null);
-				} else {
-					iconRes = R.drawable.ic_warning_red;
-					iconBgRes = R.drawable.bg_header_icon_off;
-					backgroundColor = getResources().getColor(R.color.header_bg_off, null);
-				}
+				iconRes = R.drawable.ic_begegnungen;
+				iconTintColor = R.color.white;
+				iconBgRes = R.drawable.bg_header_icon_on;
+				backgroundColor = getResources().getColor(R.color.header_bg_on, null);
 			}
 		} else if (state.getNotificationState() == NotificationState.POSITIVE_TESTED) {
 			backgroundColor = getResources().getColor(R.color.header_bg_exposed, null);

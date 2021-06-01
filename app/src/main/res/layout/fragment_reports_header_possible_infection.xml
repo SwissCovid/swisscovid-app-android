@@ -22,14 +22,14 @@
 		android:padding="@dimen/spacing_medium">
 
 		<ImageView
-			android:id="@+id/fragment_reports_header_info"
+			android:id="@+id/header_info"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
 			android:src="@drawable/ic_info_border" />
 
 		<LinearLayout
-			android:id="@+id/fragment_reports_header_image"
+			android:id="@+id/header_image"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
@@ -59,7 +59,7 @@
 		</LinearLayout>
 
 		<TextView
-			android:id="@+id/fragment_reports_header_title"
+			android:id="@+id/header_title"
 			style="@style/NextStep.Text.Title"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -69,7 +69,19 @@
 			android:textColor="@color/white" />
 
 		<TextView
-			android:id="@+id/fragment_reports_header_subtitle"
+			android:id="@+id/header_slogan"
+			style="@style/NextStep.Text.White"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_small"
+			android:layout_marginHorizontal="@dimen/spacing_very_large"
+			android:gravity="center_horizontal"
+			android:text="@string/meldungen_meldung_text"
+			android:visibility="gone"
+			tools:visibility="visible" />
+
+		<TextView
+			android:id="@+id/header_subtitle"
 			style="@style/NextStep.Text.Dark"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -78,7 +90,7 @@
 			android:text="@string/meldung_detail_exposed_subtitle_last_encounter" />
 
 		<TextView
-			android:id="@+id/fragment_reports_header_date"
+			android:id="@+id/header_date"
 			style="@style/NextStep.Text.Bold"
 			android:layout_width="wrap_content"
 			android:layout_height="@dimen/header_reports_exposure_day_height"
@@ -87,20 +99,20 @@
 			tools:text="am 30.04.2020 / Today" />
 
 		<ScrollView
-			android:id="@+id/fragment_reports_dates_scroll_view"
+			android:id="@+id/dates_scroll_view"
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
 			android:visibility="gone">
 
 			<LinearLayout
-				android:id="@+id/fragment_reports_dates_container"
+				android:id="@+id/dates_container"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="vertical" />
 		</ScrollView>
 
 		<TextView
-			android:id="@+id/fragment_reports_header_show_all_button"
+			android:id="@+id/header_show_all_button"
 			style="@style/NextStep.Text.Bold"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -114,7 +126,7 @@
 	</LinearLayout>
 
 	<Button
-		android:id="@+id/fragment_reports_header_continue_button"
+		android:id="@+id/header_continue_button"
 		style="@style/NextStep.Button.WhiteBlue"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
