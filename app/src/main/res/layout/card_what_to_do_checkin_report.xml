@@ -85,7 +85,6 @@
 				android:paddingTop="15dp"
 				android:paddingBottom="10dp"
 				android:text="@string/delete_reports_button"
-				android:textAllCaps="true"
 				android:textColor="@color/blue_main" />
 
 		</LinearLayout>

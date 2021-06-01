@@ -218,7 +218,7 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 			invalidCodeText.setVisibility(View.INVISIBLE);
 		} else {
 			invalidCodeText.setVisibility(View.VISIBLE);
-			color = R.color.tertiary;
+			color = R.color.status_red;
 		}
 
 		if (qrScannerState == QRScannerState.INVALID_FORMAT) {

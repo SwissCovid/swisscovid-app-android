@@ -98,7 +98,7 @@
 
 		<Button
 			android:id="@+id/qr_code_generate"
-			style="@style/NextStep.Button.AllCaps"
+			style="@style/NextStep.Button"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal|bottom"
