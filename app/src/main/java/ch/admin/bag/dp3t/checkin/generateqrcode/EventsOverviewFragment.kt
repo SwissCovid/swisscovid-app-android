@@ -32,11 +32,6 @@ class EventsOverviewFragment : Fragment() {
 				override fun onQrCodeClicked(qrCodeItem: VenueInfo) {
 					showFragment(QrCodeFragment.newInstance(qrCodeItem), modalAnimation = true)
 				}
-
-				override fun onDeleteQrCodeClicked(qrCodeItem: VenueInfo) {
-					showDeleteConfirmationDialog(qrCodeItem)
-				}
-
 			})
 
 			qrList.adapter = adapter
@@ -52,14 +47,6 @@ class EventsOverviewFragment : Fragment() {
 				}
 			}
 		}.root
-	}
-
-	private fun showDeleteConfirmationDialog(venueInfo: VenueInfo) {
-		AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
-			.setMessage(R.string.delete_qr_code_dialog)
-			.setPositiveButton(R.string.delete_button_title) { _, _ -> qrCodeViewModel.deleteQrCode(venueInfo) }
-			.setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
-			.show()
 	}
 
 }

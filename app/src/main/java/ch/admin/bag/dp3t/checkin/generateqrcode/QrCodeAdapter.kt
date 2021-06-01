@@ -6,12 +6,15 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_EXPLANATION
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_EVENT
+import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_EXPLANATION
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_FOOTER
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_GENERATE_QR_CODE_BUTTON
+import ch.admin.bag.dp3t.databinding.ItemEventsExplanationBinding
+import ch.admin.bag.dp3t.databinding.ItemEventsFooterBinding
+import ch.admin.bag.dp3t.databinding.ItemGenerateQrCodeBinding
+import ch.admin.bag.dp3t.databinding.ItemQrCodeBinding
 import ch.admin.bag.dp3t.extensions.getSubtitle
-import ch.admin.bag.dp3t.databinding.*
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
 class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView.Adapter<QrCodeAdapter.QrCodeBaseViewHolder>() {
@@ -63,7 +66,6 @@ class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView
 				qrCodeName.text = item.venueInfo.title
 				qrCodeLocation.setText(item.venueInfo.getSubtitle())
 				root.setOnClickListener { onClickListener.onQrCodeClicked(item.venueInfo) }
-				qrCodeDelete.setOnClickListener { onClickListener.onDeleteQrCodeClicked(item.venueInfo) }
 			}
 		}
 	}
@@ -90,7 +92,6 @@ class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView
 interface OnClickListener {
 	fun generateQrCode()
 	fun onQrCodeClicked(qrCodeItem: VenueInfo)
-	fun onDeleteQrCodeClicked(qrCodeItem: VenueInfo)
 }
 
 
