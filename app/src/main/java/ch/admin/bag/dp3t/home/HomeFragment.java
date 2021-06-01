@@ -260,9 +260,9 @@ public class HomeFragment extends Fragment {
 		boolean isReportedPositive = tracingViewModel.getTracingStatusInterface().isReportedAsInfected();
 		if (((checkinReports > 0 && tracingReports > 0) || checkinReports > 1) && !isReportedPositive) {
 			FragmentExtensionsKt
-					.showFragment(this, ReportsOverviewFragment.newInstance(), R.id.main_fragment_container, true, false);
+					.showFragment(this, ReportsOverviewFragment.newInstance(), R.id.main_fragment_container, false);
 		} else {
-			FragmentExtensionsKt.showFragment(this, ReportsFragment.newInstance(null), R.id.main_fragment_container, true, false);
+			FragmentExtensionsKt.showFragment(this, ReportsFragment.newInstance(null), R.id.main_fragment_container, false);
 		}
 	}
 

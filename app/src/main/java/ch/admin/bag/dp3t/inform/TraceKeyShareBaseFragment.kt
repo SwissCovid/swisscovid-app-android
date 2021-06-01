@@ -81,7 +81,7 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 		error.exception?.printStackTrace()
 	}
 
-	private fun showErrorDialog(error: InformRequestError, addErrorCode: String? = null) {
+	protected fun showErrorDialog(error: InformRequestError, addErrorCode: String? = null) {
 		val errorDialogBuilder = AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
 			.setMessage(error.errorMessage)
 			.setPositiveButton(R.string.android_button_ok) { _, _ -> }

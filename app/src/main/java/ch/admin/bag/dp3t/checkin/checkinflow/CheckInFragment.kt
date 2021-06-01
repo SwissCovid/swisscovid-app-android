@@ -17,14 +17,10 @@ import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment
 import ch.admin.bag.dp3t.checkin.models.ReminderOption
-import ch.admin.bag.dp3t.checkin.utils.*
 import ch.admin.bag.dp3t.databinding.FragmentCheckInBinding
-import ch.admin.bag.dp3t.extensions.getAutoCheckoutDelay
-import ch.admin.bag.dp3t.extensions.getCheckoutWarningDelay
 import ch.admin.bag.dp3t.extensions.getReminderDelayOptions
 import ch.admin.bag.dp3t.extensions.getSubtitle
 import com.google.android.material.button.MaterialButton
-import org.crowdnotifier.android.sdk.model.VenueInfo
 
 private const val ARG_IS_SELF_CHECKIN = "ARG_IS_SELF_CHECKIN"
 
@@ -70,7 +66,7 @@ class CheckInFragment : Fragment() {
 			}
 
 			reminderToggleGroup.removeAllViews()
-			val reminderOptions = venueInfo.getReminderDelayOptions().toMutableList()
+			val reminderOptions = venueInfo.getReminderDelayOptions(requireContext()).toMutableList()
 			reminderOptions.add(0, ReminderOption(0L))
 			for (option in reminderOptions) {
 				val toggleButton =

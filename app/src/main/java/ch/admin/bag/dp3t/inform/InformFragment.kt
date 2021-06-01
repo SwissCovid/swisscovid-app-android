@@ -20,6 +20,8 @@ import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.inform.models.Status
 import ch.admin.bag.dp3t.inform.views.ChainedEditText
 import ch.admin.bag.dp3t.inform.views.ChainedEditText.ChainedEditTextListener
+import ch.admin.bag.dp3t.networking.errors.InvalidCodeError
+import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.util.PhoneUtil
 
 private const val REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}"
@@ -90,7 +92,12 @@ class InformFragment : TraceKeyShareBaseFragment() {
 					}
 				}
 			} else if (it.status == Status.ERROR) {
-				setInvalidCovidcodeErrorVisible(true)
+				if (it.data == null) return@observe
+				when (it.exception) {
+					is ResponseError -> showErrorDialog(it.data, it.exception.statusCode.toString())
+					is InvalidCodeError -> setInvalidCovidcodeErrorVisible(true)
+					else -> showErrorDialog(it.data)
+				}
 			}
 		}
 	}

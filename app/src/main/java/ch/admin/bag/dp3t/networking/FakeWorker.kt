@@ -159,7 +159,8 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 			DP3TKotlin.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(dp3tAccessToken)))
 			//Execute Checkin UserUpload Request
 			val checkinAccessToken = accessTokenResponse.checkInAccessToken.accessToken
-			UserUploadRepository().fakeUserUpload(getAuthorizationHeader(checkinAccessToken))
+			//TODO: Replace this with random delay
+			UserUploadRepository().fakeUserUpload(0, getAuthorizationHeader(checkinAccessToken))
 			true
 		} catch (e: Throwable) {
 			Logger.e(TAG, "fake request failed", e)

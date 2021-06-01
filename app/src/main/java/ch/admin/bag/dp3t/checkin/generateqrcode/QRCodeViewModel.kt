@@ -3,7 +3,6 @@ package ch.admin.bag.dp3t.checkin.generateqrcode
 import android.app.Application
 import android.content.Context
 import android.graphics.Bitmap
-import android.util.Base64
 import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
@@ -27,8 +26,6 @@ import java.io.IOException
 import kotlin.math.max
 
 
-private const val MASTER_PUBLIC_KEY_BASE64 =
-	"lW5voTRVR-jgYMiWLd04hjvyyFQG7QOyBLw0D7XbASlqlg0AviQMqgjbABZk9PcCip27szrqFyv_1YtKZE8eyzt7vtN4qKfJdWrItLRzRtjb83piN3cDt_yNo7siohQV"
 private const val ONE_MINUTE_IN_MILLIS = 60 * 1000L
 private const val ONE_HOUR_IN_MILLIS = 60 * ONE_MINUTE_IN_MILLIS
 private const val AUTOMATIC_CHECKOUT_DELAY_MS = 12 * ONE_HOUR_IN_MILLIS
@@ -90,7 +87,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 			swissCovidLocationData.toByteArray(),
 			System.currentTimeMillis() / 1000,
 			(System.currentTimeMillis() + QR_CODE_VALIDITY_DURATION_MS) / 1000,
-			Base64Util.fromBase64(MASTER_PUBLIC_KEY_BASE64)
+			Base64Util.fromBase64(BuildConfig.QR_MASTER_PUBLIC_KEY_BASE_64)
 		)
 
 

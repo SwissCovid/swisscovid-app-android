@@ -760,7 +760,7 @@ Zudem sind folgende Symptome möglich:
     <!-- Fuzzy -->
     <string name="delete_infection_button">"Isolation beenden"</string>
 
-    <!-- Meldung im Löschen Dialog nach Code-Einfragen -->
+    <!-- Meldung im Löschen Dialog nach Isolation-Beenden, kommt auch auf Homescreen-Popup -->
     <!-- Fuzzy -->
     <string name="delete_infection_dialog">"Möchten Sie die Isolation wirklich beenden?"</string>
     <string name="android_onboarding_battery_permission_title">"Akku-Optimierung ignorieren"</string>
@@ -969,12 +969,6 @@ Damit auch Reisende aus dem Ausland gewarnt werden können, geschieht das unabh�
 
     <!-- Telefonnummer der allgemeinen Infoline Coronavirus -->
     <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.5 -->
-    <string name="tracing_setting_text_ios_13_5">"COVID-19-Kontaktmitteilungen"</string>
-
-    <!-- Text beim Bluetooth Control iOS 13.6 -->
-    <string name="tracing_setting_text_ios_13_6">"COVID-19-Begegnungsmitteilungen"</string>
 
     <!-- Text beim Bluetooth Control iOS 14 -->
     <!-- Fuzzy -->
@@ -1650,7 +1644,6 @@ Dann rufen Sie hier an:"</string>
     <!-- Button text, um alle Checkins zu selektieren -->
     <string name="inform_share_checkins_select_all">"Alle auswählen"</string>
     <string name="inform_dont_send_button_title">"Nicht senden"</string>
-    <string name="inform_try_again_button_title">"Erneut versuchen"</string>
     <string name="inform_dont_share_button_title">"Nicht teilen"</string>
     <string name="inform_really_not_share_title">"Wirklich nicht teilen?"</string>
     <string name="inform_really_not_share_subtitle">"Das Teilen Ihrer privaten Schlüssel hilft «SwissCovid», andere potenziell infizierte Personen zu benachrichtigen und die weitere Ausbreitung des Virus zu verhindern. Wenn Sie Ihre privaten Schlüssel nicht teilen, werden keine potenziell infizierten Personen benachrichtigt."</string>
@@ -1701,18 +1694,6 @@ Dann rufen Sie hier an:"</string>
 
     <!-- Informieren: Danke Text Checkins Teil -->
     <string name="inform_send_thankyou_text_checkins">"Ihre ausgewählten Check-In-Einträge wurden gesendet. Alle Personen, die zum gleichen Zeitpunkt am gleichen Ort eingecheckt haben, werden benachrichtigt."</string>
-
-    <!-- Covidcode eingabe, are your sure not to share, titel -->
-    <string name="inform_are_you_sure_title">"Are you sure?"</string>
-
-    <!-- Covidcode eingabe, are your sure not to share, text -->
-    <string name="inform_are_you_sure_text">"Sharing your random IDs helps “SwissCovid” to notify other potential infected people and avoid the further spreading of the pandemic. If you don’t share your random IDs no automatically recognized encounters can be notified. "</string>
-
-    <!-- Covidcode eingabe, are your sure not to share, try agan button -->
-    <string name="inform_are_you_sure_try_again_button">"Try again"</string>
-
-    <!-- Covidcode eingabe, are your sure not to share, dont send button -->
-    <string name="inform_are_you_sure_dont_send_button">"Don't share"</string>
 
     <!-- SwissCovid QR Code PDF: Headline über dem Slogan -->
     <string name="pdf_headline">"SwissCovid-Check-in"</string>
@@ -1808,9 +1789,6 @@ Dieser Titel wird beim Check-in angezeigt."</string>
     <!-- Titel von CheckIn Meldungen Screen. -->
     <!-- Fuzzy -->
     <string name="meldung_detail_checkin_title">"Check-In"</string>
-
-    <!-- SubTitel von CheckIn Meldungen Screen. -->
-    <string name="meldung_detail_checkin_subtitle"></string>
     <string name="not_thank_you_screen_title">"Keine Daten gesendet"</string>
 
     <!-- Fuzzy -->
@@ -1853,4 +1831,9 @@ Dieser Titel wird beim Check-in angezeigt."</string>
     <string name="partial_onboarding_done_title">"Konfiguration abgeschlossen"</string>
     <string name="partial_onboarding_done_text">"Vielen Dank, dass Sie mithelfen, die Verbreitung des Coronavirus einzudämmen."</string>
     <string name="web_slogan">"Bei einem Ansteckungsrisiko schnell informiert."</string>
+
+    <!-- Info URL for testing -->
+    <!-- Fuzzy -->
+    <string name="test_info_url">"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
+    <string name="checkout_too_long_alert_text">"Für diesen Check-In gilt eine maximale Check-in Dauer von {DURATION}. Bitte überprüfen Sie nochmals Ihre Angabe."</string>
 </resources>

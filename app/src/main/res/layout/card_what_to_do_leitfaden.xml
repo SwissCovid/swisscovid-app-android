@@ -112,8 +112,7 @@
 						android:layout_height="wrap_content"
 						android:drawableEnd="@drawable/ic_launch"
 						android:paddingHorizontal="@dimen/spacing_medium"
-						android:text="@string/meldungen_detail_open_leitfaden_button"
-						android:textAllCaps="true" />
+						android:text="@string/meldungen_detail_open_leitfaden_button" />
 
 					<Button
 						android:id="@+id/zum_leitfaden_button"
@@ -164,7 +163,6 @@
 				android:paddingTop="15dp"
 				android:paddingBottom="10dp"
 				android:text="@string/delete_reports_button"
-				android:textAllCaps="true"
 				android:textColor="@color/blue_main"
 				app:layout_constraintBottom_toBottomOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"

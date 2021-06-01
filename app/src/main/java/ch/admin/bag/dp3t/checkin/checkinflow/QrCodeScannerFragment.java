@@ -1,11 +1,9 @@
 package ch.admin.bag.dp3t.checkin.checkinflow;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -63,7 +61,6 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 	private View bottomLeftIndicator;
 	private View errorView;
 	private View mainView;
-	private boolean goToHome = false;
 	private boolean isQRScanningEnabled = true;
 	private long lastUIErrorUpdate = 0L;
 
@@ -82,12 +79,7 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 
 	@Override
 	public void onResume() {
-		if (goToHome) {
-			requireActivity().getSupportFragmentManager().popBackStack();
-			goToHome = false;
-		} else {
-			isQRScanningEnabled = true;
-		}
+		isQRScanningEnabled = true;
 		super.onResume();
 	}
 
@@ -193,11 +185,11 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 			showCheckInFragment();
 			if (getActivity() != null) getActivity().runOnUiThread(() -> indicateInvalidQrCode(QRScannerState.VALID));
 		} catch (QrUtils.QRException e) {
-			handleInvalidQRCodeExceptions(qrCodeData, e);
+			handleInvalidQRCodeExceptions(e);
 		}
 	}
 
-	private void handleInvalidQRCodeExceptions(String qrCodeData, QrUtils.QRException e) {
+	private void handleInvalidQRCodeExceptions(QrUtils.QRException e) {
 		if (e instanceof QrUtils.InvalidQRCodeVersionException) {
 			if (getActivity() != null) getActivity().runOnUiThread(() -> {
 				isQRScanningEnabled = false;
@@ -211,14 +203,7 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 		} else if (e instanceof QrUtils.NotValidAnymoreException) {
 			if (getActivity() != null) getActivity().runOnUiThread(() -> indicateInvalidQrCode(QRScannerState.NOT_VALID_ANYMORE));
 		} else {
-			if (qrCodeData.startsWith(BuildConfig.TRACE_QR_CODE_PREFIX)) {
-				isQRScanningEnabled = false;
-				Intent openBrowserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(qrCodeData));
-				startActivity(openBrowserIntent);
-				goToHome = true;
-			} else {
-				if (getActivity() != null) getActivity().runOnUiThread(() -> indicateInvalidQrCode(QRScannerState.INVALID_FORMAT));
-			}
+			if (getActivity() != null) getActivity().runOnUiThread(() -> indicateInvalidQrCode(QRScannerState.INVALID_FORMAT));
 		}
 	}
 
@@ -233,7 +218,7 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 			invalidCodeText.setVisibility(View.INVISIBLE);
 		} else {
 			invalidCodeText.setVisibility(View.VISIBLE);
-			color = R.color.tertiary;
+			color = R.color.status_red;
 		}
 
 		if (qrScannerState == QRScannerState.INVALID_FORMAT) {

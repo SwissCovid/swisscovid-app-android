@@ -15,6 +15,7 @@ import ch.admin.bag.dp3t.networking.errors.InvalidCodeError
 import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeResponseModelV2
+import ch.admin.bag.dp3t.networking.models.OnsetResponse
 import kotlinx.coroutines.*
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -69,5 +70,15 @@ class AuthCodeRepository(context: Context) {
 			return@withContext response.body() ?: throw ResponseError(response.raw())
 		}
 
-	suspend fun getOnsetDate(authCode: AuthenticationCodeRequestModel) = authCodeService.getOnsetDate(authCode)
+	suspend fun getOnsetDate(authCode: AuthenticationCodeRequestModel): OnsetResponse {
+		val response = authCodeService.getOnsetDate(authCode)
+		if (!response.isSuccessful) {
+			if (response.code() == 404) {
+				throw InvalidCodeError()
+			} else {
+				throw ResponseError(response.raw())
+			}
+		}
+		return response.body() ?: throw ResponseError(response.raw())
+	}
 }

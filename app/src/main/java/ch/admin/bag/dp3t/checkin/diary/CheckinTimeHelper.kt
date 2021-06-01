@@ -1,10 +1,12 @@
 package ch.admin.bag.dp3t.checkin.diary
 
 import android.content.Context
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
+import ch.admin.bag.dp3t.extensions.getSwissCovidLocationData
 
 object CheckinTimeHelper {
 
@@ -22,10 +24,10 @@ object CheckinTimeHelper {
 		return checkins.any { it.departureTime > arrivalTime && departureTime > it.arrivalTime }
 	}
 
-	fun showOverlapDialog(context: Context) {
+	fun showSavingNotPossibleDialog(message: String, context: Context) {
 		AlertDialog.Builder(context, R.style.NextStep_AlertDialogStyle)
 			.setTitle(R.string.checkout_overlapping_alert_title)
-			.setMessage(R.string.checkout_overlapping_alert_description)
+			.setMessage(message)
 			.setNegativeButton(R.string.android_button_ok) { dialog, _ -> dialog.dismiss() }
 			.show()
 	}

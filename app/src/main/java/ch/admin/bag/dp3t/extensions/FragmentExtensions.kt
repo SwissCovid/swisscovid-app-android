@@ -7,7 +7,6 @@ import ch.admin.bag.dp3t.R
 fun Fragment.showFragment(
 	fragment: Fragment,
 	@IdRes container: Int = R.id.main_fragment_container,
-	addToBackStack: Boolean = true,
 	modalAnimation: Boolean = false
 ) {
 	requireActivity().supportFragmentManager.beginTransaction()
@@ -19,10 +18,8 @@ fun Fragment.showFragment(
 			} else {
 				this.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
 			}
-			if (addToBackStack) {
-				this.addToBackStack(fragment::class.java.canonicalName)
-			}
 		}
+		.addToBackStack(fragment::class.java.canonicalName)
 		.replace(container, fragment)
 		.commit()
 }

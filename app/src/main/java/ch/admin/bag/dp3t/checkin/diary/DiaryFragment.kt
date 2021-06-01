@@ -47,7 +47,7 @@ class DiaryFragment : Fragment() {
 				checkinDiaryEmptyView.isVisible = isEmpty
 				var daysAgoString = ""
 				for (diaryEntry in diaryEntries) {
-					val newDaysAgoString: String = StringUtil.getDaysAgoString(diaryEntry.arrivalTime, context)
+					val newDaysAgoString: String = StringUtil.getDaysAgoString(diaryEntry.arrivalTime, requireContext())
 					if (newDaysAgoString != daysAgoString) {
 						daysAgoString = newDaysAgoString
 						items.add(ItemVenueVisitDayHeader(daysAgoString))

@@ -34,7 +34,8 @@ class GenerateQrCodeFragment : Fragment() {
 
 	private fun generateQrCode(title: String) {
 		qrCodeViewModel.generateAndSaveQrCode(title).observe(viewLifecycleOwner) {
-			showFragment(QrCodeFragment.newInstance(it), addToBackStack = false)
+			requireActivity().supportFragmentManager.popBackStack()
+			showFragment(QrCodeFragment.newInstance(it))
 		}
 	}
 

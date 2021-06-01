@@ -25,6 +25,6 @@ interface AuthCodeService {
 
 	@Headers("accept: */*", "content-type: application/json")
 	@POST("v2/onset/date")
-	suspend fun getOnsetDate(@Body code: AuthenticationCodeRequestModel): OnsetResponse
+	suspend fun getOnsetDate(@Body code: AuthenticationCodeRequestModel): Response<OnsetResponse>
 
 }
