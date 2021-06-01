@@ -18,7 +18,6 @@ import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisit;
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisitDayHeader;
 import ch.admin.bag.dp3t.checkin.diary.items.VenueVisitRecyclerItem;
 import ch.admin.bag.dp3t.extensions.CommonVenueInfoExtensionsKt;
-import ch.admin.bag.dp3t.extensions.VenueInfoExtensionsKt;
 import ch.admin.bag.dp3t.util.StringUtil;
 
 public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

@@ -1,11 +1,9 @@
 package ch.admin.bag.dp3t.checkin.checkinflow;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -187,11 +185,11 @@ public class QrCodeScannerFragment extends Fragment implements QrCodeAnalyzer.Li
 			showCheckInFragment();
 			if (getActivity() != null) getActivity().runOnUiThread(() -> indicateInvalidQrCode(QRScannerState.VALID));
 		} catch (QrUtils.QRException e) {
-			handleInvalidQRCodeExceptions(qrCodeData, e);
+			handleInvalidQRCodeExceptions(e);
 		}
 	}
 
-	private void handleInvalidQRCodeExceptions(String qrCodeData, QrUtils.QRException e) {
+	private void handleInvalidQRCodeExceptions(QrUtils.QRException e) {
 		if (e instanceof QrUtils.InvalidQRCodeVersionException) {
 			if (getActivity() != null) getActivity().runOnUiThread(() -> {
 				isQRScanningEnabled = false;

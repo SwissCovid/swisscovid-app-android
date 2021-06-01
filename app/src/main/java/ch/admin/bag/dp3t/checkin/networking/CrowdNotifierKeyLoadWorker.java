@@ -28,6 +28,7 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 	private static final String WORK_TAG = "ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker";
 	private static final int DAYS_TO_KEEP_VENUE_VISITS = 14;
 	private static final int REPEAT_INTERVAL_MINUTES = 120;
+	private static final long MIN_EXPOSURE_OVERLAP = 15 * 1000L * 60;
 	private static final String LOG_TAG = "KeyLoadWorker";
 
 	public static void startKeyLoadWorker(Context context) {
@@ -59,7 +60,8 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 			LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(new Intent(ACTION_NEW_TRACE_KEY_SYNC));
 			return Result.retry();
 		}
-		List<ExposureEvent> exposures = CrowdNotifier.checkForMatches(problematicEventInfos, getApplicationContext());
+		List<ExposureEvent> exposures =
+				CrowdNotifier.checkForMatches(problematicEventInfos, MIN_EXPOSURE_OVERLAP, getApplicationContext());
 		if (!exposures.isEmpty()) {
 			showExposureNotification();
 		}

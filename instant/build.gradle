@@ -68,6 +68,4 @@ dependencies {
 	androidTestImplementation 'androidx.test.ext:junit:1.1.2'
 	androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-	implementation 'org.crowdnotifier:crowdnotifier-sdk-android:4.0-dev-10'
-
 }
