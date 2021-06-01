@@ -1739,4 +1739,13 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
     <string name="checkout_too_long_alert_text">"For this check-in a maximum check-in duration of {DURATION} applies. Please check your input again."</string>
+
+    <!-- turn camera light on -->
+    <string name="accessibility_camera_light_on">"turn light on"</string>
+
+    <!-- turn camera light off -->
+    <string name="accessibility_camera_light_off">"turn light off"</string>
+
+    <!-- Popup Text, welcher erscheint, wenn man den Covidcode eingeben will, man aber noch eingecheckt ist. -->
+    <string name="error_cannot_enter_covidcode_while_checked_in"></string>
 </resources>
