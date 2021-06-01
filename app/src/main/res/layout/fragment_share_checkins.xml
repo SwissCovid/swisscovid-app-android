@@ -29,6 +29,7 @@
 			android:text="@string/inform_share_checkins_subtitle" />
 
 		<LinearLayout
+			android:id="@+id/select_all_container"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginHorizontal="@dimen/spacing_medium_large"

@@ -28,15 +28,16 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 			adapter.setData(informViewModel.getSelectableCheckinItems())
 			adapter.itemSelectionListener { selectedItem, selected ->
 				informViewModel.setDiaryItemSelected(selectedItem.id, selected)
-				refreshSendButtonEnabled()
+				refreshSendButtonAndAllCheckbox()
 			}
 			selectAllCheckbox.setOnCheckedChangeListener { _, isChecked ->
 				informViewModel.getSelectableCheckinItems().forEach {
 					informViewModel.setDiaryItemSelected(it.diaryEntry.id, isChecked)
 				}
 				adapter.setData(informViewModel.getSelectableCheckinItems())
-				refreshSendButtonEnabled()
+				refreshSendButtonAndAllCheckbox()
 			}
+			selectAllContainer.setOnClickListener { selectAllCheckbox.isChecked = !selectAllCheckbox.isChecked }
 			dontSendButton.paintFlags = dontSendButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 			dontSendButton.setOnClickListener {
 				if (informViewModel.hasSharedDP3TKeys) {
@@ -49,12 +50,18 @@ class ShareCheckinsFragment : TraceKeyShareBaseFragment() {
 				informViewModel.hasSharedCheckins = true
 				upload()
 			}
-			refreshSendButtonEnabled()
+			refreshSendButtonAndAllCheckbox()
 		}.root
 	}
 
-	private fun refreshSendButtonEnabled() {
-		binding.sendButton.isEnabled = informViewModel.getSelectableCheckinItems().find { it.isSelected } != null
+	private fun refreshSendButtonAndAllCheckbox() {
+		val hasSelectedCheckins = informViewModel.getSelectableCheckinItems().any { it.isSelected }
+		val allCheckinsSelected = informViewModel.getSelectableCheckinItems().all { it.isSelected }
+		binding.apply {
+			binding.sendButton.isEnabled = hasSelectedCheckins
+			if (!hasSelectedCheckins) selectAllCheckbox.isChecked = false
+			if (allCheckinsSelected) selectAllCheckbox.isChecked = true
+		}
 	}
 
 	private fun upload() {
