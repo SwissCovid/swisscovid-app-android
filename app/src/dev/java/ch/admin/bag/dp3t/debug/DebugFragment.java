@@ -50,6 +50,7 @@ public class DebugFragment extends Fragment {
 	public static final boolean EXISTS = true;
 
 	private TracingViewModel tracingViewModel;
+	private CrowdNotifierViewModel crowdNotifierViewModel;
 
 	public static void startDebugFragment(FragmentManager parentFragmentManager) {
 		parentFragmentManager.beginTransaction()
@@ -71,6 +72,7 @@ public class DebugFragment extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		tracingViewModel = new ViewModelProvider(requireActivity()).get(TracingViewModel.class);
+		crowdNotifierViewModel = new ViewModelProvider(requireActivity()).get(CrowdNotifierViewModel.class);
 	}
 
 	@Override
@@ -109,6 +111,8 @@ public class DebugFragment extends Fragment {
 			SecureStorage.getInstance(requireContext()).setLastShownUpdateBoardingVersion(0);
 			getActivity().finish();
 		});
+
+		view.findViewById(R.id.debug_button_sync_checkin_keys).setOnClickListener(v -> crowdNotifierViewModel.refreshTraceKeys());
 
 		view.findViewById(R.id.debug_button_simulate_from_instant_app).setOnClickListener(v -> {
 			setDebugAppState(DebugAppState.NONE);
