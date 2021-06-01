@@ -19,11 +19,15 @@ import androidx.core.app.NotificationCompat
 import androidx.work.*
 import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.debug.DebugFragment
 import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.NotificationUtil
 import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.backend.SignatureException
+import org.dpppt.android.sdk.internal.history.HistoryDatabase
+import org.dpppt.android.sdk.internal.history.HistoryEntry
+import org.dpppt.android.sdk.internal.history.HistoryEntryType
 import org.dpppt.android.sdk.internal.logger.Logger
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -111,6 +115,14 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 				.setAutoCancel(true)
 				.build()
 			val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+			if(DebugFragment.EXISTS){
+				HistoryDatabase.getInstance(context).addEntry(
+					HistoryEntry(
+						HistoryEntryType.NOTIFICATION, "Showing update required notification", false,
+						System.currentTimeMillis()
+					)
+				)
+			}
 			notificationManager.notify(NotificationUtil.NOTIFICATION_ID_UPDATE, notification)
 		}
 
