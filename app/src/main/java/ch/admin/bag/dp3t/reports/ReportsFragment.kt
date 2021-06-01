@@ -213,7 +213,7 @@ class ReportsFragment : Fragment() {
 				}
 			}
 			State.POSITIVE_TESTED -> {
-				val oldestSharedKeyDateMillis = secureStorage.positiveReportOldestSharedKey
+				val oldestSharedKeyDateMillis = secureStorage.positiveReportOldestSharedKeyOrCheckin
 				binding.reportsInfected.apply {
 					faqButton.setOnClickListener { showFaq() }
 					cardEncountersFaqWhoIsNotifiedContainer.isVisible = oldestSharedKeyDateMillis > 0L
@@ -256,6 +256,7 @@ class ReportsFragment : Fragment() {
 				tracingViewModel.appStatusLiveData.value?.resetInfectionStatus(context)
 				secureStorage.isolationEndDialogTimestamp = -1L
 				secureStorage.positiveReportOldestSharedKey = -1L
+				secureStorage.positiveReportOldestSharedKeyOrCheckin = -1L
 				parentFragmentManager.popBackStack()
 			}
 			.setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }

@@ -78,6 +78,9 @@ public class SecureStorage {
 	private static final String KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG = "KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG";
 	private static final String KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD = "KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD";
 	private static final String KEY_ONLY_PARTIAL_ONBOARDING_DONE = "KEY_ONLY_PARTIAL_ONBOARDING_DONE";
+	private static final String KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN =
+			"KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN";
+
 
 	private static SecureStorage instance;
 
@@ -382,6 +385,14 @@ public class SecureStorage {
 
 	public void setPositiveReportOldestSharedKey(long setPositiveReportOldestSharedKey) {
 		prefs.edit().putLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY, setPositiveReportOldestSharedKey).apply();
+	}
+
+	public long getPositiveReportOldestSharedKeyOrCheckin() {
+		return prefs.getLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN, -1L);
+	}
+
+	public void setPositiveReportOldestSharedKeyOrCheckin(long oldestSharedKeyOrCheckin) {
+		prefs.edit().putLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN, oldestSharedKeyOrCheckin).apply();
 	}
 
 	private synchronized SharedPreferences initializeSharedPreferences(@NonNull Context context) {
