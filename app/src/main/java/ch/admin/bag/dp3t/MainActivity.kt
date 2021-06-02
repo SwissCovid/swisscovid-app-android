@@ -30,13 +30,13 @@ import ch.admin.bag.dp3t.checkin.utils.ErrorDialog
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper
 import ch.admin.bag.dp3t.inform.InformActivity
 import ch.admin.bag.dp3t.networking.ConfigWorker.Companion.scheduleConfigWorkerIfOutdated
-import ch.admin.bag.dp3t.onboarding.OnboardingActivity
+import ch.admin.bag.dp3t.onboarding.OnboardingActivityArgs
+import ch.admin.bag.dp3t.onboarding.OnboardingActivityResultContract
 import ch.admin.bag.dp3t.onboarding.OnboardingSlidePageAdapter.Companion.UPDATE_BOARDING_VERSION
 import ch.admin.bag.dp3t.onboarding.OnboardingType
 import ch.admin.bag.dp3t.reports.ReportsFragment
 import ch.admin.bag.dp3t.reports.ReportsOverviewFragment
 import ch.admin.bag.dp3t.storage.SecureStorage
-import ch.admin.bag.dp3t.util.BetterActivityResult
 import ch.admin.bag.dp3t.util.NotificationUtil
 import ch.admin.bag.dp3t.util.UrlUtil
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
@@ -62,7 +62,9 @@ class MainActivity : FragmentActivity() {
 	private val tracingViewModel: TracingViewModel by viewModels()
 	private val crowdNotifierViewModel: CrowdNotifierViewModel by viewModels()
 
-	private val activityLauncher = BetterActivityResult.registerActivityForResult(this)
+	private val onboardingLauncher = registerForActivityResult(OnboardingActivityResultContract()) {
+		onOnboardingFinished(it.onboardingType, it.activityResult, it.instantAppUrl)
+	}
 
 	private val autoCheckoutBroadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
 		override fun onReceive(context: Context, intent: Intent) {
@@ -119,12 +121,7 @@ class MainActivity : FragmentActivity() {
 	}
 
 	fun launchOnboarding(onboardingType: OnboardingType, instantAppQrCodeUrl: String? = null) {
-		val intent = Intent(this, OnboardingActivity::class.java).apply {
-			putExtra(OnboardingActivity.ARG_ONBOARDING_TYPE, onboardingType)
-		}
-		activityLauncher.launch(intent) { activityResult ->
-			onOnboardingFinished(onboardingType, activityResult, instantAppQrCodeUrl)
-		}
+		onboardingLauncher.launch(OnboardingActivityArgs(onboardingType, instantAppQrCodeUrl))
 	}
 
 	private fun onOnboardingFinished(onboardingType: OnboardingType, activityResult: ActivityResult, qrCodeUrl: String? = null) {
