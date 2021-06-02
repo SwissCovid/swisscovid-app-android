@@ -30,7 +30,7 @@ private const val ONE_MINUTE_IN_MILLIS = 60 * 1000L
 private const val ONE_HOUR_IN_MILLIS = 60 * ONE_MINUTE_IN_MILLIS
 private const val AUTOMATIC_CHECKOUT_DELAY_MS = 12 * ONE_HOUR_IN_MILLIS
 private const val CHECKOUT_WARNING_DELAY_MS = 8 * ONE_HOUR_IN_MILLIS
-private const val SWISSCOVID_LOCATION_DATA_VERSION = 1
+private const val SWISSCOVID_LOCATION_DATA_VERSION = 4
 private const val QR_CODE_VALIDITY_DURATION_MS = 100000 * 24 * ONE_HOUR_IN_MILLIS // 100'000 days
 private val REMINDER_DELAY_OPTIONS_MS =
 	listOf(if (BuildConfig.IS_FLAVOR_DEV) 1 else 30, 60, 120, 240).map { it * ONE_MINUTE_IN_MILLIS } // 30, 60, 120 and 240 minutes
