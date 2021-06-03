@@ -17,23 +17,6 @@ plugins {
 
 apply from: 'backend_certs.gradle'
 
-ext.readProperty = { paramName -> readPropertyWithDefault(paramName, null) }
-ext.readPropertyWithDefault = { paramName, defaultValue ->
-	if (project.hasProperty(paramName)) {
-		return project.getProperties().get(paramName)
-	} else {
-		Properties properties = new Properties()
-		if (project.rootProject.file('local.properties').exists()) {
-			properties.load(project.rootProject.file('local.properties').newDataInputStream())
-		}
-		if (properties.getProperty(paramName) != null) {
-			return properties.getProperty(paramName)
-		} else {
-			return defaultValue
-		}
-	}
-}
-
 android {
 	compileSdkVersion 30
 	buildToolsVersion "29.0.3"
@@ -126,7 +109,7 @@ android {
 		release {
 			storeFile file(readPropertyWithDefault('keystoreFile', 'testKeystore'))
 			storePassword readProperty('keystorePassword')
-			keyAlias 'keyAlias'
+			keyAlias readPropertyWithDefault('keyAlias', 'keyAlias')
 			keyPassword readProperty('keyAliasPassword')
 		}
 	}
