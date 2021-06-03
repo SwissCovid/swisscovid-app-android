@@ -19,7 +19,6 @@ apply from: 'backend_certs.gradle'
 
 android {
 	compileSdkVersion 30
-	buildToolsVersion "29.0.3"
 
 	defaultConfig {
 		applicationId "ch.admin.bag.dp3t"

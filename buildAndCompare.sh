@@ -16,8 +16,10 @@ read keyAlias
 echo Please enter KeyAlias Password:
 read -s keyAliasPassword
 
-echo Please enter Build Timestamp:
-read buildTimestamp
+if [[ $appName -eq 'app' ]] ; then
+  echo Please enter Build Timestamp:
+  read buildTimestamp
+fi
 
 #make sure we have a full clean build
 rm -rf $appName/build
