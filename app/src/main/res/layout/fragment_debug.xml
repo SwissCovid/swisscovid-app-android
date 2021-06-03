@@ -124,6 +124,15 @@
 						android:backgroundTint="@color/purple_main"
 						android:text="Simulate Update From Instant App" />
 
+					<Button
+						android:id="@+id/debug_button_sync_checkin_keys"
+						style="@style/NextStep.Button"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/spacing_large"
+						android:backgroundTint="@color/purple_main"
+						android:text="Sync Checkin Trace Keys" />
+
 				</LinearLayout>
 
 			</androidx.cardview.widget.CardView>
