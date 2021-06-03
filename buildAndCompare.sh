@@ -16,7 +16,7 @@ read keyAlias
 echo Please enter KeyAlias Password:
 read -s keyAliasPassword
 
-if [[ $appName -eq 'app' ]] ; then
+if [ "$appName" = "app" ] ; then
   echo Please enter Build Timestamp:
   read buildTimestamp
 fi
@@ -28,15 +28,17 @@ rm -rf .gradle
 docker build -t swisscovid-builder .
 currentPath=`pwd`
 
-if [[ $appName -eq 'app' ]] ; then
+if [ "$appName" = "app" ] ; then
   command='assembleProdRelease'
+  echo building an apk
 else
   command='bundleProdRelease'
+  echo building an app bundle
 fi
 docker run --rm -v $currentPath:/home/swisscovid -w /home/swisscovid swisscovid-builder gradle $appName:assembleProdRelease -PkeystorePassword=$keystorePassword -PkeyAlias=$keyAlias -PkeyAliasPassword=$keyAliasPassword -PkeystoreFile=$keystoreFile -PbuildTimestamp=$buildTimestamp
 
 
-if [[ $appName -eq 'app' ]] ; then
+if [ "$appName" = "app" ] ; then
   cp $appName/build/outputs/apk/prod/release/$appName-prod-release.apk $appName-built.apk
 
   if [[ $# -eq 1 ]] ; then
