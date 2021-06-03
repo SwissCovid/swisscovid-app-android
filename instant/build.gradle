@@ -54,6 +54,24 @@ android {
 		viewBinding true
 	}
 
+	signingConfigs {
+		release {
+			storeFile file(readPropertyWithDefault('keystoreFile', 'testKeystore'))
+			storePassword readProperty('keystorePassword')
+			keyAlias readPropertyWithDefault('keyAlias', 'keyAlias')
+			keyPassword readProperty('keyAliasPassword')
+		}
+	}
+
+	buildTypes {
+		release {
+			shrinkResources false
+			setMinifyEnabled true
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+			signingConfig signingConfigs.release
+		}
+	}
+
 }
 
 dependencies {
