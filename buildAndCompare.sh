@@ -30,12 +30,10 @@ currentPath=`pwd`
 
 if [ "$appName" = "app" ] ; then
   command='assembleProdRelease'
-  echo building an apk
 else
   command='bundleProdRelease'
-  echo building an app bundle
 fi
-docker run --rm -v $currentPath:/home/swisscovid -w /home/swisscovid swisscovid-builder gradle $appName:assembleProdRelease -PkeystorePassword=$keystorePassword -PkeyAlias=$keyAlias -PkeyAliasPassword=$keyAliasPassword -PkeystoreFile=$keystoreFile -PbuildTimestamp=$buildTimestamp
+docker run --rm -v $currentPath:/home/swisscovid -w /home/swisscovid swisscovid-builder gradle $appName:$command -PkeystorePassword=$keystorePassword -PkeyAlias=$keyAlias -PkeyAliasPassword=$keyAliasPassword -PkeystoreFile=$keystoreFile -PbuildTimestamp=$buildTimestamp
 
 
 if [ "$appName" = "app" ] ; then
