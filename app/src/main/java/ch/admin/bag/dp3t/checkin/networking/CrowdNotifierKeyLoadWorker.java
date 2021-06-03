@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import org.crowdnotifier.android.sdk.CrowdNotifier;
 import org.crowdnotifier.android.sdk.model.ExposureEvent;
 import org.crowdnotifier.android.sdk.model.ProblematicEventInfo;
+import org.dpppt.android.sdk.DP3T;
 
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
@@ -20,6 +21,7 @@ import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.NotificationUtil;
 
 import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.autoCheckoutIfNecessary;
+import static org.dpppt.android.sdk.InfectionStatus.INFECTED;
 
 
 public class CrowdNotifierKeyLoadWorker extends Worker {
@@ -54,6 +56,11 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 	@Override
 	public Result doWork() {
 		Log.d(LOG_TAG, "Started KeyLoadWorker");
+		if (DP3T.getStatus(getApplicationContext()).getInfectionStatus() == INFECTED) {
+			Log.d(LOG_TAG, "KeyLoadWorker: Network Request not executed");
+			return Result.success();
+		}
+
 		List<ProblematicEventInfo> problematicEventInfos = new TraceKeysRepository(getApplicationContext()).loadTraceKeys();
 		if (problematicEventInfos == null) {
 			Log.d(LOG_TAG, "KeyLoadWorker failure");
