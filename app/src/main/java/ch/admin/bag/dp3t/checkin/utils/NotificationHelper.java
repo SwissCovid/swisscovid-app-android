@@ -128,7 +128,7 @@ public class NotificationHelper {
 		createNotificationChannel(CHANNEL_ID_ONGOING_CHECK_IN,
 				context.getString(R.string.android_ongoing_checkin_notification_channel_name), true, IMPORTANCE_LOW);
 		Notification ongoingNotification = new NotificationCompat.Builder(context, CHANNEL_ID_ONGOING_CHECK_IN)
-				.setSmallIcon(R.drawable.ic_notification)
+				.setSmallIcon(R.drawable.ic_qr_small)
 				.setContentTitle(context.getString(R.string.ongoing_notification_title)
 						.replace("{TIME}", StringUtil.getHourMinuteTimeString(startTime, ":")))
 				.setContentText(venueInfo.getTitle())
