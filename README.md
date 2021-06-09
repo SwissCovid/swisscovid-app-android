@@ -1,4 +1,15 @@
-# SwissCovid Android App
+<h1 align="center">SwissCovid Android App</h1>
+<br />
+<div align="center">
+  <img width="180" height="180" src="app/src/main/ic_launcher-playstore.png" />
+  <br />
+  <div>
+    <!-- App Store -->
+    <a href="https://play.google.com/store/apps/details?id=ch.admin.bag.dp3t">
+      <img height="40" src="https://bag-coronavirus.ch/wp-content/uploads/2020/04/play-store.png" alt="Download on the PlayStore" />
+    </a>
+  </div>
+</div>
 
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://github.com/SwissCovid/swisscovid-app-android/blob/master/LICENSE)
 ![Android Build](https://github.com/SwissCovid/swisscovid-app-android/workflows/Android%20Build/badge.svg)
