@@ -213,9 +213,10 @@ class MainActivity : FragmentActivity() {
 
 	private fun checkValidCheckInIntent() {
 		val qrCodeData = intent.dataString ?: return
-		if (!qrCodeData.startsWith(BuildConfig.ENTRY_QR_CODE_PREFIX)) return
+
+		if (Uri.parse(qrCodeData).host != BuildConfig.ENTRY_QR_CODE_HOST) return
 		try {
-			val venueInfo = CrowdNotifier.getVenueInfo(qrCodeData, BuildConfig.ENTRY_QR_CODE_PREFIX)
+			val venueInfo = CrowdNotifier.getVenueInfo(qrCodeData, BuildConfig.ENTRY_QR_CODE_HOST)
 			if (crowdNotifierViewModel.isCheckedIn.value == true) {
 				ErrorDialog(this, CrowdNotifierErrorState.ALREADY_CHECKED_IN).show()
 			} else {
@@ -232,7 +233,7 @@ class MainActivity : FragmentActivity() {
 
 	private fun checkIn(qrCodeUrl: String) {
 		try {
-			val venueInfo = CrowdNotifier.getVenueInfo(qrCodeUrl, BuildConfig.ENTRY_QR_CODE_PREFIX)
+			val venueInfo = CrowdNotifier.getVenueInfo(qrCodeUrl, BuildConfig.ENTRY_QR_CODE_HOST)
 			if (crowdNotifierViewModel.isCheckedIn.value == true) {
 				ErrorDialog(this, CrowdNotifierErrorState.ALREADY_CHECKED_IN).show()
 			} else {

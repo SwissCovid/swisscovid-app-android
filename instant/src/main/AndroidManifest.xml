@@ -43,7 +43,7 @@
 			can not be set to something dynamic such as ${qrCodeHostName}, otherwise the Play Console upload will fail.-->
 			<meta-data
 				android:name="default-url"
-				android:value="https://qr.swisscovid.ch/" />
+				android:value="https://qr-playstore-try.swisscovid.ch/" />
 
 		</activity>
 

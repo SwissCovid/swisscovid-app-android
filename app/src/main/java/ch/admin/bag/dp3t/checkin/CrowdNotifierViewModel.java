@@ -35,7 +35,6 @@ import static ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper.ACTION
 public class CrowdNotifierViewModel extends AndroidViewModel {
 
 	private static final long MAX_DURATION_WITHOUT_SUCCESSFUL_DOWNLOAD = 24 * 60 * 60 * 1000L;
-	private static final long MIN_EXPOSURE_OVERLAP = 15 * 1000L * 60;
 
 	private final MutableLiveData<List<ExposureEvent>> exposures = new MutableLiveData<>();
 	private final MutableLiveData<Long> timeSinceCheckIn = new MutableLiveData<>(0L);
@@ -130,7 +129,7 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 				traceKeyLoadingState.setValue(LoadingState.FAILURE);
 			} else {
 				SecureStorage.getInstance(getApplication()).setLastSuccessfulCheckinDownload(System.currentTimeMillis());
-				CrowdNotifier.checkForMatches(traceKeys, MIN_EXPOSURE_OVERLAP,getApplication());
+				CrowdNotifier.checkForMatches(traceKeys, getApplication());
 				refreshExposures();
 				traceKeyLoadingState.setValue(LoadingState.SUCCESS);
 			}

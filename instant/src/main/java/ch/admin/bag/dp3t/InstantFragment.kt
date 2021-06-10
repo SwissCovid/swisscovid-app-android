@@ -1,6 +1,7 @@
 package ch.admin.bag.dp3t
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,8 +22,11 @@ import java.nio.charset.StandardCharsets
 
 
 private const val REQUEST_CODE_INSTALL = 1
-private const val QR_URL_PREFIX = BuildConfig.ENTRY_QR_CODE_PREFIX
-private const val QR_URL_PREFIX_WITH_VERSION = "$QR_URL_PREFIX?v="
+
+// Note: https://qr-playstore-try.swisscovid.ch is defined as the default url in the Manifest. When clicking on "Try now" in the Playstore
+// the Instant App is started with this url and some parameters, e.g.:
+// https://qr-playstore-try.swisscovid.ch/?referrer=utm_source%3D(not%2520set)%26utm_medium%3D(not%2520set)
+private const val PLAYSTORE_TRY_NOW_HOST = "qr-playstore-try.swisscovid.ch"
 
 class InstantFragment : Fragment() {
 
@@ -47,34 +51,28 @@ class InstantFragment : Fragment() {
 	}
 
 	private fun showVenueInfo(qrCodeUrl: String?) {
-		// If the instant app is started without a url (should never happen) or with the default url, don't show any QR Code
-		// information nor error.
-		// Note: https://qr.swisscovid.ch is defined as the default url in the Manifest. When clicking on "Try now" in the Playstore
-		// the Instant App is started with this url and some parameters, e.g.:
-		// https://qr.swisscovid.ch/?referrer=utm_source%3D(not%2520set)%26utm_medium%3D(not%2520set)
-
-		binding.apply {
-			if (qrCodeUrl == null || !qrCodeUrl.startsWith(QR_URL_PREFIX_WITH_VERSION)) {
-				title.setText(R.string.app_name)
-				installButton.setText(R.string.playservices_install)
-				return
-			}
-			try {
-				val venueInfo: VenueInfo = CrowdNotifier.getVenueInfo(qrCodeUrl, QR_URL_PREFIX)
+		try {
+			val venueInfo: VenueInfo = CrowdNotifier.getVenueInfo(qrCodeUrl, BuildConfig.ENTRY_QR_CODE_HOST)
+			binding.apply {
 				title.text = venueInfo.title
 				subtitle.setText(venueInfo.getSubtitle())
-			} catch (e: QRException) {
-				handleInvalidQRCodeExceptions(e)
 			}
+		} catch (e: QRException) {
+			handleInvalidQRCodeExceptions(e, qrCodeUrl)
 		}
 	}
 
-	private fun handleInvalidQRCodeExceptions(e: QRException) {
+	private fun handleInvalidQRCodeExceptions(e: QRException, qrCodeUrl: String?) {
 		binding.apply {
-			errorView.isVisible = true
-			illu.isVisible = false
 			title.setText(R.string.app_name)
 			installButton.setText(R.string.playservices_install)
+
+			// If the instant app is started without a url (should never happen) or with the default url, don't show any QR Code
+			// information nor error.
+			if (qrCodeUrl == null || Uri.parse(qrCodeUrl).host == PLAYSTORE_TRY_NOW_HOST) return
+
+			errorView.isVisible = true
+			illu.isVisible = false
 			when (e) {
 				is NotYetValidException ->
 					ErrorHelper.updateErrorView(errorView, CrowdNotifierErrorState.QR_CODE_NOT_YET_VALID, null, context, false)
@@ -94,16 +92,21 @@ class InstantFragment : Fragment() {
 	}
 
 	private fun storeInstantAppCookie(qrCodeUrl: String?) {
+
 		val pmc: PackageManagerCompat = InstantApps.getPackageManagerCompat(requireContext())
-		val cookieContent: ByteArray? = if (qrCodeUrl == null || !qrCodeUrl.startsWith(QR_URL_PREFIX_WITH_VERSION)) {
+		val hasValidVenueInfo =
+			runCatching { CrowdNotifier.getVenueInfo(qrCodeUrl, BuildConfig.ENTRY_QR_CODE_HOST) }.getOrNull() != null
+		val cookieContent: ByteArray? = if (qrCodeUrl == null || !hasValidVenueInfo) {
 			null
 		} else {
 			qrCodeUrl.toByteArray(StandardCharsets.UTF_8)
 		}
 		if (cookieContent == null || cookieContent.size <= pmc.instantAppCookieMaxSize) {
 			pmc.instantAppCookie = cookieContent
+			Log.d(TAG, "Instant Cookie saved: $qrCodeUrl")
+		} else {
+			Log.d(TAG, "No instant cookie saved: $qrCodeUrl")
 		}
 	}
-
 
 }

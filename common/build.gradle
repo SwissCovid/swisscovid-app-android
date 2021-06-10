@@ -66,7 +66,7 @@ dependencies {
 	androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 	implementation 'com.google.protobuf:protobuf-lite:3.0.1'
-	api 'org.crowdnotifier:crowdnotifier-sdk-android:4.0-dev-14'
+	api 'org.crowdnotifier:crowdnotifier-sdk-android:4.0.0-dev-17'
 	api 'com.google.android.gms:play-services-instantapps:17.0.0'
 
 }

@@ -134,7 +134,7 @@ class QrCodeScannerFragment : Fragment(), QrCodeAnalyzer.Listener {
 	override fun onQRCodeFound(qrCodeData: String) {
 		if (!isQRScanningEnabled) return
 		try {
-			val venueInfo = CrowdNotifier.getVenueInfo(qrCodeData, BuildConfig.ENTRY_QR_CODE_PREFIX)
+			val venueInfo = CrowdNotifier.getVenueInfo(qrCodeData, BuildConfig.ENTRY_QR_CODE_HOST)
 			isQRScanningEnabled = false
 			activity?.runOnUiThread {
 				viewModel.checkInState = CheckInState(false, venueInfo, System.currentTimeMillis(), System.currentTimeMillis(), 0)

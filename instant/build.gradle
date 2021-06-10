@@ -20,21 +20,21 @@ android {
 	productFlavors {
 		dev {
 			manifestPlaceholders = [qrCodeHostName: "qr-d.swisscovid.ch"]
-			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-d.swisscovid.ch"'
+			buildConfigField "String", "ENTRY_QR_CODE_HOST", '"qr-d.swisscovid.ch"'
 			applicationIdSuffix '.dev'
 		}
 		abnahme {
 			manifestPlaceholders = [qrCodeHostName: "qr-a.swisscovid.ch"]
-			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-a.swisscovid.ch"'
+			buildConfigField "String", "ENTRY_QR_CODE_HOST", '"qr-a.swisscovid.ch"'
 			applicationIdSuffix '.abnahme'
 		}
 		prod {
 			manifestPlaceholders = [qrCodeHostName: "qr.swisscovid.ch"]
-			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
+			buildConfigField "String", "ENTRY_QR_CODE_HOST", '"qr.swisscovid.ch"'
 		}
 		log {
 			manifestPlaceholders = [qrCodeHostName: "qr.swisscovid.ch"]
-			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
+			buildConfigField "String", "ENTRY_QR_CODE_HOST", '"qr.swisscovid.ch"'
 		}
 	}
 
