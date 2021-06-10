@@ -25,6 +25,7 @@ class OnboardingActivity : FragmentActivity() {
 
 	companion object {
 		const val ARG_ONBOARDING_TYPE = "ARG_ONBOARDING_TYPE"
+		const val ARG_INSTANT_APP_URL = "ARG_INSTANT_APP_URL"
 	}
 
 	private lateinit var splashboarding: View
@@ -65,7 +66,10 @@ class OnboardingActivity : FragmentActivity() {
 		if (currentItem < pagerAdapter.itemCount - 1) {
 			viewPager.setCurrentItem(currentItem + 1, true)
 		} else {
-			setResult(RESULT_OK, Intent().putExtra(ARG_ONBOARDING_TYPE, intent.getSerializableExtra(ARG_ONBOARDING_TYPE)))
+			val resultIntent = Intent()
+				.putExtra(ARG_ONBOARDING_TYPE, intent.getSerializableExtra(ARG_ONBOARDING_TYPE))
+				.putExtra(ARG_INSTANT_APP_URL, intent.getStringExtra(ARG_INSTANT_APP_URL))
+			setResult(RESULT_OK, resultIntent)
 			finish()
 			overridePendingTransition(R.anim.fragment_open_enter, R.anim.fragment_open_exit)
 		}

@@ -141,12 +141,11 @@ class MainActivity : FragmentActivity() {
 		}
 	}
 
-	// If there is an url in the instant app cookies, show the instant app onboarding
 	private fun checkForInstantAppUrl(): String? {
 		val pmc = InstantApps.getPackageManagerCompat(this)
 		val instantAppCookie = pmc.instantAppCookie
-		if (instantAppCookie != null && instantAppCookie.size > 0) {
-			// If there is an url in the instant app cookies, show the instant app onboarding
+		if (instantAppCookie != null && instantAppCookie.isNotEmpty()) {
+			// If there is an url in the instant app cookies, retun it and reset it to null
 			val url = String(instantAppCookie, StandardCharsets.UTF_8)
 			pmc.instantAppCookie = null
 			return url
