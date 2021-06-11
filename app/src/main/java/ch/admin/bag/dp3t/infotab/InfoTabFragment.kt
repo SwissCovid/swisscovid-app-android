@@ -69,8 +69,8 @@ class InfoTabFragment : Fragment() {
 	private fun showCannotEnterCovidcodeWhileCheckedInDialog() {
 		AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
 			.setMessage(R.string.error_cannot_enter_covidcode_while_checked_in)
-			.setPositiveButton(R.string.checkout_button_title) { dialog, id -> showCheckOutFragment() }
-			.setNegativeButton(R.string.cancel) { dialog, id -> dialog.dismiss() }
+			.setPositiveButton(R.string.checkout_button_title) { _, _ -> showCheckOutFragment() }
+			.setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
 			.create()
 			.show()
 	}

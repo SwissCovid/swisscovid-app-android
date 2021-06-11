@@ -102,7 +102,7 @@ class QRCodeViewModel(application: Application) : AndroidViewModel(application) 
 	fun generateQrCodeBitmapAndPdf(venueInfo: VenueInfo, qrCodeSize: Int) = viewModelScope.launch(Dispatchers.IO) {
 		launch(Dispatchers.IO) {
 			selectedQrCodeBitmap.postValue(
-				QrCode.create(venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX))
+				QrCode.create(venueInfo.toQrCodeString("https://" + BuildConfig.ENTRY_QR_CODE_HOST))
 					.renderToBitmap(max(qrCodeSize, MAX_QR_CODE_PIXEL_SIZE))
 			)
 		}

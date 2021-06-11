@@ -52,7 +52,7 @@ android {
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-d.bfs.admin.ch/"'
 			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.pt-d.bfs.admin.ch/"'
-			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-d.swisscovid.ch"'
+			buildConfigField "String", "ENTRY_QR_CODE_HOST", '"qr-d.swisscovid.ch"'
 			buildConfigField "String", "QR_MASTER_PUBLIC_KEY_BASE_64", '"lW5voTRVR-jgYMiWLd04hjvyyFQG7QOyBLw0D7XbASlqlg0AviQMqgjbABZk9PcCip27szrqFyv_1YtKZE8eyzt7vtN4qKfJdWrItLRzRtjb83piN3cDt_yNo7siohQV"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.dev.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.dev.BUCKET_PUBLIC_KEY}\""
@@ -67,7 +67,7 @@ android {
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt-a.bfs.admin.ch/"'
 			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.pt-a.bfs.admin.ch/"'
-			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr-a.swisscovid.ch"'
+			buildConfigField "String", "ENTRY_QR_CODE_HOST", '"qr-a.swisscovid.ch"'
 			buildConfigField "String", "QR_MASTER_PUBLIC_KEY_BASE_64", '"RHk4TO95YVnihWuCSVnbQ3ow-AcO-BXZ9caWeO_GP7o-vEiowJXTkKSUAf77n4oAmzshDvFVLkQFsA72JfBcaC8QSIT9owk83tnDuwpUuDfFgiBq_KXqcA2UcxaInmQS"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.abnahme.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.abnahme.BUCKET_PUBLIC_KEY}\""
@@ -82,7 +82,7 @@ android {
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.pt.bfs.admin.ch/"'
-			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
+			buildConfigField "String", "ENTRY_QR_CODE_HOST", '"qr.swisscovid.ch"'
 			buildConfigField "String", "QR_MASTER_PUBLIC_KEY_BASE_64", '"mAofNDGOKcmVJt4fo7kWruvFRee2g0irAfIdjH6EFyd6vHY_uTb6ZXOf9eFVzTUEiZLDLL-Q2w8kZkPscWyXi3X59zuqeI25qloOF-sowHo1_-HiH7Z_4COOA030mm8J"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""
@@ -96,7 +96,7 @@ android {
 			buildConfigField 'String', 'REPORT_URL', '"https://www.pt1.bfs.admin.ch/"'
 			buildConfigField 'String', 'STATS_URL', '"https://www.pt.bfs.admin.ch/"'
 			buildConfigField 'String', 'PUBLISHED_CROWDNOTIFIER_KEYS_BASE_URL', '"https://www.pt.bfs.admin.ch/"'
-			buildConfigField "String", "ENTRY_QR_CODE_PREFIX", '"https://qr.swisscovid.ch"'
+			buildConfigField "String", "ENTRY_QR_CODE_HOST", '"qr.swisscovid.ch"'
 			buildConfigField "String", "QR_MASTER_PUBLIC_KEY_BASE_64", '"mAofNDGOKcmVJt4fo7kWruvFRee2g0irAfIdjH6EFyd6vHY_uTb6ZXOf9eFVzTUEiZLDLL-Q2w8kZkPscWyXi3X59zuqeI25qloOF-sowHo1_-HiH7Z_4COOA030mm8J"'
 			buildConfigField 'String', 'CONFIG_CERTIFICATE', "\"${project.backend_certs.prod.CONFIG_CERTIFICATE}\""
 			buildConfigField 'String', 'BUCKET_PUBLIC_KEY', "\"${project.backend_certs.prod.BUCKET_PUBLIC_KEY}\""

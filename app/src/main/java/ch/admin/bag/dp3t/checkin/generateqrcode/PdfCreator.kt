@@ -19,8 +19,8 @@ private const val PDF_QR_CODE_MAX_PIXEL_SIZE = 310
 
 fun createEntryPdf(venueInfo: VenueInfo, context: Context): PdfDocument {
 
-	val bitmap =
-		QrCode.create(venueInfo.toQrCodeString(BuildConfig.ENTRY_QR_CODE_PREFIX)).renderToMaxSizeBitmap(PDF_QR_CODE_MAX_PIXEL_SIZE)
+	val bitmap = QrCode.create(venueInfo.toQrCodeString("https://" + BuildConfig.ENTRY_QR_CODE_HOST))
+		.renderToMaxSizeBitmap(PDF_QR_CODE_MAX_PIXEL_SIZE)
 
 	val document = PdfDocument()
 	val pageInfo = PdfDocument.PageInfo.Builder(PDF_WIDTH, PDF_HEIGHT, 1).create() // A4 size

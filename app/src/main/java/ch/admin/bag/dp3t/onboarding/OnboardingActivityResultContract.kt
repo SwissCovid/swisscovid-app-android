@@ -4,8 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContract
-
-private const val ARG_INSTANT_APP_URL = "ARG_INSTANT_APP_URL"
+import ch.admin.bag.dp3t.onboarding.OnboardingActivity.Companion.ARG_INSTANT_APP_URL
 
 class OnboardingActivityResultContract : ActivityResultContract<OnboardingActivityArgs, OnboardingActivityResult>() {
 

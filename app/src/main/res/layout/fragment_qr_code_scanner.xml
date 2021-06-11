@@ -174,12 +174,12 @@
 			android:id="@+id/space3"
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
-			app:layout_constraintBottom_toTopOf="@id/fragment_qr_scanner_flash_button"
+			app:layout_constraintBottom_toTopOf="@id/flash_button"
 			app:layout_constraintTop_toBottomOf="@id/qr_code_scanner_invalid_code_text"
 			app:layout_constraintVertical_weight="5" />
 
 		<ImageButton
-			android:id="@+id/fragment_qr_scanner_flash_button"
+			android:id="@+id/flash_button"
 			android:layout_width="@dimen/button_height"
 			android:layout_height="@dimen/button_height"
 			android:layout_margin="@dimen/spacing_large"
