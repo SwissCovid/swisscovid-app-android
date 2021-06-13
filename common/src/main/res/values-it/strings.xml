@@ -1510,7 +1510,7 @@ Chiama il seguente numero:"</string>
     <string name="checkins_create_qr_code">"Crea codice QR"</string>
 
     <!-- Veranstaltungen-Screen Titel -->
-    <string name="events_title">"Offrire i check-in?"</string>
+    <string name="events_title">"Offrire i check-in"</string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
     <string name="check_in_now_button_title">"Fai il check-in ora"</string>
@@ -1797,4 +1797,7 @@ Possibili luoghi d'impiego:
 
     <!-- Popup Text, welcher erscheint, wenn man den Covidcode eingeben will, man aber noch eingecheckt ist. -->
     <string name="error_cannot_enter_covidcode_while_checked_in"></string>
+
+    <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. Wird angezeigt falls bereits ein QR Code erstellt wurde -->
+    <string name="events_card_title_events_not_empty"></string>
 </resources>
