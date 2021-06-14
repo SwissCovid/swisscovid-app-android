@@ -23,11 +23,6 @@ import java.nio.charset.StandardCharsets
 
 private const val REQUEST_CODE_INSTALL = 1
 
-// Note: https://qr-playstore-try.swisscovid.ch is defined as the default url in the Manifest. When clicking on "Try now" in the Playstore
-// the Instant App is started with this url and some parameters, e.g.:
-// https://qr-playstore-try.swisscovid.ch/?referrer=utm_source%3D(not%2520set)%26utm_medium%3D(not%2520set)
-private const val PLAYSTORE_TRY_NOW_HOST = "qr-playstore-try.swisscovid.ch"
-
 class InstantFragment : Fragment() {
 
 	companion object {
@@ -67,9 +62,13 @@ class InstantFragment : Fragment() {
 			title.setText(R.string.app_name)
 			installButton.setText(R.string.playservices_install)
 
-			// If the instant app is started without a url (should never happen) or with the default url, don't show any QR Code
-			// information nor error.
-			if (qrCodeUrl == null || Uri.parse(qrCodeUrl).host == PLAYSTORE_TRY_NOW_HOST) return
+			// Note: https://qr.swisscovid.ch/try-now/ is defined as the default url in the Manifest. When clicking on
+			// "Try now" in the Playstore the Instant App is started with this url and some parameters, e.g.:
+			// https://qr.swisscovid.ch/try-now/?referrer=utm_source%3D(not%2520set)%26utm_medium%3D(not%2520set)
+
+			// If the instant app is started without a url (should never happen) or the default url, don't show any
+			// QR Code error information.
+			if (qrCodeUrl == null || Uri.parse(qrCodeUrl).path?.contains("try-now") == true) return
 
 			errorView.isVisible = true
 			illu.isVisible = false
