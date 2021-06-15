@@ -76,11 +76,12 @@ class CheckOutFragment : Fragment() {
 	}
 
 	private fun performCheckout() {
-		checkInState.run {
-			if (checkInTime > checkOutTime) {
-				// swap arrival and departure time
-				checkInTime = checkOutTime.also { checkOutTime = checkInTime }
-			}
+		if (checkInState.checkInTime > checkInState.checkOutTime) {
+			CheckinTimeHelper.showSavingNotPossibleDialog(
+				getString(R.string.checkout_inverse_time_alert_description),
+				requireContext()
+			)
+			return
 		}
 
 		val hasOverlapWithOtherCheckin =

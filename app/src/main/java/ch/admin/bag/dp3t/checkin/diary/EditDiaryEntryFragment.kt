@@ -60,11 +60,12 @@ class EditDiaryEntryFragment : Fragment() {
 	}
 
 	private fun performSave() {
-		diaryEntry.run {
-			if (arrivalTime > departureTime) {
-				// swap arrival and departure time
-				arrivalTime = departureTime.also { departureTime = arrivalTime }
-			}
+		if (diaryEntry.arrivalTime > diaryEntry.departureTime) {
+			CheckinTimeHelper.showSavingNotPossibleDialog(
+				getString(R.string.checkout_inverse_time_alert_description),
+				requireContext()
+			)
+			return
 		}
 
 		val hasOverlapWithOtherCheckin = CheckinTimeHelper.checkForOverlap(diaryEntry, requireContext())
