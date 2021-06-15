@@ -7,11 +7,11 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
-import ch.admin.bag.dp3t.checkin.diary.EditCheckinBaseFragment
+import ch.admin.bag.dp3t.checkin.EditCheckinBaseFragment
 import ch.admin.bag.dp3t.checkin.models.CheckInState
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
-import ch.admin.bag.dp3t.checkin.utils.CheckInRecord
+import ch.admin.bag.dp3t.checkin.models.CheckinInfo
 import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper
 import ch.admin.bag.dp3t.databinding.FragmentCheckOutAndEditBinding
@@ -30,7 +30,7 @@ class CheckOutFragment : EditCheckinBaseFragment() {
 	private lateinit var venueInfo: VenueInfo
 	private lateinit var checkInState: CheckInState
 
-	override val checkinRecord: CheckInRecord
+	override val checkinInfo: CheckinInfo
 		get() = checkInState
 
 	override fun onCreate(savedInstanceState: Bundle?) {

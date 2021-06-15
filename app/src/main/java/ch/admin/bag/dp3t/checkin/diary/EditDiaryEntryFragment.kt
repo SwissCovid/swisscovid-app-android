@@ -4,17 +4,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.EditCheckinBaseFragment
+import ch.admin.bag.dp3t.checkin.models.CheckinInfo
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
-import ch.admin.bag.dp3t.checkin.utils.CheckInRecord
 import ch.admin.bag.dp3t.databinding.FragmentCheckOutAndEditBinding
 import org.crowdnotifier.android.sdk.CrowdNotifier
 
 class EditDiaryEntryFragment : EditCheckinBaseFragment() {
 
 	companion object {
-		private val TAG = EditDiaryEntryFragment::class.java.canonicalName
-
 		private const val ARG_DIARY_ENTRY_ID = "ARG_DIARY_ENTRY_ID"
 
 		@JvmStatic
@@ -26,7 +25,7 @@ class EditDiaryEntryFragment : EditCheckinBaseFragment() {
 	private lateinit var diaryStorage: DiaryStorage
 	private lateinit var diaryEntry: DiaryEntry
 
-	override val checkinRecord: CheckInRecord
+	override val checkinInfo: CheckinInfo
 		get() = diaryEntry
 
 	override fun onCreate(savedInstanceState: Bundle?) {

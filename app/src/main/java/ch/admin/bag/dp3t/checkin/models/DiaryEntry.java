@@ -5,10 +5,8 @@ import androidx.annotation.NonNull;
 
 import org.crowdnotifier.android.sdk.model.VenueInfo;
 
-import ch.admin.bag.dp3t.checkin.utils.CheckInRecord;
-
 @Keep
-public class DiaryEntry implements CheckInRecord {
+public class DiaryEntry implements CheckinInfo {
 
 	private long id;
 	private long arrivalTime;
