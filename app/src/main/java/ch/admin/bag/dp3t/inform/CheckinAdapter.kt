@@ -31,7 +31,7 @@ class CheckinAdapter : RecyclerView.Adapter<CheckinAdapter.CheckinViewHolder>() 
 				checkinTitle.text = selectableCheckinItem.diaryEntry.venueInfo.title
 				checkinDetail1.setText(selectableCheckinItem.diaryEntry.venueInfo.getSubtitle())
 				checkinDetail2.text =
-					StringUtil.getReportDateString(selectableCheckinItem.diaryEntry.departureTime, true, true, root.context)
+					StringUtil.getReportDateString(selectableCheckinItem.diaryEntry.checkOutTime, true, true, root.context)
 				checkbox.isChecked = selectableCheckinItem.isSelected
 				setStroke(selectableCheckinItem.isSelected)
 

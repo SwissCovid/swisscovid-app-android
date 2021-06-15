@@ -1,11 +1,15 @@
 package ch.admin.bag.dp3t.checkin.models;
 
 import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 
 import org.crowdnotifier.android.sdk.model.VenueInfo;
 
+import ch.admin.bag.dp3t.checkin.utils.CheckInRecord;
+
 @Keep
-public class DiaryEntry {
+public class DiaryEntry implements CheckInRecord {
+
 	private long id;
 	private long arrivalTime;
 	private long departureTime;
@@ -18,27 +22,34 @@ public class DiaryEntry {
 		this.venueInfo = venueInfo;
 	}
 
-	public long getId() {
+	@Override
+	@NonNull
+	public Long getId() {
 		return id;
 	}
 
-	public long getArrivalTime() {
+	@Override
+	public long getCheckInTime() {
 		return arrivalTime;
 	}
 
-	public long getDepartureTime() {
+	@Override
+	public long getCheckOutTime() {
 		return departureTime;
 	}
 
+	@Override
 	public VenueInfo getVenueInfo() {
 		return venueInfo;
 	}
 
-	public void setArrivalTime(long arrivalTime) {
+	@Override
+	public void setCheckInTime(long arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
 
-	public void setDepartureTime(long departureTime) {
+	@Override
+	public void setCheckOutTime(long departureTime) {
 		this.departureTime = departureTime;
 	}
 

@@ -1,20 +1,16 @@
 package ch.admin.bag.dp3t.checkin.diary
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
+import ch.admin.bag.dp3t.checkin.utils.CheckInRecord
 import ch.admin.bag.dp3t.databinding.FragmentCheckOutAndEditBinding
-import ch.admin.bag.dp3t.extensions.getSubtitle
-import ch.admin.bag.dp3t.extensions.getSwissCovidLocationData
 import org.crowdnotifier.android.sdk.CrowdNotifier
 
-class EditDiaryEntryFragment : Fragment() {
+class EditDiaryEntryFragment : EditCheckinBaseFragment() {
 
 	companion object {
 		private val TAG = EditDiaryEntryFragment::class.java.canonicalName
@@ -30,6 +26,9 @@ class EditDiaryEntryFragment : Fragment() {
 	private lateinit var diaryStorage: DiaryStorage
 	private lateinit var diaryEntry: DiaryEntry
 
+	override val checkinRecord: CheckInRecord
+		get() = diaryEntry
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		diaryStorage = DiaryStorage.getInstance(requireContext())
@@ -37,63 +36,22 @@ class EditDiaryEntryFragment : Fragment() {
 		diaryEntry = diaryStorage.getDiaryEntryWithId(diaryEntryId)
 	}
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-		return FragmentCheckOutAndEditBinding.inflate(inflater, container, false).apply {
-			checkoutTitle.text = diaryEntry.venueInfo.title
-			checkoutSubtitle.setText(diaryEntry.venueInfo.getSubtitle())
-
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		FragmentCheckOutAndEditBinding.bind(view).apply {
 			toolbarDoneButton.setOnClickListener { performSave() }
-			toolbarCancelButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
+
 			checkoutPrimaryButton.setText(R.string.remove_from_diary_button)
 			checkoutPrimaryButton.setOnClickListener { hideInDiary() }
-
-			checkoutTimeArrival.setDateTime(diaryEntry.arrivalTime)
-			checkoutTimeArrival.setOnDateTimeChangedListener {
-				diaryEntry.arrivalTime = checkoutTimeArrival.getSelectedUnixTimestamp()
-			}
-
-			checkoutTimeDeparture.setDateTime(diaryEntry.departureTime)
-			checkoutTimeDeparture.setOnDateTimeChangedListener {
-				diaryEntry.departureTime = checkoutTimeDeparture.getSelectedUnixTimestamp()
-			}
-		}.root
+		}
 	}
 
-	private fun performSave() {
-		if (diaryEntry.arrivalTime > diaryEntry.departureTime) {
-			CheckinTimeHelper.showSavingNotPossibleDialog(
-				getString(R.string.checkout_inverse_time_alert_description),
-				requireContext()
-			)
-			return
-		}
-
-		val hasOverlapWithOtherCheckin = CheckinTimeHelper.checkForOverlap(diaryEntry, requireContext())
-		if (hasOverlapWithOtherCheckin) {
-			CheckinTimeHelper.showSavingNotPossibleDialog(
-				getString(R.string.checkout_overlapping_alert_description),
-				requireContext()
-			)
-			return
-		}
-
-		val checkinDuration = diaryEntry.departureTime - diaryEntry.arrivalTime
-		val maxCheckinTime = diaryEntry.venueInfo.getSwissCovidLocationData().automaticCheckoutDelaylMs
-		if (checkinDuration > maxCheckinTime) {
-			val dialogText = CheckinTimeHelper.getMaxCheckinTimeExceededMessage(maxCheckinTime, requireContext())
-			CheckinTimeHelper.showSavingNotPossibleDialog(dialogText, requireContext())
-			return
-		}
-
-		saveEntry()
-		requireActivity().supportFragmentManager.popBackStack()
-	}
-
-	private fun saveEntry() {
+	override fun saveEntry() {
 		diaryEntry.run {
-			CrowdNotifier.updateCheckIn(id, arrivalTime, departureTime, venueInfo, context)
+			CrowdNotifier.updateCheckIn(id, checkInTime, checkOutTime, venueInfo, context)
 		}
 		diaryStorage.updateEntry(diaryEntry)
+
+		requireActivity().supportFragmentManager.popBackStack()
 	}
 
 	private fun hideInDiary() {

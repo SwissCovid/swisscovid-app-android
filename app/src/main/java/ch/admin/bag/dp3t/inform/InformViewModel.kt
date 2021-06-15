@@ -159,8 +159,8 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 
 	fun getSelectableCheckinItems(): List<SelectableCheckinItem> {
 		return diaryStorage.entries.filter {
-			it.venueInfo.getSwissCovidLocationData().type == VenueType.USER_QR_CODE && it.departureTime >= onsetDate ?: 0
-					&& it.departureTime > System.currentTimeMillis() - MAX_EXPOSURE_AGE_MILLIS
+			it.venueInfo.getSwissCovidLocationData().type == VenueType.USER_QR_CODE && it.checkOutTime >= onsetDate ?: 0
+					&& it.checkOutTime > System.currentTimeMillis() - MAX_EXPOSURE_AGE_MILLIS
 		}.map {
 			SelectableCheckinItem(it, isSelected = selectedDiaryEntryIds.contains(it.id))
 		}
@@ -259,7 +259,7 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 			it.isSelected
 		}.map {
 			CrowdNotifier.generateUserUploadInfo(
-				it.diaryEntry.venueInfo, it.diaryEntry.arrivalTime, it.diaryEntry.departureTime + CHECKOUT_TIME_PADDING_MS
+				it.diaryEntry.venueInfo, it.diaryEntry.checkInTime, it.diaryEntry.checkOutTime + CHECKOUT_TIME_PADDING_MS
 			)
 		}.flatten().map {
 			it.toUploadVenueInfo()

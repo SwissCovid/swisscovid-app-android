@@ -5,22 +5,18 @@ import androidx.appcompat.app.AlertDialog
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
+import ch.admin.bag.dp3t.checkin.utils.CheckInRecord
 import ch.admin.bag.dp3t.util.StringUtil
 
 object CheckinTimeHelper {
 
-	fun checkForOverlap(diaryEntry: DiaryEntry, context: Context): Boolean {
+	fun checkForOverlap(diaryEntry: CheckInRecord, context: Context): Boolean {
 		val otherCheckins = DiaryStorage.getInstance(context).entries.filter { it.id != diaryEntry.id }
-		return checkForOverlap(otherCheckins, diaryEntry.arrivalTime, diaryEntry.departureTime)
-	}
-
-	fun checkForOverlap(arrivalTime: Long, departureTime: Long, context: Context): Boolean {
-		val otherCheckins = DiaryStorage.getInstance(context).entries
-		return checkForOverlap(otherCheckins, arrivalTime, departureTime)
+		return checkForOverlap(otherCheckins, diaryEntry.checkInTime, diaryEntry.checkOutTime)
 	}
 
 	private fun checkForOverlap(checkins: List<DiaryEntry>, arrivalTime: Long, departureTime: Long): Boolean {
-		return checkins.any { it.departureTime > arrivalTime && departureTime > it.arrivalTime }
+		return checkins.any { it.checkOutTime > arrivalTime && departureTime > it.checkInTime }
 	}
 
 	fun showSavingNotPossibleDialog(message: String, context: Context) {
