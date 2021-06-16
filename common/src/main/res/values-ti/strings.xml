@@ -1751,4 +1751,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
 
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. Wird angezeigt falls bereits ein QR Code erstellt wurde -->
     <string name="events_card_title_events_not_empty"></string>
+
+    <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns die Checkin-Zeit nach der Checkout-Zeit liegt -->
+    <string name="checkout_inverse_time_alert_description"></string>
 </resources>

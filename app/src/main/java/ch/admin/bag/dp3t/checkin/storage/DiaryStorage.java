@@ -105,7 +105,7 @@ public class DiaryStorage {
 		DayDate lastDateToKeep = new DayDate().subtractDays(maxDaysToKeep);
 		Iterator<DiaryEntry> iterator = exposureList.iterator();
 		while (iterator.hasNext()) {
-			if (new DayDate(iterator.next().getDepartureTime()).isBefore(lastDateToKeep)) {
+			if (new DayDate(iterator.next().getCheckOutTime()).isBefore(lastDateToKeep)) {
 				iterator.remove();
 			}
 		}
