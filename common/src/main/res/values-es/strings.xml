@@ -950,7 +950,7 @@ Al fin de poder alertar también a los viajeros del extranjero, esto ocurre inde
     <string name="share_app_body">"Si un gran número de personas activan la app SwissCovid, es posible interrumpir las cadenas de contagio a tiempo."</string>
 
     <!-- Text der geteilt wird -->
-    <string name="share_app_message">"Si un gran número de personas activan la app SwissCovid, es posible interrumpir las cadenas de contagio a tiempo."</string>
+    <string name="share_app_message">"Con la aplicación Swiss Covid, todos podemos contribuir a contener la propagación del virus."</string>
 
     <!-- URL die geteilt wird -->
     <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
@@ -1760,4 +1760,34 @@ Posibles utilizaciones:
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns die Checkin-Zeit nach der Checkout-Zeit liegt -->
     <string name="checkout_inverse_time_alert_description"></string>
+
+    <!-- Titel für die Notification die SwissCovid 2.0 ankündigt -->
+    <string name="update_notification_checkin_feature_title"></string>
+
+    <!-- Text für die Notification die SwissCovid 2.0 ankündigt -->
+    <string name="update_notification_checkin_feature_text"></string>
+
+    <!-- Titel für aktuellen Check-in im Tagebuch -->
+    <string name="diary_current_title"></string>
+
+    <!-- Snooze Option um 30min später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_30min"></string>
+
+    <!-- Snooze Option um 1h später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_1h"></string>
+
+    <!-- Snooze Option um 2h später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_2h"></string>
+
+    <!-- Notification Quickaction um jetzt auszuchecken -->
+    <string name="ios_notification_checkout_now"></string>
+
+    <!-- Hinweis falls fälschlicherweise ein Covid-Zertifikat mit SwissCovid gescannt wird. -->
+    <string name="covid_certificate_alert_text"></string>
+
+    <!-- Button um Covid Certificate App zu öffnen -->
+    <string name="covid_certificate_open_app"></string>
+
+    <!-- Button um Covid Certificate App zu installieren -->
+    <string name="covid_certificate_install_app"></string>
 </resources>
