@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
+import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisit
+import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisitCurrent
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisitDayHeader
 import ch.admin.bag.dp3t.checkin.diary.items.VenueVisitRecyclerItem
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
@@ -38,6 +41,26 @@ class DiaryFragment : Fragment() {
 			val recyclerAdapter = DiaryRecyclerViewAdapter()
 			checkinDiaryRecyclerView.adapter = recyclerAdapter
 
+			crowdNotifierViewModel.isCheckedIn.observe(viewLifecycleOwner) { isCheckedIn ->
+				if (isCheckedIn) {
+					recyclerAdapter.setCurrentCheckinData(
+						ItemVenueVisitDayHeader(getString(R.string.diary_current_title)),
+						ItemVenueVisitCurrent(crowdNotifierViewModel.checkInState)
+					) {
+						showFragment(CheckOutFragment.newInstance(), modalAnimation = true)
+					}
+					crowdNotifierViewModel.startCheckInTimer()
+				} else {
+					recyclerAdapter.setCurrentCheckinDataNone()
+				}
+			}
+
+			crowdNotifierViewModel.timeSinceCheckIn.observe(viewLifecycleOwner) { time ->
+				if (time > 0) {
+					recyclerAdapter.updateCurrentCheckinData()
+				}
+			}
+
 			crowdNotifierViewModel.exposures.observe(viewLifecycleOwner) { exposures ->
 				val items = ArrayList<VenueVisitRecyclerItem>()
 				val diaryEntries = DiaryStorage.getInstance(context).entries.sortedByDescending {
@@ -56,7 +79,7 @@ class DiaryFragment : Fragment() {
 						onDiaryEntryClicked(diaryEntry, getExposureWithId(exposures, diaryEntry.id))
 					})
 				}
-				recyclerAdapter.setData(items)
+				recyclerAdapter.setDiaryData(items)
 			}
 		}.root
 	}

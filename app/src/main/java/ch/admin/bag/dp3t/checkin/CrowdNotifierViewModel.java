@@ -219,6 +219,7 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 	public void onCleared() {
 		super.onCleared();
 		LocalBroadcastManager.getInstance(getApplication()).unregisterReceiver(broadcastReceiver);
+		handler.removeCallbacks(timeUpdateRunnable);
 	}
 
 	public enum LoadingState {
