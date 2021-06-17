@@ -31,11 +31,11 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import ch.admin.bag.dp3t.checkin.models.CheckInState;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.networking.models.TestLocationModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
-import ch.admin.bag.dp3t.checkin.models.CheckInState;
 
 public class SecureStorage {
 
@@ -80,6 +80,8 @@ public class SecureStorage {
 	private static final String KEY_ONLY_PARTIAL_ONBOARDING_DONE = "KEY_ONLY_PARTIAL_ONBOARDING_DONE";
 	private static final String KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN =
 			"KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN";
+	private static final String KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE =
+			"KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE";
 
 
 	private static SecureStorage instance;
@@ -393,6 +395,14 @@ public class SecureStorage {
 
 	public void setPositiveReportOldestSharedKeyOrCheckin(long oldestSharedKeyOrCheckin) {
 		prefs.edit().putLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN, oldestSharedKeyOrCheckin).apply();
+	}
+
+	public boolean getExposureNotifcationsActiveBeforeEnteringCovidcode() {
+		return prefs.getBoolean(KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE, false);
+	}
+
+	public void setExposureNotifcationsActiveBeforeEnteringCovidcode(boolean active) {
+		prefs.edit().putBoolean(KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE, active).apply();
 	}
 
 	private synchronized SharedPreferences initializeSharedPreferences(@NonNull Context context) {

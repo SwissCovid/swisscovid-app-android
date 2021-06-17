@@ -222,7 +222,7 @@ class ReportsFragment : Fragment() {
 					val faqText = getString(R.string.meldungen_positive_tested_faq2_text).replace("{ONSET_DATE}", formattedDate)
 					val formattedText = StringUtil.makePartiallyBold(faqText, formattedDate)
 					cardEncountersFaqWhoIsNotified.text = formattedText
-					deleteReports.setOnClickListener { showDeleteReportConfirmationDialog() }
+					deleteReports.setOnClickListener { showEndIsolationConfirmationDialog() }
 					deleteReports.isVisible = tracingStatusInterface.canInfectedStatusBeReset(requireContext())
 				}
 			}
@@ -249,14 +249,11 @@ class ReportsFragment : Fragment() {
 		setupHeader(state)
 	}
 
-	private fun showDeleteReportConfirmationDialog() {
+	private fun showEndIsolationConfirmationDialog() {
 		AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
 			.setMessage(R.string.delete_infection_dialog)
 			.setPositiveButton(R.string.delete_infection_dialog_finish_button) { _, _ ->
-				tracingViewModel.appStatusLiveData.value?.resetInfectionStatus(context)
-				secureStorage.isolationEndDialogTimestamp = -1L
-				secureStorage.positiveReportOldestSharedKey = -1L
-				secureStorage.positiveReportOldestSharedKeyOrCheckin = -1L
+				TracingStatusHelper.resetStateAfterIsolation(activity, tracingViewModel)
 				parentFragmentManager.popBackStack()
 			}
 			.setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }

@@ -456,10 +456,7 @@ public class HomeFragment extends Fragment {
 					AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle);
 					builder.setMessage(R.string.delete_infection_dialog)
 							.setPositiveButton(R.string.delete_infection_dialog_finish_button, (dialog, id) -> {
-								tracingStatusInterface.resetInfectionStatus(getContext());
-								secureStorage.setIsolationEndDialogTimestamp(-1L);
-								secureStorage.setPositiveReportOldestSharedKey(-1L);
-								secureStorage.setPositiveReportOldestSharedKeyOrCheckin(-1L);
+								TracingStatusHelper.resetStateAfterIsolation(getActivity(), tracingViewModel);
 							})
 							.setNegativeButton(R.string.cancel, (dialog, id) -> {
 								//do nothing
@@ -553,10 +550,7 @@ public class HomeFragment extends Fragment {
 							.setTitle(R.string.homescreen_isolation_ended_popup_title)
 							.setMessage(R.string.homescreen_isolation_ended_popup_text)
 							.setPositiveButton(R.string.answer_yes, (dialog, which) -> {
-								tracingStatusInterface.resetInfectionStatus(getContext());
-								secureStorage.setIsolationEndDialogTimestamp(-1L);
-								secureStorage.setPositiveReportOldestSharedKey(-1L);
-								secureStorage.setPositiveReportOldestSharedKeyOrCheckin(-1L);
+								TracingStatusHelper.resetStateAfterIsolation(getActivity(), tracingViewModel);
 							})
 							.setNegativeButton(R.string.answer_no, (dialog, which) -> {
 								long newTimestamp = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1);

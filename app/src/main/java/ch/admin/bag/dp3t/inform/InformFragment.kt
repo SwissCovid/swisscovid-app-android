@@ -22,7 +22,9 @@ import ch.admin.bag.dp3t.inform.views.ChainedEditText
 import ch.admin.bag.dp3t.inform.views.ChainedEditText.ChainedEditTextListener
 import ch.admin.bag.dp3t.networking.errors.InvalidCodeError
 import ch.admin.bag.dp3t.networking.errors.ResponseError
+import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.PhoneUtil
+import org.dpppt.android.sdk.DP3T
 
 private const val REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}"
 
@@ -84,6 +86,8 @@ class InformFragment : TraceKeyShareBaseFragment() {
 		informViewModel.loadOnsetDate().observe(viewLifecycleOwner) {
 			setLoadingViewVisible(it.status == Status.LOADING)
 			if (it.status == Status.SUCCESS) {
+				val secureStorage = SecureStorage.getInstance(context)
+				secureStorage.exposureNotifcationsActiveBeforeEnteringCovidcode = DP3T.isTracingEnabled(requireContext())
 				askUserToEnableTracingIfNecessary { tracingEnabled ->
 					if (tracingEnabled) {
 						showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
