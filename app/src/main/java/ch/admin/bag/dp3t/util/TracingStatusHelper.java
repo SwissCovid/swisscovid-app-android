@@ -9,6 +9,7 @@
  */
 package ch.admin.bag.dp3t.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Paint;
@@ -22,6 +23,8 @@ import androidx.core.widget.ImageViewCompat;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
 import ch.admin.bag.dp3t.home.model.TracingState;
+import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class TracingStatusHelper {
 
@@ -109,6 +112,17 @@ public class TracingStatusHelper {
 			buttonView.setVisibility(View.VISIBLE);
 		} else {
 			buttonView.setVisibility(View.GONE);
+		}
+	}
+
+	public static void resetStateAfterIsolation(Activity activity, TracingViewModel tracingViewModel) {
+		tracingViewModel.getTracingStatusInterface().resetInfectionStatus(activity);
+		SecureStorage secureStorage = SecureStorage.getInstance(activity);
+		secureStorage.setIsolationEndDialogTimestamp(-1L);
+		secureStorage.setPositiveReportOldestSharedKey(-1L);
+		secureStorage.setPositiveReportOldestSharedKeyOrCheckin(-1L);
+		if (secureStorage.getExposureNotifcationsActiveBeforeEnteringCovidcode()) {
+			tracingViewModel.enableTracing(activity, () -> {}, (e) -> {}, () -> {});
 		}
 	}
 
