@@ -11,7 +11,6 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.models.CheckinInfo
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
 import ch.admin.bag.dp3t.databinding.FragmentCheckOutAndEditBinding
-import ch.admin.bag.dp3t.extensions.getSubtitle
 import ch.admin.bag.dp3t.extensions.getSwissCovidLocationData
 import ch.admin.bag.dp3t.util.StringUtil
 
@@ -22,7 +21,6 @@ abstract class EditCheckinBaseFragment : Fragment() {
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		return FragmentCheckOutAndEditBinding.inflate(inflater, container, false).apply {
 			checkoutTitle.text = checkinInfo.venueInfo.title
-			checkoutSubtitle.setText(checkinInfo.venueInfo.getSubtitle())
 
 			toolbarCancelButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 

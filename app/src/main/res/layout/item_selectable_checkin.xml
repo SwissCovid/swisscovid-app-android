@@ -27,23 +27,13 @@
 			tools:text="Checkin 1" />
 
 		<TextView
-			android:id="@+id/checkin_detail1"
-			style="@style/NextStep.Text"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/spacing_very_small"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/checkin_title"
-			tools:text="Office space" />
-
-		<TextView
 			android:id="@+id/checkin_detail2"
 			style="@style/NextStep.Text"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/spacing_very_small"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/checkin_detail1"
+			app:layout_constraintTop_toBottomOf="@id/checkin_title"
 			tools:text="Test test" />
 
 		<com.google.android.material.checkbox.MaterialCheckBox

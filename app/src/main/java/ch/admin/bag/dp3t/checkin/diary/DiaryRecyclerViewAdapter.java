@@ -91,21 +91,18 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 
 		private final TextView timeTextView;
 		private final TextView nameTextView;
-		private final TextView locationTextView;
 		private final ImageView statusIcon;
 
 		public VenueVisitViewHolder(View itemView) {
 			super(itemView);
 			this.timeTextView = itemView.findViewById(R.id.item_diary_entry_time);
 			this.nameTextView = itemView.findViewById(R.id.item_diary_entry_name);
-			this.locationTextView = itemView.findViewById(R.id.item_diary_entry_location);
 			this.statusIcon = itemView.findViewById(R.id.item_diary_entry_status_icon);
 		}
 
 		public void bind(ItemVenueVisit item) {
 			VenueInfo venueInfo = item.getDiaryEntry().getVenueInfo();
 			nameTextView.setText(venueInfo.getTitle());
-			locationTextView.setText(CommonVenueInfoExtensionsKt.getSubtitle(venueInfo));
 			String start = StringUtil.getHourMinuteTimeString(item.getDiaryEntry().getCheckInTime(), ":");
 			String end = StringUtil.getHourMinuteTimeString(item.getDiaryEntry().getCheckOutTime(), ":");
 			timeTextView.setText(start + " — " + end);

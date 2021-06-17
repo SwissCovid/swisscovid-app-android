@@ -62,15 +62,6 @@
 				tools:text="Cyber Cafe SV" />
 
 			<TextView
-				android:id="@+id/checkout_subtitle"
-				style="@style/NextStep.Text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_very_small"
-				android:gravity="center"
-				tools:text="Lausanne" />
-
-			<TextView
 				style="@style/NextStep.Text.Bold"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

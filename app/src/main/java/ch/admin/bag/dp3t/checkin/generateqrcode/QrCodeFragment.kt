@@ -47,7 +47,6 @@ class QrCodeFragment : Fragment() {
 			cancelButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 			val venueInfo = QRCodePayload.parseFrom(arguments?.get(KEY_VENUE_INFO) as ByteString).toVenueInfo()
 			titleTextview.text = venueInfo.title
-			subtitleTextview.setText(venueInfo.getSubtitle())
 			qrCodeImageview.visibility = View.INVISIBLE
 			qrCodeLoadingProgressbar.isVisible = true
 			shareButton.isEnabled = false

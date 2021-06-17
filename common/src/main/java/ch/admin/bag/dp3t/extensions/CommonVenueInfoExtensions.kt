@@ -16,8 +16,3 @@ fun VenueInfo.getSwissCovidLocationData(): SwissCovidLocationData {
 		}
 	}
 }
-
-@StringRes
-fun VenueInfo.getSubtitle(): Int {
-	return getSwissCovidLocationData().type.getNameRes()
-}
