@@ -29,6 +29,7 @@
 
 			<TextView
 				style="@style/NextStep.Text.Title"
+				android:id="@+id/evemts_card_title"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginStart="@dimen/spacing_medium"

@@ -15,9 +15,10 @@ import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
 import ch.admin.bag.dp3t.checkin.diary.DiaryFragment
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment
+import ch.admin.bag.dp3t.checkin.generateqrcode.QRCodeViewModel
 import ch.admin.bag.dp3t.databinding.FragmentCheckinOverviewBinding
-import ch.admin.bag.dp3t.util.StringUtil
 import ch.admin.bag.dp3t.extensions.showFragment
+import ch.admin.bag.dp3t.util.StringUtil
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 
 class CheckinOverviewFragment : Fragment() {
@@ -31,6 +32,7 @@ class CheckinOverviewFragment : Fragment() {
 
 	private val crowdNotifierViewModel: CrowdNotifierViewModel by activityViewModels()
 	private val tracingViewModel: TracingViewModel by activityViewModels()
+	private val qrCodeViewModel: QRCodeViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		return FragmentCheckinOverviewBinding.inflate(inflater).apply {
@@ -58,6 +60,15 @@ class CheckinOverviewFragment : Fragment() {
 
 			crowdNotifierViewModel.timeSinceCheckIn.observe(viewLifecycleOwner) { duration ->
 				checkinTime.text = StringUtil.getShortDurationString(duration)
+			}
+
+			qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner) {
+				qrCodeGenerate.evemtsCardTitle.text =
+					if (it.isEmpty()) {
+						getString(R.string.events_card_title)
+					} else {
+						getString(R.string.events_card_title_events_not_empty)
+					}
 			}
 
 			qrCodeGenerate.root.setOnClickListener { showFragment(EventsOverviewFragment.newInstance()) }
