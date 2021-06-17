@@ -941,7 +941,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="share_app_body">"ብዝተኻእለ መጠን ብዙሓት ንSwissCovid ኤፕ እንድሕር ወሊዖሞ፣ ናይ ልበዳ ሰንሰለታት ብኣጋኡ ከነቋርጾም ንኽእል ኢና።"</string>
 
     <!-- Text der geteilt wird -->
-    <string name="share_app_message">"ብዝተኻእለ መጠን ብዙሓት ንSwissCovid ኤፕ እንድሕር ወሊዖሞ፣ ናይ ልበዳ ሰንሰለታት ብኣጋኡ ከነቋርጾም ንኽእል ኢና።"</string>
+    <string name="share_app_message">"ብስዊስኮድ ኣፕ ዝርግሐ ናይ ኮሮናቫይረስ ንኽዕገት እጃምኩም ተበርክቱ።"</string>
 
     <!-- URL die geteilt wird -->
     <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
@@ -1754,4 +1754,34 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns die Checkin-Zeit nach der Checkout-Zeit liegt -->
     <string name="checkout_inverse_time_alert_description"></string>
+
+    <!-- Titel für die Notification die SwissCovid 2.0 ankündigt -->
+    <string name="update_notification_checkin_feature_title"></string>
+
+    <!-- Text für die Notification die SwissCovid 2.0 ankündigt -->
+    <string name="update_notification_checkin_feature_text"></string>
+
+    <!-- Titel für aktuellen Check-in im Tagebuch -->
+    <string name="diary_current_title"></string>
+
+    <!-- Snooze Option um 30min später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_30min"></string>
+
+    <!-- Snooze Option um 1h später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_1h"></string>
+
+    <!-- Snooze Option um 2h später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_2h"></string>
+
+    <!-- Notification Quickaction um jetzt auszuchecken -->
+    <string name="ios_notification_checkout_now"></string>
+
+    <!-- Hinweis falls fälschlicherweise ein Covid-Zertifikat mit SwissCovid gescannt wird. -->
+    <string name="covid_certificate_alert_text"></string>
+
+    <!-- Button um Covid Certificate App zu öffnen -->
+    <string name="covid_certificate_open_app"></string>
+
+    <!-- Button um Covid Certificate App zu installieren -->
+    <string name="covid_certificate_install_app"></string>
 </resources>

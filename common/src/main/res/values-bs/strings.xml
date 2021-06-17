@@ -957,7 +957,7 @@ Da bi putnici u inostranstvu mogli da se upozore, to se dešava nezavisno od tog
     <string name="share_app_body">"Ako što više nas aktivira aplikaciju SwissCovid, moći ćemo pravovremeno da prekinemo lanac širenja infekcije."</string>
 
     <!-- Text der geteilt wird -->
-    <string name="share_app_message">"Ako što više nas aktivira aplikaciju SwissCovid, moći ćemo pravovremeno da prekinemo lanac širenja infekcije."</string>
+    <string name="share_app_message">"Pomoću aplikacije Swiss Covid svi možemo da pomognemo u suzbijanju širenja virusa korona."</string>
 
     <!-- URL die geteilt wird -->
     <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
@@ -1547,7 +1547,7 @@ U tom slučaju kontaktirajte nas ovde:"</string>
     <string name="checkin_detail_checked_out_text">"Skenirajte SwissCovid-QR kod, kako biste se prijavili na nekoj lokaciji."</string>
 
     <!-- Text im Check-Ins-Screen, im Tagebuch-Modul -->
-    <string name="checkin_detail_diary_text">"Ako skenirate Swiss-Covid-QR kod, da biste se prijavili na nekoj lokaciji, ovde se automatski uređuje unos."</string>
+    <string name="checkin_detail_diary_text">"Ako skenirate SwissCovid-QR kod, da biste se prijavili na nekoj lokaciji, ovde se automatski uređuje unos."</string>
 
     <!-- Label im Checkin-Modul im eingecheckten Zustand -->
     <string name="checkin_checked_in">"Prijavljeni ste"</string>
@@ -1768,4 +1768,34 @@ U tom slučaju kontaktirajte nas ovde:"</string>
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns die Checkin-Zeit nach der Checkout-Zeit liegt -->
     <string name="checkout_inverse_time_alert_description"></string>
+
+    <!-- Titel für die Notification die SwissCovid 2.0 ankündigt -->
+    <string name="update_notification_checkin_feature_title"></string>
+
+    <!-- Text für die Notification die SwissCovid 2.0 ankündigt -->
+    <string name="update_notification_checkin_feature_text"></string>
+
+    <!-- Titel für aktuellen Check-in im Tagebuch -->
+    <string name="diary_current_title"></string>
+
+    <!-- Snooze Option um 30min später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_30min"></string>
+
+    <!-- Snooze Option um 1h später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_1h"></string>
+
+    <!-- Snooze Option um 2h später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_2h"></string>
+
+    <!-- Notification Quickaction um jetzt auszuchecken -->
+    <string name="ios_notification_checkout_now"></string>
+
+    <!-- Hinweis falls fälschlicherweise ein Covid-Zertifikat mit SwissCovid gescannt wird. -->
+    <string name="covid_certificate_alert_text"></string>
+
+    <!-- Button um Covid Certificate App zu öffnen -->
+    <string name="covid_certificate_open_app"></string>
+
+    <!-- Button um Covid Certificate App zu installieren -->
+    <string name="covid_certificate_install_app"></string>
 </resources>

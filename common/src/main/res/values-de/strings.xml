@@ -945,7 +945,7 @@ Schwarzenburgstrasse 157
     <string name="travel_screen_explanation_title_1">"Was bedeutet das?"</string>
 
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1">"Wenn Sie in einem der kompatiblen Länder unterwegs sind, müssen Sie keine andere Corona-App installieren.
+    <string name="travel_screen_explanation_text_1">"Wenn Sie in einem der kompatiblen Länder unterwegs sind, müssen Sie für Begegnungen keine andere Corona-App installieren.
 
 SwissCovid überprüft die in den kompatiblen Ländern veröffentlichten privaten Schlüssel. So können Sie auch bei einer möglichen Ansteckung im Ausland gewarnt werden."</string>
 
@@ -984,10 +984,10 @@ Damit auch Reisende aus dem Ausland gewarnt werden können, geschieht das unabh�
     <string name="share_app_button">"App teilen"</string>
 
     <!-- Fuzzy -->
-    <string name="share_app_body">"Wenn möglichst viele die SwissCovid App nutzen, können wir Infektionsketten frühzeitig unterbrechen."</string>
+    <string name="share_app_body">"Wenn möglichst viele Ihrer Kontakte die SwissCovid App nutzen, können Sie bei einem Ansteckungsrisiko schnell informiert werden."</string>
 
     <!-- Text der geteilt wird -->
-    <string name="share_app_message">"Wenn möglichst viele die SwissCovid App nutzen, können wir Infektionsketten frühzeitig unterbrechen."</string>
+    <string name="share_app_message">"Mit der SwissCovid App können alle dazu beitragen, die Verbreitung des Coronavirus einzudämmen."</string>
 
     <!-- URL die geteilt wird -->
     <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
@@ -1393,7 +1393,7 @@ Dann rufen Sie hier an:"</string>
 
     <!-- Text in der Infobox auf dem Reisen-Screen -->
     <!-- Fuzzy -->
-    <string name="travel_screen_info">"Unterwegs im Ausland? In diesen Ländern funktioniert SwissCovid."</string>
+    <string name="travel_screen_info">"Unterwegs im Ausland? In diesen Ländern funktioniert SwissCovid-Begegnungen."</string>
 
     <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
     <string name="travel_screen_compatible_countries">"Kompatible Länder:"</string>
@@ -1426,7 +1426,7 @@ Dann rufen Sie hier an:"</string>
     <string name="inform_send_thankyou_text_onsetdate_info">"Die privaten Schlüssel Ihrer App wurden für den folgenden Zeitraum gesendet:"</string>
 
     <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
-    <string name="android_inform_tracing_enabled_explanation">"Beim Eingeben eines Covidcodes muss das Tracing aktiviert sein, damit Ihre privaten Schlüssel geteilt werden können."</string>
+    <string name="android_inform_tracing_enabled_explanation">"Bitte Tracing aktivieren, um automatisch erkannte Begegnungen zu teilen und andere zu warnen."</string>
 
     <!-- Leitfaden Info Popup Text -->
     <!-- Fuzzy -->
@@ -1538,7 +1538,7 @@ Dann rufen Sie hier an:"</string>
     <string name="checkins_create_qr_code">"QR-Code erstellen"</string>
 
     <!-- Veranstaltungen-Screen Titel -->
-    <string name="events_title">"Check-ins anbieten"</string>
+    <string name="events_title">"QR-Codes erstellen"</string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
     <string name="check_in_now_button_title">"Jetzt einchecken"</string>
@@ -1642,7 +1642,7 @@ Dann rufen Sie hier an:"</string>
     <string name="inform_share_checkins_subtitle">"Wenn Sie Ihre Check-in-Einträge teilen, kann die App Personen benachrichtigen, die zum gleichen Zeitpunkt am gleichen Ort eingecheckt haben."</string>
 
     <!-- Button text, um alle Checkins zu selektieren -->
-    <string name="inform_share_checkins_select_all">"Alle auswählen"</string>
+    <string name="inform_share_checkins_select_all">"Alle passenden auswählen"</string>
     <string name="inform_dont_send_button_title">"Nicht senden"</string>
     <string name="inform_dont_share_button_title">"Nicht teilen"</string>
     <string name="inform_really_not_share_title">"Wirklich nicht teilen?"</string>
@@ -1678,7 +1678,7 @@ Dann rufen Sie hier an:"</string>
     <string name="events_card_subtitle">"Erstellen Sie einen SwissCovid-QR-Code, mit dem sich Personen vor Ort einchecken können."</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
-    <string name="delete_qr_code_dialog">"Möchten Sie den QR Code wirklich löschen?"</string>
+    <string name="delete_qr_code_dialog">"Möchten Sie den QR Code wirklich löschen? Gedruckte QR-Codes bleiben weiterhin gültig."</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
     <string name="self_checkin_button_title">"Self Check-In"</string>
@@ -1784,7 +1784,7 @@ Dieser Titel wird beim Check-in angezeigt."</string>
     <string name="checkin_report_title3">"Testen lassen"</string>
     <string name="checkin_report_subtitle1">"Sie könnten bereits ansteckend sein, ohne es zu merken. Beachten Sie die geltenden Hygiene- und Schutzmassnahmen und schützen Sie Ihre Familie, Ihre Freunde und Ihr Umfeld."</string>
     <string name="checkin_report_subtitle2">"Überwachen Sie Ihren Gesundheitszustand."</string>
-    <string name="checkin_report_subtitle3">"Lassen Sie sich beim Auftreten von Symptomen sofort testen. Auch wenn keine Symptome auftreten, ist ein Corona-Test sinnvoll und empfohlen."</string>
+    <string name="checkin_report_subtitle3">"Lassen Sie sich beim Auftreten von Symptomen sofort testen. Wenn keine Symptome auftreten und Sie noch nicht vollständig geimpft sind, ist ein Corona-Test ebenfalls sinnvoll und empfohlen."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <!-- Fuzzy -->
@@ -1851,4 +1851,34 @@ Dieser Titel wird beim Check-in angezeigt."</string>
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns die Checkin-Zeit nach der Checkout-Zeit liegt -->
     <string name="checkout_inverse_time_alert_description">"Ihre gewählte Checkout-Zeit liegt vor der Check-In-Zeit. Bitte überprüfen Sie nochmals Ihre Angabe."</string>
+
+    <!-- Titel für die Notification die SwissCovid 2.0 ankündigt -->
+    <string name="update_notification_checkin_feature_title">"Neue Funktion: Check-in"</string>
+
+    <!-- Text für die Notification die SwissCovid 2.0 ankündigt -->
+    <string name="update_notification_checkin_feature_text">"Danke für die Nutzung von SwissCovid. Mit der neusten App-Version können Sie sich vor Ort einchecken, ohne Daten zu hinterlassen."</string>
+
+    <!-- Titel für aktuellen Check-in im Tagebuch -->
+    <string name="diary_current_title">"Aktuell"</string>
+
+    <!-- Snooze Option um 30min später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_30min">"Nochmals erinnern (30min)"</string>
+
+    <!-- Snooze Option um 1h später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_1h">"Nochmals erinnern (1h)"</string>
+
+    <!-- Snooze Option um 2h später an Checkout zu erinnern -->
+    <string name="ios_snooze_option_2h">"Nochmals erinnern (2h)"</string>
+
+    <!-- Notification Quickaction um jetzt auszuchecken -->
+    <string name="ios_notification_checkout_now">"Jetzt auschecken"</string>
+
+    <!-- Hinweis falls fälschlicherweise ein Covid-Zertifikat mit SwissCovid gescannt wird. -->
+    <string name="covid_certificate_alert_text">"Bitte benutzen Sie zum Scannen dieses QR-Codes die App \"COVID Certificate\"."</string>
+
+    <!-- Button um Covid Certificate App zu öffnen -->
+    <string name="covid_certificate_open_app">"App öffnen"</string>
+
+    <!-- Button um Covid Certificate App zu installieren -->
+    <string name="covid_certificate_install_app">"App installieren"</string>
 </resources>
