@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
@@ -38,12 +37,14 @@ class EventsOverviewFragment : Fragment() {
 			qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner) { events ->
 				if (events.isEmpty()) {
 					adapter.setItems(listOf(ExplanationItem(showOnlyInfobox = false), FooterItem()))
+					eventsToolbar.title = getString(R.string.checkins_create_qr_code)
 				} else {
 					adapter.setItems(events.map { EventItem(it) }.toMutableList<EventOverviewItem>().apply {
 						add(0, GenerateQrCodeButtonItem())
 						add(ExplanationItem(showOnlyInfobox = true))
 						add(FooterItem())
 					})
+					eventsToolbar.title = getString(R.string.events_card_title_events_not_empty)
 				}
 			}
 		}.root
