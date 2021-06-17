@@ -23,6 +23,7 @@ fi
 
 #make sure we have a full clean build
 rm -rf $appName/build
+rm -rf common/build
 rm -rf .gradle
 
 docker build -t swisscovid-builder .
