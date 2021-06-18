@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.core.view.doOnLayout
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -28,6 +29,12 @@ class GenerateQrCodeFragment : Fragment() {
 			qrCodeGenerate.setOnClickListener { generateQrCode(titleEditText.text.toString()) }
 			qrCodeGenerate.isEnabled = !titleEditText.text.isNullOrBlank()
 			titleEditText.doOnTextChanged { text, _, _, _ -> qrCodeGenerate.isEnabled = !text.isNullOrBlank() }
+
+			titleEditText.doOnLayout {
+				it.requestFocus()
+				val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+				imm.showSoftInput(it, InputMethodManager.SHOW_IMPLICIT)
+			}
 		}
 		return binding.root
 	}
