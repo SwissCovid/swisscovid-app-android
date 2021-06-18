@@ -15,23 +15,34 @@ import org.crowdnotifier.android.sdk.model.VenueInfo;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisit;
+import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisitCurrent;
 import ch.admin.bag.dp3t.checkin.diary.items.ItemVenueVisitDayHeader;
 import ch.admin.bag.dp3t.checkin.diary.items.VenueVisitRecyclerItem;
+import ch.admin.bag.dp3t.checkin.models.CheckInState;
 import ch.admin.bag.dp3t.extensions.CommonVenueInfoExtensionsKt;
 import ch.admin.bag.dp3t.util.StringUtil;
 
 public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-	private final List<VenueVisitRecyclerItem> items = new ArrayList<>();
+	private final List<VenueVisitRecyclerItem> currentCheckinItems = new ArrayList<>();
+	private final List<VenueVisitRecyclerItem> diaryItems = new ArrayList<>();
+	private Runnable onCheckoutListener;
+
+	private VenueVisitRecyclerItem getItem(int position) {
+		if (position < currentCheckinItems.size()) {
+			return currentCheckinItems.get(position);
+		} else {
+			return diaryItems.get(position - currentCheckinItems.size());
+		}
+	}
 
 	@Override
-	public int getItemViewType(int position) { return items.get(position).getViewType().ordinal(); }
+	public int getItemViewType(int position) { return getItem(position).getViewType().ordinal(); }
 
 	@NonNull
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 		VenueVisitRecyclerItem.ViewType type = VenueVisitRecyclerItem.ViewType.values()[viewType];
-
 		switch (type) {
 			case DAY_HEADER:
 				return new DayHeaderViewHolder(
@@ -40,6 +51,9 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 			case VENUE:
 				return new VenueVisitViewHolder(
 						LayoutInflater.from(parent.getContext()).inflate(R.layout.item_checkin_venue_visit, parent, false));
+			case CURRENT:
+				return new VenueVisitCurrentViewHolder(
+						LayoutInflater.from(parent.getContext()).inflate(R.layout.item_checkin_venue_visit_current, parent, false));
 			default:
 				throw new IllegalArgumentException();
 		}
@@ -47,8 +61,7 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 
 	@Override
 	public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-		VenueVisitRecyclerItem item = items.get(position);
-
+		VenueVisitRecyclerItem item = getItem(position);
 		switch (item.getViewType()) {
 			case DAY_HEADER:
 				((DayHeaderViewHolder) holder).bind((ItemVenueVisitDayHeader) item);
@@ -56,17 +69,47 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 			case VENUE:
 				((VenueVisitViewHolder) holder).bind((ItemVenueVisit) item);
 				break;
+			case CURRENT:
+				((VenueVisitCurrentViewHolder) holder).bind((ItemVenueVisitCurrent) item);
+				break;
 		}
 	}
 
 	@Override
 	public int getItemCount() {
-		return items.size();
+		return currentCheckinItems.size() + diaryItems.size();
 	}
 
-	public void setData(List<VenueVisitRecyclerItem> items) {
-		this.items.clear();
-		this.items.addAll(items);
+	public void setCurrentCheckinData(ItemVenueVisitDayHeader headerItem, ItemVenueVisitCurrent checkinItem, Runnable onCheckoutListener) {
+		this.onCheckoutListener = onCheckoutListener;
+
+		boolean hadCheckin = !currentCheckinItems.isEmpty();
+		if (hadCheckin) {
+			notifyItemChanged(1, checkinItem);
+		} else {
+			currentCheckinItems.add(headerItem);
+			currentCheckinItems.add(checkinItem);
+			notifyItemRangeInserted(0, currentCheckinItems.size());
+		}
+	}
+
+	public void updateCurrentCheckinData() {
+		if (!currentCheckinItems.isEmpty()) {
+			notifyItemChanged(1, currentCheckinItems.get(1));
+		}
+	}
+
+	public void setCurrentCheckinDataNone() {
+		int itemsToRemove = currentCheckinItems.size();
+		if (itemsToRemove > 0) {
+			currentCheckinItems.clear();
+			notifyItemRangeRemoved(0, itemsToRemove);
+		}
+	}
+
+	public void setDiaryData(List<VenueVisitRecyclerItem> items) {
+		diaryItems.clear();
+		diaryItems.addAll(items);
 		notifyDataSetChanged();
 	}
 
@@ -115,6 +158,28 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 				statusIcon.setVisibility(View.VISIBLE);
 			}
 			itemView.setOnClickListener(item.getOnClickListener());
+		}
+
+	}
+
+
+	public class VenueVisitCurrentViewHolder extends RecyclerView.ViewHolder {
+
+		private final TextView nameTextView;
+		private final TextView timeTextView;
+
+		public VenueVisitCurrentViewHolder(View itemView) {
+			super(itemView);
+			nameTextView = itemView.findViewById(R.id.item_diary_current_name);
+			timeTextView = itemView.findViewById(R.id.item_diary_current_time);
+			itemView.findViewById(R.id.item_diary_checkout_button).setOnClickListener(v -> onCheckoutListener.run());
+		}
+
+		public void bind(ItemVenueVisitCurrent item) {
+			CheckInState checkInState = item.getCheckInState();
+			nameTextView.setText(checkInState.getVenueInfo().getTitle());
+			long duration = System.currentTimeMillis() - checkInState.getCheckInTime();
+			timeTextView.setText(StringUtil.getShortDurationString(duration));
 		}
 
 	}
