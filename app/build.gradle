@@ -154,7 +154,7 @@ dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 	implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 
-	def dp3t_sdk_version = '2.3.0-dev-8'
+	def dp3t_sdk_version = '2.3.0-dev-10'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	prodImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
@@ -168,7 +168,7 @@ dependencies {
 	implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
 	implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
 	implementation 'androidx.viewpager2:viewpager2:1.0.0'
-	implementation 'androidx.security:security-crypto:1.0.0-rc03'
+	implementation 'androidx.security:security-crypto:1.0.0'
 	implementation 'androidx.work:work-runtime-ktx:2.5.0'
 	implementation "androidx.datastore:datastore:1.0.0-beta01"
 
