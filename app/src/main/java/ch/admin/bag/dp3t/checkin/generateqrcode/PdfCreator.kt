@@ -8,7 +8,6 @@ import android.view.View
 import androidx.annotation.ColorInt
 import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.R
-import ch.admin.bag.dp3t.extensions.getSubtitle
 import ch.admin.bag.dp3t.databinding.PdfQrCodeBinding
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
@@ -47,7 +46,6 @@ fun createEntryPdf(venueInfo: VenueInfo, context: Context): PdfDocument {
 
 		val pdfView = PdfQrCodeBinding.inflate(LayoutInflater.from(context)).apply {
 			title.text = venueInfo.title
-			subtitle.setText(venueInfo.getSubtitle())
 		}.root
 
 		pdfView.measure(

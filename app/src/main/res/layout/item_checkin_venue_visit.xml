@@ -49,14 +49,6 @@
 				tools:text="Meeting Room IP32" />
 
 			<TextView
-				android:id="@+id/item_diary_entry_location"
-				style="@style/NextStep.Text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_tiny_small"
-				tools:text="EPFL Campus, Lausanne" />
-
-			<TextView
 				android:id="@+id/item_diary_entry_time"
 				style="@style/NextStep.Text"
 				android:layout_width="match_parent"

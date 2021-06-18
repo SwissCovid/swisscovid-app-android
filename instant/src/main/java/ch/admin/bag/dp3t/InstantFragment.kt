@@ -9,10 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import ch.admin.bag.dp3t.checkin.utils.ErrorHelper
 import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState
+import ch.admin.bag.dp3t.checkin.utils.ErrorHelper
 import ch.admin.bag.dp3t.databinding.FragmentInstantBinding
-import ch.admin.bag.dp3t.extensions.getSubtitle
 import com.google.android.gms.instantapps.InstantApps
 import com.google.android.gms.instantapps.PackageManagerCompat
 import org.crowdnotifier.android.sdk.CrowdNotifier
@@ -50,7 +49,6 @@ class InstantFragment : Fragment() {
 			val venueInfo: VenueInfo = CrowdNotifier.getVenueInfo(qrCodeUrl, BuildConfig.ENTRY_QR_CODE_HOST)
 			binding.apply {
 				title.text = venueInfo.title
-				subtitle.setText(venueInfo.getSubtitle())
 			}
 		} catch (e: QRException) {
 			handleInvalidQRCodeExceptions(e, qrCodeUrl)

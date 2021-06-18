@@ -73,15 +73,6 @@
 				android:gravity="center"
 				tools:text="Cyber Cafe SV" />
 
-			<TextView
-				android:id="@+id/subtitle_textview"
-				style="@style/NextStep.Text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/spacing_very_small"
-				android:gravity="center"
-				tools:text="Lausanne" />
-
 			<Space
 				android:layout_width="match_parent"
 				android:layout_height="0dp"

@@ -19,7 +19,6 @@ import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment
 import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.databinding.FragmentCheckInBinding
 import ch.admin.bag.dp3t.extensions.getReminderDelayOptions
-import ch.admin.bag.dp3t.extensions.getSubtitle
 import com.google.android.material.button.MaterialButton
 
 private const val ARG_IS_SELF_CHECKIN = "ARG_IS_SELF_CHECKIN"
@@ -59,7 +58,6 @@ class CheckInFragment : Fragment() {
 			val venueInfo = viewModel.checkInState?.venueInfo ?: return root
 
 			titleTextview.text = venueInfo.title
-			subtitleTextview.setText(venueInfo.getSubtitle())
 			checkInButton.setOnClickListener {
 				viewModel.performCheckinAndSetReminders(venueInfo, viewModel.selectedReminderDelay)
 				popBackToHomeFragment()

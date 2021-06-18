@@ -14,7 +14,6 @@ import ch.admin.bag.dp3t.databinding.ItemEventsExplanationBinding
 import ch.admin.bag.dp3t.databinding.ItemEventsFooterBinding
 import ch.admin.bag.dp3t.databinding.ItemGenerateQrCodeBinding
 import ch.admin.bag.dp3t.databinding.ItemQrCodeBinding
-import ch.admin.bag.dp3t.extensions.getSubtitle
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
 class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView.Adapter<QrCodeAdapter.QrCodeBaseViewHolder>() {
