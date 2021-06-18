@@ -12,6 +12,7 @@ import ch.admin.bag.dp3t.extensions.getSwissCovidLocationData
 import ch.admin.bag.dp3t.inform.models.Resource
 import ch.admin.bag.dp3t.inform.models.SelectableCheckinItem
 import ch.admin.bag.dp3t.networking.AuthCodeRepository
+import ch.admin.bag.dp3t.networking.FakeWorker.Companion.UPLOAD_REQUEST_TIME_PADDING
 import ch.admin.bag.dp3t.networking.errors.InvalidCodeError
 import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
@@ -42,7 +43,6 @@ import kotlin.math.max
 private const val TIMEOUT_VALID_CODE = 1000L * 60 * 5
 private const val MAX_EXPOSURE_AGE_MILLIS = 10 * 24 * 60 * 60 * 1000L
 private const val ISOLATION_DURATION_DAYS = 14L
-private const val UPLOAD_REQUEST_TIME_PADDING = 5000L
 private const val CHECKOUT_TIME_PADDING_MS = 30 * 60 * 1000L
 private const val KEY_COVIDCODE = "KEY_COVIDCODE"
 private const val KEY_HAS_SHARED_DP3T_KEYS = "KEY_HAS_SHARED_DP3T_KEYS"

@@ -21,9 +21,11 @@ import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.DP3TKotlin
 import org.dpppt.android.sdk.internal.logger.Logger
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization
+import java.security.SecureRandom
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.max
+import kotlin.math.roundToInt
 
 class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWorker(context, workerParams) {
 
@@ -39,6 +41,8 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 		private const val FACTOR_HOUR_MILLIS = 60 * 60 * 1000L
 		private const val FACTOR_DAY_MILLIS = 24 * FACTOR_HOUR_MILLIS
 		private const val MAX_DELAY_HOURS: Long = 48
+		private const val MAX_USER_INTERACTION_DELAY: Long = 3 * 60 * 1000L
+		const val UPLOAD_REQUEST_TIME_PADDING = 5000L
 
 		private val isWorkInProgress = AtomicBoolean(false)
 
@@ -150,7 +154,10 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 			//Execute Onset Date Request
 			authCodeRepository.getOnsetDate(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
 
-			//TODO: Insert Delay
+			val timeBetweenOnsetAndUploadRequest = (SecureRandom().nextDouble() * MAX_USER_INTERACTION_DELAY).roundToInt()
+			val paddedDelay =
+				timeBetweenOnsetAndUploadRequest + UPLOAD_REQUEST_TIME_PADDING - timeBetweenOnsetAndUploadRequest % UPLOAD_REQUEST_TIME_PADDING
+			delay(paddedDelay)
 
 			//Execute Access Token Request
 			val accessTokenResponse = authCodeRepository.getAccessToken(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
@@ -159,8 +166,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 			DP3TKotlin.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(dp3tAccessToken)))
 			//Execute Checkin UserUpload Request
 			val checkinAccessToken = accessTokenResponse.checkInAccessToken.accessToken
-			//TODO: Replace this with random delay
-			UserUploadRepository().fakeUserUpload(0, getAuthorizationHeader(checkinAccessToken))
+			UserUploadRepository().fakeUserUpload(timeBetweenOnsetAndUploadRequest, getAuthorizationHeader(checkinAccessToken))
 			true
 		} catch (e: Throwable) {
 			Logger.e(TAG, "fake request failed", e)
