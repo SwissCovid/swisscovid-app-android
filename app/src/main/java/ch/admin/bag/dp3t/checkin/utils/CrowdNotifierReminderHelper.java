@@ -8,14 +8,17 @@ import android.content.Context;
 import android.content.Intent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.crowdnotifier.android.sdk.CrowdNotifier;
 
 import ch.admin.bag.dp3t.BuildConfig;
+import ch.admin.bag.dp3t.checkin.models.CheckInState;
+import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage;
 import ch.admin.bag.dp3t.extensions.VenueInfoExtensionsKt;
 import ch.admin.bag.dp3t.storage.SecureStorage;
-import ch.admin.bag.dp3t.checkin.models.DiaryEntry;
-import ch.admin.bag.dp3t.checkin.models.CheckInState;
 
 public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 
@@ -120,8 +123,30 @@ public class CrowdNotifierReminderHelper extends BroadcastReceiver {
 		notificationHelper.showAutoCheckoutNotification();
 		long checkIn = checkInState.getCheckInTime();
 		long checkOut = checkIn + autoCheckoutDelay;
-		long id = CrowdNotifier.addCheckIn(checkIn, checkOut, checkInState.getVenueInfo(), context);
-		DiaryStorage.getInstance(context).addEntry(new DiaryEntry(id, checkIn, checkOut, checkInState.getVenueInfo()));
+
+		DiaryStorage diaryStorage = DiaryStorage.getInstance(context);
+		List<DiaryEntry> existingDiaryEntries = diaryStorage.getEntries();
+		Collections.sort(existingDiaryEntries, (a, b) -> Long.compare(a.getCheckInTime(), b.getCheckInTime()));
+		for (DiaryEntry existingEntry : existingDiaryEntries) {
+			if (existingEntry.getCheckInTime() < checkOut && existingEntry.getCheckOutTime() > checkIn) {
+				long beforeEntryCheckin = checkIn;
+				long beforeEntryCheckout = existingEntry.getCheckInTime();
+				if (beforeEntryCheckin < beforeEntryCheckout) {
+					long id =
+							CrowdNotifier.addCheckIn(beforeEntryCheckin, beforeEntryCheckout, checkInState.getVenueInfo(),
+									context);
+					diaryStorage.addEntry(new DiaryEntry(id, beforeEntryCheckin, beforeEntryCheckout,
+							checkInState.getVenueInfo()));
+				}
+				checkIn = existingEntry.getCheckOutTime();
+			}
+		}
+
+		if (checkIn < checkOut) {
+			long id = CrowdNotifier.addCheckIn(checkIn, checkOut, checkInState.getVenueInfo(), context);
+			diaryStorage.addEntry(new DiaryEntry(id, checkIn, checkOut, checkInState.getVenueInfo()));
+		}
+
 		SecureStorage storage = SecureStorage.getInstance(context);
 		storage.setCheckInState(null);
 		LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(ACTION_DID_AUTO_CHECKOUT));
