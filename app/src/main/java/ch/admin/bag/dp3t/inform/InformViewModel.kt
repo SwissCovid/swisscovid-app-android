@@ -163,6 +163,8 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 					&& it.checkOutTime > System.currentTimeMillis() - MAX_EXPOSURE_AGE_MILLIS
 		}.map {
 			SelectableCheckinItem(it, isSelected = selectedDiaryEntryIds.contains(it.id))
+		}.sortedByDescending {
+			it.diaryEntry.checkInTime
 		}
 	}
 
@@ -255,15 +257,18 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 	}
 
 	private fun getUploadVenueInfos(): List<UploadVenueInfo> {
-		return getSelectableCheckinItems().filter {
-			it.isSelected
-		}.map {
-			CrowdNotifier.generateUserUploadInfo(
-				it.diaryEntry.venueInfo, it.diaryEntry.checkInTime, it.diaryEntry.checkOutTime + CHECKOUT_TIME_PADDING_MS
-			)
-		}.flatten().map {
-			it.toUploadVenueInfo()
-		}
+		return getSelectableCheckinItems()
+			.filter {
+				it.isSelected
+			}
+			.reversed() //checkins need to be sorted in ascending time order for upload
+			.map {
+				CrowdNotifier.generateUserUploadInfo(
+					it.diaryEntry.venueInfo, it.diaryEntry.checkInTime, it.diaryEntry.checkOutTime + CHECKOUT_TIME_PADDING_MS
+				)
+			}.flatten().map {
+				it.toUploadVenueInfo()
+			}
 	}
 
 	private fun getAuthorizationHeader(accessToken: String): String {
