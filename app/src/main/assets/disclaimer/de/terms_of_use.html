@@ -7,7 +7,6 @@
   ~
   ~ SPDX-License-Identifier: MPL-2.0
   -->
-
 <strong>
  1.
  Geltungsbereich und Zweck
@@ -18,7 +17,7 @@
 </p>
 <p>
  1.2
- Die App des Bundesamtes für Gesundheit (BAG) stützt sich auf das Epidemiengesetz vom 28. September 2012 (EpG; SR 818.101) und die Verordnung vom 24. Juni 2020 über das Proximity-Tracing-System für das Coronavirus SARS-CoV-2 (VPTS; SR 818.101.25).
+ Die App des Bundesamtes für Gesundheit (BAG) stützt sich auf das Epidemiengesetz vom 28. September 2012 (EpG; SR 818.101), die Verordnung vom 24. Juni 2020 über das Proximity-Tracing-System für das Coronavirus SARS-CoV-2 (VPTS; SR 818.101.25), dem Bundesgesetz über die gesetzlichen Grundlagen für Verordnungen des Bundesrates zur Bewältigung der Covid-19-Epidemie vom 25. September 2020 (Covid-19-Gesetz; SR 818.102) sowie der Verordnung über ein Warnsystem zu Covid-19 für Veranstaltungen vom 1. Juli 2021.
 </p>
 <p>
  1.3
@@ -34,7 +33,7 @@
 </p>
 <p>
  2.2
- Die Nutzung der App ist nicht auf ein geografisches Gebiet beschränkt. Allerdings können Warnungen nur erfolgen, wenn die ausländische App mit der SwissCovid-App interoperabel ist. Zum gegenwärtigen Zeitpunkt ist lediglich die in Deutschland genutzte Corona-Warn-App interoperabel.
+ Die Nutzung der App ist nicht auf ein geografisches Gebiet beschränkt. Allerdings können Warnungen nur erfolgen, wenn die ausländische App mit der SwissCovid-App interoperabel ist. Zum gegenwärtigen Zeitpunkt ist lediglich die in Deutschland genutzte Corona-Warn-App mit dem Proximity-Tracing-System der SwissCovid-App interoperabel.
 </p>
 <p>
  2.3
@@ -46,18 +45,18 @@
 </strong>
 <p>
  3.1
- Mittels der App werden Benutzerinnen und Benutzer informiert, wenn sie mit mindestens einer nachweislich infizierten Benutzerin oder einem nachweislich infizierten Benutzer der SwissCovid-App oder anderen interoperablen Apps in relevantem Kontakt waren.
+ Mittels der App werden Benutzerinnen und Benutzer informiert, wenn sie mit mindestens einer nachweislich infizierten Benutzerin oder einem nachweislich infizierten Benutzer der SwissCovid-App oder anderen interoperablen Apps in relevantem Kontakt waren. Dieser relevante Kontakt kann aufgrund des Proximity-Tracings oder aufgrund der Teilnahme an einer Veranstaltung eruiert werden.
 </p>
 <p>
  3.2
- Voraussetzung für das Funktionieren der App ist die Aktivierung von Bluetooth.
+ Voraussetzung für das Proximity-Tracing-System der App ist die Aktivierung von Bluetooth. Für das Warnsystem braucht es hingegen kein Bluetooth.
 </p>
 <p>
  3.3
- Die App erfüllt unter Verwendung einer Schnittstelle zum Betriebssystem des Mobiltelefons der Benutzerin oder des Benutzers folgende Funktionen:
+ Die App erfüllt – beim Proximity-Tracing-System unter Verwendung einer Schnittstelle zum Betriebssystem des Mobiltelefons der Benutzerin oder des Benutzers – folgende Funktionen:
 </p>
 <p>
- Das Betriebssystem generiert jeden Tag einen neuen privaten Schlüssel, der keine Rückschlüsse auf die App, das Mobiltelefon und die Benutzerinnen und Benutzer ermöglicht. Innerhalb der Reichweite von Bluetooth tauscht das Betriebssystem mit allen kompatiblen und aktiven Apps einen mindestens halbstündlich wechselnden Identifizierungscode (sog. «random ID») aus, der aus einem aktuellen privaten Schlüssel abgeleitet wird, aber nicht auf diesen Schlüssel zurückgeführt werden kann und ebenfalls keine Rückschlüsse auf die App, das Mobiltelefon und deren Benutzerinnen und Benutzer ermöglicht.
+ Proximity-Tracing-System: Das Betriebssystem generiert jeden Tag einen neuen privaten Schlüssel, der keine Rückschlüsse auf die App, das Mobiltelefon und die Benutzerinnen und Benutzer ermöglicht. Innerhalb der Reichweite von Bluetooth tauscht das Betriebssystem mit allen kompatiblen und aktiven Apps einen mindestens halbstündlich wechselnden Identifizierungscode (sog. «random ID») aus, der aus einem aktuellen privaten Schlüssel abgeleitet wird, aber nicht auf diesen Schlüssel zurückgeführt werden kann und ebenfalls keine Rückschlüsse auf die App, das Mobiltelefon und deren Benutzerinnen und Benutzer ermöglicht.
 </p>
 <p>
  Das Betriebssystem speichert auf dem Mobiltelefon die empfangenen Identifizierungscodes, die Signalstärke, das Datum und die geschätzte Dauer der Annäherung.
@@ -66,20 +65,23 @@
  Die App ruft periodisch eine Liste der privaten Schlüssel der infizierten Benutzerinnen und Benutzer der SwissCovid-App und anderen interoperablen Apps ab und lässt vom Betriebssystem überprüfen, ob mindestens ein lokal gespeicherter Identifizierungscode mit einem privaten Schlüssel der Liste generiert wurde. Ist dies der Fall und bestand zu mindestens einem Mobiltelefon einer infizierten Benutzerin oder einem infizierten Benutzer der SwissCovid-App oder anderen interoperablen Apps eine Annährung von 1,5 Metern oder weniger und erreicht die Summe der Dauer aller solchen Annäherungen innerhalb eines Tages 15 Minuten, so gibt die App die Benachrichtigung aus. Der Abstand wird anhand der Stärke der empfangenen Signale geschätzt.
 </p>
 <p>
+ Warnsystem für Veranstaltungen: Die Organisatorin oder der Organisator einer Veranstaltung generiert in seiner App einen QR-Code. Besucherinnen und Besucher der Veranstaltung können mit ihrer App den gezeigten QR-Code scannen und sind so an der Veranstaltung eingecheckt.
+</p>
+<p>
  3.4
- Ist eine Infektion bei einer Benutzerin oder einem Benutzer nachgewiesen, generieren zugriffsberechtigte Fachpersonen (z.B. behandelnde Ärztinnen und Ärzte oder Apothekerinnen und Apotheker) einen einmaligen und zeitlich begrenzt gültigen Freischaltcode («Covidcode») und geben diesen der infizierten Benutzerin oder dem infizierten Benutzer bekannt. Diese oder dieser kann den Freischaltcode in ihre oder seine App freiwillig eingeben. Die Benachrichtigung bzw. die Eingabe des Freischaltcodes erfolgt nur mit der ausdrücklichen Einwilligung der infizierten Benutzerin oder des infizierten Benutzers.
+ Die App speichert auf dem Mobiltelefon die Veranstaltungs-Identifizierungscodes mit dem jeweiligen Datum, die Dauer des Aufenthaltes und die Bezeichnung der Veranstaltung. Sie ruft periodisch vom Veranstaltungs-Backend im Abrufverfahren die Liste der Veranstaltungs-Identifizierungscodes der infizierten teilnehmenden Personen ab. Sie gleicht die Veranstaltungs-Identifizierungscodes mit den von ihr lokal gespeicherten Veranstaltungs-Identifizierungscodes ab. Ergibt der Abgleich eine Übereinstimmung, so gibt die App die Benachrichtigung aus.Ist eine Infektion bei einer Benutzerin oder einem Benutzer nachgewiesen, generieren zugriffsberechtigte Fachpersonen (z.B. behandelnde Ärztinnen und Ärzte oder Apothekerinnen und Apotheker) einen einmaligen und zeitlich begrenzt gültigen Freischaltcode («Covidcode») und geben diesen der infizierten Benutzerin oder dem infizierten Benutzer bekannt. Diese oder dieser kann den Freischaltcode in ihre oder seine App freiwillig eingeben. Die Benachrichtigung bzw. die Eingabe des Freischaltcodes erfolgt nur mit der ausdrücklichen Einwilligung der infizierten Benutzerin oder des infizierten Benutzers. Die infizierte Benutzerin oder der infizierte Benutzer kann ausserdem wählen, ob sie oder er sowohl die engen Kontakte aufgrund des Proximity-Tracing-Systems als auch die Kontakte aufgrund der Teilnahme an einer Veranstaltung warnen will. Darüber hinaus kann sie oder er auch entscheiden, ob er für jede Veranstaltung, an welcher er im relevanten Zeitraum teilgenommen hat, eine Benachrichtigung auslösen will oder nur für einzelne.
 </p>
 <p>
  Die anderen Benutzerinnen und Benutzer der SwissCovid-App
  <br/>
- oder anderen interoperablen Apps, welche in der infektiösen Zeitspanne eine Annährung gemäss Ziffer 3.3 zu der infizierten Benutzerin oder dem infizierten Benutzer hatten, werden durch die eigenen Apps benachrichtigt.
+ oder anderer interoperabler Apps, welche in der infektiösen Zeitspanne eine Annährung gemäss Ziffer 3.3 zu der infizierten Benutzerin oder dem infizierten Benutzer hatten oder gleichzeitig an derselben Veranstaltung teilgenommen haben, werden durch die eigenen Apps benachrichtigt.
 </p>
 <p>
- Die benachrichtigten Benutzerinnen und Benutzer erfahren, dass eine Annährung stattgefunden hat bzw. dass sie potenziell dem Coronavirus ausgesetzt waren und an welchen Tagen dies der Fall war. Sie erfahren nicht, welcher Benutzer oder welche Benutzerin infiziert ist und die Benachrichtigung ausgelöst hat. Die Benachrichtigung der SwissCovid-App umfasst weiter Verhaltensempfehlungen des BAG sowie den Hinweis, dass das BAG einen Leitfaden (Web-Formular) und eine Infoline zur kostenlosen Beratung betreibt. Verlässt man die App, um den Leitfaden auszufüllen, werden die in der App genannten Tage, an welchen eine Möglichkeit der Ansteckung bestand, automatisch an den Leitfaden übermittelt.
+ Die benachrichtigten Benutzerinnen und Benutzer erfahren, dass eine Annährung stattgefunden hat bzw. dass sie potenziell dem Coronavirus ausgesetzt waren und an welchen Tagen dies der Fall war. Sie erfahren nicht, welcher Benutzer oder welche Benutzerin infiziert ist und die Benachrichtigung ausgelöst hat. Die Benachrichtigung der SwissCovid-App aufgrund eines engen Kontaktes mit einer positiv getesteten Nutzerin / einem positiv getesteten Nutzer umfasst weiter Verhaltensempfehlungen des BAG sowie den Hinweis, dass das BAG einen Leitfaden (Web-Formular) und eine Infoline zur kostenlosen Beratung betreibt. Verlässt man die App, um den Leitfaden auszufüllen, werden die in der App genannten Tage, an welchen eine Möglichkeit der Ansteckung bestand, automatisch an den Leitfaden übermittelt. Die Benachrichtigung aufgrund des Warnsystems umfasst die obengenannten Punkte, jedoch wird hier kein Leitfaden und keine Infoline angeboten, die primäre Empfehlung ist es, sich testen zu lassen.
 </p>
 <p>
  3.5
- Bei Eingabe des Freischaltcodes werden die Benutzerinnen und Benutzer darauf aufmerksam gemacht, mit welchen Ländern (vgl. Ziffer 2.2) die App interoperabel ist. Es wird darauf hingewiesen, dass – wenn das Feld «Einverstanden» gedrückt und der Freischaltcode in die App eingegeben wird – die privaten Schlüssel nicht nur innerhalb der SwissCovid-App geteilt werden, sondern auch mit allen anderen interoperablen Apps (zurzeit die deutsche Corona-Warn-App). Die privaten Schlüssel können nur mit allen interoperablen Apps oder gar nicht geteilt werden, was dem sogenannten «One-World-Prinzip» entspricht.
+ Bei Eingabe des Freischaltcodes werden die Benutzerinnen und Benutzer darauf aufmerksam gemacht, mit welchen Ländern (vgl. Ziffer 2.2) die App interoperabel ist. Es wird darauf hingewiesen, dass – wenn das Feld «Einverstanden» gedrückt und der Freischaltcode in die App eingegeben wird – die privaten Schlüssel des Proximity-Tracing-Systems nicht nur innerhalb der SwissCovid-App geteilt werden, sondern auch mit allen anderen interoperablen Apps (zurzeit die deutsche Corona-Warn-App). Die privaten Schlüssel können nur mit allen interoperablen Apps oder gar nicht geteilt werden, was dem sogenannten «One-World-Prinzip» entspricht.
 </p>
 <p>
  3.6
@@ -186,7 +188,7 @@
 </p>
 <p>
  7.3
- Spätestens beim Ausserkrafttreten der in Ziffer 1.2. aufgeführten Verordnung deaktiviert das BAG die App und fordert die Benutzerinnen und Benutzer auf, diese auf dem Mobiltelefon zu deinstallieren.
+ Spätestens beim Ausserkrafttreten der in Ziffer 1.2. aufgeführten Verordnungen deaktiviert das BAG die App und fordert die Benutzerinnen und Benutzer auf, diese auf dem Mobiltelefon zu deinstallieren.
 </p>
 <strong>
  8.

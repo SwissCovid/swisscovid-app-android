@@ -7,7 +7,6 @@
   ~
   ~ SPDX-License-Identifier: MPL-2.0
   -->
-
 <strong>
  1.
  Campo di applicazione e scopo
@@ -18,7 +17,7 @@
 </p>
 <p>
  1.2
- L’app dell’Ufficio federale della sanità pubblica (UFSP) si basa sulla legge del 28 settembre 2012 (LEp; RS 818.101) e sull’ordinanza del 24 giugno 2020 sul sistema di tracciamento della prossimità per il coronavirus SARS-CoV-2 (OSTP; RS 818.101.25).
+ L’app dell’Ufficio federale della sanità pubblica (UFSP) si basa sulla legge del 28 settembre 2012 (LEp; RS 818.101), sull’ordinanza del 24 giugno 2020 sul sistema di tracciamento della prossimità per il coronavirus SARS-CoV-2 (OSTP; RS 818.101.25), sulla legge federale del 25 settembre 2020 sulle basi legali delle ordinanze del Consiglio federale volte a far fronte all’epidemia di COVID-19 (legge COVID-19; RS 818.102) nonché sull’ordinanza del 24 giugno 2021 su un sistema di allerta COVID-19 per le manifestazioni.
 </p>
 <p>
  1.3
@@ -34,7 +33,7 @@
 </p>
 <p>
  2.2
- L’utilizzo dell’app non è limitato a una regione geografica. Tuttavia, le segnalazioni possono aver luogo soltanto se l’app estera è interoperabile con l’app SwissCovid. Al momento attuale lo è soltanto la Corona-Warn-App impiegata in Germania.
+ L’utilizzo dell’app non è limitato a una regione geografica. Tuttavia, le segnalazioni possono aver luogo soltanto se l’app estera è interoperabile con l’app SwissCovid. Al momento attuale soltanto la Corona-Warn-App impiegata in Germania è interoperabile con il sistema di tracciamento della prossimità dell’app SwissCovid.
 </p>
 <p>
  2.3
@@ -46,38 +45,44 @@
 </strong>
 <p>
  3.1
- L’app informa gli utenti che sono entrati in stretto contatto con almeno un utente dell’app SwissCovid o delle altre app interoperabili risultato contagiato.
+ L’app informa gli utenti che sono entrati in stretto contatto con almeno un utente dell’app SwissCovid o delle altre app interoperabili risultato infetto. Questo contatto rilevante può essere ricostruito in base al tracciamento della prossimità o alla partecipazione a una manifestazione.
 </p>
 <p>
  3.2
- Affinché l’app funzioni è necessario che il Bluetooth sia attivo.
+ Il sistema di tracciamento della prossimità dell’app presuppone l’attivazione del Bluetooth; per il sistema di allerta ciò non è invece necessario.
 </p>
 <p>
  3.3
- Mediante l’utilizzazione di un’interfaccia verso il sistema operativo del telefono cellulare dell’utente, l’app adempie le seguenti funzioni.
+ Con il sistema di tracciamento della prossimità e mediante l’utilizzazione di un’interfaccia verso il sistema operativo del telefono cellulare dell’utente, l’app adempie le seguenti funzioni.
 </p>
 <p>
- Il sistema operativo genera ogni giorno una nuova chiave privata che non consente di risalire in alcun modo all’app, al telefono cellulare o agli utenti. Scambia un codice d’identificazione (cosiddetto “random ID”) che cambia almeno una volta ogni mezz’ora con tutte le app compatibili e attive che si trovano entro la portata di Bluetooth. Tale codice deriva da una chiave privata aggiornata, ma non è riconducibile alla stessa e di conseguenza nemmeno all’app, al telefono cellulare e al suo utente.
+ Sistema di tracciamento della prossimità: il sistema operativo genera ogni giorno una nuova chiave privata che non consente di risalire in alcun modo all’app, al telefono cellulare o agli utenti. Scambia un codice d’identificazione (cosiddetto “random ID”) che cambia almeno una volta ogni mezz’ora con tutte le app compatibili e attive che si trovano entro la portata di Bluetooth. Tale codice deriva da una chiave privata aggiornata, ma non è riconducibile alla stessa e di conseguenza nemmeno all’app, al telefono cellulare e al suo utente.
 </p>
 <p>
  Il sistema operativo memorizza sul telefono cellulare i codici d’identificazione ricevuti, la potenza del segnale, la data e la durata stimata della prossimità.
 </p>
 <p>
- L’app richiama periodicamente un elenco delle chiavi private degli utenti contagiati dell’app SwissCovid e delle altre app interoperabili e controlla con il suo sistema operativo se almeno un codice d’identificazione memorizzato localmente è stato generato con una chiave privata dell’elenco. Se ciò si verifica nonché la prossimità da almeno un telefono cellulare di un utente dell’app SwissCovid o delle altre app interoperabili contagiato è pari o inferiore a 1,5 metri e la somma della durata di tutte queste prossimità in un giorno raggiunge i quindici minuti, l’app ne informa l’utente. La distanza è stimata in base alla potenza del segnale ricevuto.
+ L’app richiama periodicamente un elenco delle chiavi private degli utenti infetti dell’app SwissCovid e delle altre app interoperabili e controlla con il suo sistema operativo se almeno un codice d’identificazione memorizzato localmente è stato generato con una chiave privata dell’elenco. Se ciò si verifica nonché la prossimità da almeno un telefono cellulare di un utente dell’app SwissCovid o delle altre app interoperabili infetto è pari o inferiore a 1,5 metri e la somma della durata di tutte queste prossimità in un giorno raggiunge i quindici minuti, l’app ne informa l’utente. La distanza è stimata in base alla potenza del segnale ricevuto.
+</p>
+<p>
+ Sistema di allerta per le manifestazioni: l’organizzatore di una manifestazione genera nella propria app un codice QR che i visitatori della manifestazione possono scansionare per effettuare il check-in alla manifestazione.
+</p>
+<p>
+ L’app memorizza sul telefono cellulare il codice di identificazione della manifestazione con la rispettiva data, la durata della permanenza e la designazione della manifestazione. Richiama periodicamente dal back end delle manifestazioni l’elenco dei codici di identificazione delle manifestazioni dei partecipanti infetti. Confronta tali codici con i codici di identificazione delle manifestazioni che ha memorizzato localmente. Se da tale confronto emerge una corrispondenza, genera una notifica.
 </p>
 <p>
  3.4
- In caso di contagio accertato di un utente, il personale specialistico avente diritto di accesso (p. es. medici curanti o farmacisti) genera un codice di attivazione (codice Covid) univoco e la cui validità è limitata nel tempo e lo comunica all’utente contagiato, che può immetterlo nell’app su base volontaria. La notifica ovvero l’inserimento del codice di attivazione richiedono il consenso esplicito dell'utente contagiato.
+ In caso di infezione accertata di un utente, il personale specialistico avente diritto di accesso (p. es. medici curanti o farmacisti) genera un codice di attivazione (codice Covid) univoco e la cui validità è limitata nel tempo e lo comunica all’utente infetto, che può immetterlo nell’app su base volontaria. La notifica ovvero l’inserimento del codice di attivazione richiedono il consenso esplicito dell’utente infetto. L’utente infetto può scegliere se allertare sia i contatti stretti in base al sistema di tracciamento della prossimità sia i contatti in base alla partecipazione a una manifestazione. Può inoltre decidere se generare una notifica per tutte le manifestazioni alle quali ha partecipato nel periodo rilevante o solo per alcune.
 </p>
 <p>
- Gli altri utenti dell’app SwissCovid o delle altre app interoperabili che sono stati in prossimità secondo il numero 3.3 con l’utente contagiato durante il periodo di contagiosità vengono informati dalla loro app.
+ Gli altri utenti dell’app SwissCovid o delle altre app interoperabili che sono stati in prossimità secondo il numero 3.3 con l’utente infetto durante il periodo di infettività o che hanno partecipato nello stesso momento alla medesima manifestazione vengono informati dalla loro app.
 </p>
 <p>
- Viene loro comunicato che vi è stata una prossimità ovvero che sono stati potenzialmente esposti al coronavirus e le date in cui tale episodio si è verificato. Non viene comunicato loro quale utente è risultato contagiato e ha attivato la notifica dell’app SwissCovid. Quest’ultima comprende anche le raccomandazioni di comportamento dell’UFSP nonché l’informazione che l’UFSP gestisce una guida (modulo web) e una linea di consulenza telefonica gratuita. Se l’utente esce dall’app per compilare il modulo web, i giorni menzionati nell’app nei quali c’è stata la possibilità di contagio vengono trasmessi automaticamente al modulo.
+ Viene loro comunicato che vi è stata una prossimità ovvero che sono stati potenzialmente esposti al coronavirus e le date in cui tale episodio si è verificato. Non viene comunicato loro quale utente è risultato infetto e ha attivato la notifica dell’app SwissCovid. La notifica in base a un contratto stretto con un utente risultato positivo al test comprende anche le raccomandazioni di comportamento dell’UFSP nonché l’informazione che l’UFSP gestisce una guida (modulo web) e una linea di consulenza telefonica gratuita. Se l’utente esce dall’app per compilare il modulo web, i giorni menzionati nell’app nei quali c’è stata la possibilità di contagio vengono trasmessi automaticamente al modulo. La notifica in base al sistema di allerta include i punti precedentemente menzionati, ma non l’offerta di una guida, né di una linea di consulenza telefonica, e verte principalmente sulla raccomandazione di sottoporsi al test.
 </p>
 <p>
  3.5
- Al momento dell’immissione del codice di attivazione, agli utenti viene comunicato con quali Paesi è interoperabile l’app (cfr. n. 2.2). Viene inoltre segnalato che, premendo il pulsante «Accetta» e immettendo il codice di attivazione nell’app, le chiavi private vengono condivise non soltanto all’interno dell’app SwissCovid, ma anche con tutte le app interoperabili (attualmente la Corona-Warn-App tedesca). Le chiavi private possono solo essere condivise con tutte le app interoperabili o non essere condivise affatto, secondo il «principio one world».
+ Al momento dell’immissione del codice di attivazione, agli utenti viene comunicato con quali Paesi è interoperabile l’app (cfr. n. 2.2). Viene inoltre segnalato che, premendo il pulsante «Accetta» e immettendo il codice di attivazione nell’app, le chiavi private del sistema di tracciamento della prossimità vengono condivise non soltanto all’interno dell’app SwissCovid, ma anche con tutte le app interoperabili (attualmente la Corona-Warn-App tedesca). Le chiavi private possono solo essere condivise con tutte le app interoperabili o non essere condivise affatto, secondo il «principio one world».
 </p>
 <p>
  3.6
@@ -184,7 +189,7 @@
 </p>
 <p>
  7.3
- Al più tardi quando l’ordinanza indicata al numero 1.2 sarà abrogata, l’UFSP disattiverà l’app e inviterà gli utenti a disinstallarla dal proprio telefono cellulare.
+ Al più tardi quando le ordinanze indicate al numero 1.2 saranno abrogate, l’UFSP disattiverà l’app e inviterà gli utenti a disinstallarla dal proprio telefono cellulare.
 </p>
 <strong>
  8.
