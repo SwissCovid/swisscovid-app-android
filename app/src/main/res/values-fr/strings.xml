@@ -218,7 +218,7 @@ Ainsi, vous contribuez à interrompre les chaînes de transmission."</string>
     <string name="symptom_detail_box_button">"Informations supplémentaires"</string>
 
     <!-- Symptom Detail Weisse Box Text -->
-    <string name="symptom_detail_box_text">"L'OFSP recommande à toutes les personnes qui présentent des symptômes du COVID-19 de se faire tester. Appelez un médecin ou une institution de santé."</string>
+    <string name="symptom_detail_box_text">"L'OFSP recommande à toutes les personnes qui présentent des symptômes de la COVID-19 de se faire tester. Appelez un médecin ou une institution de santé."</string>
 
     <!-- Informieren Titel in NavigationBar/Toolbar -->
     <string name="inform_detail_navigation_title">"Test positif"</string>
@@ -652,7 +652,7 @@ Ainsi, d'autres utilisateurs de l'application SwissCovid apprennent qu'ils ont p
     <string name="inform_code_intro_button">"D'accord"</string>
 
     <!-- Symptome: FAQ Titel -->
-    <string name="symptom_faq1_title">"Quels sont les symptômes du COVID-19 ?"</string>
+    <string name="symptom_faq1_title">"Quels sont les symptômes de la COVID-19 ?"</string>
 
     <!-- Symptome: FAQ Text -->
     <string name="symptom_faq1_text">"Ces symptômes sont fréquents :
@@ -719,7 +719,7 @@ Les symptômes suivants peuvent aussi apparaître :
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, iOS -->
     <!-- Fuzzy -->
-    <string name="onboarding_gaen_text_ios">"Pour utiliser l'application, les notifications d'exposition au COVID 19 doivent être activées."</string>
+    <string name="onboarding_gaen_text_ios">"Pour utiliser l'application, les notifications d'exposition à la COVID 19 doivent être activées."</string>
 
     <!-- Aktivieren-Button auf der Onboarding Page für die Permission der Exposure-Library -->
     <string name="onboarding_gaen_button_activate">"Activer"</string>
@@ -771,11 +771,11 @@ Les symptômes suivants peuvent aussi apparaître :
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
     <!-- Fuzzy -->
-    <string name="tracing_permission_error_title_ios">"Notifications d'exposition au COVID 19 désactivé"</string>
+    <string name="tracing_permission_error_title_ios">"Notifications d'exposition à la COVID-19 désactivé"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
     <!-- Fuzzy -->
-    <string name="tracing_permission_error_text_ios">"Activez les notifications d'exposition au COVID 19 pour que le traçage de proximité fonctionne."</string>
+    <string name="tracing_permission_error_text_ios">"Activez les notifications d'exposition à la COVID-19 pour que le traçage de proximité fonctionne."</string>
 
     <!-- Error-Meldung, wenn der Benutzer während des Informieren-Flows bei GApple das Key-Sharing nicht erlaubt. -->
     <string name="user_cancelled_key_sharing_error">"Le message n'a pas pu être envoyé. Veuillez autoriser le partage de vos IDs aléatoires avec l'application SwissCovid."</string>
@@ -829,10 +829,10 @@ de transmission."</string>
     <string name="meldungen_detail_explanation_text4">"Dès les premiers symptômes, téléphonez à un médecin ou à une institution de santé."</string>
 
     <!-- Text beim Bluetooth Control -->
-    <string name="tracing_setting_text_android">"Notifications d'exposition au COVID 19"</string>
+    <string name="tracing_setting_text_android">"Notifications d'exposition à la COVID-19"</string>
 
     <!-- Text auf der Onboarding Page für die Permission der Exposure-Library, Android -->
-    <string name="onboarding_gaen_text_android">"Pour utiliser l'application, les notifications d'exposition au COVID 19 doivent être activées."</string>
+    <string name="onboarding_gaen_text_android">"Pour utiliser l'application, les notifications d'exposition à la COVID-19 doivent être activées."</string>
 
     <!-- Onboarding Disclaimer Screen: AppName Title -->
     <string name="onboarding_disclaimer_heading">"SwissCovid"</string>
@@ -844,7 +844,7 @@ de transmission."</string>
     <string name="onboarding_disclaimer_info">"Vous trouverez ici la déclaration de confidentialité &amp; condition d'utilisation"</string>
 
     <!-- Onboarding Disclaimer Screen: Warning Title -->
-    <string name="onboarding_disclaimer_warning_title">"Avertissement : cette application ne vous protège pas contre une infection par le COVID-19."</string>
+    <string name="onboarding_disclaimer_warning_title">"Avertissement : cette application ne vous protège pas contre une infection par la COVID-19."</string>
 
     <!-- Onboarding Disclaimer Screen: Warning Text -->
     <string name="onboarding_disclaimer_warning_body">"L'application est destinée au traçage de proximité et à avertir les utilisateurs d'un contact potentiel avec une personne infectée par le COVID-19. Il ne s'agit pas non plus d'un outil de diagnostic. Veuillez lire attentivement les instructions qui apparaissent dans chaque fenêtre de l'application."</string>
