@@ -917,7 +917,7 @@ Schwarzenburgstrasse 157
     <string name="travel_screen_explanation_title_1">"Tge vul quai dir?"</string>
 
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1">"Sche Vus essas (en gir) en in pajais cumpatibel, na stuais Vus betg installar in'autra app da corona.
+    <string name="travel_screen_explanation_text_1">"Sche Vus essas en in pajais cumpatibel, na stuais Vus betg installar in'autra app da corona.
 
 SwissCovid verifitgescha las clavs privatas ch'èn vegnidas publitgadas en ils pajais cumpatibels. Uschia pudais Vus vegnir infurmada resp. infurmà er en cas d'ina eventuala infecziun a l'exteriur."</string>
 
@@ -952,7 +952,7 @@ Per che er las viagiaturas ed ils viagiaturs da l'exteriur possian vegnir infurm
     <string name="share_app_supertitle">"Impedir…"</string>
     <string name="share_app_title">"cuminaivlamain infecziuns"</string>
     <string name="share_app_button">"Cundivider l'app"</string>
-    <string name="share_app_body">"Sche uschè bleras persunas sco pussaivel activeschan l'app SwissCovid, pudain nus interrumper ad uras las chadainas d'infecziun."</string>
+    <string name="share_app_body">"Sche uschè blers da Voss contacts sco pussaivel dovran l'app SwissCovid, pudais Vus vegnir infurmada u infurmà svelt en cas d'ina ristga d'infecziun."</string>
 
     <!-- Text der geteilt wird -->
     <string name="share_app_message">"Cun l'app SwissCovid pon tuts gidar da franar la derasaziun dal coronavirus."</string>
@@ -1362,7 +1362,8 @@ Alura telefonai qua:"</string>
     <string name="inform_send_thankyou_text_onsetdate_info">"Las clavs privatas da Vossa app èn vegnidas tramessas per il suandant spazi da temp:"</string>
 
     <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
-    <string name="android_inform_tracing_enabled_explanation">"Per che Vossas clavs privatas possian vegnir cundivididas sto il tracing esser activà cun endatar in code covid."</string>
+    <!-- Fuzzy -->
+    <string name="inform_tracing_enabled_explanation">"Per che Vossas clavs privatas possian vegnir cundivididas sto il tracing esser activà cun endatar in code covid."</string>
 
     <!-- Leitfaden Info Popup Text -->
     <string name="leitfaden_infopopup_text">"Sche Vus schmatgais sin \"{BUTTON_TITLE}\", bandunais Vus l'app e midais a la pagina d'internet dal mussavia SwissCovid. Uschia vegnan tramessas a la pagina d'internet er las datas dals ultims inscunters d'eventualas infecziuns."</string>
@@ -1473,7 +1474,7 @@ Alura telefonai qua:"</string>
     <string name="checkins_create_qr_code">"Crear in code QR"</string>
 
     <!-- Veranstaltungen-Screen Titel -->
-    <string name="events_title">"Porscher registraziuns?"</string>
+    <string name="events_title">"Crear codes QR"</string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
     <string name="check_in_now_button_title">"Sa registrar ussa"</string>
@@ -1650,7 +1651,7 @@ Alura telefonai qua:"</string>
     <string name="home_end_isolation_card_title">"Terminar l'isolaziun?"</string>
 
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. -->
-    <string name="events_card_title">"Vulais Vus porscher registraziuns?"</string>
+    <string name="events_card_title">"Vulais Vus crear codes QR?"</string>
     <string name="checkin_footer_title1">"Pertge dovri ina funcziun da sa registrar?"</string>
     <string name="checkin_footer_subtitle1">"La funcziun da sa registrar senza endatar las datas da contact cumplettescha l'app SwissCovid. Cun agid da questa funcziun na pudais Vus avertir betg mo stretgs contacts en cas d'in resultat positiv, mabain er las persunas ch'èn stadas registradas il medem mument en il medem lieu."</string>
     <string name="checkin_footer_title2">"Las datas na vegnan betg arcunadas en moda centrala."</string>
@@ -1750,50 +1751,50 @@ Quai pon esser p.ex.:
     <!-- Info URL for testing -->
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
-    <string name="checkout_too_long_alert_text">"For this check-in a maximum check-in duration of {DURATION} applies. Please check your input again."</string>
+    <string name="checkout_too_long_alert_text">"Per questa registraziun vala ina durada da registraziun maximala da {DURATION}. Verifitgai per plaschair anc ina giada Vossa indicaziun."</string>
 
     <!-- turn camera light on -->
-    <string name="accessibility_camera_light_on">"turn light on"</string>
+    <string name="accessibility_camera_light_on">"Activar la glisch da giaglioffa"</string>
 
     <!-- turn camera light off -->
-    <string name="accessibility_camera_light_off">"turn light off"</string>
+    <string name="accessibility_camera_light_off">"Deactivar la glisch da giaglioffa"</string>
 
     <!-- Popup Text, welcher erscheint, wenn man den Covidcode eingeben will, man aber noch eingecheckt ist. -->
-    <string name="error_cannot_enter_covidcode_while_checked_in"></string>
+    <string name="error_cannot_enter_covidcode_while_checked_in">"Vus essas anc registrada u registrà. Sorti per plaschair avant che Vus endatais il code COVID."</string>
 
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. Wird angezeigt falls bereits ein QR Code erstellt wurde -->
-    <string name="events_card_title_events_not_empty"></string>
+    <string name="events_card_title_events_not_empty">"Mes codes QR"</string>
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns die Checkin-Zeit nach der Checkout-Zeit liegt -->
-    <string name="checkout_inverse_time_alert_description"></string>
+    <string name="checkout_inverse_time_alert_description">"Voss temp da sortida tschernì è avant il temp da registraziun. Verifitgai per plaschair anc ina giada Vossa indicaziun."</string>
 
     <!-- Titel für die Notification die SwissCovid 2.0 ankündigt -->
-    <string name="update_notification_checkin_feature_title"></string>
+    <string name="update_notification_checkin_feature_title">"Nova funcziun: Registraziun"</string>
 
     <!-- Text für die Notification die SwissCovid 2.0 ankündigt -->
-    <string name="update_notification_checkin_feature_text"></string>
+    <string name="update_notification_checkin_feature_text">"Grazia fitg che Vus duvrais SwissCovid. Cun la versiun da l'app la pli nova pudais Vus As registrar al lieu, senza inditgar datas."</string>
 
     <!-- Titel für aktuellen Check-in im Tagebuch -->
-    <string name="diary_current_title"></string>
+    <string name="diary_current_title">"Actual"</string>
 
     <!-- Snooze Option um 30min später an Checkout zu erinnern -->
-    <string name="ios_snooze_option_30min"></string>
+    <string name="ios_snooze_option_30min">"Regurdar danovamain (30 min)"</string>
 
     <!-- Snooze Option um 1h später an Checkout zu erinnern -->
-    <string name="ios_snooze_option_1h"></string>
+    <string name="ios_snooze_option_1h">"Regurdar danovamain (1 ura)"</string>
 
     <!-- Snooze Option um 2h später an Checkout zu erinnern -->
-    <string name="ios_snooze_option_2h"></string>
+    <string name="ios_snooze_option_2h">"Regurdar danovamain (2 uras)"</string>
 
     <!-- Notification Quickaction um jetzt auszuchecken -->
-    <string name="ios_notification_checkout_now"></string>
+    <string name="ios_notification_checkout_now">"Sortir ussa"</string>
 
     <!-- Hinweis falls fälschlicherweise ein Covid-Zertifikat mit SwissCovid gescannt wird. -->
-    <string name="covid_certificate_alert_text"></string>
+    <string name="covid_certificate_alert_text">"Duvrai per plaschair l'app «COVID Certificate» per scannar quest code QR."</string>
 
     <!-- Button um Covid Certificate App zu öffnen -->
-    <string name="covid_certificate_open_app"></string>
+    <string name="covid_certificate_open_app">"Avrir l'app"</string>
 
     <!-- Button um Covid Certificate App zu installieren -->
-    <string name="covid_certificate_install_app"></string>
+    <string name="covid_certificate_install_app">"Installar l'app"</string>
 </resources>

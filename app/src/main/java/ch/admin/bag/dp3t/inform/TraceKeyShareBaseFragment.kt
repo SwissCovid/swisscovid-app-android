@@ -94,7 +94,7 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 
 	private fun showEnableTracingDialog(continuation: (isEnabled: Boolean) -> Unit) {
 		AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
-			.setMessage(R.string.android_inform_tracing_enabled_explanation)
+			.setMessage(R.string.inform_tracing_enabled_explanation)
 			.setOnCancelListener { continuation(false) }
 			.setNegativeButton(R.string.cancel) { _, _ -> continuation(false) }
 			.setPositiveButton(R.string.activate_tracing_button) { _, _ -> enableTracing(continuation) }
