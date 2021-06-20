@@ -6,7 +6,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContract
 import ch.admin.bag.dp3t.onboarding.OnboardingActivity.Companion.ARG_INSTANT_APP_URL
 
-class OnboardingActivityResultContract : ActivityResultContract<OnboardingActivityArgs, OnboardingActivityResult>() {
+class OnboardingActivityResultContract : ActivityResultContract<OnboardingActivityArgs, OnboardingActivityResult?>() {
 
 	override fun createIntent(context: Context, input: OnboardingActivityArgs): Intent {
 		return Intent(context, OnboardingActivity::class.java).apply {
@@ -15,9 +15,12 @@ class OnboardingActivityResultContract : ActivityResultContract<OnboardingActivi
 		}
 	}
 
-	override fun parseResult(resultCode: Int, intent: Intent?): OnboardingActivityResult {
-		val onboardingType = intent?.getSerializableExtra(OnboardingActivity.ARG_ONBOARDING_TYPE) as OnboardingType
-		val instantAppUrl = intent.getStringExtra(ARG_INSTANT_APP_URL)
+	override fun parseResult(resultCode: Int, intent: Intent?): OnboardingActivityResult? {
+		val onboardingType = intent?.getSerializableExtra(OnboardingActivity.ARG_ONBOARDING_TYPE) as OnboardingType?
+		if (onboardingType == null) {
+			return null
+		}
+		val instantAppUrl = intent?.getStringExtra(ARG_INSTANT_APP_URL)
 		return OnboardingActivityResult(ActivityResult(resultCode, intent), onboardingType, instantAppUrl)
 	}
 }

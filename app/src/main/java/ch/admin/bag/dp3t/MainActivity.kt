@@ -63,7 +63,11 @@ class MainActivity : FragmentActivity() {
 	private val crowdNotifierViewModel: CrowdNotifierViewModel by viewModels()
 
 	private val onboardingLauncher = registerForActivityResult(OnboardingActivityResultContract()) {
-		onOnboardingFinished(it.onboardingType, it.activityResult, it.instantAppUrl)
+		if (it != null) {
+			onOnboardingFinished(it.onboardingType, it.activityResult, it.instantAppUrl)
+		} else {
+			finish()
+		}
 	}
 
 	private val autoCheckoutBroadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
