@@ -20,6 +20,7 @@ class OnboardingSlidePageAdapter(fragmentActivity: FragmentActivity, onboardingT
 	companion object {
 		// Increment this number for each new Update Boarding
 		const val UPDATE_BOARDING_VERSION = 2
+		const val CHECKIN_UPDATE_BOARDIN_VERSION = 2
 	}
 
 	private val onboardingScreens = when (onboardingType) {

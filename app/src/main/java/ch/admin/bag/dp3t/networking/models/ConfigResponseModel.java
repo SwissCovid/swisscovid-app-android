@@ -21,6 +21,7 @@ public class ConfigResponseModel {
 	private Map<String, List<TestLocationModel>> testLocations;
 	private List<String> interOpsCountries;
 	private Map<String, String> testInformationUrls;
+	private boolean checkInUpdateNotificationEnabled;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -53,6 +54,10 @@ public class ConfigResponseModel {
 
 	public Map<String, String> getTestInformationUrls() {
 		return testInformationUrls;
+	}
+
+	public boolean isCheckInUpdateNotificationEnabled() {
+		return checkInUpdateNotificationEnabled;
 	}
 
 }

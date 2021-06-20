@@ -108,7 +108,9 @@ public class DebugFragment extends Fragment {
 		});
 
 		view.findViewById(R.id.debug_button_reset_update_boarding).setOnClickListener(v -> {
-			SecureStorage.getInstance(requireContext()).setLastShownUpdateBoardingVersion(0);
+			SecureStorage secureStorage = SecureStorage.getInstance(requireContext());
+			secureStorage.setLastShownUpdateBoardingVersion(0);
+			secureStorage.setCheckInUpdateNotificationShown(false);
 			getActivity().finish();
 		});
 
