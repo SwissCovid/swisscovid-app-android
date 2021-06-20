@@ -217,7 +217,11 @@ class MainActivity : FragmentActivity() {
 		try {
 			val venueInfo = CrowdNotifier.getVenueInfo(qrCodeData, BuildConfig.ENTRY_QR_CODE_HOST)
 			if (crowdNotifierViewModel.isCheckedIn.value == true) {
-				ErrorDialog(this, CrowdNotifierErrorState.ALREADY_CHECKED_IN).show()
+				if (crowdNotifierViewModel.checkInState.venueInfo == venueInfo) {
+					showCheckOutFragment()
+				} else {
+					ErrorDialog(this, CrowdNotifierErrorState.ALREADY_CHECKED_IN).show()
+				}
 			} else {
 				crowdNotifierViewModel.checkInState = CheckInState(
 					false, venueInfo, System.currentTimeMillis(),
