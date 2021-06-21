@@ -22,7 +22,7 @@ import ch.admin.bag.dp3t.MainActivity
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.debug.DebugFragment
 import ch.admin.bag.dp3t.networking.errors.ResponseError
-import ch.admin.bag.dp3t.onboarding.OnboardingSlidePageAdapter.Companion.CHECKIN_UPDATE_BOARDIN_VERSION
+import ch.admin.bag.dp3t.onboarding.OnboardingSlidePageAdapter.Companion.CHECKIN_UPDATE_BOARDING_VERSION
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.NotificationUtil
 import org.dpppt.android.sdk.DP3T
@@ -100,7 +100,7 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 				cancelNotification(context)
 
 				if (config.isCheckInUpdateNotificationEnabled && !secureStorage.checkInUpdateNotificationShown
-					&& secureStorage.onboardingCompleted && secureStorage.lastShownUpdateBoardingVersion < CHECKIN_UPDATE_BOARDIN_VERSION
+					&& secureStorage.onboardingCompleted && secureStorage.lastShownUpdateBoardingVersion < CHECKIN_UPDATE_BOARDING_VERSION
 					&& !secureStorage.forceUpdateLiveData.hasObservers()
 					&& (8..19).contains(LocalDateTime.now().hour)
 				) {
