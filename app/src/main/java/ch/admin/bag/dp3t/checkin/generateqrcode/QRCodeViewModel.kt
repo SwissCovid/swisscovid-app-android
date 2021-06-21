@@ -33,7 +33,7 @@ private const val CHECKOUT_WARNING_DELAY_MS = 8 * ONE_HOUR_IN_MILLIS
 private const val SWISSCOVID_LOCATION_DATA_VERSION = 4
 private const val QR_CODE_VALIDITY_DURATION_MS = 100000 * 24 * ONE_HOUR_IN_MILLIS // 100'000 days
 private val REMINDER_DELAY_OPTIONS_MS =
-	listOf(if (BuildConfig.IS_FLAVOR_DEV) 1 else 30, 60, 120, 240).map { it * ONE_MINUTE_IN_MILLIS } // 30, 60, 120 and 240 minutes
+	listOf(if (BuildConfig.IS_FLAVOR_DEV) 1 else 30, 60, 120).map { it * ONE_MINUTE_IN_MILLIS } // 30, 60, and 120 minutes
 private const val MAX_QR_CODE_PIXEL_SIZE = 1000
 const val QR_CODE_PDF_FILE_NAME = "swisscovid-qr-code.pdf"
 

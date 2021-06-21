@@ -26,11 +26,11 @@ fun VenueInfo.getReminderDelayOptions(context: Context): List<ReminderOption> {
 		.sorted()
 		.map { ReminderOption(it) }
 		.distinctBy { it.getDisplayString(context) }
-		.take(4)
+		.take(3)
 		.toList()
 	return if (filteredResult.isEmpty()) {
-		//Fallback if reminderDelayOptionsMsList is empty (30, 60, 120 and 240 minutes)
-		listOf(30, 60, 120, 240).map { ReminderOption(it * ONE_MINUTE_IN_MILLIS) }
+		//Fallback if reminderDelayOptionsMsList is empty (30, 60, and 120 minutes)
+		listOf(30, 60, 120).map { ReminderOption(it * ONE_MINUTE_IN_MILLIS) }
 	} else {
 		filteredResult
 	}
