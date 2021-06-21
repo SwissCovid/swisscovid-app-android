@@ -37,6 +37,7 @@ public class NotificationUtil {
 	public static final int NOTIFICATION_ID_CONTACT = 42;
 	public static final int NOTIFICATION_ID_UPDATE = 43;
 	public static final int NOTIFICATION_ID_REMINDER = 44;
+	public static final int NOTIFICATION_ID_CHECKIN_UPDATE = 45;
 
 	public static void generateContactNotification(Context context) {
 

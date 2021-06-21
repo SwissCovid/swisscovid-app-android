@@ -52,6 +52,7 @@ public class SecureStorage {
 	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
 	private static final String KEY_UPDATE_BOARDING_VERSION = "update_boarding_version";
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
+	private static final String KEY_CHECK_IN_UPDATE_NOTIFICATION_SHOWN = "check_in_update_notification_shown";
 
 	//KEY_LEITFADEN_OPEN_PENDING key value is kept to old value to avoid migration issues
 	private static final String KEY_LEITFADEN_OPEN_PENDING = "hotline_call_pending";
@@ -187,6 +188,14 @@ public class SecureStorage {
 
 	public void setLastSuccessfulCheckinDownload(long time) {
 		prefs.edit().putLong(KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD, time).apply();
+	}
+
+	public boolean getCheckInUpdateNotificationShown() {
+		return prefs.getBoolean(KEY_CHECK_IN_UPDATE_NOTIFICATION_SHOWN, false);
+	}
+
+	public void setCheckInUpdateNotificationShown(boolean shown) {
+		prefs.edit().putBoolean(KEY_CHECK_IN_UPDATE_NOTIFICATION_SHOWN, shown).apply();
 	}
 
 	public long getLastSuccessfulCheckinDownload() {
