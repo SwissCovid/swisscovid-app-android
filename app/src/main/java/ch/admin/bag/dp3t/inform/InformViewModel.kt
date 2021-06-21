@@ -154,6 +154,7 @@ class InformViewModel(application: Application, private val state: SavedStateHan
 		appConfigManager.iAmInfectedIsResettable = true
 		DP3T.stop(getApplication())
 		secureStorage.positiveReportOldestSharedKeyOrCheckin = listOfNotNull(oldestSharedKey, oldestSharedCheckin).minOrNull() ?: -1
+		secureStorage.clearInformTimeAndCodeAndToken()
 		emit(Resource.success(data = null))
 	}
 
