@@ -1432,7 +1432,7 @@ Alura telefonai qua:"</string>
     <string name="checkin_set_reminder">"Pro memoria sortida"</string>
 
     <!-- Check-Ins: Erinnerung Option Aus -->
-    <string name="reminder_option_off">"Deactivà"</string>
+    <string name="reminder_option_off">"Off"</string>
 
     <!-- Check-Ins: Tagebuch Zugriff Text -->
     <string name="authenticate_for_diary">"As autentifitgai per avair access al diari"</string>
@@ -1441,7 +1441,7 @@ Alura telefonai qua:"</string>
     <string name="reminder_option_hours">"{HOURS} h"</string>
 
     <!-- Check-Ins: Errinnerungsoption Minuten -->
-    <string name="reminder_option_minutes">"{MINUTES} min"</string>
+    <string name="reminder_option_minutes">"{MINUTES}'"</string>
 
     <!-- Check-Ins: Fehler wenn Kamera-Erlaubnis nicht gegeben -->
     <string name="qr_scanner_no_camera_permission">"Per pudair scannar il code QR dovra l'app access a la camera."</string>
@@ -1600,7 +1600,7 @@ Alura telefonai qua:"</string>
     <string name="home_end_isolation_card_text">"Puspè activar inscunters e registraziuns."</string>
 
     <!-- Check-Ins: Erinnerungsoption Stunden & Minuten -->
-    <string name="reminder_option_hours_minutes">"{HOURS} h {MINUTES} min"</string>
+    <string name="reminder_option_hours_minutes">"{HOURS} h {MINUTES}'"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer sich in Isolation befindet. -->
     <string name="checkin_overview_isolation_text">"Vus na pudais betg pli As registrar, sche Vus avais survegnì in resultat positiv."</string>
