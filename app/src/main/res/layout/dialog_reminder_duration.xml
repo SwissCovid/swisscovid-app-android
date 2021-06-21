@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/white"
+	android:elevation="@dimen/modal_elevation"
+	android:orientation="vertical">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/dialog_cancel"
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/cancel" />
+
+		<TextView
+			android:id="@+id/dialog_done"
+			style="@style/NextStep.Text.Bold.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/done_button" />
+
+	</FrameLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:orientation="horizontal">
+
+		<com.shawnlin.numberpicker.NumberPicker
+			android:id="@+id/dialog_hour_picker"
+			style="@style/NextStep.DateTimePicker"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:descendantFocusability="blocksDescendants"
+			app:np_wheelItemCount="5" />
+
+		<Space
+			android:layout_width="5dp"
+			android:layout_height="0dp" />
+
+		<com.shawnlin.numberpicker.NumberPicker
+			android:id="@+id/dialog_minute_picker"
+			style="@style/NextStep.DateTimePicker"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:descendantFocusability="blocksDescendants"
+			app:np_wheelItemCount="5" />
+
+	</LinearLayout>
+
+</LinearLayout>

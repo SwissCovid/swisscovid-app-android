@@ -1441,10 +1441,10 @@ U tom slučaju kontaktirajte nas ovde:"</string>
     <string name="authenticate_for_diary">"Identifikujte se, kako biste pristupili dnevniku"</string>
 
     <!-- Check-Ins: Errinnerungsoption Stunden -->
-    <string name="reminder_option_hours">"časovi {HOURS} h"</string>
+    <string name="reminder_option_hours">"{HOURS} h"</string>
 
     <!-- Check-Ins: Errinnerungsoption Minuten -->
-    <string name="reminder_option_minutes">"minute {MINUTES}'"</string>
+    <string name="reminder_option_minutes">"{MINUTES}'"</string>
 
     <!-- Check-Ins: Fehler wenn Kamera-Erlaubnis nicht gegeben -->
     <string name="qr_scanner_no_camera_permission">"Aplikaciji je potreban pristup kameri, da bi se skenirao QR kod."</string>
@@ -1602,7 +1602,7 @@ U tom slučaju kontaktirajte nas ovde:"</string>
     <string name="home_end_isolation_card_text">"Kontakte i prijave ponovo aktivirati. "</string>
 
     <!-- Check-Ins: Erinnerungsoption Stunden & Minuten -->
-    <string name="reminder_option_hours_minutes">"časovi {HOURS} h minute {MINUTES}'"</string>
+    <string name="reminder_option_hours_minutes">"{HOURS} h {MINUTES}'"</string>
 
     <!-- Text, welcher im Checkin-Overview Screen erscheint, wenn der Benutzer sich in Isolation befindet. -->
     <string name="checkin_overview_isolation_text">"Ne možete ponovo da se prijavite ako imate pozitivan test."</string>

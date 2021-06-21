@@ -327,7 +327,7 @@ Infoline SwissCovid
     <string name="onboarding_prinzip_title">"Anticiparnos al virus"</string>
 
     <!-- Onboarding Prinzip Text -->
-    <string name="onboarding_prinzip_text1">"Con la aplicación Swiss Covid, todos podemos contribuir a contener la propagación del virus."</string>
+    <string name="onboarding_prinzip_text1">"Con la aplicación SwissCovid, todos podemos contribuir a contener la propagación del virus."</string>
 
     <!-- Onboarding Prinzip Text -->
     <string name="onboarding_prinzip_text2">"La aplicación le avisa si ha estado usted potencialmente expuesto al coronavirus."</string>
@@ -755,7 +755,7 @@ Pueden aparecer también los síntomas siguientes:
 
     <!-- Fehler-Titel, wenn Tracing deaktiviert wurde im System, iOS -->
     <!-- Fuzzy -->
-    <string name="tracing_permission_error_title_ios">"Notificaciones de exposición a la COVID-19 desactivado desactivado"</string>
+    <string name="tracing_permission_error_title_ios">"Notificaciones de exposición a la COVID-19 desactivado"</string>
 
     <!-- Fehler-Text, wenn Tracing deaktiviert wurde im System, iOS -->
     <string name="tracing_permission_error_text_ios">"Active {TRACING_SETTING_TEXT} para que el rastreo anónimo pueda funcionar."</string>
@@ -937,7 +937,7 @@ Al fin de poder alertar también a los viajeros del extranjero, esto ocurre inde
     <string name="infoline_coronavirus_number">"+41 58 387 77 80"</string>
 
     <!-- Text beim Bluetooth Control iOS 14 -->
-    <string name="tracing_setting_text_ios_14_0">"Exposure Notifications"</string>
+    <string name="tracing_setting_text_ios_14_0">"Notificaciones de exposición"</string>
     <string name="bottom_nav_tab_home">"SwissCovid"</string>
     <string name="bottom_nav_tab_stats">"Datos"</string>
     <string name="stats_title">"ya utilizan SwissCovid"</string>
@@ -950,7 +950,7 @@ Al fin de poder alertar también a los viajeros del extranjero, esto ocurre inde
     <string name="share_app_body">"Cuantas más personas de entre sus contractos utilicen la app SwissCovid, más rápidamente será informado de un riesgo de contagio."</string>
 
     <!-- Text der geteilt wird -->
-    <string name="share_app_message">"Con la aplicación Swiss Covid, todos podemos contribuir a contener la propagación del virus."</string>
+    <string name="share_app_message">"Con la aplicación SwissCovid, todos podemos contribuir a contener la propagación del virus."</string>
 
     <!-- URL die geteilt wird -->
     <string name="share_app_url">"https://bag-coronavirus.ch/swisscovid-app/#download"</string>
@@ -1436,7 +1436,7 @@ Llame a este número:"</string>
     <string name="reminder_option_hours">"{HOURS} h"</string>
 
     <!-- Check-Ins: Errinnerungsoption Minuten -->
-    <string name="reminder_option_minutes">"{HOURS} h"</string>
+    <string name="reminder_option_minutes">"{MINUTES}'"</string>
 
     <!-- Check-Ins: Fehler wenn Kamera-Erlaubnis nicht gegeben -->
     <string name="qr_scanner_no_camera_permission">"La app debe acceder a la cámara del dispositivo para poder escanear el código QR."</string>
@@ -1653,10 +1653,10 @@ Llame a este número:"</string>
     <string name="events_empty_state_title">"Genere un código QR"</string>
     <string name="events_empty_state_subtitle">"Con un código QR SwissCovid es posible registrarse in situ sin necesidad de dejar datos personales."</string>
     <string name="events_info_box_title">"No sustituye el registro obligatorio de los datos de contacto"</string>
-    <string name="events_info_box_text">"Los Check-in SwissCovid nos sustituyen el registro obligatorio de los datos de contacto estipulado en la «Ordenanza Covid-19, situación particular». "</string>
+    <string name="events_info_box_text">"Los Check-in SwissCovid no sustituyen el registro obligatorio de los datos de contacto estipulado en la «Ordenanza Covid-19, situación particular»."</string>
     <string name="events_footer_title1">"¿Dónde utilizar los Check-in?"</string>
     <string name="events_footer_title2">"¿Por qué una función Check-in?"</string>
-    <string name="events_footer_subtitle1">"Los Check-in SwissCovid puede utilizarse allí donde las personas se reúnen pero el registro de los datos de contacto no es obligatorio.
+    <string name="events_footer_subtitle1">"Los Check-in SwissCovid pueden utilizarse allí donde las personas se reúnen pero el registro de los datos de contacto no es obligatorio.
 
 Posibles utilizaciones:
 – eventos privados
@@ -1715,7 +1715,7 @@ Posibles utilizaciones:
     <string name="onboarding_checkin_title">"Check-in sin dejar datos"</string>
     <string name="onboarding_checkin_heading">"Registros de Check-in"</string>
     <string name="onboarding_checkin_text1">"La función Check-in SwissCovid le permite registrarse con la aplicación en un lugar o en un evento."</string>
-    <string name="onboarding_checkin_text2">"Su presencia solo queda registra en la aplicación. No es necesario indicar datos personales en la app."</string>
+    <string name="onboarding_checkin_text2">"Su presencia solo queda registrada en la aplicación. No es necesario indicar datos personales en la app."</string>
     <string name="checkin_updateboarding_text">"La función Check-in SwissCovid le permite registrarse con la aplicación en un lugar o en un evento. Su presencia solo queda registrada en la aplicación. No es necesario indicar datos personales en la app. A estos efectos se han actualizado las condiciones de uso y la política de privacidad."</string>
     <string name="onboarding_gaen_button_dont_activate">"Omitir"</string>
 

@@ -244,7 +244,7 @@ class MainActivity : FragmentActivity() {
 			if (crowdNotifierViewModel.isCheckedIn.value == true) {
 				ErrorDialog(this, CrowdNotifierErrorState.ALREADY_CHECKED_IN).show()
 			} else {
-				crowdNotifierViewModel.performCheckinAndSetReminders(venueInfo, 0)
+				crowdNotifierViewModel.performCheckinAndSetReminders(venueInfo, System.currentTimeMillis(), 0)
 			}
 		} catch (e: QRException) {
 			handleInvalidQRCodeExceptions(e)

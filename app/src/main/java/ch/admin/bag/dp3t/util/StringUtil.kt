@@ -88,11 +88,11 @@ object StringUtil {
 		}
 	}
 
-	private fun Long.toHoursString(context: Context): String {
+	fun Long.toHoursString(context: Context): String {
 		return context.getString(R.string.reminder_option_hours).replace("{HOURS}", this.toString())
 	}
 
-	private fun Long.toMinutesString(context: Context): String {
+	fun Long.toMinutesString(context: Context): String {
 		return context.getString(R.string.reminder_option_minutes).replace("{MINUTES}", this.toString())
 	}
 
