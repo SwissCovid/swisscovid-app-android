@@ -1639,7 +1639,7 @@ Appelez :"</string>
     <string name="events_card_subtitle">"Créez un code QR SwissCovid permettant aux utilisateurs de se connecter sur place."</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
-    <string name="delete_qr_code_dialog">"Souhaitez-vous vraiment supprimer le QR code?"</string>
+    <string name="delete_qr_code_dialog">"Souhaitez-vous vraiment supprimer le QR code? Les codes QR imprimés restent valides."</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
     <string name="self_checkin_button_title">"Auto-check-in"</string>
@@ -1731,7 +1731,7 @@ Ce titre s’affichera lors du check-in."</string>
     <string name="checkin_report_title3">"Se faire tester"</string>
     <string name="checkin_report_subtitle1">"Il est possible d’être contagieux sans le savoir. Respectez les règles d’hygiène et de conduite pour protéger votre famille, vos amis et tout votre entourage."</string>
     <string name="checkin_report_subtitle2">"Surveillez votre état de santé."</string>
-    <string name="checkin_report_subtitle3">"Faites-vous immédiatement tester si vous présentez des symptômes. Même en l’absence de symptômes il peut être utile et recommandé de se faire tester pour le coronavirus."</string>
+    <string name="checkin_report_subtitle3">"Faites-vous immédiatement tester si vous présentez des symptômes. Même en l’absence de symptômes, il peut être utile et recommandé de se faire tester pour le coronavirus si vous n'êtes pas encore complètement vacciné."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>

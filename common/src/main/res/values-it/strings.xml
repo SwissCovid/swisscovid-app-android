@@ -1645,7 +1645,7 @@ Chiama il seguente numero:"</string>
     <string name="events_card_subtitle">"Crea un codice QR SwissCovid con il quale le persone possono fare il check-in sul posto"</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
-    <string name="delete_qr_code_dialog">"Eliminare il codice QR?"</string>
+    <string name="delete_qr_code_dialog">"Eliminare il codice QR? I codici QR stampati restano validi."</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
     <string name="self_checkin_button_title">"Self check-in"</string>
@@ -1742,7 +1742,7 @@ Possibili luoghi d'impiego:
     <string name="checkin_report_title3">"Fai il test"</string>
     <string name="checkin_report_subtitle1">"Potresti già essere contagioso senza accorgertene. Rispetta le misure d'igiene e di protezione vigenti e proteggi la tua famiglia, i tuoi amici e il tuo ambiente."</string>
     <string name="checkin_report_subtitle2">"Sorveglia il tuo stato di salute."</string>
-    <string name="checkin_report_subtitle3">"In caso di sintomi fai subito il test. Il test è raccomandato anche in assenza di stintomi."</string>
+    <string name="checkin_report_subtitle3">"In caso di sintomi fai subito il test. Per chi non è ancora completamente vaccinato, il test è opportuno e raccomandato anche in assenza di sintomi."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
