@@ -11,6 +11,6 @@ fun UserUploadInfo.toUploadVenueInfo(): UploadVenueInfo {
 		.setNotificationKey(ByteString.copyFrom(notificationKey))
 		.setIntervalStartMs(intervalStartMs)
 		.setIntervalEndMs(intervalEndMs)
-		.setFake(false)
+		.setFake(ByteString.copyFrom(ByteArray(1) { 0 }))
 		.build()
 }

@@ -63,7 +63,7 @@ class UserUploadRepository {
 			.setNotificationKey(ByteString.copyFrom(getRandomByteArray(32)))
 			.setIntervalStartMs(random.nextLong())
 			.setIntervalEndMs(random.nextLong())
-			.setFake(true)
+			.setFake(ByteString.copyFrom(ByteArray(1) { 1 }))
 			.build()
 	}
 
