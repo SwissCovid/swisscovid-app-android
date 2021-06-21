@@ -24,7 +24,13 @@ class ReallyNotShareFragment : TraceKeyShareBaseFragment() {
 			(requireActivity() as InformActivity).allowBackButton(false)
 			tryAgainButton.setOnClickListener {
 				tryAgainButton.isEnabled = false
-				showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
+				askUserToEnableTracingIfNecessary { isEnabled ->
+					if (isEnabled) {
+						showShareTEKsPopup(onSuccess = ::onUserGrantedTEKSharing, onError = ::onUserDidNotGrantTEKSharing)
+					} else {
+						onUserDidNotGrantTEKSharing()
+					}
+				}
 			}
 			dontSendButton.paintFlags = dontSendButton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 			dontSendButton.setOnClickListener {
