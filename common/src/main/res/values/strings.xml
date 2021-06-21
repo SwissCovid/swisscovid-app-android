@@ -1613,7 +1613,7 @@ If so, call this number:"</string>
     <string name="remove_diary_warning_text">"Your entry will be permanently removed from the list."</string>
 
     <!-- Remove from diary warning view remove button title -->
-    <string name="remove_diary_remove_now_button">"Completely remove"</string>
+    <string name="remove_diary_remove_now_button">"Remove completely"</string>
 
     <!-- Hide from diary warning title -->
     <string name="remove_diary_warning_hide_title">"Only hide and keep receiving notifications?"</string>
@@ -1634,7 +1634,7 @@ If so, call this number:"</string>
     <string name="events_card_subtitle">"Generate a QR code that people can use to check in on site."</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
-    <string name="delete_qr_code_dialog">"Are you sure you want to delete the QR code?"</string>
+    <string name="delete_qr_code_dialog">"Are you sure you want to delete the QR code? Printed QR codes will remain valid."</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
     <string name="self_checkin_button_title">"Self check-in"</string>
@@ -1679,7 +1679,7 @@ data"</string>
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. -->
     <string name="events_card_title">"Want to generate QR codes?"</string>
     <string name="checkin_footer_title1">"Why a check-in feature?"</string>
-    <string name="checkin_footer_subtitle1">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert people who were checked in at the same location at the same time, as well as close contacts."</string>
+    <string name="checkin_footer_subtitle1">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert not only close contacts, but also people who were checked in at the same location at the same time."</string>
     <string name="checkin_footer_title2">"No central data storage"</string>
     <string name="checkin_footer_subtitle2">"For the SwissCovid check-ins, you don't have to enter personal details, such as name, address or phone number, and no GPS location data is recorded. The list of check-ins is stored locally on your device. The local data is deleted after 14 days. "</string>
     <string name="events_empty_state_title">"Generate a QR code"</string>
@@ -1694,7 +1694,7 @@ Possible locations:
 – Private events
 – Club meetings or events
 – Gatherings in professional settings, e.g. meeting rooms, offices, canteens"</string>
-    <string name="events_footer_subtitle2">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert people who were checked in at the same location at the same time, as well as close contacts."</string>
+    <string name="events_footer_subtitle2">"The SwissCovid app has been upgraded to include the check-in function without entering contact details. If you test positive, this function lets you alert not only close contacts, but also people who were checked in at the same location at the same time."</string>
 
     <!-- Subtitle vom Meldungen Card in der Liste aller Meldungen. -->
     <string name="meldung_detail_exposed_list_card_subtitle">"Risk situation"</string>
@@ -1732,7 +1732,7 @@ Protect your contacts"</string>
     <string name="checkin_report_title3">"Get tested"</string>
     <string name="checkin_report_subtitle1">"You may already be infectious without realising it. Follow the rules on hygiene and social distancing and protect your loved ones and those around you."</string>
     <string name="checkin_report_subtitle2">"Monitor your state of health."</string>
-    <string name="checkin_report_subtitle3">"If you develop symptoms, get tested immediately. Even if you don't have symptoms, a coronavirus test is advisable and recommended."</string>
+    <string name="checkin_report_subtitle3">"If you develop symptoms, get tested immediately. A coronavirus test is also advisable and recommended if you have no symptoms and are not yet fully vaccinated."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
@@ -1763,7 +1763,7 @@ Protect your contacts"</string>
     <string name="remove_diary_remove_now_title">"Or remove completely?"</string>
 
     <!-- Remove from diary warning text -->
-    <string name="remove_diary_remove_now_text">"The entry was removed completely. You can no longer be alerted."</string>
+    <string name="remove_diary_remove_now_text">"The entry will be removed completely. You will no longer be alerted."</string>
     <string name="not_thank_you_screen_text3">"Nobody will be notified."</string>
 
     <!-- Link Text zu Informationen übers Testen -->
