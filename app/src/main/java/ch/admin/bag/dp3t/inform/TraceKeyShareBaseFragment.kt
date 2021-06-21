@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.inform.models.Resource
 import ch.admin.bag.dp3t.inform.models.Status
 import ch.admin.bag.dp3t.networking.errors.InvalidCodeError
@@ -84,7 +85,12 @@ abstract class TraceKeyShareBaseFragment : Fragment() {
 	protected fun showErrorDialog(error: InformRequestError, addErrorCode: String? = null) {
 		val errorDialogBuilder = AlertDialog.Builder(requireContext(), R.style.NextStep_AlertDialogStyle)
 			.setMessage(error.errorMessage)
-			.setPositiveButton(R.string.android_button_ok) { _, _ -> }
+			.setPositiveButton(R.string.android_button_ok) { _, _ ->
+				showFragment(
+					InformFragment.newInstance(false),
+					R.id.inform_fragment_container
+				)
+			}
 		val errorCode = error.getErrorCode(addErrorCode)
 		val errorCodeView = layoutInflater.inflate(R.layout.view_dialog_error_code, view as ViewGroup?, false) as TextView
 		errorCodeView.text = errorCode
