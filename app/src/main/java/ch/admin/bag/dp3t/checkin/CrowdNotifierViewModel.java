@@ -203,15 +203,15 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 		storage.setCheckInState(checkInState);
 	}
 
-	public void performCheckinAndSetReminders(VenueInfo venueInfo, long selectedReminderDelay) {
+	public void performCheckinAndSetReminders(VenueInfo venueInfo, long checkinTime, long selectedReminderDelay) {
 		long currentTime = System.currentTimeMillis();
-		setCheckInState(new CheckInState(true, venueInfo, currentTime, currentTime, selectedReminderDelay));
+		setCheckInState(new CheckInState(true, venueInfo, checkinTime, checkinTime, selectedReminderDelay));
 		startCheckInTimer();
-		NotificationHelper.getInstance(getApplication()).startOngoingNotification(currentTime, venueInfo);
+		NotificationHelper.getInstance(getApplication()).startOngoingNotification(checkinTime, venueInfo);
 		CrowdNotifierReminderHelper
-				.setCheckoutWarning(currentTime, VenueInfoExtensionsKt.getCheckoutWarningDelay(venueInfo), getApplication());
+				.setCheckoutWarning(checkinTime, VenueInfoExtensionsKt.getCheckoutWarningDelay(venueInfo), getApplication());
 		CrowdNotifierReminderHelper
-				.setAutoCheckOut(currentTime, VenueInfoExtensionsKt.getAutoCheckoutDelay(venueInfo), getApplication());
+				.setAutoCheckOut(checkinTime, VenueInfoExtensionsKt.getAutoCheckoutDelay(venueInfo), getApplication());
 		CrowdNotifierReminderHelper.setReminder(currentTime + selectedReminderDelay, getApplication());
 	}
 

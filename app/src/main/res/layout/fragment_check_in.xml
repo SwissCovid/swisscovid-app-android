@@ -57,13 +57,6 @@
 				android:layout_height="0dp"
 				android:layout_weight="2" />
 
-			<ImageView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"
-				android:layout_marginTop="@dimen/spacing_large"
-				android:src="@drawable/ic_illu_check_in" />
-
 			<TextView
 				android:id="@+id/title_textview"
 				style="@style/NextStep.Text.SplashTitle"
@@ -72,6 +65,38 @@
 				android:layout_marginTop="@dimen/spacing_medium"
 				android:gravity="center"
 				tools:text="Cyber Cafe SV" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_large"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:orientation="vertical"
+				android:paddingBottom="@dimen/button_radius">
+
+				<TextView
+					style="@style/NextStep.Text.Bold"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="@string/checkin_title"
+					android:textAllCaps="true" />
+
+				<TextView
+					android:id="@+id/checkin_time"
+					style="@style/NextStep.Text.Title.Blue"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginTop="@dimen/spacing_medium"
+					android:layout_marginBottom="@dimen/spacing_large"
+					android:background="@color/grey_light_medium"
+					android:foreground="?selectableItemBackground"
+					android:gravity="center"
+					android:padding="@dimen/spacing_medium"
+					android:text="Today, 12:34" />
+
+			</LinearLayout>
 
 			<Space
 				android:layout_width="match_parent"

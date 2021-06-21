@@ -1,5 +1,6 @@
 package ch.admin.bag.dp3t.checkin.checkinflow
 
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.MutableLiveData
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
@@ -20,6 +22,8 @@ import ch.admin.bag.dp3t.checkin.models.ReminderOption
 import ch.admin.bag.dp3t.databinding.FragmentCheckInBinding
 import ch.admin.bag.dp3t.extensions.getReminderDelayOptions
 import com.google.android.material.button.MaterialButton
+import java.text.SimpleDateFormat
+import java.util.*
 
 private const val ARG_IS_SELF_CHECKIN = "ARG_IS_SELF_CHECKIN"
 
@@ -36,6 +40,8 @@ class CheckInFragment : Fragment() {
 	}
 
 	private val viewModel: CrowdNotifierViewModel by activityViewModels()
+
+	private var selectedCheckinTime = MutableLiveData(System.currentTimeMillis())
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -59,8 +65,16 @@ class CheckInFragment : Fragment() {
 
 			titleTextview.text = venueInfo.title
 			checkInButton.setOnClickListener {
-				viewModel.performCheckinAndSetReminders(venueInfo, viewModel.selectedReminderDelay)
+				viewModel.performCheckinAndSetReminders(venueInfo, selectedCheckinTime.value!!, viewModel.selectedReminderDelay)
 				popBackToHomeFragment()
+			}
+
+			selectedCheckinTime.observe(viewLifecycleOwner) { selectedTime ->
+				val formattedTime = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT).format(Date(selectedTime))
+				checkinTime.text = getString(R.string.date_today) + ", " + formattedTime
+			}
+			checkinTime.setOnClickListener {
+				selectCheckinTime()
 			}
 
 			reminderToggleGroup.removeAllViews()
@@ -90,6 +104,22 @@ class CheckInFragment : Fragment() {
 			selfCheckinToolbar.isVisible = requireArguments().getBoolean(ARG_IS_SELF_CHECKIN)
 			toolbar.isVisible = !requireArguments().getBoolean(ARG_IS_SELF_CHECKIN)
 		}.root
+	}
+
+	private fun selectCheckinTime() {
+		val cal = Calendar.getInstance()
+		cal.timeInMillis = selectedCheckinTime.value!!
+		TimePickerDialog(
+			requireContext(),
+			{ _, hourOfDay, minute ->
+				cal.set(Calendar.HOUR_OF_DAY, hourOfDay)
+				cal.set(Calendar.MINUTE, minute)
+				selectedCheckinTime.value = cal.timeInMillis.coerceAtMost(System.currentTimeMillis())
+			},
+			cal.get(Calendar.HOUR_OF_DAY),
+			cal.get(Calendar.MINUTE),
+			true
+		).show()
 	}
 
 	private fun popBackToHomeFragment() {
