@@ -920,9 +920,9 @@ Schwarzenburgstrasse 157
     <string name="travel_screen_explanation_title_1">"O que significa isto?"</string>
 
     <!-- First text for the travel feauter explenation at the bottom of the travel screen. -->
-    <string name="travel_screen_explanation_text_1">"Se viajar para um dos países compatíveis, não necessita de instalar mais nenhum app de coronavírus.
+    <string name="travel_screen_explanation_text_1">"Se viajar para um dos países compatíveis, não necessita de instalar mais nenhum aplicativo de coronavírus.
 
-A SwissCovid verifica as chaves privadas divulgadas nos países compatíveis para que possa ser alertado de um possível contágio, mesmo no estrangeiro."</string>
+O SwissCovid verifica as chaves privadas divulgadas nos países compatíveis para que possa ser alertado dum possível contágio, mesmo no estrangeiro."</string>
 
     <!-- Second title for the travel feauter explenation at the bottom of the travel screen. -->
     <string name="travel_screen_explanation_title_2">"O que acontece quando insiro o código COVID?"</string>
@@ -955,7 +955,7 @@ Isto acontece independentemente de ter estado no estrangeiro ou não para que os
     <string name="share_app_supertitle">"Juntos…"</string>
     <string name="share_app_title">"prevenimos o contágio "</string>
     <string name="share_app_button">"Partilhar a app"</string>
-    <string name="share_app_body">"Quanto mais pessoas ativarem a app SwissCovid, mais cedo conseguiremos interromper as cadeias de transmissão."</string>
+    <string name="share_app_body">"Se o maior número possível dos seus contactos usar o aplicativo SwissCovid, você pode ser informado rapidamente em caso de risco de contágio."</string>
 
     <!-- Text der geteilt wird -->
     <string name="share_app_message">"Com a app Swiss Covid, todos podem ajudar a conter a propagação do coronavírus."</string>
@@ -1333,7 +1333,7 @@ Ligue para:"</string>
     <string name="answer_no">"Não"</string>
 
     <!-- Text in der Infobox auf dem Reisen-Screen -->
-    <string name="travel_screen_info">"Está no estrangeiro? A SwissCovid funciona nestes países."</string>
+    <string name="travel_screen_info">"Está no estrangeiro? O SwissCovid funciona nestes países."</string>
 
     <!-- Überschrift der Liste der kompatiblen Länder auf dem Reisen-Screen -->
     <string name="travel_screen_compatible_countries">"Países compatíveis:"</string>
@@ -1366,7 +1366,8 @@ Ligue para:"</string>
     <string name="inform_send_thankyou_text_onsetdate_info">"Os códigos privados do seu aplicativo foram enviados para o seguinte período:"</string>
 
     <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
-    <string name="android_inform_tracing_enabled_explanation">"Ao introduzir um código Covid, o rastreamento deve estar ativado para que seja possível compartilhar os seus códigos privados."</string>
+    <!-- Fuzzy -->
+    <string name="inform_tracing_enabled_explanation">"Ao introduzir um código Covid, o rastreamento deve estar ativado para que seja possível compartilhar os seus códigos privados."</string>
 
     <!-- Leitfaden Info Popup Text -->
     <string name="leitfaden_infopopup_text">"Ao premir \"{BUTTON_TITLE}\" você sai do aplicativo e vai para o website do Guia SwissCovid. Nisso, os dados dos últimos encontros com possibilidade de infecção do website também são enviados."</string>
@@ -1477,7 +1478,7 @@ Ligue para:"</string>
     <string name="checkins_create_qr_code">"Criar um código QR"</string>
 
     <!-- Veranstaltungen-Screen Titel -->
-    <string name="events_title">"Oferecer check-ins?"</string>
+    <string name="events_title">"Gerar códigos QR"</string>
 
     <!-- Check-Ins: Jetzt einchecken Button Titel -->
     <string name="check_in_now_button_title">"Fazer check-in agora"</string>
@@ -1577,7 +1578,7 @@ Ligue para:"</string>
     <string name="inform_share_checkins_subtitle">"Se compartilhar os seus registos de check-in, o aplicativo pode informar pessoas que fizeram check-in no mesmo lugar e na mesma altura."</string>
 
     <!-- Button text, um alle Checkins zu selektieren -->
-    <string name="inform_share_checkins_select_all">"Selecionar todos"</string>
+    <string name="inform_share_checkins_select_all">"Selecionar todos os correspondentes"</string>
     <string name="inform_dont_send_button_title">"Não enviar"</string>
     <string name="inform_dont_share_button_title">"Não compartilhar"</string>
     <string name="inform_really_not_share_title">"Realmente não deseja compartilhar?"</string>
@@ -1611,7 +1612,7 @@ Ligue para:"</string>
     <string name="events_card_subtitle">"Gere um código QR com o qual pessoas podem fazer check-in no local."</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
-    <string name="delete_qr_code_dialog">"Realmente deseja apagar o código QR?"</string>
+    <string name="delete_qr_code_dialog">"Realmente deseja apagar o código QR? Os códigos QR impressos continuam válidos."</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
     <string name="self_checkin_button_title">"Check-in próprio"</string>
@@ -1653,7 +1654,7 @@ Ligue para:"</string>
     <string name="home_end_isolation_card_title">"Isolation ended?"</string>
 
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. -->
-    <string name="events_card_title">"Terminar o isolamento?"</string>
+    <string name="events_card_title">"Deseja gerar códigos QR?"</string>
     <string name="checkin_footer_title1">"Porque uma função de check-in?"</string>
     <string name="checkin_footer_subtitle1">"A função de check-in sem recolha de dados de contacto amplia o aplicativo SwissCovid. Com esta função você pode não só alertar contactos próximos, mas também pessoas que fizeram check-in no mesmo lugar e na mesma altura, em caso de teste positivo."</string>
     <string name="checkin_footer_title2">"Nenhum armazenamento de dados centralizado"</string>
@@ -1708,7 +1709,7 @@ Este título vai ser indicado no check-in."</string>
     <string name="checkin_report_title3">"Deixar testar-se"</string>
     <string name="checkin_report_subtitle1">"Você já pode ser contagioso, sem percebê-lo. Observe as medidas de higiene e proteção vigentes e proteja a sua família, os amigos e o seu ambiente."</string>
     <string name="checkin_report_subtitle2">"Observe o seu estado de saúde."</string>
-    <string name="checkin_report_subtitle3">"Deixe testar-se imediatamente se aparecerem sintomas. Mesmo se não aparecerem sintomas, um teste de corona é conveniente e recomendado."</string>
+    <string name="checkin_report_subtitle3">"Deixe testar-se imediatamente se aparecerem sintomas. Mesmo se não aparecerem sintomas e se você ainda não tiver sido completamente vacinado, um teste de corona é conveniente e recomendado."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
@@ -1754,50 +1755,50 @@ Este título vai ser indicado no check-in."</string>
     <!-- Info URL for testing -->
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
-    <string name="checkout_too_long_alert_text">"For this check-in a maximum check-in duration of {DURATION} applies. Please check your input again."</string>
+    <string name="checkout_too_long_alert_text">"A este check-in aplica-se uma duração máxima de check-in de {DURATION}. Por favor, verifique a sua introdução."</string>
 
     <!-- turn camera light on -->
-    <string name="accessibility_camera_light_on">"turn light on"</string>
+    <string name="accessibility_camera_light_on">"Acender a luz"</string>
 
     <!-- turn camera light off -->
-    <string name="accessibility_camera_light_off">"turn light off"</string>
+    <string name="accessibility_camera_light_off">"Apagar a luz"</string>
 
     <!-- Popup Text, welcher erscheint, wenn man den Covidcode eingeben will, man aber noch eingecheckt ist. -->
-    <string name="error_cannot_enter_covidcode_while_checked_in"></string>
+    <string name="error_cannot_enter_covidcode_while_checked_in">"Você ainda não fez check-out. Por favor, faça check-out antes de introduzir o código Covid."</string>
 
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. Wird angezeigt falls bereits ein QR Code erstellt wurde -->
-    <string name="events_card_title_events_not_empty"></string>
+    <string name="events_card_title_events_not_empty">"Meus códigos QR"</string>
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns die Checkin-Zeit nach der Checkout-Zeit liegt -->
-    <string name="checkout_inverse_time_alert_description"></string>
+    <string name="checkout_inverse_time_alert_description">"A sua hora de check-out selecionada é antes da sua hora de check-in. Por favor, verifique a sua introdução."</string>
 
     <!-- Titel für die Notification die SwissCovid 2.0 ankündigt -->
-    <string name="update_notification_checkin_feature_title"></string>
+    <string name="update_notification_checkin_feature_title">"Nova função: Check-in"</string>
 
     <!-- Text für die Notification die SwissCovid 2.0 ankündigt -->
-    <string name="update_notification_checkin_feature_text"></string>
+    <string name="update_notification_checkin_feature_text">"Agradecemos a utilização do SwissCovid. Com a última versão do aplicativo você pode fazer check-in no local sem deixar dados."</string>
 
     <!-- Titel für aktuellen Check-in im Tagebuch -->
-    <string name="diary_current_title"></string>
+    <string name="diary_current_title">"Atual"</string>
 
     <!-- Snooze Option um 30min später an Checkout zu erinnern -->
-    <string name="ios_snooze_option_30min"></string>
+    <string name="ios_snooze_option_30min">"Lembrar novamente (30min)"</string>
 
     <!-- Snooze Option um 1h später an Checkout zu erinnern -->
-    <string name="ios_snooze_option_1h"></string>
+    <string name="ios_snooze_option_1h">"Lembrar novamente (1h)"</string>
 
     <!-- Snooze Option um 2h später an Checkout zu erinnern -->
-    <string name="ios_snooze_option_2h"></string>
+    <string name="ios_snooze_option_2h">"Lembrar novamente (2h)"</string>
 
     <!-- Notification Quickaction um jetzt auszuchecken -->
-    <string name="ios_notification_checkout_now"></string>
+    <string name="ios_notification_checkout_now">"Fazer check-out agora"</string>
 
     <!-- Hinweis falls fälschlicherweise ein Covid-Zertifikat mit SwissCovid gescannt wird. -->
-    <string name="covid_certificate_alert_text"></string>
+    <string name="covid_certificate_alert_text">"Por favor, use o aplicativo \"Certificado COVID\" para ler este código QR."</string>
 
     <!-- Button um Covid Certificate App zu öffnen -->
-    <string name="covid_certificate_open_app"></string>
+    <string name="covid_certificate_open_app">"Abrir o aplicativo"</string>
 
     <!-- Button um Covid Certificate App zu installieren -->
-    <string name="covid_certificate_install_app"></string>
+    <string name="covid_certificate_install_app">"Instalar o aplicativo"</string>
 </resources>

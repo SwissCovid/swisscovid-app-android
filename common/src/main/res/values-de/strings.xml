@@ -1426,7 +1426,8 @@ Dann rufen Sie hier an:"</string>
     <string name="inform_send_thankyou_text_onsetdate_info">"Die privaten Schlüssel Ihrer App wurden für den folgenden Zeitraum gesendet:"</string>
 
     <!-- Dialogtext wenn ein Covidcode eingegeben wird während das Tracing deaktiviert ist -->
-    <string name="android_inform_tracing_enabled_explanation">"Bitte Tracing aktivieren, um automatisch erkannte Begegnungen zu teilen und andere zu warnen."</string>
+    <!-- Fuzzy -->
+    <string name="inform_tracing_enabled_explanation">"Bitte Tracing aktivieren, um automatisch erkannte Begegnungen zu teilen und andere zu warnen."</string>
 
     <!-- Leitfaden Info Popup Text -->
     <!-- Fuzzy -->
