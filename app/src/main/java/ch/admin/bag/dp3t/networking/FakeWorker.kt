@@ -42,7 +42,6 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 		private const val FACTOR_DAY_MILLIS = 24 * FACTOR_HOUR_MILLIS
 		private const val MAX_DELAY_HOURS: Long = 48
 		private const val MAX_USER_INTERACTION_DELAY: Long = 3 * 60 * 1000L
-		const val UPLOAD_REQUEST_TIME_PADDING = 5000L
 
 		private val isWorkInProgress = AtomicBoolean(false)
 
@@ -154,10 +153,8 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 			//Execute Onset Date Request
 			authCodeRepository.getOnsetDate(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
 
-			val timeBetweenOnsetAndUploadRequest = (SecureRandom().nextDouble() * MAX_USER_INTERACTION_DELAY).roundToInt()
-			val paddedDelay =
-				timeBetweenOnsetAndUploadRequest + UPLOAD_REQUEST_TIME_PADDING - timeBetweenOnsetAndUploadRequest % UPLOAD_REQUEST_TIME_PADDING
-			delay(paddedDelay)
+			val timeBetweenOnsetAndUploadRequest = clock.getUserInteractionDelay()
+			delay(timeBetweenOnsetAndUploadRequest.toLong())
 
 			//Execute Access Token Request
 			val accessTokenResponse = authCodeRepository.getAccessToken(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
@@ -181,6 +178,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 	interface Clock {
 		fun syncInterval(): Long
 		fun currentTimeMillis(): Long
+		fun getUserInteractionDelay(): Int
 	}
 
 	class ClockImpl : Clock {
@@ -191,6 +189,10 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 
 		override fun currentTimeMillis(): Long {
 			return System.currentTimeMillis()
+		}
+
+		override fun getUserInteractionDelay(): Int {
+			return (SecureRandom().nextDouble() * MAX_USER_INTERACTION_DELAY).roundToInt()
 		}
 	}
 
