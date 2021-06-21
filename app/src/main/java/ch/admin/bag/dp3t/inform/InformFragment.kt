@@ -32,9 +32,14 @@ class InformFragment : TraceKeyShareBaseFragment() {
 
 	companion object {
 		private const val TAG = "InformFragment"
+		private const val ARG_BACK_ALLOWED = "ARG_BACK_ALLOWED"
 
 		@JvmStatic
-		fun newInstance() = InformFragment()
+		fun newInstance(backAllowed: Boolean): InformFragment {
+			val informFragment = InformFragment()
+			informFragment.arguments = Bundle().apply { putBoolean(ARG_BACK_ALLOWED, backAllowed) }
+			return informFragment
+		}
 	}
 
 	private lateinit var binding: FragmentInformBinding
@@ -47,7 +52,7 @@ class InformFragment : TraceKeyShareBaseFragment() {
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		binding = FragmentInformBinding.inflate(inflater)
 		return binding.apply {
-			(requireActivity() as InformActivity).allowBackButton(true)
+			(requireActivity() as InformActivity).allowBackButton(arguments?.getBoolean(ARG_BACK_ALLOWED) ?: true)
 			covidcodeInput.addTextChangedListener(object : ChainedEditTextListener {
 				override fun onTextChanged(input: String) {
 					val matchesRegex = input.matches(REGEX_CODE_PATTERN.toRegex())
