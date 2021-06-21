@@ -20,7 +20,7 @@ import ch.admin.bag.dp3t.databinding.FragmentCheckinDiaryBinding
 import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.reports.CheckinReportItem
 import ch.admin.bag.dp3t.reports.ReportsFragment
-import ch.admin.bag.dp3t.util.StringUtil
+import ch.admin.bag.dp3t.util.DateUtils
 import org.crowdnotifier.android.sdk.model.ExposureEvent
 import java.util.*
 
@@ -70,7 +70,7 @@ class DiaryFragment : Fragment() {
 				checkinDiaryEmptyView.isVisible = isEmpty
 				var daysAgoString = ""
 				for (diaryEntry in diaryEntries) {
-					val newDaysAgoString: String = StringUtil.getDaysAgoString(diaryEntry.checkInTime, requireContext())
+					val newDaysAgoString: String = DateUtils.getFormattedWeekdayWithDate(diaryEntry.checkInTime, requireContext())
 					if (newDaysAgoString != daysAgoString) {
 						daysAgoString = newDaysAgoString
 						items.add(ItemVenueVisitDayHeader(daysAgoString))

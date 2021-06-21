@@ -9,6 +9,8 @@
  */
 package ch.admin.bag.dp3t.util;
 
+import android.content.Context;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,6 +21,8 @@ import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.models.DayDate;
+
+import ch.admin.bag.dp3t.R;
 
 public class DateUtils {
 
@@ -71,6 +75,16 @@ public class DateUtils {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd. MMMM yyyy");
 		sdf.setTimeZone(timezone);
 		return sdf.format(new Date(date));
+	}
+
+	public static String getFormattedWeekdayWithDate(long timestamp, Context context) {
+		int daysDiff = getDaysDiff(timestamp);
+		if (daysDiff == 0) {
+			return context.getString(R.string.date_today);
+		} else {
+			SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd.MM.", new Locale(context.getString(R.string.language_key)));
+			return sdf.format(new Date(timestamp));
+		}
 	}
 
 	public static Date getParsedDateStats(String date) {
