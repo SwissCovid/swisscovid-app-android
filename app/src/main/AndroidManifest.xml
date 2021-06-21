@@ -18,6 +18,10 @@
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<uses-permission android:name="android.permission.CAMERA" />
 
+	<queries>
+		<package android:name="ch.admin.bag.covidcertificate.wallet"/>
+	</queries>
+
 	<application
 		android:name="ch.admin.bag.dp3t.MainApplication"
 		android:allowBackup="false"

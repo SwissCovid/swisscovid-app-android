@@ -1,15 +1,18 @@
 package ch.admin.bag.dp3t.checkin.checkinflow
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.ColorRes
+import androidx.appcompat.app.AlertDialog
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
@@ -25,6 +28,7 @@ import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState
 import ch.admin.bag.dp3t.checkin.utils.ErrorDialog
 import ch.admin.bag.dp3t.checkin.utils.ErrorHelper
 import ch.admin.bag.dp3t.databinding.FragmentQrCodeScannerBinding
+import ch.admin.bag.dp3t.extensions.isPackageInstalled
 import ch.admin.bag.dp3t.extensions.showFragment
 import org.crowdnotifier.android.sdk.CrowdNotifier
 import org.crowdnotifier.android.sdk.utils.QrUtils.*
@@ -34,6 +38,10 @@ import java.util.concurrent.Executors
 
 private const val PERMISSION_REQUEST_CAMERA = 13
 private const val MIN_ERROR_VISIBILITY = 1000L
+private const val COVID_CERT_PACKAGE_NAME = "ch.admin.bag.covidcertificate.wallet"
+private const val COVID_CERT_PLAYSTORE_DEEP_LINK = "https://play.google.com/store/apps/details?id=$COVID_CERT_PACKAGE_NAME"
+private const val COVID_CERT_DEEPLINK_PREFIX = "covidcert://"
+private const val COVID_CERT_QRCODE_PREFIX = "HC1:"
 
 class QrCodeScannerFragment : Fragment(), QrCodeAnalyzer.Listener {
 
@@ -142,11 +150,11 @@ class QrCodeScannerFragment : Fragment(), QrCodeAnalyzer.Listener {
 			showFragment(CheckInFragment.newInstance(isSelfCheckin = false))
 			activity?.runOnUiThread { indicateInvalidQrCode(QRScannerState.VALID) }
 		} catch (e: QRException) {
-			handleInvalidQRCodeExceptions(e)
+			handleInvalidQRCodeExceptions(e, qrCodeData)
 		}
 	}
 
-	private fun handleInvalidQRCodeExceptions(e: QRException) {
+	private fun handleInvalidQRCodeExceptions(e: QRException, qrCodeData: String) {
 		when (e) {
 			is InvalidQRCodeVersionException -> {
 				activity?.runOnUiThread {
@@ -159,9 +167,42 @@ class QrCodeScannerFragment : Fragment(), QrCodeAnalyzer.Listener {
 			}
 			is NotYetValidException -> activity?.runOnUiThread { indicateInvalidQrCode(QRScannerState.NOT_YET_VALID) }
 			is NotValidAnymoreException -> activity?.runOnUiThread { indicateInvalidQrCode(QRScannerState.NOT_VALID_ANYMORE) }
-			else -> activity?.runOnUiThread { indicateInvalidQrCode(QRScannerState.INVALID_FORMAT) }
-
+			else -> activity?.runOnUiThread {
+				if (qrCodeData.startsWith(COVID_CERT_QRCODE_PREFIX)) {
+					showCovidCertificateAlert(qrCodeData)
+				} else {
+					indicateInvalidQrCode(QRScannerState.INVALID_FORMAT)
+				}
+			}
 		}
+	}
+
+	private fun showCovidCertificateAlert(qrCodeData: String) {
+		val context = context ?: return
+		isQRScanningEnabled = false
+		AlertDialog.Builder(context, R.style.NextStep_AlertDialogStyle)
+			.setMessage(R.string.covid_certificate_alert_text)
+			.apply {
+				if (context.packageManager.isPackageInstalled(COVID_CERT_PACKAGE_NAME)) {
+					setPositiveButton(R.string.covid_certificate_open_app) { _, _ ->
+						val intent = Intent(Intent.ACTION_VIEW, Uri.parse("$COVID_CERT_DEEPLINK_PREFIX$qrCodeData"))
+						if (intent.resolveActivity(context.packageManager) != null) {
+							startActivity(intent)
+						} else {
+							startActivity(context.packageManager.getLaunchIntentForPackage(COVID_CERT_PACKAGE_NAME))
+						}
+					}
+				} else {
+					setPositiveButton(R.string.covid_certificate_install_app) { _, _ ->
+						startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(COVID_CERT_PLAYSTORE_DEEP_LINK)))
+					}
+				}
+			}
+			.setOnDismissListener { isQRScanningEnabled = true }
+			.setOnCancelListener { isQRScanningEnabled = true }
+			.setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
+			.show()
+
 	}
 
 	private fun indicateInvalidQrCode(qrScannerState: QRScannerState) {
