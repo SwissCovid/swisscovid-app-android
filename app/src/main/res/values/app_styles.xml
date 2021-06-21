@@ -57,9 +57,13 @@
 	</style>
 
 	<style name="NextStep.AlertDialogStyle" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+		<item name="android:colorPrimary">@color/colorPrimary</item>
+		<item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="android:colorAccent">@color/blue_main</item>
 		<item name="android:textColor">@color/dark_main</item>
 		<item name="android:textColorPrimary">@color/dark_main</item>
+		<item name="android:textColorSecondary">@color/dark_main</item>
+		<item name="android:colorControlActivated">@color/blue_main</item>
 		<item name="buttonBarPositiveButtonStyle">@style/NextStep.Button.AlertDialog</item>
 		<item name="buttonBarNegativeButtonStyle">@style/NextStep.Button.AlertDialog</item>
 		<item name="android:fontFamily">@font/inter_light</item>
