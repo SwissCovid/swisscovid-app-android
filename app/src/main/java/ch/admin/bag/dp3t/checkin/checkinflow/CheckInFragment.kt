@@ -33,7 +33,6 @@ import ch.admin.bag.dp3t.util.UiUtils
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.shawnlin.numberpicker.NumberPicker
-import java.text.SimpleDateFormat
 import java.time.Duration
 import java.util.*
 
@@ -89,7 +88,7 @@ class CheckInFragment : Fragment() {
 			}
 
 			selectedCheckinTime.observe(viewLifecycleOwner) { selectedTime ->
-				val formattedTime = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT).format(Date(selectedTime))
+				val formattedTime = StringUtil.getHourMinuteTimeString(selectedTime, ":")
 				checkinTime.text = getString(R.string.date_today) + ", " + formattedTime
 			}
 			checkinTime.setOnClickListener {
@@ -196,7 +195,8 @@ class CheckInFragment : Fragment() {
 
 	private fun invalidateCustomReminderDelayButtonLabel(isChecked: Boolean) {
 		if (isChecked) {
-			customReminderButton.text = StringUtil.getShortDurationStringWithUnits(viewModel.selectedReminderDelay, requireContext())
+			customReminderButton.text =
+				StringUtil.getShortDurationStringWithUnits(viewModel.selectedReminderDelay, requireContext())
 			customReminderButton.icon = null
 		} else {
 			customReminderButton.text = null
