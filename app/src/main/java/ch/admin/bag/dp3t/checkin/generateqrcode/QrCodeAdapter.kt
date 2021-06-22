@@ -8,12 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_EVENT
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_EXPLANATION
+import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_FAQ_BUTTON
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_FOOTER
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventOverviewItem.Companion.TYPE_GENERATE_QR_CODE_BUTTON
-import ch.admin.bag.dp3t.databinding.ItemEventsExplanationBinding
-import ch.admin.bag.dp3t.databinding.ItemEventsFooterBinding
-import ch.admin.bag.dp3t.databinding.ItemGenerateQrCodeBinding
-import ch.admin.bag.dp3t.databinding.ItemQrCodeBinding
+import ch.admin.bag.dp3t.databinding.*
 import org.crowdnotifier.android.sdk.model.VenueInfo
 
 class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView.Adapter<QrCodeAdapter.QrCodeBaseViewHolder>() {
@@ -32,6 +30,7 @@ class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView
 			TYPE_EVENT -> EventViewHolder(ItemQrCodeBinding.inflate(inflater, parent, false))
 			TYPE_EXPLANATION -> ExplanationViewHolder(ItemEventsExplanationBinding.inflate(inflater, parent, false))
 			TYPE_FOOTER -> SimpleViewHolder(ItemEventsFooterBinding.inflate(inflater, parent, false))
+			TYPE_FAQ_BUTTON -> FaqViewHolder(ItemFaqButtonBinding.inflate(inflater, parent, false))
 			else -> throw IllegalArgumentException("invalid view type")
 		}
 	}
@@ -54,6 +53,13 @@ class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView
 	inner class GenerateQrCodeViewHolder(private val binding: ItemGenerateQrCodeBinding) : QrCodeBaseViewHolder(binding.root) {
 		override fun bind(item: EventOverviewItem) {
 			binding.qrCodeGenerate.setOnClickListener { onClickListener.generateQrCode() }
+		}
+
+	}
+
+	inner class FaqViewHolder(private val binding: ItemFaqButtonBinding) : QrCodeBaseViewHolder(binding.root) {
+		override fun bind(item: EventOverviewItem) {
+			binding.faqButton.setOnClickListener { onClickListener.onFaqClicked() }
 		}
 
 	}
@@ -90,6 +96,7 @@ class QrCodeAdapter(private val onClickListener: OnClickListener) : RecyclerView
 interface OnClickListener {
 	fun generateQrCode()
 	fun onQrCodeClicked(qrCodeItem: VenueInfo)
+	fun onFaqClicked()
 }
 
 

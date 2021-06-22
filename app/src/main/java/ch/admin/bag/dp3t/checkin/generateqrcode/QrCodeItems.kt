@@ -8,6 +8,7 @@ abstract class EventOverviewItem {
 		const val TYPE_EXPLANATION = 1
 		const val TYPE_FOOTER = 2
 		const val TYPE_GENERATE_QR_CODE_BUTTON = 3
+		const val TYPE_FAQ_BUTTON = 4
 	}
 
 	abstract val type: Int
@@ -23,6 +24,10 @@ class ExplanationItem(val showOnlyInfobox: Boolean) : EventOverviewItem() {
 
 class FooterItem : EventOverviewItem() {
 	override val type = TYPE_FOOTER
+}
+
+class FaqButtonItem: EventOverviewItem() {
+	override val type = TYPE_FAQ_BUTTON
 }
 
 class GenerateQrCodeButtonItem : EventOverviewItem() {

@@ -10,6 +10,8 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentEventsOverviewBinding
 import ch.admin.bag.dp3t.extensions.showFragment
 import org.crowdnotifier.android.sdk.model.VenueInfo
+import ch.admin.bag.dp3t.util.UrlUtil
+
 
 class EventsOverviewFragment : Fragment() {
 
@@ -31,18 +33,23 @@ class EventsOverviewFragment : Fragment() {
 				override fun onQrCodeClicked(qrCodeItem: VenueInfo) {
 					showFragment(QrCodeFragment.newInstance(qrCodeItem), modalAnimation = true)
 				}
+
+				override fun onFaqClicked() {
+					UrlUtil.openUrl(context, getString(R.string.faq_button_url))
+				}
 			})
 
 			qrList.adapter = adapter
 			qrCodeViewModel.generatedQrCodesLiveData.observe(viewLifecycleOwner) { events ->
 				if (events.isEmpty()) {
-					adapter.setItems(listOf(ExplanationItem(showOnlyInfobox = false), FooterItem()))
+					adapter.setItems(listOf(ExplanationItem(showOnlyInfobox = false), FooterItem(), FaqButtonItem()))
 					eventsToolbar.title = getString(R.string.checkins_create_qr_code)
 				} else {
 					adapter.setItems(events.map { EventItem(it) }.toMutableList<EventOverviewItem>().apply {
 						add(0, GenerateQrCodeButtonItem())
 						add(ExplanationItem(showOnlyInfobox = true))
 						add(FooterItem())
+						add(FaqButtonItem())
 					})
 					eventsToolbar.title = getString(R.string.events_card_title_events_not_empty)
 				}
