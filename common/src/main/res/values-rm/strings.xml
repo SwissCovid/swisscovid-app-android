@@ -1609,7 +1609,7 @@ Alura telefonai qua:"</string>
     <string name="events_card_subtitle">"Creai in code QR, cun il qual persunas pon sa registrar al lieu."</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
-    <string name="delete_qr_code_dialog">"Vulais Vus propi stizzar il code QR?"</string>
+    <string name="delete_qr_code_dialog">"Vulais Vus propi stizzar il code QR? Ils codes QR stampads restan vinavant valaivels."</string>
 
     <!-- Self-Check-In Button Titel im QR-Code Screen -->
     <string name="self_checkin_button_title">"Autoregistraziun"</string>
@@ -1705,7 +1705,7 @@ Quai pon esser p.ex.:
     <string name="checkin_report_title3">"Laschar far in test"</string>
     <string name="checkin_report_subtitle1">"Vus pudais gia esser infectusa u infectus senza badar quai. Observai las mesiras d'igiena e da protecziun vertentas e protegi Vossa famiglia, Vossas amias e Voss amis sco er Voss conturn."</string>
     <string name="checkin_report_subtitle2">"Survegliai Voss stadi da sanadad."</string>
-    <string name="checkin_report_subtitle3">"Faschai immediatamain in test, sche Vus avais sintoms. In test dal coronavirus è raschunaivel e vegn cusseglià, er sche Vus n'avais nagins sintoms."</string>
+    <string name="checkin_report_subtitle3">"Faschai immediatamain in test, sche Vus avais sintoms. In test dal coronavirus è raschunaivel e vegn cusseglià, er sche Vus n'avais nagins sintoms e sche Vus n'essas anc betg vaccinada u vaccinà cumplettamain."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Registraziun"</string>
