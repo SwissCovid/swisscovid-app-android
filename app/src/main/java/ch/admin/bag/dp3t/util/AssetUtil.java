@@ -34,8 +34,6 @@ public class AssetUtil {
 	private static final String FILE_NAME_IMPRESSUM = "impressum.html";
 
 	private static final String REPLACE_STRING_VERSION = "{VERSION}";
-	private static final String REPLACE_STRING_APPVERSION = "{APPVERSION}";
-	private static final String REPLACE_STRING_RELEASEDATE = "{RELEASEDATE}";
 	private static final String REPLACE_STRING_BUILDNR = "{BUILD}";
 
 	public static String getImpressumBaseUrl(Context context) {
@@ -97,10 +95,8 @@ public class AssetUtil {
 							.append(" / ")
 							.append(BuildConfig.FLAVOR);
 			impressum = impressum.replace(REPLACE_STRING_VERSION, versionString);
-			impressum = impressum.replace(REPLACE_STRING_APPVERSION, BuildConfig.VERSION_NAME);
 			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 			sdf.setTimeZone(TimeZone.getTimeZone("Europe/Zurich"));
-			impressum = impressum.replace(REPLACE_STRING_RELEASEDATE, sdf.format(BuildConfig.BUILD_TIME));
 			impressum = impressum.replace(REPLACE_STRING_BUILDNR, buildString);
 			return impressum;
 		} catch (IOException e) {
