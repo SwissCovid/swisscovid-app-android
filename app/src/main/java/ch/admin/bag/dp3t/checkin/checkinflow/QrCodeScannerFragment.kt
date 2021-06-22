@@ -39,7 +39,7 @@ import java.util.concurrent.Executors
 private const val PERMISSION_REQUEST_CAMERA = 13
 private const val MIN_ERROR_VISIBILITY = 1000L
 private const val COVID_CERT_PACKAGE_NAME = "ch.admin.bag.covidcertificate.wallet"
-private const val COVID_CERT_PLAYSTORE_DEEP_LINK = "https://play.google.com/store/apps/details?id=$COVID_CERT_PACKAGE_NAME"
+private const val COVID_CERT_PLAYSTORE_DEEP_LINK = "market://details?id=$COVID_CERT_PACKAGE_NAME"
 private const val COVID_CERT_DEEPLINK_PREFIX = "covidcert://"
 private const val COVID_CERT_QRCODE_PREFIX = "HC1:"
 
