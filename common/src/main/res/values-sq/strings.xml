@@ -1609,7 +1609,7 @@ Atëherë na telefononi këtu:"</string>
     <string name="checkin_overview_isolation_text">"Ju nuk mund të kontrolloheni më, sepse keni dalë pozitiv në test."</string>
 
     <!-- Veranstaltungen-Card Text im Infotab -->
-    <string name="events_card_subtitle">"Krijoni një kod QR përSwissCovid, me të cilin mund të kontrolloni personat në vend."</string>
+    <string name="events_card_subtitle">"Krijoni një kod QR për SwissCovid, me të cilin mund të kontrolloni personat në vend."</string>
 
     <!-- Dialog Text beim Löschen eines erstellten QR Codes. -->
     <string name="delete_qr_code_dialog">"Dëshironi vërtet ta fshini kodin QR? Kodet e printuara QR mbeten gjithsesi të vlefshme."</string>

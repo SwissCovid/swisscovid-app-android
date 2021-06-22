@@ -95,7 +95,7 @@ Thank you for helping to break the chain of infection."</string>
     <string name="meldungen_no_meldungen_title">"No reports"</string>
 
     <!-- Push deaktiviert Titel -->
-    <string name="push_deactivated_title">"Messages deactivated"</string>
+    <string name="push_deactivated_title">"Notifications deactivated"</string>
 
     <!-- Push deaktiviert Text -->
     <string name="push_deactivated_text">"Change the settings to receive information directly in the event of a report."</string>
@@ -1600,7 +1600,7 @@ If so, call this number:"</string>
     <string name="inform_share_checkins_subtitle">"If you share check-in entries, the app can notify people who were checked in at the same location and time."</string>
 
     <!-- Button text, um alle Checkins zu selektieren -->
-    <string name="inform_share_checkins_select_all">"Select all suitable??"</string>
+    <string name="inform_share_checkins_select_all">"Select all suitable"</string>
     <string name="inform_dont_send_button_title">"Don't send"</string>
     <string name="inform_dont_share_button_title">"Don't share"</string>
     <string name="inform_really_not_share_title">"Are you sure you don't want to share?"</string>
@@ -1726,8 +1726,7 @@ Possible locations:
     <!-- Check-Ins: QR-Code erstellen subtitel -->
     <string name="checkins_create_qr_code_subtitle">"Enter a title that describes the location or your event in more detail. This title will be displayed on check-in."</string>
     <string name="checkin_report_heading">"What can you do?"</string>
-    <string name="checkin_report_title1">"
-Protect your contacts"</string>
+    <string name="checkin_report_title1">"Protect your contacts"</string>
     <string name="checkin_report_title2">"Look out for symptoms"</string>
     <string name="checkin_report_title3">"Get tested"</string>
     <string name="checkin_report_subtitle1">"You may already be infectious without realising it. Follow the rules on hygiene and social distancing and protect your loved ones and those around you."</string>

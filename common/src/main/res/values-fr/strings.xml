@@ -1681,7 +1681,7 @@ Appelez :"</string>
     <string name="home_end_isolation_card_title">"Fin de l’isolement ?"</string>
 
     <!-- Titel auf der Card, welche zum Screen führt, wo man eigene QR Codes erstellen kann. -->
-    <string name="events_card_title">"Vous souhaitez créer un code QR ?"</string>
+    <string name="events_card_title">"Souhaitez-vous créer un code QR?"</string>
     <string name="checkin_footer_title1">"À quoi sert la fonction de check-in?"</string>
     <string name="checkin_footer_subtitle1">"La fonction de check-in sans enregistrement des coordonnées complète l’application SwissCovid. En cas de test positif, elle vous permet d’avertir non seulement vos proches, mais aussi les personnes qui étaient présentes au même endroit au même moment."</string>
     <string name="checkin_footer_title2">"Pas de sauvegarde centralisée des données"</string>
@@ -1777,7 +1777,7 @@ Ce titre s’affichera lors du check-in."</string>
     <!-- Info URL for testing -->
     <!-- Fuzzy -->
     <string name="test_info_url">"https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/testen.html"</string>
-    <string name="checkout_too_long_alert_text">"Cette connextion dure au maximum {DURATION}. Veuillez revérifier les informations saisies."</string>
+    <string name="checkout_too_long_alert_text">"Cette connexion dure au maximum {DURATION}. Veuillez revérifier les informations saisies."</string>
 
     <!-- turn camera light on -->
     <string name="accessibility_camera_light_on">"Allumer la lampe de poche"</string>
@@ -1792,13 +1792,13 @@ Ce titre s’affichera lors du check-in."</string>
     <string name="events_card_title_events_not_empty">"Mes codes QR"</string>
 
     <!-- Popup Beschreibung wenn beim Checkout oder Editieren von CheckIns die Checkin-Zeit nach der Checkout-Zeit liegt -->
-    <string name="checkout_inverse_time_alert_description">"L'heure de déconnextion est antérieure à l'heure de connexion. Veuillez vérifier les informations saisies."</string>
+    <string name="checkout_inverse_time_alert_description">"L'heure de déconnexion est antérieure à l'heure de connexion. Veuillez vérifier les informations saisies."</string>
 
     <!-- Titel für die Notification die SwissCovid 2.0 ankündigt -->
     <string name="update_notification_checkin_feature_title">"Nouvelle fonction : connexion"</string>
 
     <!-- Text für die Notification die SwissCovid 2.0 ankündigt -->
-    <string name="update_notification_checkin_feature_text">"Merci d'utiliser SwissCovid. La dernière version de l'application vous permet de vous connecter sur place sans devoir laisser de données."</string>
+    <string name="update_notification_checkin_feature_text">"Merci d'utiliser SwissCovid. La dernière version de l'application vous permet de vous connecter sur place de façon anonyme."</string>
 
     <!-- Titel für aktuellen Check-in im Tagebuch -->
     <string name="diary_current_title">"Actuellement"</string>
