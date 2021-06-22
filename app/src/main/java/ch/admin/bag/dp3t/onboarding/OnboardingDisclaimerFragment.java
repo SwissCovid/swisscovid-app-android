@@ -20,11 +20,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-import java.util.TimeZone;
-
-import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.util.AssetUtil;
 import ch.admin.bag.dp3t.util.UlTagHandler;
@@ -43,13 +38,6 @@ public class OnboardingDisclaimerFragment extends Fragment {
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
-		sdf.setTimeZone(TimeZone.getTimeZone("Europe/Zurich"));
-		String versionText = getString(R.string.onboarding_disclaimer_app_version) + " " + BuildConfig.VERSION_NAME + "\n" +
-				getString(R.string.onboarding_disclaimer_release_version) + " " + sdf.format(BuildConfig.BUILD_TIME);
-		TextView versionInfo = view.findViewById(R.id.onboarding_disclaimer_version_info);
-		versionInfo.setText(versionText);
 
 		TextView termsOfUseTextview = view.findViewById(R.id.terms_of_use_textview);
 		TextView dataProtectionTextView = view.findViewById(R.id.data_protection_textview);
