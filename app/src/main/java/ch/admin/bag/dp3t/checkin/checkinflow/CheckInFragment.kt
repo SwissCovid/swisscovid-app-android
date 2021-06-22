@@ -59,6 +59,7 @@ class CheckInFragment : Fragment() {
 
 	private var selectedCheckinTime = MutableLiveData(System.currentTimeMillis())
 
+	private var selectedReminderButton: MaterialButton? = null
 	private lateinit var customReminderButton: MaterialButton
 
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,10 +107,12 @@ class CheckInFragment : Fragment() {
 				reminderToggleGroup.addView(toggleButton, LinearLayout.LayoutParams(0, WRAP_CONTENT, 1f))
 				if (viewModel.selectedReminderDelay == option.delayMillis) {
 					reminderToggleGroup.check(toggleButton.id)
+					selectedReminderButton = toggleButton
 				}
-				toggleButton.addOnCheckedChangeListener { _, isChecked ->
+				toggleButton.addOnCheckedChangeListener { button, isChecked ->
 					if (isChecked) {
 						viewModel.selectedReminderDelay = option.delayMillis
+						selectedReminderButton = button
 					}
 				}
 			}
@@ -128,8 +131,9 @@ class CheckInFragment : Fragment() {
 			customReminderButton.addOnCheckedChangeListener { _, isChecked ->
 				if (isChecked) {
 					showCustomReminderDialog()
+				} else {
+					invalidateCustomReminderDelayButtonLabel(isChecked)
 				}
-				invalidateCustomReminderDelayButtonLabel(isChecked)
 			}
 
 			toolbar.setNavigationOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
@@ -163,10 +167,13 @@ class CheckInFragment : Fragment() {
 	private fun showCustomReminderDialog() {
 		BottomSheetDialog(requireContext()).apply {
 			setContentView(DialogReminderDurationBinding.inflate(layoutInflater, null, false).apply {
-				dialogCancel.setOnClickListener { dismiss() }
+				dialogCancel.setOnClickListener {
+					cancel()
+				}
 				dialogDone.setOnClickListener {
 					viewModel.selectedReminderDelay =
 						Duration.ofHours(dialogHourPicker.value.toLong()).plusMinutes(dialogMinutePicker.value.toLong()).toMillis()
+					selectedReminderButton = customReminderButton
 					invalidateCustomReminderDelayButtonLabel(true)
 					dismiss()
 				}
@@ -189,6 +196,10 @@ class CheckInFragment : Fragment() {
 					value = (viewModel.selectedReminderDelay / 1000L / 60L % 60L).toInt()
 				}
 			}.root)
+			setOnCancelListener {
+				// select previous option
+				selectedReminderButton?.isChecked = true
+			}
 			show()
 		}
 	}
