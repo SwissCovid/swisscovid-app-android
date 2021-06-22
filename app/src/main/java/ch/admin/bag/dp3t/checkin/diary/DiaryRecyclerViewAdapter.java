@@ -148,7 +148,7 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 			nameTextView.setText(venueInfo.getTitle());
 			String start = StringUtil.getHourMinuteTimeString(item.getDiaryEntry().getCheckInTime(), ":");
 			String end = StringUtil.getHourMinuteTimeString(item.getDiaryEntry().getCheckOutTime(), ":");
-			timeTextView.setText(start + " — " + end);
+			timeTextView.setText(start + " – " + end);
 			if (item.getExposure() == null) {
 				statusIcon.setVisibility(View.GONE);
 			} else {
