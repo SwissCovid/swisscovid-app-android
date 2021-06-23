@@ -181,7 +181,7 @@ public class StatsFragment extends Fragment {
 	private void setupInfoButtons() {
 		covidcodesInfoButton.setOnClickListener(v -> {
 			ArrayList<StatsDetailsSection> sections = new ArrayList<>();
-			sections.add(new StatsDetailsSection(getString(R.string.stats_covidcodes_total_label),
+			sections.add(new StatsDetailsSection(getString(R.string.stats_covidcodes_total_header),
 					getString(R.string.stats_covidcodes_total_description)));
 			sections.add(new StatsDetailsSection(getString(R.string.stats_covidcodes_0to2days_label),
 					getString(R.string.stats_covidcodes_0to2days_description)));
@@ -204,7 +204,7 @@ public class StatsFragment extends Fragment {
 					getString(R.string.stats_cases_current_description)));
 			sections.add(new StatsDetailsSection(getString(R.string.stats_cases_7day_average_label),
 					getString(R.string.stats_cases_7day_average_description)));
-			sections.add(new StatsDetailsSection(getString(R.string.stats_cases_rel_prev_week_label),
+			sections.add(new StatsDetailsSection(getString(R.string.stats_cases_rel_prev_week_popup_header),
 					getString(R.string.stats_cases_rel_prev_week_description)));
 			StatsDetailsDialogFragment fragment = StatsDetailsDialogFragment.newInstance(
 					R.color.purple_main,

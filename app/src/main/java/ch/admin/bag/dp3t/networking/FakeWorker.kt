@@ -12,6 +12,7 @@ package ch.admin.bag.dp3t.networking
 import android.content.Context
 import androidx.work.*
 import ch.admin.bag.dp3t.BuildConfig
+import ch.admin.bag.dp3t.checkin.networking.UserUploadRepository
 import ch.admin.bag.dp3t.networking.models.AuthenticationCodeRequestModel
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.ExponentialDistribution
@@ -20,9 +21,11 @@ import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.DP3TKotlin
 import org.dpppt.android.sdk.internal.logger.Logger
 import org.dpppt.android.sdk.models.ExposeeAuthMethodAuthorization
+import java.security.SecureRandom
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.max
+import kotlin.math.roundToInt
 
 class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWorker(context, workerParams) {
 
@@ -38,6 +41,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 		private const val FACTOR_HOUR_MILLIS = 60 * 60 * 1000L
 		private const val FACTOR_DAY_MILLIS = 24 * FACTOR_HOUR_MILLIS
 		private const val MAX_DELAY_HOURS: Long = 48
+		private const val MAX_USER_INTERACTION_DELAY: Long = 3 * 60 * 1000L
 
 		private val isWorkInProgress = AtomicBoolean(false)
 
@@ -145,11 +149,23 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 	private suspend fun executeFakeRequest(context: Context): Boolean {
 		return try {
 			val authCodeRepository = AuthCodeRepository(context)
-			val accessTokenResponse = authCodeRepository.getAccessTokenSync(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
-			val accessToken = accessTokenResponse.accessToken
-			DP3TKotlin.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(accessToken)))
+
+			//Execute Onset Date Request
+			authCodeRepository.getOnsetDate(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
+
+			val timeBetweenOnsetAndUploadRequest = clock.getUserInteractionDelay()
+			delay(timeBetweenOnsetAndUploadRequest.toLong())
+
+			//Execute Access Token Request
+			val accessTokenResponse = authCodeRepository.getAccessToken(AuthenticationCodeRequestModel(FAKE_AUTH_CODE, 1))
+			val dp3tAccessToken = accessTokenResponse.dp3TAccessToken.accessToken
+			//Execute DP3T Infected Request
+			DP3TKotlin.sendFakeInfectedRequest(context, ExposeeAuthMethodAuthorization(getAuthorizationHeader(dp3tAccessToken)))
+			//Execute Checkin UserUpload Request
+			val checkinAccessToken = accessTokenResponse.checkInAccessToken.accessToken
+			UserUploadRepository().fakeUserUpload(timeBetweenOnsetAndUploadRequest, getAuthorizationHeader(checkinAccessToken))
 			true
-		} catch (e: Exception) {
+		} catch (e: Throwable) {
 			Logger.e(TAG, "fake request failed", e)
 			false
 		}
@@ -162,6 +178,7 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 	interface Clock {
 		fun syncInterval(): Long
 		fun currentTimeMillis(): Long
+		fun getUserInteractionDelay(): Int
 	}
 
 	class ClockImpl : Clock {
@@ -172,6 +189,10 @@ class FakeWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
 
 		override fun currentTimeMillis(): Long {
 			return System.currentTimeMillis()
+		}
+
+		override fun getUserInteractionDelay(): Int {
+			return (SecureRandom().nextDouble() * MAX_USER_INTERACTION_DELAY).roundToInt()
 		}
 	}
 

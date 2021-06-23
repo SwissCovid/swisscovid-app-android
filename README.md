@@ -1,24 +1,26 @@
-# SwissCovid: DP3T Android App for Switzerland
+<h1 align="center">SwissCovid Android App</h1>
+<br />
+<div align="center">
+  <img width="180" height="180" src="app/src/main/ic_launcher-playstore.png" />
+  <br />
+  <div>
+    <!-- App Store -->
+    <a href="https://play.google.com/store/apps/details?id=ch.admin.bag.dp3t">
+      <img height="40" src="https://bag-coronavirus.ch/wp-content/uploads/2020/04/play-store.png" alt="Download on the PlayStore" />
+    </a>
+  </div>
+</div>
 
-[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://github.com/DP-3T/dp3t-app-android-ch/blob/master/LICENSE)
-![Android Build](https://github.com/DP-3T/dp3t-app-android-ch/workflows/Android%20Build/badge.svg)
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://github.com/SwissCovid/swisscovid-app-android/blob/master/LICENSE)
+![Android Build](https://github.com/SwissCovid/swisscovid-app-android/workflows/Android%20Build/badge.svg)
 
+SwissCovid is the official contact tracing app of Switzerland. The app can be installed from the [Google Play Store](https://play.google.com/store/apps/details?id=ch.admin.bag.dp3t). The SwissCovid 2.0 app uses two types of contact tracing to prevent the spread of COVID-19.
 
-## DP3T
-The Decentralised Privacy-Preserving Proximity Tracing (DP-3T) project is an open protocol for COVID-19 proximity tracing using Bluetooth Low Energy functionality on mobile devices that ensures personal data and computation stays entirely on an individual's phone. It was produced by a core team of over 25 scientists and academic researchers from across Europe. It has also been scrutinized and improved by the wider community.
+With proximity tracing close contacts are detected using the bluetooth technology. For this the [DP3T Android SDK](https://github.com/DP-3T/dp3t-sdk-android) is used that builds on top of the Google & Apple Exposure Notifications. This feature is called SwissCovid encounters.
 
-DP-3T is a free-standing effort started at EPFL and ETHZ that produced this protocol and that is implementing it in an open-sourced app and server.
+With presence tracing people that are at the same venue at the same time are detected. For this the [CrowdNotifier Android SDK](https://github.com/CrowdNotifier/crowdnotifier-sdk-android) is used that provides a secure, decentralized, privacy-preserving presence tracing system. This feature is called SwissCovid Check-in.
 
-
-## Introduction
-This is a COVID-19 tracing client using the [DP3T Android SDK](https://github.com/DP-3T/dp3t-sdk-android). It is based on the previously released demo app, but uses the newest version of the SDK. This project will be released as the official COVID-19 tracing solution for Switzerland, therefore UX, messages and flows are optimized for this specific case. Nevertheless, the source code should be a solid foundation to build a similar app for other countries and demostrate how the SDK can be used in a real app.
-The app design, UX and implementation was done by [Ubique](https://www.ubique.ch?app=github).
-<p align="center">
-<img src="documentation/screenshots/en/screenshot1.png" width="20%">
-<img src="documentation/screenshots/en/screenshot2.png" width="20%">
-<img src="documentation/screenshots/en/screenshot3.png" width="20%">
-<img src="documentation/screenshots/en/screenshot4.png" width="20%">
-</p>
+Please see the [SwissCovid documentation repository](https://github.com/SwissCovid/swisscovid-doc) for more details.
 
 ## Contribution Guide
 
@@ -29,18 +31,19 @@ Bugs or potential problems should be reported using Github issues. We welcome al
 Platform independent UX and design discussions should be reported in [dp3t-ux-screenflows-ch](https://github.com/DP-3T/dp3t-ux-screenflows-ch)
 
 ## Repositories
-* Android SDK & Calibration app: [dp3t-sdk-android](https://github.com/DP-3T/dp3t-sdk-android)
-* iOS SDK & Calibration app: [dp3t-sdk-ios](https://github.com/DP-3T/dp3t-sdk-ios)
-* Android App: [dp3t-app-android](https://github.com/DP-3T/dp3t-app-android-ch)
-* iOS App: [dp3t-app-ios](https://github.com/DP-3T/dp3t-app-ios-ch)
-* Backend SDK: [dp3t-sdk-backend](https://github.com/DP-3T/dp3t-sdk-backend)
-* UX & Screenflows [dp3t-ux-screenflows-ch](https://github.com/DP-3T/dp3t-ux-screenflows-ch)
-
-
-## Further Documentation
-The full set of documents for DP3T is at https://github.com/DP-3T/documents. Please refer to the technical documents and whitepapers for a description of the implementation.
-
-A description of the usage of the Google Exposure Notifcation API can be found [here](https://github.com/DP-3T/dp3t-sdk-android/blob/master/EXPOSURE_NOTIFICATION_API_USAGE.md).
+* Android App: [swisscovid-app-android](https://github.com/SwissCovid/swisscovid-app-android)
+* iOS App: [swisscovid-app-ios](https://github.com/SwissCovid/swisscovid-app-ios)
+* CovidCode Web-App: [CovidCode-UI](https://github.com/admin-ch/CovidCode-UI)
+* CovidCode Backend: [CovidCode-Service](https://github.com/admin-ch/CovidCode-service)
+* Config Backend: [swisscovid-config-backend](https://github.com/SwissCovid/swisscovid-config-backend)
+* Additional Info Backend: [swisscovid-additionalinfo-backend](https://github.com/SwissCovid/swisscovid-additionalinfo-backend)
+* QR Code Landingpage: [swisscovid-qr-landingpage](https://github.com/SwissCovid/swisscovid-qr-landingpage)
+* DP3T Android SDK & Calibration app: [dp3t-sdk-android](https://github.com/DP-3T/dp3t-sdk-android)
+* DP3T iOS SDK & Calibration app: [dp3t-sdk-ios](https://github.com/DP-3T/dp3t-sdk-ios)
+* DP3T Backend SDK: [dp3t-sdk-backend](https://github.com/DP-3T/dp3t-sdk-backend)
+* CrowdNotifier Android SDK: [crowdnotifier-sdk-android](https://github.com/CrowdNotifier/crowdnotifier-sdk-android)
+* CrowdNotifier iOS SDK: [crowdnotifier-sdk-ios](https://github.com/CrowdNotifier/crowdnotifier-sdk-ios)
+* CrowdNotifier Backend: [swisscovid-cn-backend](https://github.com/SwissCovid/swisscovid-cn-backend)
 
 ## Installation and Building
 

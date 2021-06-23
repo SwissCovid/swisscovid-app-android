@@ -25,6 +25,7 @@ import java.util.List;
 import org.dpppt.android.sdk.TracingStatus;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
 
 public class TracingErrorStateHelper {
 
@@ -156,39 +157,62 @@ public class TracingErrorStateHelper {
 		return possibleNotificationErrorStatesOrderedByPriority.contains(error);
 	}
 
+	public static void hideErrorView(View tracingErrorView) {
+		tracingErrorView.setVisibility(View.GONE);
+	}
+
+	public static void updateErrorView(View tracingErrorView, CrowdNotifierErrorState errorState) {
+		if (errorState == null) {
+			tracingErrorView.setVisibility(View.GONE);
+			return;
+		}
+		tracingErrorView.setVisibility(View.VISIBLE);
+
+		updateErrorView(tracingErrorView, errorState.getImageResId(), errorState.getTitleResId(),
+				tracingErrorView.getResources().getString(errorState.getTextResId()), "CNNET", errorState.getActionResId());
+	}
+
 	public static void updateErrorView(View tracingErrorView, TracingStatus.ErrorState errorState) {
 		if (errorState == null) {
 			tracingErrorView.setVisibility(View.GONE);
 			return;
 		}
 		tracingErrorView.setVisibility(View.VISIBLE);
+
+		updateErrorView(tracingErrorView, TracingErrorStateHelper.getIcon(errorState),
+				TracingErrorStateHelper.getTitle(errorState),
+				TracingErrorStateHelper.getText(tracingErrorView.getContext(), errorState),
+				TracingErrorStateHelper.getErrorCode(errorState),
+				TracingErrorStateHelper.getButtonText(errorState));
+	}
+
+	private static void updateErrorView(View tracingErrorView, @DrawableRes int icon, @StringRes int title, String text,
+			String errorCodeString, @StringRes int buttonTitle) {
 		ImageView iconView = tracingErrorView.findViewById(R.id.error_status_image);
 		TextView titleView = tracingErrorView.findViewById(R.id.error_status_title);
 		TextView textView = tracingErrorView.findViewById(R.id.error_status_text);
 		TextView errorCode = tracingErrorView.findViewById(R.id.error_status_code);
 		TextView buttonView = tracingErrorView.findViewById(R.id.error_status_button);
 
-		iconView.setImageResource(TracingErrorStateHelper.getIcon(errorState));
+		iconView.setImageResource(icon);
 		iconView.setVisibility(View.VISIBLE);
-
-		titleView.setText(TracingErrorStateHelper.getTitle(errorState));
+		titleView.setText(title);
 		titleView.setVisibility(View.VISIBLE);
 
-		if (TracingErrorStateHelper.getText(textView.getContext(), errorState) != null) {
-			textView.setText(TracingErrorStateHelper.getText(textView.getContext(), errorState));
+		if (text != null) {
+			textView.setText(text);
 			textView.setVisibility(View.VISIBLE);
 		} else {
 			textView.setVisibility(View.GONE);
 		}
-		if (!TextUtils.isEmpty(TracingErrorStateHelper.getErrorCode(errorState))) {
-			errorCode.setText(TracingErrorStateHelper.getErrorCode(errorState));
+		if (!TextUtils.isEmpty(errorCodeString)) {
+			errorCode.setText(errorCodeString);
 			errorCode.setVisibility(View.VISIBLE);
 		} else {
 			errorCode.setVisibility(View.GONE);
 		}
-
-		if (TracingErrorStateHelper.getButtonText(errorState) != -1) {
-			buttonView.setText(TracingErrorStateHelper.getButtonText(errorState));
+		if (buttonTitle != -1) {
+			buttonView.setText(buttonTitle);
 			buttonView.setVisibility(View.VISIBLE);
 			buttonView.setPaintFlags(buttonView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 		} else {

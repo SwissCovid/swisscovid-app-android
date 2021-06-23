@@ -267,54 +267,6 @@
 
 			</LinearLayout>
 
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:paddingLeft="@dimen/spacing_small"
-				android:paddingRight="@dimen/spacing_small"
-				android:paddingBottom="@dimen/spacing_tiny_small">
-
-				<ImageView
-					android:layout_width="wrap_content"
-					android:layout_height="match_parent"
-					android:background="@color/grey_light_medium"
-					android:padding="@dimen/spacing_small"
-					android:src="@drawable/ic_manufacturer_iso_icon" />
-
-				<TextView
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginLeft="@dimen/spacing_tiny_small"
-					android:background="@color/grey_light_medium"
-					android:padding="@dimen/spacing_small"
-					android:text="@string/onboarding_disclaimer_manufacturer" />
-
-			</LinearLayout>
-
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:paddingLeft="@dimen/spacing_small"
-				android:paddingRight="@dimen/spacing_small"
-				android:paddingBottom="@dimen/spacing_tiny_small">
-
-				<TextView
-					android:id="@+id/onboarding_disclaimer_version_info"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					android:background="@color/grey_light_medium"
-					android:padding="@dimen/spacing_small" />
-
-				<ImageView
-					android:layout_width="wrap_content"
-					android:layout_height="match_parent"
-					android:background="@color/grey_light_medium"
-					android:paddingRight="@dimen/spacing_medium_large"
-					android:src="@drawable/ic_ce_marking" />
-
-			</LinearLayout>
-
 		</LinearLayout>
 	</ScrollView>
 

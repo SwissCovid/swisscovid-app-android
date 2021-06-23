@@ -9,9 +9,12 @@
  */
 package ch.admin.bag.dp3t.util;
 
+import android.content.Context;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -19,18 +22,32 @@ import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.models.DayDate;
 
+import ch.admin.bag.dp3t.R;
+
 public class DateUtils {
 
 	private static final DateFormat DATE_TIME_FORMAT = SimpleDateFormat.getDateTimeInstance();
 	private static final DateFormat DATE_FORMAT = SimpleDateFormat.getDateInstance();
 
-	public static int getDaysDiff(long date) {
+	public static int getDaysDiff(long timestamp) {
 		try {
-			return (int) TimeUnit.DAYS.convert(System.currentTimeMillis() - date, TimeUnit.MILLISECONDS);
+			return (int) TimeUnit.DAYS.convert(
+					getLocalStartOfDayTimestamp(System.currentTimeMillis()) - getLocalStartOfDayTimestamp(timestamp),
+					TimeUnit.MILLISECONDS);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
 		}
+	}
+
+	private static long getLocalStartOfDayTimestamp(long timestamp) {
+		Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+		calendar.setTime(new Date(timestamp));
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		calendar.set(Calendar.MILLISECOND, 0);
+		return calendar.getTime().getTime();
 	}
 
 	public static int getDaysDiffUntil(DayDate from, DayDate to) {
@@ -58,6 +75,16 @@ public class DateUtils {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd. MMMM yyyy");
 		sdf.setTimeZone(timezone);
 		return sdf.format(new Date(date));
+	}
+
+	public static String getFormattedWeekdayWithDate(long timestamp, Context context) {
+		int daysDiff = getDaysDiff(timestamp);
+		if (daysDiff == 0) {
+			return context.getString(R.string.date_today);
+		} else {
+			SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd.MM.", new Locale(context.getString(R.string.language_key)));
+			return sdf.format(new Date(timestamp));
+		}
 	}
 
 	public static Date getParsedDateStats(String date) {

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	android:orientation="vertical">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation">
+
+		<TextView
+			android:id="@+id/generate_qr_code_cancel"
+			style="@style/NextStep.Text.Blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start"
+			android:layout_marginHorizontal="@dimen/spacing_very_small"
+			android:layout_marginVertical="@dimen/spacing_very_small"
+			android:background="@drawable/ripple_button"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingVertical="@dimen/spacing_small"
+			android:text="@string/cancel" />
+
+	</FrameLayout>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="@dimen/spacing_large">
+
+			<TextView
+				style="@style/NextStep.Text.Title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="@dimen/spacing_very_large"
+				android:layout_marginBottom="@dimen/spacing_medium_large"
+				android:text="@string/checkins_create_qr_code" />
+
+			<TextView
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/spacing_very_large"
+				android:text="@string/checkins_create_qr_code_subtitle"
+				android:textAlignment="center" />
+
+			<com.google.android.material.textfield.TextInputLayout
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="@dimen/spacing_large"
+				app:boxBackgroundColor="@color/light_grey"
+				app:boxStrokeWidth="0dp"
+				app:boxStrokeWidthFocused="0dp"
+				app:hintEnabled="false"
+				app:hintTextColor="@color/dark_main">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/title_edit_text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="@string/web_generator_title_placeholder"
+					android:inputType="textNoSuggestions"
+					android:maxLength="60"
+					android:textColor="@color/blue_main"
+					android:textStyle="bold" />
+
+			</com.google.android.material.textfield.TextInputLayout>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:elevation="@dimen/card_elevation">
+
+		<Button
+			android:id="@+id/qr_code_generate"
+			style="@style/NextStep.Button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal|bottom"
+			android:layout_marginTop="@dimen/spacing_medium"
+			android:layout_marginBottom="@dimen/spacing_large"
+			android:text="@string/checkins_create_qr_code" />
+
+	</FrameLayout>
+
+</LinearLayout>

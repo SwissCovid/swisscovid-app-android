@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/white"
+		android:orientation="vertical">
+
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:fillViewport="true">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<Space
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" />
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_horizontal"
+					android:src="@drawable/illu_not_thank_you" />
+
+				<Space
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" />
+
+				<TextView
+					style="@style/NextStep.Text.Title"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_horizontal"
+					android:text="@string/not_thank_you_screen_title" />
+
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_large"
+					android:gravity="center_horizontal"
+					android:paddingHorizontal="@dimen/spacing_huge"
+					android:text="@string/not_thank_you_screen_text1" />
+
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_large"
+					android:gravity="center_horizontal"
+					android:paddingHorizontal="@dimen/spacing_huge"
+					android:text="@string/not_thank_you_screen_text2" />
+
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_large"
+					android:gravity="center_horizontal"
+					android:paddingHorizontal="@dimen/spacing_huge"
+					android:text="@string/not_thank_you_screen_text3" />
+
+				<Space
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="4" />
+
+			</LinearLayout>
+
+		</ScrollView>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:elevation="@dimen/spacing_small"
+			android:gravity="center_horizontal"
+			android:orientation="vertical"
+			android:padding="@dimen/spacing_medium_large">
+
+			<Button
+				android:id="@+id/back_button"
+				style="@style/NextStep.Button.Purple"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/not_thank_you_screen_back_button" />
+
+			<TextView
+				android:id="@+id/dont_send_button"
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="@dimen/spacing_medium"
+				android:layout_marginBottom="@dimen/spacing_medium_large"
+				android:background="@drawable/ripple_button"
+				android:padding="@dimen/spacing_small"
+				android:text="@string/not_thank_you_screen_dont_send_button"
+				android:visibility="visible" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<FrameLayout
+		android:id="@+id/loading_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/transparent_milk"
+		android:visibility="gone">
+
+		<ProgressBar
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center" />
+
+	</FrameLayout>
+
+</FrameLayout>

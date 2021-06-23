@@ -21,6 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import java.util.List;
+import java.util.Locale;
 
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.storage.SecureStorage;
@@ -74,7 +75,7 @@ public class TravelFragment extends Fragment {
 
 			ImageView flagImageView = countryItemView.findViewById(R.id.flag_icon);
 			TextView flagTextView = countryItemView.findViewById(R.id.flag_cc);
-			String idName = "flag_" + countryCode.toLowerCase();
+			String idName = "flag_" + countryCode.toLowerCase(Locale.GERMAN);
 			int drawableRes = UiUtils.getDrawableResourceByName(requireContext(), idName);
 			if (drawableRes != 0) {
 				flagImageView.setImageResource(drawableRes);

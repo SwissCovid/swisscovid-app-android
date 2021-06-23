@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/white"
+		android:orientation="vertical">
+
+		<TextView
+			style="@style/NextStep.Text.Title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_huge"
+			android:gravity="bottom|center_horizontal"
+			android:text="@string/inform_share_checkins_title" />
+
+		<TextView
+			style="@style/NextStep.Text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/spacing_medium_large"
+			android:gravity="center_horizontal"
+			android:paddingStart="@dimen/spacing_huge"
+			android:paddingEnd="@dimen/spacing_huge"
+			android:text="@string/inform_share_checkins_subtitle" />
+
+		<LinearLayout
+			android:id="@+id/select_all_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="@dimen/spacing_medium_large"
+			android:layout_marginTop="@dimen/spacing_medium_large"
+			android:background="@color/grey_light">
+
+			<TextView
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/spacing_large"
+				android:layout_weight="1"
+				android:text="@string/inform_share_checkins_select_all" />
+
+			<com.google.android.material.checkbox.MaterialCheckBox
+				android:id="@+id/select_all_checkbox"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:buttonTint="@color/purple_main" />
+
+		</LinearLayout>
+
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/checkins_recycler_view"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:clipChildren="false"
+			android:clipToPadding="false"
+			android:paddingHorizontal="@dimen/spacing_medium_large"
+			android:paddingBottom="@dimen/spacing_larger"
+			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:elevation="@dimen/spacing_small"
+			android:orientation="vertical">
+
+			<Button
+				android:id="@+id/send_button"
+				style="@style/NextStep.Button.Purple"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginVertical="@dimen/spacing_medium_large"
+				android:text="@string/inform_share_checkins_send_button_title" />
+
+			<TextView
+				android:id="@+id/dont_send_button"
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginBottom="@dimen/spacing_medium_large"
+				android:background="?selectableItemBackground"
+				android:padding="@dimen/spacing_small"
+				android:text="@string/inform_share_checkins_not_send_button"
+				android:visibility="visible" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<FrameLayout
+		android:id="@+id/loading_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/transparent_milk"
+		android:visibility="gone">
+
+		<ProgressBar
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center" />
+
+	</FrameLayout>
+
+</FrameLayout>

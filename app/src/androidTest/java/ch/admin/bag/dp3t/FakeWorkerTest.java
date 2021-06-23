@@ -330,6 +330,10 @@ public class FakeWorkerTest {
 			return System.currentTimeMillis() + clockOffset;
 		}
 
+		public int getUserInteractionDelay() {
+			return 0;
+		}
+
 	}
 
 	private long setTDummyToDaysFromNow(int daysFromNow) {

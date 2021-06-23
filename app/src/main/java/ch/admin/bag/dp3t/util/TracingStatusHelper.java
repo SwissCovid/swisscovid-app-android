@@ -9,6 +9,7 @@
  */
 package ch.admin.bag.dp3t.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Paint;
@@ -17,17 +18,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.ImageViewCompat;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
 import ch.admin.bag.dp3t.home.model.TracingState;
+import ch.admin.bag.dp3t.storage.SecureStorage;
+import ch.admin.bag.dp3t.viewmodel.TracingViewModel;
 
 public class TracingStatusHelper {
 
-	public static void updateStatusView(View statusView, TracingState state, boolean isHomeFragment) {
-		updateStatusView(statusView, state, true, isHomeFragment);
+	public static void updateStatusView(View statusView, TracingState state) {
+		updateStatusView(statusView, state, true);
 	}
 
-	public static void updateStatusView(View statusView, TracingState state, boolean displayIllu, boolean isHomeFragment) {
+	public static void updateStatusView(View statusView, TracingState state, boolean displayIllu) {
 		Context context = statusView.getContext();
 		if (TracingState.getBackgroundColor(state) != -1) {
 			statusView.findViewById(R.id.status_background)
@@ -49,8 +54,8 @@ public class TracingStatusHelper {
 		} else {
 			titleView.setVisibility(View.GONE);
 		}
-		if (TracingState.getText(state, isHomeFragment) != -1) {
-			textView.setText(TracingState.getText(state, isHomeFragment));
+		if (TracingState.getText(state) != -1) {
+			textView.setText(TracingState.getText(state));
 			textView.setVisibility(View.VISIBLE);
 		} else {
 			textView.setVisibility(View.GONE);
@@ -75,29 +80,30 @@ public class TracingStatusHelper {
 		}
 	}
 
+	public static void showFinishPartialOnboarding(View tracingErrorView) {
+		tracingErrorView.setBackgroundResource(R.color.dark_main);
+		TracingErrorStateHelper.updateErrorView(tracingErrorView, CrowdNotifierErrorState.ONLY_INSTANT_ONBOARDING_DONE);
+		int white = ContextCompat.getColor(tracingErrorView.getContext(), R.color.white);
+		((TextView) tracingErrorView.findViewById(R.id.error_status_title)).setTextColor(white);
+		((TextView) tracingErrorView.findViewById(R.id.error_status_text)).setTextColor(white);
+		((TextView) tracingErrorView.findViewById(R.id.error_status_button)).setTextColor(white);
+		tracingErrorView.findViewById(R.id.error_status_code).setVisibility(View.GONE);
+	}
+
 	public static void showTracingDeactivated(View tracingErrorView, boolean isHomeFragment) {
+		int darkMainColor = ContextCompat.getColor(tracingErrorView.getContext(), R.color.dark_main);
+
 		ImageView iconView = tracingErrorView.findViewById(R.id.error_status_image);
-		if (TracingState.getIcon(TracingState.NOT_ACTIVE) != -1) {
-			iconView.setImageResource(TracingState.getIcon(TracingState.NOT_ACTIVE));
-			iconView.setVisibility(View.VISIBLE);
-		} else {
-			iconView.setVisibility(View.GONE);
-		}
+		iconView.setImageResource(R.drawable.ic_info);
+		ImageViewCompat.setImageTintList(iconView, ColorStateList.valueOf(darkMainColor));
+
 		TextView titleView = tracingErrorView.findViewById(R.id.error_status_title);
-		if (TracingState.getTitle(TracingState.NOT_ACTIVE) != -1) {
-			titleView.setText(TracingState.getTitle(TracingState.NOT_ACTIVE));
-			titleView.setVisibility(View.VISIBLE);
-		} else {
-			titleView.setVisibility(View.GONE);
-		}
+		titleView.setText(TracingState.getTitle(TracingState.NOT_ACTIVE));
+		titleView.setTextColor(darkMainColor);
 
 		TextView textView = tracingErrorView.findViewById(R.id.error_status_text);
-		if (TracingState.getText(TracingState.NOT_ACTIVE, isHomeFragment) != -1) {
-			textView.setText(TracingState.getText(TracingState.NOT_ACTIVE, isHomeFragment));
-			textView.setVisibility(View.VISIBLE);
-		} else {
-			textView.setVisibility(View.GONE);
-		}
+		textView.setText(TracingState.getText(TracingState.NOT_ACTIVE));
+
 		tracingErrorView.findViewById(R.id.error_status_code).setVisibility(View.GONE);
 		TextView buttonView = tracingErrorView.findViewById(R.id.error_status_button);
 		if (isHomeFragment) {
@@ -106,6 +112,17 @@ public class TracingStatusHelper {
 			buttonView.setVisibility(View.VISIBLE);
 		} else {
 			buttonView.setVisibility(View.GONE);
+		}
+	}
+
+	public static void resetStateAfterIsolation(Activity activity, TracingViewModel tracingViewModel) {
+		tracingViewModel.getTracingStatusInterface().resetInfectionStatus(activity);
+		SecureStorage secureStorage = SecureStorage.getInstance(activity);
+		secureStorage.setIsolationEndDialogTimestamp(-1L);
+		secureStorage.setPositiveReportOldestSharedKey(-1L);
+		secureStorage.setPositiveReportOldestSharedKeyOrCheckin(-1L);
+		if (secureStorage.getExposureNotifcationsActiveBeforeEnteringCovidcode()) {
+			tracingViewModel.enableTracing(activity, () -> {}, (e) -> {}, () -> {});
 		}
 	}
 

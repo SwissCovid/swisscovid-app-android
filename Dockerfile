@@ -1,9 +1,9 @@
 FROM gradle:6.6.1-jdk8
 
 ENV ANDROID_SDK_URL https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
-ENV ANDROID_BUILD_TOOLS_VERSION 29.0.3
+ENV ANDROID_BUILD_TOOLS_VERSION 30.0.1
 ENV ANDROID_HOME /usr/local/android-sdk-linux
-ENV ANDROID_VERSION 29
+ENV ANDROID_VERSION 30
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 RUN mkdir "$ANDROID_HOME" .android && \

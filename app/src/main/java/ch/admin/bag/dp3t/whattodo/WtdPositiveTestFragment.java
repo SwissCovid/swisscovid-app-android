@@ -10,7 +10,6 @@
 package ch.admin.bag.dp3t.whattodo;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,9 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import ch.admin.bag.dp3t.R;
-import ch.admin.bag.dp3t.inform.InformActivity;
 import ch.admin.bag.dp3t.networking.models.FaqEntryModel;
-import ch.admin.bag.dp3t.networking.models.InfoBoxModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.util.PhoneUtil;
@@ -47,21 +44,9 @@ public class WtdPositiveTestFragment extends Fragment {
 
 		fillContentFromConfigServer(view);
 
-		view.findViewById(R.id.wtd_inform_button).setOnClickListener(v -> {
-			Intent intent = new Intent(getActivity(), InformActivity.class);
-			startActivity(intent);
-		});
-
 		view.findViewById(R.id.wtd_inform_faq_button).setOnClickListener(v -> {
 			UrlUtil.openUrl(getContext(), getString(R.string.faq_button_url));
 		});
-
-		View oldCallButton = view.findViewById(R.id.wtd_inform_call_infoline_coronavirus);
-		if (oldCallButton != null) {
-			oldCallButton.setOnClickListener(v -> {
-				PhoneUtil.callInfolineCoronavirus(v.getContext());
-			});
-		}
 	}
 
 	private void fillContentFromConfigServer(View view) {
@@ -71,50 +56,6 @@ public class WtdPositiveTestFragment extends Fragment {
 				secureStorage.getWhatToDoPositiveTestTexts(context.getString(R.string.language_key));
 
 		if (textModel != null) {
-			((TextView) view.findViewById(R.id.wtd_inform_box_supertitle)).setText(textModel.getEnterCovidcodeBoxSupertitle());
-			((TextView) view.findViewById(R.id.wtd_inform_box_title)).setText(textModel.getEnterCovidcodeBoxTitle());
-			((TextView) view.findViewById(R.id.wtd_inform_box_text)).setText(textModel.getEnterCovidcodeBoxText());
-			((TextView) view.findViewById(R.id.wtd_inform_button)).setText(textModel.getEnterCovidcodeBoxButtonTitle());
-			InfoBoxModel infoBox = textModel.getInfoBox();
-
-			if (infoBox != null) {
-				view.findViewById(R.id.wtd_inform_infobox).setVisibility(View.VISIBLE);
-				((TextView) view.findViewById(R.id.wtd_inform_infobox_title)).setText(infoBox.getTitle());
-				((TextView) view.findViewById(R.id.wtd_inform_infobox_msg)).setText(infoBox.getMsg());
-
-				if (infoBox.getUrl() != null && infoBox.getUrlTitle() != null) {
-					((TextView) view.findViewById(R.id.wtd_inform_infobox_link_text)).setText(infoBox.getUrlTitle());
-					view.findViewById(R.id.wtd_inform_infobox_link_layout).setOnClickListener(v -> {
-						UrlUtil.openUrl(v.getContext(), infoBox.getUrl());
-					});
-					view.findViewById(R.id.wtd_inform_infobox_link_layout).setVisibility(View.VISIBLE);
-					ImageView linkIcon = view.findViewById(R.id.wtd_inform_infobox_link_icon);
-					if (infoBox.getUrl().startsWith("tel://")) {
-						linkIcon.setImageResource(R.drawable.ic_phone);
-					} else {
-						linkIcon.setImageResource(R.drawable.ic_launch);
-					}
-				} else {
-					view.findViewById(R.id.wtd_inform_infobox_link_layout).setVisibility(View.GONE);
-				}
-
-				if (infoBox.getHearingImpairedInfo() != null) {
-					((ImageView) view.findViewById(R.id.wtd_inform_infobox_link_icon)).setImageResource(R.drawable.ic_phone);
-					view.findViewById(R.id.wtd_inform_infobox_link_hearing_impaired).setOnClickListener(v -> {
-						requireActivity().getSupportFragmentManager().beginTransaction()
-								.add(WtdInfolineAccessabilityDialogFragment.newInstance(infoBox.getHearingImpairedInfo()),
-										WtdInfolineAccessabilityDialogFragment.class.getCanonicalName())
-								.commit();
-					});
-					view.findViewById(R.id.wtd_inform_infobox_link_hearing_impaired).setVisibility(View.VISIBLE);
-				} else {
-					((ImageView) view.findViewById(R.id.wtd_inform_infobox_link_icon)).setImageResource(R.drawable.ic_launch);
-					view.findViewById(R.id.wtd_inform_infobox_link_hearing_impaired).setVisibility(View.GONE);
-				}
-			} else {
-				view.findViewById(R.id.wtd_inform_infobox).setVisibility(View.GONE);
-			}
-
 			LinearLayout faqLayout = view.findViewById(R.id.wtd_inform_faq_layout);
 			faqLayout.removeAllViews();
 

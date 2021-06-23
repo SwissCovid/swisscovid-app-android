@@ -18,14 +18,21 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.work.*
 import ch.admin.bag.dp3t.BuildConfig
+import ch.admin.bag.dp3t.MainActivity
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.debug.DebugFragment
 import ch.admin.bag.dp3t.networking.errors.ResponseError
+import ch.admin.bag.dp3t.onboarding.OnboardingSlidePageAdapter.Companion.CHECKIN_UPDATE_BOARDING_VERSION
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.NotificationUtil
 import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.backend.SignatureException
+import org.dpppt.android.sdk.internal.history.HistoryDatabase
+import org.dpppt.android.sdk.internal.history.HistoryEntry
+import org.dpppt.android.sdk.internal.history.HistoryEntryType
 import org.dpppt.android.sdk.internal.logger.Logger
 import java.io.IOException
+import java.time.LocalDateTime
 import java.util.concurrent.TimeUnit
 
 class ConfigWorker(context: Context, workerParams: WorkerParameters) : CoroutineWorker(context, workerParams) {
@@ -79,6 +86,8 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 				secureStorage.hasInfobox = false
 			}
 
+			secureStorage.setTestInformationUrls(config.testInformationUrls)
+
 			secureStorage.testLocations = config.testLocations
 			secureStorage.interopCountries = config.interOpsCountries
 
@@ -89,6 +98,15 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 				}
 			} else {
 				cancelNotification(context)
+
+				if (config.isCheckInUpdateNotificationEnabled && !secureStorage.checkInUpdateNotificationShown
+					&& secureStorage.onboardingCompleted && secureStorage.lastShownUpdateBoardingVersion < CHECKIN_UPDATE_BOARDING_VERSION
+					&& !secureStorage.forceUpdateLiveData.hasObservers()
+					&& (8..19).contains(LocalDateTime.now().hour)
+				) {
+					secureStorage.checkInUpdateNotificationShown = true
+					showCheckInUpdateNotification(context);
+				}
 			}
 		}
 
@@ -109,12 +127,52 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 				.setAutoCancel(true)
 				.build()
 			val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+			if (DebugFragment.EXISTS) {
+				HistoryDatabase.getInstance(context).addEntry(
+					HistoryEntry(
+						HistoryEntryType.NOTIFICATION, "Showing update required notification", false,
+						System.currentTimeMillis()
+					)
+				)
+			}
 			notificationManager.notify(NotificationUtil.NOTIFICATION_ID_UPDATE, notification)
 		}
 
 		private fun cancelNotification(context: Context) {
 			val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 			notificationManager.cancel(NotificationUtil.NOTIFICATION_ID_UPDATE)
+		}
+
+		private fun showCheckInUpdateNotification(context: Context) {
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				NotificationUtil.createNotificationChannel(context)
+			}
+
+			val intent = Intent(context, MainActivity::class.java)
+			intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+			val pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+			val notification = NotificationCompat.Builder(context, NotificationUtil.NOTIFICATION_CHANNEL_ID)
+				.setContentTitle(context.getString(R.string.update_notification_checkin_feature_title))
+				.setContentText(context.getString(R.string.update_notification_checkin_feature_text))
+				.setStyle(
+					NotificationCompat.BigTextStyle()
+						.bigText(context.getString(R.string.update_notification_checkin_feature_text))
+				)
+				.setPriority(NotificationCompat.PRIORITY_HIGH)
+				.setSmallIcon(R.drawable.ic_begegnungen)
+				.setContentIntent(pendingIntent)
+				.setAutoCancel(true)
+				.build()
+			val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+			if (DebugFragment.EXISTS) {
+				HistoryDatabase.getInstance(context).addEntry(
+					HistoryEntry(
+						HistoryEntryType.NOTIFICATION, "Showing update notification for checkin feature", false,
+						System.currentTimeMillis()
+					)
+				)
+			}
+			notificationManager.notify(NotificationUtil.NOTIFICATION_ID_CHECKIN_UPDATE, notification)
 		}
 	}
 

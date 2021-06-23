@@ -31,6 +31,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import ch.admin.bag.dp3t.checkin.models.CheckInState;
 import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
 import ch.admin.bag.dp3t.networking.models.TestLocationModel;
 import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
@@ -47,9 +48,11 @@ public class SecureStorage {
 	private static final String KEY_INFORM_TIME_REQ = "inform_time_req";
 	private static final String KEY_INFORM_CODE_REQ = "inform_code_req";
 	private static final String KEY_INFORM_TOKEN_REQ = "inform_token_req";
+	private static final String KEY_INFORM_TOKEN_CHECKIN_REQ = "inform_token_chekin_req";
 	private static final String KEY_ONBOARDING_COMPLETED = "onboarding_completed";
 	private static final String KEY_UPDATE_BOARDING_VERSION = "update_boarding_version";
 	private static final String KEY_LAST_SHOWN_CONTACT_ID = "last_shown_contact_id";
+	private static final String KEY_CHECK_IN_UPDATE_NOTIFICATION_SHOWN = "check_in_update_notification_shown";
 
 	//KEY_LEITFADEN_OPEN_PENDING key value is kept to old value to avoid migration issues
 	private static final String KEY_LEITFADEN_OPEN_PENDING = "hotline_call_pending";
@@ -58,6 +61,7 @@ public class SecureStorage {
 	private static final String KEY_CONFIG_FORCE_UPDATE = "config_do_force_update";
 	private static final String KEY_CONFIG_HAS_INFOBOX = "has_ghettobox_v2";
 	private static final String KEY_CONFIG_INFOBOX_COLLECTION = "ghettobox_collection";
+	private static final String KEY_CONFIG_TEST_INFORMATION_URLS = "testinformation_urls";
 	private static final String KEY_ONBOARDING_USER_NOT_IN_PILOT_GROUP = "user_is_not_in_pilot_group";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS = "last_config_load_success";
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_APP_VERSION = "last_config_load_success_app_version";
@@ -71,6 +75,15 @@ public class SecureStorage {
 	private static final String KEY_APP_VERSION_CODE = "app_version_code";
 	private static final String KEY_SCHEDULED_FAKE_WORKER_NAME = "scheduled_fake_worker_name";
 	private static final String KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY = "positive_report_oldest_shared_key";
+	private static final String KEY_CURRENT_CHECK_IN = "KEY_CURRENT_CHECK_IN";
+	private static final String KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG = "KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG";
+	private static final String KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD = "KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD";
+	private static final String KEY_ONLY_PARTIAL_ONBOARDING_DONE = "KEY_ONLY_PARTIAL_ONBOARDING_DONE";
+	private static final String KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN =
+			"KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN";
+	private static final String KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE =
+			"KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE";
+
 
 	private static SecureStorage instance;
 
@@ -113,10 +126,11 @@ public class SecureStorage {
 		prefs.edit().putLong(KEY_INFECTED_DATE, date).apply();
 	}
 
-	public void saveInformTimeAndCodeAndToken(String informCode, String informToken) {
+	public void saveInformTimeAndCodeAndToken(String informCode, String dp3tInformToken, String checkinInformToken) {
 		prefs.edit().putLong(KEY_INFORM_TIME_REQ, System.currentTimeMillis())
 				.putString(KEY_INFORM_CODE_REQ, informCode)
-				.putString(KEY_INFORM_TOKEN_REQ, informToken)
+				.putString(KEY_INFORM_TOKEN_REQ, dp3tInformToken)
+				.putString(KEY_INFORM_TOKEN_CHECKIN_REQ, checkinInformToken)
 				.apply();
 	}
 
@@ -124,6 +138,7 @@ public class SecureStorage {
 		prefs.edit().remove(KEY_INFORM_TIME_REQ)
 				.remove(KEY_INFORM_CODE_REQ)
 				.remove(KEY_INFORM_TOKEN_REQ)
+				.remove(KEY_INFORM_TOKEN_CHECKIN_REQ)
 				.apply();
 	}
 
@@ -135,8 +150,12 @@ public class SecureStorage {
 		return prefs.getString(KEY_INFORM_CODE_REQ, null);
 	}
 
-	public String getLastInformToken() {
+	public String getLastDP3TInformToken() {
 		return prefs.getString(KEY_INFORM_TOKEN_REQ, null);
+	}
+
+	public String getLastCheckinInformToken() {
+		return prefs.getString(KEY_INFORM_TOKEN_CHECKIN_REQ, null);
 	}
 
 	public boolean getOnboardingCompleted() {
@@ -145,6 +164,14 @@ public class SecureStorage {
 
 	public void setOnboardingCompleted(boolean completed) {
 		prefs.edit().putBoolean(KEY_ONBOARDING_COMPLETED, completed).apply();
+	}
+
+	public boolean getOnlyPartialOnboardingCompleted() {
+		return prefs.getBoolean(KEY_ONLY_PARTIAL_ONBOARDING_DONE, false);
+	}
+
+	public void setOnlyPartialOnboardingCompleted(boolean completed) {
+		prefs.edit().putBoolean(KEY_ONLY_PARTIAL_ONBOARDING_DONE, completed).apply();
 	}
 
 	public int getLastShownUpdateBoardingVersion() {
@@ -157,6 +184,22 @@ public class SecureStorage {
 
 	public int getLastShownContactId() {
 		return prefs.getInt(KEY_LAST_SHOWN_CONTACT_ID, -1);
+	}
+
+	public void setLastSuccessfulCheckinDownload(long time) {
+		prefs.edit().putLong(KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD, time).apply();
+	}
+
+	public boolean getCheckInUpdateNotificationShown() {
+		return prefs.getBoolean(KEY_CHECK_IN_UPDATE_NOTIFICATION_SHOWN, false);
+	}
+
+	public void setCheckInUpdateNotificationShown(boolean shown) {
+		prefs.edit().putBoolean(KEY_CHECK_IN_UPDATE_NOTIFICATION_SHOWN, shown).apply();
+	}
+
+	public long getLastSuccessfulCheckinDownload() {
+		return prefs.getLong(KEY_LAST_SUCCESSFUL_CHECKIN_DOWNLOAD, System.currentTimeMillis());
 	}
 
 	public void setLastShownContactId(int contactId) {
@@ -207,6 +250,24 @@ public class SecureStorage {
 
 	public InfoBoxModelCollection getInfoBoxCollection() {
 		return gson.fromJson(prefs.getString(KEY_CONFIG_INFOBOX_COLLECTION, "null"), InfoBoxModelCollection.class);
+	}
+
+	public void setTestInformationUrls(Map<String, String> testInformationUrls) {
+		prefs.edit().putString(KEY_CONFIG_TEST_INFORMATION_URLS, gson.toJson(testInformationUrls)).apply();
+	}
+
+	public String getTestInformationUrl(String languageKey) {
+		String defaultUrl = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/" +
+				"aktuelle-ausbrueche-epidemien/novel-cov/testen.html";
+
+		Type testInformationsType = new TypeToken<Map<String, String>>() { }.getType();
+		Map<String, String> testInfoMap =
+				gson.fromJson(prefs.getString(KEY_CONFIG_TEST_INFORMATION_URLS, "null"), testInformationsType);
+		if (testInfoMap == null || !testInfoMap.containsKey(languageKey)) {
+			return defaultUrl;
+		} else {
+			return testInfoMap.get(languageKey);
+		}
 	}
 
 	public boolean isUserNotInPilotGroup() {
@@ -337,6 +398,22 @@ public class SecureStorage {
 		prefs.edit().putLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY, setPositiveReportOldestSharedKey).apply();
 	}
 
+	public long getPositiveReportOldestSharedKeyOrCheckin() {
+		return prefs.getLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN, -1L);
+	}
+
+	public void setPositiveReportOldestSharedKeyOrCheckin(long oldestSharedKeyOrCheckin) {
+		prefs.edit().putLong(KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN, oldestSharedKeyOrCheckin).apply();
+	}
+
+	public boolean getExposureNotifcationsActiveBeforeEnteringCovidcode() {
+		return prefs.getBoolean(KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE, false);
+	}
+
+	public void setExposureNotifcationsActiveBeforeEnteringCovidcode(boolean active) {
+		prefs.edit().putBoolean(KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE, active).apply();
+	}
+
 	private synchronized SharedPreferences initializeSharedPreferences(@NonNull Context context) {
 		try {
 			return createEncryptedSharedPreferences(context);
@@ -344,6 +421,23 @@ public class SecureStorage {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public void setCheckInState(CheckInState checkInState) {
+		prefs.edit().putString(KEY_CURRENT_CHECK_IN, gson.toJson(checkInState)).apply();
+	}
+
+	public CheckInState getCheckInState() {
+		return gson.fromJson(prefs.getString(KEY_CURRENT_CHECK_IN, null), CheckInState.class);
+	}
+
+	public void setCrowdNotifierLastKeyBundleTag(long lastSync) {
+		prefs.edit().putLong(KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG, lastSync).apply();
+	}
+
+	public long getCrowdNotifierLastKeyBundleTag() {
+		return prefs.getLong(KEY_CROWD_NOTIFIER_LAST_KEY_BUNDLE_TAG, 0);
+	}
+
 
 	/**
 	 * Create or obtain an encrypted SharedPreferences instance. Note that this method is synchronized because the AndroidX

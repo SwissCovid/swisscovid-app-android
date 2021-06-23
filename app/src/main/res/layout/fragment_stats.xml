@@ -150,39 +150,16 @@
 					android:background="@color/divider"
 					app:layout_constraintTop_toBottomOf="@id/stats_more" />
 
-				<TextView
-					android:id="@+id/share_app_supertitle"
-					style="@style/NextStep.Text.Blue"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="@dimen/spacing_larger"
-					android:text="@string/share_app_supertitle"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@id/divider" />
-
-				<TextView
-					android:id="@+id/share_app_title"
-					style="@style/NextStep.Text.Title.Dark"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="@dimen/spacing_very_large"
-					android:layout_marginEnd="@dimen/spacing_very_large"
-					android:paddingTop="@dimen/spacing_very_small"
-					android:text="@string/share_app_title"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@id/share_app_supertitle" />
-
 				<ImageView
 					android:id="@+id/share_app_image"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="@dimen/spacing_larger"
+					android:layout_marginTop="@dimen/spacing_larger"
 					android:layout_marginEnd="@dimen/spacing_larger"
 					android:layout_marginBottom="@dimen/spacing_medium_large"
 					android:src="@drawable/stats_share_app"
-					app:layout_constraintTop_toBottomOf="@id/share_app_title" />
+					app:layout_constraintTop_toBottomOf="@id/divider" />
 
 				<Button
 					android:id="@+id/share_app_button"
@@ -193,7 +170,6 @@
 					android:layout_marginTop="@dimen/spacing_medium_large"
 					android:layout_marginEnd="@dimen/spacing_larger"
 					android:text="@string/share_app_button"
-					android:textAllCaps="true"
 					app:layout_constraintTop_toBottomOf="@id/share_app_image" />
 
 				<TextView
@@ -203,6 +179,7 @@
 					android:layout_height="wrap_content"
 					android:layout_marginStart="@dimen/spacing_huge"
 					android:layout_marginEnd="@dimen/spacing_huge"
+					android:gravity="center"
 					android:paddingTop="@dimen/spacing_medium_large"
 					android:paddingBottom="@dimen/spacing_very_large"
 					android:text="@string/share_app_body"

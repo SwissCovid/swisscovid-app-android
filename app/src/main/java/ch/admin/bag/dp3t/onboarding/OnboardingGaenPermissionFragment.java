@@ -10,9 +10,11 @@
 package ch.admin.bag.dp3t.onboarding;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -32,17 +34,23 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 	private static final String TAG = "OnboardingGaen";
 
 	private static final String STATE_USER_ACTIVE = "STATE_USER_ACTIVE";
+	private static final String ARG_ONBOARDING_TYPE = "ARG_ONBOARDING_TYPE";
 
 	private Button activateButton;
 	private Button continueButton;
+	private TextView dontActivateButton;
 
 	private AlertDialog playServicesUpdateDialog;
 
 	private boolean wasUserActive = false;
 	private boolean startedService = false;
 
-	public static OnboardingGaenPermissionFragment newInstance() {
-		return new OnboardingGaenPermissionFragment();
+	public static OnboardingGaenPermissionFragment newInstance(OnboardingType onboardingType) {
+		OnboardingGaenPermissionFragment fragment = new OnboardingGaenPermissionFragment();
+		Bundle arguments = new Bundle();
+		arguments.putSerializable(ARG_ONBOARDING_TYPE, onboardingType);
+		fragment.setArguments(arguments);
+		return fragment;
 	}
 
 	public OnboardingGaenPermissionFragment() {
@@ -65,9 +73,14 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 			wasUserActive = true;
 		});
 		continueButton = view.findViewById(R.id.onboarding_gaen_continue_button);
-		continueButton.setOnClickListener(v -> {
-			((OnboardingActivity) requireActivity()).continueToNextPage();
-		});
+		continueButton.setOnClickListener(v -> ((OnboardingActivity) requireActivity()).continueToNextPage());
+		OnboardingType onboardingType = (OnboardingType) requireArguments().getSerializable(ARG_ONBOARDING_TYPE);
+		dontActivateButton = view.findViewById(R.id.dont_activate_button);
+		if (onboardingType == OnboardingType.NON_INSTANT_PART) {
+			dontActivateButton.setVisibility(View.GONE);
+		}
+		dontActivateButton.setPaintFlags(dontActivateButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+		dontActivateButton.setOnClickListener(v -> ((OnboardingActivity) requireActivity()).continueToNextPage());
 	}
 
 	@Override
@@ -153,6 +166,7 @@ public class OnboardingGaenPermissionFragment extends Fragment {
 			PermissionButtonUtil.setButtonDefault(activateButton, R.string.onboarding_gaen_button_activate);
 		}
 		continueButton.setVisibility(activated || wasUserActive ? View.VISIBLE : View.GONE);
+		dontActivateButton.setVisibility(activated || wasUserActive ? View.GONE : View.VISIBLE);
 	}
 
 }

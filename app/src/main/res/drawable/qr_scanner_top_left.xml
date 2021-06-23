@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item
+		android:id="@+id/indicator"
+		android:bottom="@dimen/qr_scanner_indicator_stroke_width_inverse"
+		android:end="@dimen/qr_scanner_indicator_stroke_width_inverse">
+
+		<shape android:shape="rectangle">
+			<solid android:color="@android:color/transparent" />
+			<stroke
+				android:width="@dimen/qr_scanner_indicator_stroke_width"
+				android:color="@color/primary" />
+		</shape>
+
+	</item>
+
+</layer-list>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/grey_light"
+	android:orientation="vertical">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/white"
+				android:gravity="center_horizontal"
+				android:orientation="vertical"
+				android:paddingHorizontal="@dimen/spacing_large"
+				android:paddingTop="@dimen/spacing_huge"
+				android:paddingBottom="@dimen/spacing_large">
+
+				<TextView
+					style="@style/NextStep.Text.Blue"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_horizontal"
+					android:text="@string/germany_update_boarding_heading" />
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginVertical="@dimen/spacing_medium_large"
+					android:layout_marginTop="@dimen/spacing_medium_large"
+					android:src="@drawable/ill_checkins" />
+
+				<TextView
+					style="@style/NextStep.Text.Title"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_horizontal"
+					android:text="@string/onboarding_checkin_title" />
+
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_medium"
+					android:text="@string/checkin_updateboarding_text" />
+
+			</LinearLayout>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/separator_height"
+				android:background="@color/grey_medium" />
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/data_protection_header_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/bg_ripple_white"
+				android:clickable="true"
+				android:focusable="true"
+				android:orientation="horizontal"
+				android:paddingStart="@dimen/spacing_larger"
+				android:paddingTop="@dimen/spacing_large"
+				android:paddingEnd="@dimen/spacing_larger"
+				android:paddingBottom="@dimen/spacing_large">
+
+				<TextView
+					android:id="@+id/data_protection_title_textview"
+					style="@style/NextStep.Text.Bold.Blue"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="@dimen/spacing_medium"
+					android:text="@string/onboarding_disclaimer_data_protection_statement"
+					app:layout_constraintEnd_toStartOf="@+id/data_protection_chevron_imageview"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<ImageView
+					android:id="@+id/data_protection_chevron_imageview"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_chevron_down"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<LinearLayout
+				android:id="@+id/data_protection_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:visibility="gone">
+
+				<TextView
+					android:id="@+id/data_protection_textview"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="@dimen/spacing_larger"
+					android:paddingRight="@dimen/spacing_larger"
+					android:paddingBottom="@dimen/spacing_large" />
+
+				<LinearLayout
+					android:id="@+id/data_protection_to_online_version_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginStart="@dimen/spacing_larger"
+					android:layout_marginTop="@dimen/spacing_large"
+					android:layout_marginEnd="@dimen/spacing_larger"
+					android:layout_marginBottom="@dimen/spacing_large"
+					android:background="@drawable/ripple_button"
+					android:orientation="horizontal"
+					android:paddingStart="@dimen/spacing_medium"
+					android:paddingTop="@dimen/spacing_small"
+					android:paddingEnd="@dimen/spacing_medium"
+					android:paddingBottom="@dimen/spacing_small">
+
+					<ImageView
+						android:layout_width="@dimen/icon_size"
+						android:layout_height="@dimen/icon_size"
+						android:src="@drawable/ic_launch"
+						android:tint="@color/blue_main" />
+
+					<TextView
+						style="@style/NextStep.Text.Bold.Blue"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/spacing_small"
+						android:text="@string/onboarding_disclaimer_to_online_version_button" />
+
+				</LinearLayout>
+			</LinearLayout>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/separator_height"
+				android:background="@color/grey_medium" />
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/conditions_of_use_header_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/bg_ripple_white"
+				android:clickable="true"
+				android:focusable="true"
+				android:orientation="horizontal"
+				android:paddingStart="@dimen/spacing_larger"
+				android:paddingTop="@dimen/spacing_large"
+				android:paddingEnd="@dimen/spacing_larger"
+				android:paddingBottom="@dimen/spacing_large">
+
+				<TextView
+					android:id="@+id/conditions_of_use_title_textview"
+					style="@style/NextStep.Text.Bold.Blue"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="@dimen/spacing_medium"
+					android:text="@string/onboarding_disclaimer_conditions_of_use"
+					app:layout_constraintEnd_toStartOf="@+id/terms_of_use_chevron_imageview"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<ImageView
+					android:id="@+id/terms_of_use_chevron_imageview"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_chevron_down"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<LinearLayout
+				android:id="@+id/terms_of_use_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:visibility="gone">
+
+				<TextView
+					android:id="@+id/terms_of_use_textview"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="@dimen/spacing_larger"
+					android:paddingRight="@dimen/spacing_larger"
+					android:paddingBottom="@dimen/spacing_large" />
+
+				<LinearLayout
+					android:id="@+id/terms_of_use_to_online_version_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginStart="@dimen/spacing_larger"
+					android:layout_marginTop="@dimen/spacing_large"
+					android:layout_marginEnd="@dimen/spacing_larger"
+					android:layout_marginBottom="@dimen/spacing_large"
+					android:background="@drawable/ripple_button"
+					android:orientation="horizontal"
+					android:paddingStart="@dimen/spacing_medium"
+					android:paddingTop="@dimen/spacing_small"
+					android:paddingEnd="@dimen/spacing_medium"
+					android:paddingBottom="@dimen/spacing_small">
+
+					<ImageView
+						android:layout_width="@dimen/icon_size"
+						android:layout_height="@dimen/icon_size"
+						android:src="@drawable/ic_launch"
+						android:tint="@color/blue_main" />
+
+					<TextView
+						style="@style/NextStep.Text.Bold.Blue"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/spacing_small"
+						android:text="@string/onboarding_disclaimer_to_online_version_button" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/separator_height"
+				android:background="@color/grey_medium" />
+
+		</LinearLayout>
+	</ScrollView>
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/white"
+		android:elevation="@dimen/onboarding_button_container_elevation"
+		android:outlineProvider="bounds"
+		android:padding="@dimen/spacing_medium">
+
+		<Button
+			android:id="@+id/updateboarding_ok_button"
+			style="@style/NextStep.Button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:text="@string/onboarding_continue_button" />
+
+	</FrameLayout>
+
+</LinearLayout>

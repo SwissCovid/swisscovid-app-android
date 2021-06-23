@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/infotab_scrollview"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:clipChildren="false"
+		android:clipToPadding="false"
+		android:orientation="vertical"
+		android:paddingHorizontal="@dimen/spacing_medium_large"
+		android:paddingVertical="@dimen/spacing_very_large">
+
+		<include
+			android:id="@+id/frame_card_test"
+			layout="@layout/card_what_to_do_test"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/spacing_medium" />
+
+		<include
+			android:id="@+id/frame_card_symptoms"
+			layout="@layout/card_what_to_do_symptoms"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/spacing_very_large" />
+
+		<include
+			android:id="@+id/card_travel"
+			layout="@layout/card_travel"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/spacing_very_large" />
+
+	</LinearLayout>
+
+</ScrollView>

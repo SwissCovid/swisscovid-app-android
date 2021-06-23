@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	style="@style/NextStep.Card"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<LinearLayout
+		android:id="@+id/card_checkin"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:foreground="?selectableItemBackground"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:id="@+id/checkin_header"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="5dp"
+			android:gravity="center_vertical"
+			android:orientation="horizontal"
+			android:paddingBottom="5dp">
+
+			<TextView
+				style="@style/NextStep.Text.Title"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="@dimen/spacing_medium"
+				android:layout_weight="1"
+				android:text="@string/module_checkins_title" />
+
+			<ImageView
+				android:layout_width="@dimen/chevron_size_title"
+				android:layout_height="@dimen/chevron_size_title"
+				android:layout_marginEnd="@dimen/spacing_small"
+				android:src="@drawable/ic_chevron_right"
+				app:tint="@color/dark_main" />
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/checkin_view"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="@dimen/spacing_small"
+			android:orientation="vertical"
+			android:visibility="gone">
+
+			<TextView
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:text="@string/module_checkins_description" />
+
+			<Button
+				android:id="@+id/checkin_button"
+				style="@style/NextStep.Button.Blue"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="@dimen/spacing_medium_large"
+				android:drawableEnd="@drawable/ic_qr"
+				android:text="@string/scan_qr_code_button_title" />
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/checkout_view"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="@dimen/spacing_small"
+			android:orientation="vertical"
+			android:visibility="visible">
+
+			<TextView
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_small"
+				android:gravity="center_horizontal"
+				android:text="@string/checkin_checked_in" />
+
+			<TextView
+				android:id="@+id/checkin_venue_title"
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_tiny_small"
+				android:gravity="center_horizontal"
+				tools:text="Event name" />
+
+			<TextView
+				android:id="@+id/checkin_time"
+				style="@style/NextStep.Text.SplashTitle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				android:gravity="center_horizontal"
+				tools:text="20:32" />
+
+			<Button
+				android:id="@+id/checkout_button"
+				style="@style/NextStep.Button.Outlined"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="@dimen/spacing_medium_large"
+				android:text="@string/checkout_button_title" />
+
+		</LinearLayout>
+
+		<include
+			android:id="@+id/isolation_view"
+			layout="@layout/layout_status"
+			android:visibility="gone" />
+
+	</LinearLayout>
+
+</androidx.cardview.widget.CardView>

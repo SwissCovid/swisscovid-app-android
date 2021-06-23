@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/grey_light"
+	android:orientation="vertical">
+
+	<androidx.appcompat.widget.Toolbar
+		android:id="@+id/checkin_diary_toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:navigationContentDescription="@string/android_accessibility_back_button"
+		app:navigationIcon="@drawable/ic_arrow_back"
+		app:title="@string/diary_title" />
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/checkin_diary_recycler_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:clipToPadding="false"
+			android:orientation="vertical"
+			android:paddingHorizontal="@dimen/spacing_large"
+			android:paddingBottom="@dimen/spacing_small"
+			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+			tools:itemCount="2"
+			tools:listitem="@layout/item_checkin_venue_visit" />
+
+		<LinearLayout
+			android:id="@+id/checkin_diary_empty_view"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_marginHorizontal="@dimen/spacing_very_large"
+			android:orientation="vertical"
+			android:visibility="gone"
+			tools:visibility="visible">
+
+			<TextView
+				style="@style/NextStep.Text.Bold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_large"
+				android:gravity="center"
+				android:text="@string/empty_diary_title" />
+
+			<TextView
+				style="@style/NextStep.Text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_large"
+				android:layout_marginTop="@dimen/spacing_very_small"
+				android:gravity="center"
+				android:text="@string/empty_diary_text" />
+
+		</LinearLayout>
+
+	</FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center_horizontal"
+	android:layout_marginVertical="@dimen/spacing_very_large"
+	android:gravity="center_horizontal">
+
+	<Button
+		android:id="@+id/faq_button"
+		style="@style/NextStep.Button.Outlined"
+		android:layout_width="match_parent"
+		android:layout_marginHorizontal="@dimen/spacing_large"
+		android:layout_height="wrap_content"
+		android:drawableRight="@drawable/ic_launch_blue"
+		android:paddingStart="@dimen/padding_start_icon_button"
+		android:text="@string/faq_button_title" />
+
+</LinearLayout>

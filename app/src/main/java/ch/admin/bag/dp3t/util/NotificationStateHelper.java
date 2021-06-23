@@ -7,7 +7,6 @@
  *
  * SPDX-License-Identifier: MPL-2.0
  */
-
 package ch.admin.bag.dp3t.util;
 
 import android.content.Context;
@@ -34,10 +33,9 @@ public class NotificationStateHelper {
 		TextView textView = statusView.findViewById(R.id.status_text);
 		ImageView illustrationView = statusView.findViewById(R.id.status_illustration);
 		int titleColor = ContextCompat.getColor(context, NotificationState.getTitleTextColor(state));
-		int textColor = ContextCompat.getColor(context, NotificationState.geTextColor(state));
+		int textColor = ContextCompat.getColor(context, NotificationState.getTextColor(state));
 		titleView.setTextColor(titleColor);
 		textView.setTextColor(textColor);
-		iconView.setImageTintList(ColorStateList.valueOf(titleColor));
 
 		if (NotificationState.getTitle(state) != -1) {
 			titleView.setText(NotificationState.getTitle(state));
@@ -54,6 +52,13 @@ public class NotificationStateHelper {
 		if (NotificationState.getIcon(state) != -1) {
 			iconView.setImageResource(NotificationState.getIcon(state));
 			iconView.setVisibility(View.VISIBLE);
+
+			Integer iconColor = NotificationState.getIconColor(state);
+			if (iconColor != null) {
+				iconView.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, iconColor)));
+			} else {
+				iconView.setImageTintList(null);
+			}
 		} else {
 			iconView.setVisibility(View.GONE);
 		}
@@ -75,8 +80,8 @@ public class NotificationStateHelper {
 			triangle.setVisibility(View.VISIBLE);
 			triangle.setImageResource(R.drawable.triangle_status_exposed);
 			infoContainer.setVisibility(View.VISIBLE);
-			infoText.setText(R.string.exposed_info_answer_questions_in_leitfaden);
-			infoTel.setText(R.string.exposed_info_swisscovid_leitfaden);
+			infoText.setVisibility(View.GONE);
+			infoTel.setVisibility(View.GONE);
 			infoSince.setVisibility(View.VISIBLE);
 			if (daySinceExposed == 0) {
 				String string = context.getString(R.string.date_today);
