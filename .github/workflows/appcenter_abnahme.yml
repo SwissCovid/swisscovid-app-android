@@ -18,7 +18,7 @@ jobs:
       with:
         gradle-cmd: assembleAbnahmeRelease -PkeystorePassword=${{secrets.KEYSTORE_PASSWORD}} -PkeyAliasPassword=${{secrets.KEY_ALIAS_PASSWORD}}
     - name: upload artefact to App Center
-      uses: wzieba/AppCenter-Github-Action@v1.0.0
+      uses: wzieba/AppCenter-Github-Action@8db6b765c4d7ce337bd783ea986f17ce0c9a9e85
       with:
         appName: ${{secrets.APPCENTER_ORGANIZATION}}/${{secrets.APPCENTER_APP_ABNAHME}}
         token: ${{secrets.APPCENTER_API_TOKEN}}
