@@ -133,6 +133,11 @@ public class HomeFragment extends Fragment {
 		setupScrollBehavior();
 		setupCovidCodeCard();
 
+		AccessibilityUtil.setButtonAccessibilityDelegate(tracingCard);
+		AccessibilityUtil.setButtonAccessibilityDelegate(cardNotifications);
+		AccessibilityUtil.setButtonAccessibilityDelegate(checkinCard);
+		AccessibilityUtil.setButtonAccessibilityDelegate(covidCodeCard);
+
 		showEndIsolationDialogIfNecessary();
 	}
 

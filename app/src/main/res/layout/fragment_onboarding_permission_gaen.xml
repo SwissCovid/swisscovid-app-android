@@ -73,7 +73,6 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="center_horizontal"
 			android:layout_marginBottom="@dimen/spacing_medium_large"
-			android:background="?selectableItemBackground"
 			android:padding="@dimen/spacing_small"
 			android:text="@string/onboarding_gaen_button_dont_activate" />
 
