@@ -87,8 +87,10 @@ public class OnboardingDisclaimerFragment extends Fragment {
 					.start();
 		});
 
-		dataProtectionToOnlineVersionButton.setOnClickListener(v -> { openOnlineVersion();});
-		termsOfUseToOnlineVersionButton.setOnClickListener(v -> { openOnlineVersion();});
+		dataProtectionToOnlineVersionButton.setOnClickListener(v -> openOnlineVersion());
+		AccessibilityUtil.setButtonAccessibilityDelegate(dataProtectionToOnlineVersionButton);
+		termsOfUseToOnlineVersionButton.setOnClickListener(v -> openOnlineVersion());
+		AccessibilityUtil.setButtonAccessibilityDelegate(termsOfUseToOnlineVersionButton);
 
 		Button continueButton = view.findViewById(R.id.onboarding_continue_button);
 		continueButton.setOnClickListener(v -> ((OnboardingActivity) getActivity()).continueToNextPage());
