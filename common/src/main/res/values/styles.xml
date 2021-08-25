@@ -8,7 +8,7 @@
   ~ SPDX-License-Identifier: MPL-2.0
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
 	<style name="NextStepTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
 		<item name="colorPrimary">@color/colorPrimary</item>
@@ -118,6 +118,7 @@
 		<item name="android:textSize">@dimen/text_size_title</item>
 		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textStyle">bold</item>
+		<item name="android:accessibilityHeading" tools:ignore="NewApi">true</item>
 	</style>
 
 	<style name="NextStep.Text.Title.Dark">
@@ -146,6 +147,7 @@
 		<item name="android:fontFamily">@font/inter_bold</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">@color/green_main</item>
+		<item name="android:accessibilityHeading" tools:ignore="NewApi">true</item>
 	</style>
 
 	<style name="NextStep.Text.SubTitle.Dark">
