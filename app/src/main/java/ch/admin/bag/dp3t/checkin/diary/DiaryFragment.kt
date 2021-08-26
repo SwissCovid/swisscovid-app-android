@@ -68,6 +68,7 @@ class DiaryFragment : Fragment() {
 				}
 				val isEmpty = diaryEntries.isEmpty()
 				checkinDiaryEmptyView.isVisible = isEmpty
+				checkinDiaryRecyclerView.isVisible = !isEmpty
 				var daysAgoString = ""
 				for (diaryEntry in diaryEntries) {
 					val newDaysAgoString: String = DateUtils.getFormattedWeekdayWithDate(diaryEntry.checkInTime, requireContext())
