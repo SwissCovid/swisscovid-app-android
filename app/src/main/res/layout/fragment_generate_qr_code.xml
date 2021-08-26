@@ -21,15 +21,14 @@
 		android:background="@color/white"
 		android:elevation="@dimen/card_elevation">
 
-		<TextView
+		<Button
 			android:id="@+id/generate_qr_code_cancel"
-			style="@style/NextStep.Text.Blue"
+			style="@style/NextStep.Button.Transparent.Blue.Light"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="start"
 			android:layout_marginHorizontal="@dimen/spacing_very_small"
 			android:layout_marginVertical="@dimen/spacing_very_small"
-			android:background="@drawable/ripple_button"
 			android:paddingHorizontal="@dimen/spacing_large"
 			android:paddingVertical="@dimen/spacing_small"
 			android:text="@string/cancel" />

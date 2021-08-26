@@ -12,28 +12,26 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
 
-		<TextView
+		<Button
 			android:id="@+id/dialog_cancel"
-			style="@style/NextStep.Text.Blue"
+			style="@style/NextStep.Button.Transparent.Blue.Light"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="start"
 			android:layout_marginHorizontal="@dimen/spacing_very_small"
 			android:layout_marginVertical="@dimen/spacing_very_small"
-			android:background="@drawable/ripple_button"
 			android:paddingHorizontal="@dimen/spacing_large"
 			android:paddingVertical="@dimen/spacing_small"
 			android:text="@string/cancel" />
 
-		<TextView
+		<Button
 			android:id="@+id/dialog_done"
-			style="@style/NextStep.Text.Bold.Blue"
+			style="@style/NextStep.Button.Transparent.Blue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
 			android:layout_marginHorizontal="@dimen/spacing_very_small"
 			android:layout_marginVertical="@dimen/spacing_very_small"
-			android:background="@drawable/ripple_button"
 			android:paddingHorizontal="@dimen/spacing_large"
 			android:paddingVertical="@dimen/spacing_small"
 			android:text="@string/done_button" />
