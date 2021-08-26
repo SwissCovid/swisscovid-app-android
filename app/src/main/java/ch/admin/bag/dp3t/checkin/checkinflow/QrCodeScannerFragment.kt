@@ -98,8 +98,10 @@ class QrCodeScannerFragment : Fragment(), QrCodeAnalyzer.Listener {
 			camera.cameraInfo.torchState.observe(viewLifecycleOwner, { v: Int ->
 				if (v == TorchState.ON) {
 					flashButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_light_on))
+					flashButton.contentDescription = getString(R.string.accessibility_camera_light_on)
 				} else {
 					flashButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_light_off))
+					flashButton.contentDescription = getString(R.string.accessibility_camera_light_off)
 				}
 			})
 			flashButton.setOnClickListener { camera.cameraControl.enableTorch(camera.cameraInfo.torchState.value == TorchState.OFF) }
