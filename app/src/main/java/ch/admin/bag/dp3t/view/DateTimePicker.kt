@@ -70,8 +70,11 @@ class DateTimePicker @JvmOverloads constructor(
 			formatter = dateFormatter
 			typeface = font
 			setSelectedTypeface(font)
-			setOnValueChangedListener { _, _, _ ->
+			setOnValueChangedListener { _, _, value ->
 				changeListener?.onDateTimeChanged(getSelectedDateTime())
+				post {
+					contentDescription = formatter.format(value)
+				}
 			}
 		}
 
@@ -131,7 +134,10 @@ class DateTimePicker @JvmOverloads constructor(
 	private fun updatePickerValues() {
 		val dayDifference = ChronoUnit.DAYS.between(now.toLocalDate(), previousDateTime.toLocalDate())
 		val preSelectedValue = daysInPast + dayDifference
-		binding.datePicker.value = preSelectedValue.toInt()
+		binding.datePicker.apply {
+			value = preSelectedValue.toInt()
+			contentDescription = formatter.format(value)
+		}
 		binding.hourPicker.value = previousDateTime.hour
 		val minuteSelectionValue = previousDateTime.minute
 		binding.minutePicker.value = minuteSelectionValue
