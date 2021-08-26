@@ -4,7 +4,8 @@
 	android:layout_height="wrap_content"
 	android:layout_gravity="center_horizontal"
 	android:layout_marginVertical="@dimen/spacing_very_large"
-	android:gravity="center_horizontal">
+	android:gravity="center_horizontal"
+	android:importantForAccessibility="no">
 
 	<Button
 		android:id="@+id/qr_code_generate"
