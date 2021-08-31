@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
-import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
+import ch.admin.bag.dp3t.checkin.checkout.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment
 import ch.admin.bag.dp3t.checkin.diary.DiaryFragment
 import ch.admin.bag.dp3t.checkin.generateqrcode.EventsOverviewFragment

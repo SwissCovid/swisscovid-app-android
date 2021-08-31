@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.checkin.checkinflow
+package ch.admin.bag.dp3t.checkin.checkout
 
 import android.os.Bundle
 import android.view.View
@@ -9,9 +9,9 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
 import ch.admin.bag.dp3t.checkin.EditCheckinBaseFragment
 import ch.admin.bag.dp3t.checkin.models.CheckInState
+import ch.admin.bag.dp3t.checkin.models.CheckinInfo
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
-import ch.admin.bag.dp3t.checkin.models.CheckinInfo
 import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper
 import ch.admin.bag.dp3t.databinding.FragmentCheckOutAndEditBinding
@@ -58,6 +58,10 @@ class CheckOutFragment : EditCheckinBaseFragment() {
 			checkoutPrimaryButton.setText(R.string.checkout_button_title)
 			checkoutPrimaryButton.setOnClickListener { performSave() }
 		}
+	}
+
+	override fun handleOverlap(overlappingCheckins: Collection<DiaryEntry>) {
+		CheckOutConflictDialogFragment.newInstance(checkInState.checkInTime, checkInState.checkOutTime).show(parentFragmentManager, CheckOutConflictDialogFragment.TAG)
 	}
 
 	override fun saveEntry() {

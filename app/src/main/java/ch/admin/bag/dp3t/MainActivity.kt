@@ -21,7 +21,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckInFragment
-import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
+import ch.admin.bag.dp3t.checkin.checkout.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.models.CheckInState
 import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState
 import ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker

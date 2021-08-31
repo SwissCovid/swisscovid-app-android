@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.checkout.checkForOverlap
 import ch.admin.bag.dp3t.checkin.models.CheckinInfo
+import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
 import ch.admin.bag.dp3t.databinding.FragmentCheckOutAndEditBinding
 import ch.admin.bag.dp3t.extensions.getSwissCovidLocationData
@@ -44,9 +46,9 @@ abstract class EditCheckinBaseFragment : Fragment() {
 			return
 		}
 
-		val hasOverlapWithOtherCheckin = checkForOverlap(checkinInfo, context)
-		if (hasOverlapWithOtherCheckin) {
-			showSavingNotPossibleDialog(getString(R.string.checkout_overlapping_alert_description), context)
+		val overlappingCheckins = DiaryStorage.getInstance(context).checkForOverlap(checkinInfo)
+		if (overlappingCheckins.isNotEmpty()) {
+			handleOverlap(overlappingCheckins)
 			return
 		}
 
@@ -62,12 +64,11 @@ abstract class EditCheckinBaseFragment : Fragment() {
 		saveEntry()
 	}
 
-	abstract fun saveEntry()
-
-	private fun checkForOverlap(diaryEntry: CheckinInfo, context: Context): Boolean {
-		val otherCheckins = DiaryStorage.getInstance(context).entries.filter { it.id != diaryEntry.id }
-		return otherCheckins.any { it.checkOutTime > diaryEntry.checkInTime && diaryEntry.checkOutTime > it.checkInTime }
+	open fun handleOverlap(overlappingCheckins: Collection<DiaryEntry>) {
+		showSavingNotPossibleDialog(getString(R.string.checkout_overlapping_alert_description), requireContext())
 	}
+
+	abstract fun saveEntry()
 
 	private fun showSavingNotPossibleDialog(message: String, context: Context) {
 		AlertDialog.Builder(context, R.style.NextStep_AlertDialogStyle)
