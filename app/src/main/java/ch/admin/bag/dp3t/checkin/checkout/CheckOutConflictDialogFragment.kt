@@ -1,5 +1,6 @@
 package ch.admin.bag.dp3t.checkin.checkout
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
@@ -68,8 +69,9 @@ class CheckOutConflictDialogFragment : DialogFragment() {
 				.sortedBy { it.checkInTime }
 				.map { diaryEntry ->
 					ConflictingVenueVisitItem(diaryEntry) {
+						viewModel.isResolvingCheckoutConflicts = true
+						dismiss()
 						showFragment(EditDiaryEntryFragment.newInstance(diaryEntry.id), modalAnimation = true)
-						// TODO: need to close dialog and recreate if the user comes back
 					}
 				}
 
@@ -77,8 +79,16 @@ class CheckOutConflictDialogFragment : DialogFragment() {
 				setData(conflictingItems)
 			}
 
-			checkoutConflictBackButton.setOnClickListener { dismiss() }
+			checkoutConflictBackButton.setOnClickListener {
+				viewModel.isResolvingCheckoutConflicts = false
+				dismiss()
+			}
 		}.root
+	}
+
+	override fun onCancel(dialog: DialogInterface) {
+		super.onCancel(dialog)
+		viewModel.isResolvingCheckoutConflicts = false
 	}
 
 	override fun onResume() {

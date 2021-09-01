@@ -35,6 +35,11 @@ class CheckOutFragment : EditCheckinBaseFragment() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+
+		if (savedInstanceState == null) {
+			viewModel.isResolvingCheckoutConflicts = false
+		}
+
 		checkIfAutoCheckoutHappened()
 		checkInState = viewModel.checkInState?.copy(checkOutTime = System.currentTimeMillis()) ?: return
 		venueInfo = checkInState.venueInfo
@@ -58,10 +63,30 @@ class CheckOutFragment : EditCheckinBaseFragment() {
 			checkoutPrimaryButton.setText(R.string.checkout_button_title)
 			checkoutPrimaryButton.setOnClickListener { performSave() }
 		}
+
+		if (viewModel.isResolvingCheckoutConflicts) {
+			val overlappingCheckins = DiaryStorage.getInstance(context).checkForOverlap(checkinInfo)
+			if (overlappingCheckins.isNotEmpty()) {
+				showConflictResolutionDialog()
+			} else {
+				showConflictResolutionCompletedDialog()
+				viewModel.isResolvingCheckoutConflicts = false
+			}
+		}
 	}
 
 	override fun handleOverlap(overlappingCheckins: Collection<DiaryEntry>) {
+		showConflictResolutionDialog()
+	}
+
+	private fun showConflictResolutionDialog() {
 		CheckOutConflictDialogFragment.newInstance(checkInState.checkInTime, checkInState.checkOutTime).show(parentFragmentManager, CheckOutConflictDialogFragment.TAG)
+	}
+
+	private fun showConflictResolutionCompletedDialog() {
+		CheckOutConflictResolvedDialogFragment.newInstance(venueInfo.title, checkInState.checkInTime, checkInState.checkOutTime)
+			.setOnCheckoutListener { performSave() }
+			.show(parentFragmentManager, CheckOutConflictResolvedDialogFragment.TAG)
 	}
 
 	override fun saveEntry() {

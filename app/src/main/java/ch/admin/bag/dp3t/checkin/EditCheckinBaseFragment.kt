@@ -46,18 +46,18 @@ abstract class EditCheckinBaseFragment : Fragment() {
 			return
 		}
 
-		val overlappingCheckins = DiaryStorage.getInstance(context).checkForOverlap(checkinInfo)
-		if (overlappingCheckins.isNotEmpty()) {
-			handleOverlap(overlappingCheckins)
-			return
-		}
-
 		val checkinDuration = checkinInfo.checkOutTime - checkinInfo.checkInTime
 		val maxCheckinTime = checkinInfo.venueInfo.getSwissCovidLocationData().automaticCheckoutDelaylMs
 		if (checkinDuration > maxCheckinTime) {
 			val maxDurationString = StringUtil.getShortDurationStringWithUnits(maxCheckinTime, context)
 			val dialogText = context.getString(R.string.checkout_too_long_alert_text).replace("{DURATION}", maxDurationString)
 			showSavingNotPossibleDialog(dialogText, context)
+			return
+		}
+
+		val overlappingCheckins = DiaryStorage.getInstance(context).checkForOverlap(checkinInfo)
+		if (overlappingCheckins.isNotEmpty()) {
+			handleOverlap(overlappingCheckins)
 			return
 		}
 
