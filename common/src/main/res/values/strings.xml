@@ -1880,4 +1880,10 @@ Possible locations:
 
     <!-- Is read by the screenreader, when newly created QR-code is shown -->
     <string name="accessibility_preview_qr_code_alternative_text"></string>
+
+    <!-- Check-In: Hinweis, dass QR-Codes auch im Web erstellt werden können -->
+    <string name="checkin_generate_web_hint"></string>
+
+    <!-- Check-In: Hinweis dass man sich beim vorherigen Ort zuerst auschecken muss. -->
+    <string name="error_already_checked_in_text"></string>
 </resources>

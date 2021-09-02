@@ -20,8 +20,6 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="end"
 			android:background="@drawable/ripple_rounded"
-			android:clickable="true"
-			android:focusable="true"
 			android:contentDescription="@string/cancel"
 			android:padding="@dimen/spacing_medium_large"
 			android:src="@drawable/ic_close"
@@ -39,17 +37,17 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:gravity="center"
-			android:paddingTop="@dimen/spacing_small"
-			android:paddingBottom="@dimen/spacing_small"
-			android:text="@string/error_title" />
+			android:padding="@dimen/spacing_small"
+			android:text="@string/error_already_checked_in" />
 
 		<TextView
 			style="@style/NextStep.Text"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:gravity="center"
+			android:layout_marginHorizontal="@dimen/spacing_small"
 			android:layout_marginBottom="@dimen/spacing_small"
-			android:text="@string/error_already_checked_in" />
+			android:gravity="center"
+			android:text="@string/error_already_checked_in_text" />
 
 		<Button
 			android:id="@+id/already_checkedin_checkout_button"
@@ -57,10 +55,10 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
-			android:padding="@dimen/spacing_small"
 			android:background="?selectableItemBackground"
+			android:padding="@dimen/spacing_small"
 			android:text="@string/checkout_button_title"
-			android:visibility="visible"/>
+			android:visibility="visible" />
 
 		<Button
 			android:id="@+id/already_checkedin_cancel_button"
@@ -68,10 +66,10 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
-			android:padding="@dimen/spacing_small"
 			android:background="?selectableItemBackground"
+			android:padding="@dimen/spacing_small"
 			android:text="@string/cancel"
-			android:visibility="visible"/>
+			android:visibility="visible" />
 
 	</LinearLayout>
 
