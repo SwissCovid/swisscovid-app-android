@@ -14,7 +14,11 @@
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://github.com/SwissCovid/swisscovid-app-android/blob/master/LICENSE)
 ![Android Build](https://github.com/SwissCovid/swisscovid-app-android/workflows/Android%20Build/badge.svg)
 
-SwissCovid is the official contact tracing app of Switzerland. The app can be installed from the [Google Play Store](https://play.google.com/store/apps/details?id=ch.admin.bag.dp3t). The SwissCovid 2.0 app uses two types of contact tracing to prevent the spread of COVID-19.
+SwissCovid is the official contact tracing app of Switzerland. The app can be installed from the [Google Play Store](https://play.google.com/store/apps/details?id=ch.admin.bag.dp3t). The app design, UX and implementation was done by [Ubique](https://www.ubique.ch/?app=github).
+
+## Contact tracing
+
+The SwissCovid 2.0 app uses two types of contact tracing to prevent the spread of COVID-19.
 
 With proximity tracing close contacts are detected using the bluetooth technology. For this the [DP3T Android SDK](https://github.com/DP-3T/dp3t-sdk-android) is used that builds on top of the Google & Apple Exposure Notifications. This feature is called SwissCovid encounters.
 
