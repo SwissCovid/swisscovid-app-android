@@ -44,6 +44,8 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 	private final MutableLiveData<Boolean> isCheckedIn = new MutableLiveData<>(false);
 	private CheckInState checkInState;
 
+	private boolean isResolvingCheckoutConflicts = false;
+
 	private SecureStorage storage;
 	private final Handler handler = new Handler(Looper.getMainLooper());
 	private Runnable timeUpdateRunnable;
@@ -138,7 +140,6 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 	}
 
 	private void refreshTraceKeyLoadingError() {
-
 		if (storage.getLastSuccessfulCheckinDownload() <= System.currentTimeMillis() - MAX_DURATION_WITHOUT_SUCCESSFUL_DOWNLOAD) {
 			hasTraceKeyDownloadError.setValue(true);
 		} else {
@@ -213,6 +214,14 @@ public class CrowdNotifierViewModel extends AndroidViewModel {
 		CrowdNotifierReminderHelper
 				.setAutoCheckOut(checkinTime, VenueInfoExtensionsKt.getAutoCheckoutDelay(venueInfo), getApplication());
 		CrowdNotifierReminderHelper.setReminder(currentTime + selectedReminderDelay, getApplication());
+	}
+
+	public boolean isResolvingCheckoutConflicts() {
+		return isResolvingCheckoutConflicts;
+	}
+
+	public void setResolvingCheckoutConflicts(boolean resolvingCheckoutConflicts) {
+		isResolvingCheckoutConflicts = resolvingCheckoutConflicts;
 	}
 
 	@Override

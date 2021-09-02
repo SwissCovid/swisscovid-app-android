@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
-import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment
+import ch.admin.bag.dp3t.checkin.checkout.CheckOutFragment
 import ch.admin.bag.dp3t.databinding.FragmentInfoTabBinding
 import ch.admin.bag.dp3t.extensions.showFragment
 import ch.admin.bag.dp3t.inform.InformActivity
