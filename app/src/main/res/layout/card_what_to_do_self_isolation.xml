@@ -93,7 +93,7 @@
 				android:layout_height="1dp"
 				android:background="@color/grey_light" />
 
-			<TextView
+			<Button
 				android:id="@+id/delete_reports"
 				style="@style/NextStep.Button.Transparent"
 				android:layout_width="match_parent"

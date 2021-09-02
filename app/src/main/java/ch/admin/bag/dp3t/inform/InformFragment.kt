@@ -24,6 +24,8 @@ import ch.admin.bag.dp3t.networking.errors.InvalidCodeError
 import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.PhoneUtil
+import ch.admin.bag.dp3t.util.isAccessibilityActive
+import ch.admin.bag.dp3t.util.requestAccessibilityFocus
 import org.dpppt.android.sdk.DP3T
 
 private const val REGEX_CODE_PATTERN = "\\d{" + ChainedEditText.NUM_CHARACTERS + "}"
@@ -46,7 +48,12 @@ class InformFragment : TraceKeyShareBaseFragment() {
 
 	override fun onResume() {
 		super.onResume()
-		binding.covidcodeInput.requestFocus()
+
+		if (requireContext().isAccessibilityActive()) {
+			binding.informTitle.requestAccessibilityFocus()
+		} else {
+			binding.covidcodeInput.requestFocus()
+		}
 	}
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
