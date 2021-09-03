@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
+import ch.admin.bag.dp3t.checkin.checkinflow.AlreadyCheckedInErrorDialog
 import ch.admin.bag.dp3t.checkin.checkinflow.CheckInFragment
 import ch.admin.bag.dp3t.checkin.checkout.CheckOutFragment
 import ch.admin.bag.dp3t.checkin.models.CheckInState
@@ -47,9 +48,7 @@ import org.crowdnotifier.android.sdk.utils.QrUtils.*
 import org.dpppt.android.sdk.DP3T
 import java.nio.charset.StandardCharsets
 
-
 class MainActivity : FragmentActivity() {
-
 
 	companion object {
 		const val ACTION_EXPOSED_GOTO_REPORTS = "ACTION_EXPOSED_GOTO_REPORTS"
@@ -129,7 +128,6 @@ class MainActivity : FragmentActivity() {
 	}
 
 	private fun onOnboardingFinished(onboardingType: OnboardingType, activityResult: ActivityResult, qrCodeUrl: String? = null) {
-
 		if (activityResult.resultCode == RESULT_OK) {
 			secureStorage.lastShownUpdateBoardingVersion = UPDATE_BOARDING_VERSION
 			secureStorage.onboardingCompleted = true
@@ -224,7 +222,9 @@ class MainActivity : FragmentActivity() {
 				if (crowdNotifierViewModel.checkInState.venueInfo == venueInfo) {
 					showCheckOutFragment()
 				} else {
-					ErrorDialog(this, CrowdNotifierErrorState.ALREADY_CHECKED_IN).show()
+					AlreadyCheckedInErrorDialog(this)
+						.setOnCheckoutListener { showCheckOutFragment() }
+						.show()
 				}
 			} else {
 				crowdNotifierViewModel.checkInState = CheckInState(
@@ -242,7 +242,9 @@ class MainActivity : FragmentActivity() {
 		try {
 			val venueInfo = CrowdNotifier.getVenueInfo(qrCodeUrl, BuildConfig.ENTRY_QR_CODE_HOST)
 			if (crowdNotifierViewModel.isCheckedIn.value == true) {
-				ErrorDialog(this, CrowdNotifierErrorState.ALREADY_CHECKED_IN).show()
+				AlreadyCheckedInErrorDialog(this)
+					.setOnCheckoutListener { showCheckOutFragment() }
+					.show()
 			} else {
 				crowdNotifierViewModel.performCheckinAndSetReminders(venueInfo, System.currentTimeMillis(), 0)
 			}

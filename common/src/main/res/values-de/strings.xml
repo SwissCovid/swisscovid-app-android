@@ -1945,4 +1945,11 @@ Dieser Titel wird beim Check-in angezeigt."</string>
 
     <!-- Is read by the screenreader, when newly created QR-code is shown -->
     <string name="accessibility_preview_qr_code_alternative_text">"Erstellter QR-Code"</string>
+
+    <!-- Check-In: Hinweis, dass QR-Codes auch im Web erstellt werden können -->
+    <!-- Fuzzy -->
+    <string name="checkin_generate_web_hint">"Alternativ können Sie QR-Codes auch auf qr.swisscovid.ch erstellen."</string>
+
+    <!-- Check-In: Hinweis dass man sich beim vorherigen Ort zuerst auschecken muss. -->
+    <string name="error_already_checked_in_text">"Um sich an einem neuen Ort einzuchecken, müssen Sie sich zuerst auschecken."</string>
 </resources>
