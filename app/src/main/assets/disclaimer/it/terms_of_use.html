@@ -65,14 +65,15 @@
  L’app richiama periodicamente un elenco delle chiavi private degli utenti infetti dell’app SwissCovid e delle altre app interoperabili e controlla con il suo sistema operativo se almeno un codice d’identificazione memorizzato localmente è stato generato con una chiave privata dell’elenco. Se ciò si verifica nonché la prossimità da almeno un telefono cellulare di un utente dell’app SwissCovid o delle altre app interoperabili infetto è pari o inferiore a 1,5 metri e la somma della durata di tutte queste prossimità in un giorno raggiunge i quindici minuti, l’app ne informa l’utente. La distanza è stimata in base alla potenza del segnale ricevuto.
 </p>
 <p>
- Sistema di allerta per le manifestazioni: l’organizzatore di una manifestazione genera nella propria app un codice QR che i visitatori della manifestazione possono scansionare per effettuare il check-in alla manifestazione.
-</p>
-<p>
- L’app memorizza sul telefono cellulare il codice di identificazione della manifestazione con la rispettiva data, la durata della permanenza e la designazione della manifestazione. Richiama periodicamente dal back end delle manifestazioni l’elenco dei codici di identificazione delle manifestazioni dei partecipanti infetti. Confronta tali codici con i codici di identificazione delle manifestazioni che ha memorizzato localmente. Se da tale confronto emerge una corrispondenza, genera una notifica.
+ Sistema di allerta per le manifestazioni: l’organizzatore di una manifestazione genera nella propria app o tramite la pagina Internet
+ <a href="https://qr.swisscovid.ch/">
+  qr.swisscovid.ch
+ </a>
+ un codice QR che i visitatori della manifestazione possono scansionare per effettuare il check-in alla manifestazione.
 </p>
 <p>
  3.4
- In caso di infezione accertata di un utente, il personale specialistico avente diritto di accesso (p. es. medici curanti o farmacisti) genera un codice di attivazione (codice Covid) univoco e la cui validità è limitata nel tempo e lo comunica all’utente infetto, che può immetterlo nell’app su base volontaria. La notifica ovvero l’inserimento del codice di attivazione richiedono il consenso esplicito dell’utente infetto. L’utente infetto può scegliere se allertare sia i contatti stretti in base al sistema di tracciamento della prossimità sia i contatti in base alla partecipazione a una manifestazione. Può inoltre decidere se generare una notifica per tutte le manifestazioni alle quali ha partecipato nel periodo rilevante o solo per alcune.
+ L’app memorizza sul telefono cellulare il codice di identificazione della manifestazione con la rispettiva data, la durata della permanenza e la designazione della manifestazione. Richiama periodicamente dal back end delle manifestazioni l’elenco dei codici di identificazione delle manifestazioni dei partecipanti infetti. Confronta tali codici con i codici di identificazione delle manifestazioni che ha memorizzato localmente. Se da tale confronto emerge una corrispondenza, genera una notifica. In caso di infezione accertata di un utente, il personale specialistico avente diritto di accesso (p. es. medici curanti o farmacisti) genera un codice di attivazione (codice Covid) univoco e la cui validità è limitata nel tempo e lo comunica all’utente infetto, che può immetterlo nell’app su base volontaria. La notifica ovvero l’inserimento del codice di attivazione richiedono il consenso esplicito dell’utente infetto. L’utente infetto può scegliere se allertare sia i contatti stretti in base al sistema di tracciamento della prossimità sia i contatti in base alla partecipazione a una manifestazione. Può inoltre decidere se generare una notifica per tutte le manifestazioni alle quali ha partecipato nel periodo rilevante o solo per alcune.
 </p>
 <p>
  Gli altri utenti dell’app SwissCovid o delle altre app interoperabili che sono stati in prossimità secondo il numero 3.3 con l’utente infetto durante il periodo di infettività o che hanno partecipato nello stesso momento alla medesima manifestazione vengono informati dalla loro app.

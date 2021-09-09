@@ -28,7 +28,7 @@ Cette application de l’Office fédéral de la santé publique (OFSP) se fonde 
 <em>
  818.102
 </em>
-) et l’ordonnance du 30 juin 2021 sur un système visant à informer d’une infection possible au coronavirus SARS-CoV-2 lors de manifestations (OSIM ; RS 818.102.4).
+) et l’ordonnance du 30 juin 2021 sur un système visant à informer d’une infection possible au coronavirus SARS-CoV-2 lors de manifestations (OSIM; RS 818.102.4).
 <p>
  1.3
  L’application vise à informer les utilisateurs qui pourraient avoir été exposés au virus et à établir des statistiques en rapport avec le coronavirus.
@@ -75,17 +75,18 @@ Cette application de l’Office fédéral de la santé publique (OFSP) se fonde 
  À intervalles réguliers, l’application extrait la liste des clés privées des utilisateurs infectés de l’application SwissCovid ou d’autres applications interopérables, et le système d’exploitation contrôle si au moins un code d’identification enregistré localement a été généré avec une clé privée. Si tel est le cas et qu’un rapprochement d’un mètre et demi ou moins a été établi avec au moins un téléphone mobile d’au moins un utilisateur infecté de l’application SwissCovid ou d’autres applications interopérables et que la durée totale de ces rapprochements atteint ou dépasse les quinze minutes au cours de la même journée, l’application envoie une information. La distance est évaluée en fonction de l’intensité du signal reçu.
 </p>
 <p>
- Système d’alerte pour les manifestations : l’organisateur d’une manifestation génère un code QR dans son application. Les visiteurs de la manifestation peuvent scanner le code QR présenté avec leur application et indiquent ainsi avoir participé à la manifestation.
+ Système d’alerte pour les manifestations : l’organisateur d’une manifestation génère un code QR dans son application ou sur le site Internet
+ <a href="https://qr.swisscovid.ch/">
+  qr.swisscovid.ch
+ </a>
+ Les visiteurs de la manifestation peuvent scanner le code QR présenté avec leur application et indiquent ainsi avoir participé à la manifestation.
 </p>
+L’application enregistre sur le téléphone portable le code d’identification de la manifestation avec sa date, sa durée et sa description. Depuis le
+<em>
+ backend
+</em>
+manifestations, elle consulte régulièrement les codes d’identification de la manifestation chez les participants infectés. Elle compare ces codes avec ceux qu’elle a stocké localement. Si deux codes sont les mêmes, elle envoie alors une notification
 <p>
- L’application enregistre sur le téléphone portable le code d’identification de la manifestation avec sa date, sa durée et sa description. Depuis le
- <em>
-  backend
- </em>
- manifestations, elle consulte régulièrement les codes d’identification de la manifestation chez les participants infectés. Elle compare ces codes avec ceux qu’elle a stocké localement. Si deux codes sont les mêmes, elle envoie alors une notification.
-</p>
-<p>
- 3.4
  Si une infection est attestée chez un utilisateur, les professionnels disposant des droits d’accès (p. ex. les médecins traitants ou les pharmaciens) génèrent un code d’autorisation unique et temporaire (code COVID) et le communiquent à l’utilisateur infecté. Ce dernier peut saisir de manière volontaire le code d’autorisation dans son application. La notification et la saisie du code d’autorisation ne se font qu’avec le consentement explicite de la personne infectée. Cette dernière peut par ailleurs choisir si elle souhaite alerter non seulement les contacts étroits détectés par le système de traçage de proximité mais également ceux détectés en raison de leur présence à une manifestation. Elle peut aussi décider de déclencher une notification pour toutes les manifestations auxquelles elle a participé pendant la période concernée ou seulement pour certaines d’entre elles.
 </p>
 <p>
