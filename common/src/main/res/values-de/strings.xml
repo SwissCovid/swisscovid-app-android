@@ -1586,7 +1586,7 @@ Dann rufen Sie hier an:"</string>
     <string name="error_title">"Fehler"</string>
     <string name="qr_scanner_error_code_not_yet_valid">"QR-Code noch nicht gültig"</string>
     <string name="qr_scanner_error_code_not_valid_anymore">"QR-Code nicht mehr gültig"</string>
-    <string name="error_already_checked_in">"Sie sind bereits eingecheckt."</string>
+    <string name="error_already_checked_in">"Sie sind bereits an einem anderen Ort eingecheckt."</string>
     <string name="error_update_text">"Dieser QR-Code ist nicht mit der installierten App-Version kompatibel. Bitte aktualisieren Sie die App, um fortzufahren."</string>
     <string name="error_update_title">"Update erforderlich"</string>
     <string name="error_action_update">"Jetzt aktualisieren"</string>
@@ -1882,11 +1882,6 @@ Dieser Titel wird beim Check-in angezeigt."</string>
 
     <!-- Button um Covid Certificate App zu installieren -->
     <string name="covid_certificate_install_app">"App installieren"</string>
-    <string name="web_generator_title">"QR-Code erstellen"</string>
-    <string name="web_generator_title_label"></string>
-
-    <!-- Fuzzy -->
-    <string name="web_generator_generate_button">"QR-Code erstellen"</string>
 
     <!-- Titel des Buttons, der das PDF herunterlädt -->
     <!-- Fuzzy -->
@@ -1919,17 +1914,8 @@ Dieser Titel wird beim Check-in angezeigt."</string>
     <!-- Check-Ins: Text im Popup bei überlappenden Check-Ins, wenn keine Überlappungen mehr da sind. {CHECKIN} wird durch Raum ersetzt. -->
     <string name="checkin_overlap_popup_success_text">"Es gibt keine Konflikte mehr für Ihre eingetragene Zeit. Sie können jetzt bei {CHECKIN} auschecken."</string>
 
-    <!-- Infotext beim Generieren eines QR-Codes -->
-    <!-- Fuzzy -->
-    <string name="web_generator_message">"Vergeben Sie einen Titel, der den Ort 
-oder Ihren Anlass näher beschreibt. 
-Dieser Titel wird beim Check-in angezeigt."</string>
-
     <!-- Wird angezeigt, wenn der QR-Code erfolgreich erstellt wurde -->
     <string name="web_generator_success_title">"QR-Code erstellt"</string>
-
-    <!-- Titel des Buttons, der das PDF ausdruckt -->
-    <string name="web_generator_print_pdf_button">"PDF drucken"</string>
 
     <!-- Titel des Buttons, mit dem man einen neuen QR-Code erstellen kann -->
     <string name="web_generator_reset_button">"Neuen QR-Code erstellen"</string>
