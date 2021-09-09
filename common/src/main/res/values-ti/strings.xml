@@ -1507,7 +1507,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="error_title">"ጉድለት"</string>
     <string name="qr_scanner_error_code_not_yet_valid">"QR-ኮድ ገና ብቑዕ ኣይኮነን"</string>
     <string name="qr_scanner_error_code_not_valid_anymore">"ብቕዓት QR-Code ሓሊፉ"</string>
-    <string name="error_already_checked_in">"You are already checked in at another location."</string>
+    <string name="error_already_checked_in">"ድሮ ኣብ ካልእ ቦታ ኣቲኻ ዘለኻ።"</string>
     <string name="error_update_text">"እዚ ኮድ QR ምስቲ ዝተተከለ ቨርዝዮን ኤፕ ኣይሰርሕን እዩ። ነቲ ኤፕ ኣሕድስዎ ብኽብረትኩም መታን ክትቕጸሉ።"</string>
     <string name="error_update_title">"ምምሕዳስ የድሊ"</string>
     <string name="error_action_update">"ሕጂ ምምሕዳስ"</string>
@@ -1787,56 +1787,56 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="covid_certificate_install_app">"ኤፕ ምትካል"</string>
 
     <!-- Titel des Buttons, der das PDF herunterlädt -->
-    <string name="web_generator_download_pdf_button">"Download PDF"</string>
+    <string name="web_generator_download_pdf_button">"PDF ኣራግፍ"</string>
 
     <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is reduced -->
-    <string name="accessibility_expandable_box_reduced_state">"collapsed"</string>
+    <string name="accessibility_expandable_box_reduced_state">"ዝነከየ"</string>
 
     <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is expanded -->
-    <string name="accessibility_expandable_box_expanded_state">"expanded"</string>
+    <string name="accessibility_expandable_box_expanded_state">"ዝሰፍሐ"</string>
 
     <!-- CheckIns: Titel in Popup bei überlappenden Check-Ins -->
-    <string name="checkin_overlap_popup_title">"Cannot save"</string>
+    <string name="checkin_overlap_popup_title">"ክድግፍ ኣይክእልን ኢዩ"</string>
 
     <!-- Check-Ins: Text bei Popup bei überlappenden Check-Ins, {CHECKIN} wird z.B. durch "Sitzungszimmer E318" ersetzt -->
-    <string name="checkin_overlap_popup_text">"The times you selected for {CHECKIN} overlap with other check-ins. Please check your entries again."</string>
+    <string name="checkin_overlap_popup_text">"እቲ ዝመረጽካዮ ግዜታት ን {CHECKIN} ምስ ካልእ ቸክ-ኢን ተመሳቒሉ። ተ ብኽብረትካ ዝርዝር ሓበሬታኻ እንደገና ርአ።"</string>
 
     <!-- Check-Ins: Button bei Popup bei überlappenden Check-Ins -->
-    <string name="checkin_overlap_back_button">"Back"</string>
+    <string name="checkin_overlap_back_button">"ተመለስ"</string>
 
     <!-- This will be read by the screenreader instead of "h" (for the reminder options), in plural form -->
-    <string name="accessibility_reminder_option_hours_plural">"Hours"</string>
+    <string name="accessibility_reminder_option_hours_plural">"ሰዓታት"</string>
 
     <!-- This will be read by the screenreader instead of "'" (for the reminder options) -->
-    <string name="accessibility_reminder_option_minutes">"Minutes"</string>
+    <string name="accessibility_reminder_option_minutes">"ደቓይቕ"</string>
 
     <!-- This will be read by the screenreader instead of "h" (for the reminder options), in singular form -->
-    <string name="accessibility_reminder_option_hour">"Hour"</string>
+    <string name="accessibility_reminder_option_hour">"ሰዓት"</string>
 
     <!-- Check-Ins: Text im Popup bei überlappenden Check-Ins, wenn keine Überlappungen mehr da sind. {CHECKIN} wird durch Raum ersetzt. -->
-    <string name="checkin_overlap_popup_success_text">"There are no longer any conflicts for the time you entered. You can now check out of {CHECKIN}."</string>
+    <string name="checkin_overlap_popup_success_text">"ኣብቲ እትምዝገብሉ ግዜ ግጭት ኣይኪህሉን እዩ ። ሕጂ ኣብ {CHECKIN} ክትወጽእ ትኽእል ኢኻ።"</string>
 
     <!-- Wird angezeigt, wenn der QR-Code erfolgreich erstellt wurde -->
-    <string name="web_generator_success_title">"QR code generated"</string>
+    <string name="web_generator_success_title">"ኮድ QR ተፈጢሩ"</string>
 
     <!-- Titel des Buttons, mit dem man einen neuen QR-Code erstellen kann -->
-    <string name="web_generator_reset_button">"Generate new QR code"</string>
+    <string name="web_generator_reset_button">"ሓድሽ ኮድ QR ምፍጣር"</string>
 
     <!-- Used by VoiceOver to explain what the info button in the navigation bar does -->
-    <string name="accessibility_info_button_app">"More information on the app"</string>
+    <string name="accessibility_info_button_app">"ብዛዕባ እቲ ኣፕሊኬሽን ዝያዳ ሓበሬታ"</string>
 
     <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at CovidCodes does -->
-    <string name="accessibility_info_button_covidcode">"More information on Covidcodes"</string>
+    <string name="accessibility_info_button_covidcode">"ብዛዕባ ኮቪድኮድ ዝያዳ ሓበሬታ"</string>
 
     <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at Number of cases does -->
-    <string name="accessibility_info_button_numberofcases">"More information on case numbers"</string>
+    <string name="accessibility_info_button_numberofcases">"ብዛዕባ ብዝሒ ተለበድቲ ዝያዳ ሓበሬታ"</string>
 
     <!-- Is read by the screenreader, when newly created QR-code is shown -->
-    <string name="accessibility_preview_qr_code_alternative_text">"Generated QR code"</string>
+    <string name="accessibility_preview_qr_code_alternative_text">"ዝተፈጥረ QR-ኮድ"</string>
 
     <!-- Check-In: Hinweis, dass QR-Codes auch im Web erstellt werden können -->
-    <string name="checkin_generate_web_hint">"Alternatively, you can also generate QR codes at qr.swisscovid.ch."</string>
+    <string name="checkin_generate_web_hint">"ብዘይካዚ ኣብ qr.swisscovid.ch ኮድ QR ክትፈጥር ትኽእል ኢኻ።"</string>
 
     <!-- Check-In: Hinweis dass man sich beim vorherigen Ort zuerst auschecken muss. -->
-    <string name="error_already_checked_in_text">"To check in to a new location, you first need to check out."</string>
+    <string name="error_already_checked_in_text">"ናብ ካልእ ቦታ ኽትከይድ እንተ ደሊኻ ፈለማ ክትወጽእ (ቸክ-ኣውት ክትገብር) ኣሎካ።"</string>
 </resources>

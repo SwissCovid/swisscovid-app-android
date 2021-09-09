@@ -1524,7 +1524,7 @@ Ligue para:"</string>
     <string name="error_title">"Erro"</string>
     <string name="qr_scanner_error_code_not_yet_valid">"O código QR ainda não é válido!"</string>
     <string name="qr_scanner_error_code_not_valid_anymore">"O código QR não é mais válido!"</string>
-    <string name="error_already_checked_in">"You are already checked in at another location."</string>
+    <string name="error_already_checked_in">"Já fez check-in noutro lugar."</string>
     <string name="error_update_text">"Este código QR não é compatível com a versão do aplicativo instalada. Por favor, atualize o aplicativo para continuar."</string>
     <string name="error_update_title">"É necessário atualizar."</string>
     <string name="error_action_update">"Atualizar agora"</string>
@@ -1803,56 +1803,56 @@ Este título vai ser indicado no check-in."</string>
     <string name="covid_certificate_install_app">"Instalar o aplicativo"</string>
 
     <!-- Titel des Buttons, der das PDF herunterlädt -->
-    <string name="web_generator_download_pdf_button">"Download PDF"</string>
+    <string name="web_generator_download_pdf_button">"Baixar o PDF"</string>
 
     <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is reduced -->
-    <string name="accessibility_expandable_box_reduced_state">"collapsed"</string>
+    <string name="accessibility_expandable_box_reduced_state">"reduzido"</string>
 
     <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is expanded -->
-    <string name="accessibility_expandable_box_expanded_state">"expanded"</string>
+    <string name="accessibility_expandable_box_expanded_state">"ampliado"</string>
 
     <!-- CheckIns: Titel in Popup bei überlappenden Check-Ins -->
-    <string name="checkin_overlap_popup_title">"Cannot save"</string>
+    <string name="checkin_overlap_popup_title">"Não é possível salvar"</string>
 
     <!-- Check-Ins: Text bei Popup bei überlappenden Check-Ins, {CHECKIN} wird z.B. durch "Sitzungszimmer E318" ersetzt -->
-    <string name="checkin_overlap_popup_text">"The times you selected for {CHECKIN} overlap with other check-ins. Please check your entries again."</string>
+    <string name="checkin_overlap_popup_text">"Os seus períodos de tempo selecionados para {CHECKIN} sobrepõem-se a outros check-ins. Por favor, verifique as suas informações."</string>
 
     <!-- Check-Ins: Button bei Popup bei überlappenden Check-Ins -->
-    <string name="checkin_overlap_back_button">"Back"</string>
+    <string name="checkin_overlap_back_button">"Voltar"</string>
 
     <!-- This will be read by the screenreader instead of "h" (for the reminder options), in plural form -->
-    <string name="accessibility_reminder_option_hours_plural">"Hours"</string>
+    <string name="accessibility_reminder_option_hours_plural">"horas"</string>
 
     <!-- This will be read by the screenreader instead of "'" (for the reminder options) -->
-    <string name="accessibility_reminder_option_minutes">"Minutes"</string>
+    <string name="accessibility_reminder_option_minutes">"minutos"</string>
 
     <!-- This will be read by the screenreader instead of "h" (for the reminder options), in singular form -->
-    <string name="accessibility_reminder_option_hour">"Hour"</string>
+    <string name="accessibility_reminder_option_hour">"hora"</string>
 
     <!-- Check-Ins: Text im Popup bei überlappenden Check-Ins, wenn keine Überlappungen mehr da sind. {CHECKIN} wird durch Raum ersetzt. -->
-    <string name="checkin_overlap_popup_success_text">"There are no longer any conflicts for the time you entered. You can now check out of {CHECKIN}."</string>
+    <string name="checkin_overlap_popup_success_text">"Não há mais conflitos para o seu período de tempo introduzido. Agora, você pode fazer check-out em {CHECKIN}."</string>
 
     <!-- Wird angezeigt, wenn der QR-Code erfolgreich erstellt wurde -->
-    <string name="web_generator_success_title">"QR code generated"</string>
+    <string name="web_generator_success_title">"Criou um código QR"</string>
 
     <!-- Titel des Buttons, mit dem man einen neuen QR-Code erstellen kann -->
-    <string name="web_generator_reset_button">"Generate new QR code"</string>
+    <string name="web_generator_reset_button">"Criar um novo código QR"</string>
 
     <!-- Used by VoiceOver to explain what the info button in the navigation bar does -->
-    <string name="accessibility_info_button_app">"More information on the app"</string>
+    <string name="accessibility_info_button_app">"Mais informações sobre o aplicativo"</string>
 
     <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at CovidCodes does -->
-    <string name="accessibility_info_button_covidcode">"More information on Covidcodes"</string>
+    <string name="accessibility_info_button_covidcode">"Mais informações sobre Covidcodes"</string>
 
     <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at Number of cases does -->
-    <string name="accessibility_info_button_numberofcases">"More information on case numbers"</string>
+    <string name="accessibility_info_button_numberofcases">"Mais informações sobre os números de incidentes"</string>
 
     <!-- Is read by the screenreader, when newly created QR-code is shown -->
-    <string name="accessibility_preview_qr_code_alternative_text">"Generated QR code"</string>
+    <string name="accessibility_preview_qr_code_alternative_text">"Código QR criado"</string>
 
     <!-- Check-In: Hinweis, dass QR-Codes auch im Web erstellt werden können -->
-    <string name="checkin_generate_web_hint">"Alternatively, you can also generate QR codes at qr.swisscovid.ch."</string>
+    <string name="checkin_generate_web_hint">"Alternativamente também pode criar códigos QR em qr.swisscovid.ch."</string>
 
     <!-- Check-In: Hinweis dass man sich beim vorherigen Ort zuerst auschecken muss. -->
-    <string name="error_already_checked_in_text">"To check in to a new location, you first need to check out."</string>
+    <string name="error_already_checked_in_text">"Para fazer check-in noutro lugar, primeiro é necessário fazer check-out."</string>
 </resources>
