@@ -44,14 +44,13 @@
 		android:layout_marginBottom="@dimen/spacing_small"
 		android:text="@string/bluetooth_permission_error_text" />
 
-	<TextView
+	<Button
 		android:id="@+id/error_status_button"
-		style="@style/NextStep.Text.Bold"
+		style="@style/NextStep.Button.Transparent.Dark"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:gravity="center"
 		android:padding="@dimen/spacing_small"
-		android:background="?selectableItemBackground"
 		android:text="@string/bluetooth_turn_on_button_title"
 		android:visibility="visible"/>
 

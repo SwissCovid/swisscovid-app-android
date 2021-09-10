@@ -144,7 +144,10 @@ public class ContactsFragment extends Fragment {
 						break;
 					}
 				}
-				if (timeSync == null) lastSyncDate.setText("-");
+				if (timeSync == null) {
+					lastSyncDate.setText("\u2013");
+					lastSyncDate.setContentDescription(getString(R.string.synchronizations_view_empty_list));
+				}
 				historyCardLoadingView.animate()
 						.alpha(0f)
 						.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime))

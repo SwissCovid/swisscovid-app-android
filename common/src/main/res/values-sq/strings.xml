@@ -1524,7 +1524,7 @@ Atëherë na telefononi këtu:"</string>
     <string name="error_title">"Gabim"</string>
     <string name="qr_scanner_error_code_not_yet_valid">"Kodi QR nuk është ende i vlefshëm"</string>
     <string name="qr_scanner_error_code_not_valid_anymore">"Kodi QR nuk është më i vlefshëm"</string>
-    <string name="error_already_checked_in">"Ju jeni kontrolluar tashmë."</string>
+    <string name="error_already_checked_in">"Ju tashmë jeni regjistruar në një vend tjetër."</string>
     <string name="error_update_text">"Ky kod QR nuk është i pajtueshëm me versionin e aplikacionit të instaluar. Përditësoni aplikacionin për të vazhduar më tej."</string>
     <string name="error_update_title">"Përditësimi i nevojshëm"</string>
     <string name="error_action_update">"Përditësoni tani"</string>
@@ -1802,4 +1802,58 @@ Ky titull shfaqet gjatë Check-in."</string>
 
     <!-- Button um Covid Certificate App zu installieren -->
     <string name="covid_certificate_install_app">"Instaloni aplikacionin"</string>
+
+    <!-- Titel des Buttons, der das PDF herunterlädt -->
+    <string name="web_generator_download_pdf_button">"Shkarkoni PDF"</string>
+
+    <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is reduced -->
+    <string name="accessibility_expandable_box_reduced_state">"E reduktuar"</string>
+
+    <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is expanded -->
+    <string name="accessibility_expandable_box_expanded_state">"E zgjeruar"</string>
+
+    <!-- CheckIns: Titel in Popup bei überlappenden Check-Ins -->
+    <string name="checkin_overlap_popup_title">"Ruajtja nuk është e mundur"</string>
+
+    <!-- Check-Ins: Text bei Popup bei überlappenden Check-Ins, {CHECKIN} wird z.B. durch "Sitzungszimmer E318" ersetzt -->
+    <string name="checkin_overlap_popup_text">"Kohët tuaja të zgjedhura për {CHECKIN} përkojnë me Check-in e tjera. Kontrolloni edhe njëherë të dhënat tuaja."</string>
+
+    <!-- Check-Ins: Button bei Popup bei überlappenden Check-Ins -->
+    <string name="checkin_overlap_back_button">"Kthehu"</string>
+
+    <!-- This will be read by the screenreader instead of "h" (for the reminder options), in plural form -->
+    <string name="accessibility_reminder_option_hours_plural">"Orë"</string>
+
+    <!-- This will be read by the screenreader instead of "'" (for the reminder options) -->
+    <string name="accessibility_reminder_option_minutes">"Minuta"</string>
+
+    <!-- This will be read by the screenreader instead of "h" (for the reminder options), in singular form -->
+    <string name="accessibility_reminder_option_hour">"Orë"</string>
+
+    <!-- Check-Ins: Text im Popup bei überlappenden Check-Ins, wenn keine Überlappungen mehr da sind. {CHECKIN} wird durch Raum ersetzt. -->
+    <string name="checkin_overlap_popup_success_text">"Nuk ka më konflikte për kohën tuaj të regjistruar. Ju mund të kontrolloheni tani te {CHECKIN}."</string>
+
+    <!-- Wird angezeigt, wenn der QR-Code erfolgreich erstellt wurde -->
+    <string name="web_generator_success_title">"Kodi i krijuar QR"</string>
+
+    <!-- Titel des Buttons, mit dem man einen neuen QR-Code erstellen kann -->
+    <string name="web_generator_reset_button">"Krijoni kodin e ri QR"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the navigation bar does -->
+    <string name="accessibility_info_button_app">"Më shumë informacione për aplikacionin"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at CovidCodes does -->
+    <string name="accessibility_info_button_covidcode">"Më shumë informacione për kodin e Covid"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at Number of cases does -->
+    <string name="accessibility_info_button_numberofcases">"Më shumë informacione për numrin e rasteve"</string>
+
+    <!-- Is read by the screenreader, when newly created QR-code is shown -->
+    <string name="accessibility_preview_qr_code_alternative_text">"Kodi i krijuar QR"</string>
+
+    <!-- Check-In: Hinweis, dass QR-Codes auch im Web erstellt werden können -->
+    <string name="checkin_generate_web_hint">"Si alternativë mund të krijoni kodin QR edhe në qr.swisscovid.ch."</string>
+
+    <!-- Check-In: Hinweis dass man sich beim vorherigen Ort zuerst auschecken muss. -->
+    <string name="error_already_checked_in_text">"Për t’u regjistruar në një vend të ri, së pari duhet të kontrolloheni."</string>
 </resources>

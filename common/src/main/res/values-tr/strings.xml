@@ -1507,7 +1507,7 @@ O halde şu numarayı arayın:"</string>
     <string name="error_title">"Hata"</string>
     <string name="qr_scanner_error_code_not_yet_valid">"Kare kod henüz geçerli değil"</string>
     <string name="qr_scanner_error_code_not_valid_anymore">"Kare kod artık geçerli değil"</string>
-    <string name="error_already_checked_in">"Zaten check-in yaptınız."</string>
+    <string name="error_already_checked_in">"Şu anda başka bir yerde Check-in yapmış durumdasınız."</string>
     <string name="error_update_text">"Bu kare kod artık kurulu olan uygulama sürümü ile uyumlu değil. Lütfen işleme devam edebilmek için uygulamayı güncelleyin."</string>
     <string name="error_update_title">"Güncelleme gerekiyor"</string>
     <string name="error_action_update">"Şimdi güncelleyin"</string>
@@ -1785,4 +1785,58 @@ Bu başlık check-in sırasında gösterilir."</string>
 
     <!-- Button um Covid Certificate App zu installieren -->
     <string name="covid_certificate_install_app">"Uygulamayı kur"</string>
+
+    <!-- Titel des Buttons, der das PDF herunterlädt -->
+    <string name="web_generator_download_pdf_button">"PDF indir"</string>
+
+    <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is reduced -->
+    <string name="accessibility_expandable_box_reduced_state">"azaltılmış"</string>
+
+    <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is expanded -->
+    <string name="accessibility_expandable_box_expanded_state">"genişletilmiş"</string>
+
+    <!-- CheckIns: Titel in Popup bei überlappenden Check-Ins -->
+    <string name="checkin_overlap_popup_title">"Kaydedilemiyor"</string>
+
+    <!-- Check-Ins: Text bei Popup bei überlappenden Check-Ins, {CHECKIN} wird z.B. durch "Sitzungszimmer E318" ersetzt -->
+    <string name="checkin_overlap_popup_text">"Seçmiş olduğunuz saatler {CHECKIN} başka Ckeck-in'ler ile kesişiyor. Lütfen bilgilerinizi yeniden kontrol edin."</string>
+
+    <!-- Check-Ins: Button bei Popup bei überlappenden Check-Ins -->
+    <string name="checkin_overlap_back_button">"Geri"</string>
+
+    <!-- This will be read by the screenreader instead of "h" (for the reminder options), in plural form -->
+    <string name="accessibility_reminder_option_hours_plural">"saat"</string>
+
+    <!-- This will be read by the screenreader instead of "'" (for the reminder options) -->
+    <string name="accessibility_reminder_option_minutes">"dakika"</string>
+
+    <!-- This will be read by the screenreader instead of "h" (for the reminder options), in singular form -->
+    <string name="accessibility_reminder_option_hour">"saat"</string>
+
+    <!-- Check-Ins: Text im Popup bei überlappenden Check-Ins, wenn keine Überlappungen mehr da sind. {CHECKIN} wird durch Raum ersetzt. -->
+    <string name="checkin_overlap_popup_success_text">"Girmiş olduğunuz süreler için artık çatışma yok. Şimdi {CHECKIN}'de çıkış yapabilirsiniz."</string>
+
+    <!-- Wird angezeigt, wenn der QR-Code erfolgreich erstellt wurde -->
+    <string name="web_generator_success_title">"Kare kod oluşturuldu"</string>
+
+    <!-- Titel des Buttons, mit dem man einen neuen QR-Code erstellen kann -->
+    <string name="web_generator_reset_button">"Yeni kare kod oluştur"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the navigation bar does -->
+    <string name="accessibility_info_button_app">"Uygulama hakkında daha fazla bilgi"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at CovidCodes does -->
+    <string name="accessibility_info_button_covidcode">"Covid kodları hakkında daha fazla bilgi"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at Number of cases does -->
+    <string name="accessibility_info_button_numberofcases">"Vaka sayıları hakkında daha fazla bilgi"</string>
+
+    <!-- Is read by the screenreader, when newly created QR-code is shown -->
+    <string name="accessibility_preview_qr_code_alternative_text">"Oluşturulan kare kod"</string>
+
+    <!-- Check-In: Hinweis, dass QR-Codes auch im Web erstellt werden können -->
+    <string name="checkin_generate_web_hint">"Alternatif olarak kare kodları qr.swisscovid.ch sayfasında da oluşturabilirsiniz."</string>
+
+    <!-- Check-In: Hinweis dass man sich beim vorherigen Ort zuerst auschecken muss. -->
+    <string name="error_already_checked_in_text">"Yeni bir yere Check-in yapmak için öncelikle Check-out yapmanız gerekir."</string>
 </resources>

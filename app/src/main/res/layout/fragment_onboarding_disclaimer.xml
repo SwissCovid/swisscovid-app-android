@@ -39,6 +39,7 @@
 					style="@style/NextStep.Text.Blue"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
+					android:accessibilityHeading="true"
 					android:gravity="center_horizontal"
 					android:text="@string/onboarding_disclaimer_heading" />
 

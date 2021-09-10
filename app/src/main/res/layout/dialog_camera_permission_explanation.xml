@@ -19,8 +19,10 @@
 			android:layout_gravity="end"
 			android:layout_marginTop="@dimen/spacing_small"
 			android:layout_marginEnd="@dimen/spacing_small"
+			android:accessibilityTraversalAfter="@id/camera_permission_dialog_ok_button"
 			android:background="@drawable/ripple_rounded"
 			android:clickable="true"
+			android:contentDescription="@string/cancel"
 			android:focusable="true"
 			android:padding="@dimen/spacing_medium_large"
 			android:src="@drawable/ic_close"
@@ -36,16 +38,15 @@
 			android:gravity="center"
 			android:text="@string/camera_permission_dialog_text" />
 
-		<TextView
+		<Button
 			android:id="@+id/camera_permission_dialog_ok_button"
-			style="@style/NextStep.Text.Bold"
+			style="@style/NextStep.Button.Transparent.Dark"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
-			android:layout_marginBottom="@dimen/spacing_medium"
-			android:background="?selectableItemBackground"
+			android:layout_marginBottom="@dimen/spacing_medium_large"
+			android:accessibilityTraversalAfter="@id/camera_permission_dialog_text"
 			android:gravity="center"
-			android:padding="@dimen/spacing_small"
 			android:text="@string/camera_permission_dialog_action" />
 
 	</LinearLayout>

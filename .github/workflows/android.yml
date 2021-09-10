@@ -39,7 +39,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Run tests
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@5de26e4bd23bf523e8a4b7f077df8bfb8e52b50e
         with:
           api-level: 29
           script: ./gradlew connectedDevDebugAndroidTest

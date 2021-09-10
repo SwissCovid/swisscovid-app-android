@@ -1,4 +1,4 @@
-package ch.admin.bag.dp3t.checkin.checkinflow
+package ch.admin.bag.dp3t.checkin.checkout
 
 import android.os.Bundle
 import android.view.View
@@ -9,9 +9,9 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
 import ch.admin.bag.dp3t.checkin.EditCheckinBaseFragment
 import ch.admin.bag.dp3t.checkin.models.CheckInState
+import ch.admin.bag.dp3t.checkin.models.CheckinInfo
 import ch.admin.bag.dp3t.checkin.models.DiaryEntry
 import ch.admin.bag.dp3t.checkin.storage.DiaryStorage
-import ch.admin.bag.dp3t.checkin.models.CheckinInfo
 import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper
 import ch.admin.bag.dp3t.databinding.FragmentCheckOutAndEditBinding
@@ -35,6 +35,11 @@ class CheckOutFragment : EditCheckinBaseFragment() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+
+		if (savedInstanceState == null) {
+			viewModel.isResolvingCheckoutConflicts = false
+		}
+
 		checkIfAutoCheckoutHappened()
 		checkInState = viewModel.checkInState?.copy(checkOutTime = System.currentTimeMillis()) ?: return
 		venueInfo = checkInState.venueInfo
@@ -58,6 +63,30 @@ class CheckOutFragment : EditCheckinBaseFragment() {
 			checkoutPrimaryButton.setText(R.string.checkout_button_title)
 			checkoutPrimaryButton.setOnClickListener { performSave() }
 		}
+
+		if (viewModel.isResolvingCheckoutConflicts) {
+			val overlappingCheckins = DiaryStorage.getInstance(context).checkForOverlap(checkinInfo)
+			if (overlappingCheckins.isNotEmpty()) {
+				showConflictResolutionDialog()
+			} else {
+				showConflictResolutionCompletedDialog()
+				viewModel.isResolvingCheckoutConflicts = false
+			}
+		}
+	}
+
+	override fun handleOverlap(overlappingCheckins: Collection<DiaryEntry>) {
+		showConflictResolutionDialog()
+	}
+
+	private fun showConflictResolutionDialog() {
+		CheckOutConflictDialogFragment.newInstance(checkInState.checkInTime, checkInState.checkOutTime).show(parentFragmentManager, CheckOutConflictDialogFragment.TAG)
+	}
+
+	private fun showConflictResolutionCompletedDialog() {
+		CheckOutConflictResolvedDialogFragment.newInstance(venueInfo.title, checkInState.checkInTime, checkInState.checkOutTime)
+			.setOnCheckoutListener { performSave() }
+			.show(parentFragmentManager, CheckOutConflictResolvedDialogFragment.TAG)
 	}
 
 	override fun saveEntry() {

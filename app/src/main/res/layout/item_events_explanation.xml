@@ -3,6 +3,7 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	android:importantForAccessibility="no"
 	android:orientation="vertical">
 
 	<ImageView
@@ -10,6 +11,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="@dimen/spacing_larger"
+		android:importantForAccessibility="no"
 		android:src="@drawable/illu_events" />
 
 	<androidx.cardview.widget.CardView
@@ -104,6 +106,16 @@
 				android:layout_marginHorizontal="@dimen/spacing_medium"
 				android:layout_marginBottom="@dimen/spacing_medium"
 				android:text="@string/checkins_create_qr_code" />
+
+			<TextView
+				android:id="@+id/generate_qr_code_web_hint"
+				style="@style/NextStep.Text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/spacing_larger"
+				android:layout_marginBottom="@dimen/spacing_medium"
+				android:gravity="center"
+				android:text="@string/checkin_generate_web_hint" />
 
 		</LinearLayout>
 

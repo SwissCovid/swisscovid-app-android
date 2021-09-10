@@ -45,7 +45,7 @@ import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment;
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
-import ch.admin.bag.dp3t.checkin.checkinflow.CheckOutFragment;
+import ch.admin.bag.dp3t.checkin.checkout.CheckOutFragment;
 import ch.admin.bag.dp3t.checkin.checkinflow.QrCodeScannerFragment;
 import ch.admin.bag.dp3t.checkin.models.CrowdNotifierErrorState;
 import ch.admin.bag.dp3t.contacts.ContactsFragment;
@@ -132,6 +132,11 @@ public class HomeFragment extends Fragment {
 		setupNonProductionHint();
 		setupScrollBehavior();
 		setupCovidCodeCard();
+
+		AccessibilityUtil.setButtonAccessibilityDelegate(tracingCard);
+		AccessibilityUtil.setButtonAccessibilityDelegate(cardNotifications);
+		AccessibilityUtil.setButtonAccessibilityDelegate(checkinCard);
+		AccessibilityUtil.setButtonAccessibilityDelegate(covidCodeCard);
 
 		showEndIsolationDialogIfNecessary();
 	}

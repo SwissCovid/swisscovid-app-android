@@ -1586,7 +1586,7 @@ Dann rufen Sie hier an:"</string>
     <string name="error_title">"Fehler"</string>
     <string name="qr_scanner_error_code_not_yet_valid">"QR-Code noch nicht gültig"</string>
     <string name="qr_scanner_error_code_not_valid_anymore">"QR-Code nicht mehr gültig"</string>
-    <string name="error_already_checked_in">"Sie sind bereits eingecheckt."</string>
+    <string name="error_already_checked_in">"Sie sind bereits an einem anderen Ort eingecheckt."</string>
     <string name="error_update_text">"Dieser QR-Code ist nicht mit der installierten App-Version kompatibel. Bitte aktualisieren Sie die App, um fortzufahren."</string>
     <string name="error_update_title">"Update erforderlich"</string>
     <string name="error_action_update">"Jetzt aktualisieren"</string>
@@ -1882,4 +1882,60 @@ Dieser Titel wird beim Check-in angezeigt."</string>
 
     <!-- Button um Covid Certificate App zu installieren -->
     <string name="covid_certificate_install_app">"App installieren"</string>
+
+    <!-- Titel des Buttons, der das PDF herunterlädt -->
+    <!-- Fuzzy -->
+    <string name="web_generator_download_pdf_button">"PDF herunterladen"</string>
+
+    <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is reduced -->
+    <string name="accessibility_expandable_box_reduced_state">"reduziert"</string>
+
+    <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is expanded -->
+    <string name="accessibility_expandable_box_expanded_state">"erweitert"</string>
+
+    <!-- CheckIns: Titel in Popup bei überlappenden Check-Ins -->
+    <string name="checkin_overlap_popup_title">"Sichern nicht möglich"</string>
+
+    <!-- Check-Ins: Text bei Popup bei überlappenden Check-Ins, {CHECKIN} wird z.B. durch "Sitzungszimmer E318" ersetzt -->
+    <string name="checkin_overlap_popup_text">"Ihre gewählten Zeiten für {CHECKIN} überschneiden sich mit anderen Check-ins. Bitte überprüfen Sie nochmals Ihre Angaben."</string>
+
+    <!-- Check-Ins: Button bei Popup bei überlappenden Check-Ins -->
+    <string name="checkin_overlap_back_button">"Zurück"</string>
+
+    <!-- This will be read by the screenreader instead of "h" (for the reminder options), in plural form -->
+    <string name="accessibility_reminder_option_hours_plural">"Stunden"</string>
+
+    <!-- This will be read by the screenreader instead of "'" (for the reminder options) -->
+    <string name="accessibility_reminder_option_minutes">"Minuten"</string>
+
+    <!-- This will be read by the screenreader instead of "h" (for the reminder options), in singular form -->
+    <string name="accessibility_reminder_option_hour">"Stunde"</string>
+
+    <!-- Check-Ins: Text im Popup bei überlappenden Check-Ins, wenn keine Überlappungen mehr da sind. {CHECKIN} wird durch Raum ersetzt. -->
+    <string name="checkin_overlap_popup_success_text">"Es gibt keine Konflikte mehr für Ihre eingetragene Zeit. Sie können jetzt bei {CHECKIN} auschecken."</string>
+
+    <!-- Wird angezeigt, wenn der QR-Code erfolgreich erstellt wurde -->
+    <string name="web_generator_success_title">"QR-Code erstellt"</string>
+
+    <!-- Titel des Buttons, mit dem man einen neuen QR-Code erstellen kann -->
+    <string name="web_generator_reset_button">"Neuen QR-Code erstellen"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the navigation bar does -->
+    <string name="accessibility_info_button_app">"Mehr Informationen zur App"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at CovidCodes does -->
+    <string name="accessibility_info_button_covidcode">"Mehr Informationen zu Covidcodes"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at Number of cases does -->
+    <string name="accessibility_info_button_numberofcases">"Mehr Informationen zu den Fallzahlen"</string>
+
+    <!-- Is read by the screenreader, when newly created QR-code is shown -->
+    <string name="accessibility_preview_qr_code_alternative_text">"Erstellter QR-Code"</string>
+
+    <!-- Check-In: Hinweis, dass QR-Codes auch im Web erstellt werden können -->
+    <!-- Fuzzy -->
+    <string name="checkin_generate_web_hint">"Alternativ können Sie QR-Codes auch auf qr.swisscovid.ch erstellen."</string>
+
+    <!-- Check-In: Hinweis dass man sich beim vorherigen Ort zuerst auschecken muss. -->
+    <string name="error_already_checked_in_text">"Um sich an einem neuen Ort einzuchecken, müssen Sie sich zuerst auschecken."</string>
 </resources>

@@ -1551,7 +1551,7 @@ Appelez :"</string>
     <string name="error_title">"Erreur"</string>
     <string name="qr_scanner_error_code_not_yet_valid">"Le code QR n’est pas encore valable."</string>
     <string name="qr_scanner_error_code_not_valid_anymore">"Le code QR n’est plus valable."</string>
-    <string name="error_already_checked_in">"Votre check-in a déjà été établie."</string>
+    <string name="error_already_checked_in">"Vous êtes déjà enregistré à un autre endroit."</string>
     <string name="error_update_text">"Ce code QR n'est pas compatible avec la version installée de l’application. Veuillez mettre à jour l’application."</string>
     <string name="error_update_title">"Mise à jour requise"</string>
     <string name="error_action_update">"Mettre à jour "</string>
@@ -1823,4 +1823,58 @@ Ce titre s’affichera lors du check-in."</string>
 
     <!-- Button um Covid Certificate App zu installieren -->
     <string name="covid_certificate_install_app">"Installer l'application"</string>
+
+    <!-- Titel des Buttons, der das PDF herunterlädt -->
+    <string name="web_generator_download_pdf_button">"Télécharger le PDF"</string>
+
+    <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is reduced -->
+    <string name="accessibility_expandable_box_reduced_state">"réduit"</string>
+
+    <!-- Shown when the Datenschutzerklärung/Nutzungsbedingungen is expanded -->
+    <string name="accessibility_expandable_box_expanded_state">"étendu"</string>
+
+    <!-- CheckIns: Titel in Popup bei überlappenden Check-Ins -->
+    <string name="checkin_overlap_popup_title">"Sauvegarde impossible"</string>
+
+    <!-- Check-Ins: Text bei Popup bei überlappenden Check-Ins, {CHECKIN} wird z.B. durch "Sitzungszimmer E318" ersetzt -->
+    <string name="checkin_overlap_popup_text">"Les heures que vous avez saisies pour {CHECKIN} sont en conflit avec d'autres enregistrements. Veuillez vérifier à nouveau vos données."</string>
+
+    <!-- Check-Ins: Button bei Popup bei überlappenden Check-Ins -->
+    <string name="checkin_overlap_back_button">"Retour"</string>
+
+    <!-- This will be read by the screenreader instead of "h" (for the reminder options), in plural form -->
+    <string name="accessibility_reminder_option_hours_plural">"heures"</string>
+
+    <!-- This will be read by the screenreader instead of "'" (for the reminder options) -->
+    <string name="accessibility_reminder_option_minutes">"minutes"</string>
+
+    <!-- This will be read by the screenreader instead of "h" (for the reminder options), in singular form -->
+    <string name="accessibility_reminder_option_hour">"heure"</string>
+
+    <!-- Check-Ins: Text im Popup bei überlappenden Check-Ins, wenn keine Überlappungen mehr da sind. {CHECKIN} wird durch Raum ersetzt. -->
+    <string name="checkin_overlap_popup_success_text">"Il n'y a plus de conflits pour les heures que vous avez saisies. Vous pouvez maintenant enregistrer votre départ pour {CHECKIN}."</string>
+
+    <!-- Wird angezeigt, wenn der QR-Code erfolgreich erstellt wurde -->
+    <string name="web_generator_success_title">"Code QR créé"</string>
+
+    <!-- Titel des Buttons, mit dem man einen neuen QR-Code erstellen kann -->
+    <string name="web_generator_reset_button">"Créer un nouveau code QR"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the navigation bar does -->
+    <string name="accessibility_info_button_app">"Plus d'informations sur l'application"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at CovidCodes does -->
+    <string name="accessibility_info_button_covidcode">"Plus d'informations sur les codes COVID"</string>
+
+    <!-- Used by VoiceOver to explain what the info button in the Stats-Tab at Number of cases does -->
+    <string name="accessibility_info_button_numberofcases">"Plus d'informations sur le nombre de cas"</string>
+
+    <!-- Is read by the screenreader, when newly created QR-code is shown -->
+    <string name="accessibility_preview_qr_code_alternative_text">"Code QR créé"</string>
+
+    <!-- Check-In: Hinweis, dass QR-Codes auch im Web erstellt werden können -->
+    <string name="checkin_generate_web_hint">"Vous pouvez également créer des codes QR sur qr.swisscovid.ch."</string>
+
+    <!-- Check-In: Hinweis dass man sich beim vorherigen Ort zuerst auschecken muss. -->
+    <string name="error_already_checked_in_text">"Pour vous connecter à un nouvel endroit, vous devez d'abord enregistrer votre départ."</string>
 </resources>

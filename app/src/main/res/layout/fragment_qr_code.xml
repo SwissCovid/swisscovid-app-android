@@ -13,9 +13,9 @@
 		android:background="@color/white"
 		android:elevation="@dimen/card_elevation">
 
-		<TextView
+		<Button
 			android:id="@+id/cancel_button"
-			style="@style/NextStep.Text.Blue"
+			style="@style/NextStep.Button.Transparent.Blue.Light"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="start"

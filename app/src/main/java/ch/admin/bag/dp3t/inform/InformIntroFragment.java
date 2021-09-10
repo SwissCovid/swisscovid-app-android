@@ -23,6 +23,7 @@ import java.util.List;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import ch.admin.bag.dp3t.travel.TravelUtils;
+import ch.admin.bag.dp3t.util.AccessibilityUtil;
 
 public class InformIntroFragment extends Fragment {
 
@@ -41,6 +42,8 @@ public class InformIntroFragment extends Fragment {
 			getActivity().finish();
 		});
 		((InformActivity) requireActivity()).allowBackButton(true);
+
+		AccessibilityUtil.requestAccessibilityFocus(view.findViewById(R.id.inform_intro_title));
 
 		SecureStorage secureStorage = SecureStorage.getInstance(getContext());
 		List<String> countries = secureStorage.getInteropCountries();

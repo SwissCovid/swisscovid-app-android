@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.util.AccessibilityUtil;
 import ch.admin.bag.dp3t.util.AssetUtil;
 import ch.admin.bag.dp3t.util.UlTagHandler;
 import ch.admin.bag.dp3t.util.UrlUtil;
@@ -51,10 +52,13 @@ public class OnboardingDisclaimerFragment extends Fragment {
 				view.findViewById(R.id.onboarding_disclaimer_data_protection_to_online_version_button);
 		View termsOfUseToOnlineVersionButton = view.findViewById(R.id.onboarding_disclaimer_terms_of_use_to_online_version_button);
 
+		View termsOfUseHeader = view.findViewById(R.id.conditions_of_use_header_container);
 		View termsOfUseContainer = view.findViewById(R.id.onboarding_disclaimer_terms_of_use_container);
+		View dataProtectionHeader = view.findViewById(R.id.data_protection_header_container);
 		View dataProtectionContainer = view.findViewById(R.id.onboarding_disclaimer_data_protection_container);
 
-		view.findViewById(R.id.data_protection_header_container).setOnClickListener(v -> {
+		AccessibilityUtil.setExpansionToggleStateAccessibilityDelegate(dataProtectionHeader, dataProtectionContainer);
+		dataProtectionHeader.setOnClickListener(v -> {
 			if (dataProtectionContainer.getVisibility() == View.VISIBLE) {
 				dataProtectionContainer.setVisibility(View.GONE);
 				v.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
@@ -68,7 +72,8 @@ public class OnboardingDisclaimerFragment extends Fragment {
 					.start();
 		});
 
-		view.findViewById(R.id.conditions_of_use_header_container).setOnClickListener(v -> {
+		AccessibilityUtil.setExpansionToggleStateAccessibilityDelegate(termsOfUseHeader, termsOfUseContainer);
+		termsOfUseHeader.setOnClickListener(v -> {
 			if (termsOfUseContainer.getVisibility() == View.VISIBLE) {
 				termsOfUseContainer.setVisibility(View.GONE);
 				v.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
@@ -82,8 +87,10 @@ public class OnboardingDisclaimerFragment extends Fragment {
 					.start();
 		});
 
-		dataProtectionToOnlineVersionButton.setOnClickListener(v -> { openOnlineVersion();});
-		termsOfUseToOnlineVersionButton.setOnClickListener(v -> { openOnlineVersion();});
+		dataProtectionToOnlineVersionButton.setOnClickListener(v -> openOnlineVersion());
+		AccessibilityUtil.setButtonAccessibilityDelegate(dataProtectionToOnlineVersionButton);
+		termsOfUseToOnlineVersionButton.setOnClickListener(v -> openOnlineVersion());
+		AccessibilityUtil.setButtonAccessibilityDelegate(termsOfUseToOnlineVersionButton);
 
 		Button continueButton = view.findViewById(R.id.onboarding_continue_button);
 		continueButton.setOnClickListener(v -> ((OnboardingActivity) getActivity()).continueToNextPage());

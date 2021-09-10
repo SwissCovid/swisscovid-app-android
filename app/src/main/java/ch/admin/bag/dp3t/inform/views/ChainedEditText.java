@@ -72,6 +72,7 @@ public class ChainedEditText extends ConstraintLayout {
 		shadowEditText = new EditText(context);
 		shadowEditText.setHeight(1);
 		shadowEditText.setWidth(1);
+		shadowEditText.setHint(R.string.inform_code_title);
 		shadowEditText.setBackgroundColor(Color.TRANSPARENT);
 		shadowEditText.setCursorVisible(false);
 		shadowEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
@@ -119,6 +120,8 @@ public class ChainedEditText extends ConstraintLayout {
 				focusEditText();
 			}
 		});
+
+		setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
 	}
 
 	private void focusEditText() {
