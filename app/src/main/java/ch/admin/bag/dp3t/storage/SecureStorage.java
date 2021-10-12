@@ -31,11 +31,10 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import ch.admin.bag.covidcertificate.common.config.VaccinationBookingCantonModel;
+import ch.admin.bag.covidcertificate.common.config.VaccinationBookingInfoModel;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
-import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection;
-import ch.admin.bag.dp3t.networking.models.TestLocationModel;
-import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsCollection;
-import ch.admin.bag.dp3t.networking.models.WhatToDoPositiveTestTextsModel;
+import ch.admin.bag.dp3t.networking.models.*;
 
 public class SecureStorage {
 
@@ -68,6 +67,9 @@ public class SecureStorage {
 	private static final String KEY_LAST_CONFIG_LOAD_SUCCESS_SDK_INT = "last_config_load_success_sdk_int";
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
+	private static final String KEY_VACCINATION_BOOKING_INFO = "vaccinationBookingInfo";
+	private static final String KEY_VACCINATION_CANTONS = "vaccinationCantons";
+	private static final String KEY_SHOW_VACCINATION_INFO = "showVaccinationInfo";
 	private static final String KEY_TEST_LOCATIONS = "test_locations";
 	private static final String KEY_INTEROP_COUNTRIES = "interop_countries";
 	private static final String KEY_APP_OPEN_AFTER_NOTIFICATION_PENDING = "appOpenAfterNotificationPending";
@@ -320,6 +322,43 @@ public class SecureStorage {
 			return null;
 		}
 		return map.get(language);
+	}
+
+	public void setVaccinationBookingInfo(VaccinationBookingInfoCollection vaccinationBookingInfoCollection) {
+		prefs.edit().putString(KEY_VACCINATION_BOOKING_INFO, gson.toJson(vaccinationBookingInfoCollection)).apply();
+	}
+
+	public VaccinationBookingInfoModel getVaccinationBookingInfo(String language) {
+		HashMap<String, VaccinationBookingInfoModel> map =
+				gson.fromJson(prefs.getString(KEY_VACCINATION_BOOKING_INFO, "null"),
+						VaccinationBookingInfoCollection.class);
+		if (map == null) {
+			return null;
+		}
+		return map.get(language);
+	}
+
+	public void setVaccinationBookingCantons(VaccinationBookingCantonCollection vaccinationBookingCantonCollection) {
+		prefs.edit().putString(KEY_VACCINATION_CANTONS, gson.toJson(vaccinationBookingCantonCollection)).apply();
+	}
+
+	public List<VaccinationBookingCantonModel> getVaccinationBookingCantons(String language) {
+		HashMap<String, List<VaccinationBookingCantonModel>> map =
+				gson.fromJson(prefs.getString(KEY_VACCINATION_CANTONS, "null"),
+						VaccinationBookingCantonCollection.class);
+		if (map == null) {
+			return null;
+		}
+		return map.get(language);
+	}
+
+
+	public void setShowVaccinationInfo(boolean showVaccinationInfo) {
+		prefs.edit().putBoolean(KEY_SHOW_VACCINATION_INFO, showVaccinationInfo).apply();
+	}
+
+	public boolean getShowVaccinationInfo(){
+		return prefs.getBoolean(KEY_SHOW_VACCINATION_INFO, false);
 	}
 
 	public void setTestLocations(Map<String, List<TestLocationModel>> testLocations) {
