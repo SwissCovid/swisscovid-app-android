@@ -459,7 +459,7 @@ public class HomeFragment extends Fragment {
 			vaccinationCard.setOnClickListener(v -> {
 				requireActivity().getSupportFragmentManager().beginTransaction()
 						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
-						.replace(R.id.main_fragment_container, VaccinationAppointmentFragment.Companion.newInstance())
+						.replace(R.id.main_fragment_container, VaccinationAppointmentFragment.newInstance())
 						.addToBackStack(VaccinationAppointmentFragment.class.getCanonicalName())
 						.commit();
 			});
