@@ -31,8 +31,8 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import ch.admin.bag.covidcertificate.common.config.VaccinationBookingCantonModel;
-import ch.admin.bag.covidcertificate.common.config.VaccinationBookingInfoModel;
+import ch.admin.bag.dp3t.networking.models.VaccinationBookingCantonModel;
+import ch.admin.bag.dp3t.networking.models.VaccinationBookingInfoModel;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
 import ch.admin.bag.dp3t.networking.models.*;
 

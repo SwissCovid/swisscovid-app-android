@@ -8,15 +8,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-package ch.admin.bag.covidcertificate.wallet.vaccination.appointment
+package ch.admin.bag.dp3t.vaccination
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import ch.admin.bag.covidcertificate.common.config.VaccinationBookingCantonModel
-import ch.admin.bag.covidcertificate.common.config.VaccinationBookingInfoModel
+import ch.admin.bag.dp3t.networking.models.VaccinationBookingCantonModel
+import ch.admin.bag.dp3t.networking.models.VaccinationBookingInfoModel
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentVaccinationAppointmentBinding
 import ch.admin.bag.dp3t.storage.SecureStorage

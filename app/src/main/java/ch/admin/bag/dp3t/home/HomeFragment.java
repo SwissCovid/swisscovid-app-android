@@ -41,7 +41,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.TracingStatus;
 
-import ch.admin.bag.covidcertificate.wallet.vaccination.appointment.VaccinationAppointmentFragment;
+import ch.admin.bag.dp3t.vaccination.VaccinationAppointmentFragment;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment;

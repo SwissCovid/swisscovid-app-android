@@ -10,9 +10,6 @@
 package ch.admin.bag.dp3t.networking.models;
 
 import java.util.HashMap;
-import java.util.Map;
-
-import ch.admin.bag.covidcertificate.common.config.VaccinationBookingInfoModel;
 
 public class VaccinationBookingInfoCollection extends HashMap<String, VaccinationBookingInfoModel> {
 }
