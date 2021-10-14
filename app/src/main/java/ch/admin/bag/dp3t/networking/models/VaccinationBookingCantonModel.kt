@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-package ch.admin.bag.covidcertificate.common.config
+package ch.admin.bag.dp3t.networking.models
 
 data class VaccinationBookingCantonModel(
 	val name: String,

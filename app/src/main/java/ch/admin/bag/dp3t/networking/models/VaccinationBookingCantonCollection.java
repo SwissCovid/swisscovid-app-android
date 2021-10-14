@@ -12,7 +12,5 @@ package ch.admin.bag.dp3t.networking.models;
 import java.util.HashMap;
 import java.util.List;
 
-import ch.admin.bag.covidcertificate.common.config.VaccinationBookingCantonModel;
-
 public class VaccinationBookingCantonCollection extends HashMap<String, List<VaccinationBookingCantonModel>> {
 }
