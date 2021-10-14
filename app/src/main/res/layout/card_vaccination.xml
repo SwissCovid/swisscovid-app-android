@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2021 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<androidx.cardview.widget.CardView
+		style="@style/NextStep.Card"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom">
+
+		<LinearLayout
+			android:id="@+id/card_vaccination"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:foreground="?selectableItemBackground"
+			android:gravity="center_vertical"
+			android:minHeight="88dp"
+			android:orientation="horizontal"
+			android:paddingLeft="94dp">
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<TextView
+					style="@style/NextStep.Text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="@dimen/spacing_medium"
+					android:layout_weight="1"
+					android:text="@string/vaccination_info_homescreen_title" />
+
+				<TextView
+					style="@style/NextStep.Text.Bold"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="@dimen/spacing_medium"
+					android:layout_weight="1"
+					android:text="@string/vaccination_info_homescreen_title_bold" />
+
+			</LinearLayout>
+
+			<ImageView
+				android:layout_width="@dimen/chevron_size_title"
+				android:layout_height="@dimen/chevron_size_title"
+				android:layout_marginEnd="@dimen/spacing_small"
+				android:src="@drawable/ic_chevron_right"
+				app:tint="@color/dark_main" />
+
+		</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="13dp"
+		android:elevation="@dimen/card_elevation"
+		android:src="@drawable/illu_impfung_doc" />
+
+</FrameLayout>

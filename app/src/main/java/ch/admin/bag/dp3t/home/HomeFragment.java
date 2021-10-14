@@ -41,6 +41,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.dpppt.android.sdk.TracingStatus;
 
+import ch.admin.bag.covidcertificate.wallet.vaccination.appointment.VaccinationAppointmentFragment;
 import ch.admin.bag.dp3t.BuildConfig;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment;
@@ -82,6 +83,8 @@ public class HomeFragment extends Fragment {
 	private View reportStatusView;
 	private View reportErrorView;
 	private View checkinCard;
+	private View vaccinationCardWrapper;
+	private View vaccinationCard;
 	private View loadingView;
 	private View covidCodeCard;
 
@@ -119,6 +122,8 @@ public class HomeFragment extends Fragment {
 		reportStatusView = reportStatusBubble.findViewById(R.id.report_status);
 		reportErrorView = reportStatusBubble.findViewById(R.id.report_errors);
 		checkinCard = view.findViewById(R.id.card_checkin);
+		vaccinationCardWrapper = view.findViewById(R.id.card_vaccination_wrapper);
+		vaccinationCard = view.findViewById(R.id.card_vaccination);
 		headerView = view.findViewById(R.id.home_header_view);
 		scrollView = view.findViewById(R.id.home_scroll_view);
 		loadingView = view.findViewById(R.id.loading_view);
@@ -129,6 +134,7 @@ public class HomeFragment extends Fragment {
 		setupTracingView();
 		setupNotification();
 		setupCheckinCard();
+		setupVaccinationCard();
 		setupNonProductionHint();
 		setupScrollBehavior();
 		setupCovidCodeCard();
@@ -445,6 +451,21 @@ public class HomeFragment extends Fragment {
 		TextView checkinTime = checkinCard.findViewById(R.id.checkin_time);
 		crowdNotifierViewModel.getTimeSinceCheckIn().observe(getViewLifecycleOwner(),
 				duration -> checkinTime.setText(StringUtil.getShortDurationString(duration)));
+	}
+
+	private void setupVaccinationCard(){
+		if(secureStorage.getShowVaccinationInfo()){
+			vaccinationCardWrapper.setVisibility(VISIBLE);
+			vaccinationCard.setOnClickListener(v -> {
+				requireActivity().getSupportFragmentManager().beginTransaction()
+						.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+						.replace(R.id.main_fragment_container, VaccinationAppointmentFragment.newInstance())
+						.addToBackStack(VaccinationAppointmentFragment.class.getCanonicalName())
+						.commit();
+			});
+		}else {
+			vaccinationCardWrapper.setVisibility(View.GONE);
+		}
 	}
 
 	private void setupCovidCodeCard() {
