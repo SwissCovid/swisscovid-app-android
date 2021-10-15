@@ -63,6 +63,13 @@
 					android:layout_marginBottom="@dimen/spacing_medium_large" />
 
 				<include
+					android:id="@+id/card_vaccination_wrapper"
+					layout="@layout/card_vaccination"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="@dimen/spacing_medium_large" />
+
+				<include
 					layout="@layout/card_contacts"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"

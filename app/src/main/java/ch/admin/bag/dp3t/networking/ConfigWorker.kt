@@ -88,6 +88,10 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 
 			secureStorage.setTestInformationUrls(config.testInformationUrls)
 
+			secureStorage.setVaccinationBookingInfo(config.vaccinationBookingInfo)
+			secureStorage.setVaccinationBookingCantons(config.vaccinationBookingCantons)
+			secureStorage.setShowVaccinationInfo(config.isShowVaccinationInfo)
+
 			secureStorage.testLocations = config.testLocations
 			secureStorage.interopCountries = config.interOpsCountries
 
