@@ -1861,7 +1861,7 @@ Ky titull shfaqet gjatë Check-in."</string>
     <string name="vaccination_booking_info_title">"Rezervoni një takim për vaksinim pranë jush"</string>
 
     <!-- vaccination booking info screen text -->
-    <string name="vaccination_booking_info_text">"\"Vaksinimi mund të bëhet pranë jush, për shembull:
+    <string name="vaccination_booking_info_text">"Vaksinimi mund të bëhet pranë jush, për shembull:
 
 - në qendrat specifike të vaksinimit
 - në spitale
