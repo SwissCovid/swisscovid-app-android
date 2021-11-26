@@ -15,10 +15,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import ch.admin.bag.dp3t.networking.models.VaccinationBookingCantonModel
-import ch.admin.bag.dp3t.networking.models.VaccinationBookingInfoModel
 import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.databinding.FragmentVaccinationAppointmentBinding
+import ch.admin.bag.dp3t.networking.models.VaccinationBookingInfoModel
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.UrlUtil
 
@@ -31,8 +30,6 @@ class VaccinationAppointmentFragment : Fragment() {
 
 	private var _binding: FragmentVaccinationAppointmentBinding? = null
 	private val binding get() = _binding!!
-
-	private val adapter = VaccinationAppointmentCantonAdapter(this::onCantonClicked)
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		_binding = FragmentVaccinationAppointmentBinding.inflate(inflater, container, false)
@@ -47,27 +44,34 @@ class VaccinationAppointmentFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		binding.toolbar.setNavigationOnClickListener { parentFragmentManager.popBackStack() }
-		setupCantonList()
+
 		setupMoreInformationButton()
 
 		val secureStorage = SecureStorage.getInstance(context)
 		secureStorage.getVaccinationBookingInfo(requireContext().getString(R.string.language_key))?.let {
 			setupVaccinationBookingInfo(it)
 		}
-		adapter.setItems(
-			secureStorage.getVaccinationBookingCantons(requireContext().getString(R.string.language_key)) ?: emptyList()
-		)
 
 	}
 
-	private fun setupCantonList() {
-		binding.vaccinationAppointmentCantonList.adapter = adapter
-	}
 
 	private fun setupVaccinationBookingInfo(vaccinationBookingInfo: VaccinationBookingInfoModel) {
 		binding.vaccinationBookingTitle.text = vaccinationBookingInfo.title
 		binding.vaccinationBookingText.text = vaccinationBookingInfo.text
 		binding.vaccinationBookingInfo.text = vaccinationBookingInfo.info
+
+		if (vaccinationBookingInfo.impfcheckTitle != null && vaccinationBookingInfo.impfcheckText != null && vaccinationBookingInfo.impfcheckButton != null && vaccinationBookingInfo.impfcheckUrl != null) {
+			binding.impfcheckTitle.text = vaccinationBookingInfo.impfcheckTitle
+			binding.impfcheckInfoText.text = vaccinationBookingInfo.impfcheckText
+			binding.impfcheckAction.text = vaccinationBookingInfo.impfcheckButton
+			binding.impfcheckAction.setOnClickListener {
+				UrlUtil.openUrl(it.context, vaccinationBookingInfo.impfcheckUrl)
+			}
+		} else {
+			binding.impfcheckTitle.visibility = View.GONE
+			binding.impfcheckInfoText.visibility = View.GONE
+			binding.impfcheckAction.visibility = View.GONE
+		}
 	}
 
 	private fun setupMoreInformationButton() {
@@ -75,10 +79,6 @@ class VaccinationAppointmentFragment : Fragment() {
 			val url = getString(R.string.vaccination_booking_info_url)
 			UrlUtil.openUrl(requireContext(), url)
 		}
-	}
-
-	private fun onCantonClicked(canton: VaccinationBookingCantonModel) {
-		UrlUtil.openUrl(requireContext(), canton.linkUrl)
 	}
 
 }

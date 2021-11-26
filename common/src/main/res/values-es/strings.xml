@@ -1960,4 +1960,14 @@ Muchos centros ofrecen la posibllidad de vacunarse sin cita previa."</string>
 
     <!-- Impf-Hinweis Screen: Kanton Titel -->
     <string name="vaccination_canton_title">"Seleccione su cantón"</string>
+
+    <!-- vaccination booking  screen info about Impf-Check (impf-check.ch) -->
+    <string name="vaccination_impf_check_info_text"></string>
+
+    <!-- button title for link to impf-check.ch -->
+    <string name="vaccination_impf_check_action"></string>
+
+    <!-- URL to ImpfCheck -->
+    <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>
+    <string name="vaccination_impf_check_title">"Concierte su cita ahora"</string>
 </resources>

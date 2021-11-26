@@ -64,10 +64,6 @@ public class ConfigResponseModel {
 		return checkInUpdateNotificationEnabled;
 	}
 
-	public VaccinationBookingCantonCollection getVaccinationBookingCantons() {
-		return vaccinationBookingCantons;
-	}
-
 	public VaccinationBookingInfoCollection getVaccinationBookingInfo() {
 		return vaccinationBookingInfo;
 	}

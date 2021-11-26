@@ -338,21 +338,6 @@ public class SecureStorage {
 		return map.get(language);
 	}
 
-	public void setVaccinationBookingCantons(VaccinationBookingCantonCollection vaccinationBookingCantonCollection) {
-		prefs.edit().putString(KEY_VACCINATION_CANTONS, gson.toJson(vaccinationBookingCantonCollection)).apply();
-	}
-
-	public List<VaccinationBookingCantonModel> getVaccinationBookingCantons(String language) {
-		HashMap<String, List<VaccinationBookingCantonModel>> map =
-				gson.fromJson(prefs.getString(KEY_VACCINATION_CANTONS, "null"),
-						VaccinationBookingCantonCollection.class);
-		if (map == null) {
-			return null;
-		}
-		return map.get(language);
-	}
-
-
 	public void setShowVaccinationInfo(boolean showVaccinationInfo) {
 		prefs.edit().putBoolean(KEY_SHOW_VACCINATION_INFO, showVaccinationInfo).apply();
 	}
