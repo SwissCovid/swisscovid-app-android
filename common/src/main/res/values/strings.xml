@@ -1994,10 +1994,10 @@ Many places also offer walk-in vaccinations without an appointment."</string>
     <string name="vaccination_canton_title">"Select your canton"</string>
 
     <!-- vaccination booking  screen info about Impf-Check (impf-check.ch) -->
-    <string name="vaccination_impf_check_info_text"></string>
+    <string name="vaccination_impf_check_info_text">"The COVID-19 Vaccination Check provides information on initial and booster vaccinations and guides you to the relevant point of contact in your canton."</string>
 
     <!-- button title for link to impf-check.ch -->
-    <string name="vaccination_impf_check_action"></string>
+    <string name="vaccination_impf_check_action">"To the Vaccination Check"</string>
 
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>

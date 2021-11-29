@@ -1956,10 +1956,10 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="vaccination_canton_title">"ካንቶንካ ምረጽ"</string>
 
     <!-- vaccination booking  screen info about Impf-Check (impf-check.ch) -->
-    <string name="vaccination_impf_check_info_text"></string>
+    <string name="vaccination_impf_check_info_text">"እቲ ኮቪድ-19 ዚብሃል መርመራ ብዛዕባ እቲ ኣብ ፈለማ እተገብረ ክታበት ሓበሬታ ይህብ፣ ናብቲ ኣብ ካንቶንካ (ክፍለ-ሃገርካ/ኪ) ዚርከብ ግቡእ ኣድራሻ ድማ ይወስደካ።"</string>
 
     <!-- button title for link to impf-check.ch -->
-    <string name="vaccination_impf_check_action"></string>
+    <string name="vaccination_impf_check_action">"ናብ ቸክ/ፈተና ክታበት"</string>
 
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>

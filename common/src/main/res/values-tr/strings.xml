@@ -1956,10 +1956,10 @@ Birçok yerde, randevu almadan doğrudan aşı yaptırılabilmektedir."</string>
     <string name="vaccination_canton_title">"Kantonunuzu seçin"</string>
 
     <!-- vaccination booking  screen info about Impf-Check (impf-check.ch) -->
-    <string name="vaccination_impf_check_info_text"></string>
+    <string name="vaccination_impf_check_info_text">"Covid-19 aşı kontrolü, ilk aşı ve güçlendirici dozlarla ilgili bilgi verir ve sizi kantonunuzdaki yetkili kuruma yönlendirir."</string>
 
     <!-- button title for link to impf-check.ch -->
-    <string name="vaccination_impf_check_action"></string>
+    <string name="vaccination_impf_check_action">"Aşı kontrolüne git"</string>
 
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>

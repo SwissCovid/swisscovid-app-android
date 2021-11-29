@@ -1968,10 +1968,10 @@ Mnoga mesta nude i vakcinaciju bez zakazanog termina"</string>
     <string name="vaccination_canton_title">"Izaberite svoj kanton"</string>
 
     <!-- vaccination booking  screen info about Impf-Check (impf-check.ch) -->
-    <string name="vaccination_impf_check_info_text"></string>
+    <string name="vaccination_impf_check_info_text">"Provera vakcinisanja protiv Covida-19 pruža informacije o prvim i booster dozama i navigira Vas do odgovarajućeg kontakt mesta u Vašem kantonu."</string>
 
     <!-- button title for link to impf-check.ch -->
-    <string name="vaccination_impf_check_action"></string>
+    <string name="vaccination_impf_check_action">"Na proveru vakcinisanja"</string>
 
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>
