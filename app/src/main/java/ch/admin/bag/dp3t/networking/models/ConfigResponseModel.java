@@ -23,7 +23,6 @@ public class ConfigResponseModel {
 	private Map<String, String> testInformationUrls;
 	private boolean checkInUpdateNotificationEnabled;
 
-	private VaccinationBookingCantonCollection vaccinationBookingCantons;
 	private VaccinationBookingInfoCollection vaccinationBookingInfo;
 	private boolean showVaccinationInfo;
 

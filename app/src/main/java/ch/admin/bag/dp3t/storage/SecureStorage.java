@@ -31,8 +31,6 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import ch.admin.bag.dp3t.networking.models.VaccinationBookingCantonModel;
-import ch.admin.bag.dp3t.networking.models.VaccinationBookingInfoModel;
 import ch.admin.bag.dp3t.checkin.models.CheckInState;
 import ch.admin.bag.dp3t.networking.models.*;
 
@@ -68,7 +66,6 @@ public class SecureStorage {
 	private static final String KEY_T_DUMMY = "KEY_T_DUMMY";
 	private static final String KEY_WHAT_TO_DO_POSITIVE_TEST_TEXTS = "whatToDoPositiveTestTexts";
 	private static final String KEY_VACCINATION_BOOKING_INFO = "vaccinationBookingInfo";
-	private static final String KEY_VACCINATION_CANTONS = "vaccinationCantons";
 	private static final String KEY_SHOW_VACCINATION_INFO = "showVaccinationInfo";
 	private static final String KEY_TEST_LOCATIONS = "test_locations";
 	private static final String KEY_INTEROP_COUNTRIES = "interop_countries";
