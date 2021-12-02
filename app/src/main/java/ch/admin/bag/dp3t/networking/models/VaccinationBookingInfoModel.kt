@@ -13,5 +13,9 @@ package ch.admin.bag.dp3t.networking.models
 data class VaccinationBookingInfoModel(
 	val title: String,
 	val text: String,
-	val info: String
+	val info: String,
+	val impfcheckTitle: String?,
+	val impfcheckText: String?,
+	val impfcheckButton: String?,
+	val impfcheckUrl: String?
 )
