@@ -1966,4 +1966,14 @@ Blers lieus porschan er vaccinaziuns «walk-in» senza termin."</string>
 
     <!-- Impf-Hinweis Screen: Kanton Titel -->
     <string name="vaccination_canton_title">"Tscherni Voss chantun"</string>
+
+    <!-- vaccination booking  screen info about Impf-Check (impf-check.ch) -->
+    <string name="vaccination_impf_check_info_text">"Il check da vaccinaziun COVID-19 As infurmescha davart las emprimas vaccinaziuns sco er davart las vaccinaziuns da rinfrestgament ed As maina al post da consultaziun correspundent da Voss chantun."</string>
+
+    <!-- button title for link to impf-check.ch -->
+    <string name="vaccination_impf_check_action">"Al check da vaccinaziun"</string>
+
+    <!-- URL to ImpfCheck -->
+    <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>
+    <string name="vaccination_impf_check_title">"Reservar in termin ussa"</string>
 </resources>

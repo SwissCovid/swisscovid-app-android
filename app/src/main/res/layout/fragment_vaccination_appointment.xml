@@ -10,7 +10,6 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/grey_light"
@@ -73,6 +72,34 @@
 						android:layout_marginBottom="@dimen/spacing_larger"
 						android:text="@string/vaccination_booking_info_text" />
 
+					<TextView
+						android:id="@+id/impfcheck_title"
+						style="@style/NextStep.Text.Bold"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="@dimen/spacing_larger"
+						android:layout_marginTop="@dimen/spacing_small"
+						android:layout_marginBottom="@dimen/spacing_small"
+						android:gravity="left"
+						android:text="@string/vaccination_impf_check_title" />
+
+					<TextView
+						android:id="@+id/impfcheck_info_text"
+						style="@style/NextStep.Text"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="@dimen/spacing_larger"
+						android:text="@string/vaccination_impf_check_info_text" />
+
+					<Button
+						android:id="@+id/impfcheck_action"
+						style="@style/NextStep.Button"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/spacing_larger"
+						android:drawableRight="@drawable/ic_launch"
+						android:text="@string/vaccination_impf_check_action" />
+
 					<androidx.constraintlayout.widget.ConstraintLayout
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
@@ -119,28 +146,6 @@
 						</LinearLayout>
 
 					</androidx.constraintlayout.widget.ConstraintLayout>
-
-					<TextView
-						style="@style/NextStep.Text.Bold"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginHorizontal="@dimen/spacing_larger"
-						android:layout_marginTop="@dimen/spacing_very_large"
-						android:layout_marginBottom="@dimen/spacing_small"
-						android:gravity="left"
-						android:text="@string/vaccination_canton_title" />
-
-					<androidx.recyclerview.widget.RecyclerView
-						android:id="@+id/vaccination_appointment_canton_list"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginBottom="@dimen/spacing_small"
-						android:nestedScrollingEnabled="true"
-						android:overScrollMode="never"
-						android:scrollbars="none"
-						app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-						tools:itemCount="5"
-						tools:listitem="@layout/item_vaccination_appointment_canton" />
 
 				</LinearLayout>
 
