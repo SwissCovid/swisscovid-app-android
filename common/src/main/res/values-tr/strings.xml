@@ -634,23 +634,21 @@ Böylece uygulama üzerinden yalnızca onaylı vakaların bildirilmesi sağlanı
     <string name="symptom_faq1_title">"KOVİD-19 semptomları nedir?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Bu semptomlar sıklıkla ortaya çıkmaktadır:
+    <string name="symptom_faq1_text">"Yeni koronavirüs çok farklı hastalık semptomları gösterebilir. En sık görülen semptomlar şunlardır:
 
-– Ateş, ateşlenme
 – Boğaz ağrısı
-– Öksürme (genelde kuru)
+– Öksürük (çoğunlukla kuru öksürük)
 – Nefes darlığı
 – Göğüs ağrıları
-– Koku ve tad alma yetisinin aniden kaybolması
-
-Ayrıca bu semptomlar görülebilir:
-
+– Koku ve tad alma duyusunun aniden kaybolması
 – Başağrıları
 – Genel halsizlik, rahatsızlık
 – Kas ağrıları
 – Nezle
-– Mide-bağırsak semptomları (bulantı, kusma, ishal, mide ağrıları)
-– Deri döküntüleri"</string>
+– Mide-bağırsak semptomları (bulantı, kusma, ishal, karın ağrıları)
+– Deri döküntüleri
+
+Şuna dikkat edin: Hastalık semptomlarının şiddeti farklı farklı olur ve virüsün varyantına göre değişebilir. Hafif de olabilirler. Sadece nezle bir enfeksiyon demek olabilir."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"İzleme neden devre dışı bırakıldı?"</string>
@@ -1691,9 +1689,17 @@ Bu başlık check-in sırasında gösterilir."</string>
     <string name="checkin_report_title1">"Temaslıları koruyun"</string>
     <string name="checkin_report_title2">"Semptomlara dikkat edin"</string>
     <string name="checkin_report_title3">"Test yaptırın"</string>
-    <string name="checkin_report_subtitle1">"Henüz kendiniz fark etmeden de hastalığı bulaştırabilirsiniz. Geçerli hijyen ve koruma önlemlerini dikkate alın ve ailenizi, arkadaşlarınızı ve çevrenizi koruyun."</string>
+    <string name="checkin_report_subtitle1">"Hastalığı farkına varmadan kapmış olabilirsiniz. Lütfen şu ihtiyat tedbirlerine uyun:
+
+- Maske takın (temastan 7 gün sonrasına kadar)
+
+- Temasları sınırlayın
+
+- Mesafe bırakın (en az 1,5 metre)
+
+- Umumi mekânlardan uzak durun"</string>
     <string name="checkin_report_subtitle2">"Sağlık durumunuzu gözetim altında tutun."</string>
-    <string name="checkin_report_subtitle3">"Kendinizde semptomların varlığını gözlemlediğinizde hemen test yaptırın. Semptomlar olmadığında ve ilgili tüm aşıları olmadıysanız da bir korona testi mantıklıdır ve tavsiye edilmektedir."</string>
+    <string name="checkin_report_subtitle3">"'&lt;b&gt;Semptomlar görürseniz hemen test olun&lt;/b&gt; -aşılı (güçlendirme aşıları dahil) ya da iyileşmiş olsanız bile. Sadece hafif semptomlarınız varsa bile, test yaptırmanız yararlıdır ve tavsiye edilir.&lt;br/&gt;&lt;br/&gt;'Ayrıca &lt;b&gt;semptomlarınız yoksa&lt;/b&gt; da test olun. Hastalık size bulaştığı halde semptomlarınız olmayabilir. Böyle bir durumda bir test ancak riskli temastan birkaç gün sonra (4-7) yapılmalıdır. Semptomsuz bir bulaşmanın tespit edilmesi o günlerde daha kolaydır."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
@@ -1854,7 +1860,7 @@ Bu başlık check-in sırasında gösterilir."</string>
 Birçok yerde, randevu almadan doğrudan aşı yaptırılabilmektedir."</string>
 
     <!-- vaccination booking info screen info box at bottom -->
-    <string name="vaccination_booking_info_info">"Covid-19 aşısı 12 yaş ve üstü kişilere tavsiye edilmektedir. Aşı ücretsizdir."</string>
+    <string name="vaccination_booking_info_info">"Covid-19 aşısı 5 yaş ve üstü kişilere tavsiye edilmektedir."</string>
 
     <!-- url for booking an appointment for vaccination for canton ag -->
     <string name="vaccination_booking_ag_url">"https://www.ag.ch/coronavirus-impfung"</string>

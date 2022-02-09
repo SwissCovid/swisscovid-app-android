@@ -30,6 +30,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ch.admin.bag.dp3t.networking.CertificatePinning;
 import ch.admin.bag.dp3t.networking.FakeWorker;
 import ch.admin.bag.dp3t.storage.SecureStorage;
 import okhttp3.mockwebserver.Dispatcher;
@@ -51,6 +52,8 @@ public class FakeWorkerTest {
 	public void setup() throws IOException {
 		context = InstrumentationRegistry.getInstrumentation().getTargetContext();
 		Logger.init(context, LogLevel.DEBUG);
+
+		CertificatePinning.setEnabled(false, context);
 
 		//cancel all work that was scheduled on normal WorkManager on Application creation
 		WorkManager.getInstance(context).cancelAllWork();

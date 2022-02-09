@@ -648,23 +648,22 @@ Ainsi, d’autres utilisateurs de l’application SwissCovid apprennent qu’il 
     <string name="symptom_faq1_title">"Quels sont les symptômes du COVID-19 ?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Ces symptômes sont fréquents :
+    <string name="symptom_faq1_text">"Le coronavirus peut présenter des symptômes très variés. Symptômes les plus fréquents :
 
-– Fièvre, sensation de fièvre
 – Mal de gorge
 – Toux (généralement sèche)
 – Difficultés respiratoires
 – Douleurs dans la poitrine
+– Fièvre
 – Perte soudaine de l’odorat et/ou du goût
-
-Les symptômes suivants peuvent aussi apparaître :
-
 – Maux de tête
 – Faiblesse générale, sensation de malaise
 – Douleurs musculaires
 – Rhume
 – Symptômes gastro-intestinaux (nausées, vomissements, diarrhée, maux de ventre)
-– Éruptions cutanées"</string>
+– Éruptions cutanées
+
+Attention : les symptômes varient fortement et peuvent être différents selon le variant. Ils peuvent également être légers. Un rhume peut déjà indiquer une infection."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Pourquoi le traçage est-il désactivé ?"</string>
@@ -1729,9 +1728,17 @@ Ce titre s’affichera lors du check-in."</string>
     <string name="checkin_report_title1">"Protéger les contacts"</string>
     <string name="checkin_report_title2">"Observer les symptômes"</string>
     <string name="checkin_report_title3">"Se faire tester"</string>
-    <string name="checkin_report_subtitle1">"Il est possible d’être contagieux sans le savoir. Respectez les règles d’hygiène et de conduite pour protéger votre famille, vos amis et tout votre entourage."</string>
+    <string name="checkin_report_subtitle1">"Vous pourriez avoir été infecté sans le remarquer. Veuillez suivre les mesures de précaution suivantes :
+
+- Porter le masque (jusqu'à 7 jours après le contact)
+
+- Limiter les contacts
+
+- Garder ses distances (au moins 1,5 m)
+
+- Éviter les espaces publics"</string>
     <string name="checkin_report_subtitle2">"Surveillez votre état de santé."</string>
-    <string name="checkin_report_subtitle3">"Faites-vous immédiatement tester si vous présentez des symptômes. Même en l’absence de symptômes, il peut être utile et recommandé de se faire tester pour le coronavirus si vous n'êtes pas encore complètement vacciné."</string>
+    <string name="checkin_report_subtitle3">"En cas de symptômes, &lt;b&gt;faites-vous tester immédiatement&lt;/b&gt; même si vous êtes vacciné (rappel compris) ou guéri. Même si vous ressentez seulement des symptômes légers, il est recommandé de procéder à un test.&lt;br/&gt;&lt;br/&gt;Faites-vous &lt;b&gt;aussi tester&lt;/b&gt; si vous n'avez &lt;b&gt;aucun symptôme&lt;/b&gt;. Vous pourriez avoir été infecté et ne présenter aucun symptôme. Dans ce cas, le dépistage devrait avoir lieu seulement quelques jours (4 à 7) après le contact à risque. C'est le meilleur moment pour détecter une infection asymptomatique."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
@@ -1892,7 +1899,7 @@ Ce titre s’affichera lors du check-in."</string>
 Il est aussi possible de se faire vacciner sans rendez-vous dans de nombreux endroits."</string>
 
     <!-- vaccination booking info screen info box at bottom -->
-    <string name="vaccination_booking_info_info">"Gratuite, la vaccination contre le COVID-19 est recommandée pour les personnes dès 12 ans."</string>
+    <string name="vaccination_booking_info_info">"La vaccination contre le COVID-19 est recommandée pour les personnes dès 5 ans."</string>
 
     <!-- url for booking an appointment for vaccination for canton ag -->
     <string name="vaccination_booking_ag_url">"https://www.ag.ch/coronavirus-impfung"</string>
