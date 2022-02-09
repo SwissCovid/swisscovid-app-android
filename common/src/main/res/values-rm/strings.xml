@@ -646,23 +646,23 @@ Uschia vegnan autras utilisadras ed auters utilisaders da l'app SwissCovid a sav
     <string name="symptom_faq1_title">"Tge èn sintoms da COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Quests sintoms cumparan savens:
+    <string name="symptom_faq1_text">"Il nov coronavirus po mussar sintoms da la malsogna fitg differents.
+Ils sintoms ils pli frequents èn:
 
-– fevra, sentiment da fevra
 – mal la gula
-– tuss (per il solit tuss sitga)
+– tuss (il pli savens sitga)
 – respiraziun asmatica
 – mal il pèz
+– fevra
 – perdita andetga da l'odurat e/u dal palat
-
-Pussaivels èn er ils suandants sintoms:
-
 – mal il chau
 – deblezza generala, malesser
 – mal ils musculs
 – dafraid
 – sintoms dal tract digestiv (indispostadad, vomitar, diarrea, mal il venter)
-– eczems"</string>
+– eczems
+
+Resguardai per plaschair: Ils sintoms da la malsogna èn da differenta grevezza e pon variar tut tenor la varianta dal virus. Ils sintoms pon er esser miaivels. Gia in dafraid po signifitgar ina infecziun."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Pertge è il tracing deactivà?"</string>
@@ -1703,9 +1703,17 @@ Quai pon esser p.ex.:
     <string name="checkin_report_title1">"Proteger contacts"</string>
     <string name="checkin_report_title2">"Far stim da sintoms"</string>
     <string name="checkin_report_title3">"Laschar far in test"</string>
-    <string name="checkin_report_subtitle1">"Vus pudais gia esser infectusa u infectus senza badar quai. Observai las mesiras d'igiena e da protecziun vertentas e protegi Vossa famiglia, Vossas amias e Voss amis sco er Voss conturn."</string>
+    <string name="checkin_report_subtitle1">"Vus As pudais esser infectada u infectà senza badar. Resguardai las suandantas mesiras preventivas:
+
+- purtar ina mascrina (fin 7 dis suenter il contact)
+
+- restrenscher ils contacts
+
+- tegnair distanza (almain 1,5 meters)
+
+- evitar locals publics"</string>
     <string name="checkin_report_subtitle2">"Survegliai Voss stadi da sanadad."</string>
-    <string name="checkin_report_subtitle3">"Faschai immediatamain in test, sche Vus avais sintoms. In test dal coronavirus è raschunaivel e vegn cusseglià, er sche Vus n'avais nagins sintoms e sche Vus n'essas anc betg vaccinada u vaccinà cumplettamain."</string>
+    <string name="checkin_report_subtitle3">"As laschai &lt;b&gt;testar immediatamain, sche Vus avais sintoms&lt;/b&gt; – er sche Vus essas vaccinada u vaccinà (incl. vaccinaziuns da rinfrestgament) ubain guarida u guarì. Er sche Vus avais mo levs sintoms, è in test raschunaivel e vegn recumandà.&lt;br/&gt;&lt;br/&gt;As laschai &lt;b&gt;er testar&lt;/b&gt;, sche Vus n'avais &lt;b&gt;nagins sintoms&lt;/b&gt;. Vus As pudais esser infectada u infectà, però n'avais nagins sintoms. En quest cas duessas Vus far in test pir in pèr dis (4–7) suenter il contact da ristga. Lura po vegnir identifitgada il pli tgunsch ina infecziun senza sintoms."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Registraziun"</string>
@@ -1866,7 +1874,7 @@ Quai pon esser p.ex.:
 Blers lieus porschan er vaccinaziuns «walk-in» senza termin."</string>
 
     <!-- vaccination booking info screen info box at bottom -->
-    <string name="vaccination_booking_info_info">"La vaccinaziun cunter COVID-19 è recumandada per persunas a partir da 12 onns. La vaccinaziun è gratuita."</string>
+    <string name="vaccination_booking_info_info">"La vaccinaziun cunter COVID-19 è recumandada per persunas a partir da 5 onns."</string>
 
     <!-- url for booking an appointment for vaccination for canton ag -->
     <string name="vaccination_booking_ag_url">"https://www.ag.ch/coronavirus-impfung"</string>

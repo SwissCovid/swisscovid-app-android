@@ -16,6 +16,7 @@ import android.content.res.Resources
 import android.graphics.Paint
 import android.graphics.Rect
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -197,6 +198,7 @@ class ReportsFragment : Fragment() {
 			State.POSSIBLE_INFECTION_TRACING_REPORTS -> {
 				binding.reportsLeitfaden.apply {
 					reportFurtherInformation.itemCallHotlineLayout.setOnClickListener { callHotline() }
+					reportFurtherInformation.reportDetailTestInfo.setText(Html.fromHtml(getString(R.string.checkin_report_subtitle3)));
 					reportFurtherInformation.testsExternalLink.setOnClickListener { showTestInformation() }
 					faqButton.setOnClickListener { showFaq() }
 					val isOpenLeitfadenPending = secureStorage.isOpenLeitfadenPending
@@ -239,6 +241,7 @@ class ReportsFragment : Fragment() {
 
 					}
 					faqButton.setOnClickListener { showFaq() }
+					reportFurtherInformation.reportDetailTestInfo.setText(Html.fromHtml(getString(R.string.checkin_report_subtitle3)));
 					reportFurtherInformation.testsExternalLink.setOnClickListener { showTestInformation() }
 					reportFurtherInformation.phoneSection.isVisible = false
 				}

@@ -649,23 +649,22 @@ Time drugi korisnici aplikacije SwissCovid mogu da saznaju da postoji mogućnost
     <string name="symptom_faq1_title">"Koji su simptomi COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Ovi simptomi se često javljaju:
+    <string name="symptom_faq1_text">"Novi virus korone često može pokazati različite simptome bolesti. Najčešći simptomi su:
 
-– temperatura, osećaj groznice
-– bolovi u grlu
-– kašalj (najčešće suv)
+– bol u grlu
+– kašalj (uglavnom suv)
 – kratak dah
-– bolovi u grudima
+– bol u grudima
+– temperatura
 – iznenadni gubitak čula mirisa i/ili ukusa
-
-Osim toga, mogući su sledeći simptomi:
-
 – glavobolja
 – opšta slabost, malaksalost
 – bolovi u mišićima
 – kijavica
 – simptomi gastrointestinalnog trakta (mučnina, povraćanje, proliv, bolovi u stomaku)
-– osipi na koži"</string>
+– osipi na koži
+
+Imajte na umu sledeće: Simptomi bolesti su različite jačine i mogu varati u zavisnost od varijante virusa. Mogu biti i blagi. I samo kijavica može značiti da ste zaraženi."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Zbog čega je praćenje deaktivirano?"</string>
@@ -1705,9 +1704,17 @@ U tom slučaju kontaktirajte nas ovde:"</string>
     <string name="checkin_report_title1">"Zaštititi kontakte"</string>
     <string name="checkin_report_title2">"Obratiti pažnju na simptome"</string>
     <string name="checkin_report_title3">"Vršiti testiranje"</string>
-    <string name="checkin_report_subtitle1">"Mogli biste biti zarazni, a da to ne primetite. Pridržavajte se važećih higijenskih i zaštitnih mera i zaštitite svoju porodicu, prijatelje i okolinu."</string>
+    <string name="checkin_report_subtitle1">"Mogli ste da se zarazite, a da ne primetite. Obratite pažnju na sledeće mere opreza:
+
+- nositi masku do 7 dana posle kontakta)
+
+- ograničiti kontakte
+
+- držati razmak (najmanje 1,5 metar)
+
+- izbegavati javne zatvorene prostore"</string>
     <string name="checkin_report_subtitle2">"Proveravajte svoje zdravsveno stanje."</string>
-    <string name="checkin_report_subtitle3">"Odmah se testirajte ako imate simptome. Čak i ako nema simptoma i niste u potpunosti vakcinisani, test korone je važan i  preporučuje se."</string>
+    <string name="checkin_report_subtitle3">"U slučaju pojave &lt;b&gt;simptoma odmah se testirati&lt;/b&gt; – i ako ste vakcinisati (uključ. dopunske vakcine) ili ste preležali koronu. Čak i ako imate samo blage simptome, testiranje je korisno i preporučljivo.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Testirajte se&lt;/b&gt;, i ako &lt;b&gt;nemate simptome&lt;/b&gt;. Možete biti zaraženi i kada nemate simptome. Test u tom slučaju treba uraditi nekoliko dana (4–7) posle rizičnog kontakta. U tom vremenu se najčešće može otkriti zaraza."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Prijava"</string>
@@ -1868,7 +1875,7 @@ U tom slučaju kontaktirajte nas ovde:"</string>
 Mnoga mesta nude i vakcinaciju bez zakazanog termina"</string>
 
     <!-- vaccination booking info screen info box at bottom -->
-    <string name="vaccination_booking_info_info">"Vakcina za Covid-19 preporučena je osobama starijim od 12 godina.  Vakcinacija je besplatna."</string>
+    <string name="vaccination_booking_info_info">"Vakcina za Covid-19 preporučena je osobama starijim od 5 godina."</string>
 
     <!-- url for booking an appointment for vaccination for canton ag -->
     <string name="vaccination_booking_ag_url">"https://www.ag.ch/coronavirus-impfung"</string>
