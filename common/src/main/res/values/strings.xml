@@ -649,23 +649,22 @@ This tells other SwissCovid app users that they may have been infected."</string
     <string name="symptom_faq1_title">"What are the symptoms of COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"These are the most common symptoms of COVID-19:
+    <string name="symptom_faq1_text">"The new coronavirus can show many different symptoms. The most common symptoms are:
 
-– Fever, feverish feeling 
 – Sore throat
 – Cough (mostly dry)
 – Shortness of breath
-– Body aches
-– Sudden loss of the sense of taste and/or smell
-
-Other symptoms may include:
-
+– Chest pain
+– High temperature
+– Sudden loss of sense of smell and/or taste
 – Headache
 – General weakness, feeling unwell
 – Aching muscles
 – Head cold
 – Gastrointestinal symptoms (nausea, vomiting, diarrhoea, stomach ache)
-– Skin rash"</string>
+– Skin rash
+
+Note: The symptoms of the disease vary in severity and can vary depending on the variant. They may also be mild. Even a head cold may mean an infection."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Why is tracing deactivated?"</string>
@@ -1729,9 +1728,17 @@ Possible locations:
     <string name="checkin_report_title1">"Protect your contacts"</string>
     <string name="checkin_report_title2">"Look out for symptoms"</string>
     <string name="checkin_report_title3">"Get tested"</string>
-    <string name="checkin_report_subtitle1">"You may already be infectious without realising it. Follow the rules on hygiene and social distancing and protect your loved ones and those around you."</string>
+    <string name="checkin_report_subtitle1">"You might have been infected without noticing. Take these precautions:
+
+- Wear a mask (until 7 days after contact)
+
+- Limit your contacts
+
+- Social distance (min. 1.5 metres)
+
+- Avoid public places"</string>
     <string name="checkin_report_subtitle2">"Monitor your state of health."</string>
-    <string name="checkin_report_subtitle3">"If you develop symptoms, get tested immediately. A coronavirus test is also advisable and recommended if you have no symptoms and are not yet fully vaccinated."</string>
+    <string name="checkin_report_subtitle3">"If &lt;b&gt;symptoms appear, get tested immediately&lt;/b&gt; – even if you’ve been vaccinated or have recovered from COVID. A test makes sense and is recommended even if you only have slight symptoms.&lt;br/&gt;&lt;br/&gt;Also &lt;b&gt;get tested&lt;/b&gt; if you have &lt;b&gt;no symptoms&lt;/b&gt;. You could have been infected but be symptom free. In this case you should not get tested until a few (4–7) days after the risky contact. That’s when a symptom-free infection is most likely to be detected."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
@@ -1892,7 +1899,7 @@ Possible locations:
 Many places also offer walk-in vaccinations without an appointment."</string>
 
     <!-- vaccination booking info screen info box at bottom -->
-    <string name="vaccination_booking_info_info">"The COVID-19 vaccination is recommended for those over 12. It's free of charge."</string>
+    <string name="vaccination_booking_info_info">"The COVID-19 vaccination is recommended for those over 5."</string>
 
     <!-- url for booking an appointment for vaccination for canton ag -->
     <string name="vaccination_booking_ag_url">"https://www.ag.ch/coronavirus-impfung"</string>

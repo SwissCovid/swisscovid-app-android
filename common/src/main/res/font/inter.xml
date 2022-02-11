@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2022 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<font
+		app:font="@font/inter_light"
+		app:fontStyle="normal"
+		app:fontWeight="300" />
+	<font
+		app:font="@font/inter_regular"
+		app:fontStyle="normal"
+		app:fontWeight="400" />
+	<font
+		app:font="@font/inter_bold"
+		app:fontStyle="normal"
+		app:fontWeight="700" />
+
+</font-family>

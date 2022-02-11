@@ -649,23 +649,23 @@ Në këtë mënyrë mësoni përdorueset dhe përdoruesit e tjerë të aplikacio
     <string name="symptom_faq1_title">"Çfarë simptomash ka COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Simptomat më të shpeshta janë:
+    <string name="symptom_faq1_text">"Koronavirusi i ri mund të shfaqë simptoma shumë të ndryshme sëmundjeje.
+Simptomat më të shpeshta janë:
 
-– Temperaturë, ndjesi ethesh
 – Dhimbje fyti
 – Kollë (zakonisht e thatë)
 – Vështirësi në frymëmarrje
 – Dhimbje kraharori
+– Temperaturë,
 – Humbje e papritur e shqisës së nuhatjes dhe/ose të shijuarit
-
-Janë gjithashtu të mundshme simptomat e mëposhtme:
-
 – Dhimbje koke
 – Dobësi e përgjithshme, parehati
 – Dhimbje muskulore
-– Nuhat
-Simptoma gastrointestinale (të përziera, të vjella, diarre, dhimbje abdominale)
-– Skuqje e lëkurës"</string>
+– Rrufë
+– Simptoma gastrointestinale (të përziera, të vjella, diarre, dhimbje abdominale)
+– Skuqje e lëkurës
+
+Vini re: Simptomat kanë intensitete të ndryshme dhe mund të ndryshojnë në varësi të variantit të virusit. Mund të jenë edhe të lehta. Rrufa tashme mund të jetë një infektim."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Pse është çaktivizuar gjurmimi?"</string>
@@ -1708,9 +1708,17 @@ Ky titull shfaqet gjatë Check-in."</string>
     <string name="checkin_report_title1">"Mbroni kontaktet"</string>
     <string name="checkin_report_title2">"Kini parasysh simptomat"</string>
     <string name="checkin_report_title3">"Kryeni testin"</string>
-    <string name="checkin_report_subtitle1">"Ju tashmë mund të jeni i infektuar pa e vënë re. Mbani parasysh masat e higjienës dhe të mbrojtjes dhe mbroni familjen tuaj, miqtë tuaj dhe mjedisin tuaj rrethues."</string>
+    <string name="checkin_report_subtitle1">"Mundet që ju jeni infektuar pa vënë re këtë gjë. Vini re këto masa kujdesjeje:
+
+- mbani maskë (deri në 7 ditë pas kontaktit)
+
+- kufizojini kontaktet
+
+- mbani distancë (të paktën 1.5 metër)
+
+- shmanguni ambienteve publike"</string>
     <string name="checkin_report_subtitle2">"Mbikëqyrni gjendjen tuaj shëndetësore."</string>
-    <string name="checkin_report_subtitle3">"Testohuni menjëherë gjatë shfaqjes së simptomave. Edhe nëse nuk shfaqet asnjë simptomë dhe nuk jeni akoma i vaksinuar plotësisht, testi i koronës është i arsyeshëm dhe i rekomandueshëm."</string>
+    <string name="checkin_report_subtitle3">"Në rastin e shfaqjes së &lt;b&gt;simptomave testohuni menjëherë&lt;/b&gt; – edhe nëse jeni vaksinuar (përfshirë vaksinimet përforcuese) ose shëruar. Edhe nëse keni vetëm simtoma të lehta, një test është kuptimplotë dhe rekomandohet.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Testohuni gjithashtu&lt;/b&gt;, nëse &lt;b&gt;nuk keni simptoma&lt;/b&gt;. Ju mund të jeni infektuar, por jeni pa simptoma. Në këtë rast, një test duhej kryer vetëm disa ditë (4–7) pas kontaktit të rrezikuar. Atëherë një infektim pa simptoma mund të zbulohet më mirë."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-In"</string>
@@ -1871,7 +1879,7 @@ Ky titull shfaqet gjatë Check-in."</string>
 Shumë vende gjithashtu ofrojnë vaksinime pa takim."</string>
 
     <!-- vaccination booking info screen info box at bottom -->
-    <string name="vaccination_booking_info_info">"Vaksinimi kundër Covid-19 rekomandohet për njerëzit e moshës 12 vjeç e lart. Vaksinimi është falas."</string>
+    <string name="vaccination_booking_info_info">"Vaksinimi kundër Covid-19 rekomandohet për njerëzit e moshës 5 vjeç e lart."</string>
 
     <!-- url for booking an appointment for vaccination for canton ag -->
     <string name="vaccination_booking_ag_url">"https://www.ag.ch/coronavirus-impfung"</string>

@@ -28,7 +28,7 @@
 		<item name="android:textSize">@dimen/text_size_normal</item>
 		<item name="android:textColor">@color/dark_main</item>
 		<item name="android:lineSpacingMultiplier">1.1</item>
-		<item name="android:fontFamily">@font/inter_light</item>
+		<item name="android:fontFamily">@font/inter</item>
 	</style>
 
 	<style name="NextStep.Text.Red">

@@ -634,24 +634,22 @@
     <string name="symptom_faq1_title">"ምልክታት ኮቪድ-19 እንታይ እዩ፧"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"እዚኦም ምልክታት ብዙሕ ግዜ ይርኣዩ፦
+    <string name="symptom_faq1_text">"ሓድሽ ኮሮናቫይረስ ኣዝዩ ዝተፈላለየ ምልክታት ሕማም ከርኢ ይኽእል።
 
-– ረስኒ፣ ስምዒት ናይ ረስኒ
 – ቃንዛ ጎሮሮ
 – ሰዓል (መብዛሕትኡ ግዜ ደረቕ ሰዓል)
 – ሕጽረት እስትንፋስ
 – ቃንዛ ኣፍ-ልቢ
+– ረስኒ
 – ናይ ምሽታትን ናይ ምስትምቓርን ክእለት ብሃንደበት ምጥፋእ
-
-
-ካብኡ ንየው ዝስዕቡ ምልክታት ክቕልቀሉ ይኽእሉ፥
-
 – ቃንዛ ርእሲ
 – ሓፈሻዊ ድኻም፣ ስግድግድ
 – ቃንዛ ጭዋዳታት
-– ሰዓል
+– ሰዓል ኣፍንጫ
 – ናይ ከብድን መዓንጣን ጸገማት (ስግድግድ፣ ምትፋእ፣ ውጽኣት፣ ቃንዛ ከብዲ)
-– ነድሪ ቆርበት"</string>
+– ነድሪ ቆርበት
+
+ኣስተውዕሉ፦ ምልክታት እቲ ሕማም ከከም እቲ ቫይረስ ኪፈላለ ይኽእል እዩ። ፈኲስ እውን ኪኸውን ይኽእል እዩ። ጐያዪ ኣፍንጫ እውን እንተ ዀነ ሕማም ድሮ ኬመልክት ይኽእል እዩ።"</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"እቲ ምክትታል ስለምንታይ ተዓጽዩ፧"</string>
@@ -1691,9 +1689,17 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="checkin_report_title1">"ርክባት ምክልኻል"</string>
     <string name="checkin_report_title2">"ምልክታት ምጥንቃቕ"</string>
     <string name="checkin_report_title3">"ምምርማር"</string>
-    <string name="checkin_report_subtitle1">"ድሮ ተላጋቢ ክትኮኑ ትኽእሉ ከይተገንዘብኩም። እቶም ብቑዓት ናይ ጽሬትን ምክልኻልን ስጉምትታት ተኸተሉ ከምኡውን ስድራኹምን ኣዕሩኽትኹምን ከባብኹምን ኣስተውዕሉ።"</string>
+    <string name="checkin_report_subtitle1">"ከይፈለጥካ በዚ ተለቢድካ ትኸውን። ነዞም ዚስዕቡ ጥንቃቐታት ተዓዘቦ፦
+
+- ማስኬራ ምኽዳን (ምስ ተራኸብካ ክሳብ 7 መዓልቲ)
+
+- ደረት ርክብ ግበር
+
+- ርሕቐት ምግዳፍ (እንተ ወሓደ 1.5 ሜተር)
+
+- ካብ ህዝባዊ ቦታታት ርሓቕ"</string>
     <string name="checkin_report_subtitle2">"መርገጽ ጥዕናኹም ተኸታተሉ።"</string>
-    <string name="checkin_report_subtitle3">"ኣብ ምቕልቓል ምልክታት ብዝቐልጠፈ ተመርመሩ። ዋላ ምልክታት ዘይቕልቀሉ እንተኾይኖም ኮምኡውን ገና ብምልኡ ዘይተኸተብኩም እንተኾይንኩም፣ መርመራ ኮሮና እንተላይ ጤቓምን ዝምረጽን እዩ።"</string>
+    <string name="checkin_report_subtitle3">"ዋላ እውን እንተ ተኸቲብካ (ወይ መሕደሲ ክታበት እንተገበርካ) ወይ እንተ ሓወኻ፣ &lt;b&gt;ምልክታት ሕማም እንተ ኣጋጢሙካ ብኡንብኡ&lt;/b&gt; ተመርመር። ዋላ እውን ፈኲስ ምልክታት እንተ ሃለወካ ፈተና ጠቃምን ምኽሪ ዚወሃበካን እዩ።&lt;br/&gt;&lt;br/&gt;ዝዀነ ይኹን &lt;b&gt;ልክት እንተ ዘይብልካ&lt;/b&gt; እውን ተመርመር። ተለቢድካ ኔርካ ትኸውን፣ ግና ሽዑ ምልክት ሕማም ከምዘለካ ናይ ግድን ኣይኮነን። ኣብ ከምዚ ዝኣመሰለ ዅነታት እቲ መርመራ ድሕሪ እቲ ሓደጋ ሒደት መዓልትታት (4-7) ጥራይ እዩ ኺግበር ዘለዎ። ድሕሪኡ ምልክት ዘይብሉ ረኽሲ ኺርአ ይኽእል እዩ ።"</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"ቸክ-ኢን"</string>
@@ -1854,7 +1860,7 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
 ኣብ መብዛሕትኦም ቦታታት ብዘይ ቈጸራ ብቐጥታ ክትኽተብ ትኽእል።"</string>
 
     <!-- vaccination booking info screen info box at bottom -->
-    <string name="vaccination_booking_info_info">"ክታበት ኮቪድ-19 ነቶም 12 ዓመትን ልዕሊኡን ዝዕድሚኦም ሰባት ተመኺሩ። እቲ ክታበት ነጻ እዩ።"</string>
+    <string name="vaccination_booking_info_info">"ክታበት ኮቪድ-19 ነቶም 5 ዓመትን ልዕሊኡን ዝዕድሚኦም ሰባት ተመኺሩ።"</string>
 
     <!-- url for booking an appointment for vaccination for canton ag -->
     <string name="vaccination_booking_ag_url">"https://www.ag.ch/coronavirus-impfung"</string>

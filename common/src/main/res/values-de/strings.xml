@@ -662,23 +662,23 @@ Damit erfahren andere Nutzerinnen und Nutzer der SwissCovid-App, dass die Mögli
     <string name="symptom_faq1_title">"Was sind COVID-19-Symptome?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Diese Symptome treten häufig auf:
+    <string name="symptom_faq1_text">"Das neue Coronavirus kann sehr unterschiedliche Krankheitssymptome zeigen.
+Die häufigsten Symptome sind:
 
-– Fieber, Fiebergefühl
 – Halsschmerzen
 – Husten (meist trocken)
 – Kurzatmigkeit
 – Brustschmerzen
+– Fieber
 – Plötzlicher Verlust des Geruchs- und/oder Geschmackssinns
-
-Zudem sind folgende Symptome möglich:
-
 – Kopfschmerzen
 – Allgemeine Schwäche, Unwohlsein
 – Muskelschmerzen
 – Schnupfen
 – Magen-Darm-Symptome (Übelkeit, Erbrechen, Durchfall, Bauchschmerzen)
-– Hautausschläge"</string>
+– Hautausschläge
+
+Beachten Sie: Die Krankheitssymptome sind unterschiedlich stark und können je nach Virusvariante variieren. Sie können auch leicht sein. Bereits ein Schnupfen kann eine Infektion bedeuten."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Warum ist das Tracing deaktiviert?"</string>
@@ -1783,9 +1783,17 @@ Dieser Titel wird beim Check-in angezeigt."</string>
     <string name="checkin_report_title1">"Kontakte schützen"</string>
     <string name="checkin_report_title2">"Auf Symptome achten"</string>
     <string name="checkin_report_title3">"Testen lassen"</string>
-    <string name="checkin_report_subtitle1">"Sie könnten bereits ansteckend sein, ohne es zu merken. Beachten Sie die geltenden Hygiene- und Schutzmassnahmen und schützen Sie Ihre Familie, Ihre Freunde und Ihr Umfeld."</string>
+    <string name="checkin_report_subtitle1">"Sie könnten sich angesteckt haben, ohne es zu merken. Beachten Sie folgende Vorsichtsmassnahmen:
+
+- Maske tragen (bis 7 Tagen nach Kontakt)
+
+- Kontakte einschränken
+
+- Abstand halten (mind. 1,5 Meter)
+
+- öffentliche Räume meiden"</string>
     <string name="checkin_report_subtitle2">"Überwachen Sie Ihren Gesundheitszustand."</string>
-    <string name="checkin_report_subtitle3">"Lassen Sie sich beim Auftreten von Symptomen sofort testen. Wenn keine Symptome auftreten und Sie noch nicht vollständig geimpft sind, ist ein Corona-Test ebenfalls sinnvoll und empfohlen."</string>
+    <string name="checkin_report_subtitle3">"Lassen Sie sich beim Auftreten von &lt;b&gt;Symptomen sofort testen&lt;/b&gt; – auch wenn Sie geimpft (inkl. Auffrischimpfungen) oder genesen sind. Selbst wenn Sie nur leichte Symptome haben, ist ein Test sinnvoll und empfohlen.&lt;br/&gt;&lt;br/&gt;Lassen Sie sich &lt;b&gt;auch testen&lt;/b&gt;, wenn Sie &lt;b&gt;keine Symptome&lt;/b&gt; haben. Sie könnten sich angesteckt haben, aber symptomlos sein. Ein Test sollte in diesem Fall erst einige Tage (4–7) nach dem Risiko-Kontakt stattfinden. Dann kann eine symptomlose Ansteckung am ehesten entdeckt werden."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <!-- Fuzzy -->
@@ -1953,7 +1961,7 @@ Dieser Titel wird beim Check-in angezeigt."</string>
 Viele Orte bieten auch Walk-in-Impfungen ohne Termine an."</string>
 
     <!-- vaccination booking info screen info box at bottom -->
-    <string name="vaccination_booking_info_info">"Die Covid-19-Impfung ist für Personen ab 12 Jahren empfohlen. Die Impfung ist gratis."</string>
+    <string name="vaccination_booking_info_info">"Die Covid-19-Impfung ist für Personen ab 5 Jahren empfohlen."</string>
 
     <!-- url for booking an appointment for vaccination for canton ag -->
     <string name="vaccination_booking_ag_url">"https://www.ag.ch/coronavirus-impfung"</string>

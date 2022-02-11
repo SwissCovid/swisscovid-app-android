@@ -650,23 +650,22 @@ Desta forma, outros utilizadores do aplicativo SwissCovid ficam a saber que exis
     <string name="symptom_faq1_title">"Quais são os sintomas da COVID-19?"</string>
 
     <!-- Symptome: FAQ Text -->
-    <string name="symptom_faq1_text">"Estes sintomas são frequentes:
+    <string name="symptom_faq1_text">"O novo coronavírus pode proovocar sintomas muito variados. Os sintomas mais frequentes são:
 
-– Febre, sensação de febre
 – Dores de garganta
 – Tosse (seca, na maioria dos casos)
 – Falta de ar
 – Dores no peito
+– Febre
 – Perda repentina do olfato e/ou do paladar
-
-Outros sintomas podem ser:
-
 – Dores de cabeça
 – Fraqueza geral, indisposição
 – Dores musculares
 – Constipação
 – Sintomas gastrointestinais (náusea, vómito, diarréia, dores de estômago)
-– Erupções cutâneas"</string>
+– Erupções cutâneas
+
+É favor observar: A intensidade do sintomas da doença é diferente e pode variar dependendo da variante do vírus. Os sintomas também podem ser ligeiros. Uma mera constipação também pode ser devida a uma infeção."</string>
 
     <!-- Meldungen: Positiv getestet FAQ Titel -->
     <string name="meldungen_positive_tested_faq1_title">"Porque está o rastreamento desativado?"</string>
@@ -1707,9 +1706,17 @@ Este título vai ser indicado no check-in."</string>
     <string name="checkin_report_title1">"Proteger os contactos"</string>
     <string name="checkin_report_title2">"Observar os sintomas"</string>
     <string name="checkin_report_title3">"Deixar testar-se"</string>
-    <string name="checkin_report_subtitle1">"Você já pode ser contagioso, sem percebê-lo. Observe as medidas de higiene e proteção vigentes e proteja a sua família, os amigos e o seu ambiente."</string>
+    <string name="checkin_report_subtitle1">"É possível que se tenha infetado sem percebê-lo. Observe as seguintes regras de precaução:
+
+- Use a máscara (até 7 dias após o contacto)
+
+- Limite os contactos
+
+- Mantenha a distância (pelo menos 1,5 metros)
+
+- Evite os espaços públicos"</string>
     <string name="checkin_report_subtitle2">"Observe o seu estado de saúde."</string>
-    <string name="checkin_report_subtitle3">"Deixe testar-se imediatamente se aparecerem sintomas. Mesmo se não aparecerem sintomas e se você ainda não tiver sido completamente vacinado, um teste de corona é conveniente e recomendado."</string>
+    <string name="checkin_report_subtitle3">"Deixe testar-se imediatamente quando surgirem &lt;b&gt;sintomas&lt;/b&gt; – mesmo se for vacinado (incl. vacinas de reforço) ou recuperado. Um teste é conveniente e recomendado, mesmo se só tiver sintomas ligeiros.&lt;br/&gt;&lt;br/&gt;Também deixe &lt;b&gt;testar-se&lt;/b&gt;, se &lt;b&gt;não tiver sintomas&lt;/b&gt;. É possível que tenha sido infetado, mas não tenha sintomas. Neste caso, um teste só deve ser feito alguns dias (4 a 7) após o contacto de risco. Isso permite descubrir melhor uma infeção sem sintomas."</string>
 
     <!-- Titel von CheckIn Meldungen Screen. -->
     <string name="meldung_detail_checkin_title">"Check-in"</string>
@@ -1870,7 +1877,7 @@ Este título vai ser indicado no check-in."</string>
 Muitos lugares também oferecem vacinações Walk-in sem agendamento."</string>
 
     <!-- vaccination booking info screen info box at bottom -->
-    <string name="vaccination_booking_info_info">"A vacina contra a Covid-19 é recomendada para pessoas a partir dos 12 anos de idade. A vacinação é gratuita."</string>
+    <string name="vaccination_booking_info_info">"A vacina contra a Covid-19 é recomendada para pessoas a partir dos 5 anos de idade."</string>
 
     <!-- url for booking an appointment for vaccination for canton ag -->
     <string name="vaccination_booking_ag_url">"https://www.ag.ch/coronavirus-impfung"</string>
