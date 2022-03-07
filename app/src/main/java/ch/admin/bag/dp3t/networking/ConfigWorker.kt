@@ -77,6 +77,9 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 
 			val secureStorage = SecureStorage.getInstance(context)
 			secureStorage.doForceUpdate = config.doForceUpdate
+			secureStorage.isHibernating = config.isDeactivate
+			secureStorage.hibernatingInfoboxCollection = config.deactivationMessage
+
 			secureStorage.setWhatToDoPositiveTestTexts(config.whatToDoPositiveTestTexts)
 
 			if (config.infoBox != null) {

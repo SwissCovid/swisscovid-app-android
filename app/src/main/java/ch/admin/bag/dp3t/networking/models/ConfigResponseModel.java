@@ -25,6 +25,8 @@ public class ConfigResponseModel {
 
 	private VaccinationBookingInfoCollection vaccinationBookingInfo;
 	private boolean showVaccinationInfo;
+	private boolean deactivate;
+	private InfoBoxModelCollection deactivationMessage;
 
 	public boolean getDoForceUpdate() {
 		return forceUpdate;
@@ -69,6 +71,14 @@ public class ConfigResponseModel {
 
 	public boolean isShowVaccinationInfo() {
 		return showVaccinationInfo;
+	}
+
+	public boolean isDeactivate() {
+		return deactivate;
+	}
+
+	public InfoBoxModelCollection getDeactivationMessage() {
+		return deactivationMessage;
 	}
 
 }

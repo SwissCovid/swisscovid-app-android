@@ -29,6 +29,7 @@ import ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker
 import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper
 import ch.admin.bag.dp3t.checkin.utils.ErrorDialog
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper
+import ch.admin.bag.dp3t.hibernate.HibernatingInfoFragment
 import ch.admin.bag.dp3t.inform.InformActivity
 import ch.admin.bag.dp3t.networking.ConfigWorker.Companion.scheduleConfigWorkerIfOutdated
 import ch.admin.bag.dp3t.onboarding.OnboardingActivityArgs
@@ -78,7 +79,7 @@ class MainActivity : FragmentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
-		secureStorage.forceUpdateLiveData.observe(this, {
+		secureStorage.forceUpdateLiveData.observe(this) {
 
 			val forceUpdate = it && secureStorage.doForceUpdate
 
@@ -96,11 +97,12 @@ class MainActivity : FragmentActivity() {
 				}
 				forceUpdateDialog.show()
 			}
-		})
+		}
 		scheduleConfigWorkerIfOutdated(this)
 		CrowdNotifierKeyLoadWorker.startKeyLoadWorker(this)
 		CrowdNotifierKeyLoadWorker.cleanUpOldData(this)
 		if (savedInstanceState == null) {
+			val isInHibernatingState = secureStorage.isHibernating
 			val onboardingCompleted = secureStorage.onboardingCompleted
 			val lastShownUpdateBoardingVersion = secureStorage.lastShownUpdateBoardingVersion
 			val instantAppQrCodeUrl = checkForInstantAppUrl()
@@ -111,8 +113,9 @@ class MainActivity : FragmentActivity() {
 				lastShownUpdateBoardingVersion < UPDATE_BOARDING_VERSION -> OnboardingType.UPDATE_BOARDING
 				else -> null
 			}
-
-			if (onboardingType == null) {
+			if (isInHibernatingState) {
+				showHibernateFragment()
+			} else if (onboardingType == null) {
 				showHomeFragment()
 			} else {
 				launchOnboarding(onboardingType, instantAppQrCodeUrl)
@@ -283,6 +286,12 @@ class MainActivity : FragmentActivity() {
 		val intent = Intent(this, InformActivity::class.java)
 		intent.putExtra(InformActivity.EXTRA_COVIDCODE, covidCode)
 		startActivity(intent)
+	}
+
+	private fun showHibernateFragment() {
+		supportFragmentManager.beginTransaction()
+			.add(R.id.main_fragment_container, HibernatingInfoFragment.newInstance())
+			.commit()
 	}
 
 	private fun showHomeFragment() {
