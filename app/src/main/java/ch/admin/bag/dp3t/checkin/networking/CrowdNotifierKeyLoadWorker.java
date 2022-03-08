@@ -46,6 +46,10 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 		workManager.enqueueUniquePeriodicWork(WORK_TAG, ExistingPeriodicWorkPolicy.KEEP, periodicWorkRequest);
 	}
 
+	public static void stop(Context context) {
+		WorkManager.getInstance(context).cancelAllWorkByTag(WORK_TAG);
+	}
+
 
 	public CrowdNotifierKeyLoadWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
 		super(context, workerParams);

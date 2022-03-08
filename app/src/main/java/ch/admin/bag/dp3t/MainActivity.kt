@@ -79,6 +79,13 @@ class MainActivity : FragmentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
+		val isInHibernatingState = secureStorage.isHibernating
+		if (isInHibernatingState) {
+			if (savedInstanceState == null) {
+				showHibernateFragment()
+			}
+			return
+		}
 		secureStorage.forceUpdateLiveData.observe(this) {
 
 			val forceUpdate = it && secureStorage.doForceUpdate
@@ -102,7 +109,6 @@ class MainActivity : FragmentActivity() {
 		CrowdNotifierKeyLoadWorker.startKeyLoadWorker(this)
 		CrowdNotifierKeyLoadWorker.cleanUpOldData(this)
 		if (savedInstanceState == null) {
-			val isInHibernatingState = secureStorage.isHibernating
 			val onboardingCompleted = secureStorage.onboardingCompleted
 			val lastShownUpdateBoardingVersion = secureStorage.lastShownUpdateBoardingVersion
 			val instantAppQrCodeUrl = checkForInstantAppUrl()
@@ -113,9 +119,7 @@ class MainActivity : FragmentActivity() {
 				lastShownUpdateBoardingVersion < UPDATE_BOARDING_VERSION -> OnboardingType.UPDATE_BOARDING
 				else -> null
 			}
-			if (isInHibernatingState) {
-				showHibernateFragment()
-			} else if (onboardingType == null) {
+			if (onboardingType == null) {
 				showHomeFragment()
 			} else {
 				launchOnboarding(onboardingType, instantAppQrCodeUrl)
@@ -177,7 +181,7 @@ class MainActivity : FragmentActivity() {
 
 	override fun onResume() {
 		super.onResume()
-		if (secureStorage.onboardingCompleted) checkIntentForActions()
+		if (secureStorage.onboardingCompleted && !secureStorage.isHibernating) checkIntentForActions()
 		LocalBroadcastManager.getInstance(this)
 			.registerReceiver(autoCheckoutBroadcastReceiver, IntentFilter(CrowdNotifierReminderHelper.ACTION_DID_AUTO_CHECKOUT))
 	}

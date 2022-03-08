@@ -20,10 +20,12 @@ import androidx.work.*
 import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.MainActivity
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker
 import ch.admin.bag.dp3t.debug.DebugFragment
 import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.onboarding.OnboardingSlidePageAdapter.Companion.CHECKIN_UPDATE_BOARDING_VERSION
 import ch.admin.bag.dp3t.storage.SecureStorage
+import ch.admin.bag.dp3t.util.NotificationRepeatWorker
 import ch.admin.bag.dp3t.util.NotificationUtil
 import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.backend.SignatureException
@@ -63,6 +65,10 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 			}
 		}
 
+		fun stop(context: Context) {
+			WorkManager.getInstance(context).cancelAllWorkByTag(FakeWorker.WORK_TAG)
+		}
+
 		@Throws(IOException::class, ResponseError::class, SignatureException::class)
 		private suspend fun loadConfig(context: Context) {
 			val configRepository = ConfigRepository(context)
@@ -77,8 +83,6 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 
 			val secureStorage = SecureStorage.getInstance(context)
 			secureStorage.doForceUpdate = config.doForceUpdate
-			secureStorage.isHibernating = config.isDeactivate
-			secureStorage.hibernatingInfoboxCollection = config.deactivationMessage
 
 			secureStorage.setWhatToDoPositiveTestTexts(config.whatToDoPositiveTestTexts)
 
@@ -114,6 +118,20 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 					showCheckInUpdateNotification(context);
 				}
 			}
+
+			secureStorage.isHibernating = config.isDeactivate
+			secureStorage.hibernatingInfoboxCollection = config.deactivationMessage
+			if (config.isDeactivate) {
+				activateHibernationState(context)
+			}
+		}
+
+		private fun activateHibernationState(context: Context) {
+			DP3T.stop(context)
+			FakeWorker.stop(context)
+			CrowdNotifierKeyLoadWorker.stop(context)
+			NotificationRepeatWorker.stop(context)
+			this.stop(context)
 		}
 
 		private fun showNotification(context: Context) {

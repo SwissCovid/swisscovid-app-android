@@ -62,6 +62,8 @@ public class MainApplication extends Application {
 			FakeWorker.stop(this);
 		}
 
+		if (secureStorage.isHibernating()) return;
+
 		FakeWorker.safeStartFakeWorker(this);
 		ConfigWorker.scheduleConfigWorkerIfOutdated(this);
 
