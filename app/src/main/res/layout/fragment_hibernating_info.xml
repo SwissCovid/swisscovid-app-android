@@ -73,7 +73,7 @@
 						android:layout_height="wrap_content"
 						android:layout_marginTop="@dimen/spacing_tiny_small"
 						android:gravity="start"
-						android:text="Der Betrieb der SwissCovid App wurde eingestellt" />
+						tools:text="Der Betrieb der SwissCovid App wurde eingestellt" />
 
 					<TextView
 						android:id="@+id/text"
@@ -82,7 +82,7 @@
 						android:layout_height="wrap_content"
 						android:layout_marginTop="@dimen/spacing_medium_large"
 						android:gravity="start"
-						android:text="Mit der Aufhebung der Massnahmen des Bundes wurde auch der Betrieb der SwissCovid App eingestellt. Wir bitten Sie die App zu deinstallieren und bedanken uns für Ihre Mithilfe. \n\nMit SwissCovid haben Sie einen relevanten Beitrag zur Pandemie-bekämpfung geleistet. Über 168’000 Personen konnten andere schnell über eine mögliches Ansteckungsrisiko informieren und somit Infektionsketten druchbrechen. " />
+						tools:text="Mit der Aufhebung der Massnahmen des Bundes wurde auch der Betrieb der SwissCovid App eingestellt. Wir bitten Sie die App zu deinstallieren und bedanken uns für Ihre Mithilfe. \n\nMit SwissCovid haben Sie einen relevanten Beitrag zur Pandemie-bekämpfung geleistet. Über 168’000 Personen konnten andere schnell über eine mögliches Ansteckungsrisiko informieren und somit Infektionsketten druchbrechen. " />
 
 					<LinearLayout
 						android:id="@+id/link_group"
@@ -109,7 +109,7 @@
 							style="@style/NextStep.Text.Bold.Blue"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
-							android:text="Und ein externer Link" />
+							tools:text="Und ein externer Link" />
 					</LinearLayout>
 
 				</LinearLayout>

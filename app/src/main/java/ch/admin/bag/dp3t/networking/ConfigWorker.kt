@@ -70,7 +70,7 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 		}
 
 		@Throws(IOException::class, ResponseError::class, SignatureException::class)
-		private suspend fun loadConfig(context: Context) {
+		suspend fun loadConfig(context: Context) {
 			val configRepository = ConfigRepository(context)
 			val config = configRepository.getConfig(context)
 

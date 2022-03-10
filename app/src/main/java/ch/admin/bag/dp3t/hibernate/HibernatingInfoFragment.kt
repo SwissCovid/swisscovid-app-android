@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.TabbarHostFragment
 import ch.admin.bag.dp3t.databinding.FragmentHibernatingInfoBinding
 import ch.admin.bag.dp3t.html.HtmlFragment
 import ch.admin.bag.dp3t.storage.SecureStorage
@@ -20,6 +22,8 @@ class HibernatingInfoFragment : Fragment() {
 		fun newInstance() = HibernatingInfoFragment()
 	}
 
+	private val viewModel: HibernatingViewModel by viewModels()
+
 	private val secureStorage by lazy { SecureStorage.getInstance(requireContext()) }
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,7 +36,12 @@ class HibernatingInfoFragment : Fragment() {
 
 			val infoBoxModel = secureStorage.hibernatingInfoboxCollection?.getInfoBox(resources.getString(R.string.language_key))
 
-			//TODO: Remove the hardcoded strings from the layout file
+			viewModel.isHibernatingModeEnabled.observe(viewLifecycleOwner) { isHibernatingModeEnabled ->
+				if (!isHibernatingModeEnabled) {
+					showHomeFragment()
+				}
+			}
+
 			infoBoxModel?.let {
 				title.text = it.title
 				text.text = it.msg
@@ -42,6 +51,12 @@ class HibernatingInfoFragment : Fragment() {
 			}
 
 		}.root
+	}
+
+	private fun showHomeFragment() {
+		requireActivity().supportFragmentManager.beginTransaction()
+			.replace(R.id.main_fragment_container, TabbarHostFragment.newInstance())
+			.commit()
 	}
 
 	private fun showImpressum() {
