@@ -63,7 +63,9 @@ class MainActivity : FragmentActivity() {
 	private val crowdNotifierViewModel: CrowdNotifierViewModel by viewModels()
 
 	private val onboardingLauncher = registerForActivityResult(OnboardingActivityResultContract()) {
-		if (it != null) {
+		if (secureStorage.isHibernating) {
+			showHibernateFragment()
+		} else if (it != null) {
 			onOnboardingFinished(it.onboardingType, it.activityResult, it.instantAppUrl)
 		} else {
 			finish()

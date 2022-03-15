@@ -20,7 +20,7 @@ class HibernatingViewModel(application: Application) : AndroidViewModel(applicat
 
 	}
 
-	private val isHibernatingModeEnabledMutable = MutableLiveData(true)
+	private val isHibernatingModeEnabledMutable = MutableLiveData<Boolean>()
 	val isHibernatingModeEnabled: LiveData<Boolean> = isHibernatingModeEnabledMutable
 
 	init {
@@ -32,7 +32,9 @@ class HibernatingViewModel(application: Application) : AndroidViewModel(applicat
 		viewModelScope.launch {
 			try {
 				ConfigWorker.loadConfig(getApplication())
-				if (!SecureStorage.getInstance(getApplication()).isHibernating) {
+				if (SecureStorage.getInstance(getApplication()).isHibernating) {
+					isHibernatingModeEnabledMutable.value = true
+				} else {
 					FakeWorker.safeStartFakeWorker(getApplication())
 					CrowdNotifierKeyLoadWorker.startKeyLoadWorker(getApplication())
 					NotificationRepeatWorker.startWorker(getApplication())

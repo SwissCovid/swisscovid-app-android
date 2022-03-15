@@ -13,10 +13,12 @@ import android.animation.Animator
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.hibernate.HibernatingViewModel
 import org.dpppt.android.sdk.DP3T
 
 private const val SHOW_SPLASHBOARDING_MILLIS = 3000
@@ -32,9 +34,17 @@ class OnboardingActivity : FragmentActivity() {
 	private lateinit var viewPager: ViewPager2
 	private lateinit var pagerAdapter: FragmentStateAdapter
 
+	private val hibernatingViewModel by viewModels<HibernatingViewModel>()
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_onboarding)
+
+		hibernatingViewModel.isHibernatingModeEnabled.observe(this) { isHibernatingModeEnabled ->
+			if (isHibernatingModeEnabled) {
+				finish()
+			}
+		}
 
 		splashboarding = findViewById(R.id.splashboarding)
 		viewPager = findViewById(R.id.pager)
