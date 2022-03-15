@@ -5,12 +5,14 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import ch.admin.bag.dp3t.MainApplication
 import ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker
 import ch.admin.bag.dp3t.networking.ConfigWorker
 import ch.admin.bag.dp3t.networking.FakeWorker
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.NotificationRepeatWorker
 import kotlinx.coroutines.launch
+import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.internal.logger.Logger
 
 class HibernatingViewModel(application: Application) : AndroidViewModel(application) {
@@ -35,6 +37,7 @@ class HibernatingViewModel(application: Application) : AndroidViewModel(applicat
 				if (SecureStorage.getInstance(getApplication()).isHibernating) {
 					isHibernatingModeEnabledMutable.value = true
 				} else {
+					MainApplication.initDP3T(getApplication())
 					FakeWorker.safeStartFakeWorker(getApplication())
 					CrowdNotifierKeyLoadWorker.startKeyLoadWorker(getApplication())
 					NotificationRepeatWorker.startWorker(getApplication())
