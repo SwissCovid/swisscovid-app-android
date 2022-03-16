@@ -82,6 +82,8 @@ public class SecureStorage {
 			"KEY_POSITIVE_REPORT_OLDEST_SHARED_KEY_OR_CHECKIN";
 	private static final String KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE =
 			"KEY_EXPOSURE_NOTIFICATIONS_ACTIVE_BEFORE_ENTERING_COVIDCODE";
+	private static final String KEY_IS_IN_HIBERNATING_STATE = "KEY_IS_IN_HIBERNATING_STATE";
+	private static final String KEY_HIBERNATING_INFOBOX_MODEL = "KEY_HIBERNATING_INFOBOX_MODEL";
 
 
 	private static SecureStorage instance;
@@ -163,6 +165,22 @@ public class SecureStorage {
 
 	public void setOnboardingCompleted(boolean completed) {
 		prefs.edit().putBoolean(KEY_ONBOARDING_COMPLETED, completed).apply();
+	}
+
+	public boolean isHibernating() {
+		return prefs.getBoolean(KEY_IS_IN_HIBERNATING_STATE, false);
+	}
+
+	public void setHibernating(boolean isHibernating) {
+		prefs.edit().putBoolean(KEY_IS_IN_HIBERNATING_STATE, isHibernating).apply();
+	}
+
+	public void setHibernatingInfoboxCollection(InfoBoxModelCollection infoBoxModelCollection) {
+		prefs.edit().putString(KEY_HIBERNATING_INFOBOX_MODEL, gson.toJson(infoBoxModelCollection)).apply();
+	}
+
+	public InfoBoxModelCollection getHibernatingInfoboxCollection() {
+		return gson.fromJson(prefs.getString(KEY_HIBERNATING_INFOBOX_MODEL, "null"), InfoBoxModelCollection.class);
 	}
 
 	public boolean getOnlyPartialOnboardingCompleted() {
@@ -339,7 +357,7 @@ public class SecureStorage {
 		prefs.edit().putBoolean(KEY_SHOW_VACCINATION_INFO, showVaccinationInfo).apply();
 	}
 
-	public boolean getShowVaccinationInfo(){
+	public boolean getShowVaccinationInfo() {
 		return prefs.getBoolean(KEY_SHOW_VACCINATION_INFO, false);
 	}
 

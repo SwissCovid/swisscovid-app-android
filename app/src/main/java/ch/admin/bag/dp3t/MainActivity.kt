@@ -29,6 +29,7 @@ import ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker
 import ch.admin.bag.dp3t.checkin.utils.CrowdNotifierReminderHelper
 import ch.admin.bag.dp3t.checkin.utils.ErrorDialog
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper
+import ch.admin.bag.dp3t.hibernate.HibernatingInfoFragment
 import ch.admin.bag.dp3t.inform.InformActivity
 import ch.admin.bag.dp3t.networking.ConfigWorker.Companion.scheduleConfigWorkerIfOutdated
 import ch.admin.bag.dp3t.onboarding.OnboardingActivityArgs
@@ -62,7 +63,9 @@ class MainActivity : FragmentActivity() {
 	private val crowdNotifierViewModel: CrowdNotifierViewModel by viewModels()
 
 	private val onboardingLauncher = registerForActivityResult(OnboardingActivityResultContract()) {
-		if (it != null) {
+		if (secureStorage.isHibernating) {
+			showHibernateFragment()
+		} else if (it != null) {
 			onOnboardingFinished(it.onboardingType, it.activityResult, it.instantAppUrl)
 		} else {
 			finish()
@@ -78,7 +81,14 @@ class MainActivity : FragmentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
-		secureStorage.forceUpdateLiveData.observe(this, {
+		val isInHibernatingState = secureStorage.isHibernating
+		if (isInHibernatingState) {
+			if (savedInstanceState == null) {
+				showHibernateFragment()
+			}
+			return
+		}
+		secureStorage.forceUpdateLiveData.observe(this) {
 
 			val forceUpdate = it && secureStorage.doForceUpdate
 
@@ -96,7 +106,7 @@ class MainActivity : FragmentActivity() {
 				}
 				forceUpdateDialog.show()
 			}
-		})
+		}
 		scheduleConfigWorkerIfOutdated(this)
 		CrowdNotifierKeyLoadWorker.startKeyLoadWorker(this)
 		CrowdNotifierKeyLoadWorker.cleanUpOldData(this)
@@ -111,7 +121,6 @@ class MainActivity : FragmentActivity() {
 				lastShownUpdateBoardingVersion < UPDATE_BOARDING_VERSION -> OnboardingType.UPDATE_BOARDING
 				else -> null
 			}
-
 			if (onboardingType == null) {
 				showHomeFragment()
 			} else {
@@ -174,7 +183,7 @@ class MainActivity : FragmentActivity() {
 
 	override fun onResume() {
 		super.onResume()
-		if (secureStorage.onboardingCompleted) checkIntentForActions()
+		if (secureStorage.onboardingCompleted && !secureStorage.isHibernating) checkIntentForActions()
 		LocalBroadcastManager.getInstance(this)
 			.registerReceiver(autoCheckoutBroadcastReceiver, IntentFilter(CrowdNotifierReminderHelper.ACTION_DID_AUTO_CHECKOUT))
 	}
@@ -283,6 +292,12 @@ class MainActivity : FragmentActivity() {
 		val intent = Intent(this, InformActivity::class.java)
 		intent.putExtra(InformActivity.EXTRA_COVIDCODE, covidCode)
 		startActivity(intent)
+	}
+
+	private fun showHibernateFragment() {
+		supportFragmentManager.beginTransaction()
+			.add(R.id.main_fragment_container, HibernatingInfoFragment.newInstance())
+			.commit()
 	}
 
 	private fun showHomeFragment() {

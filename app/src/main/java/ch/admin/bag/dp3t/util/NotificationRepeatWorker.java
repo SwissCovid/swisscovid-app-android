@@ -37,6 +37,10 @@ public class NotificationRepeatWorker extends Worker {
 		WorkManager.getInstance(context).enqueueUniqueWork(WORK_TAG, ExistingWorkPolicy.REPLACE, notificationWorker);
 	}
 
+	public static void stop(Context context) {
+		WorkManager.getInstance(context).cancelAllWorkByTag(WORK_TAG);
+	}
+
 	public NotificationRepeatWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
 		super(context, workerParams);
 	}

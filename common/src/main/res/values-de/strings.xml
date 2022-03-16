@@ -2072,4 +2072,27 @@ Viele Orte bieten auch Walk-in-Impfungen ohne Termine an."</string>
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>
     <string name="vaccination_impf_check_title">"Jetzt Termin buchen"</string>
+
+    <!-- Über Titel auf Abschaltungs-Screen -->
+    <string name="termination_header">"Information"</string>
+
+    <!-- Titel auf Abschaltungs-Screen -->
+    <string name="termination_title">"Der Betrieb der SwissCovid App wurde eingestellt"</string>
+
+    <!-- Text auf Abschaltungs-Screen -->
+    <string name="termination_text">"Vielen Dank, dass Sie die SwissCovid App heruntergeladen haben.
+
+Mit der Verwendung der SwissCovid App haben Sie einen relevanten Beitrag zur Pandemiebekämpfung geleistet. Über 175’000 Personen konnten andere schnell über ein Ansteckungsrisiko informieren und somit Infektionsketten unterbrechen.
+
+Mit der Aufhebung der Massnahmen des Bundes wurde auch der Betrieb der SwissCovid App eingestellt. Die App ist per sofort inaktiv und soll deinstalliert werden. Sollte eine Reaktivierung aufgrund der epidemiologischen Situation nötig sein, würden wir uns wieder über Ihre Unterstützung freuen."</string>
+
+    <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
+    <string name="termination_text_infobox">"Vielen Dank, dass Sie die SwissCovid App heruntergeladen haben.
+
+Mit der Verwendung der SwissCovid App haben Sie einen relevanten Beitrag zur Pandemiebekämpfung geleistet. Über 175’000 Personen konnten andere schnell über ein Ansteckungsrisiko informieren und somit Infektionsketten unterbrechen.
+
+Mit der Aufhebung der Massnahmen des Bundes wurde auch der Betrieb der SwissCovid App eingestellt. Die App ist per sofort inaktiv und soll deinstalliert werden. Sollte eine Reaktivierung aufgrund der epidemiologischen Situation nötig sein, würden wir uns wieder über Ihre Unterstützung freuen."</string>
+
+    <!-- Link Text auf Abschaltungs-Screen -->
+    <string name="termination_link_title">"Weitere Informationen"</string>
 </resources>
