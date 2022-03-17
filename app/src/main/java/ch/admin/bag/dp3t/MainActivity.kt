@@ -12,11 +12,13 @@ package ch.admin.bag.dp3t
 import android.content.*
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.ActivityResult
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import ch.admin.bag.dp3t.checkin.CheckinOverviewFragment
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel
@@ -31,6 +33,7 @@ import ch.admin.bag.dp3t.checkin.utils.ErrorDialog
 import ch.admin.bag.dp3t.checkin.utils.NotificationHelper
 import ch.admin.bag.dp3t.hibernate.HibernatingInfoFragment
 import ch.admin.bag.dp3t.inform.InformActivity
+import ch.admin.bag.dp3t.networking.ConfigWorker
 import ch.admin.bag.dp3t.networking.ConfigWorker.Companion.scheduleConfigWorkerIfOutdated
 import ch.admin.bag.dp3t.onboarding.OnboardingActivityArgs
 import ch.admin.bag.dp3t.onboarding.OnboardingActivityResultContract
@@ -44,6 +47,7 @@ import ch.admin.bag.dp3t.util.UrlUtil
 import ch.admin.bag.dp3t.viewmodel.TracingViewModel
 import ch.admin.bag.dp3t.whattodo.WtdPositiveTestFragment
 import com.google.android.gms.instantapps.InstantApps
+import kotlinx.coroutines.launch
 import org.crowdnotifier.android.sdk.CrowdNotifier
 import org.crowdnotifier.android.sdk.utils.QrUtils.*
 import org.dpppt.android.sdk.DP3T
@@ -88,6 +92,20 @@ class MainActivity : FragmentActivity() {
 			}
 			return
 		}
+
+		// After the App Update, load the config immediately to check whether hibernation mode is turned on
+		if (secureStorage.lastConfigLoadSuccessAppVersion != BuildConfig.VERSION_CODE) {
+			lifecycleScope.launch {
+				try {
+					ConfigWorker.loadConfig(this@MainActivity)
+					if (secureStorage.isHibernating) showHibernateFragment()
+				} catch (e: Exception) {
+					Log.d("MainActivity", "Failed to load Config after App Update")
+				}
+
+			}
+		}
+
 		secureStorage.forceUpdateLiveData.observe(this) {
 
 			val forceUpdate = it && secureStorage.doForceUpdate
