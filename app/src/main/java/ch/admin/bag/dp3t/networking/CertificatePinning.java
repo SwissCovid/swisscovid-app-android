@@ -16,19 +16,21 @@ import okhttp3.CertificatePinner;
 
 public class CertificatePinning {
 
+	public static final String QUOVADIS_ROOT_CA_2_G3_PIN = "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=";
+
 	private static final CertificatePinner CERTIFICATE_PINNER_LIVE = new CertificatePinner.Builder()
-			.add("www.pt-d.bfs.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("www.pt1-d.bfs.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("codegen-service-d.bag.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") //root
-			.add("www.pt-t.bfs.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("www.pt1-t.bfs.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("codegen-service-t.bag.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("www.pt-a.bfs.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("www.pt1-a.bfs.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("codegen-service-a.bag.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("www.pt.bfs.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("www.pt1.bfs.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
-			.add("codegen-service.bag.admin.ch", "sha256/SkntvS+PgjC9VZKzE1c/4cFypF+pgBHMHt27Nq3j/OU=") // root
+			.add("www.pt-d.bfs.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("www.pt1-d.bfs.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("codegen-service-d.bag.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("www.pt-t.bfs.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("www.pt1-t.bfs.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("codegen-service-t.bag.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("www.pt-a.bfs.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("www.pt1-a.bfs.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("codegen-service-a.bag.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("www.pt.bfs.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("www.pt1.bfs.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
+			.add("codegen-service.bag.admin.ch", QUOVADIS_ROOT_CA_2_G3_PIN)
 			.build();
 
 	private static final CertificatePinner CERTIFICATE_PINNER_DISABLED = new CertificatePinner.Builder().build();
