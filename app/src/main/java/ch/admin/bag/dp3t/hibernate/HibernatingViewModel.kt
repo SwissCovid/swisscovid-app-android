@@ -6,9 +6,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import ch.admin.bag.dp3t.MainApplication
+import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker
 import ch.admin.bag.dp3t.networking.ConfigWorker
 import ch.admin.bag.dp3t.networking.FakeWorker
+import ch.admin.bag.dp3t.networking.models.InfoBoxModel
+import ch.admin.bag.dp3t.networking.models.InfoBoxModelCollection
 import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.NotificationRepeatWorker
 import kotlinx.coroutines.launch
@@ -25,6 +28,12 @@ class HibernatingViewModel(application: Application) : AndroidViewModel(applicat
 	private val isHibernatingModeEnabledMutable = MutableLiveData<Boolean>()
 	val isHibernatingModeEnabled: LiveData<Boolean> = isHibernatingModeEnabledMutable
 
+	private val hibernatingInfoboxMutable = MutableLiveData<InfoBoxModel>()
+	val hibernatingInfoBox: LiveData<InfoBoxModel> = hibernatingInfoboxMutable
+
+	private val secureStorage: SecureStorage by lazy { SecureStorage.getInstance(application) }
+	private val languageKey = application.getString(R.string.language_key)
+
 	init {
 		loadConfig()
 	}
@@ -34,8 +43,9 @@ class HibernatingViewModel(application: Application) : AndroidViewModel(applicat
 		viewModelScope.launch {
 			try {
 				ConfigWorker.loadConfig(getApplication())
-				if (SecureStorage.getInstance(getApplication()).isHibernating) {
+				if (secureStorage.isHibernating) {
 					isHibernatingModeEnabledMutable.value = true
+					hibernatingInfoboxMutable.value = secureStorage.hibernatingInfoboxCollection?.getInfoBox(languageKey)
 				} else {
 					MainApplication.initDP3T(getApplication())
 					FakeWorker.safeStartFakeWorker(getApplication())

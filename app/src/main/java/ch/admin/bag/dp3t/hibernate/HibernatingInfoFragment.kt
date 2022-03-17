@@ -11,7 +11,6 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.TabbarHostFragment
 import ch.admin.bag.dp3t.databinding.FragmentHibernatingInfoBinding
 import ch.admin.bag.dp3t.html.HtmlFragment
-import ch.admin.bag.dp3t.storage.SecureStorage
 import ch.admin.bag.dp3t.util.AssetUtil
 import ch.admin.bag.dp3t.util.UrlUtil
 
@@ -24,8 +23,6 @@ class HibernatingInfoFragment : Fragment() {
 
 	private val viewModel: HibernatingViewModel by viewModels()
 
-	private val secureStorage by lazy { SecureStorage.getInstance(requireContext()) }
-
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		return FragmentHibernatingInfoBinding.inflate(inflater).apply {
 
@@ -34,20 +31,19 @@ class HibernatingInfoFragment : Fragment() {
 				true
 			}
 
-			val infoBoxModel = secureStorage.hibernatingInfoboxCollection?.getInfoBox(resources.getString(R.string.language_key))
-
 			viewModel.isHibernatingModeEnabled.observe(viewLifecycleOwner) { isHibernatingModeEnabled ->
 				if (!isHibernatingModeEnabled) {
 					showHomeFragment()
 				}
 			}
 
-			infoBoxModel?.let {
+			viewModel.hibernatingInfoBox.observe(viewLifecycleOwner) {
 				title.text = it.title
 				text.text = it.msg
 				linkGroup.isVisible = it.urlTitle != null
 				linkText.text = it.urlTitle
 				linkGroup.setOnClickListener { v -> UrlUtil.openUrl(requireContext(), it.url) }
+
 			}
 
 		}.root
