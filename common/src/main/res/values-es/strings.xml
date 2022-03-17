@@ -1980,17 +1980,25 @@ Muchos centros ofrecen la posibllidad de vacunarse sin cita previa."</string>
     <string name="vaccination_impf_check_title">"Concierte su cita ahora"</string>
 
     <!-- Über Titel auf Abschaltungs-Screen -->
-    <string name="termination_header"></string>
+    <string name="termination_header">"Información"</string>
 
     <!-- Titel auf Abschaltungs-Screen -->
-    <string name="termination_title"></string>
+    <string name="termination_title">"La app SwissCovid ya no está operativa"</string>
 
     <!-- Text auf Abschaltungs-Screen -->
-    <string name="termination_text"></string>
+    <string name="termination_text">"Muchas gracias por descargar la aplicación SwissCovid.
+
+Con la utilización de la app SwissCovid ha realizado usted un valioso aporte a la lucha contra la pandemia. Más de 175.000 personas pudieron informar rápidamente a otros de un riesgo de infección e interrumpir así las cadenas de contagio.
+
+Con la suspensión de las medidas por parte del gobierno federal, también la aplicación SwissCovid deja de estar operativa. La aplicación se ha inactivado y debe ser desinstalada. En caso de que la situación epidemiológica hiciera necesaria su reactivación, nos alegraría contar de nuevo con su apoyo."</string>
 
     <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
-    <string name="termination_text_infobox"></string>
+    <string name="termination_text_infobox">"Muchas gracias por descargar la aplicación SwissCovid.
+
+Con la utilización de la app SwissCovid ha realizado usted un valioso aporte a la lucha contra la pandemia. Más de 175.000 personas pudieron informar rápidamente a otros de un riesgo de infección e interrumpir así las cadenas de contagio.
+
+Con la suspensión de las medidas por parte del gobierno federal, también la aplicación SwissCovid deja de estar operativa. La aplicación debe ser desinstalada. En caso de que la situación epidemiológica hiciera necesaria su reactivación, nos alegraría contar de nuevo con su apoyo."</string>
 
     <!-- Link Text auf Abschaltungs-Screen -->
-    <string name="termination_link_title"></string>
+    <string name="termination_link_title">"Más información"</string>
 </resources>

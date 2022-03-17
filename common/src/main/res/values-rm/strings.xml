@@ -1986,17 +1986,25 @@ Blers lieus porschan er vaccinaziuns «walk-in» senza termin."</string>
     <string name="vaccination_impf_check_title">"Reservar in termin ussa"</string>
 
     <!-- Über Titel auf Abschaltungs-Screen -->
-    <string name="termination_header"></string>
+    <string name="termination_header">"Infurmaziun"</string>
 
     <!-- Titel auf Abschaltungs-Screen -->
-    <string name="termination_title"></string>
+    <string name="termination_title">"Il manaschi da l'app SwissCovid è vegnì terminà."</string>
 
     <!-- Text auf Abschaltungs-Screen -->
-    <string name="termination_text"></string>
+    <string name="termination_text">"Grazia fitg che Vus avais chargià giu l'app SwissCovid.
+
+Cun duvrar l'app SwissCovid avais Vus prestà ina contribuziun impurtanta en il cumbat cunter la pandemia. Passa 175 000 persunas han pudì infurmar autras persunas davart ina ristga d'infecziun ed han uschia pudì interrumper chadainas d'infecziun.
+
+Cun l'aboliziun da las mesiras da la Confederaziun è er vegnì terminà il manaschi da l'app SwissCovid. L'app è per immediat inactiva e duai vegnir deinstallada. Sch'ella stuess puspè vegnir activada causa la situaziun epidemiologica, ans legrassan nus puspè da Voss sustegn."</string>
 
     <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
-    <string name="termination_text_infobox"></string>
+    <string name="termination_text_infobox">"Grazia fitg che Vus avais chargià giu l'app SwissCovid.
+
+Cun duvrar l'app SwissCovid avais Vus prestà ina contribuziun impurtanta en il cumbat cunter la pandemia. Passa 175 000 persunas han pudì infurmar autras persunas davart ina ristga d'infecziun ed han uschia pudì interrumper chadainas d'infecziun.
+
+Cun l'aboliziun da las mesiras da la Confederaziun è er vegnì terminà il manaschi da l'app SwissCovid. L'app duai vegnir deinstallada. Sch'ella stuess puspè vegnir activada causa la situaziun epidemiologica, ans legrassan nus puspè da Voss sustegn."</string>
 
     <!-- Link Text auf Abschaltungs-Screen -->
-    <string name="termination_link_title"></string>
+    <string name="termination_link_title">"Ulteriuras infurmaziuns"</string>
 </resources>
