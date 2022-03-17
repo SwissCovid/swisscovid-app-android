@@ -1972,17 +1972,25 @@ SwissCovid ነቶም ኣብቶም ተቓደውቲ ሃገራት ዝተዘርገ�
     <string name="vaccination_impf_check_title">"ሕጂ ቘጸራ ሓዝ"</string>
 
     <!-- Über Titel auf Abschaltungs-Screen -->
-    <string name="termination_header"></string>
+    <string name="termination_header">"ሓበሬታ"</string>
 
     <!-- Titel auf Abschaltungs-Screen -->
-    <string name="termination_title"></string>
+    <string name="termination_title">"ኣሰራርሓ እቲ SwissCovid ዚብሃል ኣፕሊኬሽን ተቛሪጹ እዩ።"</string>
 
     <!-- Text auf Abschaltungs-Screen -->
-    <string name="termination_text"></string>
+    <string name="termination_text">"ነቲ ስዊዝኮቪድ ዚብሃል ኣፕሊኬሽን ስለ ዘራገፍኩምልና (ዳውንሎውድ ብምግባርኩም) አመስግነኩም።
+
+ነቲ ስዊዝኮቪድ ዚብሃል ኣፕሊኬሽን ተጠቒምካ ነዚ ለብዒ እዚ ንምቅላስ ኣገዳሲ ኣበርክቶ ጌርካ ኢኻ። ልዕሊ 175,000 ዝዀኑ ሰባት ንኻልኦት ሰባት ብዛዕባ እቲ ኼጋጥም ዚኽእል ረኽሲ ቐልጢፎም ኪነግርዎም ንሰንሰለት እቲ ረኽሲ ድማ ኬቋርጽዎ ኽኢሎም እዮም።
+
+እቲ ፈደራላዊ መንግስቲ ዝወሰዶ ስጕምትታት ምስ ተደምሰሰ ኣሰራርሓ እቲ ስዊዝኮቪድ ዚብሃል ኣፕሊኬሽን እውን ተቛረጸ። እቲ ኣፕሊኬሽን ብኡንብኡ ዘይንጡፍ ስለ ዝዀነ ኪቕመጥ ኣለዎ። ብሰንኪ እቲ ለብዒ እንደገና ምላሽ ምሃብ ኣድላዪ እንተ ዀይኑ እንደገና ደገፍካ ኽንረክብ ሕጉሳት ኢና ።"</string>
 
     <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
-    <string name="termination_text_infobox"></string>
+    <string name="termination_text_infobox">"ነቲ ስዊዝኮቪድ ዚብሃል ኣፕሊኬሽን ስለ ዘራገፍኩምልና (ዳውንሎውድ ብምግባርኩም) አመስግነኩም።
+
+ነቲ ስዊዝኮቪድ ዚብሃል ኣፕሊኬሽን ተጠቒምካ ነዚ ለብዒ እዚ ንምቅላስ ኣገዳሲ ኣበርክቶ ጌርካ ኢኻ። ልዕሊ 175,000 ዝዀኑ ሰባት ንኻልኦት ሰባት ብዛዕባ እቲ ኼጋጥም ዚኽእል ረኽሲ ቐልጢፎም ኪነግርዎም ንሰንሰለት እቲ ረኽሲ ድማ ኬቋርጽዎ ኽኢሎም እዮም።
+
+እቲ ፈደራላዊ መንግስቲ ዝወሰዶ ስጕምትታት ምስ ተደምሰሰ ኣሰራርሓ እቲ ስዊዝኮቪድ ዚብሃል ኣፕሊኬሽን እውን ተቛረጸ። እቲ ኣፕሊኬሽን ኪገጣጠም ኣለዎ። ብሰንኪ እቲ ለብዒ እንደገና ምላሽ ምሃብ ኣድላዪ እንተ ዀይኑ እንደገና ደገፍካ ኽንረክብ ሕጉሳት ኢና።"</string>
 
     <!-- Link Text auf Abschaltungs-Screen -->
-    <string name="termination_link_title"></string>
+    <string name="termination_link_title">"ዝያዳ ሓበሬታ"</string>
 </resources>

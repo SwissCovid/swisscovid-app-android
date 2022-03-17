@@ -2020,17 +2020,25 @@ Molti di essi offrono anche vaccinazioni libere senza appuntamento."</string>
     <string name="vaccination_impf_check_title">"Prendi appuntamento ora"</string>
 
     <!-- Über Titel auf Abschaltungs-Screen -->
-    <string name="termination_header"></string>
+    <string name="termination_header">"Informazione"</string>
 
     <!-- Titel auf Abschaltungs-Screen -->
-    <string name="termination_title"></string>
+    <string name="termination_title">"Il funzionamento dell'app SwissCovid è stato sospeso"</string>
 
     <!-- Text auf Abschaltungs-Screen -->
-    <string name="termination_text"></string>
+    <string name="termination_text">"Grazie per aver scaricato l'app SwissCovid.
+
+Utilizzando l'app SwissCovid hai fornito un contributo rilevante alla lotta alla pandemia. Oltre 175 000 persone hanno potuto informare gli altri rapidamente di un rischio di contagio, interrompendo così le catene di infezione.
+
+Con l'abrogazione dei provvedimenti della Confederazione, anche il funzionamento dell'app SwissCovid è stato sospeso. L'app è inattiva da subito e deve essere disinstallata. Se la situazione epidemiologica dovesse rendere necessaria una riattivazione, saremmo lieti di poter contare nuovamente sul tuo sostegno."</string>
 
     <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
-    <string name="termination_text_infobox"></string>
+    <string name="termination_text_infobox">"Grazie per aver scaricato l'app SwissCovid.
+
+Utilizzando l'app SwissCovid hai fornito un contributo rilevante alla lotta alla pandemia. Oltre 175 000 persone hanno potuto informare gli altri rapidamente di un rischio di contagio, interrompendo così le catene di infezione.
+
+Con l'abrogazione dei provvedimenti della Confederazione, anche il funzionamento dell'app SwissCovid è stato sospeso. L'app deve essere disinstallata. Se la situazione epidemiologica dovesse rendere necessaria una riattivazione, saremmo lieti di poter contare nuovamente sul tuo sostegno."</string>
 
     <!-- Link Text auf Abschaltungs-Screen -->
-    <string name="termination_link_title"></string>
+    <string name="termination_link_title">"Ulteriori informazioni"</string>
 </resources>
