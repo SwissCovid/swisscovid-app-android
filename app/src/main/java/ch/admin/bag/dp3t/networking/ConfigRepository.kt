@@ -24,6 +24,7 @@ import org.dpppt.android.sdk.util.SignatureUtil
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
+import java.lang.Exception
 
 class ConfigRepository(context: Context) {
 
@@ -64,7 +65,13 @@ class ConfigRepository(context: Context) {
 		val appVersion = APP_VERSION_PREFIX_ANDROID + BuildConfig.VERSION_NAME
 		val osVersion = OS_VERSION_PREFIX_ANDROID + Build.VERSION.SDK_INT
 		val buildNumber = BuildConfig.BUILD_TIME.toString()
-		val enModuleVersion = DP3T.getENModuleVersion(context).toString()
+
+		//In Hibernating Mode, the DP3T Module is not initialized and therefore the ENModuleVersion cannot be accessed
+		val enModuleVersion = try {
+			DP3T.getENModuleVersion(context).toString()
+		} catch (e: Exception) {
+			""
+		}
 		val configResponse = configService.getConfig(appVersion, osVersion, buildNumber, enModuleVersion)
 		if (configResponse.isSuccessful) {
 			secureStorage.lastConfigLoadSuccess = System.currentTimeMillis()

@@ -28,11 +28,13 @@ class HibernatingViewModel(application: Application) : AndroidViewModel(applicat
 	private val isHibernatingModeEnabledMutable = MutableLiveData<Boolean>()
 	val isHibernatingModeEnabled: LiveData<Boolean> = isHibernatingModeEnabledMutable
 
-	private val hibernatingInfoboxMutable = MutableLiveData<InfoBoxModel>()
-	val hibernatingInfoBox: LiveData<InfoBoxModel> = hibernatingInfoboxMutable
-
 	private val secureStorage: SecureStorage by lazy { SecureStorage.getInstance(application) }
 	private val languageKey = application.getString(R.string.language_key)
+
+	private val hibernatingInfoboxMutable =
+		MutableLiveData<InfoBoxModel>(secureStorage.hibernatingInfoboxCollection?.getInfoBox(languageKey))
+	val hibernatingInfoBox: LiveData<InfoBoxModel> = hibernatingInfoboxMutable
+
 
 	init {
 		loadConfig()

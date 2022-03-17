@@ -15,6 +15,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.work.*
 import ch.admin.bag.dp3t.BuildConfig
@@ -74,12 +75,16 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 			val configRepository = ConfigRepository(context)
 			val config = configRepository.getConfig(context)
 
-			DP3T.setMatchingParameters(
-				context,
-				config.sdkConfig.lowerThreshold, config.sdkConfig.higherThreshold,
-				config.sdkConfig.factorLow, config.sdkConfig.factorHigh,
-				config.sdkConfig.triggerThreshold
-			)
+			try {
+				DP3T.setMatchingParameters(
+					context,
+					config.sdkConfig.lowerThreshold, config.sdkConfig.higherThreshold,
+					config.sdkConfig.factorLow, config.sdkConfig.factorHigh,
+					config.sdkConfig.triggerThreshold
+				)
+			} catch (e: Exception) {
+				Log.d(TAG, "Matching paramters not set because DP3T is not initialized due to hibernating mode")
+			}
 
 			val secureStorage = SecureStorage.getInstance(context)
 			secureStorage.doForceUpdate = config.doForceUpdate
@@ -127,7 +132,7 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 		}
 
 		private fun activateHibernationState(context: Context) {
-			DP3T.stop(context)
+			if (DP3T.isInitialized()) DP3T.stop(context)
 			FakeWorker.stop(context)
 			CrowdNotifierKeyLoadWorker.stop(context)
 			NotificationRepeatWorker.stop(context)
