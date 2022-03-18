@@ -47,7 +47,7 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 	}
 
 	public static void stop(Context context) {
-		WorkManager.getInstance(context).cancelAllWorkByTag(WORK_TAG);
+		WorkManager.getInstance(context).cancelUniqueWork(WORK_TAG);
 	}
 
 
