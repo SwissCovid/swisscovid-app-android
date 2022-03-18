@@ -29,12 +29,9 @@ class HibernatingViewModel(application: Application) : AndroidViewModel(applicat
 	val isHibernatingModeEnabled: LiveData<Boolean> = isHibernatingModeEnabledMutable
 
 	private val secureStorage: SecureStorage by lazy { SecureStorage.getInstance(application) }
-	private val languageKey = application.getString(R.string.language_key)
 
-	private val hibernatingInfoboxMutable =
-		MutableLiveData<InfoBoxModel>(secureStorage.hibernatingInfoboxCollection?.getInfoBox(languageKey))
-	val hibernatingInfoBox: LiveData<InfoBoxModel> = hibernatingInfoboxMutable
-
+	private val hibernatingInfoboxMutable = MutableLiveData<InfoBoxModelCollection?>(secureStorage.hibernatingInfoboxCollection)
+	val hibernatingInfoBox: LiveData<InfoBoxModelCollection?> = hibernatingInfoboxMutable
 
 	init {
 		loadConfig()
@@ -47,7 +44,7 @@ class HibernatingViewModel(application: Application) : AndroidViewModel(applicat
 				ConfigWorker.loadConfig(getApplication())
 				if (secureStorage.isHibernating) {
 					isHibernatingModeEnabledMutable.value = true
-					hibernatingInfoboxMutable.value = secureStorage.hibernatingInfoboxCollection?.getInfoBox(languageKey)
+					hibernatingInfoboxMutable.value = secureStorage.hibernatingInfoboxCollection
 				} else {
 					MainApplication.initDP3T(getApplication())
 					FakeWorker.safeStartFakeWorker(getApplication())
