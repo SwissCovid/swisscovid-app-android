@@ -49,12 +49,15 @@ public class MainApplication extends Application {
 			Logger.init(getApplicationContext(), LogLevel.DEBUG);
 			CertificatePinning.initDebug(this);
 		}
+		SecureStorage secureStorage = SecureStorage.getInstance(this);
+
+		// DP3T SDK is not initialized if app is in Hibernating Mode to prevent it from showing any notifications to the user
+		if (secureStorage.isHibernating()) return;
 
 		registerReceiver(contactUpdateReceiver, DP3T.getUpdateIntentFilter());
 
 		initDP3T(this);
 
-		SecureStorage secureStorage = SecureStorage.getInstance(this);
 		int appVersionCode = BuildConfig.VERSION_CODE;
 		if (secureStorage.getLastKnownAppVersionCode() != appVersionCode) {
 			secureStorage.setLastKnownAppVersionCode(appVersionCode);

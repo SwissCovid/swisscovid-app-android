@@ -1989,4 +1989,27 @@ Shumë vende gjithashtu ofrojnë vaksinime pa takim."</string>
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>
     <string name="vaccination_impf_check_title">"Rezervoni një takim tani"</string>
+
+    <!-- Über Titel auf Abschaltungs-Screen -->
+    <string name="termination_header">"Informacion"</string>
+
+    <!-- Titel auf Abschaltungs-Screen -->
+    <string name="termination_title">"Funksionimi i aplikacionit “SwissCovid” u ndërpre"</string>
+
+    <!-- Text auf Abschaltungs-Screen -->
+    <string name="termination_text">"Faleminderit shumë, që ju e keni shkarkuar aplikacionin “SwissCovid”.
+
+Me përdorimin e aplikacionin “SwissCovid” ju keni dhënë një kontribut të spikatshëm për luftimin e pandemisë. Mbi 175’000 persona mundën të informonin shpejt të tjerët mbi një rrezik infektimi dhe të ndërprisnin me këtë zinxhirin e infektimit.
+
+Me shfuqizimin e masave të federatës u ndërpre edhe funksionimi i aplikacionit “SwissCovid”. Aplikacioni është menjëherë joveprues dhe duhet të deinstalohet. Nëse për shkak të situatës epidemiologjike do të jetë i nevojshëm një riaktivizim, ne do të gëzoheshim përsëri për mbështetjen tuaj."</string>
+
+    <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
+    <string name="termination_text_infobox">"Faleminderit shumë, që ju e keni shkarkuar aplikacionin “SwissCovid”.
+
+Me përdorimin e aplikacionin “SwissCovid” ju keni dhënë një kontribut të spikatshëm për luftimin e pandemisë. Mbi 175’000 persona mundën të informonin shpejt të tjerët mbi një rrezik infektimi dhe të ndërprisnin me këtë zinxhirin e infektimit.
+
+Me shfuqizimin e masave të federatës u ndërpre edhe funksionimi i aplikacionit “SwissCovid”. Aplikacioni duhet të deinstalohet. Nëse për shkak të situatës epidemiologjike do të jetë i nevojshëm një riaktivizim, ne do të gëzoheshim përsëri për mbështetjen tuaj."</string>
+
+    <!-- Link Text auf Abschaltungs-Screen -->
+    <string name="termination_link_title">"Informacione të tjera"</string>
 </resources>

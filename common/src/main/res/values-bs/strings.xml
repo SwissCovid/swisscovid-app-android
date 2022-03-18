@@ -1985,4 +1985,27 @@ Mnoga mesta nude i vakcinaciju bez zakazanog termina"</string>
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>
     <string name="vaccination_impf_check_title">"Zakažite sada termin"</string>
+
+    <!-- Über Titel auf Abschaltungs-Screen -->
+    <string name="termination_header">"Informacije"</string>
+
+    <!-- Titel auf Abschaltungs-Screen -->
+    <string name="termination_title">"Rad aplikacije SvissCovid je obustavljen"</string>
+
+    <!-- Text auf Abschaltungs-Screen -->
+    <string name="termination_text">"Hvala vam što ste preuzeli aplikaciju SwissCovid.
+
+Korišćenjem aplikacije SwissCovid dali ste relevantan doprinos u borbi protiv pandemije. Više od 175.000 ljudi bilo je u mogućnosti da brzo informiše druge o riziku od infekcije i tako prekine lance infekcije.
+
+Ukidanjem saveznih mera obustavljen je i rad aplikacije SwissCovid. Aplikacija je sada neaktivna i trebalo bi da je deinstalirate. Ukoliko bi reaktivacija bila neophodna zbog epidemiološke situacije, ponovo se radujemo  vašoj  podršci."</string>
+
+    <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
+    <string name="termination_text_infobox">"Hvala vam što ste preuzeli aplikaciju SwissCovid.
+
+Korišćenjem aplikacije SwissCovid dali ste relevantan doprinos u borbi protiv pandemije. Više od 175.000 ljudi bilo je u mogućnosti da brzo informiše druge o riziku od infekcije i tako prekine lance infekcije.
+
+Ukidanjem saveznih mera obustavljen je i rad aplikacije SwissCovid. Aplikacija je sada neaktivna i trebalo bi da je deinstalirate. Ukoliko bi reaktivacija bila neophodna zbog epidemiološke situacije, ponovo se radujemo  vašoj  podršci."</string>
+
+    <!-- Link Text auf Abschaltungs-Screen -->
+    <string name="termination_link_title">"Dalje informacije"</string>
 </resources>

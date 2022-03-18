@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<androidx.appcompat.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:menu="@menu/menu_main">
+
+		<ImageView
+			android:id="@+id/schwiizerchruez"
+			android:layout_width="wrap_content"
+			android:layout_height="@dimen/icon_size_toolbar"
+			android:layout_gravity="start"
+			android:adjustViewBounds="true"
+			android:scaleType="fitCenter"
+			android:src="@drawable/ic_schweiz_wappen" />
+
+		<TextView
+			style="@style/NextStep.Text.Bold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:text="@string/app_name" />
+
+	</androidx.appcompat.widget.Toolbar>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/grey_light"
+			android:padding="@dimen/spacing_medium_large">
+
+			<androidx.cardview.widget.CardView
+				style="@style/NextStep.Card"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="@dimen/spacing_larger">
+
+					<ImageView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="@dimen/spacing_medium_large"
+						android:layout_marginTop="@dimen/spacing_medium_large"
+						android:src="@drawable/ic_shutdown_illu_light" />
+
+					<TextView
+						style="@style/NextStep.Text.Bold.Blue"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/spacing_larger"
+						android:text="@string/termination_header" />
+
+					<TextView
+						android:id="@+id/title"
+						style="@style/NextStep.Text.Title.Dark"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/spacing_tiny_small"
+						android:gravity="start"
+						tools:text="@string/termination_title" />
+
+					<TextView
+						android:id="@+id/text"
+						style="@style/NextStep.Text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/spacing_medium_large"
+						android:gravity="start"
+						tools:text="@string/termination_text" />
+
+					<LinearLayout
+						android:id="@+id/link_group"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="-12dp"
+						android:layout_marginTop="@dimen/spacing_larger"
+						android:background="@drawable/ripple_button_white"
+						android:gravity="start"
+						android:orientation="horizontal"
+						android:padding="@dimen/spacing_medium">
+
+						<ImageView
+							android:id="@+id/link_icon"
+							android:layout_width="@dimen/icon_size"
+							android:layout_height="@dimen/icon_size"
+							android:layout_gravity="center_vertical"
+							android:layout_marginEnd="@dimen/spacing_medium"
+							android:src="@drawable/ic_launch"
+							android:tint="@color/blue_main" />
+
+						<TextView
+							android:id="@+id/link_text"
+							style="@style/NextStep.Text.Bold.Blue"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							tools:text="@string/termination_link_title" />
+					</LinearLayout>
+
+				</LinearLayout>
+
+			</androidx.cardview.widget.CardView>
+
+		</FrameLayout>
+
+	</ScrollView>
+</LinearLayout>
+
+

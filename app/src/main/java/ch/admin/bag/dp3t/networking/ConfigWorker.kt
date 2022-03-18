@@ -15,15 +15,18 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.work.*
 import ch.admin.bag.dp3t.BuildConfig
 import ch.admin.bag.dp3t.MainActivity
 import ch.admin.bag.dp3t.R
+import ch.admin.bag.dp3t.checkin.networking.CrowdNotifierKeyLoadWorker
 import ch.admin.bag.dp3t.debug.DebugFragment
 import ch.admin.bag.dp3t.networking.errors.ResponseError
 import ch.admin.bag.dp3t.onboarding.OnboardingSlidePageAdapter.Companion.CHECKIN_UPDATE_BOARDING_VERSION
 import ch.admin.bag.dp3t.storage.SecureStorage
+import ch.admin.bag.dp3t.util.NotificationRepeatWorker
 import ch.admin.bag.dp3t.util.NotificationUtil
 import org.dpppt.android.sdk.DP3T
 import org.dpppt.android.sdk.backend.SignatureException
@@ -63,20 +66,29 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 			}
 		}
 
+		fun stop(context: Context) {
+			WorkManager.getInstance(context).cancelAllWorkByTag(FakeWorker.WORK_TAG)
+		}
+
 		@Throws(IOException::class, ResponseError::class, SignatureException::class)
-		private suspend fun loadConfig(context: Context) {
+		suspend fun loadConfig(context: Context) {
 			val configRepository = ConfigRepository(context)
 			val config = configRepository.getConfig(context)
 
-			DP3T.setMatchingParameters(
-				context,
-				config.sdkConfig.lowerThreshold, config.sdkConfig.higherThreshold,
-				config.sdkConfig.factorLow, config.sdkConfig.factorHigh,
-				config.sdkConfig.triggerThreshold
-			)
+			try {
+				DP3T.setMatchingParameters(
+					context,
+					config.sdkConfig.lowerThreshold, config.sdkConfig.higherThreshold,
+					config.sdkConfig.factorLow, config.sdkConfig.factorHigh,
+					config.sdkConfig.triggerThreshold
+				)
+			} catch (e: Exception) {
+				Log.d(TAG, "Matching paramters not set because DP3T is not initialized due to hibernating mode")
+			}
 
 			val secureStorage = SecureStorage.getInstance(context)
 			secureStorage.doForceUpdate = config.doForceUpdate
+
 			secureStorage.setWhatToDoPositiveTestTexts(config.whatToDoPositiveTestTexts)
 
 			if (config.infoBox != null) {
@@ -111,6 +123,20 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 					showCheckInUpdateNotification(context);
 				}
 			}
+
+			secureStorage.isHibernating = config.isDeactivate
+			secureStorage.hibernatingInfoboxCollection = config.deactivationMessage
+			if (config.isDeactivate) {
+				activateHibernationState(context)
+			}
+		}
+
+		private fun activateHibernationState(context: Context) {
+			if (DP3T.isInitialized()) DP3T.stop(context)
+			FakeWorker.stop(context)
+			CrowdNotifierKeyLoadWorker.stop(context)
+			NotificationRepeatWorker.stop(context)
+			this.stop(context)
 		}
 
 		private fun showNotification(context: Context) {

@@ -1970,4 +1970,27 @@ Birçok yerde, randevu almadan doğrudan aşı yaptırılabilmektedir."</string>
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>
     <string name="vaccination_impf_check_title">"Hemen randevu alın"</string>
+
+    <!-- Über Titel auf Abschaltungs-Screen -->
+    <string name="termination_header">"Bilgilendirme"</string>
+
+    <!-- Titel auf Abschaltungs-Screen -->
+    <string name="termination_title">"SwissCovid uygulaması devre dışı bırakıldı"</string>
+
+    <!-- Text auf Abschaltungs-Screen -->
+    <string name="termination_text">"SwissCovid uygulamasını yüklediğiniz için çok teşekkür ederiz.
+
+SwissCovid uygulamasını kullanmakla pandemiyle mücadeleye önemli bir katkı sağlamış oldunuz. Sayıları 175’000'i geçen kişi bulaşma riski konusunda diğerlerini hızlı bir şekilde bilgilendirme imkânına sahip oldu ve dolayısıyla enfeksiyon zincirini kesintiye uğratabildi.
+
+Federal resmi makamların önlemleri kaldırmasıyla birlikte SwissCovid uygulaması da devre dışı bırakıldı. Bu uygulama şu andan itibaren aktif durumda değildir ve silinmesi gerekmektedir. Epidemiyolojik durum bunun yeniden aktif hale getirilmesini gerekli kılarsa yine destek sağlamanıza seviniriz."</string>
+
+    <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
+    <string name="termination_text_infobox">"SwissCovid uygulamasını yüklediğiniz için çok teşekkür ederiz.
+
+SwissCovid uygulamasını kullanmakla pandemiyle mücadeleye önemli bir katkı sağlamış oldunuz. Sayıları 175’000'i geçen kişi bulaşma riski konusunda diğerlerini hızlı bir şekilde bilgilendirme imkânına sahip oldu ve dolayısıyla enfeksiyon zincirini kesintiye uğratabildi.
+
+Federal resmi makamların önlemleri kaldırmasıyla birlikte SwissCovid uygulaması da devre dışı bırakıldı. Uygulamanın silinmesi gerekmektedir. Epidemiyolojik durum bunun yeniden aktif hale getirilmesini gerekli kılarsa yine destek sağlamanıza seviniriz."</string>
+
+    <!-- Link Text auf Abschaltungs-Screen -->
+    <string name="termination_link_title">"Daha fazla bilgi"</string>
 </resources>

@@ -2009,4 +2009,27 @@ Many places also offer walk-in vaccinations without an appointment."</string>
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>
     <string name="vaccination_impf_check_title">"Book an appointment now"</string>
+
+    <!-- Über Titel auf Abschaltungs-Screen -->
+    <string name="termination_header">"Information"</string>
+
+    <!-- Titel auf Abschaltungs-Screen -->
+    <string name="termination_title">"The SwissCovid app has been discontinued"</string>
+
+    <!-- Text auf Abschaltungs-Screen -->
+    <string name="termination_text">"Thank you for downloading the SwissCovid app.
+
+You have made an important contribution to fighting the pandemic by using the SwissCovid app. More than 175,000 people were able to break the transmission chain by quickly informing others of the risk of infection.
+
+The SwissCovid app was discontinued when the federal government's other measures were lifted. The app is now inactive and you should delete it. We hope we can count on your support again if the epidemiological situation should require its reactivation in the future."</string>
+
+    <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
+    <string name="termination_text_infobox">"Thank you for downloading the SwissCovid app.
+
+You have made an important contribution to fighting the pandemic by using the SwissCovid app. More than 175,000 people were able to break the transmission chain by quickly informing others of the risk of infection.
+
+The SwissCovid app was discontinued when the federal government's other measures were lifted, and it should now be deleted. We hope we can count on your support again if the epidemiological situation should require its reactivation in the future."</string>
+
+    <!-- Link Text auf Abschaltungs-Screen -->
+    <string name="termination_link_title">"Further information"</string>
 </resources>

@@ -1987,4 +1987,27 @@ Muitos lugares também oferecem vacinações Walk-in sem agendamento."</string>
     <!-- URL to ImpfCheck -->
     <string name="vaccination_impf_check_url">"https://covid19.impf-check.ch/"</string>
     <string name="vaccination_impf_check_title">"Agende a data agora"</string>
+
+    <!-- Über Titel auf Abschaltungs-Screen -->
+    <string name="termination_header">"Informação"</string>
+
+    <!-- Titel auf Abschaltungs-Screen -->
+    <string name="termination_title">"A operação do aplicativo SwissCovid cessou"</string>
+
+    <!-- Text auf Abschaltungs-Screen -->
+    <string name="termination_text">"Agradecemos ter baixado o aplicativo SwissCovid.
+
+Com a utilização do aplicativo você prestou um contributo relevante para o combate à pandemia. Mais de 175.000 pessoas puderam informar outros rapidamente sobre um risco de contágio e interromper as cadeias de infeção.
+
+Com a revogação das medidas da Confederação, a operação do aplicativo SwissCovid também cessou. A partir de agora, o aplicativo é inativo e deve ser desinstalado. Se uma reativação for necessária devido à situação epidemiológica, seríamos muito grato pela sua ajuda."</string>
+
+    <!-- Gleicher Text wie auf Abschaltungs-Screen für Nutzer, die die App nicht auf die aktuellste Version aktualisiert haben, mit dem Unterschied, dass hier die App nicht per sofort komplett inaktiv ist -->
+    <string name="termination_text_infobox">"Agradecemos ter baixado o aplicativo SwissCovid.
+
+Com a utilização do aplicativo você prestou um contributo relevante para o combate à pandemia. Mais de 175.000 pessoas puderam informar outros rapidamente sobre um risco de contágio e interromper as cadeias de infeção.
+
+Com a revogação das medidas da Confederação, a operação do aplicativo SwissCovid também cessou. A partir de agora, o aplicativo é inativo e deve ser desinstalado. Se uma reativação for necessária devido à situação epidemiológica, seríamos muito grato pela sua ajuda."</string>
+
+    <!-- Link Text auf Abschaltungs-Screen -->
+    <string name="termination_link_title">"Mais informações"</string>
 </resources>
