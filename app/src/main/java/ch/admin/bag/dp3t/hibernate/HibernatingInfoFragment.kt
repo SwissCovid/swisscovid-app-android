@@ -11,6 +11,7 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.TabbarHostFragment
 import ch.admin.bag.dp3t.databinding.FragmentHibernatingInfoBinding
 import ch.admin.bag.dp3t.html.HtmlFragment
+import ch.admin.bag.dp3t.networking.models.InfoBoxModel
 import ch.admin.bag.dp3t.util.AssetUtil
 import ch.admin.bag.dp3t.util.UrlUtil
 
@@ -37,13 +38,15 @@ class HibernatingInfoFragment : Fragment() {
 				}
 			}
 
-			viewModel.hibernatingInfoBox.observe(viewLifecycleOwner) {
-				title.text = it.title
-				text.text = it.msg
-				linkGroup.isVisible = it.urlTitle != null
-				linkText.text = it.urlTitle
-				linkGroup.setOnClickListener { v -> UrlUtil.openUrl(requireContext(), it.url) }
-
+			viewModel.hibernatingInfoBox.observe(viewLifecycleOwner) { infoBoxModelCollection ->
+				val infobox = infoBoxModelCollection?.getInfoBox(getString(R.string.language_key))
+				infobox?.let {
+					title.text = it.title
+					text.text = it.msg
+					linkGroup.isVisible = it.urlTitle != null
+					linkText.text = it.urlTitle
+					linkGroup.setOnClickListener { v -> UrlUtil.openUrl(requireContext(), it.url) }
+				}
 			}
 
 		}.root
