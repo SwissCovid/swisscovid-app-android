@@ -83,7 +83,7 @@ public class TabbarHostFragment extends Fragment {
 		setupBottomNavigationView();
 	}
 
-	private static void setupDebugButton(View schwiizerchruez, FragmentManager fragmentManager) {
+	public static void setupDebugButton(View schwiizerchruez, FragmentManager fragmentManager) {
 		if (!DebugFragment.EXISTS) {
 			return;
 		}

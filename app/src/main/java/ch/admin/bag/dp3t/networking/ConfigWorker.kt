@@ -67,7 +67,7 @@ class ConfigWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 		}
 
 		fun stop(context: Context) {
-			WorkManager.getInstance(context).cancelAllWorkByTag(FakeWorker.WORK_TAG)
+			WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME);
 		}
 
 		@Throws(IOException::class, ResponseError::class, SignatureException::class)

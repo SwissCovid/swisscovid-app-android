@@ -47,7 +47,7 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 	}
 
 	public static void stop(Context context) {
-		WorkManager.getInstance(context).cancelAllWorkByTag(WORK_TAG);
+		WorkManager.getInstance(context).cancelUniqueWork(WORK_TAG);
 	}
 
 
@@ -59,6 +59,7 @@ public class CrowdNotifierKeyLoadWorker extends Worker {
 	@Override
 	public Result doWork() {
 		Log.d(LOG_TAG, "Started KeyLoadWorker");
+		DP3T.addWorkerStartedToHistory(getApplicationContext(), "key load worker");
 		if (DP3T.getStatus(getApplicationContext()).getInfectionStatus() == INFECTED) {
 			Log.d(LOG_TAG, "KeyLoadWorker: Network Request not executed");
 			return Result.success();

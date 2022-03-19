@@ -11,7 +11,6 @@ import ch.admin.bag.dp3t.R
 import ch.admin.bag.dp3t.TabbarHostFragment
 import ch.admin.bag.dp3t.databinding.FragmentHibernatingInfoBinding
 import ch.admin.bag.dp3t.html.HtmlFragment
-import ch.admin.bag.dp3t.networking.models.InfoBoxModel
 import ch.admin.bag.dp3t.util.AssetUtil
 import ch.admin.bag.dp3t.util.UrlUtil
 
@@ -31,6 +30,9 @@ class HibernatingInfoFragment : Fragment() {
 				showImpressum()
 				true
 			}
+
+			val schwiizerchruez = toolbar.findViewById<View>(R.id.schwiizerchruez)
+			TabbarHostFragment.setupDebugButton(schwiizerchruez, requireActivity().supportFragmentManager)
 
 			viewModel.isHibernatingModeEnabled.observe(viewLifecycleOwner) { isHibernatingModeEnabled ->
 				if (!isHibernatingModeEnabled) {
