@@ -39,6 +39,7 @@ import org.dpppt.android.sdk.models.ExposureDay;
 import ch.admin.bag.dp3t.R;
 import ch.admin.bag.dp3t.checkin.CrowdNotifierViewModel;
 import ch.admin.bag.dp3t.checkin.models.SwissCovidAssociatedData;
+import ch.admin.bag.dp3t.contacts.HistoryFragment;
 import ch.admin.bag.dp3t.debug.model.DebugAppState;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
 import ch.admin.bag.dp3t.storage.SecureStorage;
@@ -87,11 +88,11 @@ public class DebugFragment extends Fragment {
 	private void setupSdkViews(View view) {
 		TextView statusText = view.findViewById(R.id.debug_sdk_state_text);
 		tracingViewModel.getTracingStatusLiveData().observe(getViewLifecycleOwner(), status -> {
-			statusText.setText(DebugUtils.formatStatusString(status, view.getContext()));
-			boolean isTracing = (status.isTracingEnabled()) && status.getErrors().size() == 0;
-			statusText.setBackgroundTintList(ColorStateList.valueOf(
-					isTracing ? getResources().getColor(R.color.status_green_bg, null)
-							  : getResources().getColor(R.color.status_purple_bg, null)));
+				statusText.setText(DebugUtils.formatStatusString(status, view.getContext()));
+				boolean isTracing = (status.isTracingEnabled()) && status.getErrors().size() == 0;
+				statusText.setBackgroundTintList(ColorStateList.valueOf(
+						isTracing ? getResources().getColor(R.color.status_green_bg, null)
+								  : getResources().getColor(R.color.status_purple_bg, null)));
 		});
 
 		view.findViewById(R.id.debug_button_reset).setOnClickListener(v -> {
@@ -132,6 +133,15 @@ public class DebugFragment extends Fragment {
 
 		view.findViewById(R.id.debug_trigger_exposure_check)
 				.setOnClickListener(v -> ExposureWindowMatchingWorker.startMatchingWorker(v.getContext()));
+
+		View historyButton = view.findViewById(R.id.debug_history);
+		historyButton.setOnClickListener(v -> {
+			getParentFragmentManager().beginTransaction()
+					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+					.replace(R.id.main_fragment_container, HistoryFragment.newInstance())
+					.addToBackStack(HistoryFragment.class.getCanonicalName())
+					.commit();
+		});
 	}
 
 	private void setupStateOptions(View view) {

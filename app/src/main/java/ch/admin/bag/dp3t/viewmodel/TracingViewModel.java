@@ -23,11 +23,13 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import org.dpppt.android.sdk.DP3T;
+import org.dpppt.android.sdk.InfectionStatus;
 import org.dpppt.android.sdk.TracingStatus;
 import org.dpppt.android.sdk.internal.BroadcastHelper;
 import org.dpppt.android.sdk.internal.history.HistoryEntry;
@@ -41,22 +43,12 @@ import ch.admin.bag.dp3t.util.ReminderHelper;
 public class TracingViewModel extends AndroidViewModel {
 
 	private final MutableLiveData<TracingStatus> tracingStatusLiveData = new MutableLiveData<>();
-	private BroadcastReceiver tracingStatusBroadcastReceiver = new BroadcastReceiver() {
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			invalidateTracingStatus();
-			loadHistoryEntries();
-		}
-	};
-
 	private final MutableLiveData<Boolean> tracingEnabledLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Pair<Boolean, Boolean>> exposedLiveData = new MutableLiveData<>();
 	private final MutableLiveData<Collection<TracingStatus.ErrorState>> errorsLiveData =
 			new MutableLiveData<>(Collections.emptyList());
 	private final MutableLiveData<TracingStatusInterface> appStatusLiveData = new MutableLiveData<>();
-
 	private TracingStatusInterface tracingStatusInterface = new TracingStatusWrapper();
-
 	private final MutableLiveData<Boolean> bluetoothEnabledLiveData = new MutableLiveData<>();
 	private BroadcastReceiver bluetoothReceiver = new BroadcastReceiver() {
 		@Override
@@ -67,8 +59,14 @@ public class TracingViewModel extends AndroidViewModel {
 			}
 		}
 	};
-
 	private final MutableLiveData<List<HistoryEntry>> historyMutableLiveData = new MutableLiveData<>();
+	private BroadcastReceiver tracingStatusBroadcastReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			invalidateTracingStatus();
+			loadHistoryEntries();
+		}
+	};
 
 	public TracingViewModel(@NonNull Application application) {
 		super(application);
@@ -101,7 +99,12 @@ public class TracingViewModel extends AndroidViewModel {
 	}
 
 	public void invalidateTracingStatus() {
-		TracingStatus status = DP3T.getStatus(getApplication());
+		TracingStatus status;
+		if (DP3T.isInitialized()) {
+			status = DP3T.getStatus(getApplication());
+		} else {
+			status = new TracingStatus(false, 0, InfectionStatus.HEALTHY, new ArrayList<>(), new ArrayList<>());
+		}
 		tracingStatusLiveData.setValue(status);
 	}
 
