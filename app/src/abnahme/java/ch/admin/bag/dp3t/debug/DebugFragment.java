@@ -22,6 +22,7 @@ import org.dpppt.android.sdk.DP3T;
 import org.dpppt.android.sdk.internal.nearby.ExposureWindowMatchingWorker;
 
 import ch.admin.bag.dp3t.R;
+import ch.admin.bag.dp3t.contacts.HistoryFragment;
 import ch.admin.bag.dp3t.networking.CertificatePinning;
 
 public class DebugFragment extends Fragment {
@@ -62,6 +63,15 @@ public class DebugFragment extends Fragment {
 
 		view.findViewById(R.id.debug_trigger_exposure_check)
 				.setOnClickListener(v -> ExposureWindowMatchingWorker.startMatchingWorker(v.getContext()));
+
+		View historyButton = view.findViewById(R.id.debug_history);
+		historyButton.setOnClickListener(v -> {
+			getParentFragmentManager().beginTransaction()
+					.setCustomAnimations(R.anim.slide_enter, R.anim.slide_exit, R.anim.slide_pop_enter, R.anim.slide_pop_exit)
+					.replace(R.id.main_fragment_container, HistoryFragment.newInstance())
+					.addToBackStack(HistoryFragment.class.getCanonicalName())
+					.commit();
+		});
 	}
 
 }
