@@ -24,8 +24,8 @@ android {
 		applicationId "ch.admin.bag.dp3t"
 		minSdkVersion 23
 		targetSdkVersion 30
-		versionCode 24000
-		versionName "2.4.0"
+		versionCode 24100
+		versionName "2.4.1"
 		resConfigs "en", "fr", "de", "it", "pt", "es", "sq", "bs", "hr", "sr", "rm", "tr", "ti"
 
 		buildConfigField "long", "BUILD_TIME", readPropertyWithDefault('buildTimestamp', System.currentTimeMillis()) + 'L'
@@ -154,7 +154,7 @@ dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 	implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 
-	def dp3t_sdk_version = '2.3.1'
+	def dp3t_sdk_version = '2.3.2'
 	devImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version-calibration"
 	abnahmeImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
 	prodImplementation "org.dpppt:dp3t-sdk-android:$dp3t_sdk_version"
